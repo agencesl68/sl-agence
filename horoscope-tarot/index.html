@@ -236,9 +236,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;}
 .pw-feat .pf-title{font-size:14px;font-weight:700;}
 .pw-feat .pf-sub{font-size:12.5px;color:var(--dim);margin-top:2px;line-height:1.5;}
 
-.pw-note{font-size:11px;color:var(--faint);text-align:center;margin-top:16px;line-height:1.6;}
-.pw-demo{margin-top:22px;padding-top:20px;border-top:1px dashed rgba(var(--text-rgb),0.15);text-align:center;}
-.pw-demo p{font-size:11px;color:var(--faint);margin-bottom:10px;line-height:1.5;}
+.pw-secure{font-size:11.5px;color:var(--dim);text-align:center;margin-top:16px;line-height:1.6;display:flex;align-items:center;justify-content:center;gap:7px;}
+.pw-note{font-size:11px;color:var(--faint);text-align:center;margin-top:12px;line-height:1.6;}
+.dev-hint{font-size:11px;color:var(--faint);line-height:1.5;margin-bottom:8px;}
 
 /* ================= MODAL / TOAST ================= */
 .modal-overlay{position:fixed;inset:0;background:rgba(4,4,8,0.72);backdrop-filter:blur(6px);z-index:80;display:none;align-items:flex-end;justify-content:center;}
@@ -476,12 +476,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;}
     </div>
 
     <button class="btn btn-primary" id="pw-subscribe">S'abonner</button>
-    <p class="pw-note">Prototype — aucun paiement réel n'est effectué. L'abonnement sera intégré lors de la mise en production.</p>
-
-    <div class="pw-demo">
-      <p>Mode démonstration — pour explorer l'interface Premium sans payer.</p>
-      <button class="btn btn-ghost" id="pw-demo-toggle">Activer Premium (démo)</button>
-    </div>
+    <p class="pw-secure">🔒 Paiement sécurisé par Stripe · carte bancaire, Apple Pay, Google Pay</p>
+    <p class="pw-note" id="pw-note">Le paiement est traité par Stripe — aucune donnée bancaire ne transite par Astral. Prototype : le déblocage Premium après paiement se fait sur cet appareil uniquement, sans vérification serveur.</p>
   </div>
 </div>
 
@@ -489,12 +485,16 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;}
 <div class="modal-overlay" id="settings-modal">
   <div class="modal-sheet">
     <h3>Réglages</h3>
-    <p>Gère ton profil et ton abonnement de démonstration.</p>
+    <p>Gère ton profil et ton abonnement.</p>
     <div class="modal-row"><span>Statut</span><span id="settings-status">Gratuit</span></div>
     <div class="modal-row"><span>Prénom</span><span id="settings-name">—</span></div>
     <div class="modal-row"><span>Signe solaire</span><span id="settings-sign">—</span></div>
     <div class="modal-actions">
-      <button class="btn btn-ghost" id="settings-toggle-premium">Activer Premium (démo)</button>
+      <div id="settings-dev-tools" class="hidden">
+        <p class="dev-hint" id="settings-stripe-note">Un abonnement Stripe semble actif sur cet appareil. Les boutons ci-dessous ne changent que l'affichage local, ils ne résilient pas un abonnement Stripe réel.</p>
+        <p class="dev-hint">Outils de démonstration interne (non visibles des visiteurs normaux).</p>
+        <button class="btn btn-ghost" id="settings-toggle-premium">Activer Premium (démo)</button>
+      </div>
       <button class="btn btn-ghost" id="settings-reset">Réinitialiser mon profil</button>
       <button class="btn btn-text" id="settings-close">Fermer</button>
     </div>
@@ -775,11 +775,26 @@ function renderCardFace(card, reversed, gradIndex){
 }
 
 /* ============================================================
+   PAIEMENT — STRIPE
+   Colle ici l'URL de ton Stripe Payment Link une fois créé
+   (voir README.md du dossier horoscope-tarot pour la marche à suivre
+   complète : création du compte, du produit et du lien de paiement).
+   Tant que cette valeur est vide, le bouton "S'abonner" affiche un
+   message plutôt que de rediriger vers une URL invalide.
+   ⚠️ Ne JAMAIS coller de clé secrète Stripe (sk_...) ici ou ailleurs
+   dans ce fichier : ce code est public. Seule une URL de Payment Link
+   (publique par nature) ou une clé publique (pk_...) peuvent y figurer.
+============================================================ */
+var STRIPE_PAYMENT_LINK_URL = ''; // ex: 'https://buy.stripe.com/xxxxxxxxxxxx'
+var STRIPE_SUCCESS_PARAM = 'premium_success';
+
+/* ============================================================
    STOCKAGE LOCAL
 ============================================================ */
 var PROFILE_KEY = 'astral_profile_v1';
 var DAILY_KEY = 'astral_daily_v1';
 var HISTORY_KEY = 'astral_history_v1';
+var DEV_MODE_KEY = 'astral_dev_mode';
 
 function loadProfile(){ try { return JSON.parse(localStorage.getItem(PROFILE_KEY)); } catch(e){ return null; } }
 function saveProfile(p){ localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); }
@@ -787,6 +802,7 @@ function loadDaily(){ try { return JSON.parse(localStorage.getItem(DAILY_KEY)); 
 function saveDaily(d){ localStorage.setItem(DAILY_KEY, JSON.stringify(d)); }
 function loadHistory(){ try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch(e){ return []; } }
 function saveHistory(h){ localStorage.setItem(HISTORY_KEY, JSON.stringify(h)); }
+function isDevMode(){ return localStorage.getItem(DEV_MODE_KEY) === '1'; }
 
 function todayISO(){
   var d = new Date();
@@ -950,6 +966,7 @@ function completeOnboarding(){
     timeKnown: !state.timeUnknown,
     place: place,
     premium: false,
+    premiumSource: null,
     createdAt: new Date().toISOString()
   };
   saveProfile(profile);
@@ -1095,11 +1112,16 @@ function closePaywall(){ document.getElementById('paywall').classList.remove('op
 document.querySelectorAll('[data-open-paywall]').forEach(function(b){ b.addEventListener('click', openPaywall); });
 document.getElementById('pw-close').addEventListener('click', closePaywall);
 document.getElementById('pw-subscribe').addEventListener('click', function(){
-  showToast('Prototype — l\'abonnement réel sera disponible à la sortie de l\'application.');
-});
-document.getElementById('pw-demo-toggle').addEventListener('click', function(){
-  setPremium(!state.profile.premium);
-  closePaywall();
+  if (!STRIPE_PAYMENT_LINK_URL){
+    showToast("Le paiement Stripe n'est pas encore configuré — voir le README pour l'activer.");
+    return;
+  }
+  var url = STRIPE_PAYMENT_LINK_URL;
+  if (state.profile && state.profile.name){
+    var sep = url.indexOf('?') > -1 ? '&' : '?';
+    url += sep + 'client_reference_id=' + encodeURIComponent(state.profile.name);
+  }
+  window.location.href = url;
 });
 
 /* ============================================================
@@ -1107,11 +1129,15 @@ document.getElementById('pw-demo-toggle').addEventListener('click', function(){
 ============================================================ */
 function openSettings(){
   var p = state.profile;
-  document.getElementById('settings-status').textContent = p.premium ? 'Premium (démo)' : 'Gratuit';
+  var statusLabel = 'Gratuit';
+  if (p.premium) statusLabel = p.premiumSource === 'stripe' ? 'Premium (Stripe)' : 'Premium (démo)';
+  document.getElementById('settings-status').textContent = statusLabel;
   document.getElementById('settings-name').textContent = p.name;
   var sign = getSign(p.month, p.day);
   document.getElementById('settings-sign').textContent = sign.glyph+' '+sign.name;
   document.getElementById('settings-toggle-premium').textContent = p.premium ? 'Désactiver Premium (démo)' : 'Activer Premium (démo)';
+  document.getElementById('settings-dev-tools').classList.toggle('hidden', !isDevMode());
+  document.getElementById('settings-stripe-note').classList.toggle('hidden', p.premiumSource !== 'stripe');
   document.getElementById('settings-modal').classList.add('open');
 }
 document.getElementById('btn-settings').addEventListener('click', openSettings);
@@ -1119,7 +1145,7 @@ document.getElementById('settings-close').addEventListener('click', function(){
   document.getElementById('settings-modal').classList.remove('open');
 });
 document.getElementById('settings-toggle-premium').addEventListener('click', function(){
-  setPremium(!state.profile.premium);
+  setPremium(!state.profile.premium, 'demo');
   openSettings();
 });
 document.getElementById('settings-reset').addEventListener('click', function(){
@@ -1130,11 +1156,12 @@ document.getElementById('settings-reset').addEventListener('click', function(){
   location.reload();
 });
 
-function setPremium(on){
+function setPremium(on, source){
   state.profile.premium = on;
+  state.profile.premiumSource = on ? (source || 'demo') : null;
   saveProfile(state.profile);
   renderHome();
-  showToast(on ? 'Mode Premium activé (démonstration).' : 'Mode Premium désactivé.');
+  showToast(on ? (source === 'stripe' ? 'Paiement confirmé — Premium activé, merci 🌙' : 'Mode Premium activé (démonstration).') : 'Mode Premium désactivé.');
 }
 
 function showToast(msg){
@@ -1166,13 +1193,39 @@ function buildSky(){
 }
 
 /* ============================================================
+   RETOUR STRIPE / MODE DÉVELOPPEUR (paramètres d'URL)
+============================================================ */
+function handleReturnParams(){
+  var params = new URLSearchParams(window.location.search);
+  var changed = false;
+  var stripeOk = !!params.get(STRIPE_SUCCESS_PARAM);
+
+  if (params.get('dev')){
+    localStorage.setItem(DEV_MODE_KEY, '1');
+    changed = true;
+  }
+  if (stripeOk && state.profile){
+    state.profile.premium = true;
+    state.profile.premiumSource = 'stripe';
+    saveProfile(state.profile);
+    changed = true;
+  }
+  if (changed){
+    window.history.replaceState({}, document.title, window.location.origin + window.location.pathname);
+  }
+  return stripeOk;
+}
+
+/* ============================================================
    INIT
 ============================================================ */
 function init(){
   buildSky();
+  var stripeSuccess = handleReturnParams();
   if (state.profile && state.profile.name){
     document.getElementById('home').classList.add('active');
     renderHome();
+    if (stripeSuccess) showToast('Paiement confirmé — Premium activé, merci 🌙');
   } else {
     document.getElementById('onboarding').classList.add('active');
     goToStep(1);
