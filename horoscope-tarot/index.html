@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Astral — Horoscope &amp; Tarot du jour</title>
+<meta name="description" content="Ton horoscope personnalisé basé sur ton vrai thème natal et ta carte de tarot du jour, tirée rien que pour toi.">
+<meta name="theme-color" content="#0B0B14">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0B14; --bg-rgb:11,11,20;
+  --text:#F5F1EB; --text-rgb:245,241,235;
+  --violet:#6C4AB6; --violet-rgb:108,74,182;
+  --gold:#C9A227; --gold-rgb:201,162,39;
+  --rose:#D291BC; --rose-rgb:210,145,188;
+  --dim:#F5F1EB99; --faint:#F5F1EB55;
+  --card-radius:26px;
+  --serif:'Playfair Display',serif;
+  --sans:'Manrope',sans-serif;
+  --ease:cubic-bezier(0.19,1,0.22,1);
+  --ease-back:cubic-bezier(0.34,1.56,0.64,1);
+  color-scheme: dark;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{height:100%;}
+body{
+  min-height:100%;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+button,input{font-family:inherit;}
+button{cursor:pointer;background:none;border:none;color:inherit;}
+::selection{background:rgba(var(--gold-rgb),0.35);}
+
+/* ================= AMBIANCE : ETOILES + NEBULEUSES ================= */
+#sky{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.star{position:absolute;background:var(--text);border-radius:50%;opacity:0.15;animation:twinkle linear infinite;}
+@keyframes twinkle{0%,100%{opacity:0.08;transform:scale(1);}50%{opacity:0.9;transform:scale(1.3);}}
+.nebula{position:absolute;border-radius:50%;filter:blur(70px);opacity:0.28;animation:drift 26s ease-in-out infinite;}
+.nebula.n1{width:420px;height:420px;background:radial-gradient(circle,var(--violet),transparent 70%);top:-120px;left:-100px;animation-delay:0s;}
+.nebula.n2{width:380px;height:380px;background:radial-gradient(circle,var(--rose),transparent 70%);bottom:-140px;right:-100px;animation-delay:-8s;}
+.nebula.n3{width:300px;height:300px;background:radial-gradient(circle,var(--gold),transparent 70%);top:40%;left:60%;animation-delay:-16s;opacity:0.16;}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-24px) scale(1.08);}}
+
+/* ================= LAYOUT ================= */
+#app{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;max-width:520px;margin:0 auto;}
+.screen{display:none;flex-direction:column;flex:1;animation:fadeUp 0.6s var(--ease) both;}
+.screen.active{display:flex;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.hidden{display:none!important;}
+
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);}
+.muted{color:var(--dim);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;transition:transform 0.3s var(--ease-back), box-shadow 0.3s var(--ease), opacity 0.3s;width:100%;}
+.btn:active{transform:scale(0.97);}
+.btn-primary{background:linear-gradient(135deg,var(--rose),var(--violet) 60%,var(--gold));color:var(--text);box-shadow:0 10px 30px -8px rgba(var(--violet-rgb),0.55);}
+.btn-primary:disabled{opacity:0.35;box-shadow:none;}
+.btn-gold{background:linear-gradient(135deg,#e8cf7a,var(--gold));color:#20160a;box-shadow:0 10px 26px -8px rgba(var(--gold-rgb),0.5);}
+.btn-ghost{background:rgba(var(--text-rgb),0.06);border:1px solid rgba(var(--text-rgb),0.14);color:var(--text);}
+.btn-text{width:auto;padding:10px 6px;text-transform:none;letter-spacing:0;font-weight:600;font-size:13px;color:var(--dim);}
+
+/* ================= ONBOARDING ================= */
+#onboarding{padding:env(safe-area-inset-top,0) 26px 34px;justify-content:space-between;min-height:100vh;}
+.onb-top{padding-top:36px;}
+.onb-progress{display:flex;gap:8px;margin-bottom:44px;}
+.onb-dot{height:3px;flex:1;background:rgba(var(--text-rgb),0.14);border-radius:3px;overflow:hidden;position:relative;}
+.onb-dot::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--rose),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 0.5s var(--ease);}
+.onb-dot.done::after,.onb-dot.active::after{transform:scaleX(1);}
+
+.onb-step{display:none;flex-direction:column;flex:1;animation:stepIn 0.5s var(--ease) both;}
+.onb-step.active{display:flex;}
+@keyframes stepIn{from{opacity:0;transform:translateX(18px);}to{opacity:1;transform:translateX(0);}}
+.onb-glyph{font-size:34px;margin-bottom:18px;opacity:0.9;filter:drop-shadow(0 0 18px rgba(var(--gold-rgb),0.4));}
+.onb-step h2{font-size:clamp(24px,6vw,30px);line-height:1.28;margin-bottom:10px;}
+.onb-step p.hint{color:var(--dim);font-size:14px;line-height:1.5;margin-bottom:30px;}
+
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:9px;}
+.field input[type=text],.field input[type=date],.field input[type=time]{
+  width:100%;background:rgba(var(--text-rgb),0.05);border:1px solid rgba(var(--text-rgb),0.16);
+  border-radius:14px;padding:15px 16px;font-size:16px;color:var(--text);font-family:var(--sans);
+  transition:border-color 0.3s, background 0.3s;
+}
+.field input::placeholder{color:var(--faint);}
+.field input:focus{outline:none;border-color:var(--gold);background:rgba(var(--gold-rgb),0.06);}
+
+.toggle-row{display:flex;align-items:center;gap:12px;padding:14px 4px;margin-top:4px;}
+.toggle{position:relative;width:44px;height:26px;border-radius:20px;background:rgba(var(--text-rgb),0.16);flex-shrink:0;transition:background 0.3s;}
+.toggle::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--text);transition:transform 0.3s var(--ease-back);}
+.toggle.on{background:linear-gradient(135deg,var(--rose),var(--violet));}
+.toggle.on::after{transform:translateX(18px);}
+.toggle-row span{font-size:13.5px;color:var(--dim);}
+
+.onb-nav{display:flex;gap:12px;margin-top:auto;padding-top:24px;}
+.onb-nav .btn-ghost{width:auto;padding:16px 22px;}
+
+.recap-card{background:linear-gradient(155deg,rgba(var(--violet-rgb),0.28),rgba(var(--bg-rgb),0.4));border:1px solid rgba(var(--gold-rgb),0.25);border-radius:20px;padding:22px;margin-bottom:8px;}
+.recap-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(var(--text-rgb),0.08);font-size:14px;}
+.recap-row:last-child{border-bottom:none;}
+.recap-row span:first-child{color:var(--dim);}
+.recap-row span:last-child{font-weight:600;text-align:right;}
+
+/* ================= TOPBAR / TABS ================= */
+#home{padding-bottom:0;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0) + 20px) 22px 14px;}
+.greeting{font-size:12.5px;color:var(--dim);}
+.greeting b{color:var(--text);font-weight:700;}
+.icon-btn{width:38px;height:38px;border-radius:50%;background:rgba(var(--text-rgb),0.07);border:1px solid rgba(var(--text-rgb),0.12);display:flex;align-items:center;justify-content:center;font-size:16px;transition:background 0.3s;}
+.icon-btn:active{background:rgba(var(--gold-rgb),0.18);}
+
+.tab-content{display:none;flex:1;flex-direction:column;padding:0 22px 110px;}
+.tab-content.active{display:flex;animation:fadeUp 0.5s var(--ease) both;}
+
+.tabbar{position:fixed;left:0;right:0;bottom:0;max-width:520px;margin:0 auto;display:flex;padding:10px 18px calc(env(safe-area-inset-bottom,0) + 12px);background:linear-gradient(to top,rgba(6,6,12,0.96),rgba(6,6,12,0.82));backdrop-filter:blur(18px);border-top:1px solid rgba(var(--text-rgb),0.08);z-index:20;}
+.tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 0;font-size:10px;font-weight:700;letter-spacing:0.06em;color:var(--faint);transition:color 0.3s;text-transform:uppercase;}
+.tab-btn .tab-ic{font-size:18px;filter:grayscale(1);opacity:0.6;transition:filter 0.3s,opacity 0.3s,transform 0.3s;}
+.tab-btn.active{color:var(--gold);}
+.tab-btn.active .tab-ic{filter:none;opacity:1;transform:translateY(-2px);}
+
+/* ================= CARTE DU JOUR ================= */
+.section-label{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--dim);margin:22px 0 14px;text-align:center;}
+.day-card-wrap{display:flex;justify-content:center;padding:6px 0 4px;perspective:1400px;}
+.tarot-card{width:min(62vw,240px);aspect-ratio:5/8.2;position:relative;transform-style:preserve-3d;transition:transform 1.1s var(--ease);cursor:pointer;}
+.tarot-card.flipped{transform:rotateY(180deg);}
+.tarot-face{position:absolute;inset:0;border-radius:20px;backface-visibility:hidden;overflow:hidden;box-shadow:0 25px 60px -18px rgba(0,0,0,0.75);}
+.tarot-back{background:linear-gradient(155deg,#1c1330,#0B0B14 70%);border:1px solid rgba(var(--gold-rgb),0.35);display:flex;align-items:center;justify-content:center;}
+.tarot-back .rune{width:58%;opacity:0.85;}
+.tarot-back::before{content:'';position:absolute;inset:8px;border:1px solid rgba(var(--gold-rgb),0.28);border-radius:14px;}
+.tarot-front{transform:rotateY(180deg);border:1px solid rgba(var(--gold-rgb),0.4);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:16px 10px;text-align:center;}
+.tarot-front::before{content:'';position:absolute;inset:7px;border:1px solid rgba(var(--text-rgb),0.22);border-radius:14px;pointer-events:none;}
+.card-const{position:absolute;inset:0;}
+.card-numeral{font-family:var(--serif);font-size:12px;letter-spacing:0.18em;color:var(--gold);position:relative;z-index:1;padding-top:4px;}
+.card-glyph{font-size:64px;line-height:1;position:relative;z-index:1;-webkit-text-stroke:1.4px currentColor;color:transparent;filter:drop-shadow(0 0 14px currentColor);}
+.card-name{font-family:var(--serif);font-size:16px;font-weight:600;position:relative;z-index:1;line-height:1.2;padding-bottom:2px;}
+.card-rev{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);position:relative;z-index:1;}
+.tarot-front.reversed .card-inner-rot{transform:rotate(180deg);}
+.shine{position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,0.35) 50%,transparent 60%);transform:translateX(-120%);pointer-events:none;}
+.tarot-card.shimmer .shine{animation:shine 1.1s ease;}
+@keyframes shine{to{transform:translateX(120%);}}
+
+.card-caption{text-align:center;margin-top:16px;}
+.card-caption .name{font-family:var(--serif);font-size:20px;font-weight:600;}
+.card-caption .orient{display:inline-block;margin-top:4px;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);}
+.card-interp{margin-top:12px;text-align:center;font-size:14.5px;line-height:1.65;color:var(--dim);padding:0 6px;}
+.tap-hint{text-align:center;font-size:11px;color:var(--faint);margin-top:10px;letter-spacing:0.04em;}
+
+/* ================= HOROSCOPE ================= */
+.horo-card{margin-top:30px;background:linear-gradient(160deg,rgba(var(--violet-rgb),0.22),rgba(var(--rose-rgb),0.07));border:1px solid rgba(var(--text-rgb),0.1);border-radius:22px;padding:22px 20px;position:relative;overflow:hidden;}
+.horo-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.sign-badge{width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(var(--gold-rgb),0.5),rgba(var(--violet-rgb),0.6));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;box-shadow:0 0 0 1px rgba(var(--gold-rgb),0.35);}
+.horo-head .titles{line-height:1.25;}
+.horo-head .sign-name{font-family:var(--serif);font-size:17px;font-weight:600;}
+.horo-head .sign-sub{font-size:11px;color:var(--dim);}
+.horo-text{font-size:15px;line-height:1.75;color:var(--text);}
+
+.lock-cta{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(var(--gold-rgb),0.1);border:1px solid rgba(var(--gold-rgb),0.3);border-radius:14px;padding:12px 14px;}
+.lock-cta .lc-text{font-size:12.5px;color:var(--text);}
+.lock-cta .lc-text b{color:var(--gold);}
+.lock-cta button{flex-shrink:0;background:var(--gold);color:#20160a;font-size:11px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;padding:9px 14px;border-radius:100px;}
+
+.feature-teaser{margin-top:26px;}
+.pf-list{display:flex;flex-direction:column;gap:10px;}
+.pf-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:rgba(var(--text-rgb),0.045);border:1px solid rgba(var(--text-rgb),0.09);}
+.pf-item .pf-ic{width:34px;height:34px;border-radius:10px;background:rgba(var(--violet-rgb),0.3);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.pf-item .pf-t{flex:1;}
+.pf-item .pf-title{font-size:13.5px;font-weight:700;}
+.pf-item .pf-sub{font-size:11.5px;color:var(--dim);margin-top:1px;}
+.pf-item .pf-lock{color:var(--gold);font-size:15px;}
+.pf-item.unlocked{border-color:rgba(var(--gold-rgb),0.3);}
+
+/* ================= THEME TAB ================= */
+.theme-hero{text-align:center;padding:10px 0 6px;}
+.theme-hero h2{font-size:21px;margin-bottom:6px;}
+.theme-hero p{font-size:13px;color:var(--dim);}
+.placement-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+.placement{position:relative;background:rgba(var(--text-rgb),0.05);border:1px solid rgba(var(--text-rgb),0.1);border-radius:18px;padding:18px 14px;text-align:center;overflow:hidden;}
+.placement .p-ic{font-size:22px;margin-bottom:8px;}
+.placement .p-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;}
+.placement .p-val{font-family:var(--serif);font-size:16px;font-weight:600;}
+.placement.locked .p-val{filter:blur(6px);user-select:none;}
+.placement.locked::after{content:'🔒';position:absolute;top:10px;right:12px;font-size:12px;opacity:0.8;}
+.placement.sun{grid-column:1/-1;background:linear-gradient(135deg,rgba(var(--gold-rgb),0.22),rgba(var(--rose-rgb),0.12));border-color:rgba(var(--gold-rgb),0.35);}
+
+.natal-report{margin-top:22px;background:rgba(var(--text-rgb),0.045);border:1px solid rgba(var(--text-rgb),0.1);border-radius:18px;padding:20px;}
+.natal-report h3{font-size:15px;margin-bottom:10px;}
+.natal-report p{font-size:14px;line-height:1.7;color:var(--dim);}
+.natal-report.blurred p{filter:blur(5px);user-select:none;}
+.natal-report .unlock-row{margin-top:14px;}
+.methodology{margin-top:16px;font-size:11.5px;line-height:1.6;color:var(--faint);display:flex;gap:8px;align-items:flex-start;}
+.methodology .m-ic{flex-shrink:0;}
+
+/* ================= JOURNAL TAB ================= */
+.journal-list{display:flex;flex-direction:column;gap:10px;margin-top:18px;}
+.journal-item{display:flex;align-items:center;gap:14px;background:rgba(var(--text-rgb),0.05);border:1px solid rgba(var(--text-rgb),0.1);border-radius:16px;padding:12px 14px;}
+.journal-item .j-date{width:52px;flex-shrink:0;text-align:center;}
+.journal-item .j-date .d{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1;}
+.journal-item .j-date .m{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);}
+.journal-item .j-glyph{width:34px;height:34px;border-radius:9px;background:rgba(var(--violet-rgb),0.35);display:flex;align-items:center;justify-content:center;font-size:15px;-webkit-text-stroke:1px currentColor;color:transparent;flex-shrink:0;}
+.journal-item .j-name{font-size:13.5px;font-weight:700;}
+.journal-item .j-sub{font-size:11.5px;color:var(--dim);margin-top:1px;}
+.journal-locked{text-align:center;padding:50px 24px;}
+.journal-locked .jl-ic{font-size:30px;margin-bottom:14px;}
+.journal-locked p{font-size:13.5px;color:var(--dim);margin-bottom:20px;line-height:1.6;}
+.empty-journal{text-align:center;padding:50px 24px;color:var(--dim);font-size:13.5px;line-height:1.6;}
+
+/* ================= PAYWALL ================= */
+#paywall{position:fixed;inset:0;z-index:60;background:var(--bg);display:none;flex-direction:column;overflow-y:auto;}
+#paywall.open{display:flex;}
+.pw-top{display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0) + 18px) 20px 6px;}
+.pw-body{padding:8px 24px 50px;max-width:520px;margin:0 auto;width:100%;}
+.pw-hero{text-align:center;padding:16px 0 8px;}
+.pw-hero .pw-orb{width:78px;height:78px;margin:0 auto 18px;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--gold),var(--violet) 70%);box-shadow:0 0 50px rgba(var(--gold-rgb),0.4);display:flex;align-items:center;justify-content:center;font-size:32px;}
+.pw-hero h2{font-size:26px;line-height:1.3;margin-bottom:10px;}
+.pw-hero p{color:var(--dim);font-size:14px;line-height:1.6;}
+
+.price-card{margin:26px 0;background:linear-gradient(155deg,rgba(var(--gold-rgb),0.18),rgba(var(--violet-rgb),0.22));border:1px solid rgba(var(--gold-rgb),0.4);border-radius:22px;padding:26px;text-align:center;}
+.price-card .amount{font-family:var(--serif);font-size:44px;font-weight:600;}
+.price-card .amount sup{font-size:18px;vertical-align:super;}
+.price-card .per{font-size:12px;color:var(--dim);margin-top:2px;}
+
+.pw-features{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
+.pw-feat{display:flex;gap:14px;align-items:flex-start;}
+.pw-feat .pf-ic{width:36px;height:36px;border-radius:11px;background:rgba(var(--gold-rgb),0.16);border:1px solid rgba(var(--gold-rgb),0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.pw-feat .pf-title{font-size:14px;font-weight:700;}
+.pw-feat .pf-sub{font-size:12.5px;color:var(--dim);margin-top:2px;line-height:1.5;}
+
+.pw-note{font-size:11px;color:var(--faint);text-align:center;margin-top:16px;line-height:1.6;}
+.pw-demo{margin-top:22px;padding-top:20px;border-top:1px dashed rgba(var(--text-rgb),0.15);text-align:center;}
+.pw-demo p{font-size:11px;color:var(--faint);margin-bottom:10px;line-height:1.5;}
+
+/* ================= MODAL / TOAST ================= */
+.modal-overlay{position:fixed;inset:0;background:rgba(4,4,8,0.72);backdrop-filter:blur(6px);z-index:80;display:none;align-items:flex-end;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal-sheet{width:100%;max-width:520px;background:linear-gradient(165deg,#171025,#0B0B14);border:1px solid rgba(var(--gold-rgb),0.2);border-radius:24px 24px 0 0;padding:26px 24px calc(env(safe-area-inset-bottom,0) + 26px);animation:sheetUp 0.4s var(--ease-back) both;}
+@keyframes sheetUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.modal-sheet h3{font-size:19px;margin-bottom:6px;}
+.modal-sheet p{font-size:13.5px;color:var(--dim);line-height:1.6;margin-bottom:20px;}
+.modal-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(var(--text-rgb),0.08);font-size:13.5px;}
+.modal-row:last-of-type{border-bottom:none;}
+.modal-actions{margin-top:18px;display:flex;flex-direction:column;gap:10px;}
+
+.toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);background:#181022;border:1px solid rgba(var(--gold-rgb),0.35);color:var(--text);font-size:13px;padding:13px 20px;border-radius:100px;box-shadow:0 14px 34px -10px rgba(0,0,0,0.7);opacity:0;pointer-events:none;transition:opacity 0.35s,transform 0.35s;z-index:100;max-width:88%;text-align:center;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media (min-width:600px){
+  body{background:radial-gradient(ellipse at 50% 0%,#14102a,var(--bg) 60%);}
+}
+</style>
+</head>
+<body>
+
+<div id="sky">
+  <div class="nebula n1"></div>
+  <div class="nebula n2"></div>
+  <div class="nebula n3"></div>
+</div>
+
+<div id="app">
+
+  <!-- ============ ONBOARDING ============ -->
+  <section id="onboarding" class="screen">
+    <div class="onb-top">
+      <div class="onb-progress">
+        <div class="onb-dot" data-dot="1"></div>
+        <div class="onb-dot" data-dot="2"></div>
+        <div class="onb-dot" data-dot="3"></div>
+        <div class="onb-dot" data-dot="4"></div>
+        <div class="onb-dot" data-dot="5"></div>
+      </div>
+
+      <div class="onb-step" data-step="1">
+        <div class="onb-glyph">✦</div>
+        <h2>Comment devons-nous<br>t'appeler&nbsp;?</h2>
+        <p class="hint">Ton prénom nous sert à personnaliser ton ciel, rien d'autre.</p>
+        <div class="field">
+          <label for="in-name">Prénom</label>
+          <input id="in-name" type="text" placeholder="Ex. Camille" autocomplete="given-name">
+        </div>
+      </div>
+
+      <div class="onb-step" data-step="2">
+        <div class="onb-glyph">☉</div>
+        <h2>Quelle est ta date<br>de naissance&nbsp;?</h2>
+        <p class="hint">Elle détermine la position du Soleil et de la Lune dans ton thème.</p>
+        <div class="field">
+          <label for="in-date">Date de naissance</label>
+          <input id="in-date" type="date">
+        </div>
+      </div>
+
+      <div class="onb-step" data-step="3">
+        <div class="onb-glyph">☾</div>
+        <h2>À quelle heure<br>es-tu né·e&nbsp;?</h2>
+        <p class="hint">L'heure précise permet de calculer ton ascendant.</p>
+        <div class="field">
+          <label for="in-time">Heure de naissance</label>
+          <input id="in-time" type="time" value="12:00">
+        </div>
+        <div class="toggle-row">
+          <div class="toggle" id="toggle-unknown-time"></div>
+          <span>Je ne connais pas mon heure de naissance</span>
+        </div>
+      </div>
+
+      <div class="onb-step" data-step="4">
+        <div class="onb-glyph">✧</div>
+        <h2>Où es-tu né·e&nbsp;?</h2>
+        <p class="hint">La ville de naissance affine le calcul de ton thème.</p>
+        <div class="field">
+          <label for="in-place">Ville de naissance</label>
+          <input id="in-place" type="text" placeholder="Ex. Mulhouse" autocomplete="address-level2">
+        </div>
+      </div>
+
+      <div class="onb-step" data-step="5">
+        <div class="onb-glyph">✺</div>
+        <h2>Ton ciel est prêt</h2>
+        <p class="hint">Vérifie tes informations avant de découvrir ton thème.</p>
+        <div class="recap-card" id="recap-card"></div>
+      </div>
+    </div>
+
+    <div class="onb-nav">
+      <button class="btn btn-ghost" id="onb-back">Retour</button>
+      <button class="btn btn-primary" id="onb-next">Continuer</button>
+    </div>
+  </section>
+
+  <!-- ============ HOME ============ -->
+  <section id="home" class="screen">
+    <div class="topbar">
+      <div class="greeting">Bonjour, <b id="greet-name">—</b><br><span id="greet-date"></span></div>
+      <button class="icon-btn" id="btn-settings" aria-label="Réglages">⚙</button>
+    </div>
+
+    <!-- Tab: Aujourd'hui -->
+    <div class="tab-content active" data-tab="today">
+      <p class="section-label">Ta carte du jour</p>
+      <div class="day-card-wrap">
+        <div class="tarot-card" id="tarot-card">
+          <div class="tarot-face tarot-back">
+            <svg class="rune" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="30" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.7"/>
+              <circle cx="50" cy="50" r="20" fill="none" stroke="var(--rose)" stroke-width="0.5" opacity="0.6"/>
+              <path d="M50 20 L50 80 M20 50 L80 50" stroke="var(--gold)" stroke-width="0.4" opacity="0.4"/>
+              <text x="50" y="58" text-anchor="middle" font-size="26" fill="none" stroke="var(--text)" stroke-width="1" font-family="Playfair Display, serif">✦</text>
+            </svg>
+          </div>
+          <div class="tarot-face tarot-front" id="tarot-front">
+            <div class="shine"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-caption">
+        <div class="name" id="card-name">—</div>
+        <div class="orient hidden" id="card-orient">Renversée</div>
+      </div>
+      <p class="card-interp" id="card-interp"></p>
+      <p class="tap-hint" id="tap-hint">Touche la carte pour la révéler</p>
+
+      <div class="horo-card">
+        <div class="horo-head">
+          <div class="sign-badge" id="sign-glyph">♈</div>
+          <div class="titles">
+            <div class="sign-name" id="sign-name">—</div>
+            <div class="sign-sub">Horoscope du jour</div>
+          </div>
+        </div>
+        <p class="horo-text" id="horo-text"></p>
+        <div class="lock-cta" id="home-lock-cta">
+          <div class="lc-text">Ton <b>rapport complet</b> t'attend avec Premium</div>
+          <button data-open-paywall>Débloquer</button>
+        </div>
+      </div>
+
+      <div class="feature-teaser">
+        <p class="section-label" style="text-align:left;margin-top:0;">Avec Premium</p>
+        <div class="pf-list">
+          <div class="pf-item"><div class="pf-ic">💞</div><div class="pf-t"><div class="pf-title">Tirage amour</div><div class="pf-sub">3 cartes sur ta vie sentimentale</div></div><div class="pf-lock">🔒</div></div>
+          <div class="pf-item"><div class="pf-ic">💼</div><div class="pf-t"><div class="pf-title">Tirage carrière</div><div class="pf-sub">3 cartes sur ton chemin professionnel</div></div><div class="pf-lock">🔒</div></div>
+          <div class="pf-item"><div class="pf-ic">✳</div><div class="pf-t"><div class="pf-title">Croix celtique</div><div class="pf-sub">Tirage approfondi à 10 cartes</div></div><div class="pf-lock">🔒</div></div>
+          <div class="pf-item"><div class="pf-ic">🔔</div><div class="pf-t"><div class="pf-title">Notification du matin</div><div class="pf-sub">Ton ciel dès le réveil</div></div><div class="pf-lock">🔒</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Thème -->
+    <div class="tab-content" data-tab="theme">
+      <div class="theme-hero">
+        <h2>Ton thème natal</h2>
+        <p id="theme-place-line">Calculé pour ta date de naissance</p>
+      </div>
+      <div class="placement-grid">
+        <div class="placement sun">
+          <div class="p-ic" id="t-sun-ic">☉</div>
+          <div class="p-label">Signe solaire</div>
+          <div class="p-val" id="t-sun-val">—</div>
+        </div>
+        <div class="placement" id="t-moon-box">
+          <div class="p-ic">☾</div>
+          <div class="p-label">Signe lunaire</div>
+          <div class="p-val" id="t-moon-val">—</div>
+        </div>
+        <div class="placement" id="t-asc-box">
+          <div class="p-ic">✺</div>
+          <div class="p-label">Ascendant</div>
+          <div class="p-val" id="t-asc-val">—</div>
+        </div>
+      </div>
+      <div class="natal-report" id="natal-report">
+        <h3>Rapport de thème complet</h3>
+        <p id="natal-report-text"></p>
+        <div class="unlock-row hidden" id="natal-unlock-row">
+          <button class="btn btn-gold" data-open-paywall>Débloquer mon rapport complet</button>
+        </div>
+      </div>
+      <p class="methodology"><span class="m-ic">ℹ</span><span>Calcul simplifié pour ce prototype à partir de ta date, heure et lieu de naissance. La version finale s'appuiera sur un moteur d'éphémérides (type Swiss Ephemeris) pour une précision astronomique complète.</span></p>
+    </div>
+
+    <!-- Tab: Journal -->
+    <div class="tab-content" data-tab="journal">
+      <p class="section-label">Journal de tes tirages</p>
+      <div id="journal-locked" class="journal-locked hidden">
+        <div class="jl-ic">🔒</div>
+        <p>L'historique de tes journées passées — cartes tirées et horoscopes — est réservé à Premium.</p>
+        <button class="btn btn-gold" data-open-paywall>Débloquer l'historique</button>
+      </div>
+      <div id="journal-list" class="journal-list"></div>
+    </div>
+
+    <nav class="tabbar">
+      <button class="tab-btn active" data-switch-tab="today"><span class="tab-ic">✦</span>Aujourd'hui</button>
+      <button class="tab-btn" data-switch-tab="theme"><span class="tab-ic">☾</span>Thème</button>
+      <button class="tab-btn" data-switch-tab="journal"><span class="tab-ic">📖</span>Journal</button>
+    </nav>
+  </section>
+
+</div>
+
+<!-- ============ PAYWALL ============ -->
+<div id="paywall">
+  <div class="pw-top">
+    <button class="icon-btn" id="pw-close" aria-label="Fermer">✕</button>
+    <span class="eyebrow">Astral Premium</span>
+    <span style="width:38px;"></span>
+  </div>
+  <div class="pw-body">
+    <div class="pw-hero">
+      <div class="pw-orb">✺</div>
+      <h2>Va plus loin dans<br>ton ciel</h2>
+      <p>Débloque ton thème natal complet, des tirages approfondis et ton historique.</p>
+    </div>
+
+    <div class="price-card">
+      <div class="amount"><sup>€</sup>6,99</div>
+      <div class="per">par mois — sans engagement</div>
+    </div>
+
+    <div class="pw-features">
+      <div class="pw-feat"><div class="pf-ic">📜</div><div><div class="pf-title">Rapport de thème natal complet</div><div class="pf-sub">Soleil, Lune et Ascendant analysés en détail</div></div></div>
+      <div class="pw-feat"><div class="pf-ic">💞</div><div><div class="pf-title">Tirages approfondis</div><div class="pf-sub">Amour, carrière et croix celtique à 10 cartes</div></div></div>
+      <div class="pw-feat"><div class="pf-ic">📖</div><div><div class="pf-title">Historique illimité</div><div class="pf-sub">Retrouve toutes tes journées passées</div></div></div>
+      <div class="pw-feat"><div class="pf-ic">🔔</div><div><div class="pf-title">Notification du matin</div><div class="pf-sub">Ton horoscope et ta carte dès le réveil</div></div></div>
+    </div>
+
+    <button class="btn btn-primary" id="pw-subscribe">S'abonner</button>
+    <p class="pw-note">Prototype — aucun paiement réel n'est effectué. L'abonnement sera intégré lors de la mise en production.</p>
+
+    <div class="pw-demo">
+      <p>Mode démonstration — pour explorer l'interface Premium sans payer.</p>
+      <button class="btn btn-ghost" id="pw-demo-toggle">Activer Premium (démo)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SETTINGS MODAL ============ -->
+<div class="modal-overlay" id="settings-modal">
+  <div class="modal-sheet">
+    <h3>Réglages</h3>
+    <p>Gère ton profil et ton abonnement de démonstration.</p>
+    <div class="modal-row"><span>Statut</span><span id="settings-status">Gratuit</span></div>
+    <div class="modal-row"><span>Prénom</span><span id="settings-name">—</span></div>
+    <div class="modal-row"><span>Signe solaire</span><span id="settings-sign">—</span></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="settings-toggle-premium">Activer Premium (démo)</button>
+      <button class="btn btn-ghost" id="settings-reset">Réinitialiser mon profil</button>
+      <button class="btn btn-text" id="settings-close">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   DONNÉES ASTROLOGIQUES
+============================================================ */
+var ZODIAC = [
+  {id:'belier',name:'Bélier',glyph:'♈',start:[3,21],end:[4,19],element:'Feu',modality:'Cardinal',
+    trait:"Tu avances en pionnier·ère, porté·e par une énergie franche et impatiente d'agir."},
+  {id:'taureau',name:'Taureau',glyph:'♉',start:[4,20],end:[5,20],element:'Terre',modality:'Fixe',
+    trait:"Tu cherches la stabilité et le plaisir simple, avec une patience qui construit dans la durée."},
+  {id:'gemeaux',name:'Gémeaux',glyph:'♊',start:[5,21],end:[6,20],element:'Air',modality:'Mutable',
+    trait:"Ta curiosité te pousse à explorer plusieurs idées à la fois, avec vivacité et légèreté."},
+  {id:'cancer',name:'Cancer',glyph:'♋',start:[6,21],end:[7,22],element:'Eau',modality:'Cardinal',
+    trait:"Tu ressens le monde avant de le comprendre, et tu protèges ce qui t'est cher avec intensité."},
+  {id:'lion',name:'Lion',glyph:'♌',start:[7,23],end:[8,22],element:'Feu',modality:'Fixe',
+    trait:"Tu rayonnes naturellement et tu as besoin d'exister pleinement aux yeux des autres."},
+  {id:'vierge',name:'Vierge',glyph:'♍',start:[8,23],end:[9,22],element:'Terre',modality:'Mutable',
+    trait:"Tu observes avec précision et tu cherches à améliorer ce qui t'entoure, un détail à la fois."},
+  {id:'balance',name:'Balance',glyph:'♎',start:[9,23],end:[10,22],element:'Air',modality:'Cardinal',
+    trait:"Tu recherches l'harmonie et la justesse dans chaque lien, parfois au prix de tes propres envies."},
+  {id:'scorpion',name:'Scorpion',glyph:'♏',start:[10,23],end:[11,21],element:'Eau',modality:'Fixe',
+    trait:"Tu vis tout intensément, avec une profondeur qui perce les apparences."},
+  {id:'sagittaire',name:'Sagittaire',glyph:'♐',start:[11,22],end:[12,21],element:'Feu',modality:'Mutable',
+    trait:"Tu as besoin d'horizon et de sens, porté·e par un optimisme qui aime prendre le large."},
+  {id:'capricorne',name:'Capricorne',glyph:'♑',start:[12,22],end:[1,19],element:'Terre',modality:'Cardinal',
+    trait:"Tu avances avec discipline vers ce qui compte vraiment, patient·e face au temps long."},
+  {id:'verseau',name:'Verseau',glyph:'♒',start:[1,20],end:[2,18],element:'Air',modality:'Fixe',
+    trait:"Tu penses différemment des autres, et cette singularité est ta plus grande force."},
+  {id:'poissons',name:'Poissons',glyph:'♓',start:[2,19],end:[3,20],element:'Eau',modality:'Mutable',
+    trait:"Tu perçois ce que les mots ne disent pas, entre rêve, intuition et empathie."}
+];
+
+var ELEMENT_THEMES = {
+  Feu:{amour:["Ton cœur s'enflamme vite aujourd'hui : ose faire le premier pas plutôt que d'attendre un signe.",
+              "Une rencontre ou un échange réveille ton envie de vivre les choses à fond, sans détour."],
+       travail:["Ton énergie d'action est à son comble : c'est le bon moment pour lancer ce que tu repousses.",
+                "Une initiative audacieuse aujourd'hui peut ouvrir une porte que tu n'attendais pas."],
+       energie:["Ton énergie est haute et un peu impatiente, canalise-la dans un mouvement concret plutôt que dans l'agitation.",
+                 "Une pointe d'impulsivité te traverse : respire avant d'agir, l'élan sera plus juste."]},
+  Terre:{amour:["Tu as besoin de gestes concrets plus que de grandes déclarations aujourd'hui, et c'est très bien ainsi.",
+                "Un moment simple et ancré avec quelqu'un que tu aimes vaut plus que mille promesses."],
+         travail:["La régularité paie aujourd'hui : avance pas à pas sur ce qui demande de la constance.",
+                   "Un dossier concret avance grâce à ton sérieux, même si personne ne le voit encore."],
+         energie:["Ton énergie est stable et sereine, profites-en pour t'occuper de ton corps et de ton espace.",
+                    "Un léger besoin de ralentir se fait sentir : accorde-toi une pause bien méritée."]},
+  Air:{amour:["Une conversation vraie en dit plus long aujourd'hui qu'un long silence : ose nommer ce que tu ressens.",
+              "Ton besoin d'échanger et de comprendre l'autre est particulièrement présent aujourd'hui."],
+       travail:["Tes idées circulent bien aujourd'hui, c'est le moment de les partager plutôt que de les garder pour toi.",
+                 "Une discussion ou un échange d'idées débloque une situation qui stagnait."],
+       energie:["Ton mental tourne vite aujourd'hui, prends le temps de poser les choses par écrit pour respirer.",
+                  "Un peu de dispersion te guette : choisis une seule priorité et le reste suivra."]},
+  Eau:{amour:["Tes émotions sont à fleur de peau aujourd'hui, laisse-les s'exprimer sans les juger.",
+              "Un lien profond se resserre si tu acceptes de te montrer un peu plus vulnérable."],
+       travail:["Ton intuition en dit plus que les faits aujourd'hui, écoute ce que ton ressenti te souffle.",
+                 "Un projet qui te touche personnellement avance grâce à ta sensibilité, pas malgré elle."],
+       energie:["Ton énergie suit tes émotions aujourd'hui : accorde-toi un temps calme si tu en ressens le besoin.",
+                  "Une vague de sensibilité traverse ta journée, elle mérite d'être accueillie plutôt qu'évitée."]}
+};
+
+var MODALITY_PHRASES = {
+  Cardinal:"Tu es dans un moment pour initier : ce que tu commences aujourd'hui a de bonnes chances de porter loin.",
+  Fixe:"Tu es dans un moment pour tenir bon : la persévérance compte plus que la vitesse aujourd'hui.",
+  Mutable:"Tu es dans un moment pour t'adapter : rester souple aujourd'hui t'évitera bien des tensions inutiles."
+};
+
+var MOON_TRAITS = {
+  belier:"Intérieurement, tu ressens les choses vite et fort, avec un besoin d'agir dès que l'émotion monte.",
+  taureau:"Intérieurement, tu as besoin de calme et de repères stables pour te sentir en sécurité.",
+  gemeaux:"Intérieurement, tu apaises tes émotions en les mettant en mots, en parlant ou en écrivant.",
+  cancer:"Intérieurement, ta sensibilité est grande et la mémoire affective occupe une place importante.",
+  lion:"Intérieurement, tu as besoin d'être vu·e et reconnu·e pour te sentir pleinement toi-même.",
+  vierge:"Intérieurement, tu apaises tes émotions en les analysant et en cherchant à les comprendre.",
+  balance:"Intérieurement, tu as besoin d'harmonie autour de toi pour te sentir bien.",
+  scorpion:"Intérieurement, tu vis peu de choses à moitié, tes émotions sont intenses et profondes.",
+  sagittaire:"Intérieurement, tu as besoin de liberté et de perspective pour te sentir apaisé·e.",
+  capricorne:"Intérieurement, tu contiens beaucoup, avec une pudeur émotionnelle qui cache une grande sensibilité.",
+  verseau:"Intérieurement, tu prends de la distance avec tes émotions pour mieux les comprendre.",
+  poissons:"Intérieurement, tes frontières émotionnelles sont poreuses, tu absorbes facilement ce qui t'entoure."
+};
+
+var ASC_TRAITS = {
+  belier:"Au premier abord, tu donnes une impression de franchise et d'énergie immédiate.",
+  taureau:"Au premier abord, tu inspires calme et solidité, une présence rassurante.",
+  gemeaux:"Au premier abord, tu sembles vif·ve d'esprit et facile d'accès dans l'échange.",
+  cancer:"Au premier abord, tu dégages une douceur protectrice, parfois teintée de réserve.",
+  lion:"Au premier abord, tu occupes naturellement l'espace, avec une prestance qui se remarque.",
+  vierge:"Au premier abord, tu sembles posé·e, précis·e et attentif·ve aux détails.",
+  balance:"Au premier abord, tu donnes une image agréable et diplomate, soucieuse du lien.",
+  scorpion:"Au premier abord, tu dégages un magnétisme discret, difficile à cerner totalement.",
+  sagittaire:"Au premier abord, tu sembles ouvert·e et enthousiaste, tourné·e vers l'ailleurs.",
+  capricorne:"Au premier abord, tu parais sérieux·se et maîtrisé·e, presque réservé·e.",
+  verseau:"Au premier abord, tu sembles original·e et un peu à part, difficile à ranger dans une case.",
+  poissons:"Au premier abord, tu dégages une douceur rêveuse, parfois insaisissable."
+};
+
+var OPENERS = [
+  "Le ciel prend aujourd'hui une teinte particulière.",
+  "Cette journée porte une énergie qu'il vaut la peine d'observer.",
+  "Quelque chose se prépare doucement dans ton ciel aujourd'hui.",
+  "L'air du jour invite à ralentir pour mieux ressentir ce qui se joue.",
+  "Une énergie discrète mais bien réelle traverse ta journée.",
+  "Le mouvement des astres t'invite à porter ton attention ailleurs aujourd'hui.",
+  "Aujourd'hui a un goût particulier, à toi d'y prêter attention.",
+  "Ton ciel du jour murmure plus qu'il ne crie, écoute-le."
+];
+
+var CLOSERS = [
+  "Retiens surtout ceci : rien n'est figé, tu gardes la main sur la suite.",
+  "Prends ce que ces lignes t'inspirent, laisse le reste de côté.",
+  "Une petite chose suffit aujourd'hui pour changer la couleur de ta journée.",
+  "Fais-toi confiance, tu sais déjà ce qui est juste pour toi aujourd'hui.",
+  "Avance à ton rythme, la journée n'attend rien de précis de toi.",
+  "Un pas suffit, pas besoin de tout résoudre aujourd'hui."
+];
+
+function getSign(month, day){
+  for (var i=0;i<ZODIAC.length;i++){
+    var s = ZODIAC[i];
+    var sm=s.start[0], sd=s.start[1], em=s.end[0], ed=s.end[1];
+    if (sm > em){ // wraps around new year (Capricorne)
+      if ((month===sm && day>=sd) || (month===em && day<=ed)) return s;
+    } else {
+      if ((month===sm && day>=sd) || (month===em && day<=ed) || (month>sm && month<em)) return s;
+    }
+  }
+  return ZODIAC[0];
+}
+
+function getMoonSignApprox(dateISO){
+  // Approximation simplifiée (non astronomique) : cycle la Lune sur les 12 signes
+  // à raison d'environ 2,28 jours par signe, calé sur une date de référence fixe.
+  var ref = new Date(Date.UTC(2000,0,1));
+  var d = new Date(dateISO+'T12:00:00Z');
+  var days = Math.floor((d - ref) / 86400000);
+  var idx = ((Math.floor(days / 2.28) % 12) + 12) % 12;
+  return ZODIAC[idx];
+}
+
+function getAscendantApprox(sunSign, hour, timeKnown){
+  if (!timeKnown) return null;
+  // Approximation simplifiée : chaque signe "monte" à l'horizon environ toutes les 2 heures,
+  // en supposant un lever du signe solaire vers 6h (lever de soleil).
+  var sunIdx = ZODIAC.indexOf(sunSign);
+  var hoursSinceSunrise = (hour - 6 + 24) % 24;
+  var shift = Math.floor(hoursSinceSunrise / 2);
+  var idx = (sunIdx + shift) % 12;
+  return ZODIAC[idx];
+}
+
+/* ============================================================
+   TAROT — 78 CARTES
+============================================================ */
+var MAJOR_ARCANA = [
+  {n:'0',name:'Le Fou',glyph:'✦',m:"Un saut de foi t'invite à avancer sans tout calculer : l'inconnu a des choses à t'apprendre."},
+  {n:'I',name:'Le Bateleur',glyph:'∞',m:"Tu as déjà tous les outils en main, il ne manque que le premier geste."},
+  {n:'II',name:'La Papesse',glyph:'☽',m:"Une vérité intérieure demande à être écoutée en silence avant d'être dite."},
+  {n:'III',name:"L'Impératrice",glyph:'❀',m:"Une énergie créatrice et nourricière veut s'exprimer, laisse-la fleurir."},
+  {n:'IV',name:"L'Empereur",glyph:'♦',m:"Une structure solide se construit : pose des bases claires et stables."},
+  {n:'V',name:'Le Pape',glyph:'⚜',m:"Un enseignement ou un conseil sincère éclaire ta route aujourd'hui."},
+  {n:'VI',name:"L'Amoureux",glyph:'♡',m:"Un choix du cœur se présente : écoute ce qui résonne vraiment en toi."},
+  {n:'VII',name:'Le Chariot',glyph:'⊛',m:"La détermination l'emporte : avance, même si deux forces te tirent en sens opposés."},
+  {n:'VIII',name:'La Justice',glyph:'⚖',m:"Un équilibre juste s'impose, chaque geste posé aujourd'hui compte."},
+  {n:'IX',name:"L'Hermite",glyph:'✶',m:"Un besoin de retrait et d'introspection se fait sentir : la réponse est en toi."},
+  {n:'X',name:'La Roue de Fortune',glyph:'☸',m:"Le vent tourne : ce qui semblait figé se remet en mouvement."},
+  {n:'XI',name:'La Force',glyph:'∞',m:"Une douceur puissante apprivoise ce qui semblait indomptable."},
+  {n:'XII',name:'Le Pendu',glyph:'✛',m:"Un temps de suspension t'invite à voir les choses autrement."},
+  {n:'XIII',name:'La Mort',glyph:'⌛',m:"Une fin nécessaire ouvre la place à une transformation profonde."},
+  {n:'XIV',name:'Tempérance',glyph:'⚗',m:"Un dosage subtil entre les extrêmes t'apporte l'harmonie recherchée."},
+  {n:'XV',name:'Le Diable',glyph:'☍',m:"Un attachement ou une dépendance mérite d'être regardé en face aujourd'hui."},
+  {n:'XVI',name:'La Tour',glyph:'⚡',m:"Une vérité soudaine fait tomber ce qui n'était plus solide, pour mieux reconstruire."},
+  {n:'XVII',name:"L'Étoile",glyph:'★',m:"Un espoir discret et lumineux revient éclairer ton chemin."},
+  {n:'XVIII',name:'La Lune',glyph:'☾',m:"Une zone d'incertitude te demande de faire confiance à ton intuition plus qu'à la logique."},
+  {n:'XIX',name:'Le Soleil',glyph:'☉',m:"Une clarté joyeuse et une réussite simple illuminent ta journée."},
+  {n:'XX',name:'Le Jugement',glyph:'⚹',m:"Un appel intérieur t'invite à te réveiller à une vérité que tu connais déjà."},
+  {n:'XXI',name:'Le Monde',glyph:'❂',m:"Un cycle s'achève pleinement : savoure cet accomplissement avant le prochain."}
+];
+
+var SUITS = [
+  {id:'batons',name:'Bâtons',glyph:'⌇',color:'gold',theme:"l'action, la passion et la créativité"},
+  {id:'coupes',name:'Coupes',glyph:'◡',color:'rose',theme:"les émotions, les relations et l'intuition"},
+  {id:'epees',name:'Épées',glyph:'†',color:'ivoire',theme:"la clarté mentale, la vérité et les décisions"},
+  {id:'deniers',name:'Deniers',glyph:'✦',color:'violet',theme:"le concret, le travail et la stabilité matérielle"}
+];
+
+var RANKS = [
+  {id:'As',label:'As',m:"un nouveau départ, une énergie pure qui s'offre à toi"},
+  {id:'Deux',label:'Deux',m:"un choix ou un équilibre à trouver"},
+  {id:'Trois',label:'Trois',m:"une collaboration, une première croissance"},
+  {id:'Quatre',label:'Quatre',m:"une stabilité qui s'installe, une pause structurante"},
+  {id:'Cinq',label:'Cinq',m:"une tension ou un changement qui bouscule"},
+  {id:'Six',label:'Six',m:"une harmonie retrouvée, un équilibre partagé"},
+  {id:'Sept',label:'Sept',m:"un temps de réflexion et de patience"},
+  {id:'Huit',label:'Huit',m:"une maîtrise qui se construit par l'action"},
+  {id:'Neuf',label:'Neuf',m:"un aboutissement proche, presque à portée de main"},
+  {id:'Dix',label:'Dix',m:"un cycle qui se termine pour en ouvrir un autre"},
+  {id:'Valet',label:'Valet',m:"un apprentissage, une curiosité neuve à explorer"},
+  {id:'Cavalier',label:'Cavalier',m:"un mouvement, une avancée rapide vers un but"},
+  {id:'Reine',label:'Reine',m:"une maturité intérieure, une sagesse incarnée"},
+  {id:'Roi',label:'Roi',m:"une maîtrise assumée, une autorité tranquille"}
+];
+
+function buildDeck(){
+  var deck = [];
+  MAJOR_ARCANA.forEach(function(c, i){
+    deck.push({id:'m'+i, name:c.name, numeral:c.n+' — Arcane majeur', glyph:c.glyph, colorClass:'gold',
+      meaning:c.m});
+  });
+  SUITS.forEach(function(suit){
+    RANKS.forEach(function(rank){
+      var name = rank.label+' de '+suit.name;
+      deck.push({id:suit.id+'-'+rank.id, name:name, numeral:suit.name, glyph:suit.glyph, colorClass:suit.color,
+        meaning:"Cette carte parle de "+suit.theme+" : elle annonce "+rank.m+"."});
+    });
+  });
+  return deck;
+}
+var DECK = buildDeck(); // 22 + 56 = 78
+
+var CARD_GRADIENTS = [
+  'linear-gradient(150deg, rgba(108,74,182,0.55), rgba(11,11,20,0.9))',
+  'linear-gradient(150deg, rgba(201,162,39,0.35), rgba(108,74,182,0.55))',
+  'linear-gradient(150deg, rgba(210,145,188,0.4), rgba(11,11,20,0.9))',
+  'linear-gradient(150deg, rgba(108,74,182,0.5), rgba(210,145,188,0.3))',
+  'linear-gradient(150deg, rgba(201,162,39,0.28), rgba(11,11,20,0.92))',
+  'linear-gradient(150deg, rgba(210,145,188,0.32), rgba(201,162,39,0.28))'
+];
+var SUIT_HEX = {gold:'#C9A227', rose:'#D291BC', ivoire:'#F5F1EB', violet:'#6C4AB6'};
+
+function seededRand(seed){
+  var s = seed % 2147483647; if (s<=0) s += 2147483646;
+  return function(){ s = (s*16807) % 2147483647; return (s-1)/2147483646; };
+}
+function hashStr(str){
+  var h = 0;
+  for (var i=0;i<str.length;i++){ h = (h*31 + str.charCodeAt(i)) | 0; }
+  return Math.abs(h) || 1;
+}
+
+function constellationSVG(cardId){
+  var rnd = seededRand(hashStr(cardId));
+  var pts = [];
+  var count = 5 + Math.floor(rnd()*4);
+  for (var i=0;i<count;i++){
+    pts.push([8 + rnd()*84, 8 + rnd()*70]);
+  }
+  var lines = '';
+  for (var j=0;j<pts.length-1;j++){
+    lines += '<line x1="'+pts[j][0]+'" y1="'+pts[j][1]+'" x2="'+pts[j+1][0]+'" y2="'+pts[j+1][1]+'" stroke="currentColor" stroke-width="0.25" opacity="0.35"/>';
+  }
+  var dots = pts.map(function(p){
+    return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(0.5+rnd()*0.9)+'" fill="currentColor" opacity="0.6"/>';
+  }).join('');
+  return '<svg class="card-const" viewBox="0 0 100 90" preserveAspectRatio="none" style="color:'+ '#F5F1EB' +'">'+lines+dots+'</svg>';
+}
+
+function renderCardFace(card, reversed, gradIndex){
+  var hex = SUIT_HEX[card.colorClass] || '#C9A227';
+  var grad = CARD_GRADIENTS[gradIndex % CARD_GRADIENTS.length];
+  var html = ''+
+    '<div style="position:absolute;inset:0;background:'+grad+';"></div>'+
+    constellationSVG(card.id)+
+    '<div class="card-inner-rot" style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;padding:14px 8px;">'+
+      '<div class="card-numeral">'+card.numeral+'</div>'+
+      '<div class="card-glyph" style="color:'+hex+';">'+card.glyph+'</div>'+
+      '<div class="card-name">'+card.name+'</div>'+
+    '</div>';
+  return html;
+}
+
+/* ============================================================
+   STOCKAGE LOCAL
+============================================================ */
+var PROFILE_KEY = 'astral_profile_v1';
+var DAILY_KEY = 'astral_daily_v1';
+var HISTORY_KEY = 'astral_history_v1';
+
+function loadProfile(){ try { return JSON.parse(localStorage.getItem(PROFILE_KEY)); } catch(e){ return null; } }
+function saveProfile(p){ localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); }
+function loadDaily(){ try { return JSON.parse(localStorage.getItem(DAILY_KEY)); } catch(e){ return null; } }
+function saveDaily(d){ localStorage.setItem(DAILY_KEY, JSON.stringify(d)); }
+function loadHistory(){ try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch(e){ return []; } }
+function saveHistory(h){ localStorage.setItem(HISTORY_KEY, JSON.stringify(h)); }
+
+function todayISO(){
+  var d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+
+/* ============================================================
+   ÉTAT APPLICATION
+============================================================ */
+var state = {
+  profile: loadProfile(),
+  onbStep: 1,
+  onbData: {},
+  timeUnknown: false
+};
+
+var WEEKDAYS = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+var MONTHS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+
+function formatDateFR(d){
+  return WEEKDAYS[d.getDay()]+' '+d.getDate()+' '+MONTHS[d.getMonth()];
+}
+
+/* ============================================================
+   TIRAGE DU JOUR (stable jusqu'au lendemain)
+============================================================ */
+function getOrCreateDaily(profile){
+  var today = todayISO();
+  var daily = loadDaily();
+  if (daily && daily.date === today && daily.profileName === profile.name) {
+    return daily;
+  }
+  var cardIndex = Math.floor(Math.random()*DECK.length);
+  var reversed = Math.random() < 0.22;
+  var categories = ['amour','travail','energie'];
+  var category = categories[Math.floor(Math.random()*categories.length)];
+  var opener = OPENERS[Math.floor(Math.random()*OPENERS.length)];
+  var closer = CLOSERS[Math.floor(Math.random()*CLOSERS.length)];
+  var gradIndex = Math.floor(Math.random()*CARD_GRADIENTS.length);
+  daily = {date: today, profileName: profile.name, cardIndex: cardIndex, reversed: reversed,
+    category: category, opener: opener, closer: closer, gradIndex: gradIndex};
+  saveDaily(daily);
+
+  var history = loadHistory();
+  history = history.filter(function(h){ return h.date !== today; });
+  history.unshift({date:today, cardIndex:cardIndex, reversed:reversed});
+  if (history.length > 30) history = history.slice(0,30);
+  saveHistory(history);
+
+  return daily;
+}
+
+function buildHoroscope(profile, daily, full){
+  var sunSign = getSign(profile.month, profile.day);
+  var el = ELEMENT_THEMES[sunSign.element];
+  var themeLine = el[daily.category][hashStr(profile.name+daily.date+daily.category) % el[daily.category].length];
+  var parts = [daily.opener, sunSign.trait, themeLine];
+  if (full){
+    var moonSign = getMoonSignApprox(profile.birthISO);
+    var ascSign = getAscendantApprox(sunSign, profile.hour, profile.timeKnown);
+    var otherCats = ['amour','travail','energie'].filter(function(c){ return c!==daily.category; });
+    otherCats.forEach(function(c){
+      parts.push(el[c][hashStr(profile.name+daily.date+c) % el[c].length]);
+    });
+    parts.push(MODALITY_PHRASES[sunSign.modality]);
+    parts.push(MOON_TRAITS[moonSign.id]);
+    if (ascSign) parts.push(ASC_TRAITS[ascSign.id]);
+  }
+  parts.push(daily.closer);
+  return parts.join(' ');
+}
+
+/* ============================================================
+   RENDU — ONBOARDING
+============================================================ */
+var TOTAL_STEPS = 5;
+
+function goToStep(n){
+  state.onbStep = n;
+  document.querySelectorAll('.onb-step').forEach(function(el){
+    el.classList.toggle('active', parseInt(el.dataset.step,10) === n);
+  });
+  document.querySelectorAll('.onb-dot').forEach(function(el){
+    var i = parseInt(el.dataset.dot,10);
+    el.classList.toggle('active', i === n);
+    el.classList.toggle('done', i < n);
+  });
+  document.getElementById('onb-back').style.visibility = n === 1 ? 'hidden' : 'visible';
+  var nextBtn = document.getElementById('onb-next');
+  nextBtn.textContent = n === TOTAL_STEPS ? 'Découvrir mon ciel' : 'Continuer';
+  if (n === TOTAL_STEPS) buildRecap();
+  validateStep();
+}
+
+function validateStep(){
+  var nextBtn = document.getElementById('onb-next');
+  var ok = true;
+  if (state.onbStep === 1) ok = document.getElementById('in-name').value.trim().length > 0;
+  if (state.onbStep === 2) ok = !!document.getElementById('in-date').value;
+  if (state.onbStep === 4) ok = document.getElementById('in-place').value.trim().length > 0;
+  nextBtn.disabled = !ok;
+}
+
+function buildRecap(){
+  var name = document.getElementById('in-name').value.trim();
+  var dateVal = document.getElementById('in-date').value;
+  var timeVal = document.getElementById('in-time').value;
+  var place = document.getElementById('in-place').value.trim();
+  var dateObj = dateVal ? new Date(dateVal+'T12:00:00') : null;
+  var dateLabel = dateObj ? dateObj.getDate()+' '+MONTHS[dateObj.getMonth()]+' '+dateObj.getFullYear() : '—';
+  var sign = dateObj ? getSign(dateObj.getMonth()+1, dateObj.getDate()) : null;
+  document.getElementById('recap-card').innerHTML =
+    '<div class="recap-row"><span>Prénom</span><span>'+escapeHtml(name)+'</span></div>'+
+    '<div class="recap-row"><span>Naissance</span><span>'+dateLabel+'</span></div>'+
+    '<div class="recap-row"><span>Heure</span><span>'+(state.timeUnknown ? 'Non précisée' : timeVal)+'</span></div>'+
+    '<div class="recap-row"><span>Lieu</span><span>'+escapeHtml(place)+'</span></div>'+
+    '<div class="recap-row"><span>Signe solaire</span><span>'+(sign ? sign.glyph+' '+sign.name : '—')+'</span></div>';
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+document.getElementById('onb-next').addEventListener('click', function(){
+  if (state.onbStep < TOTAL_STEPS){
+    goToStep(state.onbStep+1);
+  } else {
+    completeOnboarding();
+  }
+});
+document.getElementById('onb-back').addEventListener('click', function(){
+  if (state.onbStep > 1) goToStep(state.onbStep-1);
+});
+['in-name','in-date','in-place'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', validateStep);
+});
+document.getElementById('toggle-unknown-time').addEventListener('click', function(){
+  state.timeUnknown = !state.timeUnknown;
+  this.classList.toggle('on', state.timeUnknown);
+  document.getElementById('in-time').disabled = state.timeUnknown;
+  document.getElementById('in-time').style.opacity = state.timeUnknown ? 0.4 : 1;
+});
+
+function completeOnboarding(){
+  var name = document.getElementById('in-name').value.trim();
+  var dateVal = document.getElementById('in-date').value;
+  var timeVal = state.timeUnknown ? '12:00' : (document.getElementById('in-time').value || '12:00');
+  var place = document.getElementById('in-place').value.trim();
+  var dateObj = new Date(dateVal+'T12:00:00');
+  var hourParts = timeVal.split(':');
+
+  var profile = {
+    name: name,
+    birthISO: dateVal,
+    month: dateObj.getMonth()+1,
+    day: dateObj.getDate(),
+    year: dateObj.getFullYear(),
+    hour: parseInt(hourParts[0],10) + parseInt(hourParts[1],10)/60,
+    timeKnown: !state.timeUnknown,
+    place: place,
+    premium: false,
+    createdAt: new Date().toISOString()
+  };
+  saveProfile(profile);
+  state.profile = profile;
+  localStorage.removeItem(DAILY_KEY);
+  localStorage.removeItem(HISTORY_KEY);
+  showHome();
+}
+
+/* ============================================================
+   RENDU — HOME
+============================================================ */
+var cardRevealedToday = false;
+
+function showHome(){
+  document.getElementById('onboarding').classList.remove('active');
+  document.getElementById('home').classList.add('active');
+  renderHome();
+}
+
+function renderHome(){
+  var profile = state.profile;
+  var daily = getOrCreateDaily(profile);
+  var sunSign = getSign(profile.month, profile.day);
+
+  document.getElementById('greet-name').textContent = profile.name;
+  document.getElementById('greet-date').textContent = formatDateFR(new Date());
+
+  // Carte du jour
+  var card = DECK[daily.cardIndex];
+  var front = document.getElementById('tarot-front');
+  front.innerHTML = renderCardFace(card, daily.reversed, daily.gradIndex);
+  front.classList.toggle('reversed', !!daily.reversed);
+  document.getElementById('card-name').textContent = card.name;
+  document.getElementById('card-orient').classList.toggle('hidden', !daily.reversed);
+  var interp = card.meaning + (daily.reversed ? " En énergie renversée aujourd'hui, ce message se vit plus intérieurement : prends le temps de l'apprivoiser avant d'agir." : '');
+  document.getElementById('card-interp').textContent = interp;
+
+  var tarotCard = document.getElementById('tarot-card');
+  var lastSeenKey = 'astral_seen_'+daily.date;
+  var alreadySeen = sessionStorage.getItem(lastSeenKey);
+  tarotCard.classList.toggle('flipped', !!alreadySeen);
+  document.getElementById('tap-hint').classList.toggle('hidden', !!alreadySeen);
+  if (!alreadySeen){
+    setTimeout(function(){
+      tarotCard.classList.add('flipped');
+      sessionStorage.setItem(lastSeenKey, '1');
+      document.getElementById('tap-hint').classList.add('hidden');
+    }, 900);
+  }
+
+  // Horoscope
+  document.getElementById('sign-glyph').textContent = sunSign.glyph;
+  document.getElementById('sign-name').textContent = sunSign.name;
+  document.getElementById('horo-text').textContent = buildHoroscope(profile, daily, false);
+
+  var isPremium = !!profile.premium;
+  document.getElementById('home-lock-cta').classList.toggle('hidden', isPremium);
+
+  renderThemeTab(profile, daily, isPremium);
+  renderJournalTab(isPremium);
+}
+
+document.getElementById('tarot-card').addEventListener('click', function(){
+  if (!this.classList.contains('flipped')) return;
+  this.classList.remove('shimmer');
+  void this.offsetWidth;
+  this.classList.add('shimmer');
+});
+
+/* ============================================================
+   RENDU — THÈME
+============================================================ */
+function renderThemeTab(profile, daily, isPremium){
+  var sunSign = getSign(profile.month, profile.day);
+  var moonSign = getMoonSignApprox(profile.birthISO);
+  var ascSign = getAscendantApprox(sunSign, profile.hour, profile.timeKnown);
+
+  document.getElementById('theme-place-line').textContent = profile.place
+    ? 'Calculé pour ta naissance à '+profile.place
+    : 'Calculé pour ta date de naissance';
+  document.getElementById('t-sun-ic').textContent = sunSign.glyph;
+  document.getElementById('t-sun-val').textContent = sunSign.name;
+
+  var moonBox = document.getElementById('t-moon-box');
+  var ascBox = document.getElementById('t-asc-box');
+  moonBox.classList.toggle('locked', !isPremium);
+  document.getElementById('t-moon-val').textContent = isPremium ? (moonSign.glyph+' '+moonSign.name) : '••••••';
+
+  if (ascSign){
+    ascBox.classList.toggle('locked', !isPremium);
+    document.getElementById('t-asc-val').textContent = isPremium ? (ascSign.glyph+' '+ascSign.name) : '••••••';
+  } else {
+    ascBox.classList.remove('locked');
+    document.getElementById('t-asc-val').textContent = 'Heure inconnue';
+  }
+
+  var reportEl = document.getElementById('natal-report');
+  reportEl.classList.toggle('blurred', !isPremium);
+  document.getElementById('natal-unlock-row').classList.toggle('hidden', isPremium);
+  document.getElementById('natal-report-text').textContent = buildHoroscope(profile, daily, true);
+}
+
+/* ============================================================
+   RENDU — JOURNAL
+============================================================ */
+function renderJournalTab(isPremium){
+  document.getElementById('journal-locked').classList.toggle('hidden', isPremium);
+  var listEl = document.getElementById('journal-list');
+  if (!isPremium){ listEl.innerHTML=''; return; }
+  var history = loadHistory();
+  if (!history.length){
+    listEl.innerHTML = '<div class="empty-journal">Reviens demain pour commencer ton journal — chaque jour ajoutera une nouvelle carte à ton histoire.</div>';
+    return;
+  }
+  listEl.innerHTML = history.map(function(h){
+    var card = DECK[h.cardIndex];
+    var d = new Date(h.date+'T12:00:00');
+    return '<div class="journal-item">'+
+      '<div class="j-date"><div class="d">'+d.getDate()+'</div><div class="m">'+MONTHS[d.getMonth()].slice(0,3)+'</div></div>'+
+      '<div class="j-glyph" style="color:'+(SUIT_HEX[card.colorClass]||'#C9A227')+';">'+card.glyph+'</div>'+
+      '<div><div class="j-name">'+card.name+(h.reversed?' (renversée)':'')+'</div><div class="j-sub">'+d.toLocaleDateString('fr-FR',{weekday:'long'})+'</div></div>'+
+    '</div>';
+  }).join('');
+}
+
+/* ============================================================
+   NAVIGATION TABS
+============================================================ */
+document.querySelectorAll('[data-switch-tab]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var tab = this.dataset.switchTab;
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.toggle('active', b===btn); });
+    document.querySelectorAll('.tab-content').forEach(function(c){ c.classList.toggle('active', c.dataset.tab===tab); });
+  });
+});
+
+/* ============================================================
+   PAYWALL
+============================================================ */
+function openPaywall(){ document.getElementById('paywall').classList.add('open'); }
+function closePaywall(){ document.getElementById('paywall').classList.remove('open'); }
+document.querySelectorAll('[data-open-paywall]').forEach(function(b){ b.addEventListener('click', openPaywall); });
+document.getElementById('pw-close').addEventListener('click', closePaywall);
+document.getElementById('pw-subscribe').addEventListener('click', function(){
+  showToast('Prototype — l\'abonnement réel sera disponible à la sortie de l\'application.');
+});
+document.getElementById('pw-demo-toggle').addEventListener('click', function(){
+  setPremium(!state.profile.premium);
+  closePaywall();
+});
+
+/* ============================================================
+   SETTINGS
+============================================================ */
+function openSettings(){
+  var p = state.profile;
+  document.getElementById('settings-status').textContent = p.premium ? 'Premium (démo)' : 'Gratuit';
+  document.getElementById('settings-name').textContent = p.name;
+  var sign = getSign(p.month, p.day);
+  document.getElementById('settings-sign').textContent = sign.glyph+' '+sign.name;
+  document.getElementById('settings-toggle-premium').textContent = p.premium ? 'Désactiver Premium (démo)' : 'Activer Premium (démo)';
+  document.getElementById('settings-modal').classList.add('open');
+}
+document.getElementById('btn-settings').addEventListener('click', openSettings);
+document.getElementById('settings-close').addEventListener('click', function(){
+  document.getElementById('settings-modal').classList.remove('open');
+});
+document.getElementById('settings-toggle-premium').addEventListener('click', function(){
+  setPremium(!state.profile.premium);
+  openSettings();
+});
+document.getElementById('settings-reset').addEventListener('click', function(){
+  if (!confirm('Réinitialiser ton profil et repartir de zéro ?')) return;
+  localStorage.removeItem(PROFILE_KEY);
+  localStorage.removeItem(DAILY_KEY);
+  localStorage.removeItem(HISTORY_KEY);
+  location.reload();
+});
+
+function setPremium(on){
+  state.profile.premium = on;
+  saveProfile(state.profile);
+  renderHome();
+  showToast(on ? 'Mode Premium activé (démonstration).' : 'Mode Premium désactivé.');
+}
+
+function showToast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(showToast._tm);
+  showToast._tm = setTimeout(function(){ t.classList.remove('show'); }, 3200);
+}
+
+/* ============================================================
+   CIEL ANIMÉ (étoiles)
+============================================================ */
+function buildSky(){
+  var sky = document.getElementById('sky');
+  var count = window.innerWidth < 500 ? 60 : 90;
+  for (var i=0;i<count;i++){
+    var s = document.createElement('div');
+    s.className = 'star';
+    var size = (Math.random()*1.6+0.6).toFixed(2);
+    s.style.width = size+'px';
+    s.style.height = size+'px';
+    s.style.top = (Math.random()*100)+'%';
+    s.style.left = (Math.random()*100)+'%';
+    s.style.animationDuration = (2.5+Math.random()*4).toFixed(2)+'s';
+    s.style.animationDelay = (Math.random()*4).toFixed(2)+'s';
+    sky.appendChild(s);
+  }
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+function init(){
+  buildSky();
+  if (state.profile && state.profile.name){
+    document.getElementById('home').classList.add('active');
+    renderHome();
+  } else {
+    document.getElementById('onboarding').classList.add('active');
+    goToStep(1);
+  }
+
+  if ('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
+}
+
+init();
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "Astral — Horoscope & Tarot du jour",
+  "short_name": "Astral",
+  "description": "Ton horoscope personnalisé et ta carte de tarot du jour, calculés à partir de ton thème natal.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B0B14",
+  "theme_color": "#0B0B14",
+  "lang": "fr",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
