@@ -1118,16 +1118,14 @@ var STRIPE_LINKS = {
 var STRIPE_SUCCESS_PARAM = 'premium_success'; // valeur attendue au retour : 'croissant' ou 'pleinelune'
 
 /* ============================================================
-   BACKEND — vérification du palier par e-mail
-   Colle ici l'URL de base de tes Supabase Edge Functions une fois
-   déployées, ex: 'https://tonprojet.supabase.co/functions/v1' (voir
-   backend/README.md).
+   BACKEND — vérification du palier par e-mail (scénario Make
+   "Astral - Vérifier accès", voir backend/README.md).
    Tant que c'est vide, l'app reste 100% locale : le déblocage après
    Stripe fonctionne toujours (optimiste), mais rien ne confirme le
    paiement côté serveur ni ne permet de retrouver l'accès sur un
    autre appareil.
 ============================================================ */
-var BACKEND_STATUS_URL = ''; // ex: 'https://astral-backend.tonsubdomaine.workers.dev'
+var BACKEND_STATUS_URL = 'https://hook.eu1.make.com/mzdre32o4kmflpiroykglrd603ij6oq4';
 
 /* ============================================================
    STOCKAGE LOCAL
@@ -1613,7 +1611,7 @@ document.querySelectorAll('.plan-btn').forEach(function(btn){
 ============================================================ */
 function syncTierFromBackend(email, silent){
   if (!BACKEND_STATUS_URL || !email) return Promise.resolve(null);
-  return fetch(BACKEND_STATUS_URL + '/status?email=' + encodeURIComponent(email))
+  return fetch(BACKEND_STATUS_URL + '?email=' + encodeURIComponent(email))
     .then(function(res){ return res.ok ? res.json() : null; })
     .then(function(data){
       if (!data || !data.tier) return null;

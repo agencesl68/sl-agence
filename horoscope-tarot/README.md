@@ -88,7 +88,7 @@ et colle chaque URL de Payment Link au bon endroit. Tant qu'une valeur reste vid
 
 ## Backend — vérification des paiements
 
-Deux [Supabase Edge Functions](../backend/) reçoivent les webhooks Stripe et répondent « quel est le palier de cet e-mail ? » — sans elles, l'app fonctionne mais reste dans le mode « optimiste » décrit ci-dessus. Marche à suivre complète (compte Supabase, table, déploiement, webhook Stripe) dans [`backend/README.md`](../backend/README.md). Une fois déployé, colle l'URL de base des fonctions (`https://<ref>.supabase.co/functions/v1`) dans `BACKEND_STATUS_URL` en tout début de balise `<script>` de `index.html`.
+Le backend vit directement dans le compte [Make](../backend/) de SL Agence (data store + scénarios, pas de code à déployer). La vérification du palier par e-mail (`BACKEND_STATUS_URL`) est déjà en ligne et branchée ; il reste à finir la réception des paiements Stripe côté Make — voir [`backend/README.md`](../backend/README.md) pour l'état exact et ce qu'il reste à faire.
 
 ## Prochaines étapes (hors périmètre actuel)
 
