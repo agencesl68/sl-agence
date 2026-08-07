@@ -1119,7 +1119,9 @@ var STRIPE_SUCCESS_PARAM = 'premium_success'; // valeur attendue au retour : 'cr
 
 /* ============================================================
    BACKEND — vérification du palier par e-mail
-   Colle ici l'URL de ton Worker une fois déployé (voir backend/README.md).
+   Colle ici l'URL de base de tes Supabase Edge Functions une fois
+   déployées, ex: 'https://tonprojet.supabase.co/functions/v1' (voir
+   backend/README.md).
    Tant que c'est vide, l'app reste 100% locale : le déblocage après
    Stripe fonctionne toujours (optimiste), mais rien ne confirme le
    paiement côté serveur ni ne permet de retrouver l'accès sur un
