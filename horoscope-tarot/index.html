@@ -190,7 +190,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
 
 .feature-teaser{margin-top:26px;}
 .pf-list{display:flex;flex-direction:column;gap:10px;}
-.pf-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:rgba(var(--text-rgb),0.045);border:1px solid rgba(var(--text-rgb),0.09);}
+.pf-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:rgba(var(--text-rgb),0.045);border:1px solid rgba(var(--text-rgb),0.09);cursor:pointer;transition:border-color 0.3s,background 0.3s;}
+.pf-item:active{background:rgba(var(--gold-rgb),0.08);}
 .pf-item .pf-ic{width:34px;height:34px;border-radius:10px;background:rgba(var(--violet-rgb),0.3);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
 .pf-item .pf-t{flex:1;}
 .pf-item .pf-title{font-size:13.5px;font-weight:700;}
@@ -251,6 +252,21 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
 .cb-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
 .cb-text{font-size:13.5px;color:var(--dim);line-height:1.55;}
 
+/* ================= TIRAGES (Amour / Carrière / Croix celtique) ================= */
+#spread-screen{position:fixed;inset:0;z-index:61;background:var(--bg);display:none;flex-direction:column;overflow-y:auto;}
+#spread-screen.open{display:flex;}
+.spread-group-label{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--dim);margin:22px 0 12px;text-align:left;}
+.spread-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.spread-grid.cols-2{grid-template-columns:repeat(2,1fr);}
+.spread-mini{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.spread-mini .mini-card{width:100%;max-width:96px;}
+.spread-mini-label{font-size:10.5px;text-align:center;color:var(--dim);line-height:1.3;}
+.spread-details{margin-top:28px;display:flex;flex-direction:column;gap:14px;}
+.spread-detail{background:rgba(var(--text-rgb),0.045);border:1px solid rgba(var(--text-rgb),0.1);border-radius:16px;padding:16px;}
+.spread-detail-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.spread-detail-card{font-family:var(--serif);font-size:15.5px;font-weight:600;margin-bottom:6px;}
+.spread-detail p{font-size:13.5px;line-height:1.65;color:var(--dim);}
+
 /* ================= PAYWALL ================= */
 #paywall{position:fixed;inset:0;z-index:60;background:var(--bg);display:none;flex-direction:column;overflow-y:auto;}
 #paywall.open{display:flex;}
@@ -260,6 +276,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
 .pw-hero .pw-orb{width:78px;height:78px;margin:0 auto 18px;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--gold),var(--violet) 70%);box-shadow:0 0 50px rgba(var(--gold-rgb),0.4);display:flex;align-items:center;justify-content:center;font-size:32px;}
 .pw-hero h2{font-size:26px;line-height:1.3;margin-bottom:10px;}
 .pw-hero p{color:var(--dim);font-size:14px;line-height:1.6;}
+.pw-email-hint{font-size:11.5px;color:var(--faint);margin-top:8px;line-height:1.5;}
 
 .plans{display:flex;flex-direction:column;gap:18px;margin:26px 0;}
 .plan-card{position:relative;background:rgba(var(--text-rgb),0.04);border:1px solid rgba(var(--text-rgb),0.14);border-radius:22px;padding:24px 22px;}
@@ -272,6 +289,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
 .plan-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px;}
 .plan-features li{font-size:13px;line-height:1.5;color:var(--dim);padding-left:20px;position:relative;}
 .plan-features li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700;}
+.plan-features li em{font-style:normal;color:var(--faint);}
 
 .pw-secure{font-size:11.5px;color:var(--dim);text-align:center;margin-top:16px;line-height:1.6;display:flex;align-items:center;justify-content:center;gap:7px;}
 .pw-note{font-size:11px;color:var(--faint);text-align:center;margin-top:12px;line-height:1.6;}
@@ -287,6 +305,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
 .modal-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(var(--text-rgb),0.08);font-size:13.5px;}
 .modal-row:last-of-type{border-bottom:none;}
 .modal-actions{margin-top:18px;display:flex;flex-direction:column;gap:10px;}
+#restore-access-form{margin-top:10px;display:flex;flex-direction:column;gap:10px;}
 
 .toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);background:#181022;border:1px solid rgba(var(--gold-rgb),0.35);color:var(--text);font-size:13px;padding:13px 20px;border-radius:100px;box-shadow:0 14px 34px -10px rgba(0,0,0,0.7);opacity:0;pointer-events:none;transition:opacity 0.35s,transform 0.35s;z-index:100;max-width:88%;text-align:center;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
@@ -437,20 +456,22 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
       </div>
 
       <div class="feature-teaser">
-        <p class="section-label" style="text-align:left;">🌘 Avec Croissant — 3,99€/mois</p>
-        <div class="pf-list">
-          <div class="pf-item"><div class="pf-ic">📜</div><div class="pf-t"><div class="pf-title">Ton thème, décodé</div><div class="pf-sub">Soleil, Lune et Ascendant lus ensemble — pas trois lectures séparées.</div></div><div class="pf-lock">🔒</div></div>
-          <div class="pf-item"><div class="pf-ic">🃏</div><div class="pf-t"><div class="pf-title">Ta carte conseil</div><div class="pf-sub">Une seconde carte, chaque jour, en plus de celle-ci.</div></div><div class="pf-lock">🔒</div></div>
-          <div class="pf-item"><div class="pf-ic">🌙</div><div class="pf-t"><div class="pf-title">Énergie du jour</div><div class="pf-sub">Couleur, pierre et chiffre qui accompagnent ta journée.</div></div><div class="pf-lock">🔒</div></div>
-          <div class="pf-item"><div class="pf-ic">📖</div><div class="pf-t"><div class="pf-title">7 derniers jours</div><div class="pf-sub">Retrouve les cartes tirées cette semaine.</div></div><div class="pf-lock">🔒</div></div>
+        <div id="teaser-croissant-block">
+          <p class="section-label" style="text-align:left;">🌘 Avec Croissant — 3,99€/mois</p>
+          <div class="pf-list">
+            <div class="pf-item"><div class="pf-ic">📜</div><div class="pf-t"><div class="pf-title">Ton thème, décodé</div><div class="pf-sub">Soleil, Lune et Ascendant lus ensemble — pas trois lectures séparées.</div></div><div class="pf-lock">🔒</div></div>
+            <div class="pf-item"><div class="pf-ic">🃏</div><div class="pf-t"><div class="pf-title">Ta carte conseil</div><div class="pf-sub">Une seconde carte, chaque jour, en plus de celle-ci.</div></div><div class="pf-lock">🔒</div></div>
+            <div class="pf-item"><div class="pf-ic">🌙</div><div class="pf-t"><div class="pf-title">Énergie du jour</div><div class="pf-sub">Couleur, pierre et chiffre qui accompagnent ta journée.</div></div><div class="pf-lock">🔒</div></div>
+            <div class="pf-item"><div class="pf-ic">📖</div><div class="pf-t"><div class="pf-title">7 derniers jours</div><div class="pf-sub">Retrouve les cartes tirées cette semaine.</div></div><div class="pf-lock">🔒</div></div>
+          </div>
         </div>
         <p class="section-label" style="text-align:left;">🌕 Avec Pleine Lune — 6,99€/mois</p>
         <div class="pf-list">
-          <div class="pf-item"><div class="pf-ic">✧</div><div class="pf-t"><div class="pf-title">Affinités illimitées</div><div class="pf-sub">Compare ton ciel à celui de qui tu veux, autant de fois que tu veux.</div></div><div class="pf-lock">🔒</div></div>
-          <div class="pf-item"><div class="pf-ic">💗</div><div class="pf-t"><div class="pf-title">Ce que ton cœur ne te dit pas encore</div><div class="pf-sub">Tirage Amour à 3 cartes.</div></div><div class="pf-lock">🔒</div></div>
-          <div class="pf-item"><div class="pf-ic">🎯</div><div class="pf-t"><div class="pf-title">La direction que prend ta vie pro</div><div class="pf-sub">Tirage Carrière à 3 cartes.</div></div><div class="pf-lock">🔒</div></div>
-          <div class="pf-item"><div class="pf-ic">✳</div><div class="pf-t"><div class="pf-title">Croix celtique</div><div class="pf-sub">Une vision d'ensemble en dix cartes.</div></div><div class="pf-lock">🔒</div></div>
-          <div class="pf-item"><div class="pf-ic">🔔</div><div class="pf-t"><div class="pf-title">Ton ciel avant ton café</div><div class="pf-sub">Notification dès le matin.</div></div><div class="pf-lock">🔒</div></div>
+          <div class="pf-item" id="pf-affinites-illimitees"><div class="pf-ic">✧</div><div class="pf-t"><div class="pf-title">Affinités illimitées</div><div class="pf-sub">Compare ton ciel à celui de qui tu veux, autant de fois que tu veux.</div></div><div class="pf-lock" id="pf-affinites-illimitees-lock">🔒</div></div>
+          <div class="pf-item" id="pf-amour"><div class="pf-ic">💗</div><div class="pf-t"><div class="pf-title">Ce que ton cœur ne te dit pas encore</div><div class="pf-sub">Tirage Amour à 3 cartes.</div></div><div class="pf-lock" id="pf-amour-lock">🔒</div></div>
+          <div class="pf-item" id="pf-carriere"><div class="pf-ic">🎯</div><div class="pf-t"><div class="pf-title">La direction que prend ta vie pro</div><div class="pf-sub">Tirage Carrière à 3 cartes.</div></div><div class="pf-lock" id="pf-carriere-lock">🔒</div></div>
+          <div class="pf-item" id="pf-celtique"><div class="pf-ic">✳</div><div class="pf-t"><div class="pf-title">Croix celtique</div><div class="pf-sub">Une vision d'ensemble en dix cartes.</div></div><div class="pf-lock" id="pf-celtique-lock">🔒</div></div>
+          <div class="pf-item"><div class="pf-ic">🔔</div><div class="pf-t"><div class="pf-title">Ton ciel avant ton café</div><div class="pf-sub">Notification dès le matin — à venir.</div></div><div class="pf-lock">Bientôt</div></div>
         </div>
       </div>
     </div>
@@ -541,6 +562,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
       <p>Deux façons d'aller plus loin dans ton ciel.</p>
     </div>
 
+    <div class="field" style="margin-top:20px;">
+      <label for="pw-email">Ton e-mail</label>
+      <input id="pw-email" type="text" placeholder="toi@exemple.fr" autocomplete="email">
+    </div>
+    <p class="pw-email-hint">Sert uniquement à retrouver ton accès si tu changes d'appareil ou vides ton cache.</p>
+
     <div class="plans">
       <div class="plan-card" data-tier="croissant">
         <div class="plan-head">
@@ -568,7 +595,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
           <li>Tirage Amour, Carrière et Croix celtique</li>
           <li>Affinités illimitées et détaillées</li>
           <li>Historique complet</li>
-          <li>Ton ciel avant ton café — notification du matin</li>
+          <li>Notification du matin <em>(bientôt)</em></li>
         </ul>
         <button class="btn btn-gold plan-btn" data-plan="pleinelune">Choisir Pleine Lune</button>
       </div>
@@ -576,6 +603,23 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
 
     <p class="pw-secure">🔒 Paiement sécurisé par Stripe · carte bancaire, Apple Pay, Google Pay</p>
     <p class="pw-note" id="pw-note">Le paiement est traité par Stripe — aucune donnée bancaire ne transite par Astral. Prototype : le déblocage se fait sur cet appareil uniquement, sans vérification serveur.</p>
+  </div>
+</div>
+
+<!-- ============ TIRAGES (Amour / Carrière / Croix celtique) ============ -->
+<div id="spread-screen">
+  <div class="pw-top">
+    <button class="icon-btn" id="spread-close" aria-label="Fermer">✕</button>
+    <span class="eyebrow">Astral</span>
+    <span style="width:38px;"></span>
+  </div>
+  <div class="pw-body">
+    <div class="theme-hero">
+      <h2 id="spread-title">—</h2>
+      <p id="spread-subtitle"></p>
+    </div>
+    <div id="spread-content"></div>
+    <button class="btn btn-primary" id="spread-redraw" style="margin-top:26px;">Nouveau tirage</button>
   </div>
 </div>
 
@@ -595,6 +639,16 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
           <button class="btn btn-ghost" data-tier-demo="free">Repasser en gratuit (démo)</button>
           <button class="btn btn-ghost" data-tier-demo="croissant">Activer Croissant (démo)</button>
           <button class="btn btn-ghost" data-tier-demo="pleinelune">Activer Pleine Lune (démo)</button>
+        </div>
+      </div>
+      <div id="restore-access-block">
+        <button class="btn btn-ghost" id="restore-access-btn">Restaurer mon accès</button>
+        <div id="restore-access-form" class="hidden">
+          <div class="field">
+            <label for="restore-email">Ton e-mail utilisé au paiement</label>
+            <input id="restore-email" type="text" placeholder="toi@exemple.fr" autocomplete="email">
+          </div>
+          <button class="btn btn-gold" id="restore-access-submit">Vérifier</button>
         </div>
       </div>
       <button class="btn btn-ghost" id="settings-reset">Réinitialiser mon profil</button>
@@ -775,6 +829,121 @@ function compatBreakdown(signA, signB){
   ];
 }
 
+/* ============================================================
+   TIRAGES AVANCÉS — positions (Pleine Lune)
+============================================================ */
+var LOVE_SPREAD_POSITIONS = [
+  {label:'Toi', framing:'Ce que tu apportes à cette relation :'},
+  {label:"L'autre", framing:"Ce que l'autre apporte, ou traverse en ce moment :"},
+  {label:'Ce qui vous lie', framing:'Le lien qui vous unit, ou ce qui cherche à se créer :'}
+];
+var CAREER_SPREAD_POSITIONS = [
+  {label:'Situation actuelle', framing:'Où tu en es vraiment, professionnellement :'},
+  {label:'Obstacle', framing:'Ce qui freine ou complique la suite :'},
+  {label:'Direction à prendre', framing:'Le chemin qui se dessine si tu avances :'}
+];
+var CELTIC_CROSS_POSITIONS = [
+  {group:'La Croix', label:'1. Situation actuelle', framing:'Le cœur de ce qui se joue en ce moment :'},
+  {group:'La Croix', label:'2. Défi immédiat', framing:"Ce qui te traverse ou te met à l'épreuve :"},
+  {group:'La Croix', label:'3. Fondation', framing:'Ce sur quoi tout repose, souvent inconscient :'},
+  {group:'La Croix', label:'4. Passé récent', framing:"Ce qui vient de se refermer ou de s'éloigner :"},
+  {group:'La Croix', label:'5. Objectif conscient', framing:'Ce vers quoi tu tends consciemment :'},
+  {group:'La Croix', label:'6. Futur proche', framing:'Ce qui approche dans les prochains temps :'},
+  {group:'Le Bâton', label:'7. Ton attitude', framing:'Comment tu abordes toi-même la situation :'},
+  {group:'Le Bâton', label:'8. Influences extérieures', framing:'Ce qui, autour de toi, pèse sur la situation :'},
+  {group:'Le Bâton', label:'9. Espoirs et craintes', framing:'Ce que tu espères, ou redoutes, en secret :'},
+  {group:'Le Bâton', label:'10. Issue probable', framing:'Vers quoi cela semble se diriger :'}
+];
+var SPREAD_DEFS = {
+  amour: {title:'Tirage Amour', subtitle:'Trois cartes sur ce qui se joue dans ton cœur.', positions: LOVE_SPREAD_POSITIONS},
+  carriere: {title:'Tirage Carrière', subtitle:'Trois cartes sur la direction que prend ta vie professionnelle.', positions: CAREER_SPREAD_POSITIONS},
+  celtique: {title:'Croix Celtique', subtitle:"Dix cartes pour une vision d'ensemble de ta situation.", positions: CELTIC_CROSS_POSITIONS}
+};
+
+function drawSpread(count){
+  var indices = [];
+  while (indices.length < count){
+    var idx = Math.floor(Math.random()*DECK.length);
+    if (indices.indexOf(idx) === -1) indices.push(idx);
+  }
+  return indices.map(function(idx){ return {cardIndex: idx, reversed: Math.random() < 0.22}; });
+}
+
+function renderSpreadContent(positions, draws){
+  var groups = [];
+  var groupIndex = {};
+  positions.forEach(function(pos, i){
+    var g = pos.group || '';
+    if (!(g in groupIndex)){ groupIndex[g] = groups.length; groups.push({name: g, items: []}); }
+    groups[groupIndex[g]].items.push(i);
+  });
+
+  var gridsHtml = groups.map(function(grp){
+    var gridClass = positions.length > 6 ? 'spread-grid cols-2' : 'spread-grid';
+    var heading = grp.name ? '<p class="spread-group-label">'+grp.name+'</p>' : '';
+    var itemsHtml = grp.items.map(function(i){
+      var d = draws[i];
+      var card = DECK[d.cardIndex];
+      return '<div class="spread-mini">'+
+        '<div class="mini-card">'+renderCardFace(card, d.reversed, i)+'</div>'+
+        '<div class="spread-mini-label">'+positions[i].label+'</div>'+
+      '</div>';
+    }).join('');
+    return heading+'<div class="'+gridClass+'">'+itemsHtml+'</div>';
+  }).join('');
+
+  var detailsHtml = '<div class="spread-details">'+positions.map(function(pos, i){
+    var d = draws[i];
+    var card = DECK[d.cardIndex];
+    return '<div class="spread-detail">'+
+      '<div class="spread-detail-label">'+pos.label+'</div>'+
+      '<div class="spread-detail-card">'+card.name+(d.reversed ? ' (renversée)' : '')+'</div>'+
+      '<p>'+pos.framing+' '+card.meaning+'</p>'+
+    '</div>';
+  }).join('')+'</div>';
+
+  document.getElementById('spread-content').innerHTML = gridsHtml + detailsHtml;
+}
+
+var currentSpreadKey = null;
+
+function drawAndRenderSpread(){
+  var def = SPREAD_DEFS[currentSpreadKey];
+  renderSpreadContent(def.positions, drawSpread(def.positions.length));
+}
+
+function openSpread(key){
+  if (!hasPleineLune(state.profile)){
+    openPaywall();
+    return;
+  }
+  currentSpreadKey = key;
+  var def = SPREAD_DEFS[key];
+  document.getElementById('spread-title').textContent = def.title;
+  document.getElementById('spread-subtitle').textContent = def.subtitle;
+  drawAndRenderSpread();
+  document.getElementById('spread-screen').classList.add('open');
+}
+
+function renderFeatureTeasers(tier){
+  document.getElementById('teaser-croissant-block').classList.toggle('hidden', tier === 'croissant' || tier === 'pleinelune');
+
+  var unlocked = tier === 'pleinelune';
+  [
+    ['pf-amour', 'pf-amour-lock', function(){ openSpread('amour'); }],
+    ['pf-carriere', 'pf-carriere-lock', function(){ openSpread('carriere'); }],
+    ['pf-celtique', 'pf-celtique-lock', function(){ openSpread('celtique'); }],
+    ['pf-affinites-illimitees', 'pf-affinites-illimitees-lock', function(){ switchToTab('affinites'); }]
+  ].forEach(function(entry){
+    var itemEl = document.getElementById(entry[0]);
+    var lockEl = document.getElementById(entry[1]);
+    var action = entry[2];
+    itemEl.classList.toggle('unlocked', unlocked);
+    lockEl.textContent = unlocked ? '›' : '🔒';
+    itemEl.onclick = unlocked ? action : openPaywall;
+  });
+}
+
 function getSign(month, day){
   for (var i=0;i<ZODIAC.length;i++){
     var s = ZODIAC[i];
@@ -947,6 +1116,16 @@ var STRIPE_LINKS = {
   pleinelune: 'https://buy.stripe.com/aFabIU09O52X5KqcOB1gs01'  // Astral Pleine Lune, 6,99€/mois
 };
 var STRIPE_SUCCESS_PARAM = 'premium_success'; // valeur attendue au retour : 'croissant' ou 'pleinelune'
+
+/* ============================================================
+   BACKEND — vérification du palier par e-mail
+   Colle ici l'URL de ton Worker une fois déployé (voir backend/README.md).
+   Tant que c'est vide, l'app reste 100% locale : le déblocage après
+   Stripe fonctionne toujours (optimiste), mais rien ne confirme le
+   paiement côté serveur ni ne permet de retrouver l'accès sur un
+   autre appareil.
+============================================================ */
+var BACKEND_STATUS_URL = ''; // ex: 'https://astral-backend.tonsubdomaine.workers.dev'
 
 /* ============================================================
    STOCKAGE LOCAL
@@ -1137,6 +1316,7 @@ function completeOnboarding(){
     place: place,
     tier: 'free',
     tierSource: null,
+    email: null,
     createdAt: new Date().toISOString()
   };
   saveProfile(profile);
@@ -1204,6 +1384,7 @@ function renderHome(){
 
   renderUpsellHook(profile, tier);
   renderDailyExtras(daily, tier);
+  renderFeatureTeasers(tier);
   renderThemeTab(profile, daily, tier);
   renderJournalTab(tier);
 }
@@ -1368,21 +1549,36 @@ document.getElementById('compat-check-btn').addEventListener('click', function()
 /* ============================================================
    NAVIGATION TABS
 ============================================================ */
+function switchToTab(tab){
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.switchTab===tab); });
+  document.querySelectorAll('.tab-content').forEach(function(c){ c.classList.toggle('active', c.dataset.tab===tab); });
+}
 document.querySelectorAll('[data-switch-tab]').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var tab = this.dataset.switchTab;
-    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.toggle('active', b===btn); });
-    document.querySelectorAll('.tab-content').forEach(function(c){ c.classList.toggle('active', c.dataset.tab===tab); });
-  });
+  btn.addEventListener('click', function(){ switchToTab(this.dataset.switchTab); });
 });
 
 /* ============================================================
    PAYWALL
 ============================================================ */
-function openPaywall(){ document.getElementById('paywall').classList.add('open'); }
+function isValidEmail(s){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((s || '').trim());
+}
+
+function openPaywall(){
+  var emailInput = document.getElementById('pw-email');
+  if (state.profile && state.profile.email) emailInput.value = state.profile.email;
+  document.getElementById('pw-note').textContent = BACKEND_STATUS_URL
+    ? "Le paiement est traité par Stripe et vérifié automatiquement par notre serveur — ton e-mail te permet de retrouver ton accès sur n'importe quel appareil."
+    : "Le paiement est traité par Stripe — aucune donnée bancaire ne transite par Astral. Prototype : le déblocage se fait sur cet appareil uniquement, sans vérification serveur.";
+  document.getElementById('paywall').classList.add('open');
+}
 function closePaywall(){ document.getElementById('paywall').classList.remove('open'); }
 document.querySelectorAll('[data-open-paywall]').forEach(function(b){ b.addEventListener('click', openPaywall); });
 document.getElementById('pw-close').addEventListener('click', closePaywall);
+document.getElementById('spread-close').addEventListener('click', function(){
+  document.getElementById('spread-screen').classList.remove('open');
+});
+document.getElementById('spread-redraw').addEventListener('click', drawAndRenderSpread);
 document.querySelectorAll('.plan-btn').forEach(function(btn){
   btn.addEventListener('click', function(){
     var tier = this.dataset.plan;
@@ -1391,11 +1587,71 @@ document.querySelectorAll('.plan-btn').forEach(function(btn){
       showToast("Le paiement Stripe n'est pas encore configuré pour ce plan — voir le README pour l'activer.");
       return;
     }
-    if (state.profile && state.profile.name){
-      var sep = url.indexOf('?') > -1 ? '&' : '?';
-      url += sep + 'client_reference_id=' + encodeURIComponent(state.profile.name);
+    var emailInput = document.getElementById('pw-email');
+    var email = emailInput.value.trim().toLowerCase();
+    if (!isValidEmail(email)){
+      showToast('Renseigne un e-mail valide pour continuer.');
+      emailInput.focus();
+      return;
+    }
+    state.profile.email = email;
+    saveProfile(state.profile);
+
+    var sep = url.indexOf('?') > -1 ? '&' : '?';
+    url += sep + 'prefilled_email=' + encodeURIComponent(email);
+    if (state.profile.name){
+      url += '&client_reference_id=' + encodeURIComponent(state.profile.name);
     }
     window.location.href = url;
+  });
+});
+
+/* ============================================================
+   SYNCHRONISATION DU PALIER DEPUIS LE BACKEND
+============================================================ */
+function syncTierFromBackend(email, silent){
+  if (!BACKEND_STATUS_URL || !email) return Promise.resolve(null);
+  return fetch(BACKEND_STATUS_URL + '/status?email=' + encodeURIComponent(email))
+    .then(function(res){ return res.ok ? res.json() : null; })
+    .then(function(data){
+      if (!data || !data.tier) return null;
+      var changed = state.profile.tier !== data.tier;
+      state.profile.tier = data.tier;
+      state.profile.tierSource = data.tier === 'free' ? null : 'stripe';
+      state.profile.email = email;
+      saveProfile(state.profile);
+      if (changed) renderHome();
+      return data.tier;
+    })
+    .catch(function(){ return null; });
+}
+
+document.getElementById('restore-access-btn').addEventListener('click', function(){
+  document.getElementById('restore-access-form').classList.toggle('hidden');
+});
+document.getElementById('restore-access-submit').addEventListener('click', function(){
+  if (!BACKEND_STATUS_URL){
+    showToast("La vérification serveur n'est pas encore configurée — voir le README.");
+    return;
+  }
+  var input = document.getElementById('restore-email');
+  var email = input.value.trim().toLowerCase();
+  if (!isValidEmail(email)){
+    showToast('Renseigne un e-mail valide.');
+    input.focus();
+    return;
+  }
+  showToast('Vérification en cours…');
+  syncTierFromBackend(email).then(function(tier){
+    if (tier && tier !== 'free'){
+      showToast('Accès restauré : '+(TIER_LABELS[tier] || tier)+'.');
+      document.getElementById('restore-access-form').classList.add('hidden');
+      openSettings();
+    } else if (tier === 'free'){
+      showToast("Aucun abonnement payant trouvé pour cet e-mail.");
+    } else {
+      showToast("Impossible de vérifier pour l'instant — réessaie dans un instant.");
+    }
   });
 });
 
@@ -1514,6 +1770,14 @@ function init(){
     document.getElementById('home').classList.add('active');
     renderHome();
     if (stripeTier) showToast('Paiement confirmé — '+TIER_LABELS[stripeTier]+' activé, merci 🌙');
+    // Pas de sync immédiate juste après un retour Stripe : le webhook
+    // peut prendre quelques secondes à arriver, on ne veut pas
+    // écraser le déblocage optimiste par un "free" temporaire.
+    // Sur les visites suivantes, on reconfirme silencieusement le
+    // palier auprès du backend (renouvellements, résiliations...).
+    if (!stripeTier && state.profile.email && state.profile.tierSource !== 'demo'){
+      syncTierFromBackend(state.profile.email);
+    }
   } else {
     document.getElementById('onboarding').classList.add('active');
     goToStep(1);

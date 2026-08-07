@@ -1,10 +1,10 @@
-# Astral — Prototype Horoscope & Tarot
+# Astral — Horoscope & Tarot
 
-Prototype de PWA mobile-first : horoscope personnalisé + carte de tarot du jour, avec une direction artistique dédiée (fond noir profond, dégradés violet/or/rose mauve, typographie Playfair Display + Manrope).
+PWA mobile-first : horoscope personnalisé + carte de tarot du jour, avec une direction artistique dédiée (fond noir profond, dégradés violet/or/rose mauve, typographie Playfair Display + Manrope). Deux paliers payants avec paiement Stripe réel et vérification côté serveur.
 
-## Lancer le prototype
+## Lancer l'app
 
-Aucune dépendance ni build : c'est du HTML/CSS/JS statique.
+Le frontend reste sans dépendance ni build : c'est du HTML/CSS/JS statique.
 
 ```bash
 cd horoscope-tarot
@@ -12,7 +12,7 @@ python3 -m http.server 8080
 # puis ouvrir http://localhost:8080 sur mobile ou en réduisant la fenêtre du navigateur
 ```
 
-Le manifest + service worker rendent l'app installable (PWA) une fois servie en HTTP(S).
+Le manifest + service worker rendent l'app installable (PWA) une fois servie en HTTP(S). Le backend (vérification des paiements) est un projet séparé dans [`../backend/`](../backend/README.md), à déployer une fois — voir la section [Backend](#backend--vérification-des-paiements) plus bas.
 
 ## Ce que couvre le prototype
 
@@ -21,15 +21,16 @@ Le manifest + service worker rendent l'app installable (PWA) une fois servie en 
 - **Horoscope du jour** basé sur le signe solaire réel (calculé à partir de la date de naissance). La version gratuite reste courte et se termine sur une relance précise (« ta Lune est en X, ça change la lecture de cette journée ») plutôt qu'un texte complet — l'objectif est de donner envie de débloquer la suite, pas de tout donner d'entrée.
 - **Énergie du jour** : couleur, pierre et chiffre du jour (universels, calés sur la date), plus une **carte conseil** bonus tirée en plus de la carte du jour — réservés à Croissant.
 - **Affinités** : un nouvel onglet pour comparer son thème à celui d'un proche (sélection de son signe, score de compatibilité par éléments astrologiques + analyse). Le score est toujours visible ; l'analyse est réservée à Croissant, le détail (Amour / Communication / Point de vigilance) à Pleine Lune.
-- **Deux paliers payants** au lieu d'un seul, pour donner une vraie trajectoire d'upsell :
+- **Deux paliers payants**, pour une vraie trajectoire d'upsell :
   - **🌘 Croissant — 3,99 €/mois** : thème natal complet (Soleil, Lune, Ascendant), carte conseil quotidienne, énergie du jour, 7 derniers jours de journal, aperçu des affinités.
-  - **🌕 Pleine Lune — 6,99 €/mois** : tout Croissant + tirages Amour / Carrière / Croix celtique (listés, pas encore implémentés — hors périmètre du prototype, voir plus bas), affinités illimitées et détaillées, historique complet, notification du matin.
-- **Paiement réel via Stripe**, un lien par plan : chaque bouton « Choisir... » redirige vers une page de paiement Stripe hébergée (carte bancaire, Apple Pay, Google Pay), sans qu'aucune donnée bancaire ni clé secrète ne transite par le code de l'app. Voir [Paiement — configurer Stripe](#paiement--configurer-stripe) ci-dessous pour l'activer.
-- **Compte minimal** : profil (prénom, naissance, palier) persistant en `localStorage`, réinitialisable depuis les réglages.
+  - **🌕 Pleine Lune — 6,99 €/mois** : tout Croissant + les trois tirages avancés (ci-dessous), affinités illimitées et détaillées, historique complet. La notification du matin reste listée comme « bientôt » — elle n'est pas construite (notifications push hors périmètre, voir Prochaines étapes).
+- **Trois tirages avancés** (Pleine Lune) : Tirage Amour et Tirage Carrière (3 cartes, positions dédiées — *Toi / L'autre / Ce qui vous lie*, etc.), Croix Celtique (10 cartes, regroupées en « La Croix » et « Le Bâton » selon la disposition traditionnelle). Réutilisent le même moteur de cartes que la carte du jour (mêmes 78 cartes, mêmes illustrations) ; tirage à la demande et illimité, pas de cache journalier comme la carte du jour.
+- **Paiement réel via Stripe**, un lien par plan, **vérifié côté serveur** : chaque bouton « Choisir... » redirige vers une page de paiement Stripe hébergée (carte bancaire, Apple Pay, Google Pay). Un e-mail est demandé au moment de payer — il permet de retrouver son accès sur n'importe quel appareil via « Restaurer mon accès » dans les réglages, en interrogeant le backend (voir plus bas). Voir [Paiement — configurer Stripe](#paiement--configurer-stripe) ci-dessous pour brancher tes propres liens.
+- **Compte minimal** : profil (prénom, naissance, palier, e-mail) persistant en `localStorage` côté appareil, et `email → palier` persistant côté serveur (backend) pour survivre à un changement d'appareil. Réinitialisable depuis les réglages.
 
 ## Approximation du thème natal
 
-Ce prototype n'embarque pas de moteur d'éphémérides. Pour rester 100 % statique (pas de backend), il utilise :
+Le calcul du thème natal reste entièrement fait côté client (le backend ne sert qu'à la vérification des paiements, pas à l'astrologie) : pas de moteur d'éphémérides embarqué, pour rester simple et sans dépendance externe. Il utilise :
 
 - **Signe solaire** : calcul exact à partir des dates de début/fin de chaque signe.
 - **Signe lunaire** : approximation par cycle fixe (~2,28 jours/signe) à partir d'une date de référence — donne une valeur stable et plausible, pas une position astronomique réelle.
@@ -81,14 +82,18 @@ et colle chaque URL de Payment Link au bon endroit. Tant qu'une valeur reste vid
 ### Ce qui est réellement sécurisé, et ce qui ne l'est pas (important)
 
 - ✅ **Le paiement lui-même est réel et sûr** : la page de paiement est hébergée par Stripe (conforme PCI-DSS), aucune donnée bancaire ni clé secrète Stripe ne touche jamais ce dépôt de code, qui est public.
-- ⚠️ **Le déblocage du palier après paiement n'est pas vérifié côté serveur.** L'app est volontairement restée 100 % statique (pas de backend) à ce stade du prototype : au retour de Stripe, elle active le palier localement (`localStorage`) simplement parce que l'URL contient `?premium_success=croissant` (ou `pleinelune`), sans appeler l'API Stripe pour confirmer que ce paiement a réellement eu lieu. Un utilisateur technique pourrait donc taper cette URL directement dans son navigateur et débloquer un palier sans payer, sur son propre appareil. Ce compromis a été choisi consciemment pour ce prototype ; **avant une vraie mise en production**, il faudra ajouter un petit backend (ex. une fonction serverless) qui reçoit les [webhooks Stripe](https://stripe.com/docs/webhooks) (`checkout.session.completed`), vérifie la signature, identifie le produit acheté, et enregistre le statut côté serveur plutôt que dans le `localStorage` du client.
-- Les boutons « Activer Croissant / Pleine Lune (démo) » (utiles pour montrer l'interface débloquée sans payer) n'apparaissent plus sur l'écran de paiement — ils restent accessibles uniquement dans les réglages, et seulement en mode développeur (ouvrir l'app une fois avec `?dev=1` dans l'URL pour l'activer sur cet appareil). C'est une simple discrétion d'interface, pas une vraie barrière de sécurité : comme tout le contrôle du palier vit côté client, un utilisateur qui inspecte le code peut techniquement l'activer lui-même, quelle que soit l'interface. Là encore, un backend est la seule vraie solution.
+- ✅ **Le déblocage du palier est vérifiable côté serveur**, une fois le backend déployé (voir [Backend](#backend--vérification-des-paiements) ci-dessous) : Stripe notifie le backend par webhook à chaque paiement/résiliation, qui enregistre `email → palier`. L'app confirme systématiquement le palier auprès du backend (au chargement, et via « Restaurer mon accès »), pas seulement au retour immédiat de Stripe.
+- ⚠️ **Tant que le backend n'est pas déployé** (`BACKEND_STATUS_URL` vide dans `index.html`), l'app reste dans son comportement précédent : au retour de Stripe, elle active le palier localement (`localStorage`) simplement parce que l'URL contient `?premium_success=croissant` (ou `pleinelune`), sans confirmation serveur. Un utilisateur technique pourrait alors taper cette URL lui-même pour débloquer un palier sans payer, sur son propre appareil. Déployer le backend (5 commandes, voir son README) ferme cette porte.
+- Les boutons « Activer Croissant / Pleine Lune (démo) » (utiles pour montrer l'interface débloquée sans payer) n'apparaissent pas sur l'écran de paiement — ils restent accessibles uniquement dans les réglages, et seulement en mode développeur (ouvrir l'app une fois avec `?dev=1` dans l'URL pour l'activer sur cet appareil).
 
-## Prochaines étapes (hors périmètre de ce prototype)
+## Backend — vérification des paiements
 
-- Backend léger (fonction serverless) pour vérifier les paiements Stripe via webhook et rendre le déblocage de palier infalsifiable.
-- Notifications push.
+Un [Cloudflare Worker](../backend/) reçoit les webhooks Stripe et répond « quel est le palier de cet e-mail ? » — sans lui, l'app fonctionne mais reste dans le mode « optimiste » décrit ci-dessus. Marche à suivre complète (compte Cloudflare, déploiement, webhook Stripe) dans [`backend/README.md`](../backend/README.md). Une fois déployé, colle l'URL du Worker dans `BACKEND_STATUS_URL` en tout début de balise `<script>` de `index.html`.
+
+## Prochaines étapes (hors périmètre actuel)
+
+- Notifications push (matin).
 - Version native iOS/Android.
-- Implémentation réelle des tirages avancés (amour, carrière, croix celtique à 10 cartes) — actuellement listés comme inclus dans Pleine Lune mais pas encore construits.
 - Géocodage du lieu de naissance (actuellement affiché mais non utilisé dans le calcul).
-- Comptes multi-appareils (le prototype est mono-appareil, `localStorage`).
+- Portail client pour changer de palier ou se désabonner en libre-service (aujourd'hui : résilier puis re-souscrire à l'autre lien).
+- Moteur d'éphémérides réel (voir [Approximation du thème natal](#approximation-du-thème-natal)).

@@ -1,5 +1,5 @@
 # sl-agence
 
-## Prototype — Astral (Horoscope & Tarot)
+## Astral — Horoscope & Tarot
 
-Prototype de PWA quotidienne « horoscope & tarot » vivant dans [`horoscope-tarot/`](horoscope-tarot/). Voir le README du dossier pour le détail des fonctionnalités et des choix techniques.
+Application quotidienne « horoscope & tarot » vivant dans [`horoscope-tarot/`](horoscope-tarot/) (frontend, PWA statique) et [`backend/`](backend/) (Cloudflare Worker : vérification des paiements Stripe). Voir le README de chaque dossier pour le détail des fonctionnalités, des choix techniques et du déploiement.
