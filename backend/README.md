@@ -4,24 +4,28 @@ Rôle unique de ce backend : savoir, de façon fiable et indépendante du naviga
 
 Construit directement dans le compte Make de SL Agence (`My Team`, org `SL Agence`) — **pas de code à déployer**, tout vit dans Make (data store + scénarios). Ce README documente ce qui existe et comment le maintenir.
 
-## Ce qui existe déjà, en ligne
+## État : entièrement construit et testé en direct
 
 - **Data store `Astral - Abonnements`** (id `159221`) — une ligne par client : clé = e-mail, champs `tier` (`free` / `croissant` / `pleinelune`), `stripeCustomerId`, `updatedAt`.
-- **Webhook `Astral - Vérifier accès (status)`** (id `3512904`) — `https://hook.eu1.make.com/mzdre32o4kmflpiroykglrd603ij6oq4`. Appelé par l'app (au chargement, et depuis "Restaurer mon accès") avec `?email=...`, répond `{"tier":"..."}`. Déjà branché dans `horoscope-tarot/index.html` (`BACKEND_STATUS_URL`).
-- **Scénario `Astral - Vérifier accès`** (id `6864133`, actif) — Webhook ci-dessus → lit le data store par e-mail → répond en JSON. Testé en direct (`curl`), fonctionne.
+- **Scénario `Astral - Vérifier accès`** (id `6864133`, actif) — webhook `https://hook.eu1.make.com/mzdre32o4kmflpiroykglrd603ij6oq4?email=...` → lit le data store → répond `{"tier":"..."}`. Déjà branché dans `horoscope-tarot/index.html` (`BACKEND_STATUS_URL`).
+- **Scénario `Astral - Paiements Stripe`** (id `6864266`, actif) — webhook dédié qui reçoit les événements Stripe, vérifie un jeton secret dans l'URL (voir plus bas), détermine le plan selon le montant payé (399 → Croissant, 699 → Pleine Lune) et écrit `email → tier` dans le data store ; sur résiliation (`customer.subscription.deleted`), retrouve le client par `stripeCustomerId` et repasse son palier à `free`.
 
-## Ce qu'il reste à construire : `Astral - Paiements Stripe`
+Testé en conditions réelles (requêtes HTTP simulant Stripe) : paiement Croissant, paiement Pleine Lune, résiliation, et tentative avec un jeton invalide (correctement rejetée, aucun accès accordé). Les quatre cas se comportent comme attendu.
 
-Ce scénario doit : recevoir les événements Stripe (paiement réussi, résiliation), déterminer le plan selon le montant payé (399 = Croissant, 699 = Pleine Lune), et écrire `email → tier` dans le data store `Astral - Abonnements`.
+## Pourquoi pas une vraie vérification de signature Stripe
 
-**Le seul geste qui ne peut être automatisé** : connecter ton compte Stripe à Make (ça demande tes identifiants Stripe, qui ne doivent passer que par la fenêtre de connexion sécurisée de Make — jamais ailleurs). Une fois cette connexion créée, le reste (récupération des événements, écriture dans le data store) est repris en charge sans autre action de ta part.
+Make n'a pas de fonction HMAC-SHA256 native accessible sans code, et connecter Stripe *à* Make (pour utiliser son intégration native, qui vérifie la signature automatiquement) demande de coller une clé API Stripe dans la fenêtre de connexion de Make — un geste qui doit rester entièrement à la charge du propriétaire du compte. Le compromis retenu : un jeton secret dans l'URL du webhook, vérifié par un filtre avant toute écriture dans la base. Ce n'est pas aussi robuste qu'une signature cryptographique, mais tant que l'URL complète (avec le jeton) reste privée, c'est une protection réelle — et ça ne demande qu'un copier-coller dans Stripe, sans jamais donner accès au compte Stripe lui-même à quoi que ce soit d'externe.
 
-### Ce que tu as à faire (une seule fois)
+## Le seul geste restant : déclarer le webhook côté Stripe
 
-1. Dans Make, ouvre **Scénarios → Créer un nouveau scénario**.
-2. Cherche l'app **Stripe**, choisis le module **"Watch Events"**.
-3. Sur le champ Connexion, clique **"Ajouter"**, connecte ton compte Stripe (clé API ou connexion Stripe).
-4. Tu peux t'arrêter là et enregistrer le scénario tel quel (pas besoin de choisir les événements ni de configurer la suite) — dis-le moi, je termine le reste (filtre sur les événements, écriture dans le data store, activation) directement.
+Aucune connexion à créer dans Make. Juste, dans le dashboard Stripe :
+
+1. **Développeurs → Webhooks → Ajouter un endpoint**
+2. URL : *(donnée séparément — jamais commitée ici, voir la conversation)*
+3. Événements à écouter : `checkout.session.completed` et `customer.subscription.deleted`
+4. Enregistrer.
+
+C'est tout — dès le premier vrai paiement, le data store se met à jour automatiquement.
 
 ## Limites connues (volontairement hors périmètre de cette v1)
 

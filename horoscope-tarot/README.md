@@ -12,7 +12,7 @@ python3 -m http.server 8080
 # puis ouvrir http://localhost:8080 sur mobile ou en réduisant la fenêtre du navigateur
 ```
 
-Le manifest + service worker rendent l'app installable (PWA) une fois servie en HTTP(S). Le backend (vérification des paiements) est un projet séparé dans [`../backend/`](../backend/README.md), à déployer une fois — voir la section [Backend](#backend--vérification-des-paiements) plus bas.
+Le manifest + service worker rendent l'app installable (PWA) une fois servie en HTTP(S). Le backend (vérification des paiements) vit dans le compte Make de l'agence — voir la section [Backend](#backend--vérification-des-paiements) plus bas pour l'état exact.
 
 ## Ce que couvre le prototype
 
@@ -82,13 +82,12 @@ et colle chaque URL de Payment Link au bon endroit. Tant qu'une valeur reste vid
 ### Ce qui est réellement sécurisé, et ce qui ne l'est pas (important)
 
 - ✅ **Le paiement lui-même est réel et sûr** : la page de paiement est hébergée par Stripe (conforme PCI-DSS), aucune donnée bancaire ni clé secrète Stripe ne touche jamais ce dépôt de code, qui est public.
-- ✅ **Le déblocage du palier est vérifiable côté serveur**, une fois le backend déployé (voir [Backend](#backend--vérification-des-paiements) ci-dessous) : Stripe notifie le backend par webhook à chaque paiement/résiliation, qui enregistre `email → palier`. L'app confirme systématiquement le palier auprès du backend (au chargement, et via « Restaurer mon accès »), pas seulement au retour immédiat de Stripe.
-- ⚠️ **Tant que le backend n'est pas déployé** (`BACKEND_STATUS_URL` vide dans `index.html`), l'app reste dans son comportement précédent : au retour de Stripe, elle active le palier localement (`localStorage`) simplement parce que l'URL contient `?premium_success=croissant` (ou `pleinelune`), sans confirmation serveur. Un utilisateur technique pourrait alors taper cette URL lui-même pour débloquer un palier sans payer, sur son propre appareil. Déployer le backend (5 commandes, voir son README) ferme cette porte.
+- ✅ **Le déblocage du palier est vérifié côté serveur.** Le backend (Make) reçoit chaque paiement/résiliation Stripe par webhook et enregistre `email → palier` ; l'app confirme systématiquement le palier auprès de lui (au chargement, et via « Restaurer mon accès »), pas seulement au retour immédiat de Stripe. Testé en conditions réelles : paiement Croissant, paiement Pleine Lune, résiliation, et tentative non autorisée correctement rejetée — voir [`backend/README.md`](../backend/README.md) pour le détail.
 - Les boutons « Activer Croissant / Pleine Lune (démo) » (utiles pour montrer l'interface débloquée sans payer) n'apparaissent pas sur l'écran de paiement — ils restent accessibles uniquement dans les réglages, et seulement en mode développeur (ouvrir l'app une fois avec `?dev=1` dans l'URL pour l'activer sur cet appareil).
 
 ## Backend — vérification des paiements
 
-Le backend vit directement dans le compte [Make](../backend/) de SL Agence (data store + scénarios, pas de code à déployer). La vérification du palier par e-mail (`BACKEND_STATUS_URL`) est déjà en ligne et branchée ; il reste à finir la réception des paiements Stripe côté Make — voir [`backend/README.md`](../backend/README.md) pour l'état exact et ce qu'il reste à faire.
+Le backend vit directement dans le compte [Make](../backend/) de SL Agence (data store + deux scénarios, pas de code à déployer) — construit et testé en direct. Reste une seule déclaration à faire côté dashboard Stripe (coller une URL, cocher deux événements) pour que les vrais paiements l'alimentent — voir [`backend/README.md`](../backend/README.md).
 
 ## Prochaines étapes (hors périmètre actuel)
 
