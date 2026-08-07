@@ -18,10 +18,14 @@ Le manifest + service worker rendent l'app installable (PWA) une fois servie en 
 
 - **Onboarding** en 5 étapes (prénom, date, heure avec option « je ne sais pas », lieu de naissance).
 - **Écran du jour** : carte de tarot tirée parmi les 78 (22 arcanes majeurs + 56 mineurs), stable pour la journée (mise en cache dans `localStorage`, régénérée chaque nouveau jour calendaire), avec animation de retournement et effet de scintillement au toucher. Chaque carte a sa propre illustration générée (glyphe + constellation procédurale + dégradé), dans une esthétique ligne fine / céleste, sans clipart.
-- **Horoscope du jour** basé sur le signe solaire réel (calculé à partir de la date de naissance), avec version courte gratuite et rapport complet Premium (Soleil + Lune + Ascendant + modalité astrologique).
-- **Distinction gratuit / Premium** explicite : placements du thème floutés et verrouillés, tirages avancés listés avec cadenas, historique (« Journal ») réservé à Premium.
-- **Paiement réel via Stripe** (6,99 €/mois) : le bouton « S'abonner » redirige vers une page de paiement Stripe hébergée (carte bancaire, Apple Pay, Google Pay), sans qu'aucune donnée bancaire ni clé secrète ne transite par le code de l'app. Voir [Paiement — configurer Stripe](#paiement--configurer-stripe) ci-dessous pour l'activer.
-- **Compte minimal** : profil (prénom, naissance, statut premium) persistant en `localStorage`, réinitialisable depuis les réglages.
+- **Horoscope du jour** basé sur le signe solaire réel (calculé à partir de la date de naissance). La version gratuite reste courte et se termine sur une relance précise (« ta Lune est en X, ça change la lecture de cette journée ») plutôt qu'un texte complet — l'objectif est de donner envie de débloquer la suite, pas de tout donner d'entrée.
+- **Énergie du jour** : couleur, pierre et chiffre du jour (universels, calés sur la date), plus une **carte conseil** bonus tirée en plus de la carte du jour — réservés à Croissant.
+- **Affinités** : un nouvel onglet pour comparer son thème à celui d'un proche (sélection de son signe, score de compatibilité par éléments astrologiques + analyse). Le score est toujours visible ; l'analyse est réservée à Croissant, le détail (Amour / Communication / Point de vigilance) à Pleine Lune.
+- **Deux paliers payants** au lieu d'un seul, pour donner une vraie trajectoire d'upsell :
+  - **🌘 Croissant — 3,99 €/mois** : thème natal complet (Soleil, Lune, Ascendant), carte conseil quotidienne, énergie du jour, 7 derniers jours de journal, aperçu des affinités.
+  - **🌕 Pleine Lune — 6,99 €/mois** : tout Croissant + tirages Amour / Carrière / Croix celtique (listés, pas encore implémentés — hors périmètre du prototype, voir plus bas), affinités illimitées et détaillées, historique complet, notification du matin.
+- **Paiement réel via Stripe**, un lien par plan : chaque bouton « Choisir... » redirige vers une page de paiement Stripe hébergée (carte bancaire, Apple Pay, Google Pay), sans qu'aucune donnée bancaire ni clé secrète ne transite par le code de l'app. Voir [Paiement — configurer Stripe](#paiement--configurer-stripe) ci-dessous pour l'activer.
+- **Compte minimal** : profil (prénom, naissance, palier) persistant en `localStorage`, réinitialisable depuis les réglages.
 
 ## Approximation du thème natal
 
@@ -39,44 +43,52 @@ Les textes sont composés (pas copiés-collés statiques) à partir de banques d
 
 ## Paiement — configurer Stripe
 
-Le prototype est câblé pour rediriger vers un **Stripe Payment Link** : une page de paiement créée et hébergée par Stripe, sans écrire une ligne de backend. Tu n'as besoin de coller qu'une URL publique dans le code — jamais de clé secrète.
+Le prototype est câblé pour rediriger vers deux **Stripe Payment Links** (un par plan) : des pages de paiement créées et hébergées par Stripe, sans écrire une ligne de backend. Tu n'as besoin de coller que deux URLs publiques dans le code — jamais de clé secrète.
 
-### 1. Créer le compte et le produit
+### 1. Créer le compte et les deux produits
 
 1. Crée un compte sur [dashboard.stripe.com](https://dashboard.stripe.com) (ou connecte-toi si tu en as déjà un).
-2. Dans **Produits**, crée un produit « Astral Premium » avec un prix récurrent de 6,99 € / mois.
+2. Dans **Produits**, crée deux produits avec un prix récurrent chacun :
+   - « Astral Croissant » — 3,99 € / mois
+   - « Astral Pleine Lune » — 6,99 € / mois
 3. Reste en **mode test** pour les essais (bascule visible en haut du dashboard) — tu passeras en mode live une fois prête à encaisser réellement, avec des cartes de test Stripe (`4242 4242 4242 4242`, n'importe quelle date future, n'importe quel CVC).
 
-### 2. Créer le Payment Link
+### 2. Créer les deux Payment Links
 
-1. Dans **Paiements → Payment Links**, crée un nouveau lien à partir du produit ci-dessus.
-2. Dans les options du lien, section **Après le paiement** : choisis « Rediriger les clients vers votre site » et renseigne :
+Pour **chacun** des deux produits :
+
+1. Dans **Paiements → Payment Links**, crée un nouveau lien à partir du produit.
+2. Dans les options du lien, section **Après le paiement** : choisis « Rediriger les clients vers votre site » et renseigne (en remplaçant `TIER` par `croissant` ou `pleinelune` selon le lien que tu crées) :
    ```
-   https://slagence.fr/horoscope-tarot/index.html?premium_success=1
+   https://slagence.fr/horoscope-tarot/index.html?premium_success=TIER
    ```
-   (adapte le domaine/chemin si l'app est hébergée ailleurs — l'important est de garder `?premium_success=1` à la fin, c'est ce que l'app détecte à son retour pour débloquer Premium).
+   (adapte le domaine/chemin si l'app est hébergée ailleurs — l'important est de garder `?premium_success=croissant` ou `?premium_success=pleinelune` à la fin, c'est ce que l'app détecte à son retour pour savoir quel plan débloquer).
 3. Copie l'URL du Payment Link généré (ex. `https://buy.stripe.com/xxxxxxxxxxxx`).
 
-### 3. Brancher l'URL dans le code
+### 3. Brancher les URLs dans le code
 
-Dans `index.html`, cherche la constante en tout début de balise `<script>` :
+Dans `index.html`, cherche l'objet en tout début de balise `<script>` :
 
 ```js
-var STRIPE_PAYMENT_LINK_URL = ''; // ex: 'https://buy.stripe.com/xxxxxxxxxxxx'
+var STRIPE_LINKS = {
+  croissant: '',  // ex: 'https://buy.stripe.com/xxxxxxxxxxxx' (Croissant, 3,99€/mois)
+  pleinelune: ''  // ex: 'https://buy.stripe.com/yyyyyyyyyyyy' (Pleine Lune, 6,99€/mois)
+};
 ```
 
-et colle ton URL de Payment Link entre les guillemets. Tant que cette valeur reste vide, le bouton « S'abonner » affiche un message au lieu de rediriger vers une URL invalide — utile pendant le développement.
+et colle chaque URL de Payment Link au bon endroit. Tant qu'une valeur reste vide, son bouton « Choisir... » affiche un message au lieu de rediriger vers une URL invalide — utile pendant le développement.
 
 ### Ce qui est réellement sécurisé, et ce qui ne l'est pas (important)
 
 - ✅ **Le paiement lui-même est réel et sûr** : la page de paiement est hébergée par Stripe (conforme PCI-DSS), aucune donnée bancaire ni clé secrète Stripe ne touche jamais ce dépôt de code, qui est public.
-- ⚠️ **Le déblocage de Premium après paiement n'est pas vérifié côté serveur.** L'app est volontairement restée 100 % statique (pas de backend) à ce stade du prototype : au retour de Stripe, elle active Premium localement (`localStorage`) simplement parce que l'URL contient `?premium_success=1`, sans appeler l'API Stripe pour confirmer que ce paiement a réellement eu lieu. Un utilisateur technique pourrait donc taper cette URL directement dans son navigateur et débloquer Premium sans payer, sur son propre appareil. Ce compromis a été choisi consciemment pour ce prototype ; **avant une vraie mise en production**, il faudra ajouter un petit backend (ex. une fonction serverless) qui reçoit les [webhooks Stripe](https://stripe.com/docs/webhooks) (`checkout.session.completed`), vérifie la signature, et enregistre le statut Premium côté serveur plutôt que dans le `localStorage` du client.
-- Le bouton « Activer Premium (démo) » (utile pour montrer l'interface Premium sans payer) n'apparaît plus sur l'écran de paiement — il reste accessible uniquement dans les réglages, et seulement en mode développeur (ouvrir l'app une fois avec `?dev=1` dans l'URL pour l'activer sur cet appareil). C'est une simple discrétion d'interface, pas une vraie barrière de sécurité : comme tout le contrôle Premium vit côté client, un utilisateur qui inspecte le code peut techniquement l'activer lui-même, quelle que soit l'interface. Là encore, un backend est la seule vraie solution.
+- ⚠️ **Le déblocage du palier après paiement n'est pas vérifié côté serveur.** L'app est volontairement restée 100 % statique (pas de backend) à ce stade du prototype : au retour de Stripe, elle active le palier localement (`localStorage`) simplement parce que l'URL contient `?premium_success=croissant` (ou `pleinelune`), sans appeler l'API Stripe pour confirmer que ce paiement a réellement eu lieu. Un utilisateur technique pourrait donc taper cette URL directement dans son navigateur et débloquer un palier sans payer, sur son propre appareil. Ce compromis a été choisi consciemment pour ce prototype ; **avant une vraie mise en production**, il faudra ajouter un petit backend (ex. une fonction serverless) qui reçoit les [webhooks Stripe](https://stripe.com/docs/webhooks) (`checkout.session.completed`), vérifie la signature, identifie le produit acheté, et enregistre le statut côté serveur plutôt que dans le `localStorage` du client.
+- Les boutons « Activer Croissant / Pleine Lune (démo) » (utiles pour montrer l'interface débloquée sans payer) n'apparaissent plus sur l'écran de paiement — ils restent accessibles uniquement dans les réglages, et seulement en mode développeur (ouvrir l'app une fois avec `?dev=1` dans l'URL pour l'activer sur cet appareil). C'est une simple discrétion d'interface, pas une vraie barrière de sécurité : comme tout le contrôle du palier vit côté client, un utilisateur qui inspecte le code peut techniquement l'activer lui-même, quelle que soit l'interface. Là encore, un backend est la seule vraie solution.
 
 ## Prochaines étapes (hors périmètre de ce prototype)
 
-- Backend léger (fonction serverless) pour vérifier les paiements Stripe via webhook et rendre le déblocage Premium infalsifiable.
+- Backend léger (fonction serverless) pour vérifier les paiements Stripe via webhook et rendre le déblocage de palier infalsifiable.
 - Notifications push.
 - Version native iOS/Android.
-- Tirages avancés (amour, carrière, croix celtique à 10 cartes) et géocodage du lieu de naissance.
+- Implémentation réelle des tirages avancés (amour, carrière, croix celtique à 10 cartes) — actuellement listés comme inclus dans Pleine Lune mais pas encore construits.
+- Géocodage du lieu de naissance (actuellement affiché mais non utilisé dans le calcul).
 - Comptes multi-appareils (le prototype est mono-appareil, `localStorage`).
