@@ -310,6 +310,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
 .toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);background:#181022;border:1px solid rgba(var(--gold-rgb),0.35);color:var(--text);font-size:13px;padding:13px 20px;border-radius:100px;box-shadow:0 14px 34px -10px rgba(0,0,0,0.7);opacity:0;pointer-events:none;transition:opacity 0.35s,transform 0.35s;z-index:100;max-width:88%;text-align:center;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
+.consent-bar{position:fixed;left:0;right:0;bottom:0;z-index:110;background:#12091f;border-top:1px solid rgba(var(--gold-rgb),0.25);padding:16px 20px calc(16px + env(safe-area-inset-bottom));display:none;flex-direction:column;gap:12px;box-shadow:0 -14px 34px -10px rgba(0,0,0,0.7);}
+.consent-bar.show{display:flex;}
+.consent-bar p{font-size:12.5px;line-height:1.5;color:rgba(var(--text-rgb),0.8);margin:0;}
+.consent-actions{display:flex;gap:10px;}
+.consent-actions .btn{padding:12px 20px;font-size:12px;}
+
 @media (min-width:600px){
   body{background:radial-gradient(ellipse at 50% 0%,#14102a,var(--bg) 60%);}
 }
@@ -658,6 +664,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;text-wra
 </div>
 
 <div class="toast" id="toast"></div>
+
+<div class="consent-bar" id="consent-bar">
+  <p>Astral utilise un cookie de mesure publicitaire (TikTok) pour savoir quelles pubs fonctionnent. Aucune donnée bancaire ou personnelle n'est concernée.</p>
+  <div class="consent-actions">
+    <button class="btn btn-ghost" id="consent-decline">Refuser</button>
+    <button class="btn btn-gold" id="consent-accept">Accepter</button>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -1128,12 +1142,24 @@ var STRIPE_SUCCESS_PARAM = 'premium_success'; // valeur attendue au retour : 'cr
 var BACKEND_STATUS_URL = 'https://hook.eu1.make.com/mzdre32o4kmflpiroykglrd603ij6oq4';
 
 /* ============================================================
+   PUBLICITÉ — PIXEL TIKTOK (optionnel)
+   Colle ici l'ID de ton pixel (TikTok Ads Manager → Ressources →
+   Évènements → Pixels Web → Créer un pixel → copie l'ID, qui
+   ressemble à "CXXXXXXXXXXXXXXXXXXX"). Voir README pour le détail.
+   Tant que c'est vide : aucun script TikTok n'est chargé, aucun
+   cookie tiers n'est posé, la bannière de consentement ne s'affiche
+   même pas.
+============================================================ */
+var TIKTOK_PIXEL_ID = '';
+
+/* ============================================================
    STOCKAGE LOCAL
 ============================================================ */
 var PROFILE_KEY = 'astral_profile_v1';
 var DAILY_KEY = 'astral_daily_v1';
 var HISTORY_KEY = 'astral_history_v1';
 var DEV_MODE_KEY = 'astral_dev_mode';
+var CONSENT_KEY = 'astral_ad_consent_v1';
 
 function loadProfile(){ try { return JSON.parse(localStorage.getItem(PROFILE_KEY)); } catch(e){ return null; } }
 function saveProfile(p){ localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); }
@@ -1149,6 +1175,53 @@ function todayISO(){
   var d = new Date();
   return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 }
+
+/* ============================================================
+   PIXEL TIKTOK — chargement conditionnel (RGPD)
+   Le script TikTok n'est injecté qu'après consentement explicite,
+   et seulement si TIKTOK_PIXEL_ID est renseigné. ttqTrack() ne fait
+   jamais rien tant que ces deux conditions ne sont pas réunies.
+============================================================ */
+function loadTikTokPixel(){
+  if (!TIKTOK_PIXEL_ID || window.ttq) return;
+  (function (w, d, t) {
+    w.TiktokAnalyticsObject = t;
+    var ttq = w[t] = w[t] || [];
+    ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+    ttq.setAndDefer = function(t, e){ t[e] = function(){ t.push([e].concat(Array.prototype.slice.call(arguments, 0))); }; };
+    for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+    ttq.load = function(e){
+      var url = "https://analytics.tiktok.com/i18n/pixel/events.js";
+      ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = url;
+      ttq._t = ttq._t || {}; ttq._t[e] = +new Date();
+      var s = document.createElement('script');
+      s.type = 'text/javascript'; s.async = true; s.src = url + '?sdkid=' + e + '&lib=' + t;
+      var first = document.getElementsByTagName('script')[0];
+      first.parentNode.insertBefore(s, first);
+    };
+    ttq.load(TIKTOK_PIXEL_ID);
+    ttq.page();
+  })(window, document, 'ttq');
+}
+function ttqTrack(eventName, params){
+  if (window.ttq) ttq.track(eventName, params || {});
+}
+function initAdConsent(){
+  if (!TIKTOK_PIXEL_ID) return;
+  var choice = localStorage.getItem(CONSENT_KEY);
+  if (choice === 'granted'){ loadTikTokPixel(); return; }
+  if (choice === 'denied') return;
+  document.getElementById('consent-bar').classList.add('show');
+}
+document.getElementById('consent-accept').addEventListener('click', function(){
+  localStorage.setItem(CONSENT_KEY, 'granted');
+  document.getElementById('consent-bar').classList.remove('show');
+  loadTikTokPixel();
+});
+document.getElementById('consent-decline').addEventListener('click', function(){
+  localStorage.setItem(CONSENT_KEY, 'denied');
+  document.getElementById('consent-bar').classList.remove('show');
+});
 
 /* ============================================================
    ÉTAT APPLICATION
@@ -1323,6 +1396,7 @@ function completeOnboarding(){
   state.profile = profile;
   localStorage.removeItem(DAILY_KEY);
   localStorage.removeItem(HISTORY_KEY);
+  ttqTrack('CompleteRegistration');
   showHome();
 }
 
@@ -1596,6 +1670,7 @@ document.querySelectorAll('.plan-btn').forEach(function(btn){
     }
     state.profile.email = email;
     saveProfile(state.profile);
+    ttqTrack('InitiateCheckout', {contents:[{content_id: tier, price: TIER_PRICES[tier]}], value: TIER_PRICES[tier], currency: 'EUR'});
 
     var sep = url.indexOf('?') > -1 ? '&' : '?';
     url += sep + 'prefilled_email=' + encodeURIComponent(email);
@@ -1659,6 +1734,7 @@ document.getElementById('restore-access-submit').addEventListener('click', funct
    SETTINGS
 ============================================================ */
 var TIER_LABELS = {free:'Gratuit', croissant:'Croissant', pleinelune:'Pleine Lune'};
+var TIER_PRICES = {croissant:3.99, pleinelune:6.99};
 
 function openSettings(){
   var p = state.profile;
@@ -1751,6 +1827,7 @@ function handleReturnParams(){
     state.profile.tier = successTier;
     state.profile.tierSource = 'stripe';
     saveProfile(state.profile);
+    ttqTrack('CompletePayment', {contents:[{content_id: successTier, price: TIER_PRICES[successTier]}], value: TIER_PRICES[successTier], currency: 'EUR'});
     changed = true;
   }
   if (changed){
@@ -1765,6 +1842,7 @@ function handleReturnParams(){
 function init(){
   buildSky();
   populateCompatSelect();
+  initAdConsent();
   var stripeTier = handleReturnParams();
   if (state.profile && state.profile.name){
     document.getElementById('home').classList.add('active');

@@ -85,6 +85,35 @@ et colle chaque URL de Payment Link au bon endroit. Tant qu'une valeur reste vid
 - ✅ **Le déblocage du palier est vérifié côté serveur.** Le backend (Make) reçoit chaque paiement/résiliation Stripe par webhook et enregistre `email → palier` ; l'app confirme systématiquement le palier auprès de lui (au chargement, et via « Restaurer mon accès »), pas seulement au retour immédiat de Stripe. Testé en conditions réelles : paiement Croissant, paiement Pleine Lune, résiliation, et tentative non autorisée correctement rejetée — voir [`backend/README.md`](../backend/README.md) pour le détail.
 - Les boutons « Activer Croissant / Pleine Lune (démo) » (utiles pour montrer l'interface débloquée sans payer) n'apparaissent pas sur l'écran de paiement — ils restent accessibles uniquement dans les réglages, et seulement en mode développeur (ouvrir l'app une fois avec `?dev=1` dans l'URL pour l'activer sur cet appareil).
 
+## Publicité — pixel TikTok
+
+Pour que TikTok Ads sache quelles pubs amènent de vrais inscrits/clients (et optimise les campagnes en conséquence), l'app peut charger le pixel TikTok — désactivé par défaut.
+
+### 1. Créer le pixel côté TikTok
+
+1. Dans [TikTok Ads Manager](https://ads.tiktok.com), va dans **Ressources → Évènements → Pixels Web → Créer un pixel**.
+2. Choisis la configuration manuelle ("Installer manuellement le code du pixel").
+3. Copie l'**ID du pixel** affiché (une chaîne du type `CXXXXXXXXXXXXXXXXXXX`) — pas besoin du code JavaScript complet, juste cet identifiant.
+
+### 2. Brancher l'ID dans le code
+
+Dans `index.html`, cherche :
+
+```js
+var TIKTOK_PIXEL_ID = '';
+```
+
+et colle l'ID entre les guillemets. Tant que c'est vide, aucun script TikTok n'est chargé et la bannière de consentement ne s'affiche même pas.
+
+### Comment ça marche une fois activé
+
+- Au premier chargement, une **bannière de consentement** apparaît en bas de l'écran (obligatoire pour un tracking publicitaire tiers en France/UE — RGPD). Le pixel ne se charge **qu'après un clic sur "Accepter"** ; en cas de refus, rien n'est chargé, aucun cookie tiers n'est posé. Le choix est mémorisé (pas redemandé à chaque visite).
+- Trois évènements sont envoyés à TikTok une fois le consentement donné, pour permettre l'optimisation des campagnes :
+  - `CompleteRegistration` — à la fin de l'onboarding (quelqu'un a créé son profil).
+  - `InitiateCheckout` — au clic sur "Choisir Croissant/Pleine Lune", juste avant la redirection vers Stripe.
+  - `CompletePayment` — au retour de Stripe après un paiement confirmé.
+- Limite connue : si quelqu'un paie sans avoir encore donné son consentement (ex. premier passage direct sur le paywall via une pub), l'évènement `CompletePayment` n'est pas envoyé — c'est le prix normal d'un tracking conforme RGPD (opt-in avant tout dépôt de cookie tiers), pas un bug.
+
 ## Backend — vérification des paiements
 
 Le backend vit directement dans le compte [Make](../backend/) de SL Agence (data store + deux scénarios, pas de code à déployer) — construit et testé en direct. Reste une seule déclaration à faire côté dashboard Stripe (coller une URL, cocher deux événements) pour que les vrais paiements l'alimentent — voir [`backend/README.md`](../backend/README.md).
