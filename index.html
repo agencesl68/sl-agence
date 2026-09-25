@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Automatisation et logiciel sur mesure à Mulhouse | SL Agence</title>
-<meta name="description" content="Automatisation d'entreprise à Mulhouse et dans le Haut-Rhin : applications métier, bons d'intervention, relances et IA pour TPE et PME. Devis sous 48 h.">
+<meta name="description" content="Automatisation d'entreprise à Mulhouse et dans le Haut-Rhin : applications métier, bons d'intervention, relances et IA pour TPE et PME. Devis sous 24 h.">
 <meta name="theme-color" content="#070907">
 <link rel="canonical" href="https://slagence.fr/">
 
@@ -574,6 +574,12 @@ img{display:block;max-width:100%;height:auto}
 .contact-grid{display:grid;gap:clamp(2.5rem,5vw,5rem);grid-template-columns:1fr}
 @media (min-width:1000px){.contact-grid{grid-template-columns:.9fr 1.1fr}}
 
+.chiffres{margin-top:clamp(3rem,8vh,5rem)}
+.chiffres-intro{font-size:clamp(1.15rem,1rem + .8vw,1.6rem);line-height:1.35;letter-spacing:-.02em;color:var(--blanc);max-width:34ch}
+.chiffres-grille{margin-top:clamp(1.8rem,4vh,2.6rem);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,3rem)}
+.chiffres-grille b{display:block;font-size:clamp(2.2rem,1rem + 4vw,3.8rem);font-weight:500;letter-spacing:-.045em;line-height:1;color:var(--vert-clair)}
+.chiffres-grille span{display:block;margin-top:.7rem;color:var(--texte);font-size:.98rem;line-height:1.4;max-width:22ch}
+@media (max-width:700px){.chiffres-grille{grid-template-columns:1fr}}
 .coord{margin-top:2.5rem;display:grid;gap:1.2rem}
 .coord > div{padding-top:1.2rem;border-top:1px solid var(--filet)}
 .coord .qui{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--vert-clair);margin-bottom:.4rem}
@@ -772,8 +778,8 @@ input:focus,select:focus,textarea:focus{
 
     <div class="hero-bas">
       <p class="lead etape etape-3">
-        Il n'existe pas de logiciel pour votre métier. Nous partons de votre
-        organisation, et nous construisons l'outil qui lui va.
+        Nous supprimons les tâches qui vous font perdre du temps, pour que
+        vous vous concentriez sur votre métier.
       </p>
       <div class="hero-cta etape etape-4">
         <a class="btn btn-plein" href="#contact">Décrire mon besoin</a>
@@ -784,7 +790,7 @@ input:focus,select:focus,textarea:focus{
     <div class="hero-meta etape etape-5">
       <span>Mulhouse, Colmar, Saint-Louis et tout le Haut-Rhin</span>
       <span>Indépendants, TPE, PME, cabinets et associations</span>
-      <span>Devis gratuit — réponse sous 48 h</span>
+      <span>Devis gratuit, réponse sous 24 h</span>
     </div>
   </div>
 </section>
@@ -888,6 +894,15 @@ input:focus,select:focus,textarea:focus{
         <h3>Des réservations qui se classent seules</h3>
         <p>Le convive réserve en ligne et reçoit sa confirmation. Les organisateurs voient les totaux en direct, sans doublon.</p>
       </article>
+    </div>
+
+    <div class="chiffres reveal">
+      <p class="chiffres-intro">Moins de charge administrative pour vous et votre équipe, et du temps retrouvé pour vos clients et vos soirées.</p>
+      <div class="chiffres-grille">
+        <div><b>Jusqu'à 20 h</b><span>récupérées chaque semaine chez un client</span></div>
+        <div><b>7 jours</b><span>pour mettre en place votre premier outil</span></div>
+        <div><b>24 h</b><span>pour recevoir votre devis</span></div>
+      </div>
     </div>
 
   </div>
@@ -1059,7 +1074,7 @@ input:focus,select:focus,textarea:focus{
     <div class="promesses reveal casc">
       <div><b>Devis gratuit</b><span>sans engagement</span></div>
       <div><b>Prix ferme</b><span>annoncé avant de commencer</span></div>
-      <div><b>Réponse sous 48 h</b><span>même pour un simple avis</span></div>
+      <div><b>Réponse sous 24 h</b><span>même pour un simple avis</span></div>
       <div><b>Vos données restent vôtres</b><span>exportables à tout moment</span></div>
     </div>
 
@@ -1073,16 +1088,17 @@ input:focus,select:focus,textarea:focus{
 
       <div class="reveal">
         <p class="pill">08 — Parlons-en</p>
-        <h2 class="titre-l" style="margin-top:1.6rem">Quinze minutes suffisent.</h2>
+        <h2 class="titre-l" style="margin-top:1.6rem">Ce qui vous fait perdre du temps, nous le faisons disparaître.</h2>
         <p class="lead" style="margin-top:1.5rem;max-width:36ch">
-          Un quart d'heure au téléphone, et vous repartez avec un avis clair et une
-          première piste — même si nous ne travaillons pas ensemble ensuite.
+          Quinze minutes au téléphone suffisent : vous repartez avec un avis clair et une
+          première piste, même si nous ne travaillons pas ensemble ensuite.
         </p>
 
         <div class="coord">
           <div><div class="qui">Sacha</div><a href="tel:+33767081943">07 67 08 19 43</a></div>
           <div><div class="qui">Loïc</div><a href="tel:+33601160762">06 01 16 07 62</a></div>
           <div><div class="qui">E-mail</div><a href="mailto:agence.sl.68@gmail.com">agence.sl.68@gmail.com</a></div>
+          <div><div class="qui">Rendez-vous</div><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a></div>
         </div>
       </div>
 
@@ -1129,7 +1145,7 @@ input:focus,select:focus,textarea:focus{
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 7"/></svg>
           </div>
           <h3>C'est envoyé.</h3>
-          <p>Nous revenons vers vous sous 48 heures. Si c'est urgent, appelez Sacha au 07 67 08 19 43.</p>
+          <p>Nous revenons vers vous sous 24 heures. Si c'est urgent, appelez Sacha au 07 67 08 19 43.</p>
         </div>
       </div>
 
