@@ -690,6 +690,31 @@ input:focus,select:focus,textarea:focus{
 .comparatif .nous{color:var(--vert-clair)}
 .chiffres{margin-top:clamp(3rem,8vh,5rem)}
 .cta-duo{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:.8rem}
+
+.lien{color:var(--vert-clair);text-decoration:underline;text-underline-offset:3px}
+.demo{margin-top:clamp(2.5rem,6vh,4rem);display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+@media (max-width:800px){.demo{grid-template-columns:1fr}}
+.demo>*{min-width:0}
+.demo-carte{background:#141b13;border:1px solid var(--filet);border-radius:18px;padding:1.4rem;display:flex;flex-direction:column;gap:.9rem}
+.demo-legende{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--texte-faible)}
+.demo-mail{background:#0b100a;border:1px solid var(--filet);border-radius:12px;padding:1rem;font-size:.92rem;color:var(--texte);line-height:1.5}
+.demo-mail b{color:var(--blanc);font-weight:500}
+.demo-ia{border-color:rgba(169,196,159,.45)}
+.tag{display:inline-block;font-size:.72rem;padding:.2rem .6rem;border-radius:999px;background:rgba(169,196,159,.15);color:var(--vert-clair);margin:0 .3rem .5rem 0}
+.tag--alerte{background:rgba(232,176,106,.15);color:#e8b06a}
+.demo-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.demo-btn{font-size:.8rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--filet);color:var(--texte)}
+.demo-btn--ok{background:var(--vert-clair);color:var(--noir);border-color:transparent}
+.demo-fleche{text-align:center;color:var(--vert-clair);font-size:.85rem}
+.demo-table-wrap{overflow-x:auto}
+.demo-table{width:100%;min-width:380px;border-collapse:collapse;font-size:.85rem}
+.demo-table th,.demo-table td{padding:.55rem .4rem;border-bottom:1px solid var(--filet);text-align:left;color:var(--texte)}
+.demo-table th{color:var(--texte-faible);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.demo-table tr.nouveau td{color:var(--vert-clair)}
+.demo-note{margin-top:1rem;font-size:.85rem;color:var(--texte-faible)}
+.demo-img{margin:clamp(2.5rem,6vh,4rem) 0 0;border-radius:18px;overflow:hidden;border:1px solid var(--filet)}
+.demo-img img{display:block;width:100%;height:auto}
+.demo-img figcaption{padding:.8rem 1rem;font-size:.85rem;color:var(--texte-faible);background:#0b100a}
 </style>
 </head>
 <body>
@@ -769,7 +794,7 @@ input:focus,select:focus,textarea:focus{
       <div><i>01</i><h3>Une seule base</h3><p>Toutes vos données au même endroit. Une modification est visible par tous, tout de suite.</p></div>
       <div><i>02</i><h3>Chacun son accès</h3><p>Chaque personne voit et modifie ce qui la concerne. Plus de ligne effacée par erreur.</p></div>
       <div><i>03</i><h3>Au bureau comme sur le terrain</h3><p>Sur ordinateur, tablette ou téléphone, sans rien installer.</p></div>
-      <div><i>04</i><h3>Les tâches qui se font seules</h3><p>Relances, alertes, documents et tableaux de bord se génèrent automatiquement.</p></div>
+      <div><i>04</i><h3>Les tâches qui se font seules</h3><p><a class="lien" href="/relance-factures-automatique">Relances</a>, alertes, documents et tableaux de bord se génèrent automatiquement. Avec un <a class="lien" href="/agent-ia-pme">agent IA</a>, même vos documents se lisent tout seuls.</p></div>
     </div>
   </div>
 </section>
@@ -781,6 +806,10 @@ input:focus,select:focus,textarea:focus{
       <h2 class="titre-l">Un fichier par client, remplacé par un seul écran.</h2>
       <p>Un cabinet de gestion de patrimoine suivait chaque client dans un fichier Excel séparé. Aujourd'hui, ses clients, contrats et échéances tiennent dans une seule application, et les clients à relancer sont signalés automatiquement.</p>
     </div>
+    <figure class="demo-img">
+      <img src="/capture-portefeuille.jpg" alt="Application de suivi clients d'un cabinet de gestion de patrimoine, remplaçant un fichier Excel par client" width="1463" height="869" loading="lazy">
+      <figcaption>L'application qui a remplacé les fichiers Excel d'un cabinet de gestion de patrimoine. Données fictives.</figcaption>
+    </figure>
     <div class="chiffres">
       <p class="chiffres-intro">Moins de charge administrative pour vous et votre équipe, et du temps retrouvé pour vos clients et vos soirées.</p>
       <div class="chiffres-grille">
@@ -885,6 +914,7 @@ input:focus,select:focus,textarea:focus{
           <a href="/#contact">Nous joindre</a>
           <a href="/remplacer-excel">Remplacer Excel</a>
           <a href="/relance-factures-automatique">Relance de factures</a>
+          <a href="/agent-ia-pme">Agents IA</a>
         </div>
       </div>
     </div>
