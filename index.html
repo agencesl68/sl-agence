@@ -62,6 +62,18 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "SL Agence : ce que l'automatisation change, en 45 secondes",
+  "description": "Fichiers Excel réunis dans un seul écran, relances automatiques, bons d'intervention signés sur le terrain : comment SL Agence supprime la double saisie dans les TPE et PME.",
+  "thumbnailUrl": "https://slagence.fr/pub-sl-agence.jpg",
+  "contentUrl": "https://slagence.fr/pub-sl-agence.mp4",
+  "uploadDate": "2026-10-01",
+  "duration": "PT44S"
+}
+</script>
 
 <style>
 /* ============================================================
@@ -655,6 +667,44 @@ input:focus,select:focus,textarea:focus{
 .legal{margin-top:2.5rem;display:grid;gap:.5rem;font-size:.82rem;line-height:1.6;color:var(--texte-faible)}
 .legal b{color:var(--texte);font-weight:500}
 
+/* ---------- vidéo ---------- */
+
+.video-grille{display:grid;gap:clamp(3rem,7vh,4.5rem);align-items:center}
+.video-texte .lead{margin-top:1.6rem;max-width:44ch}
+.video-points{list-style:none;margin:2rem 0 2.4rem;padding:0;display:grid;gap:.8rem}
+.video-points li{position:relative;padding-left:1.6rem}
+.video-points li::before{
+  content:"";position:absolute;left:0;top:.55em;
+  width:.55rem;height:.55rem;border-radius:50%;background:var(--vert-clair);
+}
+/* Cadre de téléphone : la vidéo est verticale (9:16). */
+.telephone{
+  position:relative;justify-self:center;
+  width:min(100%,320px);aspect-ratio:9/16;
+  padding:.6rem;border-radius:2.6rem;background:#000;
+  box-shadow:inset 0 0 0 1px var(--filet),0 40px 90px -30px rgba(169,196,159,.28);
+}
+.telephone video{
+  display:block;width:100%;height:100%;object-fit:cover;
+  border-radius:2.05rem;background:var(--surface);
+}
+.lecture{
+  position:absolute;left:50%;top:68%;transform:translate(-50%,-50%);
+  width:4.6rem;height:4.6rem;border:0;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;
+  background:var(--vert-clair);color:var(--noir);
+  box-shadow:0 0 0 .55rem rgba(169,196,159,.22);
+  transition:transform .3s var(--ease),background .3s var(--ease);
+}
+.lecture svg{width:1.9rem;height:1.9rem;margin-left:.2rem}
+.lecture:hover{background:var(--vert-pale);transform:translate(-50%,-50%) scale(1.06)}
+.lecture:focus-visible{outline:2px solid var(--blanc);outline-offset:4px}
+.telephone.joue .lecture{display:none}
+@media (min-width:900px){
+  .video-grille{grid-template-columns:1.1fr .9fr;gap:clamp(3rem,7vw,7rem)}
+  .telephone{width:min(100%,340px)}
+}
+
 /* ---------- apparitions ---------- */
 
 /* Apparitions longues et très décélérées : c'est la durée, pas la distance,
@@ -830,6 +880,35 @@ input:focus,select:focus,textarea:focus{
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ============ VIDÉO ============ -->
+<section class="section" id="video">
+  <div class="wrap video-grille">
+
+    <div class="video-texte reveal">
+      <p class="pill pill--creux">En 45 secondes</p>
+      <h2 class="titre-l" style="margin-top:1.6rem">Ce que ça change, concrètement.</h2>
+      <p class="lead">
+        La même information saisie deux fois, puis neuf. Des fichiers qui ne se parlent pas.
+        Voici comment nous relions tout, de la demande du client jusqu'au règlement de la facture.
+      </p>
+      <ul class="video-points">
+        <li>Vos fichiers Excel réunis dans un seul écran</li>
+        <li>Les relances qui partent seules, au bon moment</li>
+        <li>Le bon rempli sur le terrain, signé au doigt</li>
+      </ul>
+      <a class="btn btn-plein" href="#contact">Décrire mon besoin</a>
+    </div>
+
+    <div class="telephone reveal">
+      <video id="pubVideo" src="pub-sl-agence.mp4" poster="pub-sl-agence.jpg" preload="none" playsinline width="720" height="1280" aria-label="Vidéo de présentation de SL Agence"></video>
+      <button class="lecture" id="pubLecture" type="button" aria-label="Lire la vidéo (avec le son)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+      </button>
+    </div>
+
   </div>
 </section>
 
@@ -1360,6 +1439,18 @@ input:focus,select:focus,textarea:focus{
       });
     }, {rootMargin:'0px 0px -10% 0px', threshold:.06});
     blocs.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---- vidéo : lecture avec le son au clic, puis contrôles natifs ---- */
+  var pub = document.getElementById('pubVideo');
+  var pubBtn = document.getElementById('pubLecture');
+  if(pub && pubBtn){
+    pubBtn.addEventListener('click', function(){
+      pub.controls = true;
+      pub.parentNode.classList.add('joue');
+      var p = pub.play();
+      if(p && p.catch){ p.catch(function(){}); }
+    });
   }
 
   /* ---- formulaire ---- */
