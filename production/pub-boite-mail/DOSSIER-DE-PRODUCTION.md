@@ -1,6 +1,6 @@
 # SL Agence — « Et si votre boîte mail travaillait pour vous ? » · V2
 
-38 s · 9:16 (1080 × 1920) · 30 i/s avec flou de mouvement réel · **sans voix off, sans musique**, bruitages seuls.
+39 s · 9:16 (1080 × 1920) · 30 i/s avec flou de mouvement réel · **sans voix off, sans musique**, bruitages seuls.
 
 | Fichier | Contenu |
 |---|---|
@@ -10,6 +10,8 @@
 | `sources/` | Animation (`pub.html`), rendu (`render.js`), bruitages (`sfx.py`), minutage commun (`timeline.json`) |
 
 ## Déroulé
+
+> La vidéo s'ouvre sur la couverture Instagram (1 s + fondu de 0,25 s). Ajoutez 1 s à tous les temps ci-dessous.
 
 | Temps | Plan | Animation | Bruitages |
 |---|---|---|---|
