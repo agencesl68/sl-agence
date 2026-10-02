@@ -36,3 +36,14 @@ La source est `template.html`, dans le dossier parent.
 
 Sources Pexels, licence permettant l'usage commercial sans attribution.
 Traitées en bichromie pour tenir avec la charte.
+
+## Référencement (SEO)
+
+- **Images de partage** : une par page, dans `img/og/` (accueil : `og.png`).
+  Pour un nouvel article, ajouter une entrée dans `outils/og-pages.json`
+  puis lancer `node outils/og-images.mjs` depuis la racine (Playwright requis).
+- **Nouvel article** : penser à l'ajouter dans `blog/index.html` (carte + schéma
+  `blogPost`), `blog/feed.xml`, `sitemap.xml` et `llms.txt`, et à le lier depuis
+  une ou deux pages services.
+- **Polices** : Geist est hébergée dans `fonts/` (aucun appel à Google Fonts).
+- **404** : `404.html` est servie automatiquement par GitHub Pages.

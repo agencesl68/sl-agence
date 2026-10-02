@@ -1,0 +1,62 @@
+[
+ {
+  "out": "og.png",
+  "kicker": "Applications métier · Automatisation · IA",
+  "title": "Si vous savez le décrire, <em>nous savons le construire.</em>",
+  "size": 70,
+  "left": "SL Agence · Friesen, près de Mulhouse"
+ },
+ {
+  "out": "img/og/automatisation-taches-administratives.png",
+  "kicker": "Automatisation · TPE et PME",
+  "title": "Automatisation des tâches administratives, <em>avec vos outils actuels.</em>"
+ },
+ {
+  "out": "img/og/logiciel-sur-mesure.png",
+  "kicker": "Logiciel sur mesure · TPE et PME",
+  "title": "Logiciel sur mesure : <em>prix, délais et méthode.</em>"
+ },
+ {
+  "out": "img/og/remplacer-excel.png",
+  "kicker": "Applications métier",
+  "title": "Remplacer Excel par une application <em>faite pour votre entreprise.</em>"
+ },
+ {
+  "out": "img/og/relance-factures-automatique.png",
+  "kicker": "Trésorerie · Relances",
+  "title": "Relance automatique de factures : <em>plus aucun impayé oublié.</em>"
+ },
+ {
+  "out": "img/og/agent-ia-pme.png",
+  "kicker": "Intelligence artificielle · PME",
+  "title": "Des agents IA branchés sur vos outils, <em>qui travaillent à votre place.</em>"
+ },
+ {
+  "out": "img/og/facture-electronique-tpe.png",
+  "kicker": "Facture électronique · 2026-2027",
+  "title": "Facture électronique : <em>préparer votre TPE ou PME, sans stress.</em>"
+ },
+ {
+  "out": "img/og/bon-intervention-numerique.png",
+  "kicker": "Terrain · Artisans et techniciens",
+  "title": "Bon d'intervention numérique, <em>signé sur téléphone.</em>"
+ },
+ {
+  "out": "img/og/blog.png",
+  "kicker": "Le blog de SL Agence",
+  "title": "Gagner du temps dans votre entreprise, <em>concrètement.</em>",
+  "right": "Conseils pour TPE et PME"
+ },
+ {
+  "out": "img/og/comment-relancer-une-facture-poliment.png",
+  "kicker": "Blog · Gestion et trésorerie",
+  "title": "Relancer une facture poliment : <em>calendrier et 6 modèles à copier.</em>",
+  "right": "Modèles gratuits à copier"
+ },
+ {
+  "out": "img/og/relancer-un-devis-sans-reponse.png",
+  "kicker": "Blog · Vente et relation client",
+  "title": "Relancer un devis sans réponse : <em>quand relancer et 8 modèles.</em>",
+  "right": "Modèles gratuits à copier"
+ }
+]

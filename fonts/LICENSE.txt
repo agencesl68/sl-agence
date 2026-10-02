@@ -1,0 +1,3 @@
+Geist — Copyright 2024 The Geist Project Authors (https://github.com/vercel/geist-font)
+Distribuée sous SIL Open Font License 1.1 : https://openfontlicense.org
+Fichiers woff2 issus de Google Fonts (sous-ensembles latin et latin-ext).

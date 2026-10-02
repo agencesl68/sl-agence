@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Le blog de SL Agence</title>
+    <link>https://slagence.fr/blog/</link>
+    <atom:link href="https://slagence.fr/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Conseils concrets pour gagner du temps dans votre entreprise : relances, Excel, automatisation, IA, facture électronique.</description>
+    <language>fr-FR</language>
+    <lastBuildDate>Fri, 02 Oct 2026 09:00:00 +0200</lastBuildDate>
+    <item>
+      <title>Relancer un devis sans réponse : quand relancer et 8 modèles à copier</title>
+      <link>https://slagence.fr/blog/relancer-un-devis-sans-reponse</link>
+      <guid isPermaLink="true">https://slagence.fr/blog/relancer-un-devis-sans-reponse</guid>
+      <pubDate>Wed, 30 Sep 2026 09:00:00 +0200</pubDate>
+      <description>Pourquoi un devis reste sans réponse, quand relancer et quoi dire : 8 modèles de mail et SMS à copier, du simple rappel au message de clôture.</description>
+    </item>
+    <item>
+      <title>Comment relancer une facture poliment : calendrier et 6 modèles prêts à copier</title>
+      <link>https://slagence.fr/blog/comment-relancer-une-facture-poliment</link>
+      <guid isPermaLink="true">https://slagence.fr/blog/comment-relancer-une-facture-poliment</guid>
+      <pubDate>Wed, 30 Sep 2026 09:00:00 +0200</pubDate>
+      <description>Calendrier de relance, contenu d'un bon mail et 6 modèles à copier : rappel, relance courtoise, ferme, SMS, dernier rappel et mise en demeure.</description>
+    </item>
+  </channel>
+</rss>

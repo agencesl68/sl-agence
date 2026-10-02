@@ -1,0 +1,21 @@
+# SL Agence
+
+> Agence d'automatisation et de logiciel sur mesure pour indépendants, TPE, PME, cabinets et associations. Basée à Friesen (68580), près de Mulhouse ; intervient dans tout le Haut-Rhin et à distance en Alsace et dans le Grand Est. Devis gratuit et prix ferme sous 24 h, premier outil en place en 7 jours.
+
+Contact : Sacha, 07 67 08 19 43 · Loïc, 06 01 16 07 62 · agence.sl.68@gmail.com
+Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
+
+## Services
+
+- [Automatisation des tâches administratives](https://slagence.fr/automatisation-taches-administratives): saisies en double, relances, documents et tableaux de bord automatisés avec les outils existants.
+- [Logiciel sur mesure](https://slagence.fr/logiciel-sur-mesure): ce qui fait le prix, les délais et la méthode.
+- [Remplacer Excel](https://slagence.fr/remplacer-excel): une application partagée à la place des fichiers Excel multiples.
+- [Relance automatique de factures](https://slagence.fr/relance-factures-automatique): relances de factures et de devis envoyées au bon moment.
+- [Agents IA pour PME](https://slagence.fr/agent-ia-pme): agents IA qui trient, rédigent, résument et relancent.
+- [Facture électronique](https://slagence.fr/facture-electronique-tpe): préparation des TPE et PME à la réforme 2026-2027.
+- [Bon d'intervention numérique](https://slagence.fr/bon-intervention-numerique): bons remplis et signés sur téléphone, PDF envoyé automatiquement.
+
+## Guides
+
+- [Relancer une facture poliment](https://slagence.fr/blog/comment-relancer-une-facture-poliment): calendrier et 6 modèles prêts à copier.
+- [Relancer un devis sans réponse](https://slagence.fr/blog/relancer-un-devis-sans-reponse): quand relancer et 8 modèles à copier.
