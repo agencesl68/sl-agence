@@ -3,6 +3,7 @@
 > Agence d'automatisation et de logiciel sur mesure pour indépendants, TPE, PME, cabinets et associations. Basée à Friesen (68580), près de Mulhouse ; intervient dans tout le Haut-Rhin et à distance en Alsace et dans le Grand Est. Devis gratuit et prix ferme sous 24 h, premier outil en place en 7 jours.
 
 Contact : Sacha, 07 67 08 19 43 · Loïc, 06 01 16 07 62 · agence.sl.68@gmail.com
+Horaires : du lundi au samedi, de 8 h à 19 h
 Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 
 ## Services
@@ -17,5 +18,7 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 
 ## Guides
 
+- [Bon d'intervention](https://slagence.fr/blog/bon-intervention-contenu-modele): contenu, valeur de la signature et modèle gratuit.
+- [Feuille d'heures des salariés](https://slagence.fr/blog/feuille-heures-salaries): obligations du Code du travail, conservation et modèle.
 - [Relancer une facture poliment](https://slagence.fr/blog/comment-relancer-une-facture-poliment): calendrier et 6 modèles prêts à copier.
 - [Relancer un devis sans réponse](https://slagence.fr/blog/relancer-un-devis-sans-reponse): quand relancer et 8 modèles à copier.

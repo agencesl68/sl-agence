@@ -223,7 +223,36 @@
             }
           }
         ]
-      }
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.google.com/search?kgmid=/g/11zfgtps4m&q=SL+Agence"
+      ],
+      "member": [
+        {
+          "@type": "Person",
+          "@id": "https://slagence.fr/#loic-bitsch",
+          "name": "Loïc Bitsch",
+          "url": "https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/",
+          "sameAs": [
+            "https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/"
+          ]
+        }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -1011,6 +1040,15 @@ input:focus,select:focus,textarea:focus{
 .guide b{display:block;font-size:1.2rem;font-weight:500;color:var(--blanc);letter-spacing:-.02em;margin:.35rem 0 .5rem}
 .guide span{color:var(--texte)}
 .guide small{font-size:.8rem;color:var(--texte-faible)}
+
+/* Avis clients */
+.avis{margin-top:clamp(4rem,10vh,7rem)}
+.avis-grille{display:grid;gap:1rem;margin-top:2rem}
+@media (min-width:760px){.avis-grille{grid-template-columns:1fr 1fr}}
+.avis-carte{margin:0;border:1px solid var(--filet);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem}
+.avis-etoiles{color:var(--vert-clair);letter-spacing:.15em}
+.avis-carte blockquote{margin:0;color:var(--blanc);font-size:1.1rem;line-height:1.55}
+.avis-carte figcaption{font-size:.85rem;color:var(--texte-faible);margin-top:auto}
 </style>
 </head>
 
@@ -1238,6 +1276,26 @@ input:focus,select:focus,textarea:focus{
       </div>
     </div>
 
+
+    <div class="avis reveal">
+      <div class="entete">
+        <p class="pill">Ils en parlent</p>
+        <h2 class="titre-l">Ce que disent nos clients.</h2>
+        <p>Des avis laissés sur notre fiche Google. <a href="https://www.google.com/search?kgmid=/g/11zfgtps4m&q=SL+Agence" rel="noopener" target="_blank" style="color:var(--vert-clair)">Voir tous les avis sur Google</a></p>
+      </div>
+      <div class="avis-grille">
+        <figure class="avis-carte">
+          <p class="avis-etoiles" aria-label="5 étoiles sur 5">★★★★★</p>
+          <blockquote>« J'ai fait appel à SL Agence pour me créer une application pour gérer mes stocks. Ça fait à peine deux semaines que je l'utilise et je vois déjà la différence, surtout au niveau du temps que je gagne au quotidien. L'appli est simple et pratique, exactement ce qu'il me fallait. »</blockquote>
+          <figcaption>Léa O. · avis Google, septembre 2026</figcaption>
+        </figure>
+        <figure class="avis-carte">
+          <p class="avis-etoiles" aria-label="5 étoiles sur 5">★★★★★</p>
+          <blockquote>« Superbe entreprise, gérants impliqués et sérieux. Un avenir très prometteur ! »</blockquote>
+          <figcaption>Noemie B. · avis Google, septembre 2026</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1359,6 +1417,8 @@ input:focus,select:focus,textarea:focus{
       <p>Des méthodes et des modèles gratuits, tirés du terrain. <a href="/blog/" style="color:var(--vert-clair)">Tous les articles du blog</a></p>
     </div>
     <div class="guides reveal">
+      <a class="guide" href="/blog/bon-intervention-contenu-modele"><small>Guide · Terrain</small><b>Bon d'intervention : ce qu'il doit contenir, et un modèle gratuit</b><span>La liste complète, la valeur de la signature et les erreurs qui coûtent cher.</span></a>
+      <a class="guide" href="/blog/feuille-heures-salaries"><small>Guide · Personnel</small><b>Feuille d'heures des salariés : obligations et modèle</b><span>Ce que dit le Code du travail, combien de temps la garder, le cas des chantiers.</span></a>
       <a class="guide" href="/blog/comment-relancer-une-facture-poliment"><small>Guide · Trésorerie</small><b>Relancer une facture poliment : 6 modèles prêts à copier</b><span>Le bon calendrier et les bons mots, du rappel à la mise en demeure.</span></a>
       <a class="guide" href="/blog/relancer-un-devis-sans-reponse"><small>Guide · Vente</small><b>Relancer un devis sans réponse : 8 modèles à copier</b><span>Quand relancer, quoi dire, et comment conclure sans insister.</span></a>
     </div>
@@ -1441,6 +1501,7 @@ input:focus,select:focus,textarea:focus{
           <div><div class="qui">Sacha</div><a href="tel:+33767081943">07 67 08 19 43</a></div>
           <div><div class="qui">Loïc</div><a href="tel:+33601160762">06 01 16 07 62</a></div>
           <div><div class="qui">E-mail</div><a href="mailto:agence.sl.68@gmail.com">agence.sl.68@gmail.com</a></div>
+          <div><div class="qui">Horaires</div><p style="color:var(--blanc)">Du lundi au samedi, de 8 h à 19 h</p></div>
           <div><div class="qui">Rendez-vous</div><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a></div>
         </div>
       </div>
@@ -1506,6 +1567,7 @@ input:focus,select:focus,textarea:focus{
         <p style="max-width:44ch;color:var(--texte)">
           Applications métier, automatisation et intelligence artificielle sur mesure
           pour les indépendants, TPE, PME, cabinets et associations de Mulhouse, du Haut-Rhin et du Grand Est.
+          <br>Ouvert du lundi au samedi, de 8 h à 19 h.
         </p>
         <div class="foot-liens">
           <a href="#constat">Le constat</a>
