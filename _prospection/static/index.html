@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prospection · SL Agence</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="entete">
+  <div class="marque">
+    <span class="logo">SL Agence</span>
+    <span class="sous-titre">Prospection</span>
+  </div>
+  <nav class="onglets" id="onglets">
+    <button data-vue="aujourdhui" class="actif">Aujourd'hui</button>
+    <button data-vue="leads">Leads</button>
+    <button data-vue="tableau">Tableau de bord</button>
+    <button data-vue="profil">Profil agence</button>
+    <button data-vue="reglages">Réglages</button>
+  </nav>
+  <div class="compteur" id="compteur" title="Consommation API du jour"></div>
+</header>
+
+<main>
+  <div id="alerte" class="alerte cache"></div>
+
+  <section class="action">
+    <button id="btn-generer" class="bouton principal">Générer 10 nouveaux leads</button>
+    <p class="aide">Chaque clic ajoute de nouvelles entreprises. Rien n'est envoyé à votre place.</p>
+    <div id="progression" class="progression cache">
+      <div class="barre"><div id="barre-remplie"></div></div>
+      <div class="progression-texte">
+        <span id="prog-etape"></span>
+        <span id="prog-compte"></span>
+      </div>
+      <details class="journal"><summary>Détail</summary><pre id="prog-journal"></pre></details>
+    </div>
+  </section>
+
+  <section id="vue-aujourdhui" class="vue"></section>
+  <section id="vue-leads" class="vue cache"></section>
+  <section id="vue-tableau" class="vue cache"></section>
+  <section id="vue-profil" class="vue cache"></section>
+  <section id="vue-reglages" class="vue cache"></section>
+</main>
+
+<div id="toast" class="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
