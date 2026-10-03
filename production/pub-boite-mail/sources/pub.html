@@ -161,7 +161,7 @@ const shakeL=el('div','L',stage);
 const bg=el('div','L',shakeL);
 const BL=[[-300,300,1500,'rgba(60,79,59,.55)'],[300,1100,1300,'rgba(40,52,40,.6)'],[100,-300,900,'rgba(161,211,255,.07)']].map(([x,y,s,c])=>{const b=el('div','blob',bg);S(b,{left:x+'px',top:y+'px',width:s+'px',height:s+'px',background:`radial-gradient(circle,${c} 0%,rgba(0,0,0,0) 66%)`});return b});
 const photoBg=el('div','L',shakeL);photoBg.id='photoBg';const pImg=el('img',null,photoBg);pImg.src='assets/p-bureau.jpg';
-const cloud=el('canvas','L',shakeL);cloud.width=W;cloud.height=H;const cx=cloud.getContext('2d');
+const DPR=window.devicePixelRatio||1;const cloud=el('canvas','L',shakeL);cloud.width=W*DPR;cloud.height=H*DPR;const cx=cloud.getContext('2d');
 const deckL=el('div','L',shakeL);
 const DL=CATS.map(c=>{const d=el('div','dl',deckL,`<u style="background:${c.col};box-shadow:0 0 16px ${c.col}"></u><b>${c.n}</b><i><span class="cn">0</span> messages</i>`);return d});
 
@@ -221,7 +221,7 @@ const ctaRing=cta.querySelector('.ring');const ctaL=cta.querySelectorAll('b .slo
 const sub=el('div',null,endL,'On vous montre comment<br>le mettre en place.');sub.id='sub';
 
 // effets lumineux
-const fx=el('canvas','L',shakeL);fx.width=W;fx.height=H;fx.style.mixBlendMode='screen';const fc=fx.getContext('2d');
+const fx=el('canvas','L',shakeL);fx.width=W*DPR;fx.height=H*DPR;fx.style.mixBlendMode='screen';const fc=fx.getContext('2d');
 
 // typographie
 const scr=el('div','L',shakeL);scr.style.background='radial-gradient(ellipse 70% 30% at 50% 50%,rgba(5,6,5,.78) 0%,rgba(5,6,5,0) 100%)';
@@ -279,7 +279,7 @@ function drawFace(c,card,dark){
 function makeSprites(){
   CARDS.forEach(card=>{card.sp=[[],[]];
     for(let f=0;f<2;f++){
-      const hi=document.createElement('canvas');hi.width=CW*2;hi.height=CHh*2;const hc=hi.getContext('2d');hc.scale(2,2);drawFace(hc,card,f===1);card.sp[f][0]=hi;
+      const SS=Math.max(2,DPR*2);const hi=document.createElement('canvas');hi.width=CW*SS;hi.height=CHh*SS;const hc=hi.getContext('2d');hc.scale(SS,SS);drawFace(hc,card,f===1);card.sp[f][0]=hi;
       for(let b=1;b<BLV.length;b++){const pad=BLV[b]*2;const cv=document.createElement('canvas');cv.width=CW+pad*2;cv.height=CHh+pad*2;const c=cv.getContext('2d');c.filter=`blur(${BLV[b]}px)`;c.drawImage(hi,pad,pad,CW,CHh);cv.pad=pad;card.sp[f][b]=cv}
     }});
 }
@@ -357,7 +357,7 @@ window.render=function(t){
   pImg.style.transform=`scale(${1.05+.12*P(tc,3.9,8,E.lin)}) translate(${-30*P(tc,3.9,8,E.lin)+Math.sin(orbit(t))*-60}px,0)`;
 
   // ---- nuage de cartes ----
-  cx.clearRect(0,0,W,H);
+  cx.setTransform(DPR,0,0,DPR,0,0);cx.clearRect(0,0,W,H);
   const whipY=-2600*E.inExpo(P(t,TL.whip,TL.whip+.28,E.lin));
   if(t<TL.whip+.35){
     const items=[];
@@ -517,7 +517,7 @@ window.render=function(t){
   }
 
   // ---- lumière (fx) ----
-  fc.clearRect(0,0,W,H);fc.globalCompositeOperation='lighter';
+  fc.setTransform(DPR,0,0,DPR,0,0);fc.clearRect(0,0,W,H);fc.globalCompositeOperation='lighter';
   const glow=(x,y,r,col,a)=>{if(a<=0.003)return;const g=fc.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,col.replace('A',a));g.addColorStop(1,col.replace('A',0));fc.fillStyle=g;fc.fillRect(x-r,y-r,2*r,2*r)};
   // explosion
   glow(540,960,900*P(t,TL.boom,TL.boom+.5),'rgba(200,225,195,A)',.5*(1-P(t,TL.boom,TL.boom+.8)));
