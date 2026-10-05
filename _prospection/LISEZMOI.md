@@ -6,27 +6,40 @@ Cette application tourne sur votre ordinateur. Chaque jour, elle trouve des diri
 
 ---
 
-## 1. Installation (une seule fois)
+## 1. Installation (une seule fois, 5 minutes)
 
-1. **Python** : il faut Python 3.10 ou plus récent. Sur Mac, il est souvent déjà installé (tapez `python3 --version` dans le Terminal). Sinon : https://www.python.org/downloads/ (sous Windows, cochez « Add Python to PATH » pendant l'installation).
-2. **Le dossier** : récupérez le dossier `_prospection` du dépôt GitHub (avec `git clone` ou « Download ZIP ») et placez-le où vous voulez, par exemple dans Documents.
-3. **La clé API Anthropic** : créez une clé sur https://platform.claude.com/ (rubrique API keys) et mettez quelques dollars de crédit sur le compte.
-4. **Premier lancement** : double-cliquez sur `Lancer (Mac).command` (ou `Lancer (Windows).bat`). Une à deux minutes d'installation, une seule fois.
-5. Un fichier `.env` apparaît dans le dossier. Ouvrez-le avec TextEdit ou le Bloc-notes et collez votre clé après le signe `=` :
+Rien à installer à la main : l'installateur s'occupe de tout, Python compris.
+
+**Sur Mac**
+1. Ouvrez l'application **Terminal** : appuyez sur Cmd + Espace, tapez « Terminal », puis Entrée.
+2. Copiez cette ligne, collez-la dans le Terminal (Cmd + V), puis appuyez sur Entrée :
    ```
-   ANTHROPIC_API_KEY=sk-ant-...
+   curl -fsSL https://raw.githubusercontent.com/agencesl68/sl-agence/claude/eager-shannon-5we0ld/_prospection/installer.sh | bash
    ```
-   Enregistrez, fermez la fenêtre du lanceur et relancez.
+3. Attendez 2 à 3 minutes. Si le Mac demande l'accès au Bureau, cliquez sur OK.
 
-Au premier lancement, l'application lit slagence.fr et construit la fiche « Profil agence ».
+**Sur Windows**
+1. Ouvrez **PowerShell** : touche Windows, tapez « PowerShell », puis Entrée.
+2. Collez cette ligne (clic droit), puis appuyez sur Entrée :
+   ```
+   irm https://raw.githubusercontent.com/agencesl68/sl-agence/claude/eager-shannon-5we0ld/_prospection/installer.ps1 | iex
+   ```
 
-> Sur Mac, si le double-clic est bloqué : clic droit sur `Lancer (Mac).command`, puis Ouvrir. Vous pouvez aussi lancer dans le Terminal : `cd chemin/vers/_prospection` puis `python3 lancer.py`.
+L'application s'ouvre ensuite dans votre navigateur. Une icône **« Prospection SL Agence »** est créée sur votre Bureau.
 
----
+**La clé API Anthropic (une seule fois)**
+
+L'application vous la demande au premier lancement, avec les étapes affichées à l'écran :
+1. Créez un compte sur https://platform.claude.com/ (comme sur n'importe quel site).
+2. Dans « Billing », ajoutez une carte bancaire et 10 $ de crédit.
+3. Dans « API keys », cliquez sur « Create Key », nommez-la « Prospection » et copiez la clé (elle commence par `sk-ant-`).
+4. Collez-la dans l'application et cliquez sur « Enregistrer la clé ». L'application vérifie la clé tout de suite.
+
+Pour mettre l'application à jour plus tard, relancez simplement la même ligne d'installation : vos leads et votre clé sont conservés.
 
 ## 2. Chaque matin (10 à 20 minutes)
 
-1. **Lancez l'application** (double-clic sur le lanceur). Elle s'ouvre dans votre navigateur à l'adresse http://127.0.0.1:5068. Laissez la fenêtre du lanceur ouverte tant que vous travaillez.
+1. **Lancez l'application** : double-clic sur « Prospection SL Agence » sur le Bureau. Elle s'ouvre dans votre navigateur à l'adresse http://127.0.0.1:5068. Laissez la fenêtre du lanceur ouverte tant que vous travaillez.
 2. **Onglet « Aujourd'hui »**, de haut en bas :
    - **Message de suivi à envoyer** : ces personnes ont accepté votre invitation. Copiez le message, envoyez-le sur LinkedIn, puis cliquez sur « Message envoyé ».
    - **Relances à faire** : vous leur avez écrit il y a plus de 7 jours, sans réponse. Cliquez sur « Écrire la relance », relisez, copiez, envoyez, puis « J'ai envoyé la relance ».
@@ -40,7 +53,7 @@ Au premier lancement, l'application lit slagence.fr et construit la fiche « Pro
    5. Cliquez sur « Invitation envoyée ».
    6. Si l'entreprise ne convient pas : « Supprimer définitivement » ou « Ne pas contacter ».
 
-Pour arrêter l'application : fermez la fenêtre du lanceur (ou Ctrl+C).
+Pour arrêter l'application : fermez la fenêtre noire (Terminal) qui s'est ouverte avec elle.
 
 ---
 
@@ -105,10 +118,10 @@ Si une recherche échoue (coupure, limite de l'API), le lead est ajouté avec la
 Pour vérifier que tout marche et voir le coût réel d'un lot de 5 :
 
 ```
-python3 lancer.py --test 5
+cd ~/SL-Prospection && .venv/bin/python lancer.py --test 5
 ```
 
-(sous Windows : `py lancer.py --test 5`). Les 5 leads, leurs messages, leurs sources et le coût s'affichent dans la fenêtre. Ils sont aussi ajoutés à l'application.
+(sous Windows : `cd $env:USERPROFILE\SL-Prospection; .venv\Scripts\python lancer.py --test 5`). Les 5 leads, leurs messages, leurs sources et le coût s'affichent dans la fenêtre. Ils sont aussi ajoutés à l'application.
 
 ---
 
@@ -117,7 +130,7 @@ python3 lancer.py --test 5
 - L'application ne garde que des données professionnelles publiques : entreprise, nom et poste du dirigeant, sources. Pas de date de naissance, pas de coordonnées personnelles.
 - « Supprimer définitivement » efface toutes les données du lead. Seul le numéro SIREN de l'entreprise est conservé, pour ne jamais la reproposer.
 - « Ne pas contacter » bloque l'entreprise pour toujours.
-- Tout est stocké dans le fichier `prospection.db`, sur votre ordinateur uniquement. Pour sauvegarder, copiez ce fichier.
+- Tout est stocké dans le fichier `prospection.db` (dossier `SL-Prospection` de votre dossier personnel), sur votre ordinateur uniquement. Pour sauvegarder, copiez ce fichier.
 - Le fichier `.env` (votre clé) et `prospection.db` ne sont jamais envoyés sur GitHub. Le dossier commence par `_` : il n'est donc pas publié sur slagence.fr.
 
 ---
@@ -126,7 +139,7 @@ python3 lancer.py --test 5
 
 | Problème | Solution |
 |---|---|
-| Bandeau rouge « Clé API Anthropic absente » | Collez la clé dans `.env`, puis relancez |
+| L'application demande la clé | Suivez les étapes affichées, puis collez la clé |
 | « Clé API Anthropic refusée » | La clé est fausse ou désactivée : créez-en une nouvelle |
 | « Plafond du jour atteint » | Relevez le plafond dans Réglages, ou attendez demain |
 | Leads « à compléter » | Cliquez sur « Compléter la recherche » plus tard |
