@@ -42,27 +42,35 @@
   </url>
   <url>
     <loc>https://slagence.fr/blog/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <image:image><image:loc>https://slagence.fr/img/og/blog.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/blog/comment-relancer-une-facture-poliment</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <image:image><image:loc>https://slagence.fr/img/og/comment-relancer-une-facture-poliment.png</image:loc></image:image>
+    <image:image><image:loc>https://slagence.fr/img/blog/calendrier-relance-facture.webp</image:loc></image:image>
+    <image:image><image:loc>https://slagence.fr/img/blog/exemple-mail-relance-facture.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/blog/relancer-un-devis-sans-reponse</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <image:image><image:loc>https://slagence.fr/img/og/relancer-un-devis-sans-reponse.png</image:loc></image:image>
+    <image:image><image:loc>https://slagence.fr/img/blog/calendrier-relance-devis.webp</image:loc></image:image>
+    <image:image><image:loc>https://slagence.fr/img/blog/exemple-mail-relance-devis.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/blog/bon-intervention-contenu-modele</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <image:image><image:loc>https://slagence.fr/img/og/bon-intervention-contenu-modele.png</image:loc></image:image>
+    <image:image><image:loc>https://slagence.fr/img/blog/contenu-bon-intervention.webp</image:loc></image:image>
+    <image:image><image:loc>https://slagence.fr/img/blog/apercu-modele-bon-intervention.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/blog/feuille-heures-salaries</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <image:image><image:loc>https://slagence.fr/img/og/feuille-heures-salaries.png</image:loc></image:image>
+    <image:image><image:loc>https://slagence.fr/img/blog/obligations-feuille-heures.webp</image:loc></image:image>
+    <image:image><image:loc>https://slagence.fr/img/blog/exemple-feuille-heures-remplie.webp</image:loc></image:image>
   </url>
 </urlset>

@@ -47,3 +47,6 @@ Traitées en bichromie pour tenir avec la charte.
   une ou deux pages services.
 - **Polices** : Geist est hébergée dans `fonts/` (aucun appel à Google Fonts).
 - **404** : `404.html` est servie automatiquement par GitHub Pages.
+- **Modèles téléchargeables** : `modeles/` (Word, Excel, PDF) et visuels des
+  articles dans `img/blog/` (WebP, 1200 px de large). Chaque article a au moins
+  deux visuels avec un texte alternatif descriptif.
