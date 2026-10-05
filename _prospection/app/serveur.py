@@ -262,6 +262,19 @@ def ecrire_reglages():
     return jsonify({"valeurs": db.reglages()})
 
 
+@app.post("/api/cle")
+def enregistrer_cle():
+    cle = (request.get_json(silent=True) or {}).get("cle")
+    try:
+        ia.verifier_et_enregistrer_cle(cle, os.path.join(RACINE, ".env"))
+    except ia.ErreurIA as e:
+        return erreur(str(e))
+    import threading
+
+    threading.Thread(target=construire_profil_si_besoin, daemon=True).start()
+    return jsonify({"ok": True})
+
+
 @app.get("/api/profil")
 def lire_profil():
     return jsonify(agence.profil())

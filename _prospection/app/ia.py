@@ -54,6 +54,33 @@ def client():
     return _client
 
 
+def verifier_et_enregistrer_cle(cle, chemin_env):
+    """Teste la clé (appel gratuit), puis l'écrit dans le fichier .env et l'active tout de suite."""
+    global _client
+    cle = (cle or "").strip().strip('"').strip("'")
+    if not cle.startswith("sk-ant-") or len(cle) < 30 or any(c.isspace() for c in cle):
+        raise ErreurIA("Ce texte ne ressemble pas à une clé API Anthropic (elle commence par sk-ant-).")
+    try:
+        anthropic.Anthropic(api_key=cle, max_retries=1, timeout=30).models.list(limit=1)
+    except anthropic.AuthenticationError as e:
+        raise ErreurIA("Anthropic refuse cette clé. Vérifiez que vous l'avez copiée en entier.") from e
+    except anthropic.PermissionDeniedError as e:
+        raise ErreurIA("Cette clé n'a pas les droits nécessaires. Créez-en une nouvelle.") from e
+    except anthropic.APIConnectionError as e:
+        raise ErreurIA("Impossible de joindre Anthropic. Vérifiez votre connexion internet.") from e
+    except anthropic.APIStatusError as e:
+        raise ErreurIA(f"Anthropic a répondu par une erreur ({e.status_code}). Réessayez dans un instant.") from e
+    lignes = []
+    if os.path.exists(chemin_env):
+        with open(chemin_env, encoding="utf-8") as f:
+            lignes = [l for l in f.read().splitlines() if not l.strip().startswith("ANTHROPIC_API_KEY")]
+    lignes.append(f"ANTHROPIC_API_KEY={cle}")
+    with open(chemin_env, "w", encoding="utf-8") as f:
+        f.write("\n".join(lignes) + "\n")
+    os.environ["ANTHROPIC_API_KEY"] = cle
+    _client = None
+
+
 def cle_presente():
     return bool(os.environ.get("ANTHROPIC_API_KEY"))
 

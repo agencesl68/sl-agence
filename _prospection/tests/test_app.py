@@ -300,3 +300,31 @@ class TestSuivi(Base):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestCle(unittest.TestCase):
+    def test_enregistrement_de_la_cle(self):
+        env = os.path.join(tempfile.mkdtemp(), ".env")
+        with open(env, "w") as f:
+            f.write("# commentaire\nANTHROPIC_API_KEY=\n")
+        bonne = "sk-ant-api03-" + "a" * 40
+        with self.assertRaises(ia.ErreurIA):
+            ia.verifier_et_enregistrer_cle("bonjour", env)
+        faux = mock.Mock()
+        reponse = mock.Mock(status_code=401, headers={})
+        faux.return_value.models.list.side_effect = ia.anthropic.AuthenticationError("non", response=reponse, body=None)
+        with mock.patch.object(ia.anthropic, "Anthropic", faux):
+            with self.assertRaises(ia.ErreurIA) as ctx:
+                ia.verifier_et_enregistrer_cle(bonne, env)
+            self.assertIn("refuse", str(ctx.exception))
+        faux.return_value.models.list.side_effect = None
+        avant = os.environ.get("ANTHROPIC_API_KEY")
+        try:
+            with mock.patch.object(ia.anthropic, "Anthropic", faux):
+                ia.verifier_et_enregistrer_cle(f"  {bonne} ", env)
+            with open(env) as f:
+                contenu = f.read()
+            self.assertEqual(contenu, f"# commentaire\nANTHROPIC_API_KEY={bonne}\n")
+            self.assertEqual(os.environ["ANTHROPIC_API_KEY"], bonne)
+        finally:
+            os.environ["ANTHROPIC_API_KEY"] = avant or ""

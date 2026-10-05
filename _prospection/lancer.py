@@ -30,7 +30,7 @@ def preparer():
     marque = os.path.join(VENV, ".installe")
     deja = open(marque).read().strip() if os.path.exists(marque) else ""
     if deja != empreinte():
-        print("Installation des dépendances...")
+        print("Installation des composants...")
         subprocess.check_call([PY, "-m", "pip", "install", "-q", "--upgrade", "pip"])
         subprocess.check_call([PY, "-m", "pip", "install", "-q", "-r", REQ])
         with open(marque, "w") as f:
@@ -38,11 +38,13 @@ def preparer():
     env = os.path.join(ICI, ".env")
     if not os.path.exists(env):
         shutil.copy(os.path.join(ICI, ".env.exemple"), env)
-        print("Fichier .env créé : ouvrez-le et collez votre clé API Anthropic.")
+        print("La clé API Anthropic se colle directement dans l'application.")
 
 
 if __name__ == "__main__":
     preparer()
+    if "--installer-seulement" in sys.argv:
+        sys.exit(0)
     os.chdir(ICI)
     try:
         sys.exit(subprocess.call([PY, "-m", "app", *sys.argv[1:]]))

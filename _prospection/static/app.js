@@ -62,10 +62,38 @@ async function rafraichirEtat() {
     `<strong>${c.cout.toFixed(2)} $</strong> sur ${Number(e.plafond).toFixed(2)} $`;
   const alerte = $("#alerte");
   if (!e.cle_presente) {
-    alerte.className = "alerte";
-    alerte.innerHTML = "Clé API Anthropic absente. Ouvrez le fichier <strong>.env</strong> du dossier de l'application, collez votre clé après <code>ANTHROPIC_API_KEY=</code>, puis relancez.";
+    if (!alerte.dataset.cle) {
+      alerte.dataset.cle = "1";
+      alerte.className = "alerte info";
+      alerte.innerHTML = `
+        <h3 style="margin-bottom:.6rem">Dernière étape : votre clé API Anthropic</h3>
+        <ol style="margin:0 0 1rem;padding-left:1.2rem">
+          <li>Ouvrez <a href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">platform.claude.com</a> et créez un compte (ou connectez-vous).</li>
+          <li>Dans <a href="https://platform.claude.com/settings/billing" target="_blank" rel="noopener">Billing</a>, ajoutez une carte et 10 $ de crédit.</li>
+          <li>Dans <a href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">API keys</a>, cliquez sur « Create Key », nommez-la « Prospection », puis copiez la clé (elle commence par sk-ant-).</li>
+          <li>Collez-la ici :</li>
+        </ol>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+          <input id="champ-cle" type="password" placeholder="sk-ant-..." autocomplete="off"
+            style="flex:1;min-width:240px;font:inherit;padding:.5rem .8rem;border:1px solid var(--trait);border-radius:999px">
+          <button class="bouton principal" id="btn-cle" style="padding:.5rem 1.4rem;font-size:.95rem">Enregistrer la clé</button>
+        </div>
+        <p id="cle-message" class="meta" style="margin:.5rem 0 0"></p>`;
+      $("#btn-cle").addEventListener("click", async () => {
+        const msg = $("#cle-message");
+        msg.textContent = "Vérification de la clé...";
+        try {
+          await api("/api/cle", { method: "POST", body: { cle: $("#champ-cle").value } });
+          delete alerte.dataset.cle;
+          toast("Clé enregistrée");
+          rafraichirEtat();
+        } catch (err) { msg.textContent = err.message; }
+      });
+    }
   } else {
     alerte.className = "alerte cache";
+    alerte.innerHTML = "";
+    delete alerte.dataset.cle;
   }
   majGeneration(e.generation);
   if (!etat.enCours) $("#btn-generer").textContent = `Générer ${etat.nbLeads} nouveaux leads`;
