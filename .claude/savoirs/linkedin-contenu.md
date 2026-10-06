@@ -344,4 +344,155 @@ Le lien pour réserver ces 15 minutes est en commentaire.
 ```
 Usage : 1 fois par mois maximum (objectif conversion).
 
-(sections 5 à 12 à venir)
+---
+
+## 5. Carrousels (posts « document »)
+
+### Structure type : 8 à 10 slides
+1. **Couverture** : la promesse en 8 mots maximum + un objet concret (« Excel ne suffit plus ? 7 signes »). Visage de Loïc ou logo en petit.
+2. **Le problème** : une scène que le dirigeant reconnaît (« Devis_v3_final_OK »).
+3. à 7. **Le contenu** : une idée par slide, un numéro géant, un titre court, une phrase d'explication, une « alerte » ou un exemple.
+8. **Ce qu'il faut retenir** : la règle en une phrase.
+9. **Passer à l'action** : la première étape à faire demain + la question posée aussi dans le texte du post.
+10. **Signature** : « Loïc — SL Agence, Friesen (68) » + « Ressource complète : lien en commentaire ».
+
+### Règles de design
+- **Une seule taille pour toutes les pages** (exigence LinkedIn) ; format portrait 4:5 (1080 × 1350 px) ou carré 1080 × 1080 px **[secondaire]**.
+- Exporter en **PDF aplati** ; vérifier avant publication : **le document ne peut plus être modifié ensuite** **[officiel]**.
+- Donner un **titre de document** descriptif (il s'affiche sur le carrousel).
+- Charte du site : fond noir `#070907`, vert `#a9c49f`, police Geist (comme le carrousel S41). Blanc pour le texte courant.
+- Règles maison : 30 mots maximum par slide ; texte lisible sur un téléphone sans zoomer ; une couleur d'accent ; pas d'image de banque d'images ni de visuel « IA » ; captures d'écran d'outils **floutées** (aucune donnée client).
+- Le texte du post (60 à 120 mots) donne envie d'ouvrir le document ; il n'en résume pas tout le contenu.
+
+### Outils gratuits
+- **Canva** (plan gratuit ; connecté à notre environnement) : modèles « Carrousel LinkedIn », export « PDF standard ». Créer un modèle maître aux couleurs du site et le dupliquer chaque semaine.
+- **Google Slides** : format personnalisé 1080 × 1350, export PDF. Pratique pour réutiliser un article du blog.
+- **Figma** (plan gratuit ; connecté) : pour un modèle très précis aux couleurs du site.
+- **Statistiques natives LinkedIn** (gratuites) pour mesurer, Shield ayant fermé en mai 2026.
+- **Descript** (connecté ; plan gratuit limité) : sous-titres et découpe d'une vidéo courte.
+
+---
+
+## 6. Commentaires stratégiques et social selling
+
+### Méthode R-A-Q (40 à 90 mots)
+1. **Reprendre** un détail précis du post (une phrase, un chiffre). Sans détail précis, on ne commente pas.
+2. **Apporter** une chose que le post n'a pas : un fait sourcé, une réalisation de `agence.md`, une étape pratique.
+3. **Questionner** : une question à laquelle l'auteur peut répondre en une phrase.
+
+Pourquoi : LinkedIn limite depuis mai 2026 les commentaires automatisés et ceux qui « ne font que reformuler le post » **[officiel]** ;
+van der Blom observe que commenter **hors de ses sujets** brouille le signal et nuit à la portée **[étude]**.
+Un commentaire de fond travaille donc deux fois : il fait connaître Loïc de l'auteur, et il ancre son profil sur nos sujets.
+Pas de lien, pas d'offre, pas de mention de SL Agence : le profil fait le travail.
+
+### 10 ouvertures non génériques
+1. « Le passage sur [détail exact] m'a arrêté : … »
+2. « Un chiffre officiel pour compléter : [fait + source]. »
+3. « Une précision qui évite une erreur courante : … »
+4. « Chez une entreprise de terrassement que nous accompagnons, [fait de `agence.md`]. »
+5. « Question pratique : comment faites-vous quand [cas précis tiré du post] ? »
+6. « Je retiens surtout "[citation exacte du post]", parce que … »
+7. « Une nuance, depuis le terrain : … »
+8. « Pour ceux qui se demandent si ça les concerne : [obligation], c'est à partir du [date] (source : [organisme]). »
+9. « Si je devais ajouter une étape à votre liste : … »
+10. « Vous parlez de [problème]. Avez-vous mesuré combien de temps ça prend par semaine ? »
+
+### Routine de 15 minutes par jour (du lundi au vendredi)
+- **0–4 min** : répondre à tous les commentaires reçus (une phrase qui relance) et aux messages privés.
+- **4–12 min** : 2 commentaires R-A-Q sur la liste cible (objectif fiche : 10 par semaine). Les jours de publication, les faire **avant** de publier.
+- **12–15 min** : 2 à 4 invitations personnalisées à des personnes de la cible qui ont réagi ou commenté.
+
+**Liste cible (à construire avec Loïc, 30 comptes)** : dirigeants de TPE-PME du 68 dans les secteurs A (BTP, terrassement,
+travaux agricoles, sécurité-prévention), experts-comptables et banques locales (relais de la facture électronique),
+CCI Alsace Eurométropole, réseaux d'entrepreneurs et médias économiques locaux. Vérifier chaque compte dans Gmail/Drive : pas de client existant.
+
+### Invitations et messages
+- Inviter en priorité les personnes qui ont **interagi** avec un post ou un commentaire de Loïc ; rester entre 20 et 30 invitations par semaine
+  (règle maison, très en dessous du plafond observé d'environ 100 **[secondaire]**). Un taux d'acceptation faible expose à des limitations.
+- Note d'invitation (si disponible) : une phrase de contexte réel. « Nous avons échangé sous le post de X sur la facture électronique. »
+- Après acceptation : **pas de vente dans le premier message**. Un merci et, au plus, une ressource utile liée à ce qu'il a écrit.
+- La prospection directe suit `ton.md` (50 à 90 mots, un détail réel, une question) et passe par l'agent `prospection`.
+- **Jamais d'outil d'automatisation** (invitations, messages, commentaires) : risque de restriction du compte.
+
+---
+
+## 7. Profil de Loïc (textes prêts à coller)
+
+À faire **avant** le premier post : le système déduit les centres d'intérêt d'un compte récent à partir de son profil **[officiel]**.
+
+**Photo** : vraie photo, visage net, lumière du jour, fond simple. Pas d'avatar, pas de logo, pas de photo générée.
+
+**Lieu** : Friesen ou « Mulhouse et périphérie » (la géographie fait partie des signaux du profil **[officiel]**).
+
+**Titre** (limite 220 caractères) — proposition principale :
+> J'aide les TPE et PME du Haut-Rhin à ne plus faire le travail deux fois | Applications métier, automatisation et IA sur mesure | Associé SL Agence, Friesen
+
+Variante plus « preuve » :
+> Associé SL Agence | Automatisation, applications métier et IA pour les TPE-PME de Mulhouse, Colmar et du Haut-Rhin | Premier outil en place en 7 jours
+
+**Infos** (limite 2 600 caractères ; environ 1 500 ici) :
+```
+Le travail est fait deux fois. Une fois quand l'information arrive, une fois quand on la recopie.
+
+Je m'appelle Loïc. Je suis associé de SL Agence, à Friesen, avec Sacha. Sacha construit les outils. Moi, j'écoute les dirigeants, je cadre le besoin et je vérifie que l'outil sert vraiment à ceux qui l'utilisent.
+
+Nous travaillons pour les indépendants, TPE, PME, cabinets et associations de Mulhouse, Colmar, Saint-Louis, Altkirch, du Sundgau et de tout le Haut-Rhin.
+
+Ce que nous construisons :
+→ des bons d'intervention sur téléphone, signés au doigt, avec photos horodatées, même hors réseau ;
+→ un seul écran à la place de vos fichiers Excel ;
+→ des devis, factures, contrats et rapports générés automatiquement ;
+→ des relances de factures et d'échéances qui partent seules ;
+→ des assistants IA : facture saisie depuis une photo, compte rendu depuis un message vocal, tri du courrier ;
+→ des connexions entre vos logiciels : comptabilité, paie, agenda, messagerie, caisse ;
+→ la préparation à la facture électronique.
+
+Quelques réalisations (nos clients sont présentés par leur activité) :
+→ Terrassement : 12 salariés pointent leurs heures en 30 secondes, avant de rentrer.
+→ Terrassement : le carburant de 11 engins visible le jour même.
+→ Gestion de patrimoine : un fichier par client remplacé par un seul écran.
+→ Sécurité et prévention : les échéances de contrôle signalées à l'avance.
+
+Notre méthode : 15 minutes au téléphone, écran partagé. Un devis gratuit, un prix ferme sous 24 h, un périmètre écrit. Un premier outil en place en 7 jours. Vos données restent à vous, exportables à tout moment.
+
+Ici, je publie trois fois par semaine : des cas concrets, des méthodes à appliquer vous-même et l'actualité qui touche les entreprises du 68.
+
+Pour en parler : « Réserver un appel de 15 minutes » sur slagence.fr, ou agence.sl.68@gmail.com.
+```
+
+**Bannière** (1584 × 396 px **[secondaire]**), fond `#070907` :
+- Ligne 1, grande, vert `#a9c49f` : « Si vous savez le décrire, nous savons le construire. »
+- Ligne 2, blanc : « Applications métier · Automatisation · IA — TPE et PME du Haut-Rhin »
+- Ligne 3, petite : « slagence.fr · Friesen (68) »
+- Texte aligné à droite : la photo de profil recouvre le coin inférieur gauche.
+
+**Sélection** (dans cet ordre) :
+1. Lien slagence.fr — titre « Ce que nous faisons, en 45 secondes (vidéo) ».
+2. Le carrousel « Excel ne suffit plus ? 7 signes », une fois publié.
+3. Article « Relancer un devis sans réponse : 8 modèles à copier » — slagence.fr/blog/relancer-un-devis-sans-reponse.
+4. Page « Facture électronique TPE » — slagence.fr/facture-electronique-tpe.
+5. Le post « scène du terrain » le plus commenté du mois (mise à jour mensuelle).
+
+**Expérience** : poste « Associé — commercial et stratégie », SL Agence, avec 3 lignes reprenant la méthode et les engagements.
+**Compétences** (5 premières) : Automatisation des processus · Applications métier · Intelligence artificielle · Développement commercial · Gestion de projet.
+**Bouton principal** : garder « Se connecter » (objectif : relations avec des dirigeants locaux, pas une audience large).
+
+---
+
+## 8. Calendrier mensuel type (12 posts)
+
+Créneaux de départ : **mardi 8 h · mercredi 16 h · jeudi 8 h**. Les études se contredisent (section 1.6) : on compare les
+créneaux du matin et de l'après-midi sur 4 semaines, puis on garde le meilleur pour l'audience de Loïc. Pas de publication le week-end (chute nette selon Buffer 2026).
+
+| Semaine | Mardi 8 h | Mercredi 16 h | Jeudi 8 h |
+|---|---|---|---|
+| 1 | P2 Coût caché — texte + photo (structure 2) | P3 Mode d'emploi — **carrousel** (structure 4) | P1 Scène du terrain (structure 1) |
+| 2 | P5 Actualité (structure 6) | P1 Scène du terrain — capture floutée | P4 Coulisses (structure 5, fait réel) |
+| 3 | P2 Coût caché (structure 2) | P3 Mode d'emploi — **carrousel** (structure 3) | P1 Scène du terrain |
+| 4 | P2 Question au réseau (structure 7) | P3 Mode d'emploi — **carrousel** | P4 Conversion : le premier appel (structure 8) |
+
+Répartition : P1 ×3, P2 ×3, P3 ×3, P4 ×2, P5 ×1 (+ actualité urgente en remplacement si besoin).
+Chaque mois, en plus : **1 newsletter LinkedIn** (reprise de l'article de blog de la quinzaine, ouverte à tous les membres **[officiel]**),
+1 vidéo courte de 30 à 45 s **seulement si Loïc est à l'aise** (accroche 0–3 s, 3 plans, chute, sous-titres), et la routine de commentaires chaque jour ouvré.
+
+(sections 9 à 12 à venir)
