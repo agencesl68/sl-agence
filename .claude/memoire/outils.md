@@ -12,7 +12,7 @@ de Loïc vit dans ses propres outils : **Gmail** (conversations et statuts via l
 |---|---|---|
 | Fichier de prospection historique (~205 entreprises de Mulhouse, statuts, e-mails déjà préparés) | Google Drive — feuille « Prospection SL agence » (id `1tLAhiIe2DXZNqb8vuc2Ao_nNI-0v2qi_s18lr7Z_REY`), onglets « Prospection chèque cadeau » et « Mail à envoyer » | Lecture (`mcp__Google_Drive__read_file_content`) |
 | Dossier de travail Drive | « SL agence » (id `1rAcFi7NBf_cXGzN_qJ0sBAe3Y5wTl4b3`) | Les lots de prospects (`Prospects – lot AAAA-MM-JJ`) et listes de relances y sont créés |
-| Conversations avec les prospects | Gmail de Loïc | Lecture, brouillons, libellés (jamais d'envoi) |
+| Conversations avec les prospects | Gmail **agence.sl.68@gmail.com** (boîte partagée de l'agence, Sacha la voit aussi ; ~200 fils envoyés, dont une prospection d'août 2026) | Lecture, brouillons, libellés (jamais d'envoi) |
 | Analyse de marché + grille tarifaire (confidentiel) | Drive — « Analyse de marché SLagence.docx » (id `1y9U0WFV4y5UhABLhKoN1ASu0jA0n-jfk`) | Lecture seule, jamais recopiée dans le dépôt |
 | Données SEO (positions, mots-clés, Search Console, concurrents) | Ahrefs (connecteur) | Lecture |
 | Site | Ce dépôt (racine) | Modifications par branche + pull request validée |

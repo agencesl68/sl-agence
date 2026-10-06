@@ -25,8 +25,13 @@ comprendre leur réalité, et préparer pour Loïc des messages qu'il n'a plus q
 2. Lire la feuille Drive « Prospection SL agence » (id dans `outils.md`) pour :
    - **exploiter d'abord les ~190 entreprises « À contacter »** déjà listées (c'est la source la moins chère) ;
    - ne jamais proposer une entreprise déjà « Contacté » ou marquée « déjà client ».
-3. **Exclure** les clients existants et les entreprises déjà en conversation : vérifier dans Gmail
-   (`search_threads` sur le nom de domaine ou le nom de l'entreprise) avant de proposer un prospect.
+3. **Exclure** les clients existants et vérifier l'historique : chercher dans Gmail (`search_threads`,
+   `in:anywhere`, nom de domaine OU nom de l'entreprise) avant de proposer un prospect.
+   - Déjà en conversation ou client → exclure.
+   - Déjà contacté sans réponse (ex. campagne d'août 2026) → ne pas écrire un « premier message » :
+     signaler « relance » avec la date du premier envoi ; le brouillon est une relance **dans le même fil**
+     (`replyToMessageId`).
+4. Signature des e-mails : « Loïc — SL Agence » puis « 06 01 16 07 62 · slagence.fr ».
 
 ## Méthode
 
