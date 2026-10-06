@@ -3,7 +3,9 @@
 > Base commune de tous les agents. Tenu à jour chaque mois par l'agent `veille`.
 > Règle : chaque chiffre porte sa source (URL) et sa date de consultation. « Constaté » = lu sur la source ;
 > « Hypothèse » = déduction de l'agent, à vérifier.
-> Dernière mise à jour : 2026-10-06 (en cours de rédaction).
+> Dernière mise à jour : 2026-10-06 — prochaine revérification : début novembre 2026.
+> Sources les plus récentes intégrées : Baromètre France Num 2026 (28/09/2026), INSEE Première n° 2120 (juillet 2026),
+> règlement omnibus IA (UE) 2026/1744 (27/07/2026).
 
 ## 1. Chiffres clés sourcés
 
