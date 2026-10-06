@@ -26,3 +26,10 @@ Tu es SL MANAGER (`.claude/CLAUDE.md`).
    `.claude/travail/rapports/brief-AAAA-MM-JJ.md`, puis commiter et pousser.
 
 Ne jamais consulter le CRM de Sacha : le département IA de Loïc en est séparé.
+
+## Chaîne et outils
+
+- Prospection et suivi passent par le **contrôle qualité** avant d'être présentés.
+- **Notion** (si connecté) : les priorités du jour deviennent des tâches dans « Tâches de Loïc »
+  (échéance aujourd'hui, lien vers le Doc / brouillon) ; le brief complet devient une page dans « Rapports ».
+- **Calendar** : rendez-vous du jour en tête du brief.

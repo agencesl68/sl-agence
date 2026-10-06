@@ -39,6 +39,19 @@ Fonctionnement :
 Clients existants à exclure de la prospection : ceux marqués « déjà client » dans la feuille Drive,
 et toute entreprise avec laquelle Gmail montre un échange commercial abouti (devis accepté, facture).
 
+## Notion (à connecter par Loïc — gratuit)
+
+Rôle : le **cockpit personnel de Loïc** (pas un second CRM : les prospects restent dans Sheets + Gmail).
+Au premier usage, créer une page « SL Agence — Département IA » avec 3 bases :
+
+| Base | Champs | Alimentée par |
+|---|---|---|
+| Tâches de Loïc | Tâche, Échéance, Priorité, Agent, Lien, Statut (À faire / Fait) | toutes les commandes (ce que Loïc doit faire) |
+| Contenus | Titre, Canal (LinkedIn / Blog / Google), Pilier, Statut (Idée / En atelier / Prêt / Publié), Date prévue, Lien | `/linkedin`, `/seo` |
+| Rapports | Titre, Type (Brief / Bilan / SEO / Veille), Date | `/brief`, `/bilan`, `/seo-suivi`, `/veille` |
+
+Jamais de données personnelles de prospects dans Notion au-delà du nom d'entreprise et d'un lien.
+
 ## Connecteurs
 
 | Outil | État | Usage |

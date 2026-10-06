@@ -3,6 +3,16 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-10-06 — Organisation par modèle, mémoire des corrections, workflows en commandes
+
+- Opus analyse (Manager, Analyste) et contrôle (Contrôle qualité) ; Sonnet exécute (5 équipes).
+  Rien n'est présenté à Loïc sans verdict VALIDÉ.
+- Mémoire des corrections : 10 corrections de la journée (`memoire/corrections/`), `/correction` pour en ajouter.
+- Commandes : `/prospects`, `/relances`, `/brief`, `/bilan`, `/linkedin`, `/seo`, `/seo-suivi`, `/veille`
+  enchaînent Gmail, Drive, Sheets, Calendar et Notion ; `/workflow` crée de nouvelles commandes.
+- QG : onglet Carte = organigramme (Loïc → Manager + Analyste/Contrôle qualité → 5 équipes).
+- Notion à connecter par Loïc (cockpit : tâches, contenus, rapports).
+
 ## 2026-10-06 — Manuels métier des agents
 
 - 6 manuels sourcés et datés dans `savoirs/` : seo, emailing, prospection, linkedin-contenu, veille,

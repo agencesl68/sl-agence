@@ -161,5 +161,6 @@
       "mcp__Google_Calendar__delete_event",
       "mcp__Canva__publish-brand-template"
     ]
-  }
+  },
+  "model": "opus"
 }

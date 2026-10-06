@@ -18,3 +18,12 @@ Arguments : `$ARGUMENTS`. Lance l'agent `contenu-linkedin` en lui rappelant le *
 | `écris <sujet>` | Seulement sur demande explicite : version complète rédigée |
 
 Jamais de publication. Commiter les fichiers de travail modifiés.
+
+## Chaîne (obligatoire)
+
+QG : agent(s) « au travail » + activité → **analyste** (brief) → **contenu-linkedin** (exécution, Sonnet) →
+**controle-qualite** (verdict ; si À CORRIGER, renvoyer à l'agent, 2 fois max) → présentation à Loïc
+→ QG : livrables, mission, agents « disponibles » → commit.
+
+**Notion** (si connecté) : contenus et idées dans la base « Contenus » (statut Idée → En atelier → Prêt →
+Publié) ; actions à faire par Loïc dans « Tâches de Loïc » ; rapports dans « Rapports ».

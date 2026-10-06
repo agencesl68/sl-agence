@@ -13,7 +13,7 @@
 | `missions` | `{titre, resume, agents: [ids], statut: en cours / terminée, date}` | Le Manager, à chaque directive traitée |
 | `livrables` | `{agent, type, titre, resume, statut: à valider / prêt / envoyé / publié, lien?, lienLibelle?, texte?, date}` | Le Manager, après contrôle de chaque livrable |
 | `activite` | `{agent, texte, date}` — une ligne au démarrage et à la fin de chaque tâche (ids `a-AAAAMMJJ-HHMM`) | Le Manager |
-| `agents` | doc par agent (`prospection`, `suivi`, `contenu-linkedin`, `seo-site`, `veille`) : `{statut: disponible / au travail, tache, depuis (ISO), derniere}` + doc `manager` | Le Manager |
+| `agents` | doc par agent (`prospection`, `suivi`, `contenu-linkedin`, `seo-site`, `veille`, `analyste`, `controle-qualite`) : `{statut: disponible / au travail, tache, depuis (ISO), derniere}` + doc `manager` | Le Manager |
 
 ## Règles
 

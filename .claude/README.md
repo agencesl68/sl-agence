@@ -17,7 +17,10 @@ Ouvre une session Claude Code sur ce dépôt et tape une commande :
 | `/linkedin` · `/linkedin semaine` · `/linkedin commentaire <post>` | Post du jour, programme de la semaine, ou commentaires à valeur ajoutée |
 | `/seo` | L'action SEO / site à plus fort impact maintenant (+ rédaction et intégration si c'est un contenu) |
 | `/veille` · `/veille <concurrent>` | Rapport concurrentiel mensuel ou fiche d'un concurrent |
-| `/bilan` | Bilan de la semaine vs objectifs et ajustements |
+| `/bilan` | Bilan de la semaine vs objectifs et ajustements (rapport Notion) |
+| `/seo-suivi` | Boucle SEO de la semaine : mesure, verdicts, prochaine action |
+| `/correction <ce qui n'allait pas>` | Enregistre une correction pour que l'erreur ne revienne jamais |
+| `/workflow <ton workflow>` | Transforme un de tes workflows en nouvelle commande |
 
 Tu parles **au Manager** : il répartit le travail entre les agents et te rend du travail fini
 (pas d'audit, sauf si tu en demandes un). Tu peux aussi parler normalement : « Trouve-moi des cabinets comptables à Mulhouse », « Prépare un post
@@ -26,13 +29,19 @@ sur la facture électronique ». SL Manager délègue à l'agent qui convient.
 ## L'équipe
 
 ```
-SL MANAGER  (.claude/CLAUDE.md — la session principale)
-├── prospection       Lead Hunter + Prospection
-├── suivi             CRM / follow-up de Loïc (Gmail + Drive, séparé du CRM de Sacha)
-├── seo-site          SEO + Site & CRO
-├── contenu-linkedin  Content Factory + LinkedIn
-└── veille            Veille concurrentielle
+LOÏC (directives, validation, envoi, publication)
+└── SL MANAGER (Opus · session principale)
+    ├┄ Analyste (Opus) ............ brief avant chaque mission importante
+    ├┄ Contrôle qualité (Opus) .... VALIDÉ / À CORRIGER avant que ça t'arrive
+    ├── prospection (Sonnet)       trouve et écrit aux prospects
+    ├── suivi (Sonnet)             réponses, relances, feuille à jour
+    ├── contenu-linkedin (Sonnet)  coach LinkedIn, articles
+    ├── seo-site (Sonnet)          plan, mise en place, mesure
+    └── veille (Sonnet)            marché et concurrents
 ```
+
+**Mémoire des corrections** (`memoire/corrections/`) : chaque correction devient un fichier ; l'analyste
+l'injecte dans les briefs, les agents la lisent, le contrôle qualité la vérifie. `/correction` pour en ajouter.
 
 | Agent | Temps économisé | Argent généré | Impact commercial | Difficulté | Remarque |
 |---|---|---|---|---|---|

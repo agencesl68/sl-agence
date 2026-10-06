@@ -12,3 +12,12 @@ description: Suivi SEO hebdomadaire de slagence.fr — mesure gratuite (Search C
 2. Présenter à Loïc : ce qui a bougé (chiffres), les verdicts (gagné / neutre / perdu), ce qui vient
    d'être mis en place (lien de la PR), ce qu'il doit faire (5 min max) et la prochaine action prévue.
 3. Mettre à jour le QG et commiter les fichiers de `travail/seo/`.
+
+## Chaîne (obligatoire)
+
+QG : agent(s) « au travail » + activité → **analyste** (brief) → **seo-site** (exécution, Sonnet) →
+**controle-qualite** (verdict ; si À CORRIGER, renvoyer à l'agent, 2 fois max) → présentation à Loïc
+→ QG : livrables, mission, agents « disponibles » → commit.
+
+**Notion** (si connecté) : contenus et idées dans la base « Contenus » (statut Idée → En atelier → Prêt →
+Publié) ; actions à faire par Loïc dans « Tâches de Loïc » ; rapports dans « Rapports ».

@@ -1,19 +1,28 @@
 ---
 name: prospects
-description: Produit un lot de prospects qualifiés du Haut-Rhin avec, pour chacun, l'analyse et un message d'approche prêt à valider. Arguments possibles : nombre, secteur, ville (ex. « /prospects 10 BTP Colmar »).
+description: Produit un lot de prospects qualifiés du Haut-Rhin avec un message prêt pour chacun - analyse, exécution, contrôle qualité, puis Drive (Google Doc), Gmail (brouillons), Sheets (feuille à jour) et Notion (tâches de Loïc). Ex. « /prospects 10 BTP Colmar ».
 ---
 
-# /prospects — lot de prospects qualifiés
+# /prospects — lot de prospects prêt à envoyer
 
-Arguments : `$ARGUMENTS` (nombre, secteur, ville — par défaut : 10, secteurs priorité A de
-`.claude/memoire/cible.md`, Haut-Rhin).
+Arguments : `$ARGUMENTS` (nombre, secteur, ville — défaut : 10, secteurs A de `memoire/cible.md`, Haut-Rhin).
 
-1. Lancer l'agent `prospection` avec la demande, en lui rappelant : commencer par la feuille Drive
-   existante, sourcer chaque fait, ne rien exporter de Vibe Prospecting, créer le lot dans Google Drive
-   et les brouillons Gmail pour les prospects joignables par e-mail.
-2. Contrôler le résultat : chaque prospect a une source, un score, un message conforme à `ton.md`
-   (pas de formule interdite, 50–90 mots, pas de prix, pas de nom de client). Renvoyer à l'agent ce qui ne va pas.
-3. Présenter à Loïc : le tableau (entreprise · ville · score · angle · canal), le lien du Google Doc,
-   le nombre de brouillons Gmail créés, et le temps estimé pour tout envoyer.
-4. Rappeler à Loïc : relire et envoyer les brouillons depuis Gmail ; `suivi` détectera les envois et
-   planifiera les relances. Ajouter une ligne anonyme dans `memoire/journal.md`.
+## Chaîne (obligatoire)
+
+QG : agent(s) « au travail » + activité → **analyste** (brief) → **prospection** (exécution, Sonnet) →
+**controle-qualite** (verdict ; si À CORRIGER, renvoyer à l'agent, 2 fois max) → présentation à Loïc
+→ QG : livrables, mission, agents « disponibles » → commit.
+
+## Étapes
+
+1. **Analyste** : brief (secteur, signaux à chercher, sources du manuel prospection, corrections c004 c005 c010…).
+2. **Prospection** exécute :
+   - sources : feuille Drive « Prospection SL agence », API Recherche d'entreprises, BODACC, offres d'emploi ;
+   - vérification Gmail de chaque entreprise (correction c005) ;
+   - **Drive** : Google Doc `Prospects – lot AAAA-MM-JJ` (contenu final en une fois, c006) ;
+   - **Gmail** : un brouillon par prospect joignable par e-mail (ou relance dans le fil existant) ;
+   - **Sheets** : ajout des prospects retenus (statut « À contacter », source) et marquage des écartés.
+3. **Contrôle qualité** : verdict sur le lot et sur chaque message (grille e-mailing ≥ 8/10).
+4. **Notion** (si connecté) : une tâche dans « Tâches de Loïc » : « Relire et envoyer N brouillons » (lien Gmail,
+   échéance aujourd'hui) + une tâche par prospect à appeler ou à contacter sur LinkedIn.
+5. Présenter : tableau (entreprise · ville · score · canal · angle), liens Doc et brouillons, verdict QC, temps estimé.

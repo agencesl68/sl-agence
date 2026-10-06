@@ -45,37 +45,52 @@ button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid va
 .live.on i{background:var(--run);animation:pulse 1.6s ease-out infinite}
 .banner{border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r);padding:10px 14px;font-size:.85rem;color:var(--fg-2)}
 
-/* CARTE */
-.carte{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}
-.map{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 18px 26px;position:relative;min-width:0}
-.map-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:64px}
-.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-.wires path{fill:none;stroke:var(--wire);stroke-width:2}
-.wires path.hot{stroke:var(--run);stroke-width:2.5;stroke-dasharray:7 7;animation:flow .9s linear infinite}
-.wires path.sel{stroke:var(--vert);stroke-width:2.5}
-.wires circle{fill:var(--run)}
-.loic{font-size:.8rem;color:var(--fg-3);display:flex;align-items:center;gap:8px;margin-bottom:-48px}
-.loic b{color:var(--fg-2);font-weight:600}
-.node{border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:12px 14px;text-align:left;display:flex;flex-direction:column;gap:6px;min-width:0;position:relative;transition:border-color .2s,box-shadow .2s,transform .15s}
+/* CARTE : organigramme classique */
+.carte{display:flex;flex-direction:column;gap:20px}
+.map{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 16px 30px;min-width:0;overflow-x:auto}
+.org{min-width:860px;display:flex;flex-direction:column;align-items:center}
+.org ul{margin:0;padding:22px 0 0;position:relative;display:flex;justify-content:center}
+.org li{list-style:none;position:relative;padding:22px 6px 0;display:flex;flex-direction:column;align-items:center;flex:1 1 0;min-width:0}
+.org li::before,.org li::after{content:"";position:absolute;top:0;right:50%;width:50%;height:22px;border-top:2px solid var(--wire)}
+.org li::after{right:auto;left:50%;border-left:2px solid var(--wire)}
+.org li:first-child::before,.org li:last-child::after{border:0}
+.org li:last-child::before{border-right:2px solid var(--wire);border-top-right-radius:8px}
+.org li:first-child::after{border-top-left-radius:8px}
+.org ul::before{content:"";position:absolute;top:0;left:50%;height:22px;border-left:2px solid var(--wire)}
+.org li.hot::after{border-left-color:var(--run)}
+.org li.hot:last-child::before{border-right-color:var(--run)}
+.org .ul-hot::before{border-left-color:var(--run)}
+.trunk{width:2px;height:24px;background:var(--wire)}
+.trunk.hot{background:var(--run)}
+.staff{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%;max-width:860px}
+.staff .side{display:flex;align-items:center}
+.staff .side.l{justify-content:flex-end}
+.staff .dash{flex:0 0 36px;border-top:2px dashed var(--wire)}
+.node{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;width:100%;max-width:200px;position:relative;transition:border-color .2s,box-shadow .2s,transform .15s}
 .node:hover{transform:translateY(-1px)}
 .node[aria-pressed="true"]{border-color:var(--vert);box-shadow:0 0 0 2px var(--vert)}
-.node.working{border-color:var(--run)}
-.node.working[aria-pressed="false"]{box-shadow:0 0 0 3px var(--run-bg)}
-.node .head{display:flex;gap:10px;align-items:center}
-.node h3{font-size:.95rem}
-.node .role{font-size:.76rem;color:var(--fg-3)}
-.badge{font-family:var(--mono);font-size:.72rem;font-weight:500;width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;background:var(--vert-pale);color:var(--vert-fort)}
-.manager{background:var(--vert);border-color:var(--vert);color:var(--on-vert);width:min(380px,100%)}
+.node.working{border-color:var(--run);box-shadow:0 0 0 3px var(--run-bg)}
+.node h3{font-size:.9rem}
+.node .role{font-size:.72rem;color:var(--fg-3);line-height:1.3}
+.node .dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--off)}
+.node.working .dot{background:var(--run);animation:pulse 1.6s ease-out infinite}
+.node .now-mini{font-size:.7rem;color:var(--run);line-height:1.3}
+.model{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border-radius:99px;border:1px solid var(--line);color:var(--fg-2)}
+.model.opus{border-color:var(--vert);color:var(--vert-fort)}
+.boss{max-width:220px;border-style:dashed}
+.manager{background:var(--vert);border-color:var(--vert);color:var(--on-vert);max-width:240px}
+.manager .role,.manager .model{color:inherit;border-color:currentColor;opacity:.9}
+.staffnode{max-width:190px;border-style:dashed}
+.badge{font-family:var(--mono);font-size:.7rem;font-weight:500;width:30px;height:30px;flex:none;border-radius:8px;display:grid;place-items:center;background:var(--vert-pale);color:var(--vert-fort)}
 .manager .badge{background:var(--on-vert);color:var(--vert)}
-.manager .role{color:inherit;opacity:.85}
-.team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;width:100%}
-.ordre{font-size:.76rem;line-height:1.35;border-radius:8px;padding:6px 8px;background:var(--surface-2);color:var(--fg-3)}
-.working .ordre{background:var(--run-bg);color:var(--run)}
-.ordre b{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:2px}
-.state{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:.72rem;color:var(--fg-3);font-variant-numeric:tabular-nums;flex-wrap:wrap}
-
+.legende{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:22px;font-size:.76rem;color:var(--fg-3)}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+.legende i{display:inline-block;width:22px;border-top:2px solid var(--wire)}
+.legende i.d{border-top-style:dashed}
+.legende i.h{border-top-color:var(--run)}
 /* Fiche agent */
-.fiche{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+.fiche{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px 24px}
+.fiche>.head{grid-column:1/-1}
 .fiche .head{display:flex;gap:12px;align-items:center}
 .fiche h2{font-size:1.15rem}
 .bloc{display:flex;flex-direction:column;gap:6px}
@@ -134,10 +149,8 @@ button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid va
 
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--run) 60%,transparent)}100%{box-shadow:0 0 0 7px transparent}}
 @keyframes flow{to{stroke-dashoffset:-28}}
-@media (max-width:1040px){.carte{grid-template-columns:1fr}.fiche{position:static}}
-@media (max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}.wires{display:none}.map-inner{gap:18px}.loic{margin-bottom:0}.flux{grid-template-columns:1fr}}
+@media (max-width:900px){.flux{grid-template-columns:1fr}}
 @media (max-width:820px){.cols{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:440px){.team{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -162,19 +175,10 @@ button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid va
   <section id="vue-carte" role="tabpanel" aria-labelledby="tab-carte">
     <div class="carte">
       <div class="map">
-        <div class="map-inner" id="map">
-          <svg class="wires" id="wires" aria-hidden="true"></svg>
-          <div class="loic"><b>Toi</b> donnes la directive ↓</div>
-          <button type="button" class="node manager" id="n-manager" data-sel="manager" aria-pressed="false">
-            <div class="head"><span class="badge">SM</span><div><h3>SL Manager</h3><span class="role">Reçoit tes directives, les découpe en ordres et contrôle</span></div></div>
-            <div class="state" id="manager-state"></div>
-          </button>
-          <div class="team" id="team"></div>
-        </div>
-        <div class="flux">
-          <div><b>Prospection → Suivi</b>Prospects et messages → tu envoies → Suivi détecte les réponses et prépare les relances.</div>
-          <div><b>SEO → Contenu → Site</b>SEO repère l'opportunité → Contenu rédige → SEO publie en PR et mesure.</div>
-          <div><b>Veille → toute l'équipe</b>Un signal du marché devient une offre, un post, une page ou un argument.</div>
+        <div class="org" id="org"></div>
+        <div class="legende">
+          <span><i></i>hiérarchie</span><span><i class="d"></i>appui du Manager (analyse, contrôle)</span><span><i class="h"></i>ordre en cours</span>
+          <span><span class="model opus">Opus</span> analyse et contrôle</span><span><span class="model">Sonnet</span> exécute</span>
         </div>
       </div>
       <aside class="fiche" id="fiche" aria-live="polite"></aside>
@@ -215,14 +219,20 @@ button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid va
 </div>
 
 <script>
-const AGENTS=[
-  {id:"prospection",code:"PR",nom:"Prospection",role:"Lead Hunter + messages",mission:"Trouve et qualifie les entreprises du Haut-Rhin, écrit les messages d'approche en brouillon.",outils:["Recherche web","API entreprises · BODACC","Gmail (brouillons)","Google Drive","Google Sheets"],manuels:["prospection.md","emailing.md","marche-2026.md"]},
-  {id:"suivi",code:"SU",nom:"Suivi",role:"Relances et réponses",mission:"Détecte les réponses et les relances dues, prépare les relances dans le bon fil Gmail, tient la feuille à jour.",outils:["Gmail (brouillons)","Google Sheets","Google Calendar","Google Drive"],manuels:["emailing.md"]},
-  {id:"contenu-linkedin",code:"CO",nom:"Contenu & LinkedIn",role:"Coach LinkedIn, rédaction",mission:"Radar des tendances, accroches, plans et relectures de tes posts. Rédige articles et études de cas.",outils:["Recherche web","Canva","Site (blog)"],manuels:["linkedin-contenu.md","marche-2026.md"]},
-  {id:"seo-site",code:"SE",nom:"SEO & Site",role:"Référencement et conversion",mission:"Plan maître, mise en place en pull request, mesure à J+28, apprentissage.",outils:["Recherche web","Site · GitHub","Google Drive"],manuels:["seo.md"]},
-  {id:"veille",code:"VE",nom:"Veille",role:"Marché et concurrents",mission:"Surveille le marché et les concurrents, transforme chaque signal en offre, post ou argument.",outils:["Recherche web"],manuels:["veille.md","marche-2026.md"]}
+const LOIC={id:"loic",code:"LB",nom:"Loïc",role:"Dirigeant · donne les directives, valide, envoie et publie",mission:"Fixe le cap, donne les directives au Manager, valide les livrables, envoie les messages et publie.",outils:["Gmail","LinkedIn","Google Business Profile"],manuels:["—"],model:"Humain"};
+const MANAGER={id:"manager",code:"SM",nom:"SL Manager",role:"Directeur commercial et marketing",mission:"Reçoit tes directives, les découpe en ordres pour l'équipe, fait contrôler chaque livrable et te rend l'essentiel.",outils:["Tous les outils","QG"],manuels:["mémoire partagée","corrections","apprentissages"],model:"Opus"};
+const STAFF=[
+  {id:"analyste",code:"AN",nom:"Analyste",role:"Analyse et brief d'exécution",mission:"Avant chaque mission importante : analyse la directive, les données, les apprentissages et les corrections, puis écrit le brief de l'équipe.",outils:["Recherche web","Drive","Sheets","Gmail (lecture)"],manuels:["tous les manuels","corrections"],model:"Opus"},
+  {id:"controle-qualite",code:"CQ",nom:"Contrôle qualité",role:"Valide avant que ça t'arrive",mission:"Vérifie chaque livrable : faits sourcés, corrections passées, grille du manuel (≥ 8/10), ton, RGPD. Verdict VALIDÉ ou À CORRIGER.",outils:["Recherche web","Drive","Gmail (lecture)"],manuels:["grilles des manuels","corrections"],model:"Opus"}
 ];
-const MANAGER={id:"manager",code:"SM",nom:"SL Manager",mission:"Reçoit tes directives, les découpe en ordres pour l'équipe, contrôle chaque livrable (grille ≥ 8/10) et te rend l'essentiel.",outils:["Tous les outils","QG"],manuels:["mémoire partagée","apprentissages terrain"]};
+const AGENTS=[
+  {id:"prospection",code:"PR",nom:"Prospection",role:"Trouve et écrit aux prospects",mission:"Trouve et qualifie les entreprises du Haut-Rhin, écrit les messages d'approche en brouillon.",outils:["Recherche web","API entreprises · BODACC","Gmail (brouillons)","Drive","Sheets"],manuels:["prospection.md","emailing.md","marche-2026.md"],model:"Sonnet"},
+  {id:"suivi",code:"SU",nom:"Suivi",role:"Réponses et relances",mission:"Détecte les réponses et les relances dues, prépare les relances dans le bon fil Gmail, tient la feuille à jour.",outils:["Gmail (brouillons)","Sheets","Calendar","Drive"],manuels:["emailing.md"],model:"Sonnet"},
+  {id:"contenu-linkedin",code:"CO",nom:"Contenu & LinkedIn",role:"Coach LinkedIn, articles",mission:"Radar des tendances, accroches, plans et relectures de tes posts. Rédige articles et études de cas.",outils:["Recherche web","Canva","Site (blog)"],manuels:["linkedin-contenu.md","marche-2026.md"],model:"Sonnet"},
+  {id:"seo-site",code:"SE",nom:"SEO & Site",role:"Référencement et conversion",mission:"Plan maître, mise en place en pull request, mesure à J+28, apprentissage.",outils:["Recherche web","Site · GitHub","Drive"],manuels:["seo.md"],model:"Sonnet"},
+  {id:"veille",code:"VE",nom:"Veille",role:"Marché et concurrents",mission:"Surveille le marché et les concurrents, transforme chaque signal en offre, post ou argument.",outils:["Recherche web"],manuels:["veille.md","marche-2026.md"],model:"Sonnet"}
+];
+const ALL=[LOIC,MANAGER,...STAFF,...AGENTS];
 const STATUTS={"à valider":"s-wait","prêt":"s-ok","envoyé":"s-ok","publié":"s-ok","en cours":"s-run","terminée":"s-ok","nouvelle":"s-wait","prise en compte":"s-run","traitée":"s-ok","archivé":"s-off"};
 const state={missions:[],livrables:[],directives:[],activite:[],agents:{},sel:null,filtreStatut:"tous"};
 const $=s=>document.querySelector(s);
@@ -231,7 +241,7 @@ const dateFr=iso=>{try{return new Date(iso).toLocaleDateString("fr-FR",{day:"num
 const heure=iso=>{try{const d=new Date(iso);const auj=new Date().toDateString()===d.toDateString();return auj?d.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}):dateFr(iso)}catch{return""}};
 const depuis=iso=>{const m=Math.max(0,Math.round((Date.now()-Date.parse(iso))/60000));if(!isFinite(m))return"";return m<1?"à l'instant":m<60?`depuis ${m} min`:`depuis ${Math.floor(m/60)} h ${String(m%60).padStart(2,"0")}`};
 const pill=s=>`<span class="pill ${STATUTS[s]||"s-off"}">${esc(s||"—")}</span>`;
-const fiche=id=>id==="manager"?MANAGER:AGENTS.find(a=>a.id===id);
+const fiche=id=>ALL.find(a=>a.id===id);
 const nomAgent=id=>(fiche(id)||{nom:id||"Manager"}).nom;
 const safeUrl=u=>/^https:\/\//.test(u||"")?u:null;
 const st=id=>state.agents[id]||{};
@@ -245,56 +255,47 @@ function showTab(t){
 }
 document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
 
-/* Carte */
+/* Carte : organigramme */
+function nodeHtml(p,cls){
+  const s=st(p.id),w=working(p.id);
+  const model=p.model==="Humain"?"":`<span class="model${p.model==="Opus"?" opus":""}">${esc(p.model)}</span>`;
+  return `<button type="button" class="node ${cls}${w?" working":""}" data-sel="${p.id}" aria-pressed="${state.sel===p.id}">
+    ${p.id!=="loic"?'<span class="dot"></span>':''}<span class="badge">${p.code}</span><h3>${esc(p.nom)}</h3>
+    <span class="role">${esc(p.role)}</span>${model}${w&&s.tache?`<span class="now-mini">${esc(s.tache)}</span>`:""}</button>`;
+}
 function renderMap(){
-  $("#team").innerHTML=AGENTS.map(a=>{
-    const s=st(a.id),w=working(a.id);
-    return `<button type="button" class="node${w?" working":""}" id="n-${a.id}" data-sel="${a.id}" aria-pressed="${state.sel===a.id}">
-      <div class="head"><span class="badge">${a.code}</span><div><h3>${esc(a.nom)}</h3><span class="role">${esc(a.role)}</span></div></div>
-      <div class="ordre"><b>${w?"Ordre en cours":"Dernier travail"}</b>${esc(w?(s.tache||"—"):(s.derniere||"Aucun pour l'instant"))}</div>
-      <div class="state">${w?`<span class="pill s-run">au travail</span><span>${esc(depuis(s.depuis))}</span>`:`<span class="pill s-off">disponible</span>`}</div>
-    </button>`}).join("");
-  const m=st("manager"),mw=m.statut==="au travail";
-  $("#n-manager").classList.toggle("working",mw);
-  $("#n-manager").setAttribute("aria-pressed",String(state.sel==="manager"));
-  const actifs=AGENTS.filter(a=>working(a.id));
-  $("#manager-state").innerHTML=actifs.length?`<span>${actifs.length} ordre${actifs.length>1?"s":""} en cours</span>`:(mw&&m.tache?`<span>${esc(m.tache)}</span>`:`<span>Aucun ordre en cours</span>`);
+  const anyTeam=AGENTS.some(a=>working(a.id));
+  $("#org").innerHTML=`
+    ${nodeHtml(LOIC,"boss")}
+    <div class="trunk${working("manager")||anyTeam?" hot":""}"></div>
+    <div class="staff">
+      <div class="side l">${nodeHtml(STAFF[0],"staffnode")}<span class="dash"></span></div>
+      ${nodeHtml(MANAGER,"manager")}
+      <div class="side"><span class="dash"></span>${nodeHtml(STAFF[1],"staffnode")}</div>
+    </div>
+    <ul class="${anyTeam?"ul-hot":""}">${AGENTS.map(a=>`<li class="${working(a.id)?"hot":""}">${nodeHtml(a,"")}</li>`).join("")}</ul>`;
+  const actifs=[...STAFF,...AGENTS].filter(a=>working(a.id));
+  const mw=working("manager");
   $("#live").classList.toggle("on",actifs.length>0||mw);
   $("#live-txt").textContent=actifs.length?`En direct : ${actifs.map(a=>a.nom).join(", ")}`:(mw?"En direct : le Manager":"Personne ne travaille en ce moment");
   renderFiche();
-  requestAnimationFrame(drawWires);
 }
-function drawWires(){
-  const map=$("#map"),svg=$("#wires");if(!map||$("#vue-carte").hidden||getComputedStyle(svg).display==="none")return;
-  const box=map.getBoundingClientRect();
-  const P=(el,side)=>{const r=el.getBoundingClientRect();return{x:r.left-box.left+r.width/2,y:(side==="b"?r.bottom:r.top)-box.top}};
-  const man=$("#n-manager");const a0=P(man,"b");
-  let out="";
-  AGENTS.forEach(a=>{const el=document.getElementById("n-"+a.id);if(!el)return;
-    const b=P(el,"t"),my=(a0.y+b.y)/2;
-    const d=`M${a0.x},${a0.y} C${a0.x},${my} ${b.x},${my} ${b.x},${b.y}`;
-    const w=working(a.id);
-    out+=`<path id="w-${a.id}" class="${w?"hot":state.sel===a.id?"sel":""}" d="${d}"/>`;
-    if(w)out+=`<circle r="4"><animateMotion dur="1.8s" repeatCount="indefinite" path="${d}"/></circle>`;
-  });
-  svg.setAttribute("viewBox",`0 0 ${box.width} ${box.height}`);
-  svg.innerHTML=out;
-}
+function drawWires(){}
 function renderFiche(){
-  const id=state.sel||AGENTS.find(a=>working(a.id))?.id||"manager";
+  const id=state.sel||[...STAFF,...AGENTS].find(a=>working(a.id))?.id||"manager";
   const f=fiche(id),s=st(id),w=working(id);
   const acts=state.activite.filter(e=>e.agent===id).slice(0,6);
   const livs=state.livrables.filter(l=>l.agent===id).slice(0,4);
   $("#fiche").innerHTML=`
-    <div class="head"><span class="badge">${f.code}</span><div><h2>${esc(f.nom)}</h2><span class="hint">${state.sel?"":"Clique sur un membre de l'équipe pour voir sa fiche"}</span></div></div>
+    <div class="head" style="display:flex;gap:12px;align-items:center"><span class="badge">${f.code}</span><div><h2>${esc(f.nom)} ${f.model!=="Humain"?`<span class="model${f.model==="Opus"?" opus":""}">${esc(f.model)}</span>`:""}</h2><span class="hint">${state.sel?esc(f.role):"Clique sur un membre de l'organigramme pour voir sa fiche"}</span></div></div>
     <div class="bloc"><span class="eyebrow">En ce moment</span>
-      <div class="now${w?" on":""}">${w?`<b>${esc(s.tache||"Au travail")}</b><br><span>${esc(depuis(s.depuis))}</span>`:`Disponible${s.derniere?` · dernier travail : ${esc(s.derniere)}`:""}`}</div></div>
-    <div class="bloc"><span class="eyebrow">Son rôle</span><p style="font-size:.88rem;color:var(--fg-2)">${esc(f.mission)}</p></div>
-    <div class="bloc"><span class="eyebrow">Ses outils</span><div class="chips">${f.outils.map(o=>`<span class="chip-t">${esc(o)}</span>`).join("")}</div></div>
-    <div class="bloc"><span class="eyebrow">Ses manuels</span><div class="chips">${f.manuels.map(o=>`<span class="chip-t">${esc(o)}</span>`).join("")}</div></div>
+      <div class="now${w?" on":""}">${id==="loic"?"C'est toi : tes directives arrivent au Manager.":w?`<b>${esc(s.tache||"Au travail")}</b><br><span>${esc(depuis(s.depuis))}</span>`:`Disponible${s.derniere?` · dernier travail : ${esc(s.derniere)}`:""}`}</div>
+      <span class="eyebrow" style="margin-top:8px">Son rôle</span><p style="font-size:.88rem;color:var(--fg-2)">${esc(f.mission)}</p></div>
+    <div class="bloc"><span class="eyebrow">Ses outils</span><div class="chips">${f.outils.map(o=>`<span class="chip-t">${esc(o)}</span>`).join("")}</div>
+      <span class="eyebrow" style="margin-top:8px">Ce qu'il lit avant d'agir</span><div class="chips">${f.manuels.map(o=>`<span class="chip-t">${esc(o)}</span>`).join("")}</div></div>
     <div class="bloc"><span class="eyebrow">Activité récente</span>
-      ${acts.length?`<ul class="mini">${acts.map(e=>`<li><time>${esc(heure(e.date))}</time><span>${esc(e.texte)}</span></li>`).join("")}</ul>`:`<p class="hint">Rien pour l'instant.</p>`}</div>
-    ${livs.length?`<div class="bloc"><span class="eyebrow">Derniers livrables</span><ul class="mini">${livs.map(l=>{const u=safeUrl(l.lien);return`<li><time>${esc(dateFr(l.date))}</time><span>${u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l.titre)}</a>`:esc(l.titre)}</span></li>`}).join("")}</ul></div>`:""}`;
+      ${acts.length?`<ul class="mini">${acts.map(e=>`<li><time>${esc(heure(e.date))}</time><span>${esc(e.texte)}</span></li>`).join("")}</ul>`:`<p class="hint">Rien pour l'instant.</p>`}
+      ${livs.length?`<span class="eyebrow" style="margin-top:8px">Derniers livrables</span><ul class="mini">${livs.map(l=>{const u=safeUrl(l.lien);return`<li><time>${esc(dateFr(l.date))}</time><span>${u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l.titre)}</a>`:esc(l.titre)}</span></li>`}).join("")}</ul>`:""}</div>`;
 }
 
 /* Tableau de bord */
@@ -329,7 +330,7 @@ document.addEventListener("click",async e=>{
     setTimeout(()=>{c.textContent="Copier le texte"},1800)}
 });
 addEventListener("resize",()=>requestAnimationFrame(drawWires));
-setInterval(()=>{if(AGENTS.some(a=>working(a.id)))renderMap()},30000);
+setInterval(()=>{if([...STAFF,...AGENTS].some(a=>working(a.id)))renderMap()},30000);
 let onglet="carte";try{onglet=localStorage.getItem("qg-onglet")||"carte"}catch{}
 if(location.hash==="#tableau")onglet="tableau";
 renderAll();showTab(onglet==="tableau"?"tableau":"carte");

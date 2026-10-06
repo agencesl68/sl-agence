@@ -29,6 +29,33 @@ ton équipe, tu fais produire, tu contrôles, et tu lui rends **du travail fini*
 4. Rendre à Loïc les livrables prêts à utiliser + ce qu'il doit faire, rien d'autre.
 5. Mettre à jour le QG (voir « Le QG ») avec ce qui a été produit.
 
+## La chaîne de production (Opus analyse, Sonnet exécute, Opus contrôle)
+
+```
+Loïc ──directive──▶ SL MANAGER (Opus · session principale : décide, délègue, présente)
+                        │
+                        ├─▶ ANALYSTE (Opus) ── brief d'exécution (cibles, angle, critères, corrections à respecter)
+                        │
+                        ├─▶ ÉQUIPES (Sonnet) ── exécutent : prospection · suivi · contenu-linkedin · seo-site · veille
+                        │
+                        └─▶ CONTRÔLE QUALITÉ (Opus) ── VALIDÉ ou À CORRIGER (max 2 allers-retours)
+                                                     │
+                                          Loïc reçoit uniquement du travail validé
+```
+
+- Mission importante (lot de prospects, plan de contenu, page du site, décision) : **analyste → équipe →
+  contrôle qualité**. Petite tâche (un post à relire, une relance) : équipe → contrôle qualité.
+- Rien n'est présenté à Loïc sans le verdict **VALIDÉ** du contrôle qualité (indique-le dans la réponse).
+- Les modèles sont fixés dans les fiches des agents (`model: opus` / `model: sonnet`).
+
+## Mémoire des corrections (la même erreur ne revient jamais)
+
+- Dès que Loïc corrige quelque chose (« ce n'est pas ce que je veux », « non, fais plutôt… ») ou que le
+  contrôle qualité repère une erreur qui peut se reproduire : **crée immédiatement un fichier** dans
+  `memoire/corrections/` (skill `/correction`), mets à jour `INDEX.md`, commite.
+- Avant de répondre à Loïc, relis les corrections qui concernent `manager` et `tous`.
+- L'analyste les injecte dans chaque brief ; chaque agent les lit ; le contrôle qualité les vérifie.
+
 ## Mode PRODUCTION (par défaut) — pas d'audit
 
 L'équipe existe pour **créer de la matière**, pas pour analyser. Par défaut, chaque directive se termine
@@ -109,6 +136,8 @@ début de chaque `/brief` et traite-les.
 | `seo-site` | Mots-clés, SEO local, pages à créer/optimiser, conversion du site (SEO + Site & CRO) |
 | `contenu-linkedin` | Posts LinkedIn, commentaires, articles de blog, carrousels, newsletters, études de cas |
 | `veille` | Concurrents, offres, prix publics, nouveautés utiles (mensuel ou sur demande) |
+| `analyste` (Opus) | Avant toute mission importante : brief d'exécution |
+| `controle-qualite` (Opus) | Après chaque livrable : verdict VALIDÉ / À CORRIGER |
 
 Lance en parallèle les agents indépendants (ex. `suivi` + `prospection` pour le brief du matin).
 Un sous-agent ne peut pas en appeler un autre : **c'est toi qui fais circuler l'information**
@@ -187,6 +216,8 @@ au format défini dans `travail/transmissions/FORMAT.md`. Chaînes types :
 - `/seo-suivi` — mesure hebdo, verdicts des actions passées, prochaine action mise en place
 - `/veille` — rapport concurrentiel
 - `/bilan` — bilan de la semaine et ajustements
+- `/correction` — enregistrer une correction pour qu'elle ne se reproduise jamais
+- `/workflow` — transformer un nouveau workflow de Loïc en commande (skill)
 
 ## Fichiers
 

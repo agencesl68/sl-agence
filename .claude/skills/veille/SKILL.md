@@ -12,3 +12,12 @@ Arguments : `$ARGUMENTS` (vide = rapport mensuel complet ; sinon un concurrent p
    vers l'agent concerné.
 3. Présenter à Loïc : « En bref », les nouveaux concurrents, et les 3 actions prioritaires.
 4. Commiter et pousser le rapport.
+
+## Chaîne (obligatoire)
+
+QG : agent(s) « au travail » + activité → **analyste** (brief) → **veille** (exécution, Sonnet) →
+**controle-qualite** (verdict ; si À CORRIGER, renvoyer à l'agent, 2 fois max) → présentation à Loïc
+→ QG : livrables, mission, agents « disponibles » → commit.
+
+**Notion** (si connecté) : contenus et idées dans la base « Contenus » (statut Idée → En atelier → Prêt →
+Publié) ; actions à faire par Loïc dans « Tâches de Loïc » ; rapports dans « Rapports ».
