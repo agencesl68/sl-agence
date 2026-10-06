@@ -47,6 +47,8 @@ et toute entreprise avec laquelle Gmail montre un échange commercial abouti (de
 | API Recherche d'entreprises (État) — `https://recherche-entreprises.api.gouv.fr/search` | ✅ gratuit, sans clé (WebFetch) | Entreprises du 68 par activité (NAF), effectifs, dirigeants publics |
 | Gmail | ✅ | Lecture des fils, **brouillons**, libellés. Envoi, transfert, suppression : **interdits** |
 | Google Drive | ✅ | Lecture de la prospection, création des lots et listes |
+| PageSpeed Insights API | ⚠️ clé API gratuite à créer par Loïc (Google Cloud) — sans clé, quota épuisé | Vitesse et SEO technique mesurés automatiquement |
+| Search Console | ⚠️ pas de connecteur : export CSV mensuel déposé par Loïc dans Drive « SL agence/SEO » | Impressions, clics, positions réelles par page et requête |
 | Google Sheets | ✅ | Mise à jour de la feuille de prospection (statuts, dates de relance, nouveaux prospects) |
 | Google Calendar | ✅ | Lecture des rendez-vous ; créneaux proposés dans les relances. Création d'événement : confirmation de Loïc |
 | Canva | ✅ | Carrousels et visuels LinkedIn aux couleurs de SL Agence |

@@ -1,17 +1,20 @@
 ---
 name: linkedin
-description: Prépare les contenus LinkedIn de Loïc — post du jour, programme de la semaine, ou commentaires sur des posts qu'il colle. Ex. « /linkedin semaine », « /linkedin commentaire <texte du post> ».
+description: Coach LinkedIn de Loïc (co-création, jamais de publication automatique). « /linkedin idées » = radar des sujets du moment avec questions pour récupérer sa matière ; « /linkedin atelier <anecdote/notes> » = accroches, structures et plan avec ses mots ; « /linkedin relis <brouillon> » = note /10 et 3 corrections ; « /linkedin stats <chiffres> » = enregistre les résultats et en tire des leçons ; « /linkedin commentaire <post> » = pistes de commentaires.
 ---
 
-# /linkedin
+# /linkedin — coach éditorial
 
-Arguments : `$ARGUMENTS`.
+Arguments : `$ARGUMENTS`. Lance l'agent `contenu-linkedin` en lui rappelant le **mode co-création**
+(sa fiche) et le manuel `savoirs/linkedin-contenu.md`.
 
-- **vide ou « post »** : lancer `contenu-linkedin` pour 1 post prêt à publier aujourd'hui (pilier le moins
-  utilisé récemment d'après `.claude/travail/contenu/calendrier.md`).
-- **« semaine »** : 3 posts (piliers différents) + mise à jour du calendrier.
-- **« commentaire » + texte ou lien** : 2 propositions de commentaire à valeur ajoutée.
+| Argument | Ce que l'agent fait |
+|---|---|
+| vide ou `idées` | Radar : 5 sujets du moment, angle, format, et la question à poser à Loïc pour chacun |
+| `atelier <matière>` | 3 questions max pour creuser, puis 3 accroches, 2 structures, plan ligne par ligne avec les mots de Loïc |
+| `relis <brouillon>` | Note /10, 3 corrections maximum, 2 accroches alternatives, meilleur créneau |
+| `stats <chiffres>` | Enregistre dans `travail/contenu/linkedin/performances.md`, leçon dans `memoire/apprentissages.md` ; synthèse toutes les 8 publications |
+| `commentaire <post>` | 2 pistes de commentaire à valeur ajoutée, que Loïc formule |
+| `écris <sujet>` | Seulement sur demande explicite : version complète rédigée |
 
-Contrôler : un seul objectif par contenu, aucun chiffre non sourcé, aucun nom de client, pas de
-formule interdite (`memoire/ton.md`). Enregistrer les posts dans `.claude/travail/contenu/linkedin/`,
-mettre à jour le calendrier, commiter et pousser. Rappeler que c'est Loïc qui publie.
+Jamais de publication. Commiter les fichiers de travail modifiés.

@@ -36,8 +36,11 @@ par des livrables concrets et utilisables tout de suite :
 
 - Prospection → des prospects qualifiés **et** les messages prêts (brouillons Gmail, Google Doc).
 - Suivi → les relances **écrites** dans les bons fils Gmail.
-- Contenu → des posts, carrousels, articles, scripts, newsletters **rédigés**, prêts à copier.
-- SEO & Site → des **pages, articles, titres, textes** rédigés (et proposés en pull request), pas des listes de constats.
+- Contenu → pour LinkedIn, **co-création** : radar de tendances, idées, accroches, plans et relectures ;
+  Loïc écrit et publie lui-même (rédaction complète seulement s'il la demande). Articles, études de cas,
+  newsletters : rédigés.
+- SEO & Site → une **boucle continue** : plan maître, mise en place (pull requests, textes prêts à coller),
+  mesure à J+28, verdict et apprentissage (`/seo-suivi` chaque semaine).
 - Veille → une **idée d'offre, de contenu ou d'angle** exploitable, pas un rapport.
 
 Un audit ou un diagnostic n'est produit **que si Loïc le demande explicitement** (« fais-moi un audit »,
@@ -176,6 +179,7 @@ au format défini dans `travail/transmissions/FORMAT.md`. Chaînes types :
 - `/relances` — qui relancer aujourd'hui, avec les messages
 - `/linkedin` — post(s) et commentaires LinkedIn
 - `/seo` — l'action SEO / site à plus fort impact maintenant
+- `/seo-suivi` — mesure hebdo, verdicts des actions passées, prochaine action mise en place
 - `/veille` — rapport concurrentiel
 - `/bilan` — bilan de la semaine et ajustements
 

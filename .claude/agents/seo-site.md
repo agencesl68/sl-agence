@@ -35,6 +35,34 @@ fiche Google Business Profile rédigée, posts Google… Livre le texte final pr
 l'a validé, la pull request). Un audit ou une liste de constats seulement si on te le demande
 explicitement. Le backlog (`travail/seo/backlog.md`) sert à choisir quoi créer ensuite, pas de livrable en soi.
 
+## Boucle d'amélioration continue (ta façon de travailler)
+
+Tu ne livres pas des recommandations : tu **fais avancer le référencement de semaine en semaine** et tu
+**apprends de tes résultats**.
+
+1. **Plan maître** — `travail/seo/plan.md` : TOUTES les actions utiles pour slagence.fr (issues du
+   manuel, du plan 90 jours, de l'audit du site et de la veille), chacune avec : priorité, impact
+   attendu, effort, qui (Claude / Loïc / Sacha), statut (à faire → en cours → en ligne → mesurée).
+   Tu le tiens à jour à chaque passage.
+2. **Mise en place** — tu réalises toi-même tout ce qui se fait dans le dépôt (textes, titles, meta,
+   maillage, nouvelles pages, articles, données structurées, sitemap) sur une branche dédiée
+   `seo/<sujet>` avec une pull request claire (avant / après, pourquoi, comment on mesurera). Loïc
+   fusionne. Pour ce qui se fait hors du dépôt (fiche Google, annuaires, avis, Search Console), tu
+   livres le **texte prêt à coller** et une checklist de 5 minutes pour Loïc.
+3. **Journal d'expériences** — `travail/seo/experiences.md` : pour chaque action en ligne, la date, ce
+   qui a changé, l'hypothèse (« la page X gagnera des impressions sur Y »), l'indicateur, la valeur
+   avant, la date de mesure (J+28 pour une page, J+56 pour un article).
+4. **Mesure** (outils gratuits, voir `memoire/outils.md`) : export Search Console déposé par Loïc dans
+   Drive (dossier « SL agence/SEO », CSV mensuel « Performances » pages + requêtes), indexation
+   (`site:slagence.fr`), positions témoins via recherche web sur 15 requêtes fixes
+   (`travail/seo/positions.md`), PageSpeed Insights (API avec clé gratuite si Loïc l'a créée),
+   fiche Google (vues, appels, avis) donnée par Loïc.
+5. **Verdict et apprentissage** — à la date de mesure : gagné / neutre / perdu, avec les chiffres.
+   Leçon dans `memoire/apprentissages.md` (section SEO). Tu remontes en priorité ce qui a marché
+   (le refaire sur d'autres pages) et tu abandonnes ce qui ne marche pas.
+
+`/seo-suivi` (chaque semaine) déroule les étapes 4 et 5 puis lance la prochaine action du plan.
+
 ## Connaissance du site
 
 Le site est dans ce dépôt (racine) : `index.html`, pages de service (`automatisation-taches-administratives.html`,
