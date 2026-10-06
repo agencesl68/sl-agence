@@ -22,7 +22,7 @@ sur la facture électronique ». SL Manager délègue à l'agent qui convient.
 ```
 SL MANAGER  (.claude/CLAUDE.md — la session principale)
 ├── prospection       Lead Hunter + Prospection
-├── crm-relances      Suivi commercial et relances (complète le CRM de Sacha)
+├── suivi             CRM / follow-up de Loïc (Gmail + Drive, séparé du CRM de Sacha)
 ├── seo-site          SEO + Site & CRO
 ├── contenu-linkedin  Content Factory + LinkedIn
 └── veille            Veille concurrentielle
@@ -32,20 +32,22 @@ SL MANAGER  (.claude/CLAUDE.md — la session principale)
 |---|---|---|---|---|---|
 | SL Manager | ★★★★ | ★★★ | ★★★★★ | ★★ | Fait gagner du temps de décision |
 | prospection | ★★★★★ | ★★★★★ | ★★★★★ | ★★ | ~190 entreprises déjà listées à exploiter en premier |
-| crm-relances | ★★★★ | ★★★★ | ★★★★ | ★★ | Le robot CRM de Sacha gère déjà les relances des deals du CRM |
+| suivi | ★★★★ | ★★★★ | ★★★★ | ★★ | Statuts par libellés Gmail, relances en brouillons dans le bon fil |
 | contenu-linkedin | ★★★★★ | ★★ | ★★★★ | ★ | Pas d'accès LinkedIn : rédige, tu publies |
-| seo-site | ★★★ | ★★★★ | ★★★★ | ★★★ | Limité tant qu'Ahrefs et une mesure d'audience ne sont pas branchés |
+| seo-site | ★★★ | ★★★★ | ★★★★ | ★★★ | Données réelles via Ahrefs (positions, Search Console, concurrents) |
 | veille | ★★ | ★ | ★★ | ★ | Une fois par mois suffit |
 
 ## Les règles qui te protègent
 
-- **Rien ne part sans toi** : aucun e-mail, message ou post n'est envoyé ; tout est préparé en brouillon.
+- **Rien ne part sans toi** : aucun e-mail, message ou post n'est envoyé ; tout est préparé en brouillon
+  (brouillons Gmail, Google Docs). L'envoi depuis Gmail est bloqué techniquement.
+- **Séparé du CRM de Sacha** : ton suivi vit dans Gmail (libellés `SL Prospection/…`) et Drive.
 - **Aucune dépense sans toi** : les exports Vibe Prospecting (crédits) demandent ta confirmation.
 - **Le travail de Sacha est intouchable** : toutes les écritures dans Make sont bloquées techniquement
   (`.claude/settings.json`), ainsi que l'outil d'envoi d'e-mail du CRM.
 - **Le site** : modifications uniquement par pull request que tu valides.
 - **Ce dépôt est public** : aucune donnée de prospect, aucun tarif, aucun nom de client n'y est écrit.
-  Les prospects vivent dans Google Drive (dossier « SL agence ») et dans le CRM.
+  Les prospects vivent dans Google Drive (dossier « SL agence ») et dans Gmail.
 
 ## Où sont les choses
 
@@ -56,10 +58,9 @@ SL MANAGER  (.claude/CLAUDE.md — la session principale)
 | `skills/` | Les commandes `/…` |
 | `travail/` | Fichiers de travail : `seo/`, `contenu/`, `veille/`, `rapports/`, `transmissions/` |
 
-## À faire de ton côté (10 minutes, pour que tout marche à 100 %)
+## Ta routine
 
-1. Relire et valider les points **[À VALIDER]** de `memoire/agence.md` (positionnement, tarifs) et les
-   objectifs proposés dans `memoire/objectifs.md`.
-2. Terminer la connexion d'**Ahrefs** et de **Gmail** dans claude.ai → Paramètres → Connecteurs.
-3. Avec Sacha : passer le robot du CRM en mode **brouillon** (sinon il envoie les relances seul).
-4. Optionnel : `/brief` automatique chaque matin — demande-le et une tâche planifiée sera créée.
+1. Le matin : `/brief` (5 min de lecture).
+2. Ouvre Gmail → Brouillons : relis, ajuste si besoin, envoie (20 min).
+3. Publie le post LinkedIn préparé et les commentaires proposés (15 min).
+4. Le vendredi : `/bilan`.

@@ -9,10 +9,11 @@ Arguments : `$ARGUMENTS` (nombre, secteur, ville — par défaut : 10, secteurs 
 `.claude/memoire/cible.md`, Haut-Rhin).
 
 1. Lancer l'agent `prospection` avec la demande, en lui rappelant : commencer par la feuille Drive
-   existante, sourcer chaque fait, ne rien exporter de Vibe Prospecting, créer le lot dans Google Drive.
+   existante, sourcer chaque fait, ne rien exporter de Vibe Prospecting, créer le lot dans Google Drive
+   et les brouillons Gmail pour les prospects joignables par e-mail.
 2. Contrôler le résultat : chaque prospect a une source, un score, un message conforme à `ton.md`
    (pas de formule interdite, 50–90 mots, pas de prix, pas de nom de client). Renvoyer à l'agent ce qui ne va pas.
 3. Présenter à Loïc : le tableau (entreprise · ville · score · angle · canal), le lien du Google Doc,
-   et le temps estimé pour tout envoyer.
-4. Après validation, rappeler à Loïc de passer les statuts à « Contacté » avec la date (feuille ou CRM)
-   pour que `crm-relances` puisse planifier les relances. Ajouter une ligne anonyme dans `memoire/journal.md`.
+   le nombre de brouillons Gmail créés, et le temps estimé pour tout envoyer.
+4. Rappeler à Loïc : relire et envoyer les brouillons depuis Gmail ; `suivi` détectera les envois et
+   planifiera les relances. Ajouter une ligne anonyme dans `memoire/journal.md`.

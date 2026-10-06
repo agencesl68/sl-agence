@@ -32,7 +32,7 @@
 - Grands groupes et franchises dont les outils sont imposés par la tête de réseau
 - Entreprises sans salarié et sans projet de croissance (sauf besoin explicite)
 - Professions de santé déjà équipées d'un logiciel métier complet (sauf douleur précise)
-- Clients existants de SL Agence (vérifier dans le CRM / la feuille avant toute approche)
+- Clients existants de SL Agence (vérifier dans Gmail et la feuille Drive avant toute approche)
 
 ## Grille de score (0 à 100)
 

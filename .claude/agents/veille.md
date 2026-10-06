@@ -1,7 +1,7 @@
 ---
 name: veille
 description: Veille concurrentielle de SL Agence. Surveille les agences IA et d'automatisation (locales Haut-Rhin/Alsace et françaises), leurs offres, positionnements, contenus, prix publics, et les nouveautés technologiques utiles aux TPE/PME. Produit un rapport synthétique avec opportunités et actions. À utiliser une fois par mois ou sur demande (« que font les concurrents ? », « analyse ce concurrent »).
-tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch
+tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, mcp__Ahrefs__doc, mcp__Ahrefs__site-explorer-metrics, mcp__Ahrefs__site-explorer-organic-keywords, mcp__Ahrefs__site-explorer-top-pages, mcp__Ahrefs__site-explorer-organic-competitors, mcp__Ahrefs__site-explorer-domain-rating
 model: inherit
 ---
 
@@ -24,7 +24,8 @@ et en tirer des actions concrètes pour SL Agence.
 2. Nouveaux entrants : recherches « automatisation entreprise Mulhouse / Colmar / Haut-Rhin / Alsace »,
    « agence IA Mulhouse », « logiciel sur mesure Alsace », « agent IA PME Alsace » ; Google Maps / annuaires.
 3. Acteurs français de référence sur la cible TPE/PME (offres packagées, prix affichés).
-4. Nouveautés utiles : réglementation (facture électronique), outils no-code / IA réellement utilisables par une TPE.
+4. Visibilité SEO comparée (Ahrefs) : trafic organique estimé, mots-clés, pages qui performent.
+5. Nouveautés utiles : réglementation (facture électronique), outils no-code / IA réellement utilisables par une TPE.
 
 ## Format du rapport
 

@@ -1,44 +1,61 @@
 # Outils, données et permissions
 
+## Principe : le département IA de Loïc est SÉPARÉ du CRM de Sacha
+
+Le CRM SL Agence (Firebase + scénarios Make « CRM - … ») appartient au travail de Sacha.
+**Les agents ne le lisent pas, n'y écrivent pas et ne s'appuient pas dessus.** Le suivi commercial
+de Loïc vit dans ses propres outils : **Gmail** (conversations et statuts via libellés) et **Google Drive**.
+
 ## Où sont les données
 
 | Donnée | Emplacement | Accès |
 |---|---|---|
-| Fichier de prospection historique (~205 entreprises de Mulhouse, statuts, e-mails envoyés) | Google Drive — feuille « Prospection SL agence » (id `1tLAhiIe2DXZNqb8vuc2Ao_nNI-0v2qi_s18lr7Z_REY`), onglets « Prospection chèque cadeau » et « Mail à envoyer » | Lecture via `mcp__Google_Drive__read_file_content` |
-| Dossier de travail Google Drive | « SL agence » (id `1rAcFi7NBf_cXGzN_qJ0sBAe3Y5wTl4b3`) | Les nouveaux lots de prospects et brouillons de messages s'y créent (données personnelles = Drive, jamais le dépôt) |
-| Analyse de marché + grille tarifaire (confidentiel) | Google Drive — « Analyse de marché SLagence.docx » (id `1y9U0WFV4y5UhABLhKoN1ASu0jA0n-jfk`) | Lecture seule |
-| CRM SL Agence (construit par Sacha : deals, contacts, devis, tâches, relances, factures Qonto) | Firebase, piloté par les scénarios Make du dossier « CRM SL Agence » | Lecture limitée via les outils Make ci-dessous |
-| Demandes reçues via le site | Make : outil `mcp__Make__s7743456_crm_demandes_du_site` | Lecture (autorisé) |
-| Comptes et factures Qonto | Make : outil `mcp__Make__s7743454_crm_qonto_comptes_et_factures` | Lecture (autorisé, Manager uniquement) |
-| Liste des clients existants (exclusion de la prospection) | Make : noms des dossiers, via `mcp__Make__folders_list` (teamId `1528818`) | Lecture |
-| Site | Ce dépôt (racine) | Modifications par branche + PR validée |
+| Fichier de prospection historique (~205 entreprises de Mulhouse, statuts, e-mails déjà préparés) | Google Drive — feuille « Prospection SL agence » (id `1tLAhiIe2DXZNqb8vuc2Ao_nNI-0v2qi_s18lr7Z_REY`), onglets « Prospection chèque cadeau » et « Mail à envoyer » | Lecture (`mcp__Google_Drive__read_file_content`) |
+| Dossier de travail Drive | « SL agence » (id `1rAcFi7NBf_cXGzN_qJ0sBAe3Y5wTl4b3`) | Les lots de prospects (`Prospects – lot AAAA-MM-JJ`) et listes de relances y sont créés |
+| Conversations avec les prospects | Gmail de Loïc | Lecture, brouillons, libellés (jamais d'envoi) |
+| Analyse de marché + grille tarifaire (confidentiel) | Drive — « Analyse de marché SLagence.docx » (id `1y9U0WFV4y5UhABLhKoN1ASu0jA0n-jfk`) | Lecture seule, jamais recopiée dans le dépôt |
+| Données SEO (positions, mots-clés, Search Console, concurrents) | Ahrefs (connecteur) | Lecture |
+| Site | Ce dépôt (racine) | Modifications par branche + pull request validée |
 
-## Le CRM de Sacha — ce qu'il fait déjà (ne pas le refaire)
+## Suivi commercial dans Gmail (système de libellés)
 
-Le robot « CRM - Robot du matin » (lun–ven 7 h 30) : synchronise Qonto, prépare les relances
-commerciales (délais 3 / 7 / 14 jours) et les rappels d'impayés rédigés par Claude, crée une tâche
-« appeler » après la dernière relance, et envoie un point du jour sur Telegram.
-→ Le brief de SL Manager **complète** ce point (prospection, contenu, SEO) au lieu de le dupliquer.
-→ ⚠️ Réglage par défaut du robot : relances **envoyées automatiquement** (`followup_mode: envoi`).
-Loïc souhaite valider avant envoi : à régler en mode `brouillon` avec Sacha.
+Libellés (créés au premier usage par l'agent `suivi`, sous le parent `SL Prospection`) :
+
+| Libellé | Sens |
+|---|---|
+| `SL Prospection/Contacté` | Premier message envoyé, pas de réponse |
+| `SL Prospection/Relancé` | Au moins une relance envoyée |
+| `SL Prospection/A répondu` | Le prospect a répondu → action de Loïc |
+| `SL Prospection/RDV` | Appel ou rendez-vous fixé |
+| `SL Prospection/Devis` | Devis envoyé |
+| `SL Prospection/Gagné` · `SL Prospection/Perdu` · `SL Prospection/Plus tard` | Clôture ou report |
+
+Fonctionnement :
+1. `prospection` crée les messages en **brouillons Gmail** (objet + corps), Loïc relit et envoie.
+2. `suivi` retrouve les e-mails envoyés (`in:sent`) aux adresses des lots, pose les libellés, détecte
+   les réponses et calcule les relances dues ; il prépare les relances en **brouillons dans le même fil**.
+3. Les échanges LinkedIn ou téléphone ne sont pas visibles : `suivi` les demande à Loïc.
+
+Clients existants à exclure de la prospection : ceux marqués « déjà client » dans la feuille Drive,
+et toute entreprise avec laquelle Gmail montre un échange commercial abouti (devis accepté, facture).
 
 ## Connecteurs
 
 | Outil | État | Usage |
 |---|---|---|
 | Recherche web (WebSearch / WebFetch) | ✅ | Prospection, SEO, veille |
-| API Recherche d'entreprises (État) — `https://recherche-entreprises.api.gouv.fr/search` | ✅ gratuit, sans clé (via WebFetch) | Lister des entreprises du 68 par activité (NAF), effectifs, dirigeants publics |
-| Vibe Prospecting | ✅ **payant (crédits)** | Enrichissement ponctuel ; estimation de coût obligatoire, export seulement avec l'accord de Loïc |
-| Google Drive | ✅ | Lire la prospection, créer les lots et brouillons |
-| Make | ✅ | **Lecture seule** sur le CRM ; toute écriture est interdite (production de Sacha et de ses clients) |
-| Ahrefs | ⚠️ connexion à terminer par Loïc | SEO : positions, mots-clés, backlinks |
-| Gmail | ⚠️ connexion à terminer par Loïc | Lire les réponses des prospects |
-| LinkedIn | ❌ aucun accès automatisé (et automatiser LinkedIn expose le compte à une suspension) | Les agents rédigent, Loïc publie |
-| Search Console / Google Business Profile | ❌ | Export manuel par Loïc quand nécessaire |
+| API Recherche d'entreprises (État) — `https://recherche-entreprises.api.gouv.fr/search` | ✅ gratuit, sans clé (WebFetch) | Entreprises du 68 par activité (NAF), effectifs, dirigeants publics |
+| Gmail | ✅ | Lecture des fils, **brouillons**, libellés. Envoi, transfert, suppression : **interdits** |
+| Google Drive | ✅ | Lecture de la prospection, création des lots et listes |
+| Ahrefs | ✅ | SEO : mots-clés, positions, Search Console, concurrents, audit |
+| Vibe Prospecting | ✅ **payant (crédits)** | Enrichissement ponctuel ; estimation obligatoire, export seulement avec l'accord de Loïc |
+| Make | ⛔ hors périmètre | Production de Sacha et CRM : toutes les écritures sont bloquées |
+| LinkedIn | ❌ aucun accès automatisé | Les agents rédigent, Loïc publie |
+| Google Business Profile | ❌ | Actions faites par Loïc à partir des recommandations |
 
 ## Interdits techniques (appliqués dans `.claude/settings.json`)
 
-- Toute écriture dans Make (scénarios, webhooks, data stores, connexions, apps…)
-- L'outil `CRM - Envoyer un email` (envoi réel)
+- Envoyer, répondre, transférer, supprimer ou marquer comme spam dans Gmail
+- Toute écriture dans Make (scénarios, webhooks, data stores, connexions…) et l'outil d'envoi du CRM
 - Supprimer ou partager des fichiers Google Drive
 - Exporter (dépenser des crédits) Vibe Prospecting sans confirmation

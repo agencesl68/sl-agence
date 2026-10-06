@@ -6,8 +6,8 @@ Jamais de données personnelles (nom de prospect, e-mail, client).
 
 ```
 ---
-de: seo-site | contenu-linkedin | prospection | crm-relances | veille | manager
-vers: seo-site | contenu-linkedin | prospection | crm-relances | veille | manager
+de: seo-site | contenu-linkedin | prospection | suivi | veille | manager
+vers: seo-site | contenu-linkedin | prospection | suivi | veille | manager
 date: AAAA-MM-JJ
 statut: à faire | en cours | à vérifier | terminé
 priorité: P1 | P2 | P3

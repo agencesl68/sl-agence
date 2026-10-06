@@ -1,8 +1,7 @@
 # SL Agence — fiche de référence
 
 > Source de vérité. Ne rien affirmer qui ne figure pas ici ou sur slagence.fr.
-> Les éléments marqués **[À VALIDER]** doivent être confirmés par Loïc avant d'être utilisés en externe.
-> Dernière mise à jour : 2026-10-06 (construit à partir du site et de l'analyse de marché interne).
+> Validé par Loïc le 2026-10-06 : la référence est le site slagence.fr.
 
 ## Identité
 
@@ -20,10 +19,8 @@
 - Bénéfice : « Nous supprimons les tâches qui vous font perdre du temps, pour que vous vous concentriez sur votre métier. »
 - Signature : « Applications métier, automatisation et intelligence artificielle sur mesure pour les indépendants, TPE, PME, cabinets et associations de Mulhouse, du Haut-Rhin et du Grand Est. »
 
-**Positionnement [À VALIDER]** : le brief de Loïc met l'accent sur « automatisation + IA + optimisation des
-opérations » ; le site met l'accent sur « automatisation et logiciel sur mesure / applications métier ».
-En attendant la décision : parler du **résultat** (temps gagné, plus de double saisie, plus de relance
-oubliée) et citer les deux (automatisation, applications sur mesure, IA).
+**Positionnement de référence (validé)** : celui du site — automatisation, applications métier et IA
+sur mesure. Toujours parler du **résultat** : temps gagné, plus de double saisie, plus de relance oubliée.
 
 ## Offres (services présentés sur le site)
 
@@ -56,10 +53,9 @@ Outils compatibles cités : Excel, Outlook, Microsoft 365, Sage, EBP, Cegid, Pen
 
 ## Tarifs
 
-**[À VALIDER — CONFIDENTIEL]** Une grille interne existe (Google Drive : « Analyse de marché SLagence.docx »,
-mai 2025 : formules Essentiel / Standard / Business, audit offert, maintenance mensuelle).
-- Ne jamais recopier ces prix dans ce dépôt (public).
-- Ne jamais annoncer un prix à un prospect sans validation de Loïc. Message par défaut : « devis gratuit, prix ferme sous 24 h ».
+Comme sur le site : **aucun prix public**. Message à utiliser : « devis gratuit, prix ferme sous 24 h ».
+- Une grille interne confidentielle existe (Google Drive : « Analyse de marché SLagence.docx ») : référence
+  pour Loïc uniquement, jamais recopiée dans ce dépôt (public), jamais annoncée sans son accord.
 
 ## Réalisations (anonymisées — c'est la règle : « Nos clients sont présentés par leur activité »)
 

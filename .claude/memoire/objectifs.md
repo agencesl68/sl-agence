@@ -1,6 +1,6 @@
 # Objectifs et indicateurs
 
-> **[PROPOSITION — À VALIDER PAR LOÏC]** Valeurs de départ raisonnables ; à ajuster après 4 semaines.
+> Validés par Loïc le 2026-10-06. À réajuster avec `/bilan` après 4 semaines.
 
 ## Objectif global
 
@@ -19,7 +19,7 @@ et générer progressivement plus de demandes entrantes et sortantes.
 | LinkedIn | Posts publiés | 3 |
 | LinkedIn | Commentaires à valeur ajoutée sur des posts de dirigeants du 68 | 10 |
 | SEO | Pages créées ou optimisées | 1 |
-| Site | Demandes entrantes via le site | suivi (pas de mesure d'audience sur le site à ce jour) |
+| Site | Trafic et demandes entrantes via le site | suivi (via Ahrefs / Search Console) |
 
 ## Temps que Loïc doit y passer (cible)
 

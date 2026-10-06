@@ -10,12 +10,22 @@
       "mcp__Google_Drive__get_file_metadata",
       "mcp__Google_Drive__list_recent_files",
       "mcp__Google_Drive__create_file",
-      "mcp__Make__s7743456_crm_demandes_du_site",
-      "mcp__Make__folders_list",
       "mcp__Vibe_Prospecting__autocomplete",
       "mcp__Vibe_Prospecting__fetch-entities",
       "mcp__Vibe_Prospecting__fetch-entities-statistics",
-      "mcp__Vibe_Prospecting__estimate-cost"
+      "mcp__Vibe_Prospecting__estimate-cost",
+      "mcp__Ahrefs",
+      "mcp__Gmail__search_threads",
+      "mcp__Gmail__get_thread",
+      "mcp__Gmail__get_message",
+      "mcp__Gmail__list_labels",
+      "mcp__Gmail__create_label",
+      "mcp__Gmail__label_thread",
+      "mcp__Gmail__unlabel_thread",
+      "mcp__Gmail__list_drafts",
+      "mcp__Gmail__get_draft",
+      "mcp__Gmail__create_draft",
+      "mcp__Gmail__update_draft"
     ],
     "ask": [
       "mcp__Vibe_Prospecting__export-to-csv",
@@ -106,7 +116,18 @@
       "mcp__Google_Drive__share_file",
       "Bash(git push origin main*)",
       "Bash(git push -f*)",
-      "Bash(git push --force*)"
+      "Bash(git push --force*)",
+      "mcp__Gmail__send_message",
+      "mcp__Gmail__reply",
+      "mcp__Gmail__forward",
+      "mcp__Gmail__trash_message",
+      "mcp__Gmail__trash_thread",
+      "mcp__Gmail__delete_draft",
+      "mcp__Gmail__delete_label",
+      "mcp__Gmail__mark_message_spam",
+      "mcp__Gmail__mark_thread_spam",
+      "mcp__Make__s7743456_crm_demandes_du_site",
+      "mcp__Make__s7743454_crm_qonto_comptes_et_factures"
     ]
   }
 }
