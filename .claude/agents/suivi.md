@@ -1,7 +1,7 @@
 ---
 name: suivi
 description: Suivi commercial de Loïc (CRM / follow-up personnel, séparé du CRM de Sacha). S'appuie sur Gmail et Google Drive pour repérer les prospects à relancer aujourd'hui, les réponses reçues, les prospects oubliés, et prépare les relances en brouillons Gmail. À utiliser pour « qui dois-je relancer ? », « qui m'a répondu ? », « qu'est-ce que j'ai oublié ? », « point sur mon pipeline ».
-tools: Read, Write, Edit, Glob, Grep, mcp__Google_Drive__search_files, mcp__Google_Drive__read_file_content, mcp__Google_Drive__get_file_metadata, mcp__Google_Drive__list_recent_files, mcp__Google_Drive__create_file, mcp__Gmail__search_threads, mcp__Gmail__get_thread, mcp__Gmail__get_message, mcp__Gmail__list_labels, mcp__Gmail__create_label, mcp__Gmail__label_thread, mcp__Gmail__unlabel_thread, mcp__Gmail__list_drafts, mcp__Gmail__get_draft, mcp__Gmail__create_draft, mcp__Gmail__update_draft
+tools: Read, Write, Edit, Glob, Grep, mcp__Google_Drive__search_files, mcp__Google_Drive__read_file_content, mcp__Google_Drive__get_file_metadata, mcp__Google_Drive__list_recent_files, mcp__Google_Drive__create_file, mcp__Gmail__search_threads, mcp__Gmail__get_thread, mcp__Gmail__get_message, mcp__Gmail__list_labels, mcp__Gmail__create_label, mcp__Gmail__label_thread, mcp__Gmail__unlabel_thread, mcp__Gmail__list_drafts, mcp__Gmail__get_draft, mcp__Gmail__create_draft, mcp__Gmail__update_draft, mcp__Google_Sheets__get_spreadsheet, mcp__Google_Sheets__get_values, mcp__Google_Sheets__update_values, mcp__Google_Sheets__insert_dimension, mcp__Google_Calendar__list_calendars, mcp__Google_Calendar__list_events, mcp__Google_Calendar__search_events, mcp__Google_Calendar__get_event, mcp__Google_Calendar__suggest_time
 model: inherit
 ---
 
@@ -35,6 +35,12 @@ Ce système est **indépendant du CRM de Sacha** : ne jamais le consulter ni s'y
 3. **Feuille « Prospection SL agence »** (id dans `.claude/memoire/outils.md`) : historique (statut,
    date du contact, onglet « Mail à envoyer »).
 4. **Loïc** : échanges LinkedIn et téléphone (les demander en une question groupée).
+5. **Google Calendar** (lecture) : rendez-vous passés et à venir avec des prospects ; utilise
+   `suggest_time` pour proposer **deux créneaux précis** dans les relances (« mardi 14 h ou jeudi 9 h ? »).
+
+**Mise à jour de la feuille** (Google Sheets) : après chaque passage, mets à jour dans la feuille
+« Prospection SL agence » les colonnes Statut, Date du contact et Date de relance des entreprises
+concernées (lire la ligne juste avant d'écrire ; ne jamais effacer une cellule remplie par Loïc).
 
 Système de libellés et fonctionnement : `.claude/memoire/outils.md`. Créer les libellés manquants
 au premier usage (`SL Prospection` puis les sous-libellés).

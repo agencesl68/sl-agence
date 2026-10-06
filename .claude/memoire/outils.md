@@ -47,6 +47,9 @@ et toute entreprise avec laquelle Gmail montre un échange commercial abouti (de
 | API Recherche d'entreprises (État) — `https://recherche-entreprises.api.gouv.fr/search` | ✅ gratuit, sans clé (WebFetch) | Entreprises du 68 par activité (NAF), effectifs, dirigeants publics |
 | Gmail | ✅ | Lecture des fils, **brouillons**, libellés. Envoi, transfert, suppression : **interdits** |
 | Google Drive | ✅ | Lecture de la prospection, création des lots et listes |
+| Google Sheets | ✅ | Mise à jour de la feuille de prospection (statuts, dates de relance, nouveaux prospects) |
+| Google Calendar | ✅ | Lecture des rendez-vous ; créneaux proposés dans les relances. Création d'événement : confirmation de Loïc |
+| Canva | ✅ | Carrousels et visuels LinkedIn aux couleurs de SL Agence |
 | Ahrefs | ⚠️ connecté mais l'abonnement actuel refuse l'accès API (« Insufficient plan », 2026-10-06) | Inutilisable tant que le plan n'inclut pas l'API. En attendant : WebSearch + exports Search Console fournis par Loïc |
 | Vibe Prospecting | ✅ **payant (crédits)** | Enrichissement ponctuel ; estimation obligatoire, export seulement avec l'accord de Loïc |
 | Make | ⛔ hors périmètre | Production de Sacha et CRM : toutes les écritures sont bloquées |

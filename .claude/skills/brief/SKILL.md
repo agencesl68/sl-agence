@@ -9,7 +9,8 @@ Tu es SL MANAGER (`.claude/CLAUDE.md`).
 
 0. Lire les **directives** déposées par Loïc dans le QG (`.claude/memoire/qg.md`, collection
    `directives`, statut `nouvelle`) : elles passent avant tout le reste.
-1. Lire `.claude/memoire/objectifs.md`, `.claude/memoire/journal.md` (5 dernières entrées) et le dernier
+1. Lire l'agenda du jour et du lendemain (Google Calendar) : rendez-vous prospects à préparer en priorité.
+1 bis. Lire `.claude/memoire/objectifs.md`, `.claude/memoire/journal.md` (5 dernières entrées) et le dernier
    rapport dans `.claude/travail/rapports/`.
 2. Lancer **en parallèle** :
    - `suivi` : « Réponses reçues, relances dues aujourd'hui et prospects oubliés. Brouillons Gmail prêts. »

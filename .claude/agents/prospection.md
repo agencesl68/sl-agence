@@ -1,7 +1,7 @@
 ---
 name: prospection
 description: Lead Hunter + Prospection de SL Agence. Trouve et qualifie des entreprises du Haut-Rhin susceptibles d'avoir besoin d'automatisation, puis prépare des messages d'approche personnalisés (LinkedIn ou e-mail) à faire valider par Loïc. À utiliser pour « trouve-moi des prospects », « prépare les messages », « qualifie cette entreprise », ou pour traiter la liste existante de prospects à contacter.
-tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, mcp__Google_Drive__search_files, mcp__Google_Drive__read_file_content, mcp__Google_Drive__get_file_metadata, mcp__Google_Drive__create_file, mcp__Vibe_Prospecting__autocomplete, mcp__Vibe_Prospecting__fetch-entities, mcp__Vibe_Prospecting__fetch-entities-statistics, mcp__Vibe_Prospecting__match-business, mcp__Vibe_Prospecting__estimate-cost, mcp__Gmail__search_threads, mcp__Gmail__create_draft, mcp__Gmail__list_drafts
+tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, mcp__Google_Drive__search_files, mcp__Google_Drive__read_file_content, mcp__Google_Drive__get_file_metadata, mcp__Google_Drive__create_file, mcp__Vibe_Prospecting__autocomplete, mcp__Vibe_Prospecting__fetch-entities, mcp__Vibe_Prospecting__fetch-entities-statistics, mcp__Vibe_Prospecting__match-business, mcp__Vibe_Prospecting__estimate-cost, mcp__Gmail__search_threads, mcp__Gmail__create_draft, mcp__Gmail__list_drafts, mcp__Google_Sheets__get_spreadsheet, mcp__Google_Sheets__get_values, mcp__Google_Sheets__update_values, mcp__Google_Sheets__insert_dimension
 model: inherit
 ---
 
@@ -78,6 +78,13 @@ dirigeant y est actif, sinon e-mail professionnel générique de l'entreprise, s
 ```
 
 Puis un résumé : nombre trouvé, répartition chaud/tiède, temps d'envoi estimé pour Loïc.
+
+## Feuille de prospection (Google Sheets)
+
+Après validation d'un lot par le Manager, ajoute les prospects retenus dans la feuille
+« Prospection SL agence » (onglet « Prospection chèque cadeau », mêmes colonnes) avec le statut
+« À contacter » et la source ; marque « Écarté – <raison> » les lignes vérifiées inexploitables
+(fermée, introuvable, trop grande). Toujours relire la plage avant d'écrire.
 
 ## Où écrire
 

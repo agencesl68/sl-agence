@@ -25,7 +25,32 @@
       "mcp__Gmail__list_drafts",
       "mcp__Gmail__get_draft",
       "mcp__Gmail__create_draft",
-      "mcp__Gmail__update_draft"
+      "mcp__Gmail__update_draft",
+      "mcp__Google_Sheets__get_spreadsheet",
+      "mcp__Google_Sheets__get_values",
+      "mcp__Google_Sheets__update_values",
+      "mcp__Google_Sheets__insert_dimension",
+      "mcp__Google_Calendar__list_calendars",
+      "mcp__Google_Calendar__list_events",
+      "mcp__Google_Calendar__search_events",
+      "mcp__Google_Calendar__get_event",
+      "mcp__Google_Calendar__suggest_time",
+      "mcp__Canva__help",
+      "mcp__Canva__search-designs",
+      "mcp__Canva__get-design",
+      "mcp__Canva__read-design",
+      "mcp__Canva__generate-design",
+      "mcp__Canva__generate-design-structured",
+      "mcp__Canva__get-create-design-async-job",
+      "mcp__Canva__create-design-from-candidate",
+      "mcp__Canva__create-design",
+      "mcp__Canva__edit-design",
+      "mcp__Canva__list-brand-kits",
+      "mcp__Canva__export-design",
+      "mcp__Canva__get-export-formats",
+      "mcp__Canva__create-folder",
+      "mcp__Canva__move-item-to-folder",
+      "mcp__Canva__upload-asset-from-url"
     ],
     "ask": [
       "mcp__Vibe_Prospecting__export-to-csv",
@@ -33,7 +58,12 @@
       "mcp__Vibe_Prospecting__enrich-prospects",
       "mcp__Vibe_Prospecting__fetch-businesses-events",
       "mcp__Vibe_Prospecting__fetch-prospects-events",
-      "mcp__Google_Drive__update_file"
+      "mcp__Google_Drive__update_file",
+      "mcp__Google_Calendar__create_event",
+      "mcp__Google_Calendar__update_event",
+      "mcp__Google_Calendar__respond_to_event",
+      "mcp__Google_Sheets__update_spreadsheet",
+      "mcp__Google_Sheets__update_formulas"
     ],
     "deny": [
       "mcp__Make__scenarios_create",
@@ -127,7 +157,9 @@
       "mcp__Gmail__mark_message_spam",
       "mcp__Gmail__mark_thread_spam",
       "mcp__Make__s7743456_crm_demandes_du_site",
-      "mcp__Make__s7743454_crm_qonto_comptes_et_factures"
+      "mcp__Make__s7743454_crm_qonto_comptes_et_factures",
+      "mcp__Google_Calendar__delete_event",
+      "mcp__Canva__publish-brand-template"
     ]
   }
 }
