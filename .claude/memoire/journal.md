@@ -3,6 +3,15 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-10-06 — Manuels métier des agents
+
+- 6 manuels sourcés et datés dans `savoirs/` : seo, emailing, prospection, linkedin-contenu, veille,
+  marche-2026 (~35 000 mots, études 2024-2026). Chaque agent les lit avant d'agir et note ses livrables
+  avec une grille (seuil 8/10). Boucle d'apprentissage : `memoire/apprentissages.md`.
+- Connecteurs gratuits ajoutés : Google Sheets, Google Calendar, Canva.
+- Décisions ouvertes : adresse d'envoi sur slagence.fr, offre d'entrée packagée, garantie 30 jours,
+  abonnement de suivi, adresse de Friesen masquée ou non sur la fiche Google.
+
 ## 2026-10-06 — Premier lot de prospection
 
 - 10 prospects qualifiés (5 chauds, 5 tièdes) depuis la feuille Drive ; 25 candidats écartés après

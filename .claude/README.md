@@ -40,7 +40,7 @@ SL MANAGER  (.claude/CLAUDE.md — la session principale)
 | prospection | ★★★★★ | ★★★★★ | ★★★★★ | ★★ | ~190 entreprises déjà listées à exploiter en premier |
 | suivi | ★★★★ | ★★★★ | ★★★★ | ★★ | Statuts par libellés Gmail, relances en brouillons dans le bon fil |
 | contenu-linkedin | ★★★★★ | ★★ | ★★★★ | ★ | Pas d'accès LinkedIn : rédige, tu publies |
-| seo-site | ★★★ | ★★★★ | ★★★★ | ★★★ | Données réelles via Ahrefs (positions, Search Console, concurrents) |
+| seo-site | ★★★ | ★★★★ | ★★★★ | ★★★ | Outils gratuits (Search Console, Google Business Profile) |
 | veille | ★★ | ★ | ★★ | ★ | Une fois par mois suffit |
 
 ## Les règles qui te protègent
@@ -54,6 +54,20 @@ SL MANAGER  (.claude/CLAUDE.md — la session principale)
 - **Le site** : modifications uniquement par pull request que tu valides.
 - **Ce dépôt est public** : aucune donnée de prospect, aucun tarif, aucun nom de client n'y est écrit.
   Les prospects vivent dans Google Drive (dossier « SL agence ») et dans Gmail.
+
+## Les manuels des agents (`savoirs/`)
+
+| Manuel | Pour | Contenu clé |
+|---|---|---|
+| `seo.md` | SEO & Site | Règles 2026, fiche Google prête à coller, checklists page/article, plan 90 jours |
+| `emailing.md` | Prospection, Suivi | Règles chiffrées du cold email, 6 modèles par secteur, relances, CNIL, délivrabilité |
+| `prospection.md` | Prospection | Sources gratuites testées (API entreprises, BODACC, France Travail), signaux, scripts d'appel |
+| `linkedin-contenu.md` | Contenu & LinkedIn | Algorithme 2026, 25 accroches, 8 structures, profil de Loïc rédigé, commentaires |
+| `marche-2026.md` | Tous | Chiffres du marché, aides, calendrier réglementaire, 21 concurrents, 10 arguments |
+| `veille.md` | Veille | Sources gratuites et routine mensuelle |
+
+Chaque livrable est noté sur 10 avec la grille du manuel : sous 8, l'agent le réécrit.
+Tes résultats réels (`memoire/apprentissages.md`) priment sur les manuels.
 
 ## Où sont les choses
 

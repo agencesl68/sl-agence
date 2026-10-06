@@ -117,7 +117,7 @@ reste la base. La vidéo progresse mais ne marche que si on est à l'aise face c
 9. **Lien en commentaire, post autonome.** Le post doit apporter sa valeur sans le clic.
 10. **Être là la première heure.** Répondre à chaque commentaire, par une phrase qui relance (question ou précision).
 11. **Commenter avant de publier.** 15 minutes par jour sur les posts de dirigeants du 68, de comptables, de la CCI, toujours dans nos sujets.
-12. **Le carrousel une fois par semaine.** C'est le format le plus régulier dans les études ; recycler les articles du blog.
+12. **Trois carrousels par mois.** Le document PDF est le format le plus régulier dans les études ; recycler les articles du blog.
 
 ---
 
@@ -495,4 +495,122 @@ Répartition : P1 ×3, P2 ×3, P3 ×3, P4 ×2, P5 ×1 (+ actualité urgente en r
 Chaque mois, en plus : **1 newsletter LinkedIn** (reprise de l'article de blog de la quinzaine, ouverte à tous les membres **[officiel]**),
 1 vidéo courte de 30 à 45 s **seulement si Loïc est à l'aise** (accroche 0–3 s, 3 plans, chute, sous-titres), et la routine de commentaires chaque jour ouvré.
 
-(sections 9 à 12 à venir)
+---
+
+## 9. Indicateurs à suivre chaque semaine
+
+Source : statistiques natives LinkedIn (onglet de chaque post + « Statistiques » du profil), notées chaque lundi dans un tableau
+(Google Sheets dans Drive, pas dans ce dépôt). Les seuils ci-dessous sont des **objectifs de départ fixés par nous**, pas des
+moyennes du marché : on les recalibre après 4 semaines sur la **médiane** des posts de Loïc.
+
+| Indicateur | Pourquoi | Seuil de départ | Si en dessous |
+|---|---|---|---|
+| Impressions par post | Portée | Comparer à la médiane de Loïc | Post < 50 % de la médiane : revoir accroche, sujet ou créneau |
+| Taux d'engagement (réactions + commentaires + republications) ÷ impressions | Qualité | ≥ 2,6 % (moyenne des profils perso, Metricool 2026) | 3 posts de suite en dessous : retravailler accroches et questions finales |
+| Commentaires venant de la cible (dirigeants, comptables du 68) | Bonne audience | ≥ 2 par post | Revoir la liste cible des commentaires (section 6) |
+| Vues du profil | Curiosité | En hausse sur 4 semaines | Revoir titre et bannière |
+| Abonnés et relations situés dans le Haut-Rhin (données démographiques) | Ancrage local | En hausse chaque mois | Plus de posts piliers 1 et 5, plus de commentaires locaux |
+| Invitations envoyées / acceptées | Réseau | 20–30 envoyées, ≥ 50 % acceptées | Sous 30 % : arrêter, mieux cibler, ajouter du contexte |
+| Commentaires R-A-Q faits par Loïc | Régularité | 10 par semaine | Bloquer le créneau de 15 min dans l'agenda |
+| Conversations privées ouvertes par un dirigeant | Intérêt commercial | ≥ 1 par semaine à partir du 2e mois | Plus de posts piliers 1 et 3, un post structure 8 par mois |
+| Appels de 15 min réservés venant de LinkedIn | Résultat | ≥ 1 par mois à partir du 3e mois | Revoir l'appel à l'action et la sélection du profil |
+
+Chaque résultat notable (post qui marche, sujet qui ne prend pas, créneau gagnant) va dans `memoire/apprentissages.md`.
+
+---
+
+## 10. Ce qu'il ne faut jamais faire
+
+1. Inventer un chiffre, un témoignage, une citation, un « avant » de client. Citer un nom de client ou montrer une capture non floutée.
+2. Appâter l'engagement : « Commentez OUI », « Likez si… », « Tapez 1 pour recevoir le PDF ». LinkedIn le freine **[officiel]**.
+3. Utiliser des outils d'automatisation, des « pods » d'engagement, acheter des abonnés.
+4. Publier un texte d'IA brut, non relu. Empiler les « ce n'est pas X, c'est Y », les tirets longs, les morales creuses, les emojis en série.
+5. Mettre un lien dans le corps du post, ou écrire un post qui ne sert qu'à envoyer vers un lien.
+6. Plus de 3 hashtags ; taguer des personnes qui n'ont rien à voir avec le post.
+7. Publier puis disparaître : ne pas répondre aux commentaires le jour même.
+8. Commenter hors de nos sujets (politique, polémiques, sujets sans rapport) : cela brouille le profil.
+9. Vendre dans le premier message après une acceptation d'invitation.
+10. Annoncer un prix, dénigrer un concurrent, promettre un résultat non prouvé, parler de l'IA « qui va tout transformer ».
+11. Faire des sondages pour gonfler les vues : c'est le format au plus faible engagement chez Socialinsider.
+12. Publier un post sans objectif unique : dans ce cas, on ne le produit pas et on le signale au Manager.
+
+---
+
+## 11. Grille d'auto-évaluation d'un post (seuil 8/10)
+
+1 point par critère, 0,5 si partiel. **Sous 8/10, le post est réécrit avant d'être livré.**
+
+| # | Critère | Question de contrôle |
+|---|---|---|
+| 1 | Objectif et pilier | Un seul objectif (visibilité, autorité, acquisition, conversion, preuve sociale, pédagogie) et un pilier clair ? |
+| 2 | Accroche | Les 2 premières lignes (moins de 200 caractères) contiennent-elles une scène, un chiffre vrai ou une date ? |
+| 3 | Une seule idée | Le post reste-t-il sur un seul sujet du début à la fin ? |
+| 4 | Preuve vraie | Chaque fait vient-il de `agence.md`, d'une source officielle ou d'un fait confirmé par Loïc ? |
+| 5 | Concret | Des objets et des métiers (bon, chantier, devis), pas des concepts ? |
+| 6 | Voix humaine | Phrases de Loïc, en « je » ; aucun tic d'IA (contraste en série, morale creuse, tirets longs) ? |
+| 7 | Lisibilité | 120 à 300 mots, paragraphes d'une ou deux lignes, lisible sur téléphone ? |
+| 8 | Valeur pour le lecteur | Un dirigeant qui ne nous contactera jamais en tire-t-il quelque chose ? |
+| 9 | Fin | Une question précise, à laquelle on répond en une phrase, sans appât ? |
+| 10 | Conformité et diffusion | Pas de lien dans le corps, 0 à 3 hashtags, aucun nom de client, `ton.md` respecté, créneau pertinent ? |
+
+### Application aux posts de `travail/contenu/linkedin/2026-S41.md`
+
+**Post 1 — mardi 7 oct. (présentation, pilier 2) : 8/10, au seuil.**
+1 : 1 · 2 : 1 · 3 : 0,5 (manifeste + présentation + engagement de rythme) · 4 : 0,5 (aucune preuve de résultat) · 5 : 1 · 6 : 0,5 · 7 : 1 · 8 : 0,5 · 9 : 1 · 10 : 1.
+Améliorations concrètes :
+- Remplacer « Ce n'est pas un défaut d'organisation. C'est un outil qui manque. » par « Ce travail en double a une cause simple : il manque un outil. » (la tournure « pas X, c'est Y » est citée par la presse parmi les marqueurs de texte IA ; la garder sur le site, l'éviter dans les posts).
+- Ajouter une preuve après la liste des trois exemples : « Chez une entreprise de terrassement que nous accompagnons, 12 salariés pointent leurs heures en 30 secondes, avant de rentrer. »
+- Supprimer « Pas de discours sur l'IA. » (formule en creux) : garder « Des cas concrets, des méthodes à appliquer vous-même, et l'actualité qui touche les entreprises du 68. »
+- Ajouter une phrase personnelle vraie (pourquoi Loïc fait ce métier) : **à fournir par Loïc**. Avec ces 4 changements, note estimée 9/10.
+
+**Post 2 — jeudi 9 oct. (facture électronique, pilier 5) : 9,5/10.**
+1 : 1 · 2 : 1 · 3 : 1 · 4 : 1 (fiche officielle impots.gouv.fr) · 5 : 1 · 6 : 0,5 · 7 : 1 · 8 : 1 · 9 : 1 · 10 : 1.
+Améliorations concrètes :
+- Remplacer « Le vrai sujet n'est pas la date. C'est de profiter de ce changement pour… » par « Profitez de ce changement pour ne plus recopier une seule facture à la main. »
+- Décliner le même contenu en carrousel de 5 slides la semaine suivante (le document est le format le plus régulier dans les études).
+
+**Post 3 — dimanche 12 oct. (terrassement, pilier 1) : 9/10.**
+1 : 1 · 2 : 1 (« 30 secondes. ») · 3 : 1 · 4 : 1 · 5 : 0,5 (l'« avant » décrit le secteur, pas ce client) · 6 : 1 · 7 : 1 · 8 : 1 · 9 : 1 · 10 : 0,5 (dimanche soir : Buffer 2026 observe une chute nette le week-end).
+Améliorations concrètes :
+- Déplacer au mercredi 15 oct. 16 h ou au jeudi 16 oct. 8 h, et remplacer la chute « Demain matin, beaucoup d'entre vous vont reprendre la semaine… » par « Ce vendredi, combien d'heures de la semaine faudra-t-il encore rassembler ? ». Si Loïc tient au dimanche, le traiter comme un **test** et noter le résultat dans `apprentissages.md`.
+- Remplacer le paragraphe général sur le pointage dans le BTP par l'avant réel de ce client, dès que Loïc le fournit.
+- Visuel : capture de l'écran de pointage floutée, avec accord du client.
+
+---
+
+## 12. Sources réellement consultées (le 2026-10-06)
+
+**Officielles LinkedIn**
+- Hristo Danchev, « Engineering the next generation of LinkedIn's Feed », LinkedIn Engineering, 12 mars 2026 — https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed
+- Laura Lorenzetti, « Keeping conversations real on LinkedIn », LinkedIn News, 20 mai 2026 (republié le 4 juin 2026) — https://news.linkedin.com/2026/keeping-conversations-real-on-linkedin
+- Aide LinkedIn, accès aux newsletters — https://www.linkedin.com/help/learning/answer/134850
+- Aide LinkedIn, partager un document dans un post — https://www.linkedin.com/help/linkedin/answer/97459
+
+**Études et analyses**
+- Trust Insights, *The Unofficial LinkedIn Algorithm Guide*, édition Q1 2026 (PDF, pages 11–12, 51–53, 89–91) — https://www.trustinsights.ai/wp-content/uploads/2026/03/The-Unofficial-LinkedIn-Algorithm-Guide-Q1-2026-Edition.pdf
+- Socialinsider, LinkedIn Benchmarks 2026 (1,3 M posts de pages, 2024–2025) — https://www.socialinsider.io/social-media-benchmarks/linkedin
+- Metricool, « LinkedIn Trends : 6 Strategy Insights from Our 2026 Study » — https://metricool.com/linkedin-trends/
+- Buffer, meilleur moment pour publier sur LinkedIn (4,8 M posts, 9 sept. 2026) — https://buffer.com/resources/best-time-to-post-on-linkedin/
+- Ordinal, étude sur la pénalité des liens (2023–2026) — https://www.tryordinal.com/blog/linkedin-link-penalty-study
+- Richard van der Blom, épisode 307 du podcast *Creator Science* (« The state of LinkedIn in 2026 ») — https://podcast.creatorscience.com/richard-van-der-blom-2/
+- Mercer MacKay, synthèse du rapport *Algorithm InSights 2025* de van der Blom **[secondaire]** — https://mercermackay.com/thinking/blog/a-leaders-guide-to-the-linkedin-algorithm-what-the-data-says/
+- Dataslayer, « LinkedIn Algorithm 2026 » **[secondaire, chiffres contradictoires : non retenus sauf recoupement]** — https://www.dataslayer.ai/blog/linkedin-algorithm-february-2026-whats-working-now
+
+**Presse**
+- The Next Web, « LinkedIn cracks down on AI slop with 94% detection accuracy », 20 mai 2026 — https://thenextweb.com/news/linkedin-ai-slop-crackdown-generic-content
+- Yahoo Finance UK, « LinkedIn cracks down on "AI slop" posts and comments » — https://uk.finance.yahoo.com/news/linkedin-cracks-down-ai-slop-045111100.html
+- Media Copilot, « LinkedIn's war on AI filler » — https://mediacopilot.ai/linkedin-ai-slop-crackdown/
+- PPC Land, « LinkedIn rebuilds its feed from scratch with LLMs and GPU-powered ranking » — https://ppc.land/linkedin-rebuilds-its-feed-from-scratch-with-llms-and-gpu-powered-ranking/
+- Gens d'Internet, « Comment l'algorithme de LinkedIn fonctionne en 2026 ? », 13 mars 2026 — https://gensdinternet.fr/2026/03/13/comment-lalgorithme-de-linkedin-fonctionne-en-2026/
+- TechCrunch, « LinkedIn amps up vertical video tools as uploads jump 36% », 4 févr. 2025 — https://techcrunch.com/2025/02/04/linkedin-amps-up-vertical-video-tools-as-uploads-jump-36
+- AuthoredUp, « Shield Analytics winding down » — https://authoredup.com/blog/shield-analytics-winding-down
+- JustPollen, « LinkedIn Statistics 2026 » (compilation sourcée) — https://justpollen.com/blog/linkedin-statistics-2026
+
+**Vus uniquement en résultats de recherche (non ouverts : à vérifier avant de citer un chiffre)**
+- Chiffres AuthoredUp sur la longueur (1 300–2 500 car.) et les documents (+39 % de portée) ; quotas d'invitations (~100/semaine) ;
+  suppression du mode créateur (mars 2024) ; dimensions de bannière 1584 × 396 ; SSI à 4 piliers ; horaires Hootsuite et Sprout Social.
+
+**Références d'écriture** (principes connus, résumés consultés en ligne, livres non relus pour ce manuel)
+- Ann Handley, *Everybody Writes* : l'écriture est une compétence ; premier jet laid puis réécriture ; empathie extrême pour le lecteur ; « personne ne se plaindra que vous avez rendu les choses trop simples ».
+- Chip et Dan Heath, *Made to Stick* : idées qui restent = Simples, Inattendues, Concrètes, Crédibles, Émotionnelles, en Histoires (SUCCES). Nos piliers 1 (histoire concrète) et 2 (inattendu chiffré par le lecteur) en découlent.
+
