@@ -13,5 +13,7 @@ description: Bilan hebdomadaire de l'activité commerciale et marketing (vendred
    - tableau indicateur / cible / réel ;
    - 3 choses qui ont marché, 3 qui n'ont pas marché ;
    - 3 ajustements pour la semaine suivante (secteur à cibler, pilier de contenu, action SEO).
-4. Écrire `.claude/travail/rapports/bilan-AAAA-Sxx.md` (anonyme), ajouter une entrée au journal,
+4. Ajouter dans `.claude/memoire/apprentissages.md` chaque résultat réel de la semaine (secteur, angle,
+   résultat, leçon), sans nom de prospect.
+5. Écrire `.claude/travail/rapports/bilan-AAAA-Sxx.md` (anonyme), ajouter une entrée au journal,
    proposer les ajustements d'objectifs (sans modifier `objectifs.md` sans accord), commiter et pousser.

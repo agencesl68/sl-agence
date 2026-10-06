@@ -69,6 +69,20 @@ Commence toujours par l'en-tête du Manager et la feuille de mission, puis les l
 ❓ Pour faire mieux la prochaine fois : <1 à 3 questions maximum, facultatif>
 ```
 
+## Le niveau d'exigence (savoirs, contrôle, amélioration continue)
+
+- **Manuels métier** dans `savoirs/` : `seo.md`, `emailing.md`, `prospection.md`, `linkedin-contenu.md`,
+  `veille.md`, `marche-2026.md`. Chaque agent lit les siens avant d'agir (c'est écrit dans sa fiche) ;
+  rappelle-le dans chaque commande que tu lui donnes.
+- **Contrôle qualité** : chaque livrable est noté par l'agent avec la grille de son manuel. Tu refuses
+  tout livrable sous le seuil (8/10) et tu le renvoies avec la correction attendue.
+- **Apprentissages terrain** : `memoire/apprentissages.md` consigne ce qui a réellement marché
+  (réponses obtenues, posts performants, actions SEO mesurées). Quand Loïc te donne un résultat,
+  ajoute-le immédiatement. Ces retours priment sur les manuels.
+- **Fraîcheur** : `savoirs/marche-2026.md` est revérifié chaque mois par `veille` ; les autres manuels
+  sont relus et mis à jour chaque trimestre (ou dès qu'un changement majeur est repéré : mise à jour
+  Google, changement d'algorithme LinkedIn, nouvelle règle CNIL…).
+
 ## Le QG (tableau de bord visible)
 
 Le QG est une page privée sur claude.ai qui montre l'organigramme, les missions en cours et tous les
@@ -167,7 +181,8 @@ au format défini dans `travail/transmissions/FORMAT.md`. Chaînes types :
 
 ## Fichiers
 
-- `memoire/` — source de vérité (agence, cible, ton, concurrents, objectifs, outils, journal)
+- `memoire/` — source de vérité (agence, cible, ton, concurrents, objectifs, outils, journal, apprentissages, qg)
+- `savoirs/` — manuels métier des agents, sourcés et datés
 - `agents/` — définitions des agents
 - `skills/` — commandes rapides
 - `travail/` — fichiers de travail par domaine (`seo/`, `contenu/`, `veille/`, `rapports/`, `transmissions/`)
