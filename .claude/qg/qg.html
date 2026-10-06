@@ -2,14 +2,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-/* Poste de commandement : directive → écosystème vivant (Loïc → Manager → agents → outils) → activité → missions/livrables. Charte SL Agence. */
+/* Deux onglets : « Carte » (Manager en haut, lignes d'ordres vers l'équipe, fiche de l'agent cliqué) et « Tableau de bord » (directives, missions, livrables). Charte SL Agence. */
 :root{
-  --bg:#f4f6f2; --surface:#ffffff; --surface-2:#eaefe6; --line:#d5ddcf; --wire:#b9c6b2;
+  --bg:#f4f6f2; --surface:#ffffff; --surface-2:#eaefe6; --line:#d5ddcf; --wire:#bfcbb8;
   --fg:#10150f; --fg-2:#4a5647; --fg-3:#6f7a6b;
   --vert:#3c4f3b; --vert-fort:#2c3b2b; --vert-pale:#dfe8d8; --on-vert:#ffffff;
   --ok:#2f7a3a; --ok-bg:#e1f1e1; --wait:#8a5a00; --wait-bg:#fbefd6; --run:#1f6fb0; --run-bg:#deebf6; --off:#6f7a6b; --off-bg:#eceee9;
   --display:"Geist","Helvetica Neue",Arial,sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
-  --r:10px;
+  --r:12px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#070907; --surface:#0f140e; --surface-2:#171f16; --line:#263124; --wire:#34432f;
@@ -25,71 +25,73 @@
   color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:15px;line-height:1.5;letter-spacing:-.01em;margin:0}
-.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 64px;display:flex;flex-direction:column;gap:28px}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 20px 64px;display:flex;flex-direction:column;gap:22px}
 h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
 h2{font-size:1.05rem}
+p{margin:0}
 .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
 .muted{color:var(--fg-3)}
-button{font:inherit;cursor:pointer}
+button{font:inherit;cursor:pointer;color:inherit}
 button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--vert);outline-offset:2px}
 
-/* En-tête */
-.top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:24px;align-items:end}
-.brand{display:flex;flex-direction:column;gap:6px}
-.brand h1{font-size:clamp(1.7rem,1.2rem + 2vw,2.5rem);line-height:1}
-.brand p{color:var(--fg-2);max-width:46ch;margin:0}
-.directive{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px}
-.directive label{font-weight:600;font-size:.9rem}
-.directive textarea{width:100%;min-height:74px;resize:vertical;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);padding:10px 12px;font:inherit}
-.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.btn{border:0;border-radius:8px;padding:9px 16px;background:var(--vert);color:var(--on-vert);font-weight:600}
-.btn:disabled{opacity:.5;cursor:default}
-.btn-ghost{border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:8px;padding:6px 12px;font-size:.85rem}
-.hint{font-size:.8rem;color:var(--fg-3)}
-
-/* Écosystème */
-.eco-panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px}
-.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.75rem;color:var(--fg-2)}
+/* En-tête + onglets */
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.top h1{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.2rem);line-height:1}
+.tabs{display:inline-flex;background:var(--surface-2);border-radius:10px;padding:4px;gap:4px}
+.tab{border:0;background:transparent;border-radius:8px;padding:8px 16px;font-weight:600;font-size:.9rem;color:var(--fg-2)}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 2px rgb(0 0 0 / .08)}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.76rem;color:var(--fg-2)}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--off)}
 .live.on i{background:var(--run);animation:pulse 1.6s ease-out infinite}
-.eco{position:relative;display:flex;flex-direction:column;gap:34px;padding:6px 0}
+.banner{border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r);padding:10px 14px;font-size:.85rem;color:var(--fg-2)}
+
+/* CARTE */
+.carte{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}
+.map{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 18px 26px;position:relative;min-width:0}
+.map-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:64px}
 .wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-.wires path{fill:none;stroke:var(--wire);stroke-width:1.5}
-.wires path.tool{stroke-dasharray:2 4;opacity:.55}
-.wires path.hot{stroke:var(--run);stroke-width:2.2;opacity:1;stroke-dasharray:6 6;animation:flow 1s linear infinite}
-.wires path.sel{stroke:var(--vert);opacity:1;stroke-width:2}
-.tier{display:flex;justify-content:center;gap:12px;position:relative;z-index:1}
-.node{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;gap:10px;align-items:center;min-width:0}
-.node.loic{border-style:dashed}
-.node.manager{background:var(--vert);color:var(--on-vert);border-color:var(--vert);padding:12px 18px}
-.node.manager .badge{background:var(--on-vert);color:var(--vert)}
-.node.manager .sub{color:inherit;opacity:.85}
+.wires path{fill:none;stroke:var(--wire);stroke-width:2}
+.wires path.hot{stroke:var(--run);stroke-width:2.5;stroke-dasharray:7 7;animation:flow .9s linear infinite}
+.wires path.sel{stroke:var(--vert);stroke-width:2.5}
+.wires circle{fill:var(--run)}
+.loic{font-size:.8rem;color:var(--fg-3);display:flex;align-items:center;gap:8px;margin-bottom:-48px}
+.loic b{color:var(--fg-2);font-weight:600}
+.node{border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:12px 14px;text-align:left;display:flex;flex-direction:column;gap:6px;min-width:0;position:relative;transition:border-color .2s,box-shadow .2s,transform .15s}
+.node:hover{transform:translateY(-1px)}
+.node[aria-pressed="true"]{border-color:var(--vert);box-shadow:0 0 0 2px var(--vert)}
+.node.working{border-color:var(--run)}
+.node.working[aria-pressed="false"]{box-shadow:0 0 0 3px var(--run-bg)}
+.node .head{display:flex;gap:10px;align-items:center}
 .node h3{font-size:.95rem}
-.node .sub{font-size:.78rem;color:var(--fg-3);margin:0}
-.badge{font-family:var(--mono);font-size:.72rem;font-weight:500;width:32px;height:32px;flex:none;border-radius:8px;display:grid;place-items:center;background:var(--vert-pale);color:var(--vert-fort)}
-.agents{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative;z-index:1}
-.agent{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;text-align:left;color:inherit;min-width:0;transition:border-color .2s, box-shadow .2s}
-.agent.working{border-color:var(--run);box-shadow:0 0 0 3px var(--run-bg)}
-.agent[aria-pressed="true"]{border-color:var(--vert);box-shadow:0 0 0 1px var(--vert)}
-.agent .head{display:flex;gap:10px;align-items:center}
-.agent h3{font-size:.92rem}
-.agent .mission{font-size:.78rem;color:var(--fg-2);margin:0}
-.agent .task{font-size:.78rem;color:var(--run);margin:0;font-weight:500}
-.agent .foot{display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:.74rem;color:var(--fg-3);font-variant-numeric:tabular-nums;margin-top:auto;flex-wrap:wrap}
-.chips{display:flex;flex-wrap:wrap;gap:4px}
-.chip-t{font-family:var(--mono);font-size:.66rem;padding:1px 6px;border-radius:5px;background:var(--surface-2);color:var(--fg-2)}
-.tools{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;position:relative;z-index:1}
-.tool{border:1px solid var(--line);border-radius:8px;padding:7px 8px;font-size:.74rem;color:var(--fg-2);text-align:center;background:var(--surface);transition:border-color .2s,color .2s}
-.tool.hot{border-color:var(--run);color:var(--run)}
-.tool.sel{border-color:var(--vert);color:var(--fg)}
-.memoire{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
-.memoire span{font-size:.74rem;border:1px dashed var(--line);border-radius:8px;padding:5px 10px;color:var(--fg-2);background:var(--surface)}
-.flux{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.flux-item{border-top:2px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:6px}
-.flux-item b{font-size:.85rem}
-.steps{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:.76rem;color:var(--fg-2)}
-.steps span{background:var(--surface-2);border-radius:5px;padding:2px 7px}
-.steps em{font-style:normal;color:var(--fg-3)}
+.node .role{font-size:.76rem;color:var(--fg-3)}
+.badge{font-family:var(--mono);font-size:.72rem;font-weight:500;width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;background:var(--vert-pale);color:var(--vert-fort)}
+.manager{background:var(--vert);border-color:var(--vert);color:var(--on-vert);width:min(380px,100%)}
+.manager .badge{background:var(--on-vert);color:var(--vert)}
+.manager .role{color:inherit;opacity:.85}
+.team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;width:100%}
+.ordre{font-size:.76rem;line-height:1.35;border-radius:8px;padding:6px 8px;background:var(--surface-2);color:var(--fg-3)}
+.working .ordre{background:var(--run-bg);color:var(--run)}
+.ordre b{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:2px}
+.state{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:.72rem;color:var(--fg-3);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+
+/* Fiche agent */
+.fiche{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+.fiche .head{display:flex;gap:12px;align-items:center}
+.fiche h2{font-size:1.15rem}
+.bloc{display:flex;flex-direction:column;gap:6px}
+.bloc .eyebrow{font-size:.66rem}
+.now{border-radius:10px;padding:10px 12px;background:var(--surface-2);font-size:.9rem}
+.now.on{background:var(--run-bg);color:var(--run)}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip-t{font-family:var(--mono);font-size:.68rem;padding:2px 7px;border-radius:6px;background:var(--surface-2);color:var(--fg-2)}
+.mini{display:flex;flex-direction:column;margin:0;padding:0}
+.mini li{list-style:none;display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.82rem}
+.mini li:last-child{border-bottom:0}
+.mini time{font-family:var(--mono);font-size:.72rem;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.mini a{color:var(--vert-fort);font-weight:600}
+.flux{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.flux div{border-top:2px solid var(--line);padding-top:8px;font-size:.78rem;color:var(--fg-2)}
+.flux b{display:block;font-size:.84rem;color:var(--fg);margin-bottom:2px}
 
 /* Pastilles */
 .pill{display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:2px 9px;font-size:.72rem;font-weight:500;white-space:nowrap}
@@ -100,7 +102,19 @@ button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid va
 .s-run::before{animation:pulse 1.6s ease-out infinite}
 .s-off{color:var(--off);background:var(--off-bg)}
 
-/* Listes */
+/* TABLEAU DE BORD */
+.directive{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px}
+.directive label{font-weight:600;font-size:.9rem}
+.directive textarea{width:100%;min-height:70px;resize:vertical;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);padding:10px 12px;font:inherit}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{border:0;border-radius:8px;padding:9px 16px;background:var(--vert);color:var(--on-vert);font-weight:600}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-ghost{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 12px;font-size:.85rem}
+.hint{font-size:.8rem;color:var(--fg-3)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{border-top:2px solid var(--vert);padding-top:8px}
+.kpi b{display:block;font-size:1.6rem;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi span{font-size:.8rem;color:var(--fg-3)}
 .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;align-items:start}
 .panel{display:flex;flex-direction:column;gap:12px;min-width:0}
 .panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
@@ -108,7 +122,7 @@ button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid va
 .item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
 .item .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.78rem;color:var(--fg-3)}
 .item h3{font-size:.95rem;overflow-wrap:anywhere}
-.item p{margin:0;font-size:.86rem;color:var(--fg-2);overflow-wrap:anywhere}
+.item p{font-size:.86rem;color:var(--fg-2);overflow-wrap:anywhere}
 .tag{font-family:var(--mono);font-size:.7rem;padding:1px 7px;border-radius:5px;background:var(--surface-2);color:var(--fg-2)}
 .texte{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.86rem;max-height:340px;overflow:auto}
 .actions{display:flex;gap:8px;flex-wrap:wrap}
@@ -117,233 +131,218 @@ button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid va
 .chip{border:1px solid var(--line);background:transparent;color:var(--fg-2);border-radius:99px;padding:4px 11px;font-size:.8rem}
 .chip[aria-pressed="true"]{background:var(--vert);border-color:var(--vert);color:var(--on-vert)}
 .empty{border:1px dashed var(--line);border-radius:var(--r);padding:16px;color:var(--fg-3);font-size:.86rem}
-.banner{border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r);padding:10px 14px;font-size:.85rem;color:var(--fg-2)}
-.feed{display:flex;flex-direction:column}
-.feed li{list-style:none;display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.84rem}
-.feed{margin:0;padding:0}
-.feed time{font-family:var(--mono);font-size:.74rem;color:var(--fg-3);font-variant-numeric:tabular-nums}
-.feed b{font-weight:600}
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.kpi{border-top:2px solid var(--vert);padding-top:8px}
-.kpi b{display:block;font-size:1.6rem;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.kpi span{font-size:.8rem;color:var(--fg-3)}
 
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--run) 60%,transparent)}100%{box-shadow:0 0 0 7px transparent}}
-@keyframes flow{to{stroke-dashoffset:-24}}
-@media (max-width:980px){.agents{grid-template-columns:repeat(2,minmax(0,1fr))}.tools,.wires{display:none}.flux{grid-template-columns:1fr}}
-@media (max-width:820px){.top,.cols{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:440px){.agents{grid-template-columns:1fr}}
+@keyframes flow{to{stroke-dashoffset:-28}}
+@media (max-width:1040px){.carte{grid-template-columns:1fr}.fiche{position:static}}
+@media (max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}.wires{display:none}.map-inner{gap:18px}.loic{margin-bottom:0}.flux{grid-template-columns:1fr}}
+@media (max-width:820px){.cols{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.team{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
 <div class="wrap">
   <header class="top">
-    <div class="brand">
-      <span class="eyebrow">Département IA · Commercial &amp; marketing</span>
+    <div>
+      <span class="eyebrow">Département IA · SL Agence</span>
       <h1>QG SL Agence</h1>
-      <p>Tu donnes la directive au Manager. Il répartit le travail entre ses cinq agents, contrôle et te rend du travail fini. Ici, tu vois qui travaille, en direct.</p>
     </div>
-    <form class="directive" id="f-directive">
-      <label for="directive-texte">Directive au Manager</label>
-      <textarea id="directive-texte" placeholder="Ex. : Trouve 10 artisans du BTP à Colmar et prépare les messages · Donne-moi les idées LinkedIn de la semaine · Lance le suivi SEO"></textarea>
-      <div class="row">
-        <button class="btn" id="btn-directive" type="submit">Transmettre au Manager</button>
-        <span class="hint" id="directive-etat">Le Manager la traite à ta prochaine session (ou dis « traite mes directives »).</span>
+    <div class="row">
+      <span class="live" id="live"><i></i><span id="live-txt">Personne ne travaille en ce moment</span></span>
+      <div class="tabs" role="tablist" aria-label="Vues du QG">
+        <button class="tab" role="tab" id="tab-carte" aria-controls="vue-carte" aria-selected="true" data-tab="carte">Carte de l'équipe</button>
+        <button class="tab" role="tab" id="tab-tableau" aria-controls="vue-tableau" aria-selected="false" data-tab="tableau">Tableau de bord</button>
       </div>
-    </form>
+    </div>
   </header>
 
   <div class="banner" id="banner" hidden></div>
 
-  <section class="eco-panel" aria-labelledby="t-eco">
-    <div class="panel-head">
-      <h2 id="t-eco">L'écosystème</h2>
-      <span class="live" id="live"><i></i><span id="live-txt">Personne ne travaille en ce moment</span></span>
-    </div>
-    <div class="eco" id="eco">
-      <svg class="wires" id="wires" aria-hidden="true"></svg>
-      <div class="tier"><div class="node loic" id="n-loic"><span class="badge">LB</span><div><h3>Loïc</h3><p class="sub">Directives, validation, envoi et publication</p></div></div></div>
-      <div class="tier"><div class="node manager" id="n-manager"><span class="badge">SM</span><div><h3>SL Manager</h3><p class="sub" id="manager-sub">Priorise, délègue, contrôle (grille ≥ 8/10), rend l'essentiel</p></div></div></div>
-      <div class="agents" id="team"></div>
-      <div class="tools" id="tools"></div>
-      <div class="memoire" id="memoire">
-        <span>Mémoire partagée · agence, cible, ton, objectifs</span>
-        <span>6 manuels métier · 2026</span>
-        <span>Apprentissages terrain</span>
+  <!-- ONGLET CARTE -->
+  <section id="vue-carte" role="tabpanel" aria-labelledby="tab-carte">
+    <div class="carte">
+      <div class="map">
+        <div class="map-inner" id="map">
+          <svg class="wires" id="wires" aria-hidden="true"></svg>
+          <div class="loic"><b>Toi</b> donnes la directive ↓</div>
+          <button type="button" class="node manager" id="n-manager" data-sel="manager" aria-pressed="false">
+            <div class="head"><span class="badge">SM</span><div><h3>SL Manager</h3><span class="role">Reçoit tes directives, les découpe en ordres et contrôle</span></div></div>
+            <div class="state" id="manager-state"></div>
+          </button>
+          <div class="team" id="team"></div>
+        </div>
+        <div class="flux">
+          <div><b>Prospection → Suivi</b>Prospects et messages → tu envoies → Suivi détecte les réponses et prépare les relances.</div>
+          <div><b>SEO → Contenu → Site</b>SEO repère l'opportunité → Contenu rédige → SEO publie en PR et mesure.</div>
+          <div><b>Veille → toute l'équipe</b>Un signal du marché devient une offre, un post, une page ou un argument.</div>
+        </div>
       </div>
-    </div>
-    <div class="flux">
-      <div class="flux-item"><b>Prospection → Suivi</b><div class="steps"><span>Prospection trouve et écrit</span><em>→</em><span>Loïc relit et envoie</span><em>→</em><span>Suivi détecte les réponses</span><em>→</em><span>relances prêtes</span></div></div>
-      <div class="flux-item"><b>SEO → Contenu → Site</b><div class="steps"><span>SEO repère l'opportunité</span><em>→</em><span>Contenu rédige</span><em>→</em><span>SEO vérifie et publie en PR</span><em>→</em><span>mesure à J+28</span></div></div>
-      <div class="flux-item"><b>Veille → toute l'équipe</b><div class="steps"><span>Veille repère un signal</span><em>→</em><span>idée d'offre, post, page ou argument</span><em>→</em><span>l'agent concerné le produit</span></div></div>
+      <aside class="fiche" id="fiche" aria-live="polite"></aside>
     </div>
   </section>
 
-  <section class="kpis" aria-label="Chiffres du moment">
-    <div class="kpi"><b id="k-missions">–</b><span>missions en cours</span></div>
-    <div class="kpi"><b id="k-valider">–</b><span>livrables à valider</span></div>
-    <div class="kpi"><b id="k-semaine">–</b><span>livrables cette semaine</span></div>
-    <div class="kpi"><b id="k-directives">–</b><span>directives en attente</span></div>
-  </section>
-
-  <div class="cols">
-    <section class="panel" aria-labelledby="t-activite">
-      <div class="panel-head"><h2 id="t-activite">Activité</h2></div>
-      <ul class="feed" id="activite"><li><time></time><span class="muted">Le fil se remplit dès qu'un agent démarre ou termine une tâche.</span></li></ul>
-      <div class="panel-head" style="margin-top:12px"><h2>Missions</h2></div>
-      <div class="list" id="missions"><div class="empty">Aucune mission enregistrée pour l'instant.</div></div>
-      <div class="panel-head" style="margin-top:12px"><h2>Directives</h2></div>
-      <div class="list" id="directives"><div class="empty">Aucune directive. Écris-en une en haut de la page.</div></div>
-    </section>
-
-    <section class="panel" aria-labelledby="t-livrables">
-      <div class="panel-head">
-        <h2 id="t-livrables">Livrables</h2>
-        <div class="filters" id="filtres" role="group" aria-label="Filtrer par statut"></div>
+  <!-- ONGLET TABLEAU DE BORD -->
+  <section id="vue-tableau" role="tabpanel" aria-labelledby="tab-tableau" hidden>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <form class="directive" id="f-directive">
+        <label for="directive-texte">Directive au Manager</label>
+        <textarea id="directive-texte" placeholder="Ex. : Trouve 10 artisans du BTP à Colmar et prépare les messages · Donne-moi les idées LinkedIn de la semaine · Lance le suivi SEO"></textarea>
+        <div class="row">
+          <button class="btn" id="btn-directive" type="submit">Transmettre au Manager</button>
+          <span class="hint" id="directive-etat">Le Manager la traite à ta prochaine session (ou dis « traite mes directives »).</span>
+        </div>
+      </form>
+      <section class="kpis" aria-label="Chiffres du moment">
+        <div class="kpi"><b id="k-missions">–</b><span>missions en cours</span></div>
+        <div class="kpi"><b id="k-valider">–</b><span>livrables à valider</span></div>
+        <div class="kpi"><b id="k-semaine">–</b><span>livrables cette semaine</span></div>
+        <div class="kpi"><b id="k-directives">–</b><span>directives en attente</span></div>
+      </section>
+      <div class="cols">
+        <section class="panel">
+          <div class="panel-head"><h2>Directives</h2></div>
+          <div class="list" id="directives"><div class="empty">Aucune directive. Écris-en une ci-dessus.</div></div>
+          <div class="panel-head" style="margin-top:12px"><h2>Missions</h2></div>
+          <div class="list" id="missions"><div class="empty">Aucune mission enregistrée.</div></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>Livrables</h2><div class="filters" id="filtres" role="group" aria-label="Filtrer"></div></div>
+          <div class="list" id="livrables"><div class="empty">Les livrables apparaîtront ici.</div></div>
+        </section>
       </div>
-      <div class="list" id="livrables"><div class="empty">Les livrables (prospects, brouillons Gmail, posts, pages, plans) apparaîtront ici.</div></div>
-    </section>
-  </div>
+    </div>
+  </section>
 </div>
 
 <script>
 const AGENTS=[
-  {id:"prospection",code:"PR",nom:"Prospection",mission:"Trouve et qualifie les entreprises du 68, écrit les messages d'approche.",outils:["web","api","gmail","drive","sheets"]},
-  {id:"suivi",code:"SU",nom:"Suivi",mission:"Détecte les réponses et relances dues, prépare les relances dans Gmail.",outils:["gmail","sheets","calendar","drive"]},
-  {id:"contenu-linkedin",code:"CO",nom:"Contenu & LinkedIn",mission:"Ton coach LinkedIn : tendances, accroches, relectures. Rédige articles et études de cas.",outils:["web","canva","site"]},
-  {id:"seo-site",code:"SE",nom:"SEO & Site",mission:"Plan, mise en place en PR, mesure à J+28, apprentissage.",outils:["web","site","drive"]},
-  {id:"veille",code:"VE",nom:"Veille",mission:"Marché et concurrents, transformés en offres, posts et arguments.",outils:["web"]}
+  {id:"prospection",code:"PR",nom:"Prospection",role:"Lead Hunter + messages",mission:"Trouve et qualifie les entreprises du Haut-Rhin, écrit les messages d'approche en brouillon.",outils:["Recherche web","API entreprises · BODACC","Gmail (brouillons)","Google Drive","Google Sheets"],manuels:["prospection.md","emailing.md","marche-2026.md"]},
+  {id:"suivi",code:"SU",nom:"Suivi",role:"Relances et réponses",mission:"Détecte les réponses et les relances dues, prépare les relances dans le bon fil Gmail, tient la feuille à jour.",outils:["Gmail (brouillons)","Google Sheets","Google Calendar","Google Drive"],manuels:["emailing.md"]},
+  {id:"contenu-linkedin",code:"CO",nom:"Contenu & LinkedIn",role:"Coach LinkedIn, rédaction",mission:"Radar des tendances, accroches, plans et relectures de tes posts. Rédige articles et études de cas.",outils:["Recherche web","Canva","Site (blog)"],manuels:["linkedin-contenu.md","marche-2026.md"]},
+  {id:"seo-site",code:"SE",nom:"SEO & Site",role:"Référencement et conversion",mission:"Plan maître, mise en place en pull request, mesure à J+28, apprentissage.",outils:["Recherche web","Site · GitHub","Google Drive"],manuels:["seo.md"]},
+  {id:"veille",code:"VE",nom:"Veille",role:"Marché et concurrents",mission:"Surveille le marché et les concurrents, transforme chaque signal en offre, post ou argument.",outils:["Recherche web"],manuels:["veille.md","marche-2026.md"]}
 ];
-const TOOLS=[
-  {id:"web",nom:"Recherche web"},{id:"api",nom:"API entreprises · BODACC"},{id:"gmail",nom:"Gmail · brouillons"},{id:"drive",nom:"Google Drive"},
-  {id:"sheets",nom:"Google Sheets"},{id:"calendar",nom:"Google Calendar"},{id:"canva",nom:"Canva"},{id:"site",nom:"Site · GitHub"}
-];
-const STATUTS={"à valider":"s-wait","prêt":"s-ok","envoyé":"s-ok","publié":"s-ok","en cours":"s-run","terminée":"s-ok","nouvelle":"s-wait","prise en compte":"s-run","traitée":"s-ok","archivé":"s-off","au travail":"s-run","disponible":"s-off"};
-const state={missions:[],livrables:[],directives:[],activite:[],agents:{},filtreAgent:null,filtreStatut:"tous",hover:null};
+const MANAGER={id:"manager",code:"SM",nom:"SL Manager",mission:"Reçoit tes directives, les découpe en ordres pour l'équipe, contrôle chaque livrable (grille ≥ 8/10) et te rend l'essentiel.",outils:["Tous les outils","QG"],manuels:["mémoire partagée","apprentissages terrain"]};
+const STATUTS={"à valider":"s-wait","prêt":"s-ok","envoyé":"s-ok","publié":"s-ok","en cours":"s-run","terminée":"s-ok","nouvelle":"s-wait","prise en compte":"s-run","traitée":"s-ok","archivé":"s-off"};
+const state={missions:[],livrables:[],directives:[],activite:[],agents:{},sel:null,filtreStatut:"tous"};
 const $=s=>document.querySelector(s);
 const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const dateFr=iso=>{try{return new Date(iso).toLocaleDateString("fr-FR",{day:"numeric",month:"short"})}catch{return ""}};
-const heure=iso=>{try{return new Date(iso).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}catch{return ""}};
+const dateFr=iso=>{try{return new Date(iso).toLocaleDateString("fr-FR",{day:"numeric",month:"short"})}catch{return""}};
+const heure=iso=>{try{const d=new Date(iso);const auj=new Date().toDateString()===d.toDateString();return auj?d.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}):dateFr(iso)}catch{return""}};
 const depuis=iso=>{const m=Math.max(0,Math.round((Date.now()-Date.parse(iso))/60000));if(!isFinite(m))return"";return m<1?"à l'instant":m<60?`depuis ${m} min`:`depuis ${Math.floor(m/60)} h ${String(m%60).padStart(2,"0")}`};
 const pill=s=>`<span class="pill ${STATUTS[s]||"s-off"}">${esc(s||"—")}</span>`;
-const nomAgent=id=>id==="manager"?"SL Manager":(AGENTS.find(a=>a.id===id)||{nom:id||"Manager"}).nom;
+const fiche=id=>id==="manager"?MANAGER:AGENTS.find(a=>a.id===id);
+const nomAgent=id=>(fiche(id)||{nom:id||"Manager"}).nom;
 const safeUrl=u=>/^https:\/\//.test(u||"")?u:null;
-const working=id=>(state.agents[id]||{}).statut==="au travail";
+const st=id=>state.agents[id]||{};
+const working=id=>st(id).statut==="au travail";
 
-function renderTeam(){
+/* Onglets */
+function showTab(t){
+  ["carte","tableau"].forEach(k=>{$("#vue-"+k).hidden=k!==t;$("#tab-"+k).setAttribute("aria-selected",String(k===t))});
+  try{localStorage.setItem("qg-onglet",t)}catch{}
+  if(t==="carte")requestAnimationFrame(drawWires);
+}
+document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+
+/* Carte */
+function renderMap(){
   $("#team").innerHTML=AGENTS.map(a=>{
-    const st=state.agents[a.id]||{};const w=working(a.id);
-    const n=state.livrables.filter(l=>l.agent===a.id).length;
-    return `<button type="button" class="agent${w?" working":""}" id="n-${a.id}" data-agent="${a.id}" aria-pressed="${state.filtreAgent===a.id}">
-      <div class="head"><span class="badge">${a.code}</span><h3>${esc(a.nom)}</h3></div>
-      ${w&&st.tache?`<p class="task">${esc(st.tache)}</p>`:`<p class="mission">${esc(a.mission)}</p>`}
-      <div class="chips">${a.outils.map(t=>`<span class="chip-t">${esc(TOOLS.find(x=>x.id===t).nom)}</span>`).join("")}</div>
-      <div class="foot"><span class="pill ${w?"s-run":"s-off"}">${w?"au travail":"disponible"}</span><span>${w&&st.depuis?depuis(st.depuis):`${n} livrable${n>1?"s":""}`}</span></div>
+    const s=st(a.id),w=working(a.id);
+    return `<button type="button" class="node${w?" working":""}" id="n-${a.id}" data-sel="${a.id}" aria-pressed="${state.sel===a.id}">
+      <div class="head"><span class="badge">${a.code}</span><div><h3>${esc(a.nom)}</h3><span class="role">${esc(a.role)}</span></div></div>
+      <div class="ordre"><b>${w?"Ordre en cours":"Dernier travail"}</b>${esc(w?(s.tache||"—"):(s.derniere||"Aucun pour l'instant"))}</div>
+      <div class="state">${w?`<span class="pill s-run">au travail</span><span>${esc(depuis(s.depuis))}</span>`:`<span class="pill s-off">disponible</span>`}</div>
     </button>`}).join("");
-  $("#tools").innerHTML=TOOLS.map(t=>`<div class="tool" id="t-${t.id}">${esc(t.nom)}</div>`).join("");
-  const m=state.agents.manager||{};
-  $("#manager-sub").textContent=m.statut==="au travail"&&m.tache?m.tache:"Priorise, délègue, contrôle (grille ≥ 8/10), rend l'essentiel";
+  const m=st("manager"),mw=m.statut==="au travail";
+  $("#n-manager").classList.toggle("working",mw);
+  $("#n-manager").setAttribute("aria-pressed",String(state.sel==="manager"));
   const actifs=AGENTS.filter(a=>working(a.id));
-  $("#live").classList.toggle("on",actifs.length>0||m.statut==="au travail");
-  $("#live-txt").textContent=actifs.length?`En direct : ${actifs.map(a=>a.nom).join(", ")} ${actifs.length>1?"travaillent":"travaille"}`:(m.statut==="au travail"?"En direct : le Manager prépare la suite":"Personne ne travaille en ce moment");
+  $("#manager-state").innerHTML=actifs.length?`<span>${actifs.length} ordre${actifs.length>1?"s":""} en cours</span>`:(mw&&m.tache?`<span>${esc(m.tache)}</span>`:`<span>Aucun ordre en cours</span>`);
+  $("#live").classList.toggle("on",actifs.length>0||mw);
+  $("#live-txt").textContent=actifs.length?`En direct : ${actifs.map(a=>a.nom).join(", ")}`:(mw?"En direct : le Manager":"Personne ne travaille en ce moment");
+  renderFiche();
   requestAnimationFrame(drawWires);
 }
 function drawWires(){
-  const eco=$("#eco"),svg=$("#wires");if(!eco||getComputedStyle(svg).display==="none")return;
-  const box=eco.getBoundingClientRect();
-  const pt=(el,side)=>{const r=el.getBoundingClientRect();return{x:r.left-box.left+r.width/2,y:side==="b"?r.bottom-box.top:r.top-box.top}};
-  const curve=(a,b)=>{const my=(a.y+b.y)/2;return`M${a.x},${a.y} C${a.x},${my} ${b.x},${my} ${b.x},${b.y}`};
+  const map=$("#map"),svg=$("#wires");if(!map||$("#vue-carte").hidden||getComputedStyle(svg).display==="none")return;
+  const box=map.getBoundingClientRect();
+  const P=(el,side)=>{const r=el.getBoundingClientRect();return{x:r.left-box.left+r.width/2,y:(side==="b"?r.bottom:r.top)-box.top}};
+  const man=$("#n-manager");const a0=P(man,"b");
   let out="";
-  const loic=$("#n-loic"),man=$("#n-manager");
-  out+=`<path d="${curve(pt(loic,"b"),pt(man,"t"))}"/>`;
-  const focus=state.hover||state.filtreAgent;
-  AGENTS.forEach(a=>{
-    const el=document.getElementById("n-"+a.id);if(!el)return;
+  AGENTS.forEach(a=>{const el=document.getElementById("n-"+a.id);if(!el)return;
+    const b=P(el,"t"),my=(a0.y+b.y)/2;
+    const d=`M${a0.x},${a0.y} C${a0.x},${my} ${b.x},${my} ${b.x},${b.y}`;
     const w=working(a.id);
-    out+=`<path class="${w?"hot":focus===a.id?"sel":""}" d="${curve(pt(man,"b"),pt(el,"t"))}"/>`;
-    a.outils.forEach(t=>{const te=document.getElementById("t-"+t);if(!te)return;
-      const cls=w?"tool hot":focus===a.id?"tool sel":"tool";
-      out+=`<path class="${cls}" d="${curve(pt(el,"b"),pt(te,"t"))}"/>`});
+    out+=`<path id="w-${a.id}" class="${w?"hot":state.sel===a.id?"sel":""}" d="${d}"/>`;
+    if(w)out+=`<circle r="4"><animateMotion dur="1.8s" repeatCount="indefinite" path="${d}"/></circle>`;
   });
   svg.setAttribute("viewBox",`0 0 ${box.width} ${box.height}`);
   svg.innerHTML=out;
-  TOOLS.forEach(t=>{const te=document.getElementById("t-"+t.id);if(!te)return;
-    te.classList.toggle("hot",AGENTS.some(a=>working(a.id)&&a.outils.includes(t.id)));
-    te.classList.toggle("sel",!!focus&&(AGENTS.find(a=>a.id===focus)||{outils:[]}).outils.includes(t.id))});
 }
-function renderKpis(){
+function renderFiche(){
+  const id=state.sel||AGENTS.find(a=>working(a.id))?.id||"manager";
+  const f=fiche(id),s=st(id),w=working(id);
+  const acts=state.activite.filter(e=>e.agent===id).slice(0,6);
+  const livs=state.livrables.filter(l=>l.agent===id).slice(0,4);
+  $("#fiche").innerHTML=`
+    <div class="head"><span class="badge">${f.code}</span><div><h2>${esc(f.nom)}</h2><span class="hint">${state.sel?"":"Clique sur un membre de l'équipe pour voir sa fiche"}</span></div></div>
+    <div class="bloc"><span class="eyebrow">En ce moment</span>
+      <div class="now${w?" on":""}">${w?`<b>${esc(s.tache||"Au travail")}</b><br><span>${esc(depuis(s.depuis))}</span>`:`Disponible${s.derniere?` · dernier travail : ${esc(s.derniere)}`:""}`}</div></div>
+    <div class="bloc"><span class="eyebrow">Son rôle</span><p style="font-size:.88rem;color:var(--fg-2)">${esc(f.mission)}</p></div>
+    <div class="bloc"><span class="eyebrow">Ses outils</span><div class="chips">${f.outils.map(o=>`<span class="chip-t">${esc(o)}</span>`).join("")}</div></div>
+    <div class="bloc"><span class="eyebrow">Ses manuels</span><div class="chips">${f.manuels.map(o=>`<span class="chip-t">${esc(o)}</span>`).join("")}</div></div>
+    <div class="bloc"><span class="eyebrow">Activité récente</span>
+      ${acts.length?`<ul class="mini">${acts.map(e=>`<li><time>${esc(heure(e.date))}</time><span>${esc(e.texte)}</span></li>`).join("")}</ul>`:`<p class="hint">Rien pour l'instant.</p>`}</div>
+    ${livs.length?`<div class="bloc"><span class="eyebrow">Derniers livrables</span><ul class="mini">${livs.map(l=>{const u=safeUrl(l.lien);return`<li><time>${esc(dateFr(l.date))}</time><span>${u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l.titre)}</a>`:esc(l.titre)}</span></li>`}).join("")}</ul></div>`:""}`;
+}
+
+/* Tableau de bord */
+function renderTableau(){
   const semaine=Date.now()-7*864e5;
   $("#k-missions").textContent=state.missions.filter(m=>m.statut==="en cours").length;
   $("#k-valider").textContent=state.livrables.filter(l=>l.statut==="à valider").length;
   $("#k-semaine").textContent=state.livrables.filter(l=>Date.parse(l.date)>semaine).length;
   $("#k-directives").textContent=state.directives.filter(d=>d.statut==="nouvelle").length;
-}
-function renderActivite(){
-  if(!state.activite.length)return;
-  $("#activite").innerHTML=state.activite.slice(0,15).map(e=>`<li><time title="${esc(dateFr(e.date))}">${esc(heure(e.date))}</time><span><b>${esc(nomAgent(e.agent))}</b> · ${esc(e.texte)}</span></li>`).join("");
-}
-function renderMissions(){
-  if(!state.missions.length)return;
-  $("#missions").innerHTML=state.missions.slice(0,10).map(m=>`<article class="item">
-    <div class="meta">${pill(m.statut)}<span>${dateFr(m.date)}</span></div>
-    <h3>${esc(m.titre)}</h3>${m.resume?`<p>${esc(m.resume)}</p>`:""}
-    <div class="meta">${(m.agents||[]).map(a=>`<span class="tag">${esc(nomAgent(a))}</span>`).join("")}</div></article>`).join("");
-}
-function renderDirectives(){
-  if(!state.directives.length)return;
-  $("#directives").innerHTML=state.directives.slice(0,10).map(d=>`<article class="item">
-    <div class="meta">${pill(d.statut)}<span>${dateFr(d.date)}</span></div>
-    <p>${esc(d.texte)}</p>${d.reponse?`<p class="muted">→ ${esc(d.reponse)}</p>`:""}</article>`).join("");
-}
-function renderFiltres(){
+  if(state.directives.length)$("#directives").innerHTML=state.directives.slice(0,10).map(d=>`<article class="item"><div class="meta">${pill(d.statut)}<span>${dateFr(d.date)}</span></div><p>${esc(d.texte)}</p>${d.reponse?`<p class="muted">→ ${esc(d.reponse)}</p>`:""}</article>`).join("");
+  if(state.missions.length)$("#missions").innerHTML=state.missions.slice(0,10).map(m=>`<article class="item"><div class="meta">${pill(m.statut)}<span>${dateFr(m.date)}</span></div><h3>${esc(m.titre)}</h3>${m.resume?`<p>${esc(m.resume)}</p>`:""}<div class="meta">${(m.agents||[]).map(a=>`<span class="tag">${esc(nomAgent(a))}</span>`).join("")}</div></article>`).join("");
   const opts=["tous","à valider","prêt","envoyé","publié"];
-  $("#filtres").innerHTML=opts.map(o=>`<button type="button" class="chip" data-statut="${o}" aria-pressed="${state.filtreStatut===o}">${o==="tous"?"Tous":o}</button>`).join("")
-   +(state.filtreAgent?`<button type="button" class="chip" data-clear="1" aria-pressed="true">${esc(nomAgent(state.filtreAgent))} ✕</button>`:"");
-}
-function renderLivrables(){
-  let ls=state.livrables;
-  if(state.filtreAgent)ls=ls.filter(l=>l.agent===state.filtreAgent);
-  if(state.filtreStatut!=="tous")ls=ls.filter(l=>l.statut===state.filtreStatut);
+  $("#filtres").innerHTML=opts.map(o=>`<button type="button" class="chip" data-statut="${o}" aria-pressed="${state.filtreStatut===o}">${o==="tous"?"Tous":o}</button>`).join("");
   if(!state.livrables.length)return;
-  if(!ls.length){$("#livrables").innerHTML=`<div class="empty">Rien pour ce filtre.</div>`;return}
-  $("#livrables").innerHTML=ls.map(l=>{const url=safeUrl(l.lien);
-    return `<article class="item">
-      <div class="meta">${pill(l.statut)}<span class="tag">${esc(nomAgent(l.agent))}</span><span class="tag">${esc(l.type||"")}</span><span>${dateFr(l.date)}</span></div>
-      <h3>${esc(l.titre)}</h3>${l.resume?`<p>${esc(l.resume)}</p>`:""}
-      ${l.texte?`<details><summary class="hint">Voir le texte</summary><div class="texte" id="t-${esc(l._id)}">${esc(l.texte)}</div></details>`:""}
-      <div class="actions">${url?`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(l.lienLibelle||"Ouvrir")} ↗</a>`:""}
-      ${l.texte?`<button type="button" class="btn-ghost" data-copy="${esc(l._id)}">Copier le texte</button>`:""}</div></article>`}).join("");
+  const ls=state.filtreStatut==="tous"?state.livrables:state.livrables.filter(l=>l.statut===state.filtreStatut);
+  $("#livrables").innerHTML=ls.length?ls.map(l=>{const url=safeUrl(l.lien);return`<article class="item">
+    <div class="meta">${pill(l.statut)}<span class="tag">${esc(nomAgent(l.agent))}</span><span class="tag">${esc(l.type||"")}</span><span>${dateFr(l.date)}</span></div>
+    <h3>${esc(l.titre)}</h3>${l.resume?`<p>${esc(l.resume)}</p>`:""}
+    ${l.texte?`<details><summary class="hint">Voir le texte</summary><div class="texte" id="t-${esc(l._id)}">${esc(l.texte)}</div></details>`:""}
+    <div class="actions">${url?`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(l.lienLibelle||"Ouvrir")} ↗</a>`:""}${l.texte?`<button type="button" class="btn-ghost" data-copy="${esc(l._id)}">Copier le texte</button>`:""}</div></article>`}).join(""):`<div class="empty">Rien pour ce filtre.</div>`;
 }
-function renderAll(){renderTeam();renderKpis();renderActivite();renderMissions();renderDirectives();renderFiltres();renderLivrables()}
+function renderAll(){renderMap();renderTableau()}
 
 document.addEventListener("click",async e=>{
-  const a=e.target.closest("[data-agent]");
-  if(a){state.filtreAgent=state.filtreAgent===a.dataset.agent?null:a.dataset.agent;renderAll();return}
-  const s=e.target.closest("[data-statut]");if(s){state.filtreStatut=s.dataset.statut;renderAll();return}
-  if(e.target.closest("[data-clear]")){state.filtreAgent=null;renderAll();return}
+  const n=e.target.closest("[data-sel]");
+  if(n){state.sel=state.sel===n.dataset.sel?null:n.dataset.sel;renderMap();return}
+  const s=e.target.closest("[data-statut]");if(s){state.filtreStatut=s.dataset.statut;renderTableau();return}
   const c=e.target.closest("[data-copy]");
   if(c){const l=state.livrables.find(x=>x._id===c.dataset.copy);if(!l)return;
     try{await navigator.clipboard.writeText(l.texte);c.textContent="Copié"}
     catch{const el=document.getElementById("t-"+l._id);if(el){el.closest("details").open=true;const r=document.createRange();r.selectNodeContents(el);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);c.textContent="Texte sélectionné"}}
     setTimeout(()=>{c.textContent="Copier le texte"},1800)}
 });
-document.addEventListener("pointerover",e=>{const a=e.target.closest(".agent");const id=a?a.dataset.agent:null;if(id!==state.hover){state.hover=id;drawWires()}});
 addEventListener("resize",()=>requestAnimationFrame(drawWires));
-setInterval(()=>{if(AGENTS.some(a=>working(a.id)))renderTeam()},30000);
-renderAll();
+setInterval(()=>{if(AGENTS.some(a=>working(a.id)))renderMap()},30000);
+let onglet="carte";try{onglet=localStorage.getItem("qg-onglet")||"carte"}catch{}
+if(location.hash==="#tableau")onglet="tableau";
+renderAll();showTab(onglet==="tableau"?"tableau":"carte");
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>drawWires());
 
 (async()=>{
   const db=await window.claude?.use?.("db");
   if(!db){const b=$("#banner");b.hidden=false;
-    b.textContent="Les données du QG ne sont pas accessibles depuis cette vue. Ouvre la page connecté à claude.ai pour voir l'activité en direct.";
+    b.textContent="Les données du QG ne sont pas accessibles depuis cette vue. Ouvre la page connecté à claude.ai pour voir l'équipe en direct.";
     $("#btn-directive").disabled=true;return}
-  const sub=(col,key,order,n)=>db.collection(col).orderBy(order,"desc").limit(n).onSnapshot(
+  const sub=(col,key,n)=>db.collection(col).orderBy("date","desc").limit(n).onSnapshot(
     snap=>{state[key]=snap.docs.map(d=>({_id:d.id,...d.data()}));renderAll()},()=>{});
-  sub("missions","missions","date",200);
-  sub("livrables","livrables","date",200);
-  sub("directives","directives","date",100);
-  sub("activite","activite","date",30);
+  sub("missions","missions",200);sub("livrables","livrables",200);sub("directives","directives",100);sub("activite","activite",60);
   db.collection("agents").onSnapshot(snap=>{state.agents=Object.fromEntries(snap.docs.map(d=>[d.id,d.data()]));renderAll()},()=>{});
   $("#f-directive").addEventListener("submit",async ev=>{
     ev.preventDefault();
