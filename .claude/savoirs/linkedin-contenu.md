@@ -1,7 +1,10 @@
 # Manuel métier : LinkedIn et contenu (agent `contenu-linkedin`)
 
-> Rédigé le 2026-10-06. En cours de rédaction : les sections sont remplies au fur et à mesure.
-> Relecture prévue : chaque trimestre, ou dès qu'un changement d'algorithme est annoncé.
+> Rédigé le 2026-10-06 par l'agent `contenu-linkedin`. Usage interne, rien n'est publié.
+> Relecture : chaque trimestre, ou dès qu'un changement d'algorithme est annoncé par LinkedIn.
+> Règle de lecture : **[officiel]** = LinkedIn l'a écrit ; **[étude]** = étude tierce avec méthode publiée ;
+> **[secondaire]** = chiffre repris par un site tiers, non vérifié à la source ; **[à tester]** = hypothèse.
+> Les retours terrain de `memoire/apprentissages.md` priment sur tout ce qui suit.
 
 ## Plan
 
@@ -18,4 +21,327 @@
 11. Grille d'auto-évaluation (10 critères, seuil 8/10) appliquée aux posts de 2026-S41
 12. Sources réellement consultées
 
-(sections à venir)
+---
+
+## 1. Comment fonctionne la distribution LinkedIn en 2026
+
+### 1.1 Ce que LinkedIn a officiellement décrit (mars 2026)
+
+Billet d'ingénierie « Engineering the next generation of LinkedIn's Feed » (Hristo Danchev, 12 mars 2026) **[officiel]** :
+
+- Le fil repose sur deux briques : une **récupération par LLM** qui « comprend mieux de quoi parle un post » et le relie aux intérêts de chaque membre, puis un **modèle de classement séquentiel** (« Generative Recommender ») qui lit « plus d'un millier » d'interactions passées du membre.
+- Signaux utilisés : ce que le membre déclare sur **son profil** (secteur, expérience, compétences, **géographie**) et ce qu'il fait : lu, aimé, commenté, revu, ou simplement fait défiler.
+- Le classement prédit des actions **passives** (clic, passage, lecture longue) et **actives** (réaction, commentaire, partage).
+- Pas d'attributs démographiques. Mises à jour « en quelques minutes ».
+- Pour un compte neuf (« cold start »), le système **déduit les centres d'intérêt à partir du profil**, sans attendre l'historique.
+
+**Ce que cela implique pour Loïc** : le profil et les posts sont lus comme du texte. Un profil qui dit clairement
+« automatisation, applications métier, TPE-PME, Haut-Rhin » et des posts qui restent sur ces sujets aident le système
+à trouver les bons lecteurs. Les sujets hors thème brouillent ce signal.
+
+**Point de vigilance** : beaucoup de blogs affirment que « 360Brew », un grand modèle de recherche de LinkedIn, classe
+le fil et « lit votre profil comme un consultant ». Le guide Trust Insights (Q1 2026), qui synthétise les publications
+d'ingénierie de LinkedIn, indique que cette approche a été testée puis **écartée pour le fil**. Ne pas bâtir de règle sur ce mythe.
+
+### 1.2 La portée organique a baissé, la niche est récompensée
+
+- Richard van der Blom, *Algorithm InSights 2025* (rapport payant ; chiffres repris par plusieurs sites) **[secondaire]** :
+  vues **−50 %**, engagement **−25 %**, croissance d'abonnés **−59 %** sur un an.
+- Van der Blom, podcast *Creator Science* n° 307 (2026, données sur 13 M de posts) **[étude, propos de l'auteur]** :
+  portée **−60 % en deux ans** pour les créateurs actifs ; fréquence utile passée de 5–6 à **2–4 posts par semaine** ;
+  **80 % du contenu sur 1 ou 2 sujets** ; commenter hors sujet **nuit** à la portée ; les **newsletters** LinkedIn font
+  bien mieux que les articles ; il recommande **texte + image, carrousel, newsletter** plutôt que texte seul ou vidéo
+  (sauf si on aime la vidéo) ; **80 % des commentaires reçus dans ses 5 premières minutes sont écrits par une IA**.
+- Metricool, étude 2026 (673 658 posts, 63 108 comptes) **[étude]** : environ **la moitié des impressions arrive dans les 48 premières heures**.
+
+### 1.3 LinkedIn freine le contenu IA générique (mai 2026)
+
+« Keeping conversations real on LinkedIn » (Laura Lorenzetti, 20 mai 2026, republié le 4 juin 2026) **[officiel]** :
+LinkedIn détecte le contenu « qui peut sembler soigné mais n'a ni point de vue ni substance », les **commentaires
+publiés en masse par des outils d'automatisation** et les commentaires qui **ne font que reformuler le post**.
+Détection correcte « 94 % du temps » lors des premiers tests. Ces posts ne sont pas supprimés, mais moins diffusés
+hors du réseau direct (The Next Web, 20 mai 2026). L'IA comme aide reste admise : « la valeur vient de l'humain derrière l'outil ».
+La presse (The Next Web, Media Copilot) cite parmi les marqueurs la tournure **« ce n'est pas X, c'est Y »** ; elle
+n'apparaît pas dans le texte de LinkedIn consulté, mais c'est un tic d'écriture IA reconnu : **à utiliser une fois au plus par post**.
+
+### 1.4 Formats : ce que disent les études
+
+| Source | Périmètre | Résultat utile |
+|---|---|---|
+| Socialinsider 2026 **[étude]** | 1,3 M posts, 16 645 **pages entreprise**, 2024–2025 | Taux d'engagement : documents 7,00 % · multi-images 6,45 % · vidéo 6,00 % · image 5,30 % · texte 4,50 % · sondage 4,20 % · lien 3,25 % |
+| Metricool 2026 **[étude]** | 673 658 posts | Profils perso 2,60 % d'engagement contre 1,60 % pour les pages ; carrousels 1 451 impressions moyennes contre 606 pour la vidéo ; posts avec **question directe : +77 % de commentaires** |
+| AuthoredUp 2026 **[secondaire]** | 3 M posts de profils perso, mars 2025–févr. 2026 | Documents : +39 % de portée, +30 % d'engagement par rapport à la moyenne ; posts de 1 300 à 2 500 caractères : +27 % d'engagement par rapport aux posts de moins de 400 |
+| LinkedIn via TechCrunch (4 févr. 2025) **[officiel, rapporté]** | — | Vidéo en hausse de 36 % sur un an ; fil vidéo vertical déployé |
+
+**Lecture** : le **document PDF (carrousel)** est le format le plus régulier dans toutes les études. Texte + image
+reste la base. La vidéo progresse mais ne marche que si on est à l'aise face caméra.
+
+### 1.5 Liens externes : pénalité réelle mais inégale
+
+- Ordinal (posts 2023 → début 2026) **[étude]** : pénalité de 5 % à 42 % selon les années, **surtout pour les pages entreprise** ;
+  les profils personnels n'en subissent « presque aucune ».
+- Metricool 2026 **[étude]** : liens = **−27 % d'impressions pour les profils perso** (+51 % pour les pages).
+- **Règle retenue** : pas de lien dans le corps ; lien en premier commentaire, mais le post doit **se suffire à lui-même**
+  (un post écrit uniquement pour envoyer vers un lien est déclassé, selon plusieurs observateurs **[secondaire]**).
+
+### 1.6 Horaires : les études se contredisent
+
+- Buffer (4,8 M posts, publié le 9 sept. 2026) **[étude]** : **mercredi** meilleur jour, puis jeudi et vendredi ; lundi et mardi les plus faibles ;
+  pic **15 h–20 h**, meilleur créneau mercredi 16 h ; **le week-end chute nettement**.
+- Hootsuite **[secondaire]** : mardi et mercredi, 8 h–9 h.
+- Metricool 2026 **[étude]** : forte activité 9 h–12 h.
+- **Conclusion** : tester deux créneaux (8 h et 16 h) pendant 4 semaines et garder celui qui marche **pour l'audience de Loïc**.
+
+### 1.7 Fonctions et limites à connaître
+
+- **Mode créateur supprimé** (mars 2024) : ses outils (bouton « Suivre », newsletter, Live, statistiques) sont ouverts à tous ; les hashtags de profil ont disparu **[secondaire]**.
+- **Newsletter** : « tous les membres peuvent créer une newsletter » (aide LinkedIn) **[officiel]**.
+- **Documents** : PDF, PPT(X), DOC(X) ; 100 Mo et 300 pages maximum ; pages de même taille ; **impossible de modifier le document après publication** (seul le texte l'est) **[officiel]**.
+- **Hashtags** : aucun rôle documenté par LinkedIn (Trust Insights) ; 0 à 3, toujours en lien avec le sujet.
+- **Invitations** : LinkedIn ne publie pas de quota ; plafond observé ~100 par semaine glissante, notes personnalisées limitées sur compte gratuit (chiffres variables selon les sources) **[secondaire]**.
+- **SSI** (Social Selling Index) : score 0–100 visible sur linkedin.com/sales/ssi, 4 piliers de 25 points (marque professionnelle, trouver les bonnes personnes, échanger des informations, construire des relations) **[secondaire]**.
+- **Statistiques** : Shield a fermé en mai 2026 (contraintes LinkedIn et Google) ; utiliser les **statistiques natives** de LinkedIn (gratuites) et les noter chaque semaine dans un tableau.
+
+---
+
+## 2. Les 12 règles d'or pour Loïc
+
+1. **Deux sujets, pas dix.** 80 % des posts sur « supprimer la double saisie et l'administratif des TPE-PME » et « facture électronique / outils du quotidien ». Le reste : coulisses.
+2. **Le profil d'abord.** Il est lu par le système pour trouver vos lecteurs. Titre et Infos réécrits (section 7) avant le premier post.
+3. **3 posts par semaine, pas plus.** La qualité prime ; 2 à 4 posts est la zone efficace observée en 2026.
+4. **Une scène vraie bat dix conseils.** Chaque post part d'un fait de `agence.md`, d'une source officielle ou d'une expérience réelle de Loïc. Jamais d'exemple inventé.
+5. **Deux premières lignes = tout.** Une scène, un chiffre vrai ou une date. Pas de « Aujourd'hui je voudrais vous parler de ».
+6. **Écrire comme on parle à un artisan au téléphone.** Phrases courtes, mots du métier (bon, chantier, devis, relance), « je ».
+7. **Aucun tic d'IA.** Pas de « ce n'est pas X, c'est Y » en série, pas de tirets longs à répétition, pas de morale finale creuse. Relire à voix haute.
+8. **Finir par une vraie question**, précise, à laquelle un dirigeant peut répondre en une phrase. Jamais « Commentez OUI ».
+9. **Lien en commentaire, post autonome.** Le post doit apporter sa valeur sans le clic.
+10. **Être là la première heure.** Répondre à chaque commentaire, par une phrase qui relance (question ou précision).
+11. **Commenter avant de publier.** 15 minutes par jour sur les posts de dirigeants du 68, de comptables, de la CCI, toujours dans nos sujets.
+12. **Le carrousel une fois par semaine.** C'est le format le plus régulier dans les études ; recycler les articles du blog.
+
+---
+
+## 3. 25 accroches pour les dirigeants du Haut-Rhin
+
+Règles : moins de 200 caractères (LinkedIn coupe le texte vers 200 caractères avant « voir plus » **[secondaire]**),
+un fait vrai, un objet concret. Les crochets `[…]` = à remplir par un **fait réel** fourni par Loïc ou une source ; sans fait, on n'utilise pas l'accroche.
+
+**Pilier 1 — Scènes du terrain (preuve)** — faits issus de `agence.md`
+1. « 11 engins. Une photo du compteur avant le plein, une après. Le carburant consommé est visible le jour même. »
+2. « 30 secondes. C'est le temps qu'il faut à un salarié de terrassement pour pointer ses heures, avant de rentrer. »
+3. « Un bon d'intervention agricole rempli une seule fois. Signé au doigt. Envoyé en PDF. »
+4. « Un conseiller en gestion de patrimoine avait un fichier par client. Il a maintenant un seul écran, et le score du client se calcule pendant le rendez-vous. »
+5. « Dans une entreprise de sécurité et prévention, les échéances de contrôle s'affichent avant de tomber. »
+
+**Pilier 2 — Le coût caché (pédagogie)**
+6. « Le soir, après le chantier, beaucoup de dirigeants ont une deuxième journée : recopier. »
+7. « Combien de fois l'heure d'un salarié est-elle écrite avant d'arriver sur sa fiche de paie ? Comptez. »
+8. « "Il faut demander à…" Si cette phrase revient pour un fichier, ce fichier est un risque. »
+9. « Qui, chez vous, peut dire ce matin quelles factures sont en retard, sans ouvrir trois fichiers ? »
+10. « Ce devis envoyé il y a trois semaines : qui devait le relancer ? »
+
+**Pilier 3 — Mode d'emploi (autorité)**
+11. « Relancer un devis sans réponse : J+2, J+7, J+10, J+15, J+30. Voici quoi dire à chaque étape. »
+12. « Sortir d'Excel sans tout changer : commencez par une seule tâche. Voici comment la choisir. »
+13. « Facture électronique : trois questions à poser à votre expert-comptable avant la fin du mois. »
+14. « Avant le départ d'une personne clé, faites-lui filmer son fichier, écran partagé. 20 minutes. »
+15. « Bons d'intervention papier : quatre questions à vous poser avant de passer au téléphone. »
+
+**Pilier 4 — Coulisses (humain)**
+16. « Sacha construit les outils. Moi, j'écoute. Voici comment se passe notre premier appel de 15 minutes. »
+17. « Pourquoi nous annonçons un prix ferme avant de commencer, et jamais après. »
+18. « La première version d'un outil, chez nous, est d'abord testée sur les téléphones des équipes. »
+19. « Une erreur que nous avons faite sur un projet : [fait réel, anonymisé]. Ce que nous faisons différemment depuis. »
+20. « Friesen, Sundgau. Voici à quoi ressemble une semaine de travail chez SL Agence : [faits réels]. »
+
+**Pilier 5 — Actualité locale ou réglementaire (visibilité)**
+21. « Depuis le 1er septembre 2026, votre entreprise doit pouvoir recevoir des factures électroniques. Même avec trois salariés. »
+22. « 1er septembre 2027 : toutes les TPE et PME devront émettre leurs factures en électronique. Il reste onze mois. » (à recalculer à chaque usage)
+23. « J'étais à [événement CCI Alsace Eurométropole, date]. Une phrase m'est restée : [citation exacte, avec accord]. »
+24. « [Chiffre officiel récent sur les PME ou les délais de paiement] — source : [organisme, date]. Ce que ça veut dire pour une entreprise de 10 salariés. »
+25. « Au [date], [obligation] change pour les entreprises de [taille]. La version courte, en trois lignes. »
+
+---
+
+## 4. Huit structures de posts (avec exemple rédigé)
+
+Longueur cible : 120 à 250 mots (`ton.md`), soit environ 800 à 1 600 caractères. Les études récentes montrent un léger
+avantage aux posts plus longs (1 300–2 500 caractères **[secondaire]**) : on peut monter à 300 mots pour un mode d'emploi.
+
+### Structure 1 — Avant / Après / Le détail qui compte (preuve sociale)
+Chiffre ou scène → contexte (secteur, taille) → ce qui a été mis en place (3 lignes) → le détail qui fait que ça marche → question.
+```
+11 engins. Une photo du compteur avant le plein, une après.
+
+C'est ce que font les chauffeurs d'une entreprise de terrassement que nous accompagnons.
+
+[L'avant réel, si Loïc le connaît : comment le carburant était suivi, par qui, avec quel délai. Sinon, supprimer ce paragraphe.]
+
+Ce qui est en place :
+→ deux photos du compteur, prises au téléphone, avant et après le plein ;
+→ 11 engins suivis de la même façon ;
+→ le carburant consommé est visible le jour même.
+
+Le détail qui compte : la photo. Personne ne doit retenir un chiffre ni le recopier. Le compteur fait foi.
+
+Dans votre entreprise, qui sait aujourd'hui ce qu'a consommé chaque véhicule cette semaine ?
+
+#BTP #Terrassement #HautRhin
+```
+
+### Structure 2 — Le coût caché, calculé par le lecteur (pédagogie)
+Scène banale → le lecteur fait lui-même le calcul (aucun chiffre inventé) → ce que coûte vraiment la tâche → une piste → question.
+```
+Prenez un bon d'intervention papier.
+
+Il est rempli sur place. Il voyage dans le camion. Il arrive au bureau. Quelqu'un le recopie dans le logiciel. Puis quelqu'un vérifie qu'il n'y a pas d'erreur.
+
+Faites le calcul chez vous, honnêtement :
+1. Combien de bons par semaine ?
+2. Combien de minutes pour en recopier un ?
+3. Combien de bons perdus ou illisibles par mois ?
+
+Multipliez. C'est le temps que votre entreprise paie pour écrire deux fois la même chose.
+
+Ce temps-là ne se voit sur aucun bilan. Il se voit le soir, quand le bureau reste allumé.
+
+Un bon rempli une seule fois, signé au doigt sur un téléphone et envoyé en PDF, supprime le voyage dans le camion et la recopie au bureau.
+
+Vous arrivez à combien de minutes par semaine ?
+
+#TPE #HautRhin #Artisans
+```
+
+### Structure 3 — Mode d'emploi en étapes (autorité)
+Problème en une ligne → étapes numérotées (dates, actions) → l'erreur à éviter → ressource en commentaire → question.
+```
+Un devis sans réponse ne veut presque jamais dire « non ».
+
+Le client n'a pas eu le temps, il compare, il hésite sur un point, ou le projet est repoussé.
+
+Le calendrier que je recommande :
+J+2 : vérifier que le devis est bien arrivé.
+J+7 : première relance, par mail, courte.
+J+10 : un appel.
+J+15 : une relance avec un élément nouveau (une option, une date, une précision).
+J+30 : un message de clôture, poli, qui laisse la porte ouverte.
+
+L'erreur la plus fréquente : relancer une seule fois, puis attendre.
+
+Adaptez à votre métier. Un dépannage se décide en quelques jours. Un chantier peut demander plusieurs semaines.
+
+Les 8 modèles de messages, prêts à copier, sont en commentaire.
+
+À quelle étape décrochez-vous le plus souvent ?
+
+#Artisans #TPE #Devis
+```
+Premier commentaire : https://slagence.fr/blog/relancer-un-devis-sans-reponse
+
+### Structure 4 — La liste de signes (autorité, format carrousel idéal)
+Titre-promesse → 3 à 7 signes concrets, chacun avec son « alerte » → seuil (« si vous en cochez 3… ») → question.
+```
+« Devis_2026_v3_final_OK ». Vous connaissez ce fichier.
+
+Excel est un excellent outil. Il n'a pas été conçu pour servir de logiciel métier.
+
+Quatre signes qu'il en fait trop chez vous :
+1. Plusieurs versions du même fichier circulent.
+2. Une même information est saisie deux fois.
+3. Une seule personne sait comment le fichier fonctionne.
+4. Vos équipes ne peuvent pas l'utiliser depuis un téléphone.
+
+Si vous en cochez deux, commencez petit : une seule tâche, celle qui vous coûte le plus de temps.
+
+Les 7 signes complets et la méthode en 4 étapes sont en commentaire.
+
+Combien en cochez-vous ?
+
+#Excel #PME #HautRhin
+```
+
+### Structure 5 — L'erreur et ce qu'on a appris (coulisses)
+Aveu daté → contexte → conséquence → ce qu'on fait maintenant → question. **Uniquement avec un fait réel donné par Loïc.**
+```
+[Quand] nous avons [erreur réelle, anonymisée].
+
+[Ce qui s'est passé, en 2 lignes, sans nom de client.]
+
+[Conséquence concrète : temps perdu, outil pas utilisé, retour du terrain.]
+
+Depuis, nous faisons une chose différemment : [règle réelle].
+C'est pour ça que la première version de chaque outil est testée sur les téléphones des équipes avant d'être finalisée.
+
+Et vous, quelle leçon a coûté le plus cher dans votre métier ?
+```
+
+### Structure 6 — L'actualité décryptée (visibilité)
+Date ou fait officiel → à qui ça s'applique → ce qui change concrètement → 3 actions → source en commentaire → question.
+```
+1er septembre 2027.
+
+C'est la date à laquelle toutes les TPE et PME devront envoyer leurs factures en format électronique, via une plateforme agréée.
+
+La réception, elle, est déjà obligatoire depuis le 1er septembre 2026.
+
+Trois choses à préparer d'ici là :
+1. Demander à l'éditeur de votre logiciel de facturation s'il est compatible. Si oui, vous le gardez.
+2. Vérifier que vos fiches clients sont complètes. Une facture électronique a besoin de données propres.
+3. Lister les factures que vous tapez encore à la main. Ce sont elles qui coûteront le plus de temps.
+
+La réforme est une contrainte. Elle est aussi l'occasion de ne plus recopier une seule facture.
+
+Où en êtes-vous : logiciel compatible, en cours de vérification, ou pas encore regardé ?
+
+#FactureElectronique #TPE #HautRhin
+```
+Premier commentaire : fiche officielle impots.gouv.fr (lien dans `travail/contenu/linkedin/2026-S41.md`).
+Vérifier le point 2 auprès de la source officielle avant publication (mentions obligatoires).
+
+### Structure 7 — La question au réseau (conversation)
+Constat personnel → question précise avec 3 options → pourquoi je pose la question → promesse de restituer les réponses.
+Préférer une question écrite à un sondage LinkedIn (les sondages ont le plus faible taux d'engagement chez Socialinsider).
+```
+Je prépare un guide pour les entreprises du BTP du Haut-Rhin.
+
+Une question, une seule :
+quelle tâche administrative vous prend le plus de temps chaque semaine ?
+
+A. Les bons et les rapports d'intervention
+B. Le pointage des heures
+C. Les relances de devis et de factures
+
+Répondez juste par la lettre. Ou mieux : dites-moi combien de temps ça vous prend.
+
+Je publierai la synthèse des réponses ici, sans nommer personne.
+
+#BTP #HautRhin
+```
+(Ne publier que si le guide existe ou sera réellement produit.)
+
+### Structure 8 — Le récit d'un premier appel (conversion)
+Scène d'appel → ce qu'on demande au dirigeant → ce qu'il en ressort → engagements publics → appel à l'action doux.
+```
+15 minutes au téléphone, écran partagé.
+
+C'est comme ça que commence chaque projet chez SL Agence.
+
+Le but : que vous nous montriez ce que vous refaites chaque semaine.
+
+[Ce que Loïc voit réellement pendant ces appels : un tableur, un carnet, des bons en pièce jointe… à confirmer par lui.]
+
+Ensuite :
+→ un devis gratuit, avec un prix ferme sous 24 h ;
+→ le périmètre écrit noir sur blanc ;
+→ un premier outil en place en 7 jours, testé sur les téléphones de vos équipes ;
+→ vos données restent à vous, exportables à tout moment.
+
+Si vous savez décrire ce qui vous fait perdre du temps, nous savons le construire.
+
+Le lien pour réserver ces 15 minutes est en commentaire.
+
+#TPE #Automatisation #HautRhin
+```
+Usage : 1 fois par mois maximum (objectif conversion).
+
+(sections 5 à 12 à venir)
