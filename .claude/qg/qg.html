@@ -1,0 +1,281 @@
+<title>QG SL Agence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Poste de commandement : en-tête directive → organigramme Manager/agents → missions → livrables. Charte SL Agence (vert #3c4f3b, noir, blanc, Geist). */
+:root{
+  --bg:#f4f6f2; --surface:#ffffff; --surface-2:#eaefe6; --line:#d5ddcf;
+  --fg:#10150f; --fg-2:#4a5647; --fg-3:#6f7a6b;
+  --vert:#3c4f3b; --vert-fort:#2c3b2b; --vert-pale:#dfe8d8; --on-vert:#ffffff;
+  --ok:#2f7a3a; --ok-bg:#e1f1e1; --wait:#8a5a00; --wait-bg:#fbefd6; --run:#1f5b8a; --run-bg:#deebf6; --off:#6f7a6b; --off-bg:#eceee9;
+  --display:"Geist","Helvetica Neue",Arial,sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#070907; --surface:#0f140e; --surface-2:#171f16; --line:#263124;
+  --fg:#f2f5ef; --fg-2:#b8c4b2; --fg-3:#8b9886;
+  --vert:#a9c49f; --vert-fort:#c6d9bd; --vert-pale:#1d271c; --on-vert:#0b0f0a;
+  --ok:#8fd19a; --ok-bg:#16301b; --wait:#f0c46b; --wait-bg:#33280f; --run:#8cc2ee; --run-bg:#132a3d; --off:#8b9886; --off-bg:#1a2019;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#070907; --surface:#0f140e; --surface-2:#171f16; --line:#263124;
+  --fg:#f2f5ef; --fg-2:#b8c4b2; --fg-3:#8b9886;
+  --vert:#a9c49f; --vert-fort:#c6d9bd; --vert-pale:#1d271c; --on-vert:#0b0f0a;
+  --ok:#8fd19a; --ok-bg:#16301b; --wait:#f0c46b; --wait-bg:#33280f; --run:#8cc2ee; --run-bg:#132a3d; --off:#8b9886; --off-bg:#1a2019;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:15px;line-height:1.5;letter-spacing:-.01em;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 64px;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
+h2{font-size:1.05rem}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
+.muted{color:var(--fg-3)}
+button{font:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(--vert);outline-offset:2px}
+
+/* En-tête */
+.top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:24px;align-items:end}
+.brand{display:flex;flex-direction:column;gap:6px}
+.brand h1{font-size:clamp(1.7rem,1.2rem + 2vw,2.5rem);line-height:1}
+.brand p{color:var(--fg-2);max-width:46ch;margin:0}
+.directive{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px}
+.directive label{font-weight:600;font-size:.9rem}
+.directive textarea{width:100%;min-height:74px;resize:vertical;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);padding:10px 12px;font:inherit}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{border:0;border-radius:8px;padding:9px 16px;background:var(--vert);color:var(--on-vert);font-weight:600}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-ghost{border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:8px;padding:6px 12px;font-size:.85rem}
+.hint{font-size:.8rem;color:var(--fg-3)}
+
+/* Organigramme */
+.org{display:flex;flex-direction:column;align-items:center;gap:0}
+.manager{background:var(--vert);color:var(--on-vert);border-radius:var(--r);padding:16px 22px;width:min(520px,100%);display:flex;gap:16px;align-items:center}
+.manager .mono-badge{background:var(--on-vert);color:var(--vert)}
+.manager p{margin:2px 0 0;font-size:.88rem;opacity:.85}
+.trunk{width:2px;height:22px;background:var(--line)}
+.branch{width:100%;border-top:2px solid var(--line);height:0}
+.team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;width:100%;padding-top:18px;position:relative}
+.agent{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0;position:relative;text-align:left;color:inherit}
+.agent::before{content:"";position:absolute;top:-19px;left:50%;width:2px;height:18px;background:var(--line)}
+.agent[aria-pressed="true"]{border-color:var(--vert);box-shadow:0 0 0 1px var(--vert)}
+.agent h3{font-size:.98rem}
+.agent .mission{font-size:.82rem;color:var(--fg-2);margin:0}
+.agent .stats{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;font-size:.78rem;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.mono-badge{font-family:var(--mono);font-size:.75rem;font-weight:500;width:34px;height:34px;flex:none;border-radius:8px;display:grid;place-items:center;background:var(--vert-pale);color:var(--vert-fort)}
+.agent-head{display:flex;gap:10px;align-items:center}
+
+/* Pastilles d'état */
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:2px 9px;font-size:.74rem;font-weight:500;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-ok{color:var(--ok);background:var(--ok-bg)}
+.s-wait{color:var(--wait);background:var(--wait-bg)}
+.s-run{color:var(--run);background:var(--run-bg)}
+.s-off{color:var(--off);background:var(--off-bg)}
+
+/* Sections */
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;align-items:start}
+.panel{display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.list{display:flex;flex-direction:column;gap:10px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.item .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.78rem;color:var(--fg-3)}
+.item h3{font-size:.95rem;overflow-wrap:anywhere}
+.item p{margin:0;font-size:.86rem;color:var(--fg-2);overflow-wrap:anywhere}
+.tag{font-family:var(--mono);font-size:.7rem;padding:1px 7px;border-radius:5px;background:var(--surface-2);color:var(--fg-2)}
+.texte{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.86rem;max-height:340px;overflow:auto}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions a{font-size:.85rem;color:var(--vert-fort);font-weight:600}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;color:var(--fg-2);border-radius:99px;padding:4px 11px;font-size:.8rem}
+.chip[aria-pressed="true"]{background:var(--vert);border-color:var(--vert);color:var(--on-vert)}
+.empty{border:1px dashed var(--line);border-radius:var(--r);padding:18px;color:var(--fg-3);font-size:.88rem}
+.banner{border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r);padding:10px 14px;font-size:.85rem;color:var(--fg-2)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{border-top:2px solid var(--vert);padding-top:8px}
+.kpi b{display:block;font-size:1.6rem;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi span{font-size:.8rem;color:var(--fg-3)}
+
+@media (max-width:980px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}.agent::before,.branch{display:none}.trunk{height:14px}.team{padding-top:12px}}
+@media (max-width:820px){.top,.cols{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.team{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="eyebrow">Département IA · Commercial &amp; marketing</span>
+      <h1>QG SL Agence</h1>
+      <p>Tu donnes la directive au Manager. Il répartit le travail entre ses cinq agents, contrôle et te rend du travail fini, prêt à envoyer ou publier.</p>
+    </div>
+    <form class="directive" id="f-directive">
+      <label for="directive-texte">Directive au Manager</label>
+      <textarea id="directive-texte" placeholder="Ex. : Trouve 10 artisans du BTP à Colmar et prépare les messages · Écris le post de jeudi sur la facture électronique · Rédige une page « logiciel pour agences immobilières »"></textarea>
+      <div class="row">
+        <button class="btn" id="btn-directive" type="submit">Transmettre au Manager</button>
+        <span class="hint" id="directive-etat">Le Manager la traite à ta prochaine session (ou dis « traite mes directives »).</span>
+      </div>
+    </form>
+  </header>
+
+  <div class="banner" id="banner" hidden></div>
+
+  <section class="kpis" aria-label="Chiffres du moment">
+    <div class="kpi"><b id="k-missions">–</b><span>missions en cours</span></div>
+    <div class="kpi"><b id="k-valider">–</b><span>livrables à valider</span></div>
+    <div class="kpi"><b id="k-semaine">–</b><span>livrables cette semaine</span></div>
+    <div class="kpi"><b id="k-directives">–</b><span>directives en attente</span></div>
+  </section>
+
+  <section aria-labelledby="t-org" class="panel">
+    <div class="panel-head"><h2 id="t-org">L'équipe</h2><span class="hint">Clique sur un agent pour voir ses livrables.</span></div>
+    <div class="org">
+      <div class="manager">
+        <span class="mono-badge">SM</span>
+        <div><h3>SL Manager</h3><p>Directeur commercial et marketing. Reçoit tes directives, délègue, contrôle, te rend l'essentiel.</p></div>
+      </div>
+      <div class="trunk"></div>
+      <div class="branch"></div>
+      <div class="team" id="team"></div>
+    </div>
+  </section>
+
+  <div class="cols">
+    <section class="panel" aria-labelledby="t-missions">
+      <div class="panel-head"><h2 id="t-missions">Missions</h2></div>
+      <div class="list" id="missions"><div class="empty">Aucune mission enregistrée pour l'instant. Chaque directive traitée par le Manager apparaîtra ici avec les agents mobilisés.</div></div>
+      <div class="panel-head" style="margin-top:12px"><h2>Directives</h2></div>
+      <div class="list" id="directives"><div class="empty">Aucune directive. Écris-en une en haut de la page.</div></div>
+    </section>
+
+    <section class="panel" aria-labelledby="t-livrables">
+      <div class="panel-head">
+        <h2 id="t-livrables">Livrables</h2>
+        <div class="filters" id="filtres" role="group" aria-label="Filtrer par statut"></div>
+      </div>
+      <div class="list" id="livrables"><div class="empty">Les livrables (lots de prospects, brouillons Gmail, posts, articles, pages) apparaîtront ici dès que le Manager les aura enregistrés.</div></div>
+    </section>
+  </div>
+</div>
+
+<script>
+const AGENTS=[
+  {id:"prospection",code:"PR",nom:"Prospection",mission:"Trouve et qualifie les entreprises du Haut-Rhin, écrit les messages d'approche."},
+  {id:"suivi",code:"SU",nom:"Suivi",mission:"Repère les réponses et les relances dues, prépare les relances dans Gmail."},
+  {id:"contenu-linkedin",code:"CO",nom:"Contenu & LinkedIn",mission:"Rédige posts, carrousels, commentaires, articles et études de cas."},
+  {id:"seo-site",code:"SE",nom:"SEO & Site",mission:"Écrit les pages, articles et textes qui font venir et convertir."},
+  {id:"veille",code:"VE",nom:"Veille",mission:"Transforme ce que font les concurrents en idées d'offres et d'angles."}
+];
+const STATUTS={"à valider":"s-wait","prêt":"s-ok","envoyé":"s-ok","publié":"s-ok","en cours":"s-run","terminée":"s-ok","nouvelle":"s-wait","prise en compte":"s-run","traitée":"s-ok","archivé":"s-off"};
+const state={missions:[],livrables:[],directives:[],agents:{},filtreAgent:null,filtreStatut:"tous"};
+const $=s=>document.querySelector(s);
+const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dateFr=iso=>{try{return new Date(iso).toLocaleDateString("fr-FR",{day:"numeric",month:"short"})}catch{return ""}};
+const pill=s=>`<span class="pill ${STATUTS[s]||"s-off"}">${esc(s||"—")}</span>`;
+const nomAgent=id=>(AGENTS.find(a=>a.id===id)||{nom:id||"Manager"}).nom;
+const safeUrl=u=>/^https:\/\//.test(u||"")?u:null;
+
+function renderTeam(){
+  $("#team").innerHTML=AGENTS.map(a=>{
+    const st=state.agents[a.id]||{};
+    const n=state.livrables.filter(l=>l.agent===a.id).length;
+    const statut=st.statut||"disponible";
+    const cls=statut==="au travail"?"s-run":"s-off";
+    return `<button type="button" class="agent" data-agent="${a.id}" aria-pressed="${state.filtreAgent===a.id}">
+      <div class="agent-head"><span class="mono-badge">${a.code}</span><h3>${esc(a.nom)}</h3></div>
+      <p class="mission">${esc(a.mission)}</p>
+      <div class="stats"><span class="pill ${cls}">${esc(statut)}</span><span>${n} livrable${n>1?"s":""}</span></div>
+      ${st.derniere?`<span class="hint">Dernier : ${esc(st.derniere)}</span>`:""}
+    </button>`}).join("");
+}
+function renderKpis(){
+  const semaine=Date.now()-7*864e5;
+  $("#k-missions").textContent=state.missions.filter(m=>m.statut==="en cours").length;
+  $("#k-valider").textContent=state.livrables.filter(l=>l.statut==="à valider").length;
+  $("#k-semaine").textContent=state.livrables.filter(l=>Date.parse(l.date)>semaine).length;
+  $("#k-directives").textContent=state.directives.filter(d=>d.statut==="nouvelle").length;
+}
+function renderMissions(){
+  if(!state.missions.length)return;
+  $("#missions").innerHTML=state.missions.slice(0,12).map(m=>`<article class="item">
+    <div class="meta">${pill(m.statut)}<span>${dateFr(m.date)}</span></div>
+    <h3>${esc(m.titre)}</h3>
+    ${m.resume?`<p>${esc(m.resume)}</p>`:""}
+    <div class="meta">${(m.agents||[]).map(a=>`<span class="tag">${esc(nomAgent(a))}</span>`).join("")}</div>
+  </article>`).join("");
+}
+function renderDirectives(){
+  if(!state.directives.length)return;
+  $("#directives").innerHTML=state.directives.slice(0,10).map(d=>`<article class="item">
+    <div class="meta">${pill(d.statut)}<span>${dateFr(d.date)}</span></div>
+    <p>${esc(d.texte)}</p>
+    ${d.reponse?`<p class="muted">→ ${esc(d.reponse)}</p>`:""}
+  </article>`).join("");
+}
+function renderFiltres(){
+  const opts=["tous","à valider","prêt","envoyé","publié"];
+  $("#filtres").innerHTML=opts.map(o=>`<button type="button" class="chip" data-statut="${o}" aria-pressed="${state.filtreStatut===o}">${o==="tous"?"Tous":o}</button>`).join("")
+   +(state.filtreAgent?`<button type="button" class="chip" data-clear="1" aria-pressed="true">${esc(nomAgent(state.filtreAgent))} ✕</button>`:"");
+}
+function renderLivrables(){
+  let ls=state.livrables;
+  if(state.filtreAgent)ls=ls.filter(l=>l.agent===state.filtreAgent);
+  if(state.filtreStatut!=="tous")ls=ls.filter(l=>l.statut===state.filtreStatut);
+  if(!state.livrables.length)return;
+  if(!ls.length){$("#livrables").innerHTML=`<div class="empty">Rien pour ce filtre.</div>`;return}
+  $("#livrables").innerHTML=ls.map(l=>{
+    const url=safeUrl(l.lien);
+    return `<article class="item">
+      <div class="meta">${pill(l.statut)}<span class="tag">${esc(nomAgent(l.agent))}</span><span class="tag">${esc(l.type||"")}</span><span>${dateFr(l.date)}</span></div>
+      <h3>${esc(l.titre)}</h3>
+      ${l.resume?`<p>${esc(l.resume)}</p>`:""}
+      ${l.texte?`<details><summary class="hint">Voir le texte</summary><div class="texte" id="t-${esc(l._id)}">${esc(l.texte)}</div></details>`:""}
+      <div class="actions">
+        ${url?`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(l.lienLibelle||"Ouvrir")} ↗</a>`:""}
+        ${l.texte?`<button type="button" class="btn-ghost" data-copy="${esc(l._id)}">Copier le texte</button>`:""}
+      </div>
+    </article>`}).join("");
+}
+function renderAll(){renderTeam();renderKpis();renderMissions();renderDirectives();renderFiltres();renderLivrables()}
+
+document.addEventListener("click",async e=>{
+  const a=e.target.closest("[data-agent]");
+  if(a){state.filtreAgent=state.filtreAgent===a.dataset.agent?null:a.dataset.agent;renderAll();document.getElementById("t-livrables").scrollIntoView({behavior:"smooth",block:"start"});return}
+  const s=e.target.closest("[data-statut]");if(s){state.filtreStatut=s.dataset.statut;renderAll();return}
+  if(e.target.closest("[data-clear]")){state.filtreAgent=null;renderAll();return}
+  const c=e.target.closest("[data-copy]");
+  if(c){const l=state.livrables.find(x=>x._id===c.dataset.copy);if(!l)return;
+    try{await navigator.clipboard.writeText(l.texte);c.textContent="Copié"}
+    catch{const el=document.getElementById("t-"+l._id);if(el){el.closest("details").open=true;const r=document.createRange();r.selectNodeContents(el);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);c.textContent="Texte sélectionné"}}
+    setTimeout(()=>{c.textContent="Copier le texte"},1800)}
+});
+
+renderAll();
+
+(async()=>{
+  const db=await window.claude?.use?.("db");
+  if(!db){
+    const b=$("#banner");b.hidden=false;
+    b.textContent="Les données du QG ne sont pas accessibles depuis cette vue. Ouvre la page connecté à claude.ai pour voir les missions et livrables.";
+    $("#btn-directive").disabled=true;return;
+  }
+  const sub=(col,key,order)=>db.collection(col).orderBy(order,"desc").limit(200).onSnapshot(
+    snap=>{state[key]=snap.docs.map(d=>({_id:d.id,...d.data()}));renderAll()},
+    ()=>{});
+  sub("missions","missions","date");
+  sub("livrables","livrables","date");
+  sub("directives","directives","date");
+  db.collection("agents").onSnapshot(snap=>{state.agents=Object.fromEntries(snap.docs.map(d=>[d.id,d.data()]));renderAll()},()=>{});
+
+  $("#f-directive").addEventListener("submit",async ev=>{
+    ev.preventDefault();
+    const ta=$("#directive-texte"),t=ta.value.trim(),btn=$("#btn-directive"),etat=$("#directive-etat");
+    if(!t){etat.textContent="Écris d'abord ta directive.";return}
+    btn.disabled=true;
+    try{await db.collection("directives").add({texte:t,statut:"nouvelle",date:new Date().toISOString()});
+      ta.value="";etat.textContent="Transmise. Le Manager la traitera à ta prochaine session.";}
+    catch(err){etat.textContent=err?.code==="invalid_argument"?"Tu n'as pas le droit d'écrire ici : demande l'accès éditeur.":"Envoi impossible pour l'instant, réessaie dans un moment."}
+    finally{btn.disabled=false}
+  });
+})();
+</script>

@@ -18,6 +18,11 @@ et en tirer des actions concrètes pour SL Agence.
 - `.claude/memoire/concurrents.md` tenu à jour (date + source pour chaque ligne)
 - Au moins 2 actions recommandées par rapport, chacune transmise à l'agent concerné
 
+## Mode production (par défaut)
+
+Chaque veille débouche sur quelque chose de **créé** : une idée d'offre packagée, un angle de post
+rédigé, un argument commercial prêt à l'emploi, une page à créer. Le rapport complet seulement sur demande.
+
 ## Périmètre
 
 1. Concurrents connus (`.claude/memoire/concurrents.md`) : revérifier site, offres, prix publics, contenus récents.

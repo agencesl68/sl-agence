@@ -1,5 +1,10 @@
 # Département IA de SL Agence — mode d'emploi (Loïc)
 
+## Ton QG
+
+**https://claude.ai/artifact/MUaYVX2zxFinm8ryG4eqyY** — l'organigramme (SL Manager et ses 5 agents),
+les missions, tous les livrables prêts à copier ou ouvrir, et une case pour donner une directive au Manager.
+
 ## Démarrer
 
 Ouvre une session Claude Code sur ce dépôt et tape une commande :
@@ -14,7 +19,8 @@ Ouvre une session Claude Code sur ce dépôt et tape une commande :
 | `/veille` · `/veille <concurrent>` | Rapport concurrentiel mensuel ou fiche d'un concurrent |
 | `/bilan` | Bilan de la semaine vs objectifs et ajustements |
 
-Tu peux aussi parler normalement : « Trouve-moi des cabinets comptables à Mulhouse », « Prépare un post
+Tu parles **au Manager** : il répartit le travail entre les agents et te rend du travail fini
+(pas d'audit, sauf si tu en demandes un). Tu peux aussi parler normalement : « Trouve-moi des cabinets comptables à Mulhouse », « Prépare un post
 sur la facture électronique ». SL Manager délègue à l'agent qui convient.
 
 ## L'équipe

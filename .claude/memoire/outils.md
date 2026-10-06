@@ -14,7 +14,7 @@ de Loïc vit dans ses propres outils : **Gmail** (conversations et statuts via l
 | Dossier de travail Drive | « SL agence » (id `1rAcFi7NBf_cXGzN_qJ0sBAe3Y5wTl4b3`) | Les lots de prospects (`Prospects – lot AAAA-MM-JJ`) et listes de relances y sont créés |
 | Conversations avec les prospects | Gmail **agence.sl.68@gmail.com** (boîte partagée de l'agence, Sacha la voit aussi ; ~200 fils envoyés, dont une prospection d'août 2026) | Lecture, brouillons, libellés (jamais d'envoi) |
 | Analyse de marché + grille tarifaire (confidentiel) | Drive — « Analyse de marché SLagence.docx » (id `1y9U0WFV4y5UhABLhKoN1ASu0jA0n-jfk`) | Lecture seule, jamais recopiée dans le dépôt |
-| Données SEO (positions, mots-clés, Search Console, concurrents) | Ahrefs (connecteur) | Lecture |
+| Données SEO (positions, mots-clés, Search Console, concurrents) | Ahrefs (plan sans API pour l'instant) ; exports Search Console de Loïc | Lecture |
 | Site | Ce dépôt (racine) | Modifications par branche + pull request validée |
 
 ## Suivi commercial dans Gmail (système de libellés)
@@ -47,7 +47,7 @@ et toute entreprise avec laquelle Gmail montre un échange commercial abouti (de
 | API Recherche d'entreprises (État) — `https://recherche-entreprises.api.gouv.fr/search` | ✅ gratuit, sans clé (WebFetch) | Entreprises du 68 par activité (NAF), effectifs, dirigeants publics |
 | Gmail | ✅ | Lecture des fils, **brouillons**, libellés. Envoi, transfert, suppression : **interdits** |
 | Google Drive | ✅ | Lecture de la prospection, création des lots et listes |
-| Ahrefs | ✅ | SEO : mots-clés, positions, Search Console, concurrents, audit |
+| Ahrefs | ⚠️ connecté mais l'abonnement actuel refuse l'accès API (« Insufficient plan », 2026-10-06) | Inutilisable tant que le plan n'inclut pas l'API. En attendant : WebSearch + exports Search Console fournis par Loïc |
 | Vibe Prospecting | ✅ **payant (crédits)** | Enrichissement ponctuel ; estimation obligatoire, export seulement avec l'accord de Loïc |
 | Make | ⛔ hors périmètre | Production de Sacha et CRM : toutes les écritures sont bloquées |
 | LinkedIn | ❌ aucun accès automatisé | Les agents rédigent, Loïc publie |

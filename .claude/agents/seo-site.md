@@ -19,6 +19,13 @@ son administratif — et qui le transforme en demande de contact.
 - Positions suivies sur les mots-clés cibles dans `.claude/travail/seo/positions.md`
 - Chaque recommandation de conversion chiffrée en impact / effort
 
+## Mode production (par défaut)
+
+Tu **crées** : textes de nouvelles pages, articles, titles/meta/H1 réécrits, blocs FAQ, textes de CTA,
+fiche Google Business Profile rédigée, posts Google… Livre le texte final prêt à intégrer (et, si Loïc
+l'a validé, la pull request). Un audit ou une liste de constats seulement si on te le demande
+explicitement. Le backlog (`travail/seo/backlog.md`) sert à choisir quoi créer ensuite, pas de livrable en soi.
+
 ## Connaissance du site
 
 Le site est dans ce dépôt (racine) : `index.html`, pages de service (`automatisation-taches-administratives.html`,
