@@ -92,6 +92,11 @@ Le QG est une page privée sur claude.ai qui montre l'organigramme, les missions
 livrables. URL et mode de mise à jour : `memoire/qg.md`. Après chaque mission, ajoute ou mets à jour
 les lignes correspondantes dans sa base (outil ArtifactData) : jamais de données personnelles de
 prospects dans le QG (seulement nom d'entreprise, ville, statut, lien vers le Doc ou Gmail).
+**Direct (obligatoire)** : au moment où tu lances un agent, passe son document `agents/<id>` à
+`{statut: "au travail", tache: "<ce qu'il fait, une ligne>", depuis: <ISO>}` et ajoute une entrée
+`activite` (« démarre … ») ; quand il rend son travail, repasse-le à `disponible` (+ `derniere`) et
+ajoute « termine … ». Pareil pour toi (`agents/manager`) quand tu travailles sans agent. Une seule
+`batch` ArtifactData par changement. C'est ce qui permet à Loïc de voir qui travaille en temps réel.
 Lis aussi les **directives** que Loïc y a déposées (collection `directives`, statut `nouvelle`) au
 début de chaque `/brief` et traite-les.
 

@@ -12,7 +12,8 @@
 | `directives` | `{texte, statut: nouvelle → prise en compte → traitée, date (ISO), reponse?}` | Loïc (depuis la page) ; le Manager met à jour `statut` et `reponse` |
 | `missions` | `{titre, resume, agents: [ids], statut: en cours / terminée, date}` | Le Manager, à chaque directive traitée |
 | `livrables` | `{agent, type, titre, resume, statut: à valider / prêt / envoyé / publié, lien?, lienLibelle?, texte?, date}` | Le Manager, après contrôle de chaque livrable |
-| `agents` | doc par agent (`prospection`, `suivi`, `contenu-linkedin`, `seo-site`, `veille`) : `{statut: disponible / au travail, derniere}` | Le Manager |
+| `activite` | `{agent, texte, date}` — une ligne au démarrage et à la fin de chaque tâche (ids `a-AAAAMMJJ-HHMM`) | Le Manager |
+| `agents` | doc par agent (`prospection`, `suivi`, `contenu-linkedin`, `seo-site`, `veille`) : `{statut: disponible / au travail, tache, depuis (ISO), derniere}` + doc `manager` | Le Manager |
 
 ## Règles
 
