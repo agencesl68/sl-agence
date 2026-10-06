@@ -1,0 +1,359 @@
+<title>QG SL Agence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Deux onglets : « Carte » (Manager en haut, lignes d'ordres vers l'équipe, fiche de l'agent cliqué) et « Tableau de bord » (directives, missions, livrables). Charte SL Agence. */
+:root{
+  --bg:#f4f6f2; --surface:#ffffff; --surface-2:#eaefe6; --line:#d5ddcf; --wire:#bfcbb8;
+  --fg:#10150f; --fg-2:#4a5647; --fg-3:#6f7a6b;
+  --vert:#3c4f3b; --vert-fort:#2c3b2b; --vert-pale:#dfe8d8; --on-vert:#ffffff;
+  --ok:#2f7a3a; --ok-bg:#e1f1e1; --wait:#8a5a00; --wait-bg:#fbefd6; --run:#1f6fb0; --run-bg:#deebf6; --off:#6f7a6b; --off-bg:#eceee9;
+  --display:"Geist","Helvetica Neue",Arial,sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#070907; --surface:#0f140e; --surface-2:#171f16; --line:#263124; --wire:#34432f;
+  --fg:#f2f5ef; --fg-2:#b8c4b2; --fg-3:#8b9886;
+  --vert:#a9c49f; --vert-fort:#c6d9bd; --vert-pale:#1d271c; --on-vert:#0b0f0a;
+  --ok:#8fd19a; --ok-bg:#16301b; --wait:#f0c46b; --wait-bg:#33280f; --run:#8cc2ee; --run-bg:#132a3d; --off:#8b9886; --off-bg:#1a2019;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#070907; --surface:#0f140e; --surface-2:#171f16; --line:#263124; --wire:#34432f;
+  --fg:#f2f5ef; --fg-2:#b8c4b2; --fg-3:#8b9886;
+  --vert:#a9c49f; --vert-fort:#c6d9bd; --vert-pale:#1d271c; --on-vert:#0b0f0a;
+  --ok:#8fd19a; --ok-bg:#16301b; --wait:#f0c46b; --wait-bg:#33280f; --run:#8cc2ee; --run-bg:#132a3d; --off:#8b9886; --off-bg:#1a2019;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:15px;line-height:1.5;letter-spacing:-.01em;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 20px 64px;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
+h2{font-size:1.05rem}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
+.muted{color:var(--fg-3)}
+button{font:inherit;cursor:pointer;color:inherit}
+button:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--vert);outline-offset:2px}
+
+/* En-tête + onglets */
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.top h1{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.2rem);line-height:1}
+.tabs{display:inline-flex;background:var(--surface-2);border-radius:10px;padding:4px;gap:4px}
+.tab{border:0;background:transparent;border-radius:8px;padding:8px 16px;font-weight:600;font-size:.9rem;color:var(--fg-2)}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 2px rgb(0 0 0 / .08)}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.76rem;color:var(--fg-2)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--off)}
+.live.on i{background:var(--run);animation:pulse 1.6s ease-out infinite}
+.banner{border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r);padding:10px 14px;font-size:.85rem;color:var(--fg-2)}
+
+/* CARTE : organigramme classique */
+.carte{display:flex;flex-direction:column;gap:20px}
+.map{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 16px 30px;min-width:0;overflow-x:auto}
+.org{min-width:860px;display:flex;flex-direction:column;align-items:center}
+.org ul{margin:0;padding:22px 0 0;position:relative;display:flex;justify-content:center}
+.org li{list-style:none;position:relative;padding:22px 6px 0;display:flex;flex-direction:column;align-items:center;flex:1 1 0;min-width:0}
+.org li::before,.org li::after{content:"";position:absolute;top:0;right:50%;width:50%;height:22px;border-top:2px solid var(--wire)}
+.org li::after{right:auto;left:50%;border-left:2px solid var(--wire)}
+.org li:first-child::before,.org li:last-child::after{border:0}
+.org li:last-child::before{border-right:2px solid var(--wire);border-top-right-radius:8px}
+.org li:first-child::after{border-top-left-radius:8px}
+.org ul::before{content:"";position:absolute;top:0;left:50%;height:22px;border-left:2px solid var(--wire)}
+.org li.hot::after{border-left-color:var(--run)}
+.org li.hot:last-child::before{border-right-color:var(--run)}
+.org .ul-hot::before{border-left-color:var(--run)}
+.trunk{width:2px;height:24px;background:var(--wire)}
+.trunk.hot{background:var(--run)}
+.staff{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%;max-width:860px}
+.staff .side{display:flex;align-items:center}
+.staff .side.l{justify-content:flex-end}
+.staff .dash{flex:0 0 36px;border-top:2px dashed var(--wire)}
+.node{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;width:100%;max-width:200px;position:relative;transition:border-color .2s,box-shadow .2s,transform .15s}
+.node:hover{transform:translateY(-1px)}
+.node[aria-pressed="true"]{border-color:var(--vert);box-shadow:0 0 0 2px var(--vert)}
+.node.working{border-color:var(--run);box-shadow:0 0 0 3px var(--run-bg)}
+.node h3{font-size:.9rem}
+.node .role{font-size:.72rem;color:var(--fg-3);line-height:1.3}
+.node .dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--off)}
+.node.working .dot{background:var(--run);animation:pulse 1.6s ease-out infinite}
+.node .now-mini{font-size:.7rem;color:var(--run);line-height:1.3}
+.model{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border-radius:99px;border:1px solid var(--line);color:var(--fg-2)}
+.model.opus{border-color:var(--vert);color:var(--vert-fort)}
+.boss{max-width:220px;border-style:dashed}
+.manager{background:var(--vert);border-color:var(--vert);color:var(--on-vert);max-width:240px}
+.manager .role,.manager .model{color:inherit;border-color:currentColor;opacity:.9}
+.staffnode{max-width:190px;border-style:dashed}
+.badge{font-family:var(--mono);font-size:.7rem;font-weight:500;width:30px;height:30px;flex:none;border-radius:8px;display:grid;place-items:center;background:var(--vert-pale);color:var(--vert-fort)}
+.manager .badge{background:var(--on-vert);color:var(--vert)}
+.legende{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:22px;font-size:.76rem;color:var(--fg-3)}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+.legende i{display:inline-block;width:22px;border-top:2px solid var(--wire)}
+.legende i.d{border-top-style:dashed}
+.legende i.h{border-top-color:var(--run)}
+/* Fiche agent */
+.fiche{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px 24px}
+.fiche>.head{grid-column:1/-1}
+.fiche .head{display:flex;gap:12px;align-items:center}
+.fiche h2{font-size:1.15rem}
+.bloc{display:flex;flex-direction:column;gap:6px}
+.bloc .eyebrow{font-size:.66rem}
+.now{border-radius:10px;padding:10px 12px;background:var(--surface-2);font-size:.9rem}
+.now.on{background:var(--run-bg);color:var(--run)}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip-t{font-family:var(--mono);font-size:.68rem;padding:2px 7px;border-radius:6px;background:var(--surface-2);color:var(--fg-2)}
+.mini{display:flex;flex-direction:column;margin:0;padding:0}
+.mini li{list-style:none;display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.82rem}
+.mini li:last-child{border-bottom:0}
+.mini time{font-family:var(--mono);font-size:.72rem;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.mini a{color:var(--vert-fort);font-weight:600}
+.flux{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.flux div{border-top:2px solid var(--line);padding-top:8px;font-size:.78rem;color:var(--fg-2)}
+.flux b{display:block;font-size:.84rem;color:var(--fg);margin-bottom:2px}
+
+/* Pastilles */
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:2px 9px;font-size:.72rem;font-weight:500;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-ok{color:var(--ok);background:var(--ok-bg)}
+.s-wait{color:var(--wait);background:var(--wait-bg)}
+.s-run{color:var(--run);background:var(--run-bg)}
+.s-run::before{animation:pulse 1.6s ease-out infinite}
+.s-off{color:var(--off);background:var(--off-bg)}
+
+/* TABLEAU DE BORD */
+.directive{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px}
+.directive label{font-weight:600;font-size:.9rem}
+.directive textarea{width:100%;min-height:70px;resize:vertical;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);padding:10px 12px;font:inherit}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{border:0;border-radius:8px;padding:9px 16px;background:var(--vert);color:var(--on-vert);font-weight:600}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-ghost{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 12px;font-size:.85rem}
+.hint{font-size:.8rem;color:var(--fg-3)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{border-top:2px solid var(--vert);padding-top:8px}
+.kpi b{display:block;font-size:1.6rem;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi span{font-size:.8rem;color:var(--fg-3)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;align-items:start}
+.panel{display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.list{display:flex;flex-direction:column;gap:10px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.item .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.78rem;color:var(--fg-3)}
+.item h3{font-size:.95rem;overflow-wrap:anywhere}
+.item p{font-size:.86rem;color:var(--fg-2);overflow-wrap:anywhere}
+.tag{font-family:var(--mono);font-size:.7rem;padding:1px 7px;border-radius:5px;background:var(--surface-2);color:var(--fg-2)}
+.texte{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.86rem;max-height:340px;overflow:auto}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions a{font-size:.85rem;color:var(--vert-fort);font-weight:600}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;color:var(--fg-2);border-radius:99px;padding:4px 11px;font-size:.8rem}
+.chip[aria-pressed="true"]{background:var(--vert);border-color:var(--vert);color:var(--on-vert)}
+.empty{border:1px dashed var(--line);border-radius:var(--r);padding:16px;color:var(--fg-3);font-size:.86rem}
+
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--run) 60%,transparent)}100%{box-shadow:0 0 0 7px transparent}}
+@keyframes flow{to{stroke-dashoffset:-28}}
+@media (max-width:900px){.flux{grid-template-columns:1fr}}
+@media (max-width:820px){.cols{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <span class="eyebrow">Département IA · SL Agence</span>
+      <h1>QG SL Agence</h1>
+    </div>
+    <div class="row">
+      <span class="live" id="live"><i></i><span id="live-txt">Personne ne travaille en ce moment</span></span>
+      <div class="tabs" role="tablist" aria-label="Vues du QG">
+        <button class="tab" role="tab" id="tab-carte" aria-controls="vue-carte" aria-selected="true" data-tab="carte">Carte de l'équipe</button>
+        <button class="tab" role="tab" id="tab-tableau" aria-controls="vue-tableau" aria-selected="false" data-tab="tableau">Tableau de bord</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="banner" id="banner" hidden></div>
+
+  <!-- ONGLET CARTE -->
+  <section id="vue-carte" role="tabpanel" aria-labelledby="tab-carte">
+    <div class="carte">
+      <div class="map">
+        <div class="org" id="org"></div>
+        <div class="legende">
+          <span><i></i>hiérarchie</span><span><i class="d"></i>appui du Manager (analyse, contrôle)</span><span><i class="h"></i>ordre en cours</span>
+          <span><span class="model opus">Opus</span> analyse et contrôle</span><span><span class="model">Sonnet</span> exécute</span>
+        </div>
+      </div>
+      <aside class="fiche" id="fiche" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <!-- ONGLET TABLEAU DE BORD -->
+  <section id="vue-tableau" role="tabpanel" aria-labelledby="tab-tableau" hidden>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <form class="directive" id="f-directive">
+        <label for="directive-texte">Directive au Manager</label>
+        <textarea id="directive-texte" placeholder="Ex. : Trouve 10 artisans du BTP à Colmar et prépare les messages · Donne-moi les idées LinkedIn de la semaine · Lance le suivi SEO"></textarea>
+        <div class="row">
+          <button class="btn" id="btn-directive" type="submit">Transmettre au Manager</button>
+          <span class="hint" id="directive-etat">Le Manager la traite à ta prochaine session (ou dis « traite mes directives »).</span>
+        </div>
+      </form>
+      <section class="kpis" aria-label="Chiffres du moment">
+        <div class="kpi"><b id="k-missions">–</b><span>missions en cours</span></div>
+        <div class="kpi"><b id="k-valider">–</b><span>livrables à valider</span></div>
+        <div class="kpi"><b id="k-semaine">–</b><span>livrables cette semaine</span></div>
+        <div class="kpi"><b id="k-directives">–</b><span>directives en attente</span></div>
+      </section>
+      <div class="cols">
+        <section class="panel">
+          <div class="panel-head"><h2>Directives</h2></div>
+          <div class="list" id="directives"><div class="empty">Aucune directive. Écris-en une ci-dessus.</div></div>
+          <div class="panel-head" style="margin-top:12px"><h2>Missions</h2></div>
+          <div class="list" id="missions"><div class="empty">Aucune mission enregistrée.</div></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>Livrables</h2><div class="filters" id="filtres" role="group" aria-label="Filtrer"></div></div>
+          <div class="list" id="livrables"><div class="empty">Les livrables apparaîtront ici.</div></div>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const LOIC={id:"loic",code:"LB",nom:"Loïc",role:"Dirigeant · donne les directives, valide, envoie et publie",mission:"Fixe le cap, donne les directives au Manager, valide les livrables, envoie les messages et publie.",outils:["Gmail","LinkedIn","Google Business Profile"],manuels:["—"],model:"Humain"};
+const MANAGER={id:"manager",code:"SM",nom:"SL Manager",role:"Directeur commercial et marketing",mission:"Reçoit tes directives, les découpe en ordres pour l'équipe, fait contrôler chaque livrable et te rend l'essentiel.",outils:["Tous les outils","QG"],manuels:["mémoire partagée","corrections","apprentissages"],model:"Opus"};
+const STAFF=[
+  {id:"analyste",code:"AN",nom:"Analyste",role:"Analyse et brief d'exécution",mission:"Avant chaque mission importante : analyse la directive, les données, les apprentissages et les corrections, puis écrit le brief de l'équipe.",outils:["Recherche web","Drive","Sheets","Gmail (lecture)"],manuels:["tous les manuels","corrections"],model:"Opus"},
+  {id:"controle-qualite",code:"CQ",nom:"Contrôle qualité",role:"Valide avant que ça t'arrive",mission:"Vérifie chaque livrable : faits sourcés, corrections passées, grille du manuel (≥ 8/10), ton, RGPD. Verdict VALIDÉ ou À CORRIGER.",outils:["Recherche web","Drive","Gmail (lecture)"],manuels:["grilles des manuels","corrections"],model:"Opus"}
+];
+const AGENTS=[
+  {id:"prospection",code:"PR",nom:"Prospection",role:"Trouve et écrit aux prospects",mission:"Trouve et qualifie les entreprises du Haut-Rhin, écrit les messages d'approche en brouillon.",outils:["Recherche web","API entreprises · BODACC","Gmail (brouillons)","Drive","Sheets"],manuels:["prospection.md","emailing.md","marche-2026.md"],model:"Sonnet"},
+  {id:"suivi",code:"SU",nom:"Suivi",role:"Réponses et relances",mission:"Détecte les réponses et les relances dues, prépare les relances dans le bon fil Gmail, tient la feuille à jour.",outils:["Gmail (brouillons)","Sheets","Calendar","Drive"],manuels:["emailing.md"],model:"Sonnet"},
+  {id:"contenu-linkedin",code:"CO",nom:"Contenu & LinkedIn",role:"Coach LinkedIn, articles",mission:"Radar des tendances, accroches, plans et relectures de tes posts. Rédige articles et études de cas.",outils:["Recherche web","Canva","Site (blog)"],manuels:["linkedin-contenu.md","marche-2026.md"],model:"Sonnet"},
+  {id:"seo-site",code:"SE",nom:"SEO & Site",role:"Référencement et conversion",mission:"Plan maître, mise en place en pull request, mesure à J+28, apprentissage.",outils:["Recherche web","Site · GitHub","Drive"],manuels:["seo.md"],model:"Sonnet"},
+  {id:"veille",code:"VE",nom:"Veille",role:"Marché et concurrents",mission:"Surveille le marché et les concurrents, transforme chaque signal en offre, post ou argument.",outils:["Recherche web"],manuels:["veille.md","marche-2026.md"],model:"Sonnet"}
+];
+const ALL=[LOIC,MANAGER,...STAFF,...AGENTS];
+const STATUTS={"à valider":"s-wait","prêt":"s-ok","envoyé":"s-ok","publié":"s-ok","en cours":"s-run","terminée":"s-ok","nouvelle":"s-wait","prise en compte":"s-run","traitée":"s-ok","archivé":"s-off"};
+const state={missions:[],livrables:[],directives:[],activite:[],agents:{},sel:null,filtreStatut:"tous"};
+const $=s=>document.querySelector(s);
+const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dateFr=iso=>{try{return new Date(iso).toLocaleDateString("fr-FR",{day:"numeric",month:"short"})}catch{return""}};
+const heure=iso=>{try{const d=new Date(iso);const auj=new Date().toDateString()===d.toDateString();return auj?d.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}):dateFr(iso)}catch{return""}};
+const depuis=iso=>{const m=Math.max(0,Math.round((Date.now()-Date.parse(iso))/60000));if(!isFinite(m))return"";return m<1?"à l'instant":m<60?`depuis ${m} min`:`depuis ${Math.floor(m/60)} h ${String(m%60).padStart(2,"0")}`};
+const pill=s=>`<span class="pill ${STATUTS[s]||"s-off"}">${esc(s||"—")}</span>`;
+const fiche=id=>ALL.find(a=>a.id===id);
+const nomAgent=id=>(fiche(id)||{nom:id||"Manager"}).nom;
+const safeUrl=u=>/^https:\/\//.test(u||"")?u:null;
+const st=id=>state.agents[id]||{};
+const working=id=>st(id).statut==="au travail";
+
+/* Onglets */
+function showTab(t){
+  ["carte","tableau"].forEach(k=>{$("#vue-"+k).hidden=k!==t;$("#tab-"+k).setAttribute("aria-selected",String(k===t))});
+  try{localStorage.setItem("qg-onglet",t)}catch{}
+  if(t==="carte")requestAnimationFrame(drawWires);
+}
+document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+
+/* Carte : organigramme */
+function nodeHtml(p,cls){
+  const s=st(p.id),w=working(p.id);
+  const model=p.model==="Humain"?"":`<span class="model${p.model==="Opus"?" opus":""}">${esc(p.model)}</span>`;
+  return `<button type="button" class="node ${cls}${w?" working":""}" data-sel="${p.id}" aria-pressed="${state.sel===p.id}">
+    ${p.id!=="loic"?'<span class="dot"></span>':''}<span class="badge">${p.code}</span><h3>${esc(p.nom)}</h3>
+    <span class="role">${esc(p.role)}</span>${model}${w&&s.tache?`<span class="now-mini">${esc(s.tache)}</span>`:""}</button>`;
+}
+function renderMap(){
+  const anyTeam=AGENTS.some(a=>working(a.id));
+  $("#org").innerHTML=`
+    ${nodeHtml(LOIC,"boss")}
+    <div class="trunk${working("manager")||anyTeam?" hot":""}"></div>
+    <div class="staff">
+      <div class="side l">${nodeHtml(STAFF[0],"staffnode")}<span class="dash"></span></div>
+      ${nodeHtml(MANAGER,"manager")}
+      <div class="side"><span class="dash"></span>${nodeHtml(STAFF[1],"staffnode")}</div>
+    </div>
+    <ul class="${anyTeam?"ul-hot":""}">${AGENTS.map(a=>`<li class="${working(a.id)?"hot":""}">${nodeHtml(a,"")}</li>`).join("")}</ul>`;
+  const actifs=[...STAFF,...AGENTS].filter(a=>working(a.id));
+  const mw=working("manager");
+  $("#live").classList.toggle("on",actifs.length>0||mw);
+  $("#live-txt").textContent=actifs.length?`En direct : ${actifs.map(a=>a.nom).join(", ")}`:(mw?"En direct : le Manager":"Personne ne travaille en ce moment");
+  renderFiche();
+}
+function drawWires(){}
+function renderFiche(){
+  const id=state.sel||[...STAFF,...AGENTS].find(a=>working(a.id))?.id||"manager";
+  const f=fiche(id),s=st(id),w=working(id);
+  const acts=state.activite.filter(e=>e.agent===id).slice(0,6);
+  const livs=state.livrables.filter(l=>l.agent===id).slice(0,4);
+  $("#fiche").innerHTML=`
+    <div class="head" style="display:flex;gap:12px;align-items:center"><span class="badge">${f.code}</span><div><h2>${esc(f.nom)} ${f.model!=="Humain"?`<span class="model${f.model==="Opus"?" opus":""}">${esc(f.model)}</span>`:""}</h2><span class="hint">${state.sel?esc(f.role):"Clique sur un membre de l'organigramme pour voir sa fiche"}</span></div></div>
+    <div class="bloc"><span class="eyebrow">En ce moment</span>
+      <div class="now${w?" on":""}">${id==="loic"?"C'est toi : tes directives arrivent au Manager.":w?`<b>${esc(s.tache||"Au travail")}</b><br><span>${esc(depuis(s.depuis))}</span>`:`Disponible${s.derniere?` · dernier travail : ${esc(s.derniere)}`:""}`}</div>
+      <span class="eyebrow" style="margin-top:8px">Son rôle</span><p style="font-size:.88rem;color:var(--fg-2)">${esc(f.mission)}</p></div>
+    <div class="bloc"><span class="eyebrow">Ses outils</span><div class="chips">${f.outils.map(o=>`<span class="chip-t">${esc(o)}</span>`).join("")}</div>
+      <span class="eyebrow" style="margin-top:8px">Ce qu'il lit avant d'agir</span><div class="chips">${f.manuels.map(o=>`<span class="chip-t">${esc(o)}</span>`).join("")}</div></div>
+    <div class="bloc"><span class="eyebrow">Activité récente</span>
+      ${acts.length?`<ul class="mini">${acts.map(e=>`<li><time>${esc(heure(e.date))}</time><span>${esc(e.texte)}</span></li>`).join("")}</ul>`:`<p class="hint">Rien pour l'instant.</p>`}
+      ${livs.length?`<span class="eyebrow" style="margin-top:8px">Derniers livrables</span><ul class="mini">${livs.map(l=>{const u=safeUrl(l.lien);return`<li><time>${esc(dateFr(l.date))}</time><span>${u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l.titre)}</a>`:esc(l.titre)}</span></li>`}).join("")}</ul>`:""}</div>`;
+}
+
+/* Tableau de bord */
+function renderTableau(){
+  const semaine=Date.now()-7*864e5;
+  $("#k-missions").textContent=state.missions.filter(m=>m.statut==="en cours").length;
+  $("#k-valider").textContent=state.livrables.filter(l=>l.statut==="à valider").length;
+  $("#k-semaine").textContent=state.livrables.filter(l=>Date.parse(l.date)>semaine).length;
+  $("#k-directives").textContent=state.directives.filter(d=>d.statut==="nouvelle").length;
+  if(state.directives.length)$("#directives").innerHTML=state.directives.slice(0,10).map(d=>`<article class="item"><div class="meta">${pill(d.statut)}<span>${dateFr(d.date)}</span></div><p>${esc(d.texte)}</p>${d.reponse?`<p class="muted">→ ${esc(d.reponse)}</p>`:""}</article>`).join("");
+  if(state.missions.length)$("#missions").innerHTML=state.missions.slice(0,10).map(m=>`<article class="item"><div class="meta">${pill(m.statut)}<span>${dateFr(m.date)}</span></div><h3>${esc(m.titre)}</h3>${m.resume?`<p>${esc(m.resume)}</p>`:""}<div class="meta">${(m.agents||[]).map(a=>`<span class="tag">${esc(nomAgent(a))}</span>`).join("")}</div></article>`).join("");
+  const opts=["tous","à valider","prêt","envoyé","publié"];
+  $("#filtres").innerHTML=opts.map(o=>`<button type="button" class="chip" data-statut="${o}" aria-pressed="${state.filtreStatut===o}">${o==="tous"?"Tous":o}</button>`).join("");
+  if(!state.livrables.length)return;
+  const ls=state.filtreStatut==="tous"?state.livrables:state.livrables.filter(l=>l.statut===state.filtreStatut);
+  $("#livrables").innerHTML=ls.length?ls.map(l=>{const url=safeUrl(l.lien);return`<article class="item">
+    <div class="meta">${pill(l.statut)}<span class="tag">${esc(nomAgent(l.agent))}</span><span class="tag">${esc(l.type||"")}</span><span>${dateFr(l.date)}</span></div>
+    <h3>${esc(l.titre)}</h3>${l.resume?`<p>${esc(l.resume)}</p>`:""}
+    ${l.texte?`<details><summary class="hint">Voir le texte</summary><div class="texte" id="t-${esc(l._id)}">${esc(l.texte)}</div></details>`:""}
+    <div class="actions">${url?`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(l.lienLibelle||"Ouvrir")} ↗</a>`:""}${l.texte?`<button type="button" class="btn-ghost" data-copy="${esc(l._id)}">Copier le texte</button>`:""}</div></article>`}).join(""):`<div class="empty">Rien pour ce filtre.</div>`;
+}
+function renderAll(){renderMap();renderTableau()}
+
+document.addEventListener("click",async e=>{
+  const n=e.target.closest("[data-sel]");
+  if(n){state.sel=state.sel===n.dataset.sel?null:n.dataset.sel;renderMap();return}
+  const s=e.target.closest("[data-statut]");if(s){state.filtreStatut=s.dataset.statut;renderTableau();return}
+  const c=e.target.closest("[data-copy]");
+  if(c){const l=state.livrables.find(x=>x._id===c.dataset.copy);if(!l)return;
+    try{await navigator.clipboard.writeText(l.texte);c.textContent="Copié"}
+    catch{const el=document.getElementById("t-"+l._id);if(el){el.closest("details").open=true;const r=document.createRange();r.selectNodeContents(el);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);c.textContent="Texte sélectionné"}}
+    setTimeout(()=>{c.textContent="Copier le texte"},1800)}
+});
+addEventListener("resize",()=>requestAnimationFrame(drawWires));
+setInterval(()=>{if([...STAFF,...AGENTS].some(a=>working(a.id)))renderMap()},30000);
+let onglet="carte";try{onglet=localStorage.getItem("qg-onglet")||"carte"}catch{}
+if(location.hash==="#tableau")onglet="tableau";
+renderAll();showTab(onglet==="tableau"?"tableau":"carte");
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>drawWires());
+
+(async()=>{
+  const db=await window.claude?.use?.("db");
+  if(!db){const b=$("#banner");b.hidden=false;
+    b.textContent="Les données du QG ne sont pas accessibles depuis cette vue. Ouvre la page connecté à claude.ai pour voir l'équipe en direct.";
+    $("#btn-directive").disabled=true;return}
+  const sub=(col,key,n)=>db.collection(col).orderBy("date","desc").limit(n).onSnapshot(
+    snap=>{state[key]=snap.docs.map(d=>({_id:d.id,...d.data()}));renderAll()},()=>{});
+  sub("missions","missions",200);sub("livrables","livrables",200);sub("directives","directives",100);sub("activite","activite",60);
+  db.collection("agents").onSnapshot(snap=>{state.agents=Object.fromEntries(snap.docs.map(d=>[d.id,d.data()]));renderAll()},()=>{});
+  $("#f-directive").addEventListener("submit",async ev=>{
+    ev.preventDefault();
+    const ta=$("#directive-texte"),t=ta.value.trim(),btn=$("#btn-directive"),etat=$("#directive-etat");
+    if(!t){etat.textContent="Écris d'abord ta directive.";return}
+    btn.disabled=true;
+    try{await db.collection("directives").add({texte:t,statut:"nouvelle",date:new Date().toISOString()});
+      ta.value="";etat.textContent="Transmise. Le Manager la traitera à ta prochaine session."}
+    catch(err){etat.textContent=err?.code==="invalid_argument"?"Tu n'as pas le droit d'écrire ici : demande l'accès éditeur.":"Envoi impossible pour l'instant, réessaie dans un moment."}
+    finally{btn.disabled=false}
+  });
+})();
+</script>

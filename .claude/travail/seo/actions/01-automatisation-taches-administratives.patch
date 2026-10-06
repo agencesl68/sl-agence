@@ -1,0 +1,170 @@
+--- a/automatisation-taches-administratives.html
++++ b/automatisation-taches-administratives.html
+@@ -3,23 +3,23 @@
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+-<title>Automatisation des tâches administratives | SL Agence Mulhouse</title>
+-<meta name="description" content="Saisies en double, relances, documents, tableaux de bord : nous automatisons le travail administratif des TPE et PME avec vos outils actuels. Devis sous 24 h.">
++<title>Automatiser les tâches administratives | SL Agence Mulhouse</title>
++<meta name="description" content="Saisies en double, relances, devis, tableaux de bord : nous automatisons l'administratif des TPE et PME du Haut-Rhin avec vos logiciels. Devis sous 24 h.">
+ <meta name="theme-color" content="#070907">
+ <link rel="canonical" href="https://slagence.fr/automatisation-taches-administratives">
+ <meta property="og:type" content="website">
+ <meta property="og:locale" content="fr_FR">
+ <meta property="og:site_name" content="SL Agence">
+-<meta property="og:title" content="Automatisation des tâches administratives pour TPE et PME.">
+-<meta property="og:description" content="Saisies en double, relances, documents, tableaux de bord : nous automatisons le travail administratif des TPE et PME avec vos outils actuels. Devis sous 24 h.">
++<meta property="og:title" content="Automatisation des tâches administratives pour les TPE et PME du Haut-Rhin.">
++<meta property="og:description" content="Saisies en double, relances, devis, tableaux de bord : nous automatisons l'administratif des TPE et PME du Haut-Rhin avec vos logiciels. Devis sous 24 h.">
+ <meta property="og:url" content="https://slagence.fr/automatisation-taches-administratives">
+ <meta property="og:image" content="https://slagence.fr/og.png">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="icon" href="/favicon.ico" sizes="48x48">
+ <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192">
+ <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Automatisation des tâches administratives", "serviceType": "Automatisation des tâches administratives", "provider": {"@type": "ProfessionalService", "name": "SL Agence", "url": "https://slagence.fr/", "telephone": "+33767081943", "email": "agence.sl.68@gmail.com"}, "areaServed": ["Mulhouse", "Colmar", "Saint-Louis", "Haut-Rhin", "Alsace", "Grand Est", "France"], "url": "https://slagence.fr/automatisation-taches-administratives"}</script>
+-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce que l'automatisation des tâches administratives ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est confier à des outils les tâches répétitives de gestion : saisies, relances, production de documents, tri des emails, tableaux de bord. Elles se font toutes seules, au bon moment, sans erreur de recopie."}}, {"@type": "Question", "name": "Quelles tâches administratives automatiser en premier ?", "acceptedAnswer": {"@type": "Answer", "text": "Celles qui reviennent chaque semaine et suivent toujours les mêmes étapes : les saisies en double, les relances de factures, les documents à produire et les tableaux de suivi. Le diagnostic offert sert justement à repérer les trois plus rentables chez vous."}}, {"@type": "Question", "name": "Quel est le meilleur logiciel pour automatiser des tâches ?", "acceptedAnswer": {"@type": "Answer", "text": "Il n'y en a pas un seul. Un logiciel tout-en-un vous oblige à changer vos habitudes, un outil à configurer soi-même demande du temps en interne. Nous partons de vos logiciels actuels et nous les relions entre eux."}}, {"@type": "Question", "name": "Faut-il changer de logiciels ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, dans la plupart des cas. Si vos outils peuvent échanger ou exporter leurs données, nous nous y raccordons. Vous gardez vos habitudes."}}, {"@type": "Question", "name": "Combien de temps faut-il pour automatiser une tâche ?", "acceptedAnswer": {"@type": "Answer", "text": "Votre première tâche automatisée est en place en 7 jours. Elle est ensuite ajustée avec vos équipes."}}, {"@type": "Question", "name": "Combien coûte l'automatisation d'une tâche administrative ?", "acceptedAnswer": {"@type": "Answer", "text": "Le prix dépend de la tâche et de vos outils. Après un appel de 15 minutes, vous recevez un devis gratuit sous 24 h, avec un prix ferme avant de commencer."}}, {"@type": "Question", "name": "Intervenez-vous à Mulhouse et dans le Haut-Rhin ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous venons dans vos locaux à Mulhouse, Colmar, Saint-Louis, Altkirch et dans le Sundgau, et nous travaillons à distance partout en France."}}]}</script>
++<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Automatisation des tâches administratives", "serviceType": "Automatisation des tâches administratives", "provider": {"@type": "ProfessionalService", "name": "SL Agence", "url": "https://slagence.fr/", "telephone": "+33767081943", "email": "agence.sl.68@gmail.com"}, "areaServed": ["Mulhouse", "Colmar", "Saint-Louis", "Altkirch", "Haut-Rhin", "Alsace", "Grand Est", "France"], "description": "Automatisation des saisies en double, des relances, des documents et des tableaux de bord des TPE et PME, branchée sur leurs logiciels actuels. Première tâche automatisée en 7 jours.", "url": "https://slagence.fr/automatisation-taches-administratives"}</script>
++<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce que l'automatisation des tâches administratives ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est confier à des outils les tâches répétitives de gestion : saisies, relances, production de documents, tri des emails, tableaux de bord. Elles se font toutes seules, au bon moment, sans erreur de recopie."}}, {"@type": "Question", "name": "Quelles tâches administratives automatiser en premier ?", "acceptedAnswer": {"@type": "Answer", "text": "Celles qui reviennent chaque semaine et suivent toujours les mêmes étapes : les saisies en double, les relances de factures, les documents à produire et les tableaux de suivi. Le diagnostic offert sert justement à repérer les trois plus rentables chez vous."}}, {"@type": "Question", "name": "Quel est le meilleur logiciel pour automatiser des tâches ?", "acceptedAnswer": {"@type": "Answer", "text": "Il n'y en a pas un seul. Un logiciel tout-en-un vous oblige à changer vos habitudes, un outil à configurer soi-même demande du temps en interne. Nous partons de vos logiciels actuels et nous les relions entre eux."}}, {"@type": "Question", "name": "Faut-il changer de logiciels ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, dans la plupart des cas. Nous nous raccordons à ce que vous utilisez déjà : Excel, Outlook et Microsoft 365, Sage, EBP, Cegid, Pennylane, votre logiciel de paie ou votre agenda, dès qu'ils peuvent échanger ou exporter leurs données. Vous gardez vos habitudes, et vos données restent les vôtres, exportables à tout moment."}}, {"@type": "Question", "name": "Combien de temps faut-il pour automatiser une tâche ?", "acceptedAnswer": {"@type": "Answer", "text": "Votre première tâche automatisée est en place en 7 jours. Elle est ensuite ajustée avec vos équipes."}}, {"@type": "Question", "name": "Combien coûte l'automatisation d'une tâche administrative ?", "acceptedAnswer": {"@type": "Answer", "text": "Le prix dépend de la tâche et de vos outils. Après un appel de 15 minutes, vous recevez un devis gratuit sous 24 h, avec un prix ferme avant de commencer."}}, {"@type": "Question", "name": "Intervenez-vous à Mulhouse et dans le Haut-Rhin ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous venons dans vos locaux à Mulhouse, Colmar, Saint-Louis, Altkirch et dans le Sundgau, et nous travaillons à distance partout en France."}}]}</script>
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://slagence.fr/"}, {"@type": "ListItem", "position": 2, "name": "Automatisation administrative", "item": "https://slagence.fr/automatisation-taches-administratives"}]}</script>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+@@ -733,12 +733,13 @@
+   <div class="wrap">
+     <p class="ariane"><a href="/">Accueil</a> / Automatisation administrative</p>
+     <p class="pill">Mulhouse, Haut-Rhin et partout en France</p>
+-    <h1 class="titre-l">Automatisation des tâches administratives pour TPE et PME.</h1>
+-    <p class="lead">Saisies, relances, documents, tableaux de bord : nous automatisons le travail administratif qui revient chaque semaine, avec les outils que vous utilisez déjà. Vos équipes retrouvent du temps pour vos clients.</p>
++    <h1 class="titre-l">Automatisation des tâches administratives pour les TPE et PME du Haut-Rhin.</h1>
++    <p class="lead">Saisies, relances, documents, tableaux de bord : nous automatisons le travail administratif qui revient chaque semaine, avec les logiciels que vous utilisez déjà. Votre première tâche automatisée est en place en 7 jours, et vos équipes retrouvent du temps pour vos clients.</p>
+     <div class="hero-cta">
+       <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a>
+       <a class="btn btn-creux" href="tel:+33767081943">07 67 08 19 43</a>
+     </div>
++    <p class="note">Réponse sous 24 h · Devis gratuit · Prix ferme annoncé avant de commencer</p>
+   </div>
+ </section>
+ 
+@@ -751,9 +752,9 @@
+     </div>
+     <div class="domaines">
+       <article class="domaine"><i>01</i><h3>Les saisies en double</h3><p>Une même information tapée dans le devis, la facture et le tableau de suivi. Saisie une fois, reprise partout.</p></article>
+-      <article class="domaine"><i>02</i><h3>Les relances</h3><p>Factures en retard, devis sans réponse, dossiers incomplets : <a class="lien" href="/relance-factures-automatique">des relances qui partent seules</a>, au bon moment.</p></article>
+-      <article class="domaine"><i>03</i><h3>Les fichiers Excel partagés</h3><p>Plusieurs versions, des formules cassées, une seule personne qui s'y retrouve. <a class="lien" href="/remplacer-excel">Une application à la place</a>.</p></article>
+-      <article class="domaine"><i>04</i><h3>Les documents à produire</h3><p>Devis, attestations, comptes rendus, bons de commande : générés en un clic à partir de vos données. Sur le terrain, c'est le <a class="lien" href="/bon-intervention-numerique">bon d'intervention numérique</a>.</p></article>
++      <article class="domaine"><i>02</i><h3>Les relances</h3><p>Factures en retard, devis sans réponse, dossiers incomplets : <a class="lien" href="/relance-factures-automatique">des relances qui partent seules</a>, au bon moment. En attendant, nos <a class="lien" href="/blog/relancer-un-devis-sans-reponse">8 modèles pour relancer un devis sans réponse</a>.</p></article>
++      <article class="domaine"><i>03</i><h3>Les fichiers Excel partagés</h3><p>Plusieurs versions, des formules cassées, une seule personne qui s'y retrouve. <a class="lien" href="/remplacer-excel">Une application à la place</a>. Pas sûr d'en être là ? Voici <a class="lien" href="/blog/limites-excel-entreprise">les 7 signes qu'Excel ne suffit plus</a>.</p></article>
++      <article class="domaine"><i>04</i><h3>Les documents à produire</h3><p>Devis, attestations, comptes rendus, bons de commande : générés en un clic à partir de vos données. Sur le terrain, c'est le <a class="lien" href="/bon-intervention-numerique">bon d'intervention numérique</a>. Et les factures deviennent électroniques : <a class="lien" href="/facture-electronique-tpe">ce qui change pour votre TPE ou PME</a>.</p></article>
+       <article class="domaine"><i>05</i><h3>Le tri des emails et des pièces</h3><p>Demandes classées, factures fournisseurs lues et rangées. C'est le travail d'un <a class="lien" href="/agent-ia-pme">agent IA</a>.</p></article>
+       <article class="domaine"><i>06</i><h3>Les tableaux de bord</h3><p>Chiffre du jour, impayés, activité : mis à jour tout seuls, sans compiler le vendredi soir.</p></article>
+     </div>
+@@ -783,17 +784,32 @@
+   </div>
+ </section>
+ 
+-<section class="section section--surface" id="methode">
++<section class="section section--surface" id="exemples">
+   <div class="wrap">
+     <div class="entete">
+-      <p class="pill">03 · Notre méthode</p>
++      <p class="pill">03 · Déjà en place</p>
++      <h2 class="titre-l">Ce que nous avons déjà automatisé pour des entreprises d'Alsace.</h2>
++      <p>Nos clients sont présentés par leur activité, jamais par leur nom. Chaque exemple est un outil réellement livré.</p>
++    </div>
++    <div class="domaines">
++      <article class="domaine"><i>01</i><h3>Sécurité et prévention : plus une échéance qui passe à travers</h3><p>Chaque contrôle est suivi et signalé à l'avance. L'historique se constitue tout seul, exportable en un clic.</p></article>
++      <article class="domaine"><i>02</i><h3>Terrassement : les heures pointées avant de rentrer</h3><p>Douze salariés, un rappel automatique en fin de journée, et trente secondes pour saisir sa journée sur place. Voir notre <a class="lien" href="/logiciel-btp-sur-mesure">logiciel BTP sur mesure</a>.</p></article>
++      <article class="domaine"><i>03</i><h3>Travaux agricoles : le bon rempli une fois, pas deux</h3><p>Signé au doigt chez le client, envoyé en PDF dans la foulée. Le rendez-vous du jour est pré-rempli depuis l'agenda par une IA.</p></article>
++      <article class="domaine"><i>04</i><h3>Gestion de patrimoine : un fichier par client, puis un seul écran</h3><p>Le questionnaire se remplit pendant le rendez-vous et le score se calcule en direct. Un seul écran au lieu d'un fichier par client : c'est ce que permet un <a class="lien" href="/logiciel-sur-mesure">logiciel sur mesure</a>.</p></article>
++    </div>
++  </div>
++</section>
++<section class="section" id="methode">
++  <div class="wrap">
++    <div class="entete">
++      <p class="pill">04 · Notre méthode</p>
+       <h2 class="titre-l">Votre première tâche automatisée en 7 jours.</h2>
+       <p>Vous gardez vos logiciels actuels : nous les faisons travailler ensemble.</p>
+     </div>
+     <div class="temps">
+       <div><i>01</i><h3>Un appel de 15 minutes</h3><p>Vous nous décrivez une semaine type. Nous repérons ce qui revient et ce qui vous coûte le plus de temps.</p></div>
+       <div><i>02</i><h3>Un diagnostic offert</h3><p>En 30 minutes, les 3 tâches à automatiser en priorité, avec le temps récupérable. Compte rendu et devis sous 24 h.</p></div>
+-      <div><i>03</i><h3>Une première automatisation en 7 jours</h3><p>Branchée sur vos outils actuels : comptabilité, facturation, messagerie, agenda, Excel.</p></div>
++      <div><i>03</i><h3>Une première automatisation en 7 jours</h3><p>Branchée sur vos outils actuels : Excel, Outlook et Microsoft 365, Sage, EBP, Cegid, Pennylane, votre logiciel de paie, votre agenda. Vos données restent les vôtres, exportables à tout moment.</p></div>
+       <div><i>04</i><h3>Des ajustements, puis la suite</h3><p>Nous suivons les résultats avec vos équipes, puis nous passons à la tâche suivante.</p></div>
+     </div>
+     <div class="chiffres">
+@@ -807,10 +823,10 @@
+   </div>
+ </section>
+ 
+-<section class="section" id="comparatif">
++<section class="section section--surface" id="comparatif">
+   <div class="wrap">
+     <div class="entete">
+-      <p class="pill">04 · Choisir</p>
++      <p class="pill">05 · Choisir</p>
+       <h2 class="titre-l">Quel outil pour automatiser vos tâches administratives ?</h2>
+       <p>Il n'existe pas de meilleur logiciel dans l'absolu. Il existe celui qui colle à votre façon de travailler.</p>
+     </div>
+@@ -828,20 +844,25 @@
+   </div>
+ </section>
+ 
+-<section class="section section--surface" id="local">
++<section class="section" id="local">
+   <div class="wrap">
+     <div class="entete">
+-      <p class="pill">05 · Près de chez vous</p>
+-      <h2 class="titre-l">Automatisation d'entreprise à Mulhouse et dans le Haut-Rhin.</h2>
++      <p class="pill">06 · Près de chez vous</p>
++      <h2 class="titre-l">Automatisation administrative à Mulhouse et dans le Haut-Rhin.</h2>
+       <p>Nous venons dans vos locaux à Mulhouse, Colmar, Saint-Louis, Altkirch et dans le Sundgau, et nous travaillons à distance avec les entreprises de toute la France.</p>
+     </div>
++    <div class="domaines">
++      <article class="domaine"><i>01</i><h3>Nous regardons comment vous travaillez vraiment</h3><p>Au bureau, à l'atelier ou sur le chantier : nous suivons le chemin d'une information, de la demande du client jusqu'au paiement, avant de proposer quoi que ce soit.</p></article>
++      <article class="domaine"><i>02</i><h3>Un interlocuteur qui connaît votre dossier</h3><p>La même équipe construit l'outil, le fait essayer à vos équipes et l'ajuste ensuite. Quand vous appelez, vous parlez à quelqu'un qui connaît votre dossier.</p></article>
++      <article class="domaine"><i>03</i><h3>La facture électronique, le bon moment pour automatiser</h3><p>Depuis septembre 2026, toutes les entreprises doivent pouvoir recevoir des factures électroniques ; les TPE et PME devront les émettre en septembre 2027. C'est l'occasion de relier devis, facture et relance. <a class="lien" href="/facture-electronique-tpe">Se préparer à la facture électronique</a>.</p></article>
++    </div>
+   </div>
+ </section>
+ 
+-<section class="section" id="questions">
++<section class="section section--surface" id="questions">
+   <div class="wrap">
+     <div class="entete">
+-      <p class="pill">06 · Vos questions</p>
++      <p class="pill">07 · Vos questions</p>
+       <h2 class="titre-l">Questions fréquentes sur l'automatisation administrative.</h2>
+     </div>
+     <div class="faq">
+@@ -859,7 +880,7 @@
+       </details>
+       <details>
+         <summary>« Faut-il changer de logiciels ? »</summary>
+-        <p class="rep">Non, dans la plupart des cas. Si vos outils peuvent échanger ou exporter leurs données, nous nous y raccordons. Vous gardez vos habitudes.</p>
++        <p class="rep">Non, dans la plupart des cas. Nous nous raccordons à ce que vous utilisez déjà : Excel, Outlook et Microsoft 365, Sage, EBP, Cegid, Pennylane, votre logiciel de paie ou votre agenda, dès qu'ils peuvent échanger ou exporter leurs données. Vous gardez vos habitudes, et vos données restent les vôtres, exportables à tout moment.</p>
+       </details>
+       <details>
+         <summary>« Combien de temps faut-il pour automatiser une tâche ? »</summary>
+@@ -877,7 +898,7 @@
+   </div>
+ </section>
+ 
+-<section class="section section--surface" id="contact">
++<section class="section" id="contact">
+   <div class="wrap">
+     <div class="entete">
+       <p class="pill">Parlons-en</p>
+--- a/sitemap.xml
++++ b/sitemap.xml
+@@ -26,7 +26,7 @@
+   </url>
+   <url>
+     <loc>https://slagence.fr/automatisation-taches-administratives</loc>
+-    <lastmod>2026-09-29</lastmod>
++    <lastmod>AAAA-MM-JJ</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.9</priority>
+   </url>
