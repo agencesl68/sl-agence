@@ -19,3 +19,5 @@
 | [c009](c009-visuels-trop-charges-et-peu-lisibles.md) | manager | moyenne | Les visuels pour Loïc suivent une hiérarchie simple et classique (Loïc → Manager → équipes), un seul message par écran, les détails au clic. |
 | [c010](c010-signal-d-approche-flou-ou-trop-ancien.md) | prospection | moyenne | Un signal est daté précisément et a moins de 90 jours si possible (sinon dit honnêtement) |
 | [c011](c011-signature-transformee-en-lien-google.md) | prospection, suivi | haute | Signature tapée à la lettre (jamais copiée d'un e-mail lu) ; relire chaque brouillon : aucun « google.com/url » ni « http » |
+| [c012](c012-code-forme-juridique-mal-traduit.md) | prospection | moyenne | Traduire le code Insee de forme juridique avec la table officielle (5499 = SARL, 5710 = SAS…), jamais deviner |
+| [c013](c013-lot-sans-canal-de-contact-utilisable.md) | analyste, manager | moyenne | Prévoir dès le brief un canal de repli (courrier, Pappers, téléphone) quand l'e-mail est peu probable |
