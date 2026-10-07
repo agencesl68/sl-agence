@@ -18,3 +18,4 @@
 | [c008](c008-utiliser-un-outil-payant-indisponible-ahrefs.md) | tous | moyenne | Ne pas appeler Ahrefs |
 | [c009](c009-visuels-trop-charges-et-peu-lisibles.md) | manager | moyenne | Les visuels pour Loïc suivent une hiérarchie simple et classique (Loïc → Manager → équipes), un seul message par écran, les détails au clic. |
 | [c010](c010-signal-d-approche-flou-ou-trop-ancien.md) | prospection | moyenne | Un signal est daté précisément et a moins de 90 jours si possible (sinon dit honnêtement) |
+| [c011](c011-signature-transformee-en-lien-google.md) | prospection, suivi | haute | Signature tapée à la lettre (jamais copiée d'un e-mail lu) ; relire chaque brouillon : aucun « google.com/url » ni « http » |
