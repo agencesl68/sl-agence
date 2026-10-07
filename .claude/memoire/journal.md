@@ -3,6 +3,14 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-10-07 — Lot « créations 2026 » et réparation des brouillons
+
+- Directive QG : 15 entreprises artisanat/BTP créées en 2026 (68), sourcées BODACC et vérifiées par l'API officielle ;
+  0 e-mail publié trouvé → complément via Pappers « Avec contacts » ou courrier au siège. Validé 9/10.
+- Apprentissage : les entreprises de moins d'un an publient très rarement un e-mail ; prévoir un canal de repli (c013).
+- 15 brouillons Gmail réparés (signature convertie en lien google.com/url par l'outil Gmail → passer par htmlBody, c011).
+- Accès Google Calendar et Google Sheets à réautoriser.
+
 ## 2026-10-06 — Organisation par modèle, mémoire des corrections, workflows en commandes
 
 - Opus analyse (Manager, Analyste) et contrôle (Contrôle qualité) ; Sonnet exécute (5 équipes).
