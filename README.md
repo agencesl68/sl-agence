@@ -36,3 +36,16 @@ La source est `template.html`, dans le dossier parent.
 
 Sources Pexels, licence permettant l'usage commercial sans attribution.
 Traitées en bichromie pour tenir avec la charte.
+
+## Référencement (SEO)
+
+- **Images de partage** (1200×630) : `og.png` pour l'accueil, `img/og/` pour les pages services
+  et deux articles, `blog/og-*.png` pour les autres articles, `og-realisations.png`.
+- **Nouvel article** : l'ajouter dans `blog/index.html` (carte + schéma `blogPost`),
+  `blog/feed.xml`, `sitemap.xml` et `llms.txt`, et le relier depuis une ou deux pages services
+  (bloc « Nos guides sur le sujet ») et depuis un autre article (bloc « À lire aussi »).
+- **Auteur** : les articles sont signés Loïc Bitsch (encadré auteur, schéma `Person` relié à LinkedIn).
+- **Polices** : Geist est hébergée dans `fonts/` (aucun appel à Google Fonts).
+- **Logos** : `logo-sl.png` et `logo-sl-mark.png` (masques CSS), plus de base64 dans les pages.
+- **404** : `404.html` est servie automatiquement par GitHub Pages.
+- **Modèles téléchargeables** : `modeles/` (Word, Excel, PDF) ; visuels des articles dans `img/blog/`.

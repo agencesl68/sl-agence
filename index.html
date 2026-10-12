@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Automatisation et logiciel sur mesure à Mulhouse | SL Agence</title>
 <meta name="description" content="Automatisation d'entreprise à Mulhouse et dans le Haut-Rhin : applications métier, bons d'intervention, relances et IA pour TPE et PME. Devis sous 24 h.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#070907">
 <link rel="canonical" href="https://slagence.fr/">
+<link rel="alternate" type="application/rss+xml" title="Le blog de SL Agence" href="/blog/feed.xml">
 <meta name="msvalidate.01" content="92BFFCFD199FEFEE8D381C48CE1EDAF1" />
 
 <meta property="og:type" content="website">
@@ -18,6 +20,7 @@
 <meta property="og:image" content="https://slagence.fr/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SL Agence : si vous savez le décrire, nous savons le construire. Applications métier, automatisation et IA près de Mulhouse.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://slagence.fr/og.png">
 
@@ -37,58 +40,317 @@
 })();
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/logo-sl.png" as="image">
+<link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Geist (SIL Open Font License), hébergée sur le site : pas d'appel à Google Fonts. */
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/geist-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/geist-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
 
-<script type="application/ld+json">{
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://slagence.fr/#organisation",
-  "name": "SL Agence",
-  "description": "Applications métier, automatisation et intelligence artificielle sur mesure pour indépendants, TPE, PME, cabinets et associations.",
-  "url": "https://slagence.fr/",
-  "logo": "https://slagence.fr/logo.png",
-  "email": "agence.sl.68@gmail.com",
-  "telephone": "+33767081943",
-  "areaServed": [
-    "Mulhouse",
-    "Colmar",
-    "Saint-Louis",
-    "Haut-Rhin",
-    "Alsace",
-    "Grand Est"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "3 rue Principale",
-    "postalCode": "68580",
-    "addressLocality": "Friesen",
-    "addressRegion": "Grand Est",
-    "addressCountry": "FR"
-  },
-  "image": "https://slagence.fr/og.png",
-  "sameAs": [
-    "https://www.google.com/search?kgmid=/g/11zfgtps4m"
-  ],
-  "founder": {
-    "@type": "Person",
-    "name": "Sacha Muller"
-  },
-  "employee": [
+  "@graph": [
     {
-      "@type": "Person",
-      "name": "Sacha Muller",
-      "jobTitle": "Associé, réalisation technique"
+      "@type": "WebSite",
+      "@id": "https://slagence.fr/#site",
+      "url": "https://slagence.fr/",
+      "name": "SL Agence",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://slagence.fr/#organisation"
+      }
     },
     {
-      "@type": "Person",
-      "@id": "https://slagence.fr/#loic",
-      "name": "Loïc Bitsch",
-      "jobTitle": "Associé, commercial et stratégie"
+      "@type": "ProfessionalService",
+      "@id": "https://slagence.fr/#organisation",
+      "name": "SL Agence",
+      "description": "Applications métier, automatisation et intelligence artificielle sur mesure pour indépendants, TPE, PME, cabinets et associations, à Mulhouse et dans le Haut-Rhin.",
+      "url": "https://slagence.fr/",
+      "logo": "https://slagence.fr/logo.png",
+      "image": "https://slagence.fr/og.png",
+      "email": "agence.sl.68@gmail.com",
+      "telephone": "+33767081943",
+      "founder": {
+        "@type": "Person",
+        "name": "Sacha Muller"
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "SIRET",
+        "value": "10522067700014"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3 rue Principale",
+        "postalCode": "68580",
+        "addressLocality": "Friesen",
+        "addressRegion": "Grand Est",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.5653,
+        "longitude": 7.1503
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=3+rue+Principale+68580+Friesen",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Mulhouse"
+        },
+        {
+          "@type": "City",
+          "name": "Colmar"
+        },
+        {
+          "@type": "City",
+          "name": "Saint-Louis"
+        },
+        {
+          "@type": "City",
+          "name": "Altkirch"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Sundgau"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Haut-Rhin"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Alsace"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Grand Est"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+33767081943",
+          "contactType": "customer service",
+          "name": "Sacha",
+          "areaServed": "FR",
+          "availableLanguage": "French"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+33601160762",
+          "contactType": "sales",
+          "name": "Loïc",
+          "areaServed": "FR",
+          "availableLanguage": "French"
+        }
+      ],
+      "knowsAbout": [
+        "Automatisation des processus",
+        "Développement d'applications métier",
+        "Logiciel sur mesure",
+        "Intelligence artificielle",
+        "Facture électronique",
+        "Relance de factures",
+        "Bon d'intervention numérique"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services de SL Agence",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://slagence.fr/automatisation-taches-administratives#service",
+              "name": "Automatisation des tâches administratives",
+              "url": "https://slagence.fr/automatisation-taches-administratives"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://slagence.fr/logiciel-sur-mesure#service",
+              "name": "Logiciel sur mesure",
+              "url": "https://slagence.fr/logiciel-sur-mesure"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://slagence.fr/remplacer-excel#service",
+              "name": "Remplacer Excel par une application sur mesure",
+              "url": "https://slagence.fr/remplacer-excel"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://slagence.fr/relance-factures-automatique#service",
+              "name": "Relance automatique de factures",
+              "url": "https://slagence.fr/relance-factures-automatique"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://slagence.fr/agent-ia-pme#service",
+              "name": "Agents IA pour PME",
+              "url": "https://slagence.fr/agent-ia-pme"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://slagence.fr/facture-electronique-tpe#service",
+              "name": "Préparation à la facture électronique",
+              "url": "https://slagence.fr/facture-electronique-tpe"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://slagence.fr/bon-intervention-numerique#service",
+              "name": "Bon d'intervention numérique",
+              "url": "https://slagence.fr/bon-intervention-numerique"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://slagence.fr/logiciel-btp-sur-mesure#service",
+              "name": "Logiciel BTP sur mesure",
+              "url": "https://slagence.fr/logiciel-btp-sur-mesure"
+            }
+          }
+        ]
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.google.com/search?kgmid=/g/11zfgtps4m"
+      ],
+      "employee": [
+        {
+          "@type": "Person",
+          "name": "Sacha Muller",
+          "jobTitle": "Associé, réalisation technique"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://slagence.fr/#loic",
+          "name": "Loïc Bitsch",
+          "jobTitle": "Associé, commercial et stratégie",
+          "url": "https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/",
+          "sameAs": [
+            "https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://slagence.fr/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Je ne suis pas à l'aise avec l'informatique.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est exactement pour cela que nous comprenons votre organisation avant d'écrire la moindre ligne. Le vôtre s'utilisera comme un formulaire papier, en plus rapide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mes équipes ne vont pas suivre.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Elles suivent quand l'outil leur retire du travail au lieu de leur en ajouter. C'est le seul critère qui compte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Où seront mes données ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chez vous. Vous en restez propriétaire et vous pouvez tout exporter quand vous le voulez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si mon besoin change ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il changera. Un outil sur mesure se modifie ; un logiciel du commerce, non. C'est la différence que vous achetez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Intervenez-vous seulement à Mulhouse ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Basés à Friesen, nous nous déplaçons à Mulhouse, Colmar, Saint-Louis et dans tout le Haut-Rhin, et nous travaillons à distance partout en Alsace et dans le Grand Est."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "J'ai déjà des logiciels.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le vrai problème n'est pas qu'il en manque un, c'est qu'ils ne se parlent pas. Cela se règle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte une application sur mesure ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous le saurez avant de vous engager. Devis gratuit, prix ferme, périmètre écrit noir sur blanc. Ce qui fait le prix d'un logiciel sur mesure"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on remplacer nos fichiers Excel par une application ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Nous reprenons vos données existantes et les réunissons dans un seul outil, accessible à toute l'équipe. Un de nos clients gérait un fichier par client ; il travaille aujourd'hui sur un seul écran."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un bon signé sur téléphone a-t-il une valeur juridique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. La signature électronique est reconnue en Europe dès lors qu'elle est fiable. Le bon est horodaté, accompagné de photos et envoyé en PDF au client."
+          }
+        }
+      ]
     }
   ]
-}</script>
+}
+</script>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "VideoObject",
@@ -613,6 +875,23 @@ img{display:block;max-width:100%;height:auto}
 
 .chiffres{margin-top:clamp(3rem,8vh,5rem)}
 .chiffres-intro{font-size:clamp(1.15rem,1rem + .8vw,1.6rem);line-height:1.35;letter-spacing:-.02em;color:var(--blanc);max-width:34ch}
+/* Guides pratiques : liens vers le blog en bas des pages */
+.guides{display:grid;gap:1rem;margin-top:2rem}
+@media (min-width:760px){.guides{grid-template-columns:1fr 1fr}}
+.guide{display:block;border:1px solid var(--filet);border-radius:18px;padding:1.5rem;text-decoration:none;transition:border-color .2s}
+.guide:hover{border-color:var(--vert-clair)}
+.guide b{display:block;font-size:1.2rem;font-weight:500;color:var(--blanc);letter-spacing:-.02em;margin:.35rem 0 .5rem}
+.guide span{color:var(--texte)}
+.guide small{font-size:.8rem;color:var(--texte-faible)}
+
+/* Avis clients */
+.avis{margin-top:clamp(4rem,10vh,7rem)}
+.avis-grille{display:grid;gap:1rem;margin-top:2rem}
+@media (min-width:760px){.avis-grille{grid-template-columns:1fr 1fr}}
+.avis-carte{margin:0;border:1px solid var(--filet);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem}
+.avis-etoiles{color:var(--vert-clair);letter-spacing:.15em}
+.avis-carte blockquote{margin:0;color:var(--blanc);font-size:1.1rem;line-height:1.55}
+.avis-carte figcaption{font-size:.85rem;color:var(--texte-faible);margin-top:auto}
 .chiffres-suite{margin-top:1.6rem}
 .chiffres-suite a{color:var(--vert-clair);text-decoration:underline;text-underline-offset:3px}
 .chiffres-grille{margin-top:clamp(1.8rem,4vh,2.6rem);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,3rem)}
@@ -974,6 +1253,26 @@ input:focus,select:focus,textarea:focus{
       </div>
       <p class="chiffres-suite"><a href="/realisations">Voir nos réalisations, secteur par secteur</a></p>
     </div>
+
+    <div class="avis reveal">
+      <div class="entete">
+        <p class="pill">Ils en parlent</p>
+        <h2 class="titre-l">Ce que disent nos clients.</h2>
+        <p>Des avis laissés sur notre fiche Google. <a href="https://share.google/Z1kICVkc8RkIBGOQ2" rel="noopener" target="_blank" style="color:var(--vert-clair)">Voir tous les avis sur Google</a></p>
+      </div>
+      <div class="avis-grille">
+        <figure class="avis-carte">
+          <p class="avis-etoiles" aria-label="5 étoiles sur 5">★★★★★</p>
+          <blockquote>« J'ai fait appel à SL Agence pour me créer une application pour gérer mes stocks. Ça fait à peine deux semaines que je l'utilise et je vois déjà la différence, surtout au niveau du temps que je gagne au quotidien. L'appli est simple et pratique, exactement ce qu'il me fallait. »</blockquote>
+          <figcaption>Léa O. · avis Google, septembre 2026</figcaption>
+        </figure>
+        <figure class="avis-carte">
+          <p class="avis-etoiles" aria-label="5 étoiles sur 5">★★★★★</p>
+          <blockquote>« Superbe entreprise, gérants impliqués et sérieux. Un avenir très prometteur ! »</blockquote>
+          <figcaption>Noemie B. · avis Google, septembre 2026</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1086,7 +1385,21 @@ input:focus,select:focus,textarea:focus{
     <div class="entete reveal" style="margin-top:clamp(4rem,10vh,7rem)">
       <p class="pill">Près de chez vous</p>
       <h2 class="titre-l">Automatisation d'entreprise à Mulhouse et dans le Haut-Rhin.</h2>
-      <p>Nous accompagnons les entreprises de Mulhouse, Colmar, Saint-Louis, Altkirch et du Sundgau. Bons d'intervention, fichiers Excel, relances de factures : nous venons voir comment vous travaillez, puis nous automatisons ce qui vous prend du temps.</p>
+      <p>Basés à Friesen, dans le Sundgau, nous accompagnons les entreprises de Mulhouse, Colmar, Saint-Louis, Altkirch et de tout le Haut-Rhin. <a href="/bon-intervention-numerique" style="color:var(--vert-clair)">Bons d'intervention</a>, <a href="/remplacer-excel" style="color:var(--vert-clair)">fichiers Excel</a>, <a href="/relance-factures-automatique" style="color:var(--vert-clair)">relances de factures</a> : nous venons voir comment vous travaillez, puis nous automatisons ce qui vous prend du temps.</p>
+    </div>
+
+    <div class="entete reveal" style="margin-top:clamp(4rem,10vh,7rem)">
+      <p class="pill">Guides pratiques</p>
+      <h2 class="titre-l">Nos conseils, à appliquer dès demain.</h2>
+      <p>Des méthodes et des modèles gratuits, tirés du terrain. <a href="/blog/" style="color:var(--vert-clair)">Tous les articles du blog</a></p>
+    </div>
+    <div class="guides reveal">
+      <a class="guide" href="/blog/bon-intervention-contenu-modele"><small>Guide · Terrain</small><b>Bon d'intervention : ce qu'il doit contenir, et un modèle gratuit</b><span>La liste complète, la valeur de la signature du client et les erreurs qui coûtent cher.</span></a>
+      <a class="guide" href="/blog/feuille-heures-salaries"><small>Guide · Personnel</small><b>Feuille d'heures des salariés : obligations et modèle</b><span>Ce que dit le Code du travail, combien de temps la garder, le cas des chantiers.</span></a>
+      <a class="guide" href="/blog/comment-relancer-une-facture-poliment"><small>Guide · Trésorerie</small><b>Relancer une facture poliment : calendrier et 6 modèles</b><span>Du rappel amical à la mise en demeure : les mots justes, le bon moment et ce que dit la loi.</span></a>
+      <a class="guide" href="/blog/relancer-un-devis-sans-reponse"><small>Guide · Vente</small><b>Relancer un devis sans réponse : 8 modèles à copier</b><span>Pourquoi le client se tait, quand le relancer et quoi lui écrire selon la situation.</span></a>
+      <a class="guide" href="/blog/limites-excel-entreprise"><small>Guide · Organisation</small><b>Excel ne suffit plus ? 7 signes à repérer</b><span>Versions en double, ressaisies, erreurs de formule : le test, le coût réel et par où commencer.</span></a>
+      <a class="guide" href="/blog/logiciel-gestion-transport-parc-engins"><small>Guide · Transport et engins</small><b>Logiciel transport et parc d'engins : lequel choisir ?</b><span>Excel, logiciel du marché ou sur mesure : le comparatif et les échéances à ne pas rater.</span></a>
     </div>
 
   </div>
@@ -1120,7 +1433,7 @@ input:focus,select:focus,textarea:focus{
       </details>
       <details>
         <summary>« Intervenez-vous seulement à Mulhouse ? »</summary>
-        <p class="rep">Non. Nous nous déplaçons à Mulhouse, Colmar, Saint-Louis et dans tout le Haut-Rhin, et nous travaillons à distance partout en Alsace et dans le Grand Est.</p>
+        <p class="rep">Non. Basés à Friesen, nous nous déplaçons à Mulhouse, Colmar, Saint-Louis et dans tout le Haut-Rhin, et nous travaillons à distance partout en Alsace et dans le Grand Est.</p>
       </details>
       <details>
         <summary>« J'ai déjà des logiciels. »</summary>
@@ -1167,6 +1480,7 @@ input:focus,select:focus,textarea:focus{
           <div><div class="qui">Sacha</div><a href="tel:+33767081943">07 67 08 19 43</a></div>
           <div><div class="qui">Loïc</div><a href="tel:+33601160762">06 01 16 07 62</a></div>
           <div><div class="qui">E-mail</div><a href="mailto:agence.sl.68@gmail.com">agence.sl.68@gmail.com</a></div>
+          <div><div class="qui">Horaires</div><p style="color:var(--blanc)">Du lundi au samedi, de 8 h à 19 h</p></div>
           <div><div class="qui">Rendez-vous</div><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a></div>
         </div>
       </div>
@@ -1232,6 +1546,7 @@ input:focus,select:focus,textarea:focus{
         <p style="max-width:44ch;color:var(--texte)">
           Applications métier, automatisation et intelligence artificielle sur mesure
           pour les indépendants, TPE, PME, cabinets et associations de Mulhouse, du Haut-Rhin et du Grand Est.
+          <br>Ouvert du lundi au samedi, de 8 h à 19 h.
         </p>
         <div class="foot-liens">
           <a href="#constat">Le constat</a>
@@ -1258,6 +1573,7 @@ input:focus,select:focus,textarea:focus{
       <p>3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014 · APE 62.01Z</p>
       <p>TVA non applicable, article 293 B du CGI.</p>
       <p>Directeur de la publication : Sacha Muller · agence.sl.68@gmail.com</p>
+      <p>Hébergement : GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
       <p>© <span id="annee">2026</span> SL Agence. Photographies : Pexels.</p>
     </div>
   </div>
