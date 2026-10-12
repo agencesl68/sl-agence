@@ -24,3 +24,9 @@ Title, meta description, canonical, Open Graph, JSON-LD (FAQ incluse), H1 « Aut
 sur mesure à Mulhouse », tous les H2/H3, liens vers les 8 pages de service, les 6 guides et le blog, URL.
 Avant la mise en ligne : `index.html` est généré depuis `template.html` (dossier de Sacha) — reporter
 les changements là-bas aussi, sinon une régénération les effacerait.
+
+## Étape 1 v3 (2026-10-12) — section 02 en schéma
+« Trop de texte » sur 02 : les 8 paragraphes deviennent un schéma « Vous saisissez une fois → votre logiciel
+sur mesure → le reste se fait tout seul ». 8 cartes d'une ligne, titres H3 = noms des pages de service, et
+chaque carte renvoie à sa page : 7 pages de service liées + le centre vers /logiciel-sur-mesure (avant : 5
+liens). Correction enregistrée : c012 (chaque section se comprend en 5 secondes).

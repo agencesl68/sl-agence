@@ -34,7 +34,7 @@ def entre(debut, fin, nouveau):
 
 
 # ---- styles : héros + compléments, après la feuille principale ----
-css = "\n".join((SRC / f).read_text(encoding="utf-8") for f in ("hero.css", "constat.css", "extra.css"))
+css = "\n".join((SRC / f).read_text(encoding="utf-8") for f in ("hero.css", "constat.css", "domaines.css", "extra.css"))
 i = html.index("</style>", html.index("Vert #3c4f3b"))
 html = html[:i] + "\n" + css + html[i:]
 
@@ -66,40 +66,9 @@ remplace("""        La même information saisie deux fois, puis neuf. Des fichie
          """        De la demande du client jusqu'au règlement de la facture :
         voici comment nous relions tout.""")
 
-# ---- domaines : une phrase chacun, liens conservés ----
-lien = lambda href, txt: f' <a href="{href}">{txt}</a>'
-DOM = {
-    "Applications terrain et bons d'intervention numériques":
-        "Bons, feuilles d'heures, états des lieux : signés au doigt, avec photos, même sans réseau." + lien("/bon-intervention-numerique", "Le bon d'intervention numérique"),
-    "Remplacer vos fichiers Excel par un seul écran":
-        "Clients, chantiers, véhicules et dossiers réunis, avec une recherche instantanée et des exports pour le comptable." + lien("/remplacer-excel", "Remplacer Excel par une application"),
-    "Documents générés":
-        "Devis, factures, contrats et rapports produits, nommés, classés et envoyés sans que personne n'y touche.",
-    "Relances automatiques de factures et d'échéances":
-        "Impayés, pièces manquantes, renouvellements : suivis jusqu'au règlement, au bon moment." + lien("/relance-factures-automatique", "Automatiser vos relances de factures"),
-    "Assistants IA pour TPE et PME":
-        "Une photo de facture et la saisie est faite. Un vocal et le compte rendu est écrit." + lien("/agent-ia-pme", "Découvrir les agents IA pour PME"),
-    "Portails et prise de rendez-vous":
-        "Réservation en ligne, dépôt de pièces et suivi de dossier, avec rappels automatiques.",
-    "Conformité et registres":
-        "Habilitations, formations et contrôles suivis à l'avance, exportés en un clic le jour J.",
-    "Automatisation entre vos logiciels":
-        "Comptabilité, paie, agenda, messagerie : vos outils se parlent enfin, sans recopie." + lien("/automatisation-taches-administratives", "Automatiser vos tâches administratives"),
-}
-for titre, texte in DOM.items():
-    motif = re.compile(r"(<h3>" + re.escape(titre) + r"</h3><p>).*?(</p></article>)")
-    html, n = motif.subn(lambda m: m.group(1) + texte + m.group(2), html)
-    if n != 1:
-        sys.exit("domaine introuvable : " + titre)
-
-remplace("""      <article class="domaine"><i>08</i>""", """      <article class="domaine"><i>08</i>""")
-i = html.index("</div>", html.index('<article class="domaine"><i>08</i>'))
-html = html[:i + 6] + f"""
-
-    <div class="relais reveal" style="grid-column:2">
-      <p><b>Votre besoin n'est pas dans la liste ?</b>Décrivez-le en quelques lignes : la réponse est très probablement oui.</p>
-      <div class="relais-actions"><a class="btn btn-plein btn-fleche" href="#contact">Décrire mon besoin</a></div>
-    </div>""" + html[i + 6:]
+# ---- 02 · domaines : le schéma remplace la liste de 8 paragraphes (7 pages de service liées + le centre) ----
+entre("<!-- ============ 02 · CE QUE NOUS FAISONS ============ -->", "<!-- ============ 03 · RÉALISATIONS",
+      (SRC / "domaines.html").read_text(encoding="utf-8") + "\n")
 
 # ---- preuves : on retire les chiffres et le lien réalisations (la page reste dans le menu et le pied) ----
 entre('    <div class="chiffres reveal">', '    <div class="avis reveal">', "")
@@ -169,7 +138,7 @@ barre = """<script>
 </script>
 """
 i = html.rindex("</body>")
-html = html[:i] + (SRC / "hero.js").read_text(encoding="utf-8") + (SRC / "constat.js").read_text(encoding="utf-8") + barre + "\n" + html[i:]
+html = html[:i] + (SRC / "hero.js").read_text(encoding="utf-8") + (SRC / "constat.js").read_text(encoding="utf-8") + (SRC / "domaines.js").read_text(encoding="utf-8") + barre + "\n" + html[i:]
 
 # chemins d'images absolus : identiques en ligne, et la maquette s'affiche depuis son dossier
 html = re.sub(r'(src|poster)="(p-[a-z]+\.jpg|pub-sl-agence\.(?:mp4|jpg))"', r'\1="/\2"', html)

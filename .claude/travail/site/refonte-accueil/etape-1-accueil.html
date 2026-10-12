@@ -1495,6 +1495,114 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 }
 
 /* ============================================================
+   02 · CE QUE NOUS FAISONS — le schéma
+   À gauche ce que vous saisissez, au centre votre outil, à droite
+   ce qui part tout seul. Les traits (SVG, tracés en JS) relient
+   chaque carte au centre ; de petits tirets y circulent dans le
+   sens de l'information. Sur téléphone : une colonne, sans traits.
+   ============================================================ */
+
+/* l'ancienne mise en page (titre collant à gauche) ne s'applique plus */
+@media (min-width:1000px){
+  #domaines .wrap{display:block}
+  #domaines .entete{position:static;display:block;max-width:none;text-align:center}
+  #domaines .entete h2{max-width:22ch;margin-inline:auto}
+  #domaines .entete p:not(.pill){max-width:44ch;margin:1.4rem auto 0}
+}
+#domaines .entete{text-align:center;max-width:none}
+#domaines .entete h2{margin-inline:auto;text-wrap:balance}
+#domaines .entete p:not(.pill){margin-inline:auto;color:var(--vert-clair)}
+
+.schema{
+  position:relative;margin-top:clamp(3rem,7vh,4.5rem);
+  display:grid;gap:2rem;
+}
+@media (min-width:1000px){
+  .schema{grid-template-columns:minmax(0,1fr) minmax(200px,250px) minmax(0,1fr);gap:0 clamp(3.5rem,7vw,7rem);align-items:center}
+}
+
+.schema-liens{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;display:none}
+@media (min-width:1000px){.schema-liens{display:block}}
+.schema-liens path{fill:none;stroke-width:1.5}
+.schema-liens .fond{stroke:rgba(169,196,159,.18)}
+.schema-liens .flux{stroke:var(--vert-clair);stroke-dasharray:2 14;stroke-linecap:round;opacity:.55;animation:flux 1.6s linear infinite}
+.schema-liens path.actif{opacity:1;stroke-dasharray:4 8}
+.schema-liens .fond.actif{stroke:rgba(169,196,159,.5)}
+@keyframes flux{to{stroke-dashoffset:-16}}
+
+.schema-col{position:relative;z-index:1;display:grid;gap:.75rem}
+.schema-legende{
+  font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--texte-faible);margin-bottom:.3rem;
+}
+@media (min-width:1000px){.schema-col--entree .schema-legende{text-align:right}}
+
+.noeud{
+  position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;align-items:center;
+  padding:1rem 1.15rem;border-radius:16px;
+  background:var(--noir);box-shadow:inset 0 0 0 1px var(--filet);
+  transition:box-shadow .35s var(--ease),transform .45s var(--expo),background-color .35s var(--ease);
+}
+.noeud:hover,.noeud:focus-within{box-shadow:inset 0 0 0 1px var(--vert-clair);background:var(--surface-2)}
+@media (min-width:1000px){
+  .schema-col--entree .noeud:hover{transform:translateX(4px)}
+  .schema-col--sortie .noeud:hover{transform:translateX(-4px)}
+}
+.noeud-ico{
+  display:grid;place-items:center;width:42px;height:42px;border-radius:12px;
+  background:rgba(169,196,159,.12);color:var(--vert-clair);
+}
+.noeud-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.noeud h3{font-size:1.02rem;font-weight:500;letter-spacing:-.02em;line-height:1.25}
+.noeud h3 a{color:var(--blanc);text-decoration:none}
+/* toute la carte est cliquable quand elle mène à une page */
+.noeud h3 a::after{content:"";position:absolute;inset:0;border-radius:16px}
+.noeud:has(a){grid-template-columns:auto minmax(0,1fr) auto}
+.noeud:has(a)::after{
+  content:"→";color:var(--vert-clair);font-size:1.05rem;
+  transition:transform .35s var(--expo);
+}
+.noeud:has(a):hover::after{transform:translateX(3px)}
+.noeud a:focus-visible{outline:none}
+.noeud:focus-within{outline:2px solid var(--vert-clair);outline-offset:3px}
+.noeud p{margin-top:.2rem;font-size:.9rem;line-height:1.4;color:var(--texte-faible)}
+
+/* le centre */
+.schema-coeur{position:relative;z-index:1;display:grid;place-items:center}
+.moyeu{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;
+  width:min(100%,230px);aspect-ratio:1;border-radius:50%;padding:1.5rem;text-align:center;
+  background:radial-gradient(circle at 50% 35%,var(--vert) 0%,#1d281c 70%);
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.45),0 0 0 10px rgba(169,196,159,.05),0 30px 80px -30px rgba(169,196,159,.35);
+  color:var(--blanc);text-decoration:none;
+  transition:transform .5s var(--expo),box-shadow .4s var(--ease);
+}
+.moyeu::before{
+  content:"";position:absolute;inset:-14px;border-radius:50%;
+  border:1px solid rgba(169,196,159,.25);
+  animation:onde 3.6s var(--ease) infinite;
+}
+@keyframes onde{0%{transform:scale(.94);opacity:.9}100%{transform:scale(1.14);opacity:0}}
+.moyeu:hover{transform:scale(1.03)}
+.moyeu:focus-visible{outline:2px solid var(--vert-clair);outline-offset:6px}
+.moyeu-logo{width:44px;color:var(--vert-clair);margin-bottom:.3rem}
+.moyeu b{font-size:1.12rem;font-weight:500;letter-spacing:-.03em;line-height:1.2}
+.moyeu small{font-size:.78rem;color:rgba(255,255,255,.7)}
+
+/* téléphone et tablette : centre en tête, puis les deux groupes */
+@media (max-width:999px){
+  .schema-coeur{order:-1}
+  .moyeu{width:190px}
+  .schema-col{padding-left:1.1rem;border-left:1px solid rgba(169,196,159,.25);gap:.6rem}
+  .noeud{padding:.8rem .95rem;gap:.85rem}
+  .noeud-ico{width:36px;height:36px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .schema-liens .flux,.moyeu::before{animation:none}
+}
+
+/* ============================================================
    Refonte de l'accueil — compléments hors héros
    ============================================================ */
 
@@ -1757,29 +1865,70 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   </div>
 </section>
 
-<!-- ============ 02 · CE QUE NOUS FAISONS ============ -->
+<!-- ============ 02 · CE QUE NOUS FAISONS : un schéma, lu en 5 secondes ============ -->
 <section class="section section--surface" id="domaines">
   <div class="wrap">
 
     <div class="entete reveal">
       <p class="pill">02 — Ce que nous faisons</p>
       <h2 class="titre-l">Automatisation, applications métier et IA : ce que nous construisons.</h2>
-      <p>Un aperçu, pas un catalogue. Si ce que vous avez en tête n'y figure pas, la réponse est très probablement oui.</p>
+      <p>Vous saisissez une information une fois. Le reste suit, tout seul.</p>
     </div>
 
-    <div class="domaines reveal casc">
-      <article class="domaine"><i>01</i><h3>Applications terrain et bons d'intervention numériques</h3><p>Bons, feuilles d'heures, états des lieux : signés au doigt, avec photos, même sans réseau. <a href="/bon-intervention-numerique">Le bon d'intervention numérique</a></p></article>
-      <article class="domaine"><i>02</i><h3>Remplacer vos fichiers Excel par un seul écran</h3><p>Clients, chantiers, véhicules et dossiers réunis, avec une recherche instantanée et des exports pour le comptable. <a href="/remplacer-excel">Remplacer Excel par une application</a></p></article>
-      <article class="domaine"><i>03</i><h3>Documents générés</h3><p>Devis, factures, contrats et rapports produits, nommés, classés et envoyés sans que personne n'y touche.</p></article>
-      <article class="domaine"><i>04</i><h3>Relances automatiques de factures et d'échéances</h3><p>Impayés, pièces manquantes, renouvellements : suivis jusqu'au règlement, au bon moment. <a href="/relance-factures-automatique">Automatiser vos relances de factures</a></p></article>
-      <article class="domaine"><i>05</i><h3>Assistants IA pour TPE et PME</h3><p>Une photo de facture et la saisie est faite. Un vocal et le compte rendu est écrit. <a href="/agent-ia-pme">Découvrir les agents IA pour PME</a></p></article>
-      <article class="domaine"><i>06</i><h3>Portails et prise de rendez-vous</h3><p>Réservation en ligne, dépôt de pièces et suivi de dossier, avec rappels automatiques.</p></article>
-      <article class="domaine"><i>07</i><h3>Conformité et registres</h3><p>Habilitations, formations et contrôles suivis à l'avance, exportés en un clic le jour J.</p></article>
-      <article class="domaine"><i>08</i><h3>Automatisation entre vos logiciels</h3><p>Comptabilité, paie, agenda, messagerie : vos outils se parlent enfin, sans recopie. <a href="/automatisation-taches-administratives">Automatiser vos tâches administratives</a></p></article>
+    <div class="schema reveal" id="schema">
+      <svg class="schema-liens" id="schemaLiens" aria-hidden="true"></svg>
+
+      <div class="schema-col schema-col--entree">
+        <p class="schema-legende">Vous saisissez une fois</p>
+        <article class="noeud" data-sens="entree">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5.5H5.5v15h13v-15H17"/><path d="m9 14 2 2 4-4"/></svg></span>
+          <div><h3><a href="/bon-intervention-numerique">Bon d'intervention numérique</a></h3><p>Signé au doigt sur le chantier, même sans réseau.</p></div>
+        </article>
+        <article class="noeud" data-sens="entree">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg></span>
+          <div><h3><a href="/remplacer-excel">Remplacer Excel par une application</a></h3><p>Clients, chantiers et dossiers sur un seul écran.</p></div>
+        </article>
+        <article class="noeud" data-sens="entree">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V10l6-5 6 5v10"/><path d="M10 20v-5h4v5"/></svg></span>
+          <div><h3><a href="/logiciel-btp-sur-mesure">Logiciel BTP sur mesure</a></h3><p>Heures, engins et chantiers suivis depuis le terrain.</p></div>
+        </article>
+        <article class="noeud" data-sens="entree">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 13.8 9 19.5 10.8 13.8 12.6 12 18.3 10.2 12.6 4.5 10.8 10.2 9z"/><path d="M18.5 16.5 19.2 18.3 21 19 19.2 19.7 18.5 21.5 17.8 19.7 16 19 17.8 18.3z"/></svg></span>
+          <div><h3><a href="/agent-ia-pme">Agents IA pour PME</a></h3><p>Une photo ou un vocal : la saisie est faite.</p></div>
+        </article>
+      </div>
+
+      <div class="schema-coeur">
+        <a class="moyeu" href="/logiciel-sur-mesure">
+          <span class="moyeu-logo logo-mark" aria-hidden="true"></span>
+          <b>Votre logiciel sur mesure</b>
+          <small>relié à vos outils actuels</small>
+        </a>
+      </div>
+
+      <div class="schema-col schema-col--sortie">
+        <p class="schema-legende">Le reste se fait tout seul</p>
+        <article class="noeud" data-sens="sortie">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>
+          <div><h3><a href="/automatisation-taches-administratives">Automatisation des tâches administratives</a></h3><p>Devis, documents et classement, sans ressaisie.</p></div>
+        </article>
+        <article class="noeud" data-sens="sortie">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 8a7.5 7.5 0 1 0 1 5"/><path d="M19.5 3.5V8H15"/><path d="M12 8v4.5l3 1.5"/></svg></span>
+          <div><h3><a href="/relance-factures-automatique">Relance automatique de factures</a></h3><p>Suivies jusqu'au règlement, au bon moment.</p></div>
+        </article>
+        <article class="noeud" data-sens="sortie">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2z"/><path d="M9 8.5h6M9 12h6"/></svg></span>
+          <div><h3><a href="/facture-electronique-tpe">Facture électronique</a></h3><p>Reçue et émise sans ressaisie, avant l'échéance 2027.</p></div>
+        </article>
+        <article class="noeud" data-sens="sortie">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9.5"/><path d="M11 6.5 13 4.5a4 4 0 0 1 6.5 6.5L17.5 13M13 17.5 11 19.5A4 4 0 0 1 4.5 13L6.5 11"/></svg></span>
+          <div><h3>Liaison entre vos logiciels</h3><p>Compta, paie, agenda : vos outils se parlent.</p></div>
+        </article>
+      </div>
     </div>
 
-    <div class="relais reveal" style="grid-column:2">
-      <p><b>Votre besoin n'est pas dans la liste ?</b>Décrivez-le en quelques lignes : la réponse est très probablement oui.</p>
+    <div class="relais reveal">
+      <p><b>Votre besoin n'est pas sur le schéma ?</b>Décrivez-le en quelques lignes : la réponse est très probablement oui.</p>
       <div class="relais-actions"><a class="btn btn-plein btn-fleche" href="#contact">Décrire mon besoin</a></div>
     </div>
 
@@ -2662,6 +2811,59 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   window.addEventListener('scroll', demande, {passive:true});
   window.addEventListener('resize', demande);
   maj();
+})();
+</script>
+<script>
+/* ============ 02 · Le schéma : traits entre les cartes et le centre ============ */
+(function(){
+  "use strict";
+  var schema = document.getElementById('schema');
+  var svg = document.getElementById('schemaLiens');
+  if(!schema || !svg){ return; }
+  var NS = 'http://www.w3.org/2000/svg';
+  var noeuds = schema.querySelectorAll('.noeud');
+  var moyeu = schema.querySelector('.moyeu');
+
+  function trace(){
+    svg.innerHTML = '';
+    if(window.innerWidth < 1000){ return; }
+    var s = schema.getBoundingClientRect(), m = moyeu.getBoundingClientRect();
+    var cx = m.left - s.left + m.width / 2, cy = m.top - s.top + m.height / 2, R = m.width / 2 + 16;
+    noeuds.forEach(function(n){
+      var r = n.getBoundingClientRect();
+      var entree = n.dataset.sens === 'entree';
+      var x = entree ? r.right - s.left : r.left - s.left, y = r.top - s.top + r.height / 2;
+      var ang = Math.atan2(y - cy, x - cx);
+      var hx = cx + Math.cos(ang) * R, hy = cy + Math.sin(ang) * R;
+      var mx = (x + hx) / 2;
+      // tracé dans le sens de l'information : carte → centre à gauche, centre → carte à droite
+      var d = entree
+        ? 'M' + x + ',' + y + ' C' + mx + ',' + y + ' ' + mx + ',' + hy + ' ' + hx + ',' + hy
+        : 'M' + hx + ',' + hy + ' C' + mx + ',' + hy + ' ' + mx + ',' + y + ' ' + x + ',' + y;
+      var lien = [];
+      ['fond', 'flux'].forEach(function(c){
+        var p = document.createElementNS(NS, 'path');
+        p.setAttribute('d', d); p.setAttribute('class', c);
+        svg.appendChild(p); lien.push(p);
+      });
+      n._lien = lien;
+    });
+  }
+  noeuds.forEach(function(n){
+    function bascule(on){ (n._lien || []).forEach(function(p){ p.classList.toggle('actif', on); }); }
+    n.addEventListener('pointerenter', function(){ bascule(true); });
+    n.addEventListener('pointerleave', function(){ bascule(false); });
+    n.addEventListener('focusin', function(){ bascule(true); });
+    n.addEventListener('focusout', function(){ bascule(false); });
+  });
+  trace();
+  window.addEventListener('resize', trace);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(trace); }
+  // les cartes glissent en apparaissant : on retrace une fois l'entrée finie
+  setTimeout(trace, 1500);
+  if(window.IntersectionObserver){
+    new IntersectionObserver(function(e){ if(e[0].isIntersecting){ setTimeout(trace, 1200); } }).observe(schema);
+  }
 })();
 </script>
 <script>
