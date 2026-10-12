@@ -1,0 +1,45 @@
+/* ============================================================
+   Refonte de l'accueil — compléments hors héros
+   ============================================================ */
+
+/* l'ancien voile du héros (photo d'archives) n'a plus de raison d'être */
+.hero::after{content:none}
+
+/* relais : un appel à l'action discret en fin de section */
+.relais{
+  margin-top:clamp(2.5rem,6vh,4rem);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.2rem 2rem;
+  padding:clamp(1.3rem,3vw,1.8rem) clamp(1.3rem,3vw,2rem);
+  border-radius:20px;
+  background:linear-gradient(120deg,rgba(60,79,59,.55),rgba(60,79,59,.18));
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.22);
+}
+.relais p{max-width:52ch;color:var(--texte);font-size:1.02rem;line-height:1.45}
+.relais p b{display:block;color:var(--blanc);font-weight:500;font-size:clamp(1.15rem,1rem + .6vw,1.4rem);letter-spacing:-.03em;margin-bottom:.2rem}
+.relais-actions{display:flex;flex-wrap:wrap;gap:.6rem}
+
+/* domaines : texte resserré, liens bien visibles */
+.domaine p a{display:inline-block;margin-top:.35rem;color:var(--vert-clair);text-underline-offset:3px}
+
+/* avis : un appel juste sous les témoignages */
+.avis-suite{margin-top:1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem}
+.avis-suite span{color:var(--texte-faible);font-size:.95rem}
+
+/* panneau de navigation : un bouton d'action en plus des numéros */
+.panneau-pied .btn{color:var(--noir);font-size:.95rem;padding-block:1rem}
+
+/* barre d'action collée en bas, sur téléphone, une fois le héros passé */
+.barre-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:55;
+  display:none;gap:.5rem;
+  padding:.6rem max(16px,env(safe-area-inset-left)) calc(.6rem + env(safe-area-inset-bottom,0px));
+  background:rgba(7,9,7,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-top:1px solid var(--filet);
+  transform:translateY(110%);transition:transform .45s var(--expo);
+}
+.barre-cta .btn{flex:1;min-height:48px;padding:.8rem 1rem;font-size:.92rem}
+.barre-cta.montre{transform:none}
+@media (max-width:760px){
+  .barre-cta{display:flex}
+  .site-foot{padding-bottom:6rem}
+}
