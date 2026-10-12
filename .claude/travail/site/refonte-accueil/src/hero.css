@@ -19,8 +19,7 @@
   content:"";position:absolute;inset:0;
   background:
     radial-gradient(ellipse 48% 52% at 74% 46%,rgba(60,79,59,.42),transparent 72%),
-    radial-gradient(ellipse 40% 40% at 8% 10%,rgba(60,79,59,.18),transparent 70%),
-    linear-gradient(180deg,transparent 62%,var(--noir) 100%);
+        linear-gradient(180deg,transparent 62%,var(--noir) 100%);
 }
 
 .hero-grille{display:grid;gap:clamp(3rem,6vw,4.5rem);align-items:center;width:100%}
@@ -87,9 +86,8 @@
 .btn-fleche:hover::after{transform:translateX(3px) rotate(45deg)}
 
 .hero-meta{
-  list-style:none;margin:clamp(2rem,4.5vh,2.8rem) 0 0;padding:1.3rem 0 0;
-  border-top:1px solid var(--filet);
-  display:flex;flex-wrap:wrap;gap:.5rem 2rem;
+  margin-top:1.4rem;
+  display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
   font-size:.88rem;color:var(--texte-faible);
 }
 .hero-meta a{color:var(--blanc);text-decoration:none}
@@ -110,7 +108,7 @@
 /* ---------- l'atelier ---------- */
 
 .atelier-bloc{min-width:0}
-.atelier{position:relative;height:clamp(560px,64vh,620px);max-width:600px;margin-inline:auto}
+.atelier{position:relative;height:590px;max-width:500px;margin-inline:auto}
 
 .etiquette{
   display:inline-flex;align-items:center;gap:.5em;
@@ -120,7 +118,7 @@
 .etiquette::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(169,196,159,.16)}
 
 .bulle{
-  position:absolute;left:0;top:44px;z-index:3;width:min(272px,52%);
+  position:absolute;left:0;top:96px;z-index:3;width:min(250px,52%);
   padding:1.1rem 1.25rem 1.2rem;border-radius:18px 18px 18px 4px;
   background:rgba(23,31,22,.86);
   box-shadow:inset 0 0 0 1px var(--filet),0 30px 60px -30px rgba(0,0,0,.9);
@@ -139,15 +137,8 @@
   background:var(--vert-clair);animation:clignote 1s steps(1) infinite;
 }
 
-.fil{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2;pointer-events:none}
-.fil path{fill:none;stroke:rgba(169,196,159,.28);stroke-width:1.5;stroke-dasharray:4 6;transition:stroke .4s var(--ease)}
-.fil circle{fill:var(--vert-clair);opacity:0;filter:drop-shadow(0 0 6px var(--vert-clair))}
-.atelier.envoi .fil path{stroke:rgba(169,196,159,.7);animation:fourmis .6s linear infinite}
-@keyframes fourmis{to{stroke-dashoffset:-20}}
-
 /* le téléphone */
 .tel{position:absolute;right:0;top:0;z-index:2;width:282px}
-.etiquette--tel{position:absolute;right:6px;top:-30px}
 .tel-cadre{
   position:relative;height:590px;border-radius:44px;padding:10px;
   background:linear-gradient(160deg,#2a3428,#11160f 55%,#1b2319);
@@ -241,19 +232,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 
 .fichiers{display:none}
 
-/* pastilles d'atouts autour du téléphone */
-.atout{
-  position:absolute;z-index:3;
-  padding:.55rem 1rem;border-radius:99px;
-  background:rgba(23,31,22,.9);box-shadow:inset 0 0 0 1px var(--filet);
-  color:var(--blanc);font-size:.8rem;white-space:nowrap;
-  animation:flotte var(--dur,9s) ease-in-out var(--del,0s) infinite alternate;
-}
-.atout::before{content:"✓";color:var(--vert-clair);margin-right:.5em;font-weight:600}
-.atout-1{left:4%;top:58%;--dur:8.2s;--dx:6px;--dy:-9px;--rot:-1deg}
-.atout-2{left:12%;top:70%;--dur:10.4s;--del:-3s;--dx:-7px;--dy:-7px;--rot:1.2deg}
-.atout-3{left:0;top:82%;--dur:9.3s;--del:-5s;--dx:8px;--dy:6px;--rot:-.8deg}
-
 /* onglets sous l'atelier */
 .onglets{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.6rem}
 .onglet{
@@ -274,8 +252,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 .onglet[aria-pressed="true"] i{transform:scaleX(1)}
 .atelier.tourne ~ .onglets .onglet[aria-pressed="true"] i{animation:jauge var(--duree,9s) linear both}
 @keyframes jauge{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.onglets-lien{text-align:center;margin-top:.9rem;font-size:.9rem}
-.onglets-lien a{color:var(--vert-clair);text-underline-offset:3px}
 
 /* ---------- chorégraphie d'une scène (seulement en mouvement autorisé) ---------- */
 
@@ -340,7 +316,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   .atelier{height:auto;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:2.6rem}
   .bulle{position:relative;left:auto;top:auto;width:100%}
   .tel{position:relative;right:auto;top:auto}
-  .fil,.atout{display:none}
 }
 @media (max-width:1039px){
   .tel{width:256px}
@@ -348,5 +323,5 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .atout,.curseur,.decrire .curseur-titre{animation:none}
+  .curseur,.decrire .curseur-titre{animation:none}
 }

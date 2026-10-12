@@ -18,3 +18,4 @@
 | [c008](c008-utiliser-un-outil-payant-indisponible-ahrefs.md) | tous | moyenne | Ne pas appeler Ahrefs |
 | [c009](c009-visuels-trop-charges-et-peu-lisibles.md) | manager | moyenne | Les visuels pour Loïc suivent une hiérarchie simple et classique (Loïc → Manager → équipes), un seul message par écran, les détails au clic. |
 | [c010](c010-signal-d-approche-flou-ou-trop-ancien.md) | prospection | moyenne | Un signal est daté précisément et a moins de 90 jours si possible (sinon dit honnêtement) |
+| [c011](c011-premier-ecran-du-site-surcharge.md) | manager, seo-site | moyenne | Premier écran du site épuré : une seule animation, titre + une phrase + boutons, aucun élément décoratif en plus. |

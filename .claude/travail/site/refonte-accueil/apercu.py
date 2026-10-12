@@ -32,8 +32,7 @@ h = re.sub(r"@font-face\{[^}]*\}\n", "", h)
 h = h.replace("<style>", '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap">\n<style>:root{color-scheme:dark}', 1)
 
 # ressources locales
-FICHIERS = ["logo-sl.png", "logo-sl-mark.png", "pub-sl-agence.mp4", "pub-sl-agence.jpg",
-            "p-epandage.jpg", "p-terrain.jpg", "p-avocat.jpg", "p-comptable.jpg", "p-bureau.jpg", "p-plaine.jpg"]
+FICHIERS = ["logo-sl.png", "logo-sl-mark.png", "pub-sl-agence.mp4", "pub-sl-agence.jpg"]
 for f in FICHIERS:
     h = h.replace(f'"/{f}"', f'"{f}"').replace(f"(/{f})", f"({f})")
     shutil.copy(RACINE / f, OUT / f)
@@ -52,7 +51,7 @@ h = h.replace(ancien, ancien + """
 
 # pastille maquette
 h += """
-<div style="position:fixed;left:12px;bottom:12px;z-index:300;padding:.45rem .8rem;border-radius:99px;background:#a9c49f;color:#070907;font:600 .7rem/1.2 Geist,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">Maquette · étape 1 · pas en ligne</div>
+<div style="position:fixed;left:12px;bottom:12px;z-index:300;padding:.45rem .8rem;border-radius:99px;background:#a9c49f;color:#070907;font:600 .7rem/1.2 Geist,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">Maquette · étape 1 (v2) · pas en ligne</div>
 """
 
 (OUT / "index.html").write_text(h, encoding="utf-8")

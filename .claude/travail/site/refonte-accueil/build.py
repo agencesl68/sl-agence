@@ -34,7 +34,7 @@ def entre(debut, fin, nouveau):
 
 
 # ---- styles : héros + compléments, après la feuille principale ----
-css = (SRC / "hero.css").read_text(encoding="utf-8") + "\n" + (SRC / "extra.css").read_text(encoding="utf-8")
+css = "\n".join((SRC / f).read_text(encoding="utf-8") for f in ("hero.css", "constat.css", "extra.css"))
 i = html.index("</style>", html.index("Vert #3c4f3b"))
 html = html[:i] + "\n" + css + html[i:]
 
@@ -55,6 +55,10 @@ remplace('<div class="panneau-pied">',
 # ---- héros ----
 entre("<!-- ============ HÉROS ============ -->", "<!-- ============ BANDEAU ============ -->",
       (SRC / "hero.html").read_text(encoding="utf-8") + "\n")
+
+# ---- 01 · constat : les photos éparpillées laissent place à la double saisie animée ----
+entre("<!-- ============ 01 · LE CONSTAT ============ -->", "<!-- ============ VIDÉO ============ -->",
+      (SRC / "constat.html").read_text(encoding="utf-8") + "\n")
 
 # ---- vidéo : texte resserré ----
 remplace("""        La même information saisie deux fois, puis neuf. Des fichiers qui ne se parlent pas.
@@ -165,7 +169,7 @@ barre = """<script>
 </script>
 """
 i = html.rindex("</body>")
-html = html[:i] + (SRC / "hero.js").read_text(encoding="utf-8") + barre + "\n" + html[i:]
+html = html[:i] + (SRC / "hero.js").read_text(encoding="utf-8") + (SRC / "constat.js").read_text(encoding="utf-8") + barre + "\n" + html[i:]
 
 # chemins d'images absolus : identiques en ligne, et la maquette s'affiche depuis son dossier
 html = re.sub(r'(src|poster)="(p-[a-z]+\.jpg|pub-sl-agence\.(?:mp4|jpg))"', r'\1="/\2"', html)

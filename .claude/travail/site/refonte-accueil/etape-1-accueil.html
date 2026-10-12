@@ -1087,8 +1087,7 @@ input:focus,select:focus,textarea:focus{
   content:"";position:absolute;inset:0;
   background:
     radial-gradient(ellipse 48% 52% at 74% 46%,rgba(60,79,59,.42),transparent 72%),
-    radial-gradient(ellipse 40% 40% at 8% 10%,rgba(60,79,59,.18),transparent 70%),
-    linear-gradient(180deg,transparent 62%,var(--noir) 100%);
+        linear-gradient(180deg,transparent 62%,var(--noir) 100%);
 }
 
 .hero-grille{display:grid;gap:clamp(3rem,6vw,4.5rem);align-items:center;width:100%}
@@ -1155,9 +1154,8 @@ input:focus,select:focus,textarea:focus{
 .btn-fleche:hover::after{transform:translateX(3px) rotate(45deg)}
 
 .hero-meta{
-  list-style:none;margin:clamp(2rem,4.5vh,2.8rem) 0 0;padding:1.3rem 0 0;
-  border-top:1px solid var(--filet);
-  display:flex;flex-wrap:wrap;gap:.5rem 2rem;
+  margin-top:1.4rem;
+  display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
   font-size:.88rem;color:var(--texte-faible);
 }
 .hero-meta a{color:var(--blanc);text-decoration:none}
@@ -1178,7 +1176,7 @@ input:focus,select:focus,textarea:focus{
 /* ---------- l'atelier ---------- */
 
 .atelier-bloc{min-width:0}
-.atelier{position:relative;height:clamp(560px,64vh,620px);max-width:600px;margin-inline:auto}
+.atelier{position:relative;height:590px;max-width:500px;margin-inline:auto}
 
 .etiquette{
   display:inline-flex;align-items:center;gap:.5em;
@@ -1188,7 +1186,7 @@ input:focus,select:focus,textarea:focus{
 .etiquette::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(169,196,159,.16)}
 
 .bulle{
-  position:absolute;left:0;top:44px;z-index:3;width:min(272px,52%);
+  position:absolute;left:0;top:96px;z-index:3;width:min(250px,52%);
   padding:1.1rem 1.25rem 1.2rem;border-radius:18px 18px 18px 4px;
   background:rgba(23,31,22,.86);
   box-shadow:inset 0 0 0 1px var(--filet),0 30px 60px -30px rgba(0,0,0,.9);
@@ -1207,15 +1205,8 @@ input:focus,select:focus,textarea:focus{
   background:var(--vert-clair);animation:clignote 1s steps(1) infinite;
 }
 
-.fil{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2;pointer-events:none}
-.fil path{fill:none;stroke:rgba(169,196,159,.28);stroke-width:1.5;stroke-dasharray:4 6;transition:stroke .4s var(--ease)}
-.fil circle{fill:var(--vert-clair);opacity:0;filter:drop-shadow(0 0 6px var(--vert-clair))}
-.atelier.envoi .fil path{stroke:rgba(169,196,159,.7);animation:fourmis .6s linear infinite}
-@keyframes fourmis{to{stroke-dashoffset:-20}}
-
 /* le téléphone */
 .tel{position:absolute;right:0;top:0;z-index:2;width:282px}
-.etiquette--tel{position:absolute;right:6px;top:-30px}
 .tel-cadre{
   position:relative;height:590px;border-radius:44px;padding:10px;
   background:linear-gradient(160deg,#2a3428,#11160f 55%,#1b2319);
@@ -1309,19 +1300,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 
 .fichiers{display:none}
 
-/* pastilles d'atouts autour du téléphone */
-.atout{
-  position:absolute;z-index:3;
-  padding:.55rem 1rem;border-radius:99px;
-  background:rgba(23,31,22,.9);box-shadow:inset 0 0 0 1px var(--filet);
-  color:var(--blanc);font-size:.8rem;white-space:nowrap;
-  animation:flotte var(--dur,9s) ease-in-out var(--del,0s) infinite alternate;
-}
-.atout::before{content:"✓";color:var(--vert-clair);margin-right:.5em;font-weight:600}
-.atout-1{left:4%;top:58%;--dur:8.2s;--dx:6px;--dy:-9px;--rot:-1deg}
-.atout-2{left:12%;top:70%;--dur:10.4s;--del:-3s;--dx:-7px;--dy:-7px;--rot:1.2deg}
-.atout-3{left:0;top:82%;--dur:9.3s;--del:-5s;--dx:8px;--dy:6px;--rot:-.8deg}
-
 /* onglets sous l'atelier */
 .onglets{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.6rem}
 .onglet{
@@ -1342,8 +1320,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 .onglet[aria-pressed="true"] i{transform:scaleX(1)}
 .atelier.tourne ~ .onglets .onglet[aria-pressed="true"] i{animation:jauge var(--duree,9s) linear both}
 @keyframes jauge{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.onglets-lien{text-align:center;margin-top:.9rem;font-size:.9rem}
-.onglets-lien a{color:var(--vert-clair);text-underline-offset:3px}
 
 /* ---------- chorégraphie d'une scène (seulement en mouvement autorisé) ---------- */
 
@@ -1408,7 +1384,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   .atelier{height:auto;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:2.6rem}
   .bulle{position:relative;left:auto;top:auto;width:100%}
   .tel{position:relative;right:auto;top:auto}
-  .fil,.atout{display:none}
 }
 @media (max-width:1039px){
   .tel{width:256px}
@@ -1416,7 +1391,107 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .atout,.curseur,.decrire .curseur-titre{animation:none}
+  .curseur,.decrire .curseur-titre{animation:none}
+}
+
+/* ============================================================
+   01 · LE CONSTAT — la double saisie, au défilement
+   Le titre a son double (en trait) qui se recolle à mesure qu'on
+   descend ; la même ligne est retapée le soir, puis les deux
+   saisies se relient : il n'en reste qu'une.
+   Variables pilotées en JS : --d (écart du double, 1 → 0),
+   --l (liaison, 0 → 1), --c (phrase de chute, 0 → 1).
+   Sans JS : état final, tout visible.
+   ============================================================ */
+
+.constat{padding-block:0;overflow:visible}   /* overflow:hidden (ancienne règle) casserait le sticky */
+.constat-piste{position:relative;height:250vh}
+.constat-collant{
+  position:sticky;top:0;height:100vh;height:100svh;
+  display:flex;align-items:center;overflow:hidden;
+}
+.constat-wrap{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+.constat-titre{
+  display:grid;margin-top:1.5rem;max-width:13ch;
+  font-size:clamp(2.4rem,1rem + 5.2vw,5.4rem);text-wrap:balance;
+}
+.constat-titre > span,
+.constat-titre::after{grid-area:1/1}
+.constat-titre::after{
+  content:attr(data-echo);pointer-events:none;
+  color:transparent;-webkit-text-stroke:1px rgba(169,196,159,.6);
+  transform:translate(calc(var(--d,0) * .08em),calc(var(--d,0) * .1em));
+  opacity:var(--d,0);
+}
+.constat-lead{margin-top:1.4rem;max-width:44ch}
+
+.saisies{
+  margin-top:clamp(2rem,5vh,3rem);width:100%;max-width:920px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;
+}
+.saisie{
+  display:flex;flex-direction:column;gap:.6rem;
+  padding:1.3rem 1.5rem 1.2rem;border-radius:16px;text-align:left;
+  transition:box-shadow .5s var(--ease),transform .6s var(--expo);
+}
+.saisie small{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.compteur{font-size:.8rem;font-weight:600;display:grid}
+.compteur b{grid-area:1/1;font-weight:600}
+
+/* le bon papier : réglure, léger angle */
+.saisie-1{
+  background:#ebe7da;color:#24241e;transform:rotate(-1.5deg);
+  background-image:repeating-linear-gradient(180deg,transparent 0 25px,rgba(60,79,59,.16) 25px 26px);
+  box-shadow:0 24px 40px -26px rgba(0,0,0,.9);
+}
+.saisie-1 small,.saisie-1 .compteur{color:#6b6a5c}
+.manuscrit{font-style:italic;font-size:clamp(1.05rem,1rem + .4vw,1.3rem);letter-spacing:-.01em;line-height:1.35}
+
+/* le tableur du soir */
+.saisie-2{background:var(--surface-2);color:var(--blanc);box-shadow:inset 0 0 0 1px rgba(169,196,159,.55)}
+.saisie-2 small{color:var(--texte-faible)}
+.clavier{
+  min-height:2.3em;padding:.5rem .7rem;border-radius:6px;
+  background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--filet);
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:clamp(.82rem,.78rem + .25vw,.98rem);line-height:1.35;
+}
+.saisie-2 .c-apres{color:var(--vert-clair)}
+.saisie-2 .c-avant{color:#e5ad78;visibility:hidden}
+.saisie-2 .curseur{display:none}
+
+/* la liaison : un trait qui se tire d'une saisie à l'autre */
+.liaison{position:relative;width:clamp(3.5rem,9vw,6.5rem);display:grid;place-items:center}
+.liaison i{display:block;width:100%;height:2px;background:var(--vert-clair);transform-origin:left;transform:scaleX(var(--l,1))}
+.liaison span{
+  position:absolute;top:calc(50% + .55rem);
+  font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--vert-clair);opacity:var(--l,1);
+}
+
+.constat-chute{
+  margin-top:clamp(1.6rem,4vh,2.4rem);
+  font-size:clamp(1.2rem,1rem + 1vw,1.7rem);letter-spacing:-.03em;color:var(--blanc);
+  opacity:var(--c,1);transform:translateY(calc((1 - var(--c,1)) * 12px));
+}
+.constat-chute strong{font-weight:500;color:var(--vert-clair)}
+
+/* avant la liaison : on retape encore, compteur orange, curseur actif */
+.constat-piste.attente .saisie-2{box-shadow:inset 0 0 0 1px var(--filet)}
+.constat-piste.attente .c-avant{visibility:visible}
+.constat-piste.attente .c-apres{visibility:hidden}
+.constat-piste.attente .saisie-2 .curseur{display:inline-block}
+
+@media (max-width:720px){
+  .constat-piste{height:220vh}
+  .saisies{grid-template-columns:1fr;max-width:340px;justify-items:stretch}
+  .liaison{width:auto;height:2.6rem}
+  .liaison i{width:2px;height:100%;transform-origin:top;transform:scaleY(var(--l,1))}
+  .liaison span{top:50%;left:calc(50% + .7rem);transform:translateY(-50%)}
+  .constat-lead{font-size:1rem}
+}
+@media (max-height:700px) and (max-width:720px){
+  .constat-lead{display:none}
 }
 
 /* ============================================================
@@ -1525,7 +1600,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 
       <p class="lead hero-lead ent ent-5">
         Applications métier, automatisations et IA pour les TPE et PME du Haut-Rhin.
-        Vous nous racontez votre quotidien, nous livrons l'outil.
       </p>
 
       <div class="hero-cta ent ent-6">
@@ -1533,11 +1607,10 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
         <a class="btn btn-creux" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 min</a>
       </div>
 
-      <ul class="hero-meta ent ent-7">
-        <li><a href="https://share.google/Z1kICVkc8RkIBGOQ2" target="_blank" rel="noopener"><span class="etoiles" aria-hidden="true">★★★★★</span> Avis Google</a></li>
-        <li>Devis gratuit, réponse sous 24 h</li>
-        <li>Mulhouse, Colmar, Saint-Louis et tout le Haut-Rhin</li>
-      </ul>
+      <p class="hero-meta ent ent-7">
+        <a href="https://share.google/Z1kICVkc8RkIBGOQ2" target="_blank" rel="noopener"><span class="etoiles" aria-hidden="true">★★★★★</span> Avis Google</a>
+        <span>Devis gratuit sous 24 h</span>
+      </p>
     </div>
 
     <!-- L'atelier : une phrase de dirigeant devient un outil, sous vos yeux.
@@ -1550,10 +1623,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
           <p class="bulle-texte"><span id="bulleTexte">Mes techniciens remplissent les bons sur papier. Le soir, je ressaisis tout.</span><i class="curseur"></i></p>
         </div>
 
-        <svg class="fil" id="fil"><path id="filChemin" d=""/><circle id="filPoint" r="3.5"/></svg>
-
         <div class="tel">
-          <span class="etiquette etiquette--tel">Nous construisons</span>
           <div class="tel-cadre">
             <div class="tel-barre"><span>9:41</span><i></i></div>
             <div class="tel-ecran">
@@ -1605,10 +1675,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
             </div>
           </div>
         </div>
-
-        <span class="atout atout-1">Signé au doigt</span>
-        <span class="atout atout-2">Fonctionne sans réseau</span>
-        <span class="atout atout-3">Vos données restent chez vous</span>
       </div>
 
       <div class="onglets" id="onglets">
@@ -1616,9 +1682,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
         <button type="button" class="onglet" data-scene="1" aria-pressed="false"><i></i>Relances de factures</button>
         <button type="button" class="onglet" data-scene="2" aria-pressed="false"><i></i>Fichiers Excel</button>
       </div>
-      <p class="onglets-lien">
-        <a id="sceneLien" href="/bon-intervention-numerique">Voir comment nous faisons les bons d'intervention</a>
-      </p>
     </div>
 
   </div>
@@ -1631,29 +1694,36 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   </div>
 </div>
 
-<!-- ============ 01 · LE CONSTAT ============ -->
+<!-- ============ 01 · LE CONSTAT : la double saisie, racontée au défilement ============ -->
 <section class="section constat" id="constat">
-  <div class="wrap">
-    <div class="eparpille" id="eparpille">
+  <div class="constat-piste" id="constatPiste">
+    <div class="constat-collant">
+      <div class="wrap constat-wrap">
 
-      <img src="/p-epandage.jpg" alt="Engin agricole au travail dans un champ" width="720" height="900" loading="lazy" data-depth=".26" style="--x:0%;--y:8%;--w:20%">
-      <img src="/p-terrain.jpg" alt="Chef de chantier consultant une tablette sur le terrain" width="720" height="900" loading="lazy" data-depth=".14" style="--x:79%;--y:6%;--w:21%">
-      <img src="/p-avocat.jpg" alt="Bureau d'un cabinet d'avocats avec des documents à signer" width="720" height="900" loading="lazy" data-depth=".34" style="--x:6%;--y:58%;--w:17%">
-      <img src="/p-comptable.jpg" alt="Factures et documents comptables papier sur un bureau" width="720" height="900" loading="lazy" data-depth=".20" style="--x:78%;--y:58%;--w:19%">
-      <!-- Colonne centrale : seuls des formats courts y tiennent, avec au moins
-           BORNE px de marge — la parallaxe les fait balayer une bande. -->
-      <img src="/p-bureau.jpg" alt="Salariée saisissant des papiers administratifs sur son téléphone" width="1280" height="720" loading="lazy" data-depth=".30" style="--x:39%;--y:7%;--w:22%">
-      <img src="/p-plaine.jpg" alt="Vue aérienne de champs cultivés" width="1280" height="720" loading="lazy" data-depth=".40" style="--x:38.5%;--y:79%;--w:23%">
-
-      <div class="enonce reveal">
         <p class="pill pill--creux">01 — Le point de départ</p>
-        <h2 class="titre-l" style="margin-top:1.6rem">Le travail est fait deux fois.</h2>
-        <p class="lead">
+        <h2 class="titre-l constat-titre" data-echo="Le travail est fait deux fois."><span>Le travail est fait deux fois.</span></h2>
+        <p class="lead constat-lead">
           Une fois quand l'information arrive, une fois quand on la recopie.
           Ce n'est pas un défaut d'organisation : c'est un outil qui manque.
         </p>
-      </div>
 
+        <div class="saisies" aria-hidden="true">
+          <div class="saisie saisie-1">
+            <small>Sur le chantier · 16 h 40</small>
+            <p class="manuscrit">Rue des Vignes · 2 h 30 · signé</p>
+            <span class="compteur">Saisie n° 1</span>
+          </div>
+          <div class="liaison"><i></i><span>automatique</span></div>
+          <div class="saisie saisie-2">
+            <small>Au bureau · 21 h 15</small>
+            <p class="clavier"><span id="ressaisie">Rue des Vignes · 2 h 30 · signé</span><i class="curseur"></i></p>
+            <span class="compteur"><b class="c-avant">Saisie n° 2</b><b class="c-apres">Déjà là · rien à recopier</b></span>
+          </div>
+        </div>
+
+        <p class="constat-chute">Avec le bon outil : <strong>une seule fois.</strong></p>
+
+      </div>
     </div>
   </div>
 </section>
@@ -2424,20 +2494,11 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   var scenes = atelier ? atelier.querySelectorAll('.scene') : [];
   var onglets = document.querySelectorAll('.onglet');
   var bulle = document.getElementById('bulleTexte');
-  var lien = document.getElementById('sceneLien');
-  var chemin = document.getElementById('filChemin');
-  var point = document.getElementById('filPoint');
-  var fil = document.getElementById('fil');
 
   var PHRASES = [
     "Mes techniciens remplissent les bons sur papier. Le soir, je ressaisis tout.",
     "Je passe mes vendredis à relancer les factures en retard.",
     "Un fichier Excel par client. Plus personne ne s'y retrouve."
-  ];
-  var LIENS = [
-    ['/bon-intervention-numerique', "Voir comment nous faisons les bons d'intervention"],
-    ['/relance-factures-automatique', "Voir comment nous automatisons les relances"],
-    ['/remplacer-excel', "Voir comment nous remplaçons vos fichiers Excel"]
   ];
   var DUREE = 9200;
 
@@ -2448,33 +2509,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   function attendre(fn, ms){ minuteurs.push(setTimeout(fn, ms)); }
   function annuler(){ minuteurs.forEach(clearTimeout); minuteurs = []; }
 
-  function tracerFil(){
-    if(!fil || !chemin || window.innerWidth < 1040){ return; }
-    var a = atelier.getBoundingClientRect();
-    var b = atelier.querySelector('.bulle').getBoundingClientRect();
-    var t = atelier.querySelector('.tel-cadre').getBoundingClientRect();
-    var x1 = b.left - a.left + b.width * .42, y1 = b.bottom - a.top;
-    var x2 = t.left - a.left, y2 = t.top - a.top + t.height * .36;
-    chemin.setAttribute('d', 'M' + x1 + ',' + y1 + ' C' + x1 + ',' + (y1 + 90) + ' ' + (x2 - 90) + ',' + y2 + ' ' + x2 + ',' + y2);
-  }
-
-  function voyage(fin){
-    // un point lumineux parcourt le fil, de la phrase vers le téléphone
-    if(!chemin || !point || window.innerWidth < 1040 || !chemin.getTotalLength){ fin(); return; }
-    var L = chemin.getTotalLength(), t0 = null, D = 650;
-    atelier.classList.add('envoi');
-    point.style.opacity = 1;
-    function pas(t){
-      if(t0 === null){ t0 = t; }
-      var k = Math.min(1, (t - t0) / D);
-      k = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
-      var p = chemin.getPointAtLength(L * k);
-      point.setAttribute('cx', p.x); point.setAttribute('cy', p.y);
-      if(k < 1){ requestAnimationFrame(pas); }
-      else{ point.style.opacity = 0; atelier.classList.remove('envoi'); fin(); }
-    }
-    requestAnimationFrame(pas);
-  }
 
   function taper(texte, fin){
     var n = 0, cadre = bulle.parentNode.parentNode;
@@ -2497,7 +2531,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
       s.classList.toggle('off', j !== i);
     });
     onglets.forEach(function(o, j){ o.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
-    if(lien){ lien.href = LIENS[i][0]; lien.textContent = LIENS[i][1]; }
 
     if(REDUCE){
       bulle.textContent = PHRASES[i];
@@ -2511,12 +2544,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
     atelier.style.setProperty('--duree', DUREE + 'ms');
     if(auto !== false){ atelier.parentNode.style.setProperty('--duree', DUREE + 'ms'); atelier.classList.add('tourne'); }
 
-    tracerFil();
-    taper(PHRASES[i], function(){
-      voyage(function(){
-        scenes[i].classList.add('bati');
-      });
-    });
+    taper(PHRASES[i], function(){ scenes[i].classList.add('bati'); });
     attendre(function(){ if(visible && !enPause){ montrer((i + 1) % scenes.length); } }, DUREE);
   }
 
@@ -2537,12 +2565,11 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
     if(document.hidden){ annuler(); atelier.classList.remove('tourne'); enPause = true; }
     else if(enPause){ enPause = false; if(visible){ montrer((courante + 1) % scenes.length); } }
   });
-  window.addEventListener('resize', tracerFil);
 
   // départ : juste après l'entrée du titre
   setTimeout(function(){ montrer(0); }, REDUCE ? 0 : 700);
 
-  /* ---- plan millimétré : la grille s'allume sous le pointeur ---- */
+  /* ---- plan millimétré : la grille s'éclaire doucement sous le pointeur ---- */
 
   var toile = document.getElementById('plan');
   if(!toile || !toile.getContext){ return; }
@@ -2550,8 +2577,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
   var PAS = 56;
   var souris = {x: -999, y: -999, tx: -999, ty: -999};
-  var cellules = [];   // cases qui s'allument puis s'éteignent, comme une pièce posée
-  var tourne = true, dernier = 0;
+  var tourne = true;
 
   function dimension(){
     var r = hero.getBoundingClientRect();
@@ -2565,55 +2591,24 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
     souris.x += (souris.tx - souris.x) * .08;
     souris.y += (souris.ty - souris.y) * .08;
 
-    // cases allumées
-    for(var c = cellules.length - 1; c >= 0; c--){
-      var ce = cellules[c];
-      var age = (t - ce.t) / 2600;
-      if(age >= 1){ cellules.splice(c, 1); continue; }
-      var a = Math.sin(age * Math.PI) * .07;
-      ctx.fillStyle = 'rgba(169,196,159,' + a.toFixed(3) + ')';
-      ctx.fillRect(ce.x * PAS + 1, ce.y * PAS + 1, PAS - 1, PAS - 1);
-    }
-
     // lignes : plus nettes près du pointeur
     ctx.lineWidth = 1;
     for(var x = 0; x <= W; x += PAS){
       var dx = Math.abs(x - souris.x);
-      var ax = .045 + Math.max(0, 1 - dx / 260) * .12;
+      var ax = .03 + Math.max(0, 1 - dx / 260) * .08;
       ctx.strokeStyle = 'rgba(169,196,159,' + ax.toFixed(3) + ')';
       ctx.beginPath(); ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); ctx.stroke();
     }
     for(var y = 0; y <= H; y += PAS){
       var dy = Math.abs(y - souris.y);
-      var ay = .045 + Math.max(0, 1 - dy / 260) * .12;
+      var ay = .03 + Math.max(0, 1 - dy / 260) * .08;
       ctx.strokeStyle = 'rgba(169,196,159,' + ay.toFixed(3) + ')';
       ctx.beginPath(); ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); ctx.stroke();
-    }
-
-    // croisements : petites croix de repère près du pointeur
-    var r0 = 220;
-    var gx0 = Math.max(0, Math.floor((souris.x - r0) / PAS)), gx1 = Math.min(Math.ceil(W / PAS), Math.ceil((souris.x + r0) / PAS));
-    var gy0 = Math.max(0, Math.floor((souris.y - r0) / PAS)), gy1 = Math.min(Math.ceil(H / PAS), Math.ceil((souris.y + r0) / PAS));
-    for(var gx = gx0; gx <= gx1; gx++){
-      for(var gy = gy0; gy <= gy1; gy++){
-        var px = gx * PAS, py = gy * PAS;
-        var d = Math.hypot(px - souris.x, py - souris.y);
-        if(d > r0){ continue; }
-        ctx.strokeStyle = 'rgba(169,196,159,' + ((1 - d / r0) * .55).toFixed(3) + ')';
-        ctx.beginPath();
-        ctx.moveTo(px - 4, py + .5); ctx.lineTo(px + 5, py + .5);
-        ctx.moveTo(px + .5, py - 4); ctx.lineTo(px + .5, py + 5);
-        ctx.stroke();
-      }
     }
   }
 
   function boucle(t){
     if(!tourne){ return; }
-    if(t - dernier > 420 && cellules.length < 14){
-      dernier = t;
-      cellules.push({x: Math.floor(Math.random() * (W / PAS)), y: Math.floor(Math.random() * (H / PAS)), t: t});
-    }
     dessiner(t);
     requestAnimationFrame(boucle);
   }
@@ -2639,6 +2634,34 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
     }).observe(hero);
   }
   requestAnimationFrame(boucle);
+})();
+</script>
+<script>
+/* ============ 01 · Le constat : la double saisie au défilement ============ */
+(function(){
+  "use strict";
+  var piste = document.getElementById('constatPiste');
+  var ligne = document.getElementById('ressaisie');
+  if(!piste || !ligne || window.matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
+
+  var texte = ligne.textContent, attente = false;
+  function borne(a, b, p){ return Math.min(1, Math.max(0, (p - a) / (b - a))); }
+
+  function maj(){
+    attente = false;
+    var r = piste.getBoundingClientRect();
+    var p = Math.min(1, Math.max(0, -r.top / (r.height - window.innerHeight)));
+    ligne.textContent = texte.slice(0, Math.round(borne(.1, .42, p) * texte.length));
+    piste.style.setProperty('--d', (1 - borne(.46, .7, p)).toFixed(3));
+    piste.style.setProperty('--l', borne(.64, .8, p).toFixed(3));
+    piste.style.setProperty('--c', borne(.8, .92, p).toFixed(3));
+    piste.classList.toggle('attente', p < .72);
+  }
+  function demande(){ if(!attente){ attente = true; requestAnimationFrame(maj); } }
+
+  window.addEventListener('scroll', demande, {passive:true});
+  window.addEventListener('resize', demande);
+  maj();
 })();
 </script>
 <script>

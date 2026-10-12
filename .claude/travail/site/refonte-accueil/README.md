@@ -13,6 +13,12 @@ Héros animé « Vous décrivez → Nous construisons » (3 scènes : bons, rela
 bloc chiffres/réalisations retiré de l'accueil (la page /realisations reste dans le menu et le pied),
 textes des domaines resserrés, appels à l'action dans 5 sections + barre mobile, rideau d'ouverture retiré.
 
+## Étape 1 v2 (2026-10-12) — retours de Loïc : « trop d'infos, un peu le foutoir »
+Ouverture épurée (plus de fil, de pastilles, de lien sous les onglets, d'étiquette « Nous construisons » ;
+une phrase sous le titre ; fond plus discret). Section 01 refaite : plus de photos, la double saisie
+racontée au défilement (le titre et son double qui se recollent, la ligne retapée le soir, puis reliée).
+Correction enregistrée : c011.
+
 ## Ce qui ne bouge pas (SEO)
 Title, meta description, canonical, Open Graph, JSON-LD (FAQ incluse), H1 « Automatisation et logiciel
 sur mesure à Mulhouse », tous les H2/H3, liens vers les 8 pages de service, les 6 guides et le blog, URL.

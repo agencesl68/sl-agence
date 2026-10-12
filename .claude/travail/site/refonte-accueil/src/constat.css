@@ -1,0 +1,99 @@
+/* ============================================================
+   01 · LE CONSTAT — la double saisie, au défilement
+   Le titre a son double (en trait) qui se recolle à mesure qu'on
+   descend ; la même ligne est retapée le soir, puis les deux
+   saisies se relient : il n'en reste qu'une.
+   Variables pilotées en JS : --d (écart du double, 1 → 0),
+   --l (liaison, 0 → 1), --c (phrase de chute, 0 → 1).
+   Sans JS : état final, tout visible.
+   ============================================================ */
+
+.constat{padding-block:0;overflow:visible}   /* overflow:hidden (ancienne règle) casserait le sticky */
+.constat-piste{position:relative;height:250vh}
+.constat-collant{
+  position:sticky;top:0;height:100vh;height:100svh;
+  display:flex;align-items:center;overflow:hidden;
+}
+.constat-wrap{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+.constat-titre{
+  display:grid;margin-top:1.5rem;max-width:13ch;
+  font-size:clamp(2.4rem,1rem + 5.2vw,5.4rem);text-wrap:balance;
+}
+.constat-titre > span,
+.constat-titre::after{grid-area:1/1}
+.constat-titre::after{
+  content:attr(data-echo);pointer-events:none;
+  color:transparent;-webkit-text-stroke:1px rgba(169,196,159,.6);
+  transform:translate(calc(var(--d,0) * .08em),calc(var(--d,0) * .1em));
+  opacity:var(--d,0);
+}
+.constat-lead{margin-top:1.4rem;max-width:44ch}
+
+.saisies{
+  margin-top:clamp(2rem,5vh,3rem);width:100%;max-width:920px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;
+}
+.saisie{
+  display:flex;flex-direction:column;gap:.6rem;
+  padding:1.3rem 1.5rem 1.2rem;border-radius:16px;text-align:left;
+  transition:box-shadow .5s var(--ease),transform .6s var(--expo);
+}
+.saisie small{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.compteur{font-size:.8rem;font-weight:600;display:grid}
+.compteur b{grid-area:1/1;font-weight:600}
+
+/* le bon papier : réglure, léger angle */
+.saisie-1{
+  background:#ebe7da;color:#24241e;transform:rotate(-1.5deg);
+  background-image:repeating-linear-gradient(180deg,transparent 0 25px,rgba(60,79,59,.16) 25px 26px);
+  box-shadow:0 24px 40px -26px rgba(0,0,0,.9);
+}
+.saisie-1 small,.saisie-1 .compteur{color:#6b6a5c}
+.manuscrit{font-style:italic;font-size:clamp(1.05rem,1rem + .4vw,1.3rem);letter-spacing:-.01em;line-height:1.35}
+
+/* le tableur du soir */
+.saisie-2{background:var(--surface-2);color:var(--blanc);box-shadow:inset 0 0 0 1px rgba(169,196,159,.55)}
+.saisie-2 small{color:var(--texte-faible)}
+.clavier{
+  min-height:2.3em;padding:.5rem .7rem;border-radius:6px;
+  background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--filet);
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:clamp(.82rem,.78rem + .25vw,.98rem);line-height:1.35;
+}
+.saisie-2 .c-apres{color:var(--vert-clair)}
+.saisie-2 .c-avant{color:#e5ad78;visibility:hidden}
+.saisie-2 .curseur{display:none}
+
+/* la liaison : un trait qui se tire d'une saisie à l'autre */
+.liaison{position:relative;width:clamp(3.5rem,9vw,6.5rem);display:grid;place-items:center}
+.liaison i{display:block;width:100%;height:2px;background:var(--vert-clair);transform-origin:left;transform:scaleX(var(--l,1))}
+.liaison span{
+  position:absolute;top:calc(50% + .55rem);
+  font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--vert-clair);opacity:var(--l,1);
+}
+
+.constat-chute{
+  margin-top:clamp(1.6rem,4vh,2.4rem);
+  font-size:clamp(1.2rem,1rem + 1vw,1.7rem);letter-spacing:-.03em;color:var(--blanc);
+  opacity:var(--c,1);transform:translateY(calc((1 - var(--c,1)) * 12px));
+}
+.constat-chute strong{font-weight:500;color:var(--vert-clair)}
+
+/* avant la liaison : on retape encore, compteur orange, curseur actif */
+.constat-piste.attente .saisie-2{box-shadow:inset 0 0 0 1px var(--filet)}
+.constat-piste.attente .c-avant{visibility:visible}
+.constat-piste.attente .c-apres{visibility:hidden}
+.constat-piste.attente .saisie-2 .curseur{display:inline-block}
+
+@media (max-width:720px){
+  .constat-piste{height:220vh}
+  .saisies{grid-template-columns:1fr;max-width:340px;justify-items:stretch}
+  .liaison{width:auto;height:2.6rem}
+  .liaison i{width:2px;height:100%;transform-origin:top;transform:scaleY(var(--l,1))}
+  .liaison span{top:50%;left:calc(50% + .7rem);transform:translateY(-50%)}
+  .constat-lead{font-size:1rem}
+}
+@media (max-height:700px) and (max-width:720px){
+  .constat-lead{display:none}
+}
