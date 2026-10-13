@@ -1075,13 +1075,8 @@ input:focus,select:focus,textarea:focus{
 }
 .genese{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
 
-/* l'accent : une couleur chaude qui fait ressortir le vert de la charte.
-   Ambre par défaut (le « travail à traiter », comme en section 01).
-   La même variable colore les documents qui arrivent dans l'animation (JS). */
-.hero--genese{--accent-rgb:242,166,90}
-.hero--genese[data-accent="corail"]{--accent-rgb:255,122,92}
-.hero--genese[data-accent="lilas"]{--accent-rgb:182,156,255}
-.hero--genese[data-accent="vert"]{--accent-rgb:169,196,159}
+/* tout reste dans le vert de la charte (choix de Loïc) ; la variable sert au JS */
+.hero--genese{--accent-rgb:169,196,159}
 
 /* le fond : 2 halos seulement, très doux */
 .genese-aurore{position:absolute;inset:-12%;z-index:-3;pointer-events:none;filter:blur(80px);background:var(--noir)}
@@ -2328,7 +2323,7 @@ input:focus,select:focus,textarea:focus{
   var LAME_DEBUT = 700, LAME_DUREE = 1100;
   var cartes = [], decor = [], eclats = [], impulsions = [], livraisons = [];
   var prochaineLivraison = 0, prochainEnvoi = 0;
-  var ACC = '242,166,90', lectureAcc = 0;   // couleur d'accent, lue dans la variable CSS --accent-rgb
+  var ACC = '169,196,159', lectureAcc = 0, tCourant = 0, scintilles = [], prochaineScintille = 0;   // couleur d'accent, lue dans la variable CSS --accent-rgb
   var souris = {x:-1e4, y:-1e4}, t0 = null, avant = 0, visible = true, construit = false, prochaine = 0;
 
   function rand(a, b){ return a + Math.random() * (b - a); }
@@ -2477,6 +2472,16 @@ input:focus,select:focus,textarea:focus{
                              Math.round(mix(base[2], TUILE[2] + 20 * g, f)) + ')';
     rr(-.5, -.5, 1, 1, .09); ctx.fill();
 
+    // reflet : une bande de lumière balaie les toits en biais
+    if(e >= 1 && c.gx >= 0){
+      var ph = (tCourant - LAME_DEBUT - LAME_DUREE) % 6000;
+      if(ph > 0 && ph < 2400){
+        var pos = mix(-14, 14, ph / 2400), dd = (c.gx - c.gy) - pos;
+        var rf = Math.exp(-dd * dd / 3) * .32;
+        if(rf > .01){ ctx.fillStyle = 'rgba(255,255,255,' + rf + ')'; rr(-.5, -.5, 1, 1, .09); ctx.fill(); }
+      }
+    }
+
     // travail en attente : la tuile garde la couleur d'accent jusqu'à son traitement
     var att = c.cible ? c.u : c.attente;
     if(att > .02 && f > .3){ ctx.fillStyle = 'rgba(' + ACC + ',' + (.26 * att) + ')'; rr(-.5, -.5, 1, 1, .09); ctx.fill(); }
@@ -2536,10 +2541,19 @@ input:focus,select:focus,textarea:focus{
     ctx.stroke();
   }
 
-  function lancerImpulsion(){
-    var r = RUES[Math.floor(Math.random() * RUES.length)] + .5;
-    var sens = Math.random() < .5;
-    impulsions.push({axe: Math.random() < .5 ? 'x' : 'y', r: r, sens: sens, p: 0, v: rand(.28, .42), trace: []});
+  // grande : parcourt une rue ou le pourtour du plan d'un bout à l'autre
+  // fine : file entre deux rangées de documents, le long d'un îlot (3 cases)
+  function lancerImpulsion(fine){
+    var sens = Math.random() < .5, axe = Math.random() < .5 ? 'x' : 'y';
+    if(fine){
+      var bi = Math.floor(Math.random() * 3), bj = Math.floor(Math.random() * 3);
+      impulsions.push({fine: true, axe: axe, r: bi * 4 + 1 + Math.floor(Math.random() * 2), debut: bj * 4, long: 3,
+                       sens: sens, p: 0, v: rand(.9, 1.5), trace: []});
+    } else {
+      var lignes = [RUES[0] + .5, RUES[1] + .5, 0, GRILLE];
+      impulsions.push({fine: false, axe: axe, r: lignes[Math.floor(Math.random() * lignes.length)], debut: 0, long: GRILLE,
+                       sens: sens, p: 0, v: rand(.28, .45), trace: []});
+    }
   }
 
   function majImpulsions(dt){
@@ -2547,16 +2561,17 @@ input:focus,select:focus,textarea:focus{
       var m = impulsions[i];
       m.p += m.v * dt;
       if(m.p > 1.08){ impulsions.splice(i, 1); continue; }
-      var q = (m.sens ? m.p : 1 - m.p) * GRILLE;
+      var q = m.debut + (m.sens ? Math.min(1, m.p) : 1 - Math.min(1, m.p)) * m.long;
       var gx = m.axe === 'x' ? m.r : q, gy = m.axe === 'x' ? q : m.r;
       var pt = iso(gx, gy);
-      m.trace.push(pt); if(m.trace.length > 16){ m.trace.shift(); }
-      // les documents qui bordent la rue s'allument au passage
+      m.trace.push(pt); if(m.trace.length > (m.fine ? 9 : 16)){ m.trace.shift(); }
+      // les documents qu'elle frôle s'allument au passage
+      var seuil = m.fine ? .75 : 1.15;
       for(var j = 0; j < cartes.length; j++){
         var c = cartes[j];
         if(c.u < 1){ continue; }
         var d = Math.abs(c.gx + .5 - gx) + Math.abs(c.gy + .5 - gy);
-        if(d < 1.15){ c.flash = Math.max(c.flash, .9); c.traite = 1; c.attente = 0; }
+        if(d < seuil){ c.flash = Math.max(c.flash, m.fine ? .6 : .9); c.traite = 1; c.attente = 0; }
       }
     }
   }
@@ -2566,17 +2581,41 @@ input:focus,select:focus,textarea:focus{
     impulsions.forEach(function(m){
       var tr = m.trace;
       for(var k = 1; k < tr.length; k++){
-        ctx.strokeStyle = 'rgba(223,240,214,' + (k / tr.length) * .9 + ')';
-        ctx.lineWidth = 1 + 2 * k / tr.length;
+        ctx.strokeStyle = 'rgba(240,250,236,' + (k / tr.length) * (m.fine ? .8 : .9) + ')';
+        ctx.lineWidth = m.fine ? .6 + 1.2 * k / tr.length : 1 + 2 * k / tr.length;
         ctx.beginPath(); ctx.moveTo(tr[k - 1].x, tr[k - 1].y); ctx.lineTo(tr[k].x, tr[k].y); ctx.stroke();
       }
       var b = tr[tr.length - 1];
       if(b){
-        var g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, 16);
-        g.addColorStop(0, 'rgba(240,255,232,.95)'); g.addColorStop(1, 'rgba(169,196,159,0)');
-        ctx.fillStyle = g; ctx.fillRect(b.x - 16, b.y - 16, 32, 32);
+        var R = m.fine ? 9 : 16;
+        var g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, R);
+        g.addColorStop(0, 'rgba(250,255,246,.95)'); g.addColorStop(1, 'rgba(169,196,159,0)');
+        ctx.fillStyle = g; ctx.fillRect(b.x - R, b.y - R, R * 2, R * 2);
       }
     });
+  }
+
+  // scintillements : de petites étoiles blanches s'allument sur les toits
+  function majScintilles(t, dt){
+    if(t > prochaineScintille){
+      var c = cartes[Math.floor(Math.random() * cartes.length)];
+      if(c && c.u >= 1){
+        var p = iso(c.gx + rand(.15, .85), c.gy + rand(.15, .85));
+        scintilles.push({x: p.x, y: p.y - c.lift, v: 0, d: rand(.5, .9), s: rand(3, 6)});
+      }
+      prochaineScintille = t + (mobile ? rand(120, 260) : rand(50, 130));
+    }
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    for(var i = scintilles.length - 1; i >= 0; i--){
+      var k = scintilles[i];
+      k.v += dt / k.d; if(k.v >= 1){ scintilles.splice(i, 1); continue; }
+      var a = Math.sin(k.v * Math.PI), r = k.s * a;
+      ctx.fillStyle = 'rgba(255,255,255,' + (a * .9) + ')';
+      ctx.beginPath();
+      ctx.moveTo(k.x, k.y - r); ctx.lineTo(k.x + r * .22, k.y - r * .22); ctx.lineTo(k.x + r, k.y);
+      ctx.lineTo(k.x + r * .22, k.y + r * .22); ctx.lineTo(k.x, k.y + r); ctx.lineTo(k.x - r * .22, k.y + r * .22);
+      ctx.lineTo(k.x - r, k.y); ctx.lineTo(k.x - r * .22, k.y - r * .22); ctx.closePath(); ctx.fill();
+    }
   }
 
   function eclater(c){
@@ -2621,6 +2660,7 @@ input:focus,select:focus,textarea:focus{
     if(!visible){ return; }
     if(t0 === null){ t0 = now; avant = now; }
     var t = now - t0, dt = Math.min(.05, (now - avant) / 1000);
+    tCourant = t;
     avant = now;
 
     if(t > lectureAcc){ ACC = getComputedStyle(hero).getPropertyValue('--accent-rgb').trim() || ACC; lectureAcc = t + 400; }
@@ -2660,7 +2700,13 @@ input:focus,select:focus,textarea:focus{
     tous.forEach(dessinerCarte);
 
     if(t > LAME_DEBUT + LAME_DUREE + 900){
-      if(t > prochaine && impulsions.length < (mobile ? 3 : 5)){ lancerImpulsion(); prochaine = t + rand(500, 1100); }
+      var grandes = 0, fines = 0;
+      impulsions.forEach(function(m){ if(m.fine){ fines++; } else { grandes++; } });
+      if(t > prochaine){
+        if(grandes < (mobile ? 4 : 8)){ lancerImpulsion(false); }
+        if(fines < (mobile ? 6 : 14)){ lancerImpulsion(true); }
+        prochaine = t + rand(110, 260);
+      }
       majImpulsions(dt);
       dessinerImpulsions();
     }
@@ -2672,6 +2718,7 @@ input:focus,select:focus,textarea:focus{
       if(c.traite > 0 && c.flash <= 0){ c.traite = Math.max(0, c.traite - dt * .25); }
     });
 
+    if(t > LAME_DEBUT + LAME_DUREE + 900){ majScintilles(t, dt); }
     dessinerEclats(dt);
     dessinerLame(t);
     requestAnimationFrame(image);

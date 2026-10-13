@@ -17,13 +17,8 @@
 }
 .genese{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
 
-/* l'accent : une couleur chaude qui fait ressortir le vert de la charte.
-   Ambre par défaut (le « travail à traiter », comme en section 01).
-   La même variable colore les documents qui arrivent dans l'animation (JS). */
-.hero--genese{--accent-rgb:242,166,90}
-.hero--genese[data-accent="corail"]{--accent-rgb:255,122,92}
-.hero--genese[data-accent="lilas"]{--accent-rgb:182,156,255}
-.hero--genese[data-accent="vert"]{--accent-rgb:169,196,159}
+/* tout reste dans le vert de la charte (choix de Loïc) ; la variable sert au JS */
+.hero--genese{--accent-rgb:169,196,159}
 
 /* le fond : 2 halos seulement, très doux */
 .genese-aurore{position:absolute;inset:-12%;z-index:-3;pointer-events:none;filter:blur(80px);background:var(--noir)}

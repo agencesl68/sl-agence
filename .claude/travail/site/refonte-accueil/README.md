@@ -74,3 +74,6 @@ Aperçu v8 (privé) : voir le lien donné à Loïc. Aperçu v7 : https://claude.
   (variable CSS --accent-rgb, ambre par défaut, corail / lilas / tout vert en option) : les documents livrés
   arrivent dans l'accent (travail en attente) puis passent au vert quand une impulsion les traite.
   L'aperçu v8 a un sélecteur d'accent (maquette seulement).
+- v8.3 (2026-10-13) : tout en vert (accents retirés, choix de Loïc). Beaucoup plus de lumières blanches :
+  grandes impulsions dans les rues et sur le pourtour (8 max), fines entre les rangées de documents (14 max) ;
+  bande de reflet qui balaie les toits en biais toutes les 6 s ; scintillements blancs sur les toits.
