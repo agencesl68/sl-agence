@@ -17,12 +17,13 @@ RACINE = ICI.parents[3]
 OUT = pathlib.Path(sys.argv[1]).resolve()
 OUT.mkdir(parents=True, exist_ok=True)
 
-h = (ICI / "etape-1-accueil.html").read_text(encoding="utf-8")
+V = sys.argv[2] if len(sys.argv) > 2 else ""
+h = (ICI / ("etape-1-accueil" + ("-" + V if V else "") + ".html")).read_text(encoding="utf-8")
 
 h = re.sub(r"<!DOCTYPE html>\s*<html[^>]*>\s*<head>\s*", "", h, count=1)
 h = re.sub(r"<meta charset[^>]*>\s*<meta name=\"viewport\"[^>]*>\s*", "", h, count=1)
 h = h.replace("<title>Automatisation et logiciel sur mesure à Mulhouse | SL Agence</title>",
-              "<title>Refonte accueil SL Agence</title>", 1)
+              "<title>Refonte accueil SL Agence" + (" " + V.upper() if V else "") + "</title>", 1)
 h = re.sub(r"</head>\s*<body>", "", h, count=1)
 h = re.sub(r"</body>\s*</html>\s*$", "", h)
 
@@ -51,8 +52,8 @@ h = h.replace(ancien, ancien + """
 
 # pastille maquette
 h += """
-<div style="position:fixed;left:12px;bottom:12px;z-index:300;padding:.45rem .8rem;border-radius:99px;background:#a9c49f;color:#070907;font:600 .7rem/1.2 Geist,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">Maquette · étape 1 (v7) · pas en ligne</div>
-"""
+<div style="position:fixed;left:12px;bottom:12px;z-index:300;padding:.45rem .8rem;border-radius:99px;background:#a9c49f;color:#070907;font:600 .7rem/1.2 Geist,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">MAQUETTE_ETIQUETTE · pas en ligne</div>
+""".replace("MAQUETTE_ETIQUETTE", "Maquette · v8 Genèse" if V else "Maquette · étape 1 (v7)")
 
 (OUT / "index.html").write_text(h, encoding="utf-8")
 print("aperçu :", OUT / "index.html")

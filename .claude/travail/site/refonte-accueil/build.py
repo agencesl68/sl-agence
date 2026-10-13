@@ -8,11 +8,14 @@ retiré, textes resserrés, appels à l'action ajoutés.
 
     python3 .claude/travail/site/refonte-accueil/build.py
 """
-import pathlib, re, sys
+import os, pathlib, re, sys
 
 ICI = pathlib.Path(__file__).resolve().parent
 RACINE = ICI.parents[3]
 SRC = ICI / "src"
+# variante de héros : HERO=v8 python3 build.py → etape-1-accueil-v8.html (la v7 reste intacte)
+V = os.environ.get("HERO", "")
+SUF = ("-" + V) if V else ""
 
 html = (RACINE / "index.html").read_text(encoding="utf-8")
 CAL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e"
@@ -34,7 +37,7 @@ def entre(debut, fin, nouveau):
 
 
 # ---- styles : héros + compléments, après la feuille principale ----
-css = "\n".join((SRC / f).read_text(encoding="utf-8") for f in ("hero.css", "constat.css", "domaines.css", "extra.css"))
+css = "\n".join((SRC / f).read_text(encoding="utf-8") for f in ("hero" + SUF + ".css", "constat.css", "domaines.css", "extra.css"))
 i = html.index("</style>", html.index("Vert #3c4f3b"))
 html = html[:i] + "\n" + css + html[i:]
 
@@ -54,7 +57,7 @@ remplace('<div class="panneau-pied">',
 
 # ---- héros ----
 entre("<!-- ============ HÉROS ============ -->", "<!-- ============ 01 · LE CONSTAT ============ -->",
-      (SRC / "hero.html").read_text(encoding="utf-8") + "\n")
+      (SRC / ("hero" + SUF + ".html")).read_text(encoding="utf-8") + "\n")
 
 # ---- 01 · constat : les photos éparpillées laissent place à la double saisie animée ----
 entre("<!-- ============ 01 · LE CONSTAT ============ -->", "<!-- ============ 02 · CE QUE NOUS FAISONS ============ -->",
@@ -141,7 +144,7 @@ barre = """<script>
 </script>
 """
 i = html.rindex("</body>")
-html = html[:i] + (SRC / "hero.js").read_text(encoding="utf-8") + (SRC / "constat.js").read_text(encoding="utf-8") + (SRC / "domaines.js").read_text(encoding="utf-8") + barre + "\n" + html[i:]
+html = html[:i] + (SRC / ("hero" + SUF + ".js")).read_text(encoding="utf-8") + (SRC / "constat.js").read_text(encoding="utf-8") + (SRC / "domaines.js").read_text(encoding="utf-8") + barre + "\n" + html[i:]
 
 # chemins d'images absolus : identiques en ligne, et la maquette s'affiche depuis son dossier
 html = re.sub(r'(src|poster)="(p-[a-z]+\.jpg|pub-sl-agence\.(?:mp4|jpg))"', r'\1="/\2"', html)
@@ -155,6 +158,6 @@ for ancien, nouveau in [("07 — Ce qu'on nous demande", "05 — Ce qu'on nous d
 remplace("Quinze minutes au téléphone suffisent", "15 minutes au téléphone suffisent")
 remplace("Écrivez-nous en deux minutes.", "Écrivez-nous en 2 minutes.")
 
-sortie = ICI / "etape-1-accueil.html"
+sortie = ICI / ("etape-1-accueil" + SUF + ".html")
 sortie.write_text(html, encoding="utf-8")
 print("écrit :", sortie.relative_to(RACINE), f"({len(html)//1024} Ko)")

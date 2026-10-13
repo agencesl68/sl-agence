@@ -1,0 +1,66 @@
+/* ============================================================
+   HÉROS v8 « GENÈSE »
+   Des papiers en vrac (factures, bons, tableurs, mails, agendas)
+   flottent ; une lame de lumière passe ; chaque papier se pose en
+   tuile numérique et forme un plan de ville isométrique où des
+   impulsions de données circulent. Tout est dessiné en canvas 2D
+   (aucune bibliothèque). Le titre suit le récit : la 1re moitié sur
+   le désordre, la 2de quand l'ordre arrive (classe .construit).
+   Sans JS ou en mouvement réduit : texte visible, plan posé.
+   ============================================================ */
+
+.hero--genese{
+  min-height:max(640px,100svh);
+  display:flex;align-items:center;
+  padding-block:7rem 4rem;
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.genese{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+.genese-voile{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(7,9,7,.94) 0%,rgba(7,9,7,.78) 26%,rgba(7,9,7,0) 56%),
+    linear-gradient(180deg,rgba(7,9,7,.5) 0%,transparent 18%,transparent 80%,var(--noir) 100%),
+    radial-gradient(ellipse 46% 58% at 70% 58%,rgba(60,79,59,.32),transparent 72%);
+}
+.genese-texte{position:relative;width:100%}
+
+.hero-surtitre{
+  font-size:.8rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--vert-clair);line-height:1.4;
+}
+.titre-hero{
+  margin-top:1.4rem;max-width:12ch;
+  color:var(--blanc);
+  font-size:clamp(2.6rem,1.2rem + 4.2vw,4.8rem);
+  font-weight:500;line-height:1.02;letter-spacing:-.045em;
+  text-wrap:balance;
+}
+.g-t1,.g-t2{display:inline}
+.g-vert{color:var(--vert-clair)}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem;margin-top:2.2rem}
+
+/* entrée de la 1re moitié */
+.staged .ent{opacity:0;transform:translateY(14px)}
+.hero.play .ent{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1s var(--doux)}
+.hero.play .ent-1{transition-delay:.1s}
+.hero.play .ent-2{transition-delay:.35s}
+
+/* la 2de moitié et le bouton n'arrivent qu'avec l'ordre */
+.staged .hero--genese .g-t2,
+.staged .hero--genese .g-cta{opacity:0;filter:blur(10px);transform:translateY(10px)}
+.staged .hero--genese.construit .g-t2,
+.staged .hero--genese.construit .g-cta{
+  opacity:1;filter:none;transform:none;
+  transition:opacity 1s var(--ease),filter 1.1s var(--ease),transform 1.1s var(--doux);
+}
+.staged .hero--genese.construit .g-cta{transition-delay:.45s}
+
+@media (max-width:759px){
+  .hero--genese{align-items:flex-start;padding-top:6.5rem;min-height:max(720px,100svh)}
+  .genese-voile{
+    background:
+      linear-gradient(180deg,rgba(7,9,7,.95) 0%,rgba(7,9,7,.82) 34%,rgba(7,9,7,0) 56%,transparent 88%,var(--noir) 100%),
+      radial-gradient(ellipse 80% 40% at 50% 70%,rgba(60,79,59,.3),transparent 72%);
+  }
+}

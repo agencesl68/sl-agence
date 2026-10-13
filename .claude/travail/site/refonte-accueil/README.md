@@ -59,3 +59,11 @@ liens). Correction enregistrée : c012 (chaque section se comprend en 5 secondes
   « Applications métier, automatisations et IA… » est retirée (ses mots-clés restent dans les H2 de 02 et 03).
 - Appels à l'action dédoublonnés : 02 → « Réserver un appel de 15 minutes avec nous » ; plus de bouton sous
   les avis ; bloc « Le vôtre n'y est pas ? » retiré de 03. Restent : héros, 02, 04, FAQ, formulaire, barre mobile.
+
+## v8 « Genèse » (2026-10-13) — variante du héros, la v7 reste la base de référence
+`HERO=v8 python3 build.py` → `etape-1-accueil-v8.html` (sources `src/hero-v8.*`). Seule l'ouverture change.
+Des papiers en vrac (factures, bons, tableurs, mails, agendas) flottent ; une lame de lumière les balaie ;
+chacun se pose en tuile d'un plan de ville isométrique, puis s'élève en immeuble ; les papiers en trop
+éclatent ; des impulsions de données circulent dans les rues et allument les documents ; sous la souris,
+les tuiles se soulèvent. Canvas 2D, sans bibliothèque. Titre en 2 temps (désordre / ordre).
+Aperçu v8 (privé) : voir le lien donné à Loïc. Aperçu v7 : https://claude.ai/artifact/ArtZA25oUSFhQ31yv6HvGF
