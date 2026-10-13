@@ -53,3 +53,9 @@ liens). Correction enregistrée : c012 (chaque section se comprend en 5 secondes
 - 01 : contours vivants (une lueur fait le tour des cartes, orange pendant la ressaisie, verte une fois relié)
   et étincelle qui circule sur le trait « automatique ».
 - Validé par Loïc à ce stade : 01, pieuvre 02, avis, 03 métiers, 04 intervention, guides.
+
+## Étape 1 v7 (2026-10-13)
+- Héros réduit à l'essentiel : surtitre (H1), titre, un seul bouton « Décrire mon besoin ». La phrase
+  « Applications métier, automatisations et IA… » est retirée (ses mots-clés restent dans les H2 de 02 et 03).
+- Appels à l'action dédoublonnés : 02 → « Réserver un appel de 15 minutes avec nous » ; plus de bouton sous
+  les avis ; bloc « Le vôtre n'y est pas ? » retiré de 03. Restent : héros, 02, 04, FAQ, formulaire, barre mobile.

@@ -74,15 +74,7 @@ entre('    <div class="chiffres reveal">', '    <div class="avis reveal">', "")
 remplace('<!-- ============ 03 · RÉALISATIONS : page dédiée /realisations ============ -->',
          '<!-- ============ AVIS CLIENTS (les réalisations ont leur page : /realisations, dans le menu) ============ -->')
 remplace('.avis{margin-top:clamp(4rem,10vh,7rem)}', '.avis{margin-top:0}')
-i = html.index("</div>\n    </div>\n  </div>\n</section>", html.index('<div class="avis-grille">'))
-html = html[:i] + f"""</div>
-      <div class="avis-suite">
-        <a class="btn btn-plein btn-fleche" href="#contact">Parler de mon projet</a>
-        <span>Réponse sous 24 h, devis gratuit.</span>
-      </div>
-    </div>
-  </div>
-</section>""" + html[i + len("</div>\n    </div>\n  </div>\n</section>"):]
+# (plus de bouton sous les avis : trop d'appels à l'action répétés, retour de Loïc)
 
 # ---- 03 · votre métier : 4 familles ; la section « Vos outils » est fondue dans le schéma 02 ----
 entre("<!-- ============ 04 · VOTRE MÉTIER ============ -->", "<!-- ============ 06 · NOTRE INTERVENTION ============ -->",

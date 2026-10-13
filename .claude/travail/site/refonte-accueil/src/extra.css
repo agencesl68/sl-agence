@@ -21,10 +21,6 @@
 /* domaines : texte resserré, liens bien visibles */
 .domaine p a{display:inline-block;margin-top:.35rem;color:var(--vert-clair);text-underline-offset:3px}
 
-/* avis : un appel juste sous les témoignages */
-.avis-suite{margin-top:1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem}
-.avis-suite span{color:var(--texte-faible);font-size:.95rem}
-
 /* panneau de navigation : un bouton d'action en plus des numéros */
 .panneau-pied .btn{color:var(--noir);font-size:.95rem;padding-block:1rem}
 
