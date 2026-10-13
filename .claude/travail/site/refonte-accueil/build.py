@@ -53,18 +53,17 @@ remplace('<div class="panneau-pied">',
          f'<div class="panneau-pied">\n    <a class="btn btn-plein" href="{CAL}" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a>')
 
 # ---- héros ----
-entre("<!-- ============ HÉROS ============ -->", "<!-- ============ BANDEAU ============ -->",
+entre("<!-- ============ HÉROS ============ -->", "<!-- ============ 01 · LE CONSTAT ============ -->",
       (SRC / "hero.html").read_text(encoding="utf-8") + "\n")
 
 # ---- 01 · constat : les photos éparpillées laissent place à la double saisie animée ----
-entre("<!-- ============ 01 · LE CONSTAT ============ -->", "<!-- ============ VIDÉO ============ -->",
+entre("<!-- ============ 01 · LE CONSTAT ============ -->", "<!-- ============ 02 · CE QUE NOUS FAISONS ============ -->",
       (SRC / "constat.html").read_text(encoding="utf-8") + "\n")
 
-# ---- vidéo : texte resserré ----
-remplace("""        La même information saisie deux fois, puis neuf. Des fichiers qui ne se parlent pas.
-        Voici comment nous relions tout, de la demande du client jusqu'au règlement de la facture.""",
-         """        De la demande du client jusqu'au règlement de la facture :
-        voici comment nous relions tout.""")
+# ---- la vidéo n'est plus sur l'accueil : son balisage VideoObject non plus (les données structurées doivent refléter la page) ----
+i = html.index('<script type="application/ld+json">{\n  "@context": "https://schema.org",\n  "@type": "VideoObject"')
+j = html.index("</script>", i) + len("</script>\n")
+html = html[:i] + html[j:]
 
 # ---- 02 · domaines : le schéma remplace la liste de 8 paragraphes (7 pages de service liées + le centre) ----
 entre("<!-- ============ 02 · CE QUE NOUS FAISONS ============ -->", "<!-- ============ 03 · RÉALISATIONS",
@@ -85,21 +84,15 @@ html = html[:i] + f"""</div>
   </div>
 </section>""" + html[i + len("</div>\n    </div>\n  </div>\n</section>"):]
 
-# ---- outils : vérifier la compatibilité ----
-i = html.index("</p>", html.index('<p class="outils-plus reveal">')) + 4
-html = html[:i] + f"""
-    <div class="relais reveal">
-      <p><b>Vous ne savez pas si vos logiciels sont compatibles ?</b>Quinze minutes au téléphone suffisent pour le vérifier ensemble.</p>
-      <div class="relais-actions">
-        <a class="btn btn-plein" href="{CAL}" target="_blank" rel="noopener">Réserver un appel de 15 min</a>
-      </div>
-    </div>""" + html[i:]
+# ---- 03 · votre métier : 4 familles ; la section « Vos outils » est fondue dans le schéma 02 ----
+entre("<!-- ============ 04 · VOTRE MÉTIER ============ -->", "<!-- ============ 06 · NOTRE INTERVENTION ============ -->",
+      (SRC / "metiers.html").read_text(encoding="utf-8"))
 
 # ---- méthode : commencer par le temps 01 ----
 i = html.index("</div>\n    </div>", html.index('<div class="temps reveal casc">')) + len("</div>\n    </div>")
 html = html[:i] + f"""
     <div class="relais reveal">
-      <p><b>Le temps 01 commence par un appel.</b>Un quart d'heure, sans engagement : vous repartez avec un avis clair.</p>
+      <p><b>Le temps 01 commence par un appel.</b>15 minutes, sans engagement : vous repartez avec un avis clair.</p>
       <div class="relais-actions">
         <a class="btn btn-plein" href="{CAL}" target="_blank" rel="noopener">Choisir mon créneau</a>
         <a class="btn btn-creux" href="tel:+33767081943">07 67 08 19 43</a>
@@ -142,6 +135,18 @@ html = html[:i] + (SRC / "hero.js").read_text(encoding="utf-8") + (SRC / "consta
 
 # chemins d'images absolus : identiques en ligne, et la maquette s'affiche depuis son dossier
 html = re.sub(r'(src|poster)="(p-[a-z]+\.jpg|pub-sl-agence\.(?:mp4|jpg))"', r'\1="/\2"', html)
+
+# ---- numérotation : 01 constat, 02 ce que nous faisons, 03 votre métier, 04 intervention, 05 questions, 06 contact ----
+for ancien, nouveau in [("06 — Notre intervention", "04 — Notre intervention"),
+                        ("07 — Ce qu'on nous demande", "05 — Ce qu'on nous demande"),
+                        ("08 — Parlons-en", "06 — Parlons-en")]:
+    remplace(ancien, nouveau)
+
+# ---- les quantités en chiffres (correction c013) ; les citations de clients restent telles quelles ----
+remplace("Quatre temps, pas un de plus.", "4 temps, pas un de plus.")
+remplace("Un quart d'heure au téléphone, puis", "15 minutes au téléphone, puis")
+remplace("Quinze minutes au téléphone suffisent", "15 minutes au téléphone suffisent")
+remplace("Écrivez-nous en deux minutes.", "Écrivez-nous en 2 minutes.")
 
 sortie = ICI / "etape-1-accueil.html"
 sortie.write_text(html, encoding="utf-8")

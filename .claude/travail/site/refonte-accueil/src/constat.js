@@ -1,28 +1,34 @@
 <script>
-/* ============ 01 · Le constat : la double saisie au défilement ============ */
+/* ============ 01 · Le constat : la double saisie, jouée une fois à l'apparition ============ */
 (function(){
   "use strict";
   var piste = document.getElementById('constatPiste');
   var ligne = document.getElementById('ressaisie');
-  if(!piste || !ligne || window.matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
+  if(!piste || !ligne || !window.IntersectionObserver ||
+     window.matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
 
-  var texte = ligne.textContent, attente = false;
+  var texte = ligne.textContent, DUREE = 4200;
   function borne(a, b, p){ return Math.min(1, Math.max(0, (p - a) / (b - a))); }
 
-  function maj(){
-    attente = false;
-    var r = piste.getBoundingClientRect();
-    var p = Math.min(1, Math.max(0, -r.top / (r.height - window.innerHeight)));
-    ligne.textContent = texte.slice(0, Math.round(borne(.1, .42, p) * texte.length));
-    piste.style.setProperty('--d', (1 - borne(.46, .7, p)).toFixed(3));
-    piste.style.setProperty('--l', borne(.64, .8, p).toFixed(3));
-    piste.style.setProperty('--c', borne(.8, .92, p).toFixed(3));
+  function etat(p){
+    ligne.textContent = texte.slice(0, Math.round(borne(.12, .45, p) * texte.length));
+    piste.style.setProperty('--d', (1 - borne(.45, .7, p)).toFixed(3));
+    piste.style.setProperty('--l', borne(.66, .8, p).toFixed(3));
+    piste.style.setProperty('--c', borne(.8, .95, p).toFixed(3));
     piste.classList.toggle('attente', p < .72);
   }
-  function demande(){ if(!attente){ attente = true; requestAnimationFrame(maj); } }
+  etat(0);
 
-  window.addEventListener('scroll', demande, {passive:true});
-  window.addEventListener('resize', demande);
-  maj();
+  new IntersectionObserver(function(e, obs){
+    if(!e[0].isIntersecting){ return; }
+    obs.disconnect();
+    var t0 = null;
+    (function pas(t){
+      if(t0 === null){ t0 = t; }
+      var p = Math.min(1, (t - t0) / DUREE);
+      etat(p);
+      if(p < 1){ requestAnimationFrame(pas); }
+    })(performance.now());
+  }, {threshold:.3}).observe(piste);
 })();
 </script>

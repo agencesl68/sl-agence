@@ -30,3 +30,13 @@ les changements là-bas aussi, sinon une régénération les effacerait.
 sur mesure → le reste se fait tout seul ». 8 cartes d'une ligne, titres H3 = noms des pages de service, et
 chaque carte renvoie à sa page : 7 pages de service liées + le centre vers /logiciel-sur-mesure (avant : 5
 liens). Correction enregistrée : c012 (chaque section se comprend en 5 secondes).
+
+## Étape 1 v4 (2026-10-13) — retours complets de Loïc
+- Héros : partie gauche épurée (« trop chargé, fait IA ») : surtitre simple (H1 conservé), titre sans effets,
+  une phrase, un bouton + un lien. Plus de quadrillage animé. Le téléphone ne change pas.
+- 01 : plus de défilement figé (c014) : l'animation se joue seule (~4 s) à l'apparition.
+- Vidéo « En 45 secondes » retirée de l'accueil, et son balisage VideoObject avec.
+- 02 : schéma retravaillé (ports, traits fins, lueurs qui circulent, disque central soigné) + vos outils
+  en une ligne de pastilles (ex-section 05, logos retirés).
+- 03 Votre métier : 4 familles de métiers au lieu des bulles flottantes ; le bandeau défilant est retiré.
+- Nombres en chiffres (c013). Sections renumérotées 01 → 06. Avis et « Notre intervention » inchangés.

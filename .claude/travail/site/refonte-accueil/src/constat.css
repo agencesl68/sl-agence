@@ -1,19 +1,14 @@
 /* ============================================================
-   01 · LE CONSTAT — la double saisie, au défilement
-   Le titre a son double (en trait) qui se recolle à mesure qu'on
-   descend ; la même ligne est retapée le soir, puis les deux
-   saisies se relient : il n'en reste qu'une.
+   01 · LE CONSTAT — la double saisie
+   Quand la section apparaît, l'animation joue seule (~4 s) : le
+   titre et son double (en trait) se recollent, la même ligne est
+   retapée le soir, puis les deux saisies se relient.
+   Rien ne retient le défilement (correction c014).
    Variables pilotées en JS : --d (écart du double, 1 → 0),
    --l (liaison, 0 → 1), --c (phrase de chute, 0 → 1).
    Sans JS : état final, tout visible.
    ============================================================ */
 
-.constat{padding-block:0;overflow:visible}   /* overflow:hidden (ancienne règle) casserait le sticky */
-.constat-piste{position:relative;height:250vh}
-.constat-collant{
-  position:sticky;top:0;height:100vh;height:100svh;
-  display:flex;align-items:center;overflow:hidden;
-}
 .constat-wrap{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
 
 .constat-titre{
@@ -87,13 +82,9 @@
 .constat-piste.attente .saisie-2 .curseur{display:inline-block}
 
 @media (max-width:720px){
-  .constat-piste{height:220vh}
   .saisies{grid-template-columns:1fr;max-width:340px;justify-items:stretch}
   .liaison{width:auto;height:2.6rem}
   .liaison i{width:2px;height:100%;transform-origin:top;transform:scaleY(var(--l,1))}
   .liaison span{top:50%;left:calc(50% + .7rem);transform:translateY(-50%)}
   .constat-lead{font-size:1rem}
-}
-@media (max-height:700px) and (max-width:720px){
-  .constat-lead{display:none}
 }

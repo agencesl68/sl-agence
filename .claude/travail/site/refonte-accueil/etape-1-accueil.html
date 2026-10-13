@@ -350,16 +350,6 @@
   ]
 }
 </script>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "SL Agence : ce que l'automatisation change, en 45 secondes",
-  "description": "Fichiers Excel réunis dans un seul écran, relances automatiques, bons d'intervention signés sur le terrain : comment SL Agence supprime la double saisie dans les TPE et PME.",
-  "thumbnailUrl": "https://slagence.fr/pub-sl-agence.jpg",
-  "contentUrl": "https://slagence.fr/pub-sl-agence.mp4",
-  "uploadDate": "2026-10-01T14:43:57+02:00",
-  "duration": "PT44S"
-}</script>
 
 <style>
 /* ============================================================
@@ -1081,13 +1071,10 @@ input:focus,select:focus,textarea:focus{
   padding-block:clamp(7rem,13vh,9.5rem) clamp(3rem,7vh,5rem);
   position:relative;overflow:hidden;isolation:isolate;
 }
-.hero-plan{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.hero-plan canvas{display:block;width:100%;height:100%}
-.hero-plan::after{
-  content:"";position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 48% 52% at 74% 46%,rgba(60,79,59,.42),transparent 72%),
-        linear-gradient(180deg,transparent 62%,var(--noir) 100%);
+/* un seul halo, derrière le téléphone : le reste du fond reste noir */
+.hero-halo{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 42% 50% at 76% 50%,rgba(60,79,59,.38),transparent 72%);
 }
 
 .hero-grille{display:grid;gap:clamp(3rem,6vw,4.5rem);align-items:center;width:100%}
@@ -1095,83 +1082,33 @@ input:focus,select:focus,textarea:focus{
   .hero-grille{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 }
 
-/* ---------- le titre ---------- */
+/* ---------- le texte : sobre ---------- */
 
+.hero-surtitre{
+  font-size:.8rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--vert-clair);line-height:1.4;
+}
 .titre-hero{
-  margin-top:1.7rem;
+  margin-top:1.4rem;max-width:12ch;
   color:var(--blanc);
-  font-size:clamp(2.7rem,1.2rem + 4.6vw,5rem);
-  font-weight:500;line-height:.98;letter-spacing:-.052em;
+  font-size:clamp(2.6rem,1.2rem + 4.2vw,4.6rem);
+  font-weight:500;line-height:1.02;letter-spacing:-.045em;
+  text-wrap:balance;
 }
-.th-ligne{display:block}
-.th-ligne + .th-ligne{margin-top:.02em}
+.titre-hero span{color:var(--vert-clair)}
+.hero-lead{margin-top:1.6rem;max-width:34ch;color:var(--texte)}
 
-/* « le décrire » : écrit comme on parle, en maigre, avec le curseur qui tape */
-.decrire{font-weight:300;color:rgba(255,255,255,.62);letter-spacing:-.045em}
-.decrire .curseur-titre{
-  display:inline-block;width:.06em;height:.82em;margin-left:.06em;
-  background:var(--vert-clair);vertical-align:-.04em;
-  animation:clignote 1s steps(1) infinite;
-}
-.decrire.fini .curseur-titre{animation:clignote 1s steps(1) 3, efface .4s var(--ease) 3s forwards}
-@keyframes clignote{50%{opacity:0}}
-@keyframes efface{to{opacity:0;width:0;margin-left:0}}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem;margin-top:2.2rem}
+.hero-lien{color:var(--blanc);font-size:.95rem;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:4px}
+.hero-lien:hover{text-decoration-color:var(--vert-clair);color:var(--vert-clair)}
 
-/* « le construire » : chaque lettre arrive en trait de plan, puis se remplit.
-   Dessous, une cote d'architecte |———| qui se trace. */
-.construire{position:relative;display:inline-block;color:var(--vert-clair);padding-bottom:.14em}
-.construire::after{
-  content:"";position:absolute;left:.02em;right:.32em;bottom:0;height:.16em;
-  border-inline:2px solid currentColor;
-  background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat;
-  opacity:.5;transform-origin:left center;
-}
-.construire .l{display:inline-block;white-space:pre}
-
-.staged .construire .l{
-  opacity:0;color:transparent;-webkit-text-stroke:1px var(--vert-clair);
-  transform:translate3d(0,.45em,0) rotate(var(--r,6deg));
-}
-.staged .construire::after{transform:scaleX(0)}
-.hero.bati-titre .construire .l{
-  animation:lettre 1.15s var(--expo) calc(var(--i) * 48ms) both;
-}
-.hero.bati-titre .construire::after{transform:none;transition:transform 1s var(--doux) .75s}
-@keyframes lettre{
-  0%  {opacity:0;color:transparent;-webkit-text-stroke-color:var(--vert-clair);transform:translate3d(0,.45em,0) rotate(var(--r,6deg))}
-  40% {opacity:1;color:transparent;-webkit-text-stroke-color:var(--vert-clair);transform:none}
-  100%{opacity:1;color:var(--vert-clair);-webkit-text-stroke-color:transparent;transform:none}
-}
-
-.hero-lead{margin-top:clamp(1.6rem,3.5vh,2.2rem);max-width:40ch}
-
-.hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:clamp(1.6rem,3.5vh,2.2rem)}
-.btn-fleche::after{
-  content:"";width:.55em;height:.55em;margin-left:.75em;
-  border-top:1.6px solid currentColor;border-right:1.6px solid currentColor;
-  transform:rotate(45deg);transition:transform .35s var(--expo);
-}
-.btn-fleche:hover::after{transform:translateX(3px) rotate(45deg)}
-
-.hero-meta{
-  margin-top:1.4rem;
-  display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
-  font-size:.88rem;color:var(--texte-faible);
-}
-.hero-meta a{color:var(--blanc);text-decoration:none}
-.hero-meta a:hover{color:var(--vert-clair)}
-.hero-meta .etoiles{color:var(--vert-clair);letter-spacing:.12em;margin-right:.3em}
-
-/* entrée orchestrée (même mécanique que le reste du site : .staged posé en tête) */
-.staged .ent{opacity:0;transform:translateY(16px)}
-.hero.play .ent{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .9s var(--doux)}
+/* entrée : un simple fondu, une fois */
+.staged .ent{opacity:0;transform:translateY(14px)}
+.hero.play .ent{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1s var(--doux)}
 .hero.play .ent-1{transition-delay:.05s}
 .hero.play .ent-2{transition-delay:.15s}
 .hero.play .ent-3{transition-delay:.3s}
-.hero.play .ent-4{transition-delay:.95s}
-.hero.play .ent-5{transition-delay:1.5s}
-.hero.play .ent-6{transition-delay:1.62s}
-.hero.play .ent-7{transition-delay:1.74s}
+.hero.play .ent-4{transition-delay:.45s}
 
 /* ---------- l'atelier ---------- */
 
@@ -1391,25 +1328,22 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .curseur,.decrire .curseur-titre{animation:none}
+  .curseur{animation:none}
 }
 
+@keyframes clignote{50%{opacity:0}}
+
 /* ============================================================
-   01 · LE CONSTAT — la double saisie, au défilement
-   Le titre a son double (en trait) qui se recolle à mesure qu'on
-   descend ; la même ligne est retapée le soir, puis les deux
-   saisies se relient : il n'en reste qu'une.
+   01 · LE CONSTAT — la double saisie
+   Quand la section apparaît, l'animation joue seule (~4 s) : le
+   titre et son double (en trait) se recollent, la même ligne est
+   retapée le soir, puis les deux saisies se relient.
+   Rien ne retient le défilement (correction c014).
    Variables pilotées en JS : --d (écart du double, 1 → 0),
    --l (liaison, 0 → 1), --c (phrase de chute, 0 → 1).
    Sans JS : état final, tout visible.
    ============================================================ */
 
-.constat{padding-block:0;overflow:visible}   /* overflow:hidden (ancienne règle) casserait le sticky */
-.constat-piste{position:relative;height:250vh}
-.constat-collant{
-  position:sticky;top:0;height:100vh;height:100svh;
-  display:flex;align-items:center;overflow:hidden;
-}
 .constat-wrap{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
 
 .constat-titre{
@@ -1483,23 +1417,20 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 .constat-piste.attente .saisie-2 .curseur{display:inline-block}
 
 @media (max-width:720px){
-  .constat-piste{height:220vh}
   .saisies{grid-template-columns:1fr;max-width:340px;justify-items:stretch}
   .liaison{width:auto;height:2.6rem}
   .liaison i{width:2px;height:100%;transform-origin:top;transform:scaleY(var(--l,1))}
   .liaison span{top:50%;left:calc(50% + .7rem);transform:translateY(-50%)}
   .constat-lead{font-size:1rem}
 }
-@media (max-height:700px) and (max-width:720px){
-  .constat-lead{display:none}
-}
 
 /* ============================================================
    02 · CE QUE NOUS FAISONS — le schéma
    À gauche ce que vous saisissez, au centre votre outil, à droite
-   ce qui part tout seul. Les traits (SVG, tracés en JS) relient
-   chaque carte au centre ; de petits tirets y circulent dans le
-   sens de l'information. Sur téléphone : une colonne, sans traits.
+   ce qui part tout seul. Chaque carte a un « port » sur son bord
+   intérieur ; un trait le relie au centre et une petite lueur y
+   circule dans le sens de l'information (JS). Sous le schéma : vos
+   outils actuels (ancienne section 05). Sur téléphone : une colonne.
    ============================================================ */
 
 /* l'ancienne mise en page (titre collant à gauche) ne s'applique plus */
@@ -1509,97 +1440,145 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   #domaines .entete h2{max-width:22ch;margin-inline:auto}
   #domaines .entete p:not(.pill){max-width:44ch;margin:1.4rem auto 0}
 }
+#domaines{overflow:hidden}
 #domaines .entete{text-align:center;max-width:none}
 #domaines .entete h2{margin-inline:auto;text-wrap:balance}
 #domaines .entete p:not(.pill){margin-inline:auto;color:var(--vert-clair)}
 
 .schema{
-  position:relative;margin-top:clamp(3rem,7vh,4.5rem);
+  position:relative;isolation:isolate;margin-top:clamp(3rem,7vh,4.5rem);
   display:grid;gap:2rem;
 }
+/* halo doux derrière le centre */
+.schema::before{
+  content:"";position:absolute;z-index:-1;left:50%;top:50%;
+  width:min(760px,90%);aspect-ratio:1;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(60,79,59,.45) 0%,rgba(60,79,59,.12) 38%,transparent 66%);
+  pointer-events:none;
+}
 @media (min-width:1000px){
-  .schema{grid-template-columns:minmax(0,1fr) minmax(200px,250px) minmax(0,1fr);gap:0 clamp(3.5rem,7vw,7rem);align-items:center}
+  .schema{grid-template-columns:minmax(0,1fr) 260px minmax(0,1fr);gap:0 clamp(4rem,7vw,7rem);align-items:center}
 }
 
+/* ---------- traits ---------- */
 .schema-liens{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;display:none}
 @media (min-width:1000px){.schema-liens{display:block}}
-.schema-liens path{fill:none;stroke-width:1.5}
-.schema-liens .fond{stroke:rgba(169,196,159,.18)}
-.schema-liens .flux{stroke:var(--vert-clair);stroke-dasharray:2 14;stroke-linecap:round;opacity:.55;animation:flux 1.6s linear infinite}
-.schema-liens path.actif{opacity:1;stroke-dasharray:4 8}
-.schema-liens .fond.actif{stroke:rgba(169,196,159,.5)}
-@keyframes flux{to{stroke-dashoffset:-16}}
+.schema-liens .trait{fill:none;stroke:rgba(169,196,159,.2);stroke-width:1.25;transition:stroke .35s var(--ease)}
+.schema-liens .trait.actif{stroke:rgba(169,196,159,.75)}
+.schema-liens .port{fill:var(--surface);stroke:rgba(169,196,159,.55);stroke-width:1.25}
+.schema-liens .lueur{fill:#dfe8d8;filter:url(#lueurFlou)}
+.schema-liens .lueur-coeur{fill:#fff}
 
-.schema-col{position:relative;z-index:1;display:grid;gap:.75rem}
+/* ---------- colonnes et cartes ---------- */
+.schema-col{position:relative;z-index:1;display:grid;grid-auto-rows:1fr;gap:.8rem}
 .schema-legende{
-  font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--texte-faible);margin-bottom:.3rem;
+  display:flex;align-items:center;gap:.7rem;
+  font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--vert-clair);margin-bottom:.4rem;
 }
-@media (min-width:1000px){.schema-col--entree .schema-legende{text-align:right}}
+.schema-legende::before{content:"";width:18px;height:1px;background:currentColor;opacity:.6}
+/* la légende garde sa hauteur ; les 4 cartes se partagent le reste à parts égales */
+.schema-col{grid-template-rows:auto}
+@media (min-width:1000px){
+  .schema-col--entree .schema-legende{justify-content:flex-start;flex-direction:row-reverse}
+}
 
 .noeud{
   position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;align-items:center;
-  padding:1rem 1.15rem;border-radius:16px;
-  background:var(--noir);box-shadow:inset 0 0 0 1px var(--filet);
-  transition:box-shadow .35s var(--ease),transform .45s var(--expo),background-color .35s var(--ease);
+  padding:1.05rem 1.2rem;border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 1px 0 rgba(255,255,255,.06),0 20px 40px -30px rgba(0,0,0,.9);
+  transition:box-shadow .35s var(--ease),transform .45s var(--expo),background .35s var(--ease);
 }
-.noeud:hover,.noeud:focus-within{box-shadow:inset 0 0 0 1px var(--vert-clair);background:var(--surface-2)}
+.noeud:has(a){grid-template-columns:auto minmax(0,1fr) auto}
+.noeud:hover,.noeud.actif{
+  background:linear-gradient(180deg,rgba(169,196,159,.1),rgba(169,196,159,.03));
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.55),0 24px 50px -30px rgba(169,196,159,.35);
+}
 @media (min-width:1000px){
   .schema-col--entree .noeud:hover{transform:translateX(4px)}
   .schema-col--sortie .noeud:hover{transform:translateX(-4px)}
 }
+.noeud:focus-within{outline:2px solid var(--vert-clair);outline-offset:3px}
+.noeud a:focus-visible{outline:none}
+
 .noeud-ico{
-  display:grid;place-items:center;width:42px;height:42px;border-radius:12px;
-  background:rgba(169,196,159,.12);color:var(--vert-clair);
+  display:grid;place-items:center;width:44px;height:44px;border-radius:13px;
+  background:linear-gradient(145deg,#4c6449,#2a3829);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 6px 14px -8px rgba(0,0,0,.8);
+  color:#dfe8d8;
 }
-.noeud-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.noeud h3{font-size:1.02rem;font-weight:500;letter-spacing:-.02em;line-height:1.25}
-.noeud h3 a{color:var(--blanc);text-decoration:none}
-/* toute la carte est cliquable quand elle mène à une page */
-.noeud h3 a::after{content:"";position:absolute;inset:0;border-radius:16px}
-.noeud:has(a){grid-template-columns:auto minmax(0,1fr) auto}
+.noeud-ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.noeud h3{font-size:1.02rem;font-weight:500;letter-spacing:-.02em;line-height:1.25;color:var(--blanc)}
+.noeud h3 a{color:inherit;text-decoration:none}
+.noeud h3 a::after{content:"";position:absolute;inset:0;border-radius:18px}   /* toute la carte est cliquable */
+.noeud p{margin-top:.25rem;font-size:.88rem;line-height:1.4;color:var(--texte-faible)}
+
+/* pastille flèche des cartes qui mènent à une page */
 .noeud:has(a)::after{
-  content:"→";color:var(--vert-clair);font-size:1.05rem;
+  content:"";width:30px;height:30px;border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.35);
+  transition:transform .35s var(--expo),background-color .35s var(--ease),box-shadow .35s var(--ease);
+}
+.noeud:has(a)::before{
+  content:"";position:absolute;right:calc(1.2rem + 11px);top:50%;width:5px;height:5px;margin-top:-3px;
+  border-top:1.5px solid var(--vert-clair);border-right:1.5px solid var(--vert-clair);transform:rotate(45deg);
   transition:transform .35s var(--expo);
 }
-.noeud:has(a):hover::after{transform:translateX(3px)}
-.noeud a:focus-visible{outline:none}
-.noeud:focus-within{outline:2px solid var(--vert-clair);outline-offset:3px}
-.noeud p{margin-top:.2rem;font-size:.9rem;line-height:1.4;color:var(--texte-faible)}
+.noeud:has(a):hover::after{background-color:rgba(169,196,159,.14);box-shadow:inset 0 0 0 1px var(--vert-clair)}
+.noeud:has(a):hover::before{transform:translateX(2px) rotate(45deg)}
 
-/* le centre */
+/* ---------- le centre ---------- */
 .schema-coeur{position:relative;z-index:1;display:grid;place-items:center}
 .moyeu{
-  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;
-  width:min(100%,230px);aspect-ratio:1;border-radius:50%;padding:1.5rem;text-align:center;
-  background:radial-gradient(circle at 50% 35%,var(--vert) 0%,#1d281c 70%);
-  box-shadow:inset 0 0 0 1px rgba(169,196,159,.45),0 0 0 10px rgba(169,196,159,.05),0 30px 80px -30px rgba(169,196,159,.35);
+  position:relative;display:grid;place-items:center;
+  width:min(100%,260px);aspect-ratio:1;border-radius:50%;
   color:var(--blanc);text-decoration:none;
+}
+.moyeu-anneau{position:absolute;inset:0;width:100%;height:100%;animation:tourne 60s linear infinite}
+.moyeu-anneau circle{fill:none;stroke:rgba(169,196,159,.4);stroke-width:.35;stroke-dasharray:.6 2.4;stroke-linecap:round}
+@keyframes tourne{to{transform:rotate(360deg)}}
+.moyeu-disque{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;
+  width:80%;aspect-ratio:1;border-radius:50%;padding:1.4rem;text-align:center;
+  background:
+    radial-gradient(circle at 50% 22%,rgba(255,255,255,.14),transparent 46%),
+    radial-gradient(circle at 50% 40%,#4a6247 0%,#2c3a2b 58%,#1a2219 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(169,196,159,.5),
+    inset 0 -12px 30px rgba(0,0,0,.35),
+    0 0 0 8px rgba(169,196,159,.06),
+    0 30px 80px -20px rgba(169,196,159,.4);
   transition:transform .5s var(--expo),box-shadow .4s var(--ease);
 }
-.moyeu::before{
-  content:"";position:absolute;inset:-14px;border-radius:50%;
-  border:1px solid rgba(169,196,159,.25);
-  animation:onde 3.6s var(--ease) infinite;
-}
-@keyframes onde{0%{transform:scale(.94);opacity:.9}100%{transform:scale(1.14);opacity:0}}
-.moyeu:hover{transform:scale(1.03)}
-.moyeu:focus-visible{outline:2px solid var(--vert-clair);outline-offset:6px}
-.moyeu-logo{width:44px;color:var(--vert-clair);margin-bottom:.3rem}
-.moyeu b{font-size:1.12rem;font-weight:500;letter-spacing:-.03em;line-height:1.2}
-.moyeu small{font-size:.78rem;color:rgba(255,255,255,.7)}
+.moyeu:hover .moyeu-disque{transform:scale(1.03)}
+.moyeu:focus-visible{outline:none}
+.moyeu:focus-visible .moyeu-disque{outline:2px solid var(--vert-clair);outline-offset:6px}
+.moyeu-logo{width:46px;color:#dfe8d8;margin-bottom:.25rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.moyeu b{font-size:1.1rem;font-weight:500;letter-spacing:-.03em;line-height:1.2}
+.moyeu small{font-size:.76rem;color:rgba(255,255,255,.72)}
 
-/* téléphone et tablette : centre en tête, puis les deux groupes */
+/* ---------- vos outils (ex-section 05) ---------- */
+.compat{margin-top:clamp(2.5rem,6vh,3.5rem);text-align:center}
+.compat-titre{color:var(--texte);font-size:1rem}
+.compat-titre b{color:var(--blanc);font-weight:500}
+.compat-liste{list-style:none;margin:1.1rem auto 0;padding:0;max-width:860px;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.compat-liste li{
+  padding:.45rem .95rem;border-radius:99px;font-size:.86rem;color:var(--blanc);
+  box-shadow:inset 0 0 0 1px var(--filet);background:rgba(255,255,255,.02);
+}
+
+/* ---------- téléphone et tablette ---------- */
 @media (max-width:999px){
   .schema-coeur{order:-1}
-  .moyeu{width:190px}
-  .schema-col{padding-left:1.1rem;border-left:1px solid rgba(169,196,159,.25);gap:.6rem}
-  .noeud{padding:.8rem .95rem;gap:.85rem}
-  .noeud-ico{width:36px;height:36px}
+  .moyeu{width:210px}
+  .schema-col{grid-auto-rows:auto;gap:.6rem}
+  .noeud{padding:.85rem 1rem;gap:.85rem}
+  .noeud-ico{width:38px;height:38px;border-radius:11px}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .schema-liens .flux,.moyeu::before{animation:none}
+  .moyeu-anneau{animation:none}
 }
 
 /* ============================================================
@@ -1647,6 +1626,30 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   .barre-cta{display:flex}
   .site-foot{padding-bottom:6rem}
 }
+
+/* bouton avec flèche (relais, avis) */
+.btn-fleche::after{
+  content:"";width:.5em;height:.5em;margin-left:.75em;
+  border-top:1.6px solid currentColor;border-right:1.6px solid currentColor;
+  transform:rotate(45deg);transition:transform .35s var(--expo);
+}
+.btn-fleche:hover::after{transform:translateX(3px) rotate(45deg)}
+
+/* 03 · votre métier : 4 familles, lues d'un coup d'œil */
+.familles{
+  margin-top:clamp(2.5rem,6vh,4rem);
+  display:grid;gap:1px;background:var(--filet);border:1px solid var(--filet);border-radius:20px;overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+}
+.famille{background:var(--surface);padding:clamp(1.4rem,2.6vw,1.9rem);display:flex;flex-direction:column;gap:.7rem}
+.famille-ico{
+  display:grid;place-items:center;width:44px;height:44px;border-radius:13px;margin-bottom:.4rem;
+  background:linear-gradient(145deg,#4c6449,#2a3829);color:#dfe8d8;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16);
+}
+.famille-ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.famille h3{font-size:1.15rem;font-weight:500;letter-spacing:-.025em;line-height:1.2}
+.famille p{font-size:.92rem;line-height:1.5;color:var(--texte-faible)}
 </style>
 </head>
 
@@ -1692,33 +1695,23 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 
 <!-- ============ HÉROS : du besoin à l'outil ============ -->
 <section class="hero" id="top">
-  <div class="hero-plan" aria-hidden="true"><canvas id="plan"></canvas></div>
+  <div class="hero-halo" aria-hidden="true"></div>
 
   <div class="wrap hero-grille">
 
     <div class="hero-texte">
-      <h1 class="pill ent ent-1">Automatisation et logiciel sur mesure à Mulhouse</h1>
+      <h1 class="hero-surtitre ent ent-1">Automatisation et logiciel sur mesure à Mulhouse</h1>
 
-      <p class="titre-hero" id="titreHero">
-        <span class="th-ligne ent ent-2">Si vous savez</span>
-        <span class="th-ligne ent ent-2"><span class="decrire" id="decrire">le décrire,</span></span>
-        <span class="th-ligne ent ent-4">nous savons</span>
-        <span class="th-ligne ent ent-4"><span class="construire" id="construire">le construire.</span></span>
-      </p>
+      <p class="titre-hero ent ent-2">Si vous savez le décrire, nous savons <span>le construire.</span></p>
 
-      <p class="lead hero-lead ent ent-5">
+      <p class="lead hero-lead ent ent-3">
         Applications métier, automatisations et IA pour les TPE et PME du Haut-Rhin.
       </p>
 
-      <div class="hero-cta ent ent-6">
-        <a class="btn btn-plein btn-fleche" href="#contact">Décrire mon besoin</a>
-        <a class="btn btn-creux" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 min</a>
+      <div class="hero-cta ent ent-4">
+        <a class="btn btn-plein" href="#contact">Décrire mon besoin</a>
+        <a class="hero-lien" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">ou réserver un appel de 15 min</a>
       </div>
-
-      <p class="hero-meta ent ent-7">
-        <a href="https://share.google/Z1kICVkc8RkIBGOQ2" target="_blank" rel="noopener"><span class="etoiles" aria-hidden="true">★★★★★</span> Avis Google</a>
-        <span>Devis gratuit sous 24 h</span>
-      </p>
     </div>
 
     <!-- L'atelier : une phrase de dirigeant devient un outil, sous vos yeux.
@@ -1795,13 +1788,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   </div>
 </section>
 
-<!-- ============ BANDEAU ============ -->
-<div class="bandeau" aria-label="Secteurs déjà équipés">
-  <div class="bandeau-piste" id="piste">
-    <span>Cabinet d'avocats</span><span>Expertise comptable</span><span>Notariat</span><span>Courtage et assurance</span><span>Cabinet médical</span><span>Architecte</span><span>Bureau d'études</span><span>Agence immobilière</span><span>Transport et logistique</span><span>Terrassement</span><span>Travaux agricoles</span><span>Artisanat du bâtiment</span><span>Commerce et restauration</span><span>Sécurité et prévention</span><span>Gestion de patrimoine</span><span>Associations</span>
-  </div>
-</div>
-
 <!-- ============ 01 · LE CONSTAT : la double saisie, racontée au défilement ============ -->
 <section class="section constat" id="constat">
   <div class="constat-piste" id="constatPiste">
@@ -1836,36 +1822,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   </div>
 </section>
 
-<!-- ============ VIDÉO ============ -->
-<section class="section" id="video">
-  <div class="wrap video-grille">
-
-    <div class="video-texte reveal">
-      <p class="pill pill--creux">En 45 secondes</p>
-      <h2 class="titre-l" style="margin-top:1.6rem">Ce que ça change, concrètement.</h2>
-      <p class="lead">
-        De la demande du client jusqu'au règlement de la facture :
-        voici comment nous relions tout.
-      </p>
-      <ul class="video-points">
-        <li>Vos fichiers Excel réunis dans un seul écran</li>
-        <li>Les relances qui partent seules, au bon moment</li>
-        <li>Le bon rempli sur le terrain, signé au doigt</li>
-      </ul>
-      <a class="btn btn-plein" href="#contact">Décrire mon besoin</a>
-    </div>
-
-    <div class="telephone reveal">
-      <video id="pubVideo" src="/pub-sl-agence.mp4" poster="/pub-sl-agence.jpg" preload="none" playsinline width="720" height="1280" aria-label="Vidéo de présentation de SL Agence"></video>
-      <button class="lecture" id="pubLecture" type="button" aria-label="Lire la vidéo (avec le son)">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
-      </button>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 02 · CE QUE NOUS FAISONS : un schéma, lu en 5 secondes ============ -->
+<!-- ============ 02 · CE QUE NOUS FAISONS : un schéma, lu en 5 secondes (+ vos outils, ex-section 05) ============ -->
 <section class="section section--surface" id="domaines">
   <div class="wrap">
 
@@ -1900,9 +1857,12 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 
       <div class="schema-coeur">
         <a class="moyeu" href="/logiciel-sur-mesure">
-          <span class="moyeu-logo logo-mark" aria-hidden="true"></span>
-          <b>Votre logiciel sur mesure</b>
-          <small>relié à vos outils actuels</small>
+          <svg class="moyeu-anneau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48.5"/></svg>
+          <span class="moyeu-disque">
+            <span class="moyeu-logo logo-mark" aria-hidden="true"></span>
+            <b>Votre logiciel sur mesure</b>
+            <small>relié à vos outils actuels</small>
+          </span>
         </a>
       </div>
 
@@ -1925,6 +1885,14 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
           <div><h3>Liaison entre vos logiciels</h3><p>Compta, paie, agenda : vos outils se parlent.</p></div>
         </article>
       </div>
+    </div>
+
+    <div class="compat reveal">
+      <p class="compat-titre"><b>Rien à jeter.</b> L'outil se branche sur ce que vous utilisez déjà :</p>
+      <ul class="compat-liste">
+        <li>Excel</li><li>Outlook</li><li>Gmail</li><li>Google Agenda</li><li>Microsoft 365</li><li>WhatsApp</li>
+        <li>Sage</li><li>EBP</li><li>Cegid</li><li>Pennylane</li><li>Logiciels de paie</li><li>Caisses</li>
+      </ul>
     </div>
 
     <div class="relais reveal">
@@ -1964,95 +1932,44 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   </div>
 </section>
 
-<!-- ============ 04 · VOTRE MÉTIER ============ -->
+<!-- ============ 03 · POUR QUI : les métiers, rangés en 4 familles (remplace les bulles flottantes et le bandeau) ============ -->
 <section class="section section--surface" id="metiers">
-  <div class="wrap">
-    <div class="metiers" id="jetons">
-
-      <!-- Le porteur dérive au défilement (JS), la bulle flotte dedans (CSS).
-           Durées et amplitudes toutes différentes : synchronisées, elles
-           auraient l'air mécaniques au lieu de flotter. -->
-      <span class="porteur" data-depth=".22" style="--x:1%;--y:12%"><span class="jeton" style="--dur:8.4s;--del:-1.2s;--dx:7px;--dy:-11px;--rot:1.1deg">Plomberie</span></span>
-      <span class="porteur" data-depth=".30" style="--x:6%;--y:26%"><span class="jeton" style="--dur:10.6s;--del:-4.1s;--dx:-9px;--dy:-8px;--rot:-1.4deg">Électricité</span></span>
-      <span class="porteur" data-depth=".16" style="--x:0%;--y:40%"><span class="jeton" style="--dur:7.2s;--del:-2.7s;--dx:6px;--dy:9px;--rot:1.6deg">Notariat</span></span>
-      <span class="porteur" data-depth=".36" style="--x:4%;--y:54%"><span class="jeton" style="--dur:11.8s;--del:-0.5s;--dx:-7px;--dy:-12px;--rot:-0.9deg">Maçonnerie</span></span>
-      <span class="porteur" data-depth=".24" style="--x:9%;--y:68%"><span class="jeton" style="--dur:9.3s;--del:-5.4s;--dx:8px;--dy:7px;--rot:1.3deg">Cabinet médical</span></span>
-      <span class="porteur" data-depth=".18" style="--x:2%;--y:82%"><span class="jeton" style="--dur:12.5s;--del:-3.3s;--dx:-6px;--dy:-9px;--rot:-1.5deg">Transport</span></span>
-
-      <span class="porteur" data-depth=".28" style="--x:78%;--y:14%"><span class="jeton" style="--dur:9.9s;--del:-2.1s;--dx:-8px;--dy:10px;--rot:-1.2deg">Garage</span></span>
-      <span class="porteur" data-depth=".20" style="--x:83%;--y:28%"><span class="jeton" style="--dur:7.8s;--del:-6.2s;--dx:7px;--dy:-10px;--rot:1.5deg">Avocats</span></span>
-      <span class="porteur" data-depth=".38" style="--x:76%;--y:42%"><span class="jeton" style="--dur:11.2s;--del:-1.8s;--dx:-9px;--dy:8px;--rot:-1.1deg">Restauration</span></span>
-      <span class="porteur" data-depth=".14" style="--x:81%;--y:56%"><span class="jeton" style="--dur:8.7s;--del:-4.8s;--dx:6px;--dy:-11px;--rot:1.4deg">Immobilier</span></span>
-      <span class="porteur" data-depth=".32" style="--x:74%;--y:70%"><span class="jeton" style="--dur:13.1s;--del:-0.9s;--dx:-7px;--dy:-7px;--rot:-1.6deg">Comptabilité</span></span>
-      <span class="porteur" data-depth=".26" style="--x:80%;--y:81%"><span class="jeton" style="--dur:10.1s;--del:-3.7s;--dx:8px;--dy:9px;--rot:1.2deg">Associations</span></span>
-
-      <div class="metiers-coeur reveal">
-        <p class="pill">04 — Votre métier</p>
-        <h2 class="titre-l" style="margin-top:1.6rem">Le vôtre n'y est pas ? Il y entre.</h2>
-        <p class="lead">Décrivez-nous une journée type. Quinze minutes suffisent.</p>
-        <a class="btn btn-plein" href="#contact">Nous appeler</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ VOS OUTILS ============ -->
-<section class="section" id="outils">
   <div class="wrap">
 
     <div class="entete reveal">
-      <p class="pill">05 — Vos outils</p>
-      <h2 class="titre-l">Nous nous branchons sur ce que vous avez.</h2>
-      <p>Rien à jeter, rien à réapprendre. C'est l'application qui vient s'y raccorder, quels que soient vos logiciels.</p>
+      <p class="pill">03 — Votre métier</p>
+      <h2 class="titre-l">Pour les artisans, cabinets et PME du <span style="white-space:nowrap">Haut-Rhin</span>.</h2>
+      <p>Indépendants, TPE, PME et associations, de Mulhouse à Colmar.</p>
     </div>
 
-    <div class="outils reveal casc">
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path d="M12 2.4 13.9 8.1 19.6 10 13.9 11.9 12 17.6 10.1 11.9 4.4 10 10.1 8.1Z" fill="#3c4f3b"/><path d="M18.4 15.2 19.3 17.8 21.9 18.7 19.3 19.6 18.4 22.2 17.5 19.6 14.9 18.7 17.5 17.8Z" fill="#3c4f3b" opacity=".55"/></svg></span><b>Intelligence artificielle</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 74 100" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="google-sheets-mask0_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask0_1:52)"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L56.4365 16.8843L45.398 1.43036Z" fill="#0F9D58"/></g><mask id="google-sheets-mask1_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask1_1:52)"><path d="M18.9054 48.8962V80.908H54.2288V48.8962H18.9054ZM34.3594 76.4926H23.3209V70.9733H34.3594V76.4926ZM34.3594 67.6617H23.3209V62.1424H34.3594V67.6617ZM34.3594 58.8309H23.3209V53.3116H34.3594V58.8309ZM49.8134 76.4926H38.7748V70.9733H49.8134V76.4926ZM49.8134 67.6617H38.7748V62.1424H49.8134V67.6617ZM49.8134 58.8309H38.7748V53.3116H49.8134V58.8309Z" fill="#F1F1F1"/></g><mask id="google-sheets-mask2_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask2_1:52)"><path d="M47.3352 25.9856L71.8905 50.5354V27.9229L47.3352 25.9856Z" fill="url(#google-sheets-paint0_linear_1:52)"/></g><mask id="google-sheets-mask3_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask3_1:52)"><path d="M45.398 1.43036V21.2998C45.398 24.959 48.3618 27.9229 52.0211 27.9229H71.8905L45.398 1.43036Z" fill="#87CEAC"/></g><mask id="google-sheets-mask4_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask4_1:52)"><path d="M7.86688 1.43036C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V8.60542C1.24374 4.9627 4.22415 1.98229 7.86688 1.98229H45.398V1.43036H7.86688Z" fill="white" fill-opacity="0.2"/></g><mask id="google-sheets-mask5_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask5_1:52)"><path d="M65.2674 98.0177H7.86688C4.22415 98.0177 1.24374 95.0373 1.24374 91.3946V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V91.3946C71.8905 95.0373 68.9101 98.0177 65.2674 98.0177Z" fill="#263238" fill-opacity="0.2"/></g><mask id="google-sheets-mask6_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask6_1:52)"><path d="M52.0211 27.9229C48.3618 27.9229 45.398 24.959 45.398 21.2998V21.8517C45.398 25.511 48.3618 28.4748 52.0211 28.4748H71.8905V27.9229H52.0211Z" fill="#263238" fill-opacity="0.1"/></g><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="url(#google-sheets-paint1_radial_1:52)"/><defs><linearGradient id="google-sheets-paint0_linear_1:52" x1="59.6142" y1="28.0935" x2="59.6142" y2="50.5388" gradientUnits="userSpaceOnUse"><stop stop-color="#263238" stop-opacity="0.2"/><stop offset="1" stop-color="#263238" stop-opacity="0.02"/></linearGradient><radialGradient id="google-sheets-paint1_radial_1:52" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(3.48187 3.36121) scale(113.917)"><stop stop-color="white" stop-opacity="0.1"/><stop offset="1" stop-color="white" stop-opacity="0"/></radialGradient></defs></svg></span><b>Tableurs</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 49.4 512 399.42"><g fill="none" fill-rule="evenodd"><g fill-rule="nonzero"><path fill="#4285f4" d="M34.91 448.818h81.454V251L0 163.727V413.91c0 19.287 15.622 34.91 34.91 34.91z"/><path fill="#34a853" d="M395.636 448.818h81.455c19.287 0 34.909-15.622 34.909-34.909V163.727L395.636 251z"/><path fill="#fbbc04" d="M395.636 99.727V251L512 163.727v-46.545c0-43.142-49.25-67.782-83.782-41.891z"/></g><path fill="#ea4335" d="M116.364 251V99.727L256 204.455 395.636 99.727V251L256 355.727z"/><path fill="#c5221f" fill-rule="nonzero" d="M0 117.182v46.545L116.364 251V99.727L83.782 75.291C49.25 49.4 0 74.04 0 117.18z"/></g></svg></span><b>Messagerie</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#google-calendar-clip0_5072_3766)"><path d="M390.736 121.264H121.264V390.736H390.736V121.264Z" fill="white"/><path d="M390.736 512L512 390.736L451.368 380.392L390.736 390.736L379.67 446.196L390.736 512Z" fill="#EA4335"/><path d="M0 390.736V471.578C0 493.912 18.088 512 40.42 512H121.264L133.714 451.368L121.264 390.736L55.198 380.392L0 390.736Z" fill="#188038"/><path d="M512 121.264V40.42C512 18.088 493.912 0 471.58 0H390.736C383.36 30.072 379.671 52.2027 379.67 66.392C379.67 80.58 383.359 98.8707 390.736 121.264C417.556 128.944 437.767 132.784 451.368 132.784C464.969 132.784 485.18 128.945 512 121.264Z" fill="#1967D2"/><path d="M512 121.264H390.736V390.736H512V121.264Z" fill="#FBBC04"/><path d="M390.736 390.736H121.264V512H390.736V390.736Z" fill="#34A853"/><path d="M390.736 0H40.422C18.088 0 0 18.088 0 40.42V390.736H121.264V121.264H390.736V0Z" fill="#4285F4"/><path d="M176.54 330.308C166.468 323.504 159.494 313.568 155.688 300.428L179.066 290.796C181.186 298.88 184.891 305.145 190.182 309.592C195.436 314.038 201.836 316.228 209.314 316.228C216.959 316.228 223.527 313.903 229.018 309.254C234.51 304.606 237.272 298.678 237.272 291.504C237.272 284.16 234.375 278.164 228.582 273.516C222.788 268.868 215.512 266.544 206.822 266.544H193.314V243.404H205.44C212.917 243.404 219.216 241.382 224.336 237.338C229.456 233.298 232.016 227.772 232.016 220.732C232.016 214.468 229.726 209.482 225.146 205.744C220.566 202.004 214.77 200.118 207.73 200.118C200.858 200.118 195.402 201.938 191.36 205.608C187.319 209.289 184.282 213.937 182.534 219.116L159.394 209.482C162.458 200.792 168.084 193.112 176.336 186.476C184.588 179.84 195.132 176.506 207.932 176.506C217.398 176.506 225.92 178.326 233.466 181.996C241.01 185.668 246.938 190.754 251.216 197.222C255.496 203.722 257.616 210.998 257.616 219.082C257.616 227.334 255.63 234.308 251.656 240.034C247.682 245.76 242.796 250.138 237.002 253.204V254.584C244.483 257.669 250.982 262.735 255.798 269.238C260.682 275.806 263.142 283.654 263.142 292.818C263.142 301.978 260.816 310.164 256.168 317.338C251.52 324.514 245.088 330.172 236.934 334.282C228.75 338.392 219.554 340.482 209.348 340.482C197.524 340.514 186.612 337.112 176.54 330.308ZM320.132 214.298L294.466 232.858L281.632 213.39L327.678 180.176H345.328V336.842H320.132V214.298Z" fill="#4285F4"/></g><defs><clipPath id="google-calendar-clip0_5072_3766"><rect width="512" height="512" fill="white"/></clipPath></defs></svg></span><b>Agendas</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128"><path fill="#0061FE" d="M0 0h128v128H0z"/><path fill="#F7F5F2" d="M43.7 32 23.404 44.75 43.701 57.5 64 44.75 84.3 57.5l20.298-12.75L84.299 32 64.002 44.75 43.7 32Zm0 51L23.404 70.25 43.701 57.5 64 70.25 43.702 83Zm20.302-12.75L84.299 57.5l20.298 12.75L84.299 83 64.002 70.25Zm0 29.75L43.7 87.25 64 74.5l20.3 12.75L64.002 100Z"/></svg></span><b>Fichiers</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false"
-  enable-background="new 0 0 2447.6 2452.5"
-  viewBox="0 0 2447.6 2452.5"
-  xmlns="http://www.w3.org/2000/svg"
-><g clip-rule="evenodd" fill-rule="evenodd"><path
-      d="m897.4 0c-135.3.1-244.8 109.9-244.7 245.2-.1 135.3 109.5 245.1 244.8 245.2h244.8v-245.1c.1-135.3-109.5-245.1-244.9-245.3.1 0 .1 0 0 0m0 654h-652.6c-135.3.1-244.9 109.9-244.8 245.2-.2 135.3 109.4 245.1 244.7 245.3h652.7c135.3-.1 244.9-109.9 244.8-245.2.1-135.4-109.5-245.2-244.8-245.3z"
-      fill="#36c5f0"
-    /><path
-      d="m2447.6 899.2c.1-135.3-109.5-245.1-244.8-245.2-135.3.1-244.9 109.9-244.8 245.2v245.3h244.8c135.3-.1 244.9-109.9 244.8-245.3zm-652.7 0v-654c.1-135.2-109.4-245-244.7-245.2-135.3.1-244.9 109.9-244.8 245.2v654c-.2 135.3 109.4 245.1 244.7 245.3 135.3-.1 244.9-109.9 244.8-245.3z"
-      fill="#2eb67d"
-    /><path
-      d="m1550.1 2452.5c135.3-.1 244.9-109.9 244.8-245.2.1-135.3-109.5-245.1-244.8-245.2h-244.8v245.2c-.1 135.2 109.5 245 244.8 245.2zm0-654.1h652.7c135.3-.1 244.9-109.9 244.8-245.2.2-135.3-109.4-245.1-244.7-245.3h-652.7c-135.3.1-244.9 109.9-244.8 245.2-.1 135.4 109.4 245.2 244.7 245.3z"
-      fill="#ecb22e"
-    /><path
-      d="m0 1553.2c-.1 135.3 109.5 245.1 244.8 245.2 135.3-.1 244.9-109.9 244.8-245.2v-245.2h-244.8c-135.3.1-244.9 109.9-244.8 245.2zm652.7 0v654c-.2 135.3 109.4 245.1 244.7 245.3 135.3-.1 244.9-109.9 244.8-245.2v-653.9c.2-135.3-109.4-245.1-244.7-245.3-135.4 0-244.9 109.8-244.8 245.1 0 0 0 .1 0 0"
-      fill="#e01e5a"
-    /></g></svg></span><b>Équipes</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 360 362"><path fill="#25D366" fill-rule="evenodd" d="M307.546 52.566C273.709 18.684 228.706.017 180.756 0 81.951 0 1.538 80.404 1.504 179.235c-.017 31.594 8.242 62.432 23.928 89.609L0 361.736l95.024-24.925c26.179 14.285 55.659 21.805 85.655 21.814h.077c98.788 0 179.21-80.413 179.244-179.244.017-47.898-18.608-92.926-52.454-126.807v-.008Zm-126.79 275.788h-.06c-26.73-.008-52.952-7.194-75.831-20.765l-5.44-3.231-56.391 14.791 15.05-54.981-3.542-5.638c-14.912-23.721-22.793-51.139-22.776-79.286.035-82.14 66.867-148.973 149.051-148.973 39.793.017 77.198 15.53 105.328 43.695 28.131 28.157 43.61 65.596 43.593 105.398-.035 82.149-66.867 148.982-148.982 148.982v.008Zm81.719-111.577c-4.478-2.243-26.497-13.073-30.606-14.568-4.108-1.496-7.09-2.243-10.073 2.243-2.982 4.487-11.568 14.577-14.181 17.559-2.613 2.991-5.226 3.361-9.704 1.117-4.477-2.243-18.908-6.97-36.02-22.226-13.313-11.878-22.304-26.54-24.916-31.027-2.613-4.486-.275-6.91 1.959-9.136 2.011-2.011 4.478-5.234 6.721-7.847 2.244-2.613 2.983-4.486 4.478-7.469 1.496-2.991.748-5.603-.369-7.847-1.118-2.243-10.073-24.289-13.812-33.253-3.636-8.732-7.331-7.546-10.073-7.692-2.613-.13-5.595-.155-8.586-.155-2.991 0-7.839 1.118-11.947 5.604-4.108 4.486-15.677 15.324-15.677 37.361s16.047 43.344 18.29 46.335c2.243 2.991 31.585 48.225 76.51 67.632 10.684 4.615 19.029 7.374 25.535 9.437 10.727 3.412 20.49 2.931 28.208 1.779 8.604-1.289 26.498-10.838 30.228-21.298 3.73-10.46 3.73-19.433 2.613-21.298-1.117-1.865-4.108-2.991-8.586-5.234l.008-.017Z" clip-rule="evenodd"/></svg></span><b>Contact client</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="100 100 312 312"><path fill="#533afd" fill-rule="evenodd" d="m120 392 272-57.683V120l-272 58.357z" clip-rule="evenodd"/></svg></span><b>Paiement</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 256 292" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357-1.055-.088-23.383-1.743-23.383-1.743s-15.507-15.395-17.209-17.099c-1.703-1.703-5.029-1.185-6.32-.805-.19.056-3.388 1.043-8.678 2.68-5.18-14.906-14.322-28.604-30.405-28.604-.444 0-.901.018-1.358.044C129.31 3.407 123.644.779 118.75.779c-37.465 0-55.364 46.835-60.976 70.635-14.558 4.511-24.9 7.718-26.221 8.133-8.126 2.549-8.383 2.805-9.45 10.462C21.3 95.806.038 260.235.038 260.235l165.678 31.042 89.77-19.42S223.973 58.8 223.775 57.34zM156.49 40.848l-14.019 4.339c.005-.988.01-1.96.01-3.023 0-9.264-1.286-16.723-3.349-22.636 8.287 1.04 13.806 10.469 17.358 21.32zm-27.638-19.483c2.304 5.773 3.802 14.058 3.802 25.238 0 .572-.005 1.095-.01 1.624-9.117 2.824-19.024 5.89-28.953 8.966 5.575-21.516 16.025-31.908 25.161-35.828zm-11.131-10.537c1.617 0 3.246.549 4.805 1.622-12.007 5.65-24.877 19.88-30.312 48.297l-22.886 7.088C75.694 46.16 90.81 10.828 117.72 10.828z" fill="#95BF46"/><path d="M221.237 54.983c-1.055-.088-23.383-1.743-23.383-1.743s-15.507-15.395-17.209-17.099c-.637-.634-1.496-.959-2.394-1.099l-12.527 256.233 89.762-19.418S223.972 58.8 223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357" fill="#5E8E3E"/><path d="M135.242 104.585l-11.069 32.926s-9.698-5.176-21.586-5.176c-17.428 0-18.305 10.937-18.305 13.693 0 15.038 39.2 20.8 39.2 56.024 0 27.713-17.577 45.558-41.277 45.558-28.44 0-42.984-17.7-42.984-17.7l7.615-25.16s14.95 12.835 27.565 12.835c8.243 0 11.596-6.49 11.596-11.232 0-19.616-32.16-20.491-32.16-52.724 0-27.129 19.472-53.382 58.778-53.382 15.145 0 22.627 4.338 22.627 4.338" fill="#FFF"/></svg></span><b>Boutique</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 268"><path fill="#FFF" d="M16.092 11.538 164.09.608c18.179-1.56 22.85-.508 34.28 7.801l47.243 33.282C253.406 47.414 256 48.975 256 55.207v182.527c0 11.439-4.155 18.205-18.696 19.24L65.44 267.378c-10.913.517-16.11-1.043-21.825-8.327L8.826 213.814C2.586 205.487 0 199.254 0 191.97V29.726c0-9.352 4.155-17.153 16.092-18.188Z"/><path d="M164.09.608 16.092 11.538C4.155 12.573 0 20.374 0 29.726v162.245c0 7.284 2.585 13.516 8.826 21.843l34.789 45.237c5.715 7.284 10.912 8.844 21.825 8.327l171.864-10.404c14.532-1.035 18.696-7.801 18.696-19.24V55.207c0-5.911-2.336-7.614-9.21-12.66l-1.185-.856L198.37 8.409C186.94.1 182.27-.952 164.09.608ZM69.327 52.22c-14.033.945-17.216 1.159-25.186-5.323L23.876 30.778c-2.06-2.086-1.026-4.69 4.163-5.207l142.274-10.395c11.947-1.043 18.17 3.12 22.842 6.758l24.401 17.68c1.043.525 3.638 3.637.517 3.637L71.146 52.095l-1.819.125Zm-16.36 183.954V81.222c0-6.767 2.077-9.887 8.3-10.413L230.02 60.93c5.724-.517 8.31 3.12 8.31 9.879v153.917c0 6.767-1.044 12.49-10.387 13.008l-161.487 9.361c-9.343.517-13.489-2.594-13.489-10.921ZM212.377 89.53c1.034 4.681 0 9.362-4.681 9.897l-7.783 1.542v114.404c-6.758 3.637-12.981 5.715-18.18 5.715-8.308 0-10.386-2.604-16.609-10.396l-50.898-80.079v77.476l16.1 3.646s0 9.362-12.989 9.362l-35.814 2.077c-1.043-2.086 0-7.284 3.63-8.318l9.351-2.595V109.823l-12.98-1.052c-1.044-4.68 1.55-11.439 8.826-11.965l38.426-2.585 52.958 81.113v-71.76l-13.498-1.552c-1.043-5.733 3.111-9.896 8.3-10.404l35.84-2.087Z"/></svg></span><b>Documentation</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><defs><linearGradient id="telegram-a" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#2AABEE"/><stop offset="100%" stop-color="#229ED9"/></linearGradient></defs><path fill="url(#telegram-a)" d="M128 0C94.06 0 61.48 13.494 37.5 37.49A128.038 128.038 0 0 0 0 128c0 33.934 13.5 66.514 37.5 90.51C61.48 242.506 94.06 256 128 256s66.52-13.494 90.5-37.49c24-23.996 37.5-56.576 37.5-90.51 0-33.934-13.5-66.514-37.5-90.51C194.52 13.494 161.94 0 128 0Z"/><path fill="#FFF" d="M57.94 126.648c37.32-16.256 62.2-26.974 74.64-32.152 35.56-14.786 42.94-17.354 47.76-17.441 1.06-.017 3.42.245 4.96 1.49 1.28 1.05 1.64 2.47 1.82 3.467.16.996.38 3.266.2 5.038-1.92 20.24-10.26 69.356-14.5 92.026-1.78 9.592-5.32 12.808-8.74 13.122-7.44.684-13.08-4.912-20.28-9.63-11.26-7.386-17.62-11.982-28.56-19.188-12.64-8.328-4.44-12.906 2.76-20.386 1.88-1.958 34.64-31.748 35.26-34.45.08-.338.16-1.598-.6-2.262-.74-.666-1.84-.438-2.64-.258-1.14.256-19.12 12.152-54 35.686-5.1 3.508-9.72 5.218-13.88 5.128-4.56-.098-13.36-2.584-19.9-4.708-8-2.606-14.38-3.984-13.82-8.41.28-2.304 3.46-4.662 9.52-7.072Z"/></svg></span><b>Alertes</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.3 78"><path fill="#0066da" d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 53H0c0 1.55.4 3.1 1.2 4.5z"/><path fill="#00ac47" d="M43.65 25 29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44A9.06 9.06 0 0 0 0 53h27.5z"/><path fill="#ea4335" d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75L86.1 57.5c.8-1.4 1.2-2.95 1.2-4.5H59.798l5.852 11.5z"/><path fill="#00832d" d="M43.65 25 57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z"/><path fill="#2684fc" d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z"/><path fill="#ffba00" d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 59.8 53h27.45c0-1.55-.4-3.1-1.2-4.5z"/></svg></span><b>Stockage</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="4 4 36 38"><path fill="url(#microsoft-teams-a)" d="M22 20h12a6 6 0 0 1 6 6v10a6 6 0 0 1-12 0V26a6 6 0 0 0-6-6Z"/><path fill="url(#microsoft-teams-b)" d="M8 24a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v12a6 6 0 0 0 6 6H18c-5.523 0-10-4.477-10-10v-8Z"/><path fill="url(#microsoft-teams-c)" fill-opacity=".7" d="M8 24a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v12a6 6 0 0 0 6 6H18c-5.523 0-10-4.477-10-10v-8Z"/><path fill="url(#microsoft-teams-d)" fill-opacity=".7" d="M8 24a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v12a6 6 0 0 0 6 6H18c-5.523 0-10-4.477-10-10v-8Z"/><path fill="url(#microsoft-teams-e)" d="M33 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path fill="url(#microsoft-teams-f)" fill-opacity=".46" d="M33 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path fill="url(#microsoft-teams-g)" fill-opacity=".4" d="M33 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path fill="url(#microsoft-teams-h)" d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path fill="url(#microsoft-teams-i)" fill-opacity=".6" d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path fill="url(#microsoft-teams-j)" fill-opacity=".5" d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><rect x="4" y="23" fill="url(#microsoft-teams-k)" rx="3.25"/><rect width="16" height="16" x="4" y="23" fill="url(#microsoft-teams-l)" fill-opacity=".7" rx="3.25"/><path fill="#fff" d="M15.48 28.105h-2.448v7.466h-2.065v-7.466H8.52V26.43h6.96v1.676Z"/><defs><radialGradient id="microsoft-teams-a" cx="0" cy="0" r="1" gradientTransform="matrix(13.4784 0 0 33.2694 39.797 22.174)" gradientUnits="userSpaceOnUse"><stop stop-color="#A98AFF"/><stop offset=".14" stop-color="#8C75FF"/><stop offset=".565" stop-color="#5F50E2"/><stop offset=".9" stop-color="#3C2CB8"/></radialGradient><radialGradient id="microsoft-teams-b" cx="0" cy="0" r="1" gradientTransform="matrix(12.1875 30.39997 -30.74442 12.3256 8.812 16.4)" gradientUnits="userSpaceOnUse"><stop stop-color="#85C2FF"/><stop offset=".69" stop-color="#7588FF"/><stop offset="1" stop-color="#6459FE"/></radialGradient><radialGradient id="microsoft-teams-d" cx="0" cy="0" r="1" gradientTransform="rotate(113.326 8.093 17.645) scale(19.2186 15.4273)" gradientUnits="userSpaceOnUse"><stop stop-color="#BD96FF"/><stop offset=".687" stop-color="#BD96FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-e" cx="0" cy="0" r="1" gradientTransform="matrix(0 -10 12.6216 0 33 11.571)" gradientUnits="userSpaceOnUse"><stop offset=".268" stop-color="#6868F7"/><stop offset="1" stop-color="#3923B1"/></radialGradient><radialGradient id="microsoft-teams-f" cx="0" cy="0" r="1" gradientTransform="matrix(5.47024 4.59847 -6.65117 7.91208 28.867 10.544)" gradientUnits="userSpaceOnUse"><stop offset=".271" stop-color="#A1D3FF"/><stop offset=".813" stop-color="#A1D3FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-g" cx="0" cy="0" r="1" gradientTransform="rotate(-41.658 32.118 -43.42) scale(8.51275 20.8824)" gradientUnits="userSpaceOnUse"><stop stop-color="#E3ACFD"/><stop offset=".816" stop-color="#9FA2FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-h" cx="0" cy="0" r="1" gradientTransform="matrix(0 -12 15.146 0 18 8.286)" gradientUnits="userSpaceOnUse"><stop offset=".268" stop-color="#8282FF"/><stop offset="1" stop-color="#3923B1"/></radialGradient><radialGradient id="microsoft-teams-i" cx="0" cy="0" r="1" gradientTransform="rotate(40.052 -3.155 21.416) scale(8.57554 12.4035)" gradientUnits="userSpaceOnUse"><stop offset=".271" stop-color="#A1D3FF"/><stop offset=".813" stop-color="#A1D3FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-j" cx="0" cy="0" r="1" gradientTransform="rotate(-41.658 20.382 -26.516) scale(10.2153 25.0589)" gradientUnits="userSpaceOnUse"><stop stop-color="#E3ACFD"/><stop offset=".816" stop-color="#9FA2FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-k" cx="0" cy="0" r="1" gradientTransform="rotate(45 -25.763 16.328) scale(22.6274)" gradientUnits="userSpaceOnUse"><stop offset=".047" stop-color="#688EFF"/><stop offset=".947" stop-color="#230F94"/></radialGradient><radialGradient id="microsoft-teams-l" cx="0" cy="0" r="1" gradientTransform="matrix(0 11.2 -13.0702 0 12 32.6)" gradientUnits="userSpaceOnUse"><stop offset=".571" stop-color="#6965F6" stop-opacity="0"/><stop offset="1" stop-color="#8F8FFF"/></radialGradient><linearGradient id="microsoft-teams-c" x1="20.594" x2="20.594" y1="18" y2="42" gradientUnits="userSpaceOnUse"><stop offset=".801" stop-color="#6864F6" stop-opacity="0"/><stop offset="1" stop-color="#5149DE"/></linearGradient></defs></svg></span><b>Visioconférence</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256"><defs><linearGradient id="zoom-a" x1="23.666%" x2="76.334%" y1="95.6118%" y2="4.3882%"><stop offset=".00006%" stop-color="#0845BF"/><stop offset="19.11%" stop-color="#0950DE"/><stop offset="38.23%" stop-color="#0B59F6"/><stop offset="50%" stop-color="#0B5CFF"/><stop offset="67.32%" stop-color="#0E5EFE"/><stop offset="77.74%" stop-color="#1665FC"/><stop offset="86.33%" stop-color="#246FF9"/><stop offset="93.88%" stop-color="#387FF4"/><stop offset="100%" stop-color="#4F90EE"/></linearGradient></defs><path fill="url(#zoom-a)" d="M256 128c0 13.568-1.024 27.136-3.328 40.192-6.912 43.264-41.216 77.568-84.48 84.48C155.136 254.976 141.568 256 128 256c-13.568 0-27.136-1.024-40.192-3.328-43.264-6.912-77.568-41.216-84.48-84.48C1.024 155.136 0 141.568 0 128c0-13.568 1.024-27.136 3.328-40.192 6.912-43.264 41.216-77.568 84.48-84.48C100.864 1.024 114.432 0 128 0c13.568 0 27.136 1.024 40.192 3.328 43.264 6.912 77.568 41.216 84.48 84.48C254.976 100.864 256 114.432 256 128Z"/><path fill="#FFF" d="M204.032 207.872H75.008c-8.448 0-16.64-4.608-20.48-12.032-4.608-8.704-2.816-19.2 4.096-26.112l89.856-89.856H83.968c-17.664 0-32-14.336-32-32h118.784c8.448 0 16.64 4.608 20.48 12.032 4.608 8.704 2.816 19.2-4.096 26.112l-89.6 90.112h74.496c17.664 0 32 14.08 32 31.744Z"/></svg></span><b>Réunions</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 122.52 122.523" xmlns="http://www.w3.org/2000/svg"><g fill="#21759b"><path d="m8.708 61.26c0 20.802 12.089 38.779 29.619 47.298l-25.069-68.686c-2.916 6.536-4.55 13.769-4.55 21.388z"/><path d="m96.74 58.608c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501l19.138 56.925 11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989z"/><path d="m62.184 65.857-15.768 45.819c4.708 1.384 9.687 2.141 14.846 2.141 6.12 0 11.989-1.058 17.452-2.979-.141-.225-.269-.464-.374-.724z"/><path d="m107.376 36.046c.226 1.674.354 3.471.354 5.404 0 5.333-.996 11.328-3.996 18.824l-16.053 46.413c15.624-9.111 26.133-26.038 26.133-45.426.001-9.137-2.333-17.729-6.438-25.215z"/><path d="m61.262 0c-33.779 0-61.262 27.481-61.262 61.26 0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263-.001-33.779-27.487-61.26-61.265-61.26zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z"/></g></svg></span><b>Site internet</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="7.056000232696533 3 37.35095977783203 45"><g xmlns="http://www.w3.org/2000/svg"><path fill="#002991" d="M38.914 13.35c0 5.574-5.144 12.15-12.927 12.15H18.49l-.368 2.322L16.373 39H7.056l5.605-36h15.095c5.083 0 9.082 2.833 10.555 6.77a9.687 9.687 0 0 1 .603 3.58z"></path><path fill="#60CDFF" d="M44.284 23.7A12.894 12.894 0 0 1 31.53 34.5h-5.206L24.157 48H14.89l1.483-9 1.75-11.178.367-2.322h7.497c7.773 0 12.927-6.576 12.927-12.15 3.825 1.974 6.055 5.963 5.37 10.35z"></path><path fill="#008CFF" d="M38.914 13.35C37.31 12.511 35.365 12 33.248 12h-12.64L18.49 25.5h7.497c7.773 0 12.927-6.576 12.927-12.15z"></path></g></svg></span><b>Encaissement</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256"><path d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453" fill="#0A66C2"/></svg></span><b>Prospection</b></div>
+    <div class="familles reveal casc">
+      <div class="famille">
+        <span class="famille-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V10l6-5 6 5v10"/><path d="M10 20v-5h4v5"/></svg></span>
+        <h3>Bâtiment et terrain</h3>
+        <p>Plomberie, électricité, maçonnerie, terrassement, architectes, bureaux d'études</p>
+      </div>
+      <div class="famille">
+        <span class="famille-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M5 8h14"/><path d="M5 8 2.5 14a3 3 0 0 0 5 0zM19 8l-2.5 6a3 3 0 0 0 5 0zM8 20h8"/></svg></span>
+        <h3>Cabinets et conseil</h3>
+        <p>Avocats, expertise comptable, notariat, courtage et assurance, gestion de patrimoine</p>
+      </div>
+      <div class="famille">
+        <span class="famille-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5M4 9.5h16M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 12v8h13v-8M10 20v-5h4v5"/></svg></span>
+        <h3>Commerce et services</h3>
+        <p>Restauration, commerces, garages, agences immobilières, cabinets médicaux</p>
+      </div>
+      <div class="famille">
+        <span class="famille-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 16V7h11v9M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></span>
+        <h3>Transport, agriculture et associations</h3>
+        <p>Transport et logistique, travaux agricoles, sécurité et prévention, associations</p>
+      </div>
     </div>
 
-    <p class="outils-plus reveal">
-      Excel et Outlook, Microsoft 365, Sage, EBP, Cegid, Pennylane, les logiciels de
-      paie, les CRM, les caisses, les plannings, les logiciels métier de votre secteur :
-      si l'outil sait échanger des données, nous nous y raccordons. Et s'il ne sait pas,
-      il reste presque toujours un export à automatiser.
-    </p>
     <div class="relais reveal">
-      <p><b>Vous ne savez pas si vos logiciels sont compatibles ?</b>Quinze minutes au téléphone suffisent pour le vérifier ensemble.</p>
+      <p><b>Le vôtre n'y est pas ? Il y entre.</b>Décrivez-nous une journée type : 15 minutes suffisent.</p>
       <div class="relais-actions">
-        <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 min</a>
+        <a class="btn btn-plein btn-fleche" href="#contact">Décrire mon besoin</a>
+        <a class="btn btn-creux" href="tel:+33767081943">07 67 08 19 43</a>
       </div>
     </div>
 
@@ -2064,19 +1981,19 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   <div class="wrap">
 
     <div class="entete reveal">
-      <p class="pill">06 — Notre intervention</p>
-      <h2 class="titre-l">Quatre temps, pas un de plus.</h2>
+      <p class="pill">04 — Notre intervention</p>
+      <h2 class="titre-l">4 temps, pas un de plus.</h2>
       <p>Un périmètre écrit, un délai et un prix ferme avant que quoi que ce soit ne commence.</p>
     </div>
 
     <div class="temps reveal casc">
-      <div><i>01</i><h3>Nous vous écoutons</h3><p>Un quart d'heure au téléphone, puis un partage d'écran où vous nous montrez vos bons et vos tableurs.</p></div>
+      <div><i>01</i><h3>Nous vous écoutons</h3><p>15 minutes au téléphone, puis un partage d'écran où vous nous montrez vos bons et vos tableurs.</p></div>
       <div><i>02</i><h3>Nous construisons</h3><p>Un outil utilisable sur le terrain comme derrière un bureau. S'il faut un mode d'emploi, c'est qu'il est raté.</p></div>
       <div><i>03</i><h3>Vos équipes l'essaient</h3><p>Une première version part sur leurs téléphones. Ce sont eux qui disent ce qui coince.</p></div>
       <div><i>04</i><h3>Nous restons</h3><p>L'outil est ajusté au fil du temps. Vous avez quelqu'un qui connaît votre dossier et qui répond.</p></div>
     </div>
     <div class="relais reveal">
-      <p><b>Le temps 01 commence par un appel.</b>Un quart d'heure, sans engagement : vous repartez avec un avis clair.</p>
+      <p><b>Le temps 01 commence par un appel.</b>15 minutes, sans engagement : vous repartez avec un avis clair.</p>
       <div class="relais-actions">
         <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Choisir mon créneau</a>
         <a class="btn btn-creux" href="tel:+33767081943">07 67 08 19 43</a>
@@ -2111,7 +2028,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   <div class="wrap">
 
     <div class="entete reveal">
-      <p class="pill">07 — Ce qu'on nous demande</p>
+      <p class="pill">05 — Ce qu'on nous demande</p>
       <h2 class="titre-l">Questions fréquentes sur l'automatisation et le logiciel sur mesure.</h2>
     </div>
 
@@ -2177,10 +2094,10 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
     <div class="contact-grid">
 
       <div class="reveal">
-        <p class="pill">08 — Parlons-en</p>
+        <p class="pill">06 — Parlons-en</p>
         <h2 class="titre-l" style="margin-top:1.6rem">Ce qui vous fait perdre du temps, nous le faisons disparaître.</h2>
         <p class="lead" style="margin-top:1.5rem;max-width:36ch">
-          Quinze minutes au téléphone suffisent : vous repartez avec un avis clair et une
+          15 minutes au téléphone suffisent : vous repartez avec un avis clair et une
           première piste, même si nous ne travaillons pas ensemble ensuite.
         </p>
 
@@ -2195,7 +2112,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 
       <div class="carte reveal">
         <div id="vueForm">
-          <h3>Écrivez-nous en deux minutes.</h3>
+          <h3>Écrivez-nous en 2 minutes.</h3>
           <p class="intro">Nous revenons vers vous avec une première piste, sans engagement.</p>
 
           <form id="contactForm" novalidate>
@@ -2574,7 +2491,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 </script>
 
 <script>
-/* ============ Héros : titre, atelier, plan millimétré ============ */
+/* ============ Héros : l'atelier (une phrase devient un outil) ============ */
 (function(){
   "use strict";
 
@@ -2582,60 +2499,6 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   var hero = document.querySelector('.hero');
   if(!hero){ return; }
 
-  /* ---- titre : « le décrire » se tape, « le construire » se bâtit ---- */
-
-  var decrire = document.getElementById('decrire');
-  var construire = document.getElementById('construire');
-
-  if(!REDUCE && decrire && construire){
-    var texteD = decrire.textContent;
-    var texteC = construire.textContent;
-    decrire.setAttribute('aria-label', texteD);
-    construire.setAttribute('aria-label', texteC);
-
-    // lettres de « le construire » : chacune avec son rang et une légère rotation
-    construire.innerHTML = '';
-    for(var i = 0; i < texteC.length; i++){
-      var l = document.createElement('span');
-      l.className = 'l';
-      l.setAttribute('aria-hidden', 'true');
-      l.textContent = texteC[i];
-      l.style.setProperty('--i', i);
-      l.style.setProperty('--r', (((i * 37) % 13) - 6) + 'deg');
-      construire.appendChild(l);
-    }
-
-    // « le décrire » : vidé puis tapé, curseur à la fin
-    var zone = document.createElement('span');
-    zone.setAttribute('aria-hidden', 'true');
-    var curseur = document.createElement('span');
-    curseur.className = 'curseur-titre';
-    decrire.textContent = '';
-    decrire.appendChild(zone);
-    decrire.appendChild(curseur);
-
-    var lance = false;
-    var lancer = function(){
-      if(lance){ return; }
-      lance = true;
-      var n = 0;
-      setTimeout(function tape(){
-        n++;
-        zone.textContent = texteD.slice(0, n);
-        if(n < texteD.length){ setTimeout(tape, 62 + Math.random() * 50); }
-        else{
-          decrire.classList.add('fini');
-          setTimeout(function(){ hero.classList.add('bati-titre'); }, 180);
-        }
-      }, 520);
-    };
-    if(hero.classList.contains('play')){ lancer(); }
-    else{
-      new MutationObserver(function(m, o){
-        if(hero.classList.contains('play')){ o.disconnect(); lancer(); }
-      }).observe(hero, {attributes:true, attributeFilter:['class']});
-    }
-  }
 
   /* ---- atelier : la phrase devient un outil ---- */
 
@@ -2718,151 +2581,138 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   // départ : juste après l'entrée du titre
   setTimeout(function(){ montrer(0); }, REDUCE ? 0 : 700);
 
-  /* ---- plan millimétré : la grille s'éclaire doucement sous le pointeur ---- */
-
-  var toile = document.getElementById('plan');
-  if(!toile || !toile.getContext){ return; }
-  var ctx = toile.getContext('2d');
-  var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
-  var PAS = 56;
-  var souris = {x: -999, y: -999, tx: -999, ty: -999};
-  var tourne = true;
-
-  function dimension(){
-    var r = hero.getBoundingClientRect();
-    W = r.width; H = r.height;
-    toile.width = W * DPR; toile.height = H * DPR;
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  }
-
-  function dessiner(t){
-    ctx.clearRect(0, 0, W, H);
-    souris.x += (souris.tx - souris.x) * .08;
-    souris.y += (souris.ty - souris.y) * .08;
-
-    // lignes : plus nettes près du pointeur
-    ctx.lineWidth = 1;
-    for(var x = 0; x <= W; x += PAS){
-      var dx = Math.abs(x - souris.x);
-      var ax = .03 + Math.max(0, 1 - dx / 260) * .08;
-      ctx.strokeStyle = 'rgba(169,196,159,' + ax.toFixed(3) + ')';
-      ctx.beginPath(); ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); ctx.stroke();
-    }
-    for(var y = 0; y <= H; y += PAS){
-      var dy = Math.abs(y - souris.y);
-      var ay = .03 + Math.max(0, 1 - dy / 260) * .08;
-      ctx.strokeStyle = 'rgba(169,196,159,' + ay.toFixed(3) + ')';
-      ctx.beginPath(); ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); ctx.stroke();
-    }
-  }
-
-  function boucle(t){
-    if(!tourne){ return; }
-    dessiner(t);
-    requestAnimationFrame(boucle);
-  }
-
-  dimension();
-  window.addEventListener('resize', function(){ dimension(); if(REDUCE){ dessiner(0); } });
-
-  if(REDUCE){ dessiner(0); return; }
-
-  hero.addEventListener('pointermove', function(e){
-    var r = hero.getBoundingClientRect();
-    souris.tx = e.clientX - r.left; souris.ty = e.clientY - r.top;
-    if(souris.x < -900){ souris.x = souris.tx; souris.y = souris.ty; }
-  });
-  hero.addEventListener('pointerleave', function(){ souris.tx = W * .74; souris.ty = H * .46; });
-  souris.tx = W * .74; souris.ty = H * .46; souris.x = souris.tx; souris.y = souris.ty;
-
-  if(window.IntersectionObserver){
-    new IntersectionObserver(function(e){
-      var avant = tourne;
-      tourne = e[0].isIntersecting;
-      if(tourne && !avant){ requestAnimationFrame(boucle); }
-    }).observe(hero);
-  }
-  requestAnimationFrame(boucle);
 })();
 </script>
 <script>
-/* ============ 01 · Le constat : la double saisie au défilement ============ */
+/* ============ 01 · Le constat : la double saisie, jouée une fois à l'apparition ============ */
 (function(){
   "use strict";
   var piste = document.getElementById('constatPiste');
   var ligne = document.getElementById('ressaisie');
-  if(!piste || !ligne || window.matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
+  if(!piste || !ligne || !window.IntersectionObserver ||
+     window.matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
 
-  var texte = ligne.textContent, attente = false;
+  var texte = ligne.textContent, DUREE = 4200;
   function borne(a, b, p){ return Math.min(1, Math.max(0, (p - a) / (b - a))); }
 
-  function maj(){
-    attente = false;
-    var r = piste.getBoundingClientRect();
-    var p = Math.min(1, Math.max(0, -r.top / (r.height - window.innerHeight)));
-    ligne.textContent = texte.slice(0, Math.round(borne(.1, .42, p) * texte.length));
-    piste.style.setProperty('--d', (1 - borne(.46, .7, p)).toFixed(3));
-    piste.style.setProperty('--l', borne(.64, .8, p).toFixed(3));
-    piste.style.setProperty('--c', borne(.8, .92, p).toFixed(3));
+  function etat(p){
+    ligne.textContent = texte.slice(0, Math.round(borne(.12, .45, p) * texte.length));
+    piste.style.setProperty('--d', (1 - borne(.45, .7, p)).toFixed(3));
+    piste.style.setProperty('--l', borne(.66, .8, p).toFixed(3));
+    piste.style.setProperty('--c', borne(.8, .95, p).toFixed(3));
     piste.classList.toggle('attente', p < .72);
   }
-  function demande(){ if(!attente){ attente = true; requestAnimationFrame(maj); } }
+  etat(0);
 
-  window.addEventListener('scroll', demande, {passive:true});
-  window.addEventListener('resize', demande);
-  maj();
+  new IntersectionObserver(function(e, obs){
+    if(!e[0].isIntersecting){ return; }
+    obs.disconnect();
+    var t0 = null;
+    (function pas(t){
+      if(t0 === null){ t0 = t; }
+      var p = Math.min(1, (t - t0) / DUREE);
+      etat(p);
+      if(p < 1){ requestAnimationFrame(pas); }
+    })(performance.now());
+  }, {threshold:.3}).observe(piste);
 })();
 </script>
 <script>
-/* ============ 02 · Le schéma : traits entre les cartes et le centre ============ */
+/* ============ 02 · Le schéma : traits, ports et lueurs qui circulent ============ */
 (function(){
   "use strict";
   var schema = document.getElementById('schema');
   var svg = document.getElementById('schemaLiens');
   if(!schema || !svg){ return; }
   var NS = 'http://www.w3.org/2000/svg';
-  var noeuds = schema.querySelectorAll('.noeud');
-  var moyeu = schema.querySelector('.moyeu');
+  var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var noeuds = Array.prototype.slice.call(schema.querySelectorAll('.noeud'));
+  var disque = schema.querySelector('.moyeu-disque');
+  var liens = [];   // {trait, lueurs:[g], L, decal}
+
+  function el(nom, attrs){
+    var e = document.createElementNS(NS, nom);
+    for(var k in attrs){ e.setAttribute(k, attrs[k]); }
+    return e;
+  }
 
   function trace(){
     svg.innerHTML = '';
+    liens = [];
     if(window.innerWidth < 1000){ return; }
-    var s = schema.getBoundingClientRect(), m = moyeu.getBoundingClientRect();
-    var cx = m.left - s.left + m.width / 2, cy = m.top - s.top + m.height / 2, R = m.width / 2 + 16;
-    noeuds.forEach(function(n){
+
+    // flou de la lueur
+    var defs = el('defs', {});
+    var f = el('filter', {id:'lueurFlou', x:'-200%', y:'-200%', width:'500%', height:'500%'});
+    f.appendChild(el('feGaussianBlur', {stdDeviation:'2.6'}));
+    defs.appendChild(f);
+    svg.appendChild(defs);
+
+    var s = schema.getBoundingClientRect(), m = disque.getBoundingClientRect();
+    var cx = m.left - s.left + m.width / 2, cy = m.top - s.top + m.height / 2, R = m.width / 2;
+
+    noeuds.forEach(function(n, i){
       var r = n.getBoundingClientRect();
       var entree = n.dataset.sens === 'entree';
       var x = entree ? r.right - s.left : r.left - s.left, y = r.top - s.top + r.height / 2;
+      // le trait arrive sur le disque, réparti en éventail sur son bord
       var ang = Math.atan2(y - cy, x - cx);
       var hx = cx + Math.cos(ang) * R, hy = cy + Math.sin(ang) * R;
-      var mx = (x + hx) / 2;
-      // tracé dans le sens de l'information : carte → centre à gauche, centre → carte à droite
+      var k = Math.abs(hx - x) * .55;
       var d = entree
-        ? 'M' + x + ',' + y + ' C' + mx + ',' + y + ' ' + mx + ',' + hy + ' ' + hx + ',' + hy
-        : 'M' + hx + ',' + hy + ' C' + mx + ',' + hy + ' ' + mx + ',' + y + ' ' + x + ',' + y;
-      var lien = [];
-      ['fond', 'flux'].forEach(function(c){
-        var p = document.createElementNS(NS, 'path');
-        p.setAttribute('d', d); p.setAttribute('class', c);
-        svg.appendChild(p); lien.push(p);
-      });
-      n._lien = lien;
+        ? 'M' + x + ',' + y + ' C' + (x + k) + ',' + y + ' ' + (hx - k * .6) + ',' + hy + ' ' + hx + ',' + hy
+        : 'M' + hx + ',' + hy + ' C' + (hx + k * .6) + ',' + hy + ' ' + (x - k) + ',' + y + ' ' + x + ',' + y;
+
+      var trait = el('path', {d:d, 'class':'trait'});
+      svg.appendChild(trait);
+      svg.appendChild(el('circle', {cx:x, cy:y, r:3.5, 'class':'port'}));
+      svg.appendChild(el('circle', {cx:hx, cy:hy, r:2.5, 'class':'port'}));
+
+      var g = el('g', {});
+      g.appendChild(el('circle', {r:4.5, 'class':'lueur'}));
+      g.appendChild(el('circle', {r:1.6, 'class':'lueur-coeur'}));
+      g.style.opacity = 0;
+      svg.appendChild(g);
+
+      liens.push({n:n, trait:trait, g:g, L:trait.getTotalLength(), decal:(i * .37) % 1});
+      n._trait = trait;
     });
+    if(REDUCE){ liens.forEach(function(l){ l.g.style.display = 'none'; }); }
   }
+
+  // les lueurs parcourent chaque trait, en décalé, dans le sens de l'information
+  var visible = false, T = 2600;
+  function boucle(t){
+    if(!visible){ return; }
+    for(var i = 0; i < liens.length; i++){
+      var l = liens[i];
+      var p = ((t / T) + l.decal) % 1;
+      var pt = l.trait.getPointAtLength(l.L * p);
+      l.g.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ',' + pt.y.toFixed(1) + ')');
+      l.g.style.opacity = Math.sin(p * Math.PI).toFixed(2);   // apparaît et s'éteint aux extrémités
+    }
+    requestAnimationFrame(boucle);
+  }
+
   noeuds.forEach(function(n){
-    function bascule(on){ (n._lien || []).forEach(function(p){ p.classList.toggle('actif', on); }); }
+    function bascule(on){ if(n._trait){ n._trait.classList.toggle('actif', on); } }
     n.addEventListener('pointerenter', function(){ bascule(true); });
     n.addEventListener('pointerleave', function(){ bascule(false); });
     n.addEventListener('focusin', function(){ bascule(true); });
     n.addEventListener('focusout', function(){ bascule(false); });
   });
+
   trace();
   window.addEventListener('resize', trace);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(trace); }
-  // les cartes glissent en apparaissant : on retrace une fois l'entrée finie
-  setTimeout(trace, 1500);
+
   if(window.IntersectionObserver){
-    new IntersectionObserver(function(e){ if(e[0].isIntersecting){ setTimeout(trace, 1200); } }).observe(schema);
+    new IntersectionObserver(function(e){
+      var avant = visible;
+      visible = e[0].isIntersecting;
+      if(visible){ setTimeout(trace, 1200); }   // après l'apparition des cartes
+      if(visible && !avant && !REDUCE){ requestAnimationFrame(boucle); }
+    }).observe(schema);
   }
 })();
 </script>
