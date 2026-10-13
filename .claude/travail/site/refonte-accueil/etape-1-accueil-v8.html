@@ -1075,22 +1075,24 @@ input:focus,select:focus,textarea:focus{
 }
 .genese{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
 
-/* l'aurore : des nappes de couleur floues qui dérivent lentement derrière la ville.
-   Verts de la charte, un bleu-vert, une touche dorée (rappel du papier). */
-.genese-aurore{position:absolute;inset:-12%;z-index:-3;pointer-events:none;filter:blur(70px);background:var(--noir)}
-.genese-aurore i{position:absolute;border-radius:50%;mix-blend-mode:screen;will-change:transform}
-.genese-aurore i:nth-child(1){width:50vw;height:50vw;left:46%;top:2%;
-  background:radial-gradient(circle,rgba(92,156,104,.78),transparent 66%);animation:aurore-a 17s ease-in-out infinite alternate}
-.genese-aurore i:nth-child(2){width:42vw;height:42vw;left:64%;top:42%;
-  background:radial-gradient(circle,rgba(36,134,122,.66),transparent 66%);animation:aurore-b 21s ease-in-out infinite alternate}
-.genese-aurore i:nth-child(3){width:34vw;height:34vw;left:34%;top:52%;
-  background:radial-gradient(circle,rgba(220,172,88,.36),transparent 66%);animation:aurore-c 25s ease-in-out infinite alternate}
-.genese-aurore i:nth-child(4){width:26vw;height:26vw;left:78%;top:8%;
-  background:radial-gradient(circle,rgba(178,226,124,.42),transparent 66%);animation:aurore-d 19s ease-in-out infinite alternate}
-@keyframes aurore-a{to{transform:translate(-14%,18%) scale(1.15)}}
-@keyframes aurore-b{to{transform:translate(-22%,-16%) scale(.9)}}
-@keyframes aurore-c{to{transform:translate(28%,-12%) scale(1.2)}}
-@keyframes aurore-d{to{transform:translate(-30%,30%) scale(1.1)}}
+/* l'accent : une couleur chaude qui fait ressortir le vert de la charte.
+   Ambre par défaut (le « travail à traiter », comme en section 01).
+   La même variable colore les documents qui arrivent dans l'animation (JS). */
+.hero--genese{--accent-rgb:242,166,90}
+.hero--genese[data-accent="corail"]{--accent-rgb:255,122,92}
+.hero--genese[data-accent="lilas"]{--accent-rgb:182,156,255}
+.hero--genese[data-accent="vert"]{--accent-rgb:169,196,159}
+
+/* le fond : 2 halos seulement, très doux */
+.genese-aurore{position:absolute;inset:-12%;z-index:-3;pointer-events:none;filter:blur(80px);background:var(--noir)}
+.genese-aurore i{position:absolute;border-radius:50%;will-change:transform}
+.genese-aurore i:nth-child(1){width:46vw;height:46vw;left:50%;top:14%;
+  background:radial-gradient(circle,rgba(84,132,92,.5),transparent 66%);animation:aurore-a 18s ease-in-out infinite alternate}
+.genese-aurore i:nth-child(2){width:30vw;height:30vw;left:46%;top:56%;
+  background:radial-gradient(circle,rgba(var(--accent-rgb),.2),transparent 66%);animation:aurore-b 22s ease-in-out infinite alternate;
+  transition:background .6s}
+@keyframes aurore-a{to{transform:translate(-10%,12%) scale(1.1)}}
+@keyframes aurore-b{to{transform:translate(24%,-14%) scale(1.15)}}
 @media (prefers-reduced-motion:reduce){.genese-aurore i{animation:none}}
 .genese-voile{
   position:absolute;inset:0;z-index:-1;pointer-events:none;
@@ -1141,12 +1143,10 @@ input:focus,select:focus,textarea:focus{
   }
 }
 
-/* téléphone : l'aurore enveloppe la ville, sous le texte */
+/* téléphone : les halos autour de la ville, sous le texte */
 @media (max-width:759px){
-  .genese-aurore i:nth-child(1){width:115vw;height:115vw;left:8%;top:42%}
-  .genese-aurore i:nth-child(2){width:95vw;height:95vw;left:40%;top:62%}
-  .genese-aurore i:nth-child(3){width:85vw;height:85vw;left:-24%;top:58%}
-  .genese-aurore i:nth-child(4){width:65vw;height:65vw;left:58%;top:36%}
+  .genese-aurore i:nth-child(1){width:110vw;height:110vw;left:10%;top:44%}
+  .genese-aurore i:nth-child(2){width:80vw;height:80vw;left:-10%;top:62%}
 }
 
 /* ============================================================
@@ -1603,7 +1603,7 @@ input:focus,select:focus,textarea:focus{
 
 <!-- ============ HÉROS v8 « Genèse » : du papier en vrac à un système qui tourne ============ -->
 <section class="hero hero--genese" id="top">
-  <div class="genese-aurore" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="genese-aurore" aria-hidden="true"><i></i><i></i></div>
   <canvas class="genese" id="genese" aria-hidden="true"></canvas>
   <div class="genese-voile" aria-hidden="true"></div>
 
@@ -2328,6 +2328,7 @@ input:focus,select:focus,textarea:focus{
   var LAME_DEBUT = 700, LAME_DUREE = 1100;
   var cartes = [], decor = [], eclats = [], impulsions = [], livraisons = [];
   var prochaineLivraison = 0, prochainEnvoi = 0;
+  var ACC = '242,166,90', lectureAcc = 0;   // couleur d'accent, lue dans la variable CSS --accent-rgb
   var souris = {x:-1e4, y:-1e4}, t0 = null, avant = 0, visible = true, construit = false, prochaine = 0;
 
   function rand(a, b){ return a + Math.random() * (b - a); }
@@ -2359,7 +2360,7 @@ input:focus,select:focus,textarea:focus{
       ph: rand(0, Math.PI * 2), vph: rand(.5, 1.4),
       k: rand(.6, 1.45),
       u: 0, depart: null, duree: rand(800, 1150),
-      lift: 0, flash: 0, traite: 0,
+      lift: 0, flash: 0, traite: 0, attente: 0, delai: rand(3.5, 7),
       // hauteur finale de l'« immeuble » : plus haut vers le centre du plan, quelques tours
       haut: (gx < 0 ? 0 : (.1 + Math.pow(Math.random(), 2.4) * 1.5) * (1 - .55 * (Math.abs(gx - 5) + Math.abs(gy - 5)) / 10))
     };
@@ -2438,7 +2439,7 @@ input:focus,select:focus,textarea:focus{
       var lu = Math.sin(Math.PI * Math.min(1, c.u * 1.2)) * .5;
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       var gl = ctx.createRadialGradient(M[4], M[5], 0, M[4], M[5], T * 1.3);
-      gl.addColorStop(0, 'rgba(200,236,180,' + lu + ')'); gl.addColorStop(1, 'rgba(169,196,159,0)');
+      gl.addColorStop(0, 'rgba(' + ACC + ',' + lu + ')'); gl.addColorStop(1, 'rgba(' + ACC + ',0)');
       ctx.fillStyle = gl; ctx.fillRect(M[4] - T * 1.3, M[5] - T * 1.3, T * 2.6, T * 2.6);
     }
     var dos = e < .5 && M[7] < 0;
@@ -2476,16 +2477,23 @@ input:focus,select:focus,textarea:focus{
                              Math.round(mix(base[2], TUILE[2] + 20 * g, f)) + ')';
     rr(-.5, -.5, 1, 1, .09); ctx.fill();
 
+    // travail en attente : la tuile garde la couleur d'accent jusqu'à son traitement
+    var att = c.cible ? c.u : c.attente;
+    if(att > .02 && f > .3){ ctx.fillStyle = 'rgba(' + ACC + ',' + (.26 * att) + ')'; rr(-.5, -.5, 1, 1, .09); ctx.fill(); }
+
     if(!dos){
       var a = mix(.5, .5 + c.traite * .4, f);
       contenu(c.type, f < .5 ? 'rgba(48,50,42,' + mix(.55, .2, f * 2) + ')'
+                  : att > .3 ? 'rgba(' + ACC + ',' + (.75 * (f - .5) * 2) + ')'
                              : 'rgba(169,196,159,' + (a * (f - .5) * 2) + ')');
     }
 
     // bord : blanc à l'envol, vert une fois posé, éclat quand une impulsion passe
-    var bord = Math.max(c.flash, f * .5);
+    var bord = Math.max(c.flash, f * .5, att * .9);
     if(bord > .02){
-      ctx.strokeStyle = c.flash > f * .5 ? 'rgba(235,245,230,' + c.flash + ')' : 'rgba(169,196,159,' + bord + ')';
+      ctx.strokeStyle = c.flash > f * .5 ? 'rgba(235,245,230,' + c.flash + ')'
+                      : att > .3 ? 'rgba(' + ACC + ',' + (.4 + .5 * att) + ')'
+                      : 'rgba(169,196,159,' + bord + ')';
       ctx.lineWidth = .035;
       rr(-.5, -.5, 1, 1, .09); ctx.stroke();
     }
@@ -2548,7 +2556,7 @@ input:focus,select:focus,textarea:focus{
         var c = cartes[j];
         if(c.u < 1){ continue; }
         var d = Math.abs(c.gx + .5 - gx) + Math.abs(c.gy + .5 - gy);
-        if(d < 1.15){ c.flash = Math.max(c.flash, .9); c.traite = 1; }
+        if(d < 1.15){ c.flash = Math.max(c.flash, .9); c.traite = 1; c.attente = 0; }
       }
     }
   }
@@ -2615,6 +2623,8 @@ input:focus,select:focus,textarea:focus{
     var t = now - t0, dt = Math.min(.05, (now - avant) / 1000);
     avant = now;
 
+    if(t > lectureAcc){ ACC = getComputedStyle(hero).getPropertyValue('--accent-rgb').trim() || ACC; lectureAcc = t + 400; }
+
     if(!construit && t > LAME_DEBUT + 350){ construit = true; hero.classList.add('construit'); }
 
     ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -2654,7 +2664,13 @@ input:focus,select:focus,textarea:focus{
       majImpulsions(dt);
       dessinerImpulsions();
     }
-    cartes.forEach(function(c){ if(c.traite > 0 && c.flash <= 0){ c.traite = Math.max(0, c.traite - dt * .25); } });
+    cartes.forEach(function(c){
+      if(c.attente > 0){
+        c.delai -= dt;
+        if(c.delai <= 0){ c.attente = 0; c.flash = .9; c.traite = 1; }
+      }
+      if(c.traite > 0 && c.flash <= 0){ c.traite = Math.max(0, c.traite - dt * .25); }
+    });
 
     dessinerEclats(dt);
     dessinerLame(t);
@@ -2683,7 +2699,7 @@ input:focus,select:focus,textarea:focus{
     if(!plein){ return; }
     var p = iso(plein.gx + .5, plein.gy + .5);
     gerbe(p.x, p.y - plein.lift);
-    plein.haut = .12; plein.flash = 1; plein.traite = 1;
+    plein.haut = .12; plein.flash = 1; plein.traite = 1; plein.attente = 0;
   }
 
   function majVille(t, dt){
@@ -2696,7 +2712,7 @@ input:focus,select:focus,textarea:focus{
       l.u = borne((t - l.depart) / l.duree);
       if(l.u >= 1){
         var c = l.cible;
-        c.haut = Math.min(1.9, c.haut + .24); c.flash = 1; c.traite = 1; c.type = l.type;
+        c.haut = Math.min(1.9, c.haut + .24); c.attente = 1; c.delai = rand(3.5, 7); c.type = l.type;
         livraisons.splice(i, 1);
       }
     }

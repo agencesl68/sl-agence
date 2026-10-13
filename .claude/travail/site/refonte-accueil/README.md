@@ -70,3 +70,7 @@ Aperçu v8 (privé) : voir le lien donné à Loïc. Aperçu v7 : https://claude.
 - v8.1 (2026-10-13) : aurore de couleurs derrière la ville (verts, bleu-vert, touche dorée), lame dès 0,7 s
   (ville posée vers 1,8 s), livraisons continues de documents qui ajoutent un étage aux immeubles, envois
   (gerbe verte) quand un immeuble est plein.
+- v8.2 (2026-10-13) : plus de reflets multicolores. Fond = 1 halo vert + 1 halo d'accent. Couleur d'accent
+  (variable CSS --accent-rgb, ambre par défaut, corail / lilas / tout vert en option) : les documents livrés
+  arrivent dans l'accent (travail en attente) puis passent au vert quand une impulsion les traite.
+  L'aperçu v8 a un sélecteur d'accent (maquette seulement).

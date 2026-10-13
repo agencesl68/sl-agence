@@ -23,6 +23,7 @@
   var LAME_DEBUT = 700, LAME_DUREE = 1100;
   var cartes = [], decor = [], eclats = [], impulsions = [], livraisons = [];
   var prochaineLivraison = 0, prochainEnvoi = 0;
+  var ACC = '242,166,90', lectureAcc = 0;   // couleur d'accent, lue dans la variable CSS --accent-rgb
   var souris = {x:-1e4, y:-1e4}, t0 = null, avant = 0, visible = true, construit = false, prochaine = 0;
 
   function rand(a, b){ return a + Math.random() * (b - a); }
@@ -54,7 +55,7 @@
       ph: rand(0, Math.PI * 2), vph: rand(.5, 1.4),
       k: rand(.6, 1.45),
       u: 0, depart: null, duree: rand(800, 1150),
-      lift: 0, flash: 0, traite: 0,
+      lift: 0, flash: 0, traite: 0, attente: 0, delai: rand(3.5, 7),
       // hauteur finale de l'« immeuble » : plus haut vers le centre du plan, quelques tours
       haut: (gx < 0 ? 0 : (.1 + Math.pow(Math.random(), 2.4) * 1.5) * (1 - .55 * (Math.abs(gx - 5) + Math.abs(gy - 5)) / 10))
     };
@@ -133,7 +134,7 @@
       var lu = Math.sin(Math.PI * Math.min(1, c.u * 1.2)) * .5;
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       var gl = ctx.createRadialGradient(M[4], M[5], 0, M[4], M[5], T * 1.3);
-      gl.addColorStop(0, 'rgba(200,236,180,' + lu + ')'); gl.addColorStop(1, 'rgba(169,196,159,0)');
+      gl.addColorStop(0, 'rgba(' + ACC + ',' + lu + ')'); gl.addColorStop(1, 'rgba(' + ACC + ',0)');
       ctx.fillStyle = gl; ctx.fillRect(M[4] - T * 1.3, M[5] - T * 1.3, T * 2.6, T * 2.6);
     }
     var dos = e < .5 && M[7] < 0;
@@ -171,16 +172,23 @@
                              Math.round(mix(base[2], TUILE[2] + 20 * g, f)) + ')';
     rr(-.5, -.5, 1, 1, .09); ctx.fill();
 
+    // travail en attente : la tuile garde la couleur d'accent jusqu'à son traitement
+    var att = c.cible ? c.u : c.attente;
+    if(att > .02 && f > .3){ ctx.fillStyle = 'rgba(' + ACC + ',' + (.26 * att) + ')'; rr(-.5, -.5, 1, 1, .09); ctx.fill(); }
+
     if(!dos){
       var a = mix(.5, .5 + c.traite * .4, f);
       contenu(c.type, f < .5 ? 'rgba(48,50,42,' + mix(.55, .2, f * 2) + ')'
+                  : att > .3 ? 'rgba(' + ACC + ',' + (.75 * (f - .5) * 2) + ')'
                              : 'rgba(169,196,159,' + (a * (f - .5) * 2) + ')');
     }
 
     // bord : blanc à l'envol, vert une fois posé, éclat quand une impulsion passe
-    var bord = Math.max(c.flash, f * .5);
+    var bord = Math.max(c.flash, f * .5, att * .9);
     if(bord > .02){
-      ctx.strokeStyle = c.flash > f * .5 ? 'rgba(235,245,230,' + c.flash + ')' : 'rgba(169,196,159,' + bord + ')';
+      ctx.strokeStyle = c.flash > f * .5 ? 'rgba(235,245,230,' + c.flash + ')'
+                      : att > .3 ? 'rgba(' + ACC + ',' + (.4 + .5 * att) + ')'
+                      : 'rgba(169,196,159,' + bord + ')';
       ctx.lineWidth = .035;
       rr(-.5, -.5, 1, 1, .09); ctx.stroke();
     }
@@ -243,7 +251,7 @@
         var c = cartes[j];
         if(c.u < 1){ continue; }
         var d = Math.abs(c.gx + .5 - gx) + Math.abs(c.gy + .5 - gy);
-        if(d < 1.15){ c.flash = Math.max(c.flash, .9); c.traite = 1; }
+        if(d < 1.15){ c.flash = Math.max(c.flash, .9); c.traite = 1; c.attente = 0; }
       }
     }
   }
@@ -310,6 +318,8 @@
     var t = now - t0, dt = Math.min(.05, (now - avant) / 1000);
     avant = now;
 
+    if(t > lectureAcc){ ACC = getComputedStyle(hero).getPropertyValue('--accent-rgb').trim() || ACC; lectureAcc = t + 400; }
+
     if(!construit && t > LAME_DEBUT + 350){ construit = true; hero.classList.add('construit'); }
 
     ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -349,7 +359,13 @@
       majImpulsions(dt);
       dessinerImpulsions();
     }
-    cartes.forEach(function(c){ if(c.traite > 0 && c.flash <= 0){ c.traite = Math.max(0, c.traite - dt * .25); } });
+    cartes.forEach(function(c){
+      if(c.attente > 0){
+        c.delai -= dt;
+        if(c.delai <= 0){ c.attente = 0; c.flash = .9; c.traite = 1; }
+      }
+      if(c.traite > 0 && c.flash <= 0){ c.traite = Math.max(0, c.traite - dt * .25); }
+    });
 
     dessinerEclats(dt);
     dessinerLame(t);
@@ -378,7 +394,7 @@
     if(!plein){ return; }
     var p = iso(plein.gx + .5, plein.gy + .5);
     gerbe(p.x, p.y - plein.lift);
-    plein.haut = .12; plein.flash = 1; plein.traite = 1;
+    plein.haut = .12; plein.flash = 1; plein.traite = 1; plein.attente = 0;
   }
 
   function majVille(t, dt){
@@ -391,7 +407,7 @@
       l.u = borne((t - l.depart) / l.duree);
       if(l.u >= 1){
         var c = l.cible;
-        c.haut = Math.min(1.9, c.haut + .24); c.flash = 1; c.traite = 1; c.type = l.type;
+        c.haut = Math.min(1.9, c.haut + .24); c.attente = 1; c.delai = rand(3.5, 7); c.type = l.type;
         livraisons.splice(i, 1);
       }
     }
