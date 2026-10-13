@@ -20,7 +20,7 @@
     "Je passe mes vendredis à relancer les factures en retard.",
     "Un fichier Excel par client. Plus personne ne s'y retrouve."
   ];
-  var DUREE = 10600;   // durée indicative d'une scène (jauge de l'onglet)
+  var DUREE = 8200;   // durée indicative d'une scène (jauge de l'onglet)
 
   if(!atelier || !scenes.length){ return; }
 
@@ -37,8 +37,8 @@
     (function suite(){
       n++;
       bulle.textContent = texte.slice(0, n);
-      if(n < texte.length){ attendre(suite, 22 + Math.random() * 30); }
-      else{ cadre.classList.add('tapee'); attendre(fin, 380); }
+      if(n < texte.length){ attendre(suite, 12 + Math.random() * 16); }
+      else{ cadre.classList.add('tapee'); attendre(fin, 250); }
     })();
   }
 
@@ -81,8 +81,8 @@
 
     taper(PHRASES[i], function(){
       scenes[i].classList.add('bati');
-      attendre(function(){ ordinateur(true); }, 4300);
-      attendre(function(){ if(visible && !enPause){ montrer((i + 1) % scenes.length); } }, 4300 + 3800);
+      attendre(function(){ ordinateur(true); }, 2600);
+      attendre(function(){ if(visible && !enPause){ montrer((i + 1) % scenes.length); } }, 2600 + 3600);
     });
   }
 
@@ -105,7 +105,7 @@
   });
 
   // départ : juste après l'entrée du titre
-  setTimeout(function(){ montrer(0); }, REDUCE ? 0 : 700);
+  setTimeout(function(){ montrer(0); }, REDUCE ? 0 : 300);
 
 })();
 </script>

@@ -88,3 +88,49 @@
   .liaison span{top:50%;left:calc(50% + .7rem);transform:translateY(-50%)}
   .constat-lead{font-size:1rem}
 }
+
+/* ============================================================
+   Contours vivants : une lueur fait le tour de chaque carte.
+   Orange tant qu'on recopie à la main, verte une fois relié.
+   Sur le trait « automatique », une étincelle circule en continu.
+   ============================================================ */
+@property --tour{syntax:"<angle>";inherits:false;initial-value:0deg}
+
+.saisie{position:relative}
+.saisie::before{
+  content:"";position:absolute;inset:-2.5px;padding:2.5px;border-radius:18px;pointer-events:none;
+  background:conic-gradient(from var(--tour),transparent 0 42%,var(--lueur) 72%,#fff 80%,var(--lueur) 86%,transparent 100%);
+  filter:drop-shadow(0 0 6px var(--lueur)) drop-shadow(0 0 14px var(--lueur));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:tour 2.8s linear infinite;
+  transition:opacity .6s var(--ease);
+}
+.saisie-1{--lueur:#e5ad78}
+.saisie-1::before{animation-delay:-1.4s}
+.saisie-2{--lueur:#a9c49f;transition:box-shadow .6s var(--ease)}
+.constat-piste:not(.attente) .saisie-2{
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.55),0 0 50px -12px rgba(169,196,159,.55);
+}
+.constat-piste.attente .saisie-2{--lueur:#e5ad78}
+/* une fois relié, le bon papier passe au vert lui aussi : une seule saisie, partout */
+.constat-piste:not(.attente) .saisie-1{--lueur:#a9c49f}
+@keyframes tour{to{--tour:360deg}}
+
+.liaison i{position:relative;overflow:hidden}
+.liaison i::after{
+  content:"";position:absolute;top:-2px;bottom:-2px;left:0;width:40%;
+  background:linear-gradient(90deg,transparent,#fff,transparent);
+  filter:blur(.5px);
+  animation:etincelle 1.3s linear infinite;
+}
+@keyframes etincelle{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+@media (max-width:720px){
+  .liaison i::after{left:-2px;right:-2px;top:0;bottom:auto;width:auto;height:40%;
+    background:linear-gradient(180deg,transparent,#fff,transparent);animation-name:etincelle-v}
+  @keyframes etincelle-v{from{transform:translateY(-100%)}to{transform:translateY(260%)}}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .saisie::before,.liaison i::after{animation:none}
+}

@@ -209,20 +209,20 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 .staged .scene .trace{stroke-dasharray:420;stroke-dashoffset:420}
 .staged .scene .st{opacity:0}
 
-.staged .scene.bati .b{animation:brique .55s var(--expo) calc(var(--k) * 95ms) both}
-.staged .scene.bati .b::after{animation:sans-plan .5s var(--ease) calc(.8s + var(--k) * 120ms) both}
-.staged .scene.bati .b > *{animation:apparait .45s var(--ease) calc(.8s + var(--k) * 120ms) both}
-.staged .scene.bati .trace{animation:trace 1.1s var(--ease) 1.7s forwards}
-.staged .scene.bati .ap-bouton{animation:brique .55s var(--expo) calc(var(--k) * 95ms) both,presse .6s var(--ease) 2.95s both}
-.staged .scene.bati .ap-toast{animation:toast .55s var(--expo) 3.25s both}
+.staged .scene.bati .b{animation:brique .55s var(--expo) calc(var(--k) * 65ms) both}
+.staged .scene.bati .b::after{animation:sans-plan .5s var(--ease) calc(.45s + var(--k) * 80ms) both}
+.staged .scene.bati .b > *{animation:apparait .45s var(--ease) calc(.45s + var(--k) * 80ms) both}
+.staged .scene.bati .trace{animation:trace .8s var(--ease) 1s forwards}
+.staged .scene.bati .ap-bouton{animation:brique .55s var(--expo) calc(var(--k) * 65ms) both,presse .5s var(--ease) 1.75s both}
+.staged .scene.bati .ap-toast{animation:toast .5s var(--expo) 2s both}
 
 /* statuts des factures : en retard → relancée → payée */
-.staged .scene.bati .st-a{animation:apparait .3s var(--ease) calc(.8s + var(--k) * 120ms) both,disparait .3s var(--ease) calc(1.8s + var(--k) * 220ms) forwards}
-.staged .scene.bati .st-b{animation:pop .4s var(--expo) calc(1.8s + var(--k) * 220ms) both}
-.staged .scene.bati .st-b:not(:last-child){animation:pop .4s var(--expo) calc(1.8s + var(--k) * 220ms) both,disparait .3s var(--ease) calc(2.8s + var(--k) * 220ms) forwards}
-.staged .scene.bati .st-c{animation:pop .4s var(--expo) calc(2.8s + var(--k) * 220ms) both}
+.staged .scene.bati .st-a{animation:apparait .3s var(--ease) calc(.45s + var(--k) * 80ms) both,disparait .3s var(--ease) calc(1s + var(--k) * 140ms) forwards}
+.staged .scene.bati .st-b{animation:pop .4s var(--expo) calc(1s + var(--k) * 140ms) both}
+.staged .scene.bati .st-b:not(:last-child){animation:pop .4s var(--expo) calc(1s + var(--k) * 140ms) both,disparait .3s var(--ease) calc(1.6s + var(--k) * 140ms) forwards}
+.staged .scene.bati .st-c{animation:pop .4s var(--expo) calc(1.6s + var(--k) * 140ms) both}
 .staged .scene.bati .st-a:last-child,
-.staged .scene.bati .st-fixe{animation:apparait .3s var(--ease) calc(.8s + var(--k) * 120ms) both}
+.staged .scene.bati .st-fixe{animation:apparait .3s var(--ease) calc(.45s + var(--k) * 80ms) both}
 
 /* fichiers Excel aspirés dans l'outil */
 .staged .scene .fichiers{display:block;position:absolute;left:18px;right:18px;top:96px;z-index:5}

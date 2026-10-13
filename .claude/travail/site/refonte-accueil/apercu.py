@@ -51,7 +51,7 @@ h = h.replace(ancien, ancien + """
 
 # pastille maquette
 h += """
-<div style="position:fixed;left:12px;bottom:12px;z-index:300;padding:.45rem .8rem;border-radius:99px;background:#a9c49f;color:#070907;font:600 .7rem/1.2 Geist,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">Maquette · étape 1 (v5) · pas en ligne</div>
+<div style="position:fixed;left:12px;bottom:12px;z-index:300;padding:.45rem .8rem;border-radius:99px;background:#a9c49f;color:#070907;font:600 .7rem/1.2 Geist,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">Maquette · étape 1 (v6) · pas en ligne</div>
 """
 
 (OUT / "index.html").write_text(h, encoding="utf-8")

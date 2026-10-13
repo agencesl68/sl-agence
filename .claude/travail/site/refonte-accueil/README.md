@@ -47,3 +47,9 @@ liens). Correction enregistrée : c012 (chaque section se comprend en 5 secondes
 - 04 Notre intervention : une ligne de 4 étapes reliées, sans paragraphes ; « Nous restons » → « Vous gagnez du temps ».
 - Près de chez vous et Guides : titres secondaires plus petits ; les 6 guides deviennent des lignes cliquables
   (« Guide terrain » + titre), les 6 liens vers le blog sont conservés.
+
+## Étape 1 v6 (2026-10-13)
+- Héros plus rapide : l'ordinateur apparaît ~5 s après l'arrivée (au lieu de ~9 s) ; scène complète ~8 s.
+- 01 : contours vivants (une lueur fait le tour des cartes, orange pendant la ressaisie, verte une fois relié)
+  et étincelle qui circule sur le trait « automatique ».
+- Validé par Loïc à ce stade : 01, pieuvre 02, avis, 03 métiers, 04 intervention, guides.
