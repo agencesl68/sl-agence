@@ -1334,6 +1334,70 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 @keyframes clignote{50%{opacity:0}}
 
 /* ============================================================
+   Téléphone → ordinateur : après chaque scène, le cadre s'ouvre en
+   écran de portable (même outil, même données), puis revient.
+   Aucun texte : le geste suffit à dire « sur PC comme sur mobile ».
+   La mise en page interne suit la largeur de l'écran (container query).
+   ============================================================ */
+.tel{transition:width .9s var(--expo),top .9s var(--expo)}
+.tel-cadre{transition:height .9s var(--expo),border-radius .9s var(--expo),padding .9s var(--expo)}
+.tel-ecran{container-type:inline-size;transition:border-radius .9s var(--expo)}
+.bulle{transition:opacity .5s var(--ease),transform .6s var(--expo)}
+.tel-barre span,.tel-barre i{transition:opacity .4s var(--ease)}
+
+/* pastilles de fenêtre et barre latérale, invisibles sur téléphone */
+.tel-barre::before{
+  content:"";position:absolute;left:16px;top:50%;width:7px;height:7px;margin-top:-4px;border-radius:50%;
+  background:#d97f6b;box-shadow:12px 0 0 #e0b65a,24px 0 0 #8fb07f;opacity:0;transition:opacity .4s var(--ease);
+}
+.tel-ecran::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:52px;z-index:0;
+  background:
+    radial-gradient(circle at 26px 52px,#a9c49f 0 5px,transparent 6px),
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 82px/20px 3px no-repeat,
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 104px/20px 3px no-repeat,
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 126px/20px 3px no-repeat,
+    #141a13;
+  opacity:0;transition:opacity .4s var(--ease);
+}
+/* socle du portable */
+.tel::after{
+  content:"";position:absolute;left:-7%;right:-7%;top:100%;height:13px;margin-top:-1px;
+  border-radius:2px 2px 16px 16px;
+  background:linear-gradient(180deg,#36423a,#151b14 70%);
+  box-shadow:0 18px 30px -14px rgba(0,0,0,.9);
+  opacity:0;transform:scaleX(.5);transition:opacity .5s var(--ease),transform .9s var(--expo);
+}
+
+.atelier.pc .tel{width:100%;top:120px}
+.atelier.pc .tel-cadre{height:340px;border-radius:16px;padding:9px}
+.atelier.pc .tel-ecran{border-radius:7px}
+.atelier.pc .tel-barre{left:9px;right:9px;top:9px;height:28px}
+.atelier.pc .tel-barre span,.atelier.pc .tel-barre i{opacity:0}
+.atelier.pc .tel-barre::before,.atelier.pc .tel-ecran::before{opacity:1}
+.atelier.pc .tel::after{opacity:1;transform:none}
+.atelier.pc .bulle{opacity:0;transform:translateY(-10px);pointer-events:none}
+/* pendant le changement de format, l'écran se vide une fraction de seconde : pas de mise en page bancale */
+.atelier.bascule .scene.on{opacity:0;transition:opacity .15s var(--ease)}
+
+@container (min-width:300px){
+  .scene{
+    padding:40px 14px 14px 66px;
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start;
+  }
+  .ap-tete,.ap-recherche,.ap-courbe{grid-column:1/-1}
+  .ap-tete{padding-top:2px}
+  .ap-courbe svg{height:48px}
+  .ap-toast{left:auto;right:12px;bottom:12px;max-width:62%}
+  .fichiers{display:none !important}
+}
+
+@media (max-width:1039px){
+  .atelier.pc .tel{width:100%}
+  .atelier.pc .tel-cadre{height:280px}
+}
+
+/* ============================================================
    01 · LE CONSTAT — la double saisie
    Quand la section apparaît, l'animation joue seule (~4 s) : le
    titre et son double (en trait) se recollent, la même ligne est
@@ -1650,6 +1714,56 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 .famille-ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .famille h3{font-size:1.15rem;font-weight:500;letter-spacing:-.025em;line-height:1.2}
 .famille p{font-size:.92rem;line-height:1.5;color:var(--texte-faible)}
+
+/* 04 · notre intervention : 4 étapes sur une ligne, reliées */
+.entete--centre{text-align:center;max-width:none}
+@media (min-width:1000px){.entete--centre{display:block}}
+.entete--centre h2{margin-inline:auto}
+.etapes{
+  list-style:none;margin:clamp(2.5rem,6vh,3.5rem) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative;
+}
+.etapes::before{   /* le fil qui relie les 4 numéros */
+  content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:1px;
+  background:linear-gradient(90deg,var(--vert-clair),rgba(169,196,159,.25));
+}
+.etapes li{position:relative;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.etapes i{
+  display:grid;place-items:center;width:54px;height:54px;border-radius:50%;
+  font-style:normal;font-size:.85rem;font-weight:600;letter-spacing:.06em;color:var(--noir);
+  background:var(--vert-clair);box-shadow:0 0 0 8px var(--surface);
+}
+.etapes h3{font-size:clamp(1.05rem,1rem + .4vw,1.3rem);font-weight:500;letter-spacing:-.025em}
+.etapes-cta{margin-top:clamp(2rem,5vh,3rem);text-align:center}
+@media (max-width:700px){
+  .etapes{grid-template-columns:1fr;gap:1.1rem}
+  .etapes::before{left:27px;right:auto;top:27px;bottom:27px;width:1px;height:auto;background:linear-gradient(180deg,var(--vert-clair),rgba(169,196,159,.25))}
+  .etapes li{flex-direction:row;text-align:left}
+}
+
+/* près de chez vous / guides : titres secondaires, plus petits */
+.entete--petit{margin-top:clamp(4rem,9vh,6rem)}
+.entete--petit .pill{margin-bottom:1.1rem}
+.entete--petit h2{font-size:clamp(1.45rem,1rem + 1.5vw,2.1rem);max-width:24ch}
+.entete--petit p:not(.pill){font-size:.95rem}
+
+/* guides : une ligne cliquable chacun */
+.guides-liste{margin-top:1.6rem;display:grid;border-top:1px solid var(--filet)}
+.guide-ligne{
+  display:flex;align-items:baseline;gap:1rem;padding:.95rem .2rem;
+  border-bottom:1px solid var(--filet);text-decoration:none;
+  transition:padding-left .35s var(--expo);
+}
+.guide-ligne small{flex:0 0 auto;min-width:9.5rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--vert-clair)}
+.guide-ligne b{flex:1;min-width:0;font-weight:400;font-size:.95rem;color:var(--blanc)}
+.guide-ligne::after{content:"→";color:var(--vert-clair);transition:transform .35s var(--expo)}
+.guide-ligne:hover{padding-left:.6rem}
+.guide-ligne:hover b{color:var(--vert-clair)}
+.guide-ligne:hover::after{transform:translateX(3px)}
+@media (max-width:560px){
+  .guide-ligne{flex-wrap:wrap;gap:.2rem .8rem}
+  .guide-ligne small{min-width:0;flex-basis:100%}
+}
 </style>
 </head>
 
@@ -1753,7 +1867,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
                 <div class="b ap-ligne" style="--k:2"><span><b>F-2026-121</b><small>Échue depuis 5 j</small></span><em class="st st-a">En retard</em><em class="st st-b">Relancée</em><em class="st st-c">Payée</em></div>
                 <div class="b ap-ligne" style="--k:3"><span><b>F-2026-124</b><small>Échéance demain</small></span><em class="st st-a">À venir</em><em class="st st-b">Rappel prêt</em></div>
                 <div class="b ap-ligne" style="--k:4"><span><b>F-2026-127</b><small>Payée le 8 oct.</small></span><em class="st st-c st-fixe">Payée</em></div>
-                <div class="b ap-courbe" style="--k:5"><small>Encaissé ce mois-ci</small><svg viewBox="0 0 200 50"><path class="trace" d="M2 44 L30 40 L58 41 L86 30 L114 32 L142 20 L170 14 L198 6"/></svg></div>
+                <div class="b ap-courbe" style="--k:5"><small>Encaissé ce mois-ci</small><svg viewBox="0 0 200 50" preserveAspectRatio="none"><path class="trace" d="M2 44 L30 40 L58 41 L86 30 L114 32 L142 20 L170 14 L198 6"/></svg></div>
                 <div class="ap-toast"><i>✓</i>Relances parties seules ce matin</div>
               </div>
 
@@ -1795,7 +1909,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
       <div class="wrap constat-wrap">
 
         <p class="pill pill--creux">01 — Le point de départ</p>
-        <h2 class="titre-l constat-titre" data-echo="Le travail est fait deux fois."><span>Le travail est fait deux fois.</span></h2>
+        <h2 class="titre-l constat-titre" data-echo="Le travail est fait 2 fois."><span>Le travail est fait 2 fois.</span></h2>
         <p class="lead constat-lead">
           Une fois quand l'information arrive, une fois quand on la recopie.
           Ce n'est pas un défaut d'organisation : c'est un outil qui manque.
@@ -1980,44 +2094,37 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 <section class="section section--surface" id="methode">
   <div class="wrap">
 
-    <div class="entete reveal">
+    <div class="entete entete--centre reveal">
       <p class="pill">04 — Notre intervention</p>
       <h2 class="titre-l">4 temps, pas un de plus.</h2>
-      <p>Un périmètre écrit, un délai et un prix ferme avant que quoi que ce soit ne commence.</p>
     </div>
 
-    <div class="temps reveal casc">
-      <div><i>01</i><h3>Nous vous écoutons</h3><p>15 minutes au téléphone, puis un partage d'écran où vous nous montrez vos bons et vos tableurs.</p></div>
-      <div><i>02</i><h3>Nous construisons</h3><p>Un outil utilisable sur le terrain comme derrière un bureau. S'il faut un mode d'emploi, c'est qu'il est raté.</p></div>
-      <div><i>03</i><h3>Vos équipes l'essaient</h3><p>Une première version part sur leurs téléphones. Ce sont eux qui disent ce qui coince.</p></div>
-      <div><i>04</i><h3>Nous restons</h3><p>L'outil est ajusté au fil du temps. Vous avez quelqu'un qui connaît votre dossier et qui répond.</p></div>
-    </div>
-    <div class="relais reveal">
-      <p><b>Le temps 01 commence par un appel.</b>15 minutes, sans engagement : vous repartez avec un avis clair.</p>
-      <div class="relais-actions">
-        <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Choisir mon créneau</a>
-        <a class="btn btn-creux" href="tel:+33767081943">07 67 08 19 43</a>
-      </div>
-    </div>
+    <ol class="etapes reveal casc">
+      <li><i>01</i><h3>Nous vous écoutons</h3></li>
+      <li><i>02</i><h3>Nous construisons</h3></li>
+      <li><i>03</i><h3>Vos équipes l'essaient</h3></li>
+      <li><i>04</i><h3>Vous gagnez du temps</h3></li>
+    </ol>
+    <p class="etapes-cta reveal"><a class="btn btn-plein btn-fleche" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Commencer par l'étape 01</a></p>
 
-    <div class="entete reveal" style="margin-top:clamp(4rem,10vh,7rem)">
+    <div class="entete entete--petit reveal">
       <p class="pill">Près de chez vous</p>
       <h2 class="titre-l">Automatisation d'entreprise à Mulhouse et dans le Haut-Rhin.</h2>
       <p>Basés à Friesen, dans le Sundgau, nous accompagnons les entreprises de Mulhouse, Colmar, Saint-Louis, Altkirch et de tout le Haut-Rhin. <a href="/bon-intervention-numerique" style="color:var(--vert-clair)">Bons d'intervention</a>, <a href="/remplacer-excel" style="color:var(--vert-clair)">fichiers Excel</a>, <a href="/relance-factures-automatique" style="color:var(--vert-clair)">relances de factures</a> : nous venons voir comment vous travaillez, puis nous automatisons ce qui vous prend du temps.</p>
     </div>
 
-    <div class="entete reveal" style="margin-top:clamp(4rem,10vh,7rem)">
+    <div class="entete entete--petit reveal">
       <p class="pill">Guides pratiques</p>
       <h2 class="titre-l">Nos conseils, à appliquer dès demain.</h2>
       <p>Des méthodes et des modèles gratuits, tirés du terrain. <a href="/blog/" style="color:var(--vert-clair)">Tous les articles du blog</a></p>
     </div>
-    <div class="guides reveal">
-      <a class="guide" href="/blog/bon-intervention-contenu-modele"><small>Guide · Terrain</small><b>Bon d'intervention : ce qu'il doit contenir, et un modèle gratuit</b><span>La liste complète, la valeur de la signature du client et les erreurs qui coûtent cher.</span></a>
-      <a class="guide" href="/blog/feuille-heures-salaries"><small>Guide · Personnel</small><b>Feuille d'heures des salariés : obligations et modèle</b><span>Ce que dit le Code du travail, combien de temps la garder, le cas des chantiers.</span></a>
-      <a class="guide" href="/blog/comment-relancer-une-facture-poliment"><small>Guide · Trésorerie</small><b>Relancer une facture poliment : calendrier et 6 modèles</b><span>Du rappel amical à la mise en demeure : les mots justes, le bon moment et ce que dit la loi.</span></a>
-      <a class="guide" href="/blog/relancer-un-devis-sans-reponse"><small>Guide · Vente</small><b>Relancer un devis sans réponse : 8 modèles à copier</b><span>Pourquoi le client se tait, quand le relancer et quoi lui écrire selon la situation.</span></a>
-      <a class="guide" href="/blog/limites-excel-entreprise"><small>Guide · Organisation</small><b>Excel ne suffit plus ? 7 signes à repérer</b><span>Versions en double, ressaisies, erreurs de formule : le test, le coût réel et par où commencer.</span></a>
-      <a class="guide" href="/blog/logiciel-gestion-transport-parc-engins"><small>Guide · Transport et engins</small><b>Logiciel transport et parc d'engins : lequel choisir ?</b><span>Excel, logiciel du marché ou sur mesure : le comparatif et les échéances à ne pas rater.</span></a>
+    <div class="guides-liste reveal">
+      <a class="guide-ligne" href="/blog/bon-intervention-contenu-modele"><small>Guide terrain</small><b>Bon d'intervention : ce qu'il doit contenir, et un modèle gratuit</b></a>
+      <a class="guide-ligne" href="/blog/feuille-heures-salaries"><small>Guide personnel</small><b>Feuille d'heures des salariés : obligations et modèle</b></a>
+      <a class="guide-ligne" href="/blog/comment-relancer-une-facture-poliment"><small>Guide trésorerie</small><b>Relancer une facture poliment : calendrier et 6 modèles</b></a>
+      <a class="guide-ligne" href="/blog/relancer-un-devis-sans-reponse"><small>Guide vente</small><b>Relancer un devis sans réponse : 8 modèles à copier</b></a>
+      <a class="guide-ligne" href="/blog/limites-excel-entreprise"><small>Guide organisation</small><b>Excel ne suffit plus ? 7 signes à repérer</b></a>
+      <a class="guide-ligne" href="/blog/logiciel-gestion-transport-parc-engins"><small>Guide transport</small><b>Logiciel transport et parc d'engins : lequel choisir ?</b></a>
     </div>
 
   </div>
@@ -2512,7 +2619,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
     "Je passe mes vendredis à relancer les factures en retard.",
     "Un fichier Excel par client. Plus personne ne s'y retrouve."
   ];
-  var DUREE = 9200;
+  var DUREE = 10600;   // durée indicative d'une scène (jauge de l'onglet)
 
   if(!atelier || !scenes.length){ return; }
 
@@ -2534,8 +2641,24 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
     })();
   }
 
+  // après chaque scène, le téléphone s'ouvre en écran d'ordinateur : même outil, sur PC comme sur mobile
+  function ordinateur(on){
+    atelier.classList.add('bascule');
+    atelier.classList.toggle('pc', on);
+    attendre(function(){ atelier.classList.remove('bascule'); }, 900);
+  }
+
   function montrer(i, auto){
     annuler();
+    if(atelier.classList.contains('pc') && !REDUCE){
+      ordinateur(false);
+      attendre(function(){ lancer(i, auto); }, 950);
+      return;
+    }
+    lancer(i, auto);
+  }
+
+  function lancer(i, auto){
     courante = i;
     scenes.forEach(function(s, j){
       s.classList.remove('bati');
@@ -2553,11 +2676,13 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
     // relance la jauge de l'onglet
     atelier.classList.remove('tourne');
     void atelier.offsetWidth;
-    atelier.style.setProperty('--duree', DUREE + 'ms');
     if(auto !== false){ atelier.parentNode.style.setProperty('--duree', DUREE + 'ms'); atelier.classList.add('tourne'); }
 
-    taper(PHRASES[i], function(){ scenes[i].classList.add('bati'); });
-    attendre(function(){ if(visible && !enPause){ montrer((i + 1) % scenes.length); } }, DUREE);
+    taper(PHRASES[i], function(){
+      scenes[i].classList.add('bati');
+      attendre(function(){ ordinateur(true); }, 4300);
+      attendre(function(){ if(visible && !enPause){ montrer((i + 1) % scenes.length); } }, 4300 + 3800);
+    });
   }
 
   onglets.forEach(function(o, j){

@@ -40,3 +40,10 @@ liens). Correction enregistrée : c012 (chaque section se comprend en 5 secondes
   en une ligne de pastilles (ex-section 05, logos retirés).
 - 03 Votre métier : 4 familles de métiers au lieu des bulles flottantes ; le bandeau défilant est retiré.
 - Nombres en chiffres (c013). Sections renumérotées 01 → 06. Avis et « Notre intervention » inchangés.
+
+## Étape 1 v5 (2026-10-13)
+- Héros : après chaque scène, le téléphone s'ouvre en écran d'ordinateur (même outil), puis revient — sans texte.
+- 01 : « Le travail est fait 2 fois. » (chiffre, validé par Loïc).
+- 04 Notre intervention : une ligne de 4 étapes reliées, sans paragraphes ; « Nous restons » → « Vous gagnez du temps ».
+- Près de chez vous et Guides : titres secondaires plus petits ; les 6 guides deviennent des lignes cliquables
+  (« Guide terrain » + titre), les 6 liens vers le blog sont conservés.

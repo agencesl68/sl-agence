@@ -20,7 +20,7 @@
     "Je passe mes vendredis à relancer les factures en retard.",
     "Un fichier Excel par client. Plus personne ne s'y retrouve."
   ];
-  var DUREE = 9200;
+  var DUREE = 10600;   // durée indicative d'une scène (jauge de l'onglet)
 
   if(!atelier || !scenes.length){ return; }
 
@@ -42,8 +42,24 @@
     })();
   }
 
+  // après chaque scène, le téléphone s'ouvre en écran d'ordinateur : même outil, sur PC comme sur mobile
+  function ordinateur(on){
+    atelier.classList.add('bascule');
+    atelier.classList.toggle('pc', on);
+    attendre(function(){ atelier.classList.remove('bascule'); }, 900);
+  }
+
   function montrer(i, auto){
     annuler();
+    if(atelier.classList.contains('pc') && !REDUCE){
+      ordinateur(false);
+      attendre(function(){ lancer(i, auto); }, 950);
+      return;
+    }
+    lancer(i, auto);
+  }
+
+  function lancer(i, auto){
     courante = i;
     scenes.forEach(function(s, j){
       s.classList.remove('bati');
@@ -61,11 +77,13 @@
     // relance la jauge de l'onglet
     atelier.classList.remove('tourne');
     void atelier.offsetWidth;
-    atelier.style.setProperty('--duree', DUREE + 'ms');
     if(auto !== false){ atelier.parentNode.style.setProperty('--duree', DUREE + 'ms'); atelier.classList.add('tourne'); }
 
-    taper(PHRASES[i], function(){ scenes[i].classList.add('bati'); });
-    attendre(function(){ if(visible && !enPause){ montrer((i + 1) % scenes.length); } }, DUREE);
+    taper(PHRASES[i], function(){
+      scenes[i].classList.add('bati');
+      attendre(function(){ ordinateur(true); }, 4300);
+      attendre(function(){ if(visible && !enPause){ montrer((i + 1) % scenes.length); } }, 4300 + 3800);
+    });
   }
 
   onglets.forEach(function(o, j){

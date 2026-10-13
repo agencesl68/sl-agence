@@ -274,3 +274,67 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 }
 
 @keyframes clignote{50%{opacity:0}}
+
+/* ============================================================
+   Téléphone → ordinateur : après chaque scène, le cadre s'ouvre en
+   écran de portable (même outil, même données), puis revient.
+   Aucun texte : le geste suffit à dire « sur PC comme sur mobile ».
+   La mise en page interne suit la largeur de l'écran (container query).
+   ============================================================ */
+.tel{transition:width .9s var(--expo),top .9s var(--expo)}
+.tel-cadre{transition:height .9s var(--expo),border-radius .9s var(--expo),padding .9s var(--expo)}
+.tel-ecran{container-type:inline-size;transition:border-radius .9s var(--expo)}
+.bulle{transition:opacity .5s var(--ease),transform .6s var(--expo)}
+.tel-barre span,.tel-barre i{transition:opacity .4s var(--ease)}
+
+/* pastilles de fenêtre et barre latérale, invisibles sur téléphone */
+.tel-barre::before{
+  content:"";position:absolute;left:16px;top:50%;width:7px;height:7px;margin-top:-4px;border-radius:50%;
+  background:#d97f6b;box-shadow:12px 0 0 #e0b65a,24px 0 0 #8fb07f;opacity:0;transition:opacity .4s var(--ease);
+}
+.tel-ecran::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:52px;z-index:0;
+  background:
+    radial-gradient(circle at 26px 52px,#a9c49f 0 5px,transparent 6px),
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 82px/20px 3px no-repeat,
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 104px/20px 3px no-repeat,
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 126px/20px 3px no-repeat,
+    #141a13;
+  opacity:0;transition:opacity .4s var(--ease);
+}
+/* socle du portable */
+.tel::after{
+  content:"";position:absolute;left:-7%;right:-7%;top:100%;height:13px;margin-top:-1px;
+  border-radius:2px 2px 16px 16px;
+  background:linear-gradient(180deg,#36423a,#151b14 70%);
+  box-shadow:0 18px 30px -14px rgba(0,0,0,.9);
+  opacity:0;transform:scaleX(.5);transition:opacity .5s var(--ease),transform .9s var(--expo);
+}
+
+.atelier.pc .tel{width:100%;top:120px}
+.atelier.pc .tel-cadre{height:340px;border-radius:16px;padding:9px}
+.atelier.pc .tel-ecran{border-radius:7px}
+.atelier.pc .tel-barre{left:9px;right:9px;top:9px;height:28px}
+.atelier.pc .tel-barre span,.atelier.pc .tel-barre i{opacity:0}
+.atelier.pc .tel-barre::before,.atelier.pc .tel-ecran::before{opacity:1}
+.atelier.pc .tel::after{opacity:1;transform:none}
+.atelier.pc .bulle{opacity:0;transform:translateY(-10px);pointer-events:none}
+/* pendant le changement de format, l'écran se vide une fraction de seconde : pas de mise en page bancale */
+.atelier.bascule .scene.on{opacity:0;transition:opacity .15s var(--ease)}
+
+@container (min-width:300px){
+  .scene{
+    padding:40px 14px 14px 66px;
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start;
+  }
+  .ap-tete,.ap-recherche,.ap-courbe{grid-column:1/-1}
+  .ap-tete{padding-top:2px}
+  .ap-courbe svg{height:48px}
+  .ap-toast{left:auto;right:12px;bottom:12px;max-width:62%}
+  .fichiers{display:none !important}
+}
+
+@media (max-width:1039px){
+  .atelier.pc .tel{width:100%}
+  .atelier.pc .tel-cadre{height:280px}
+}
