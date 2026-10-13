@@ -16,12 +16,30 @@
   position:relative;overflow:hidden;isolation:isolate;
 }
 .genese{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+
+/* l'aurore : des nappes de couleur floues qui dérivent lentement derrière la ville.
+   Verts de la charte, un bleu-vert, une touche dorée (rappel du papier). */
+.genese-aurore{position:absolute;inset:-12%;z-index:-3;pointer-events:none;filter:blur(70px);background:var(--noir)}
+.genese-aurore i{position:absolute;border-radius:50%;mix-blend-mode:screen;will-change:transform}
+.genese-aurore i:nth-child(1){width:50vw;height:50vw;left:46%;top:2%;
+  background:radial-gradient(circle,rgba(92,156,104,.78),transparent 66%);animation:aurore-a 17s ease-in-out infinite alternate}
+.genese-aurore i:nth-child(2){width:42vw;height:42vw;left:64%;top:42%;
+  background:radial-gradient(circle,rgba(36,134,122,.66),transparent 66%);animation:aurore-b 21s ease-in-out infinite alternate}
+.genese-aurore i:nth-child(3){width:34vw;height:34vw;left:34%;top:52%;
+  background:radial-gradient(circle,rgba(220,172,88,.36),transparent 66%);animation:aurore-c 25s ease-in-out infinite alternate}
+.genese-aurore i:nth-child(4){width:26vw;height:26vw;left:78%;top:8%;
+  background:radial-gradient(circle,rgba(178,226,124,.42),transparent 66%);animation:aurore-d 19s ease-in-out infinite alternate}
+@keyframes aurore-a{to{transform:translate(-14%,18%) scale(1.15)}}
+@keyframes aurore-b{to{transform:translate(-22%,-16%) scale(.9)}}
+@keyframes aurore-c{to{transform:translate(28%,-12%) scale(1.2)}}
+@keyframes aurore-d{to{transform:translate(-30%,30%) scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.genese-aurore i{animation:none}}
 .genese-voile{
   position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:
-    linear-gradient(90deg,rgba(7,9,7,.94) 0%,rgba(7,9,7,.78) 26%,rgba(7,9,7,0) 56%),
+    linear-gradient(90deg,rgba(7,9,7,.9) 0%,rgba(7,9,7,.62) 28%,rgba(7,9,7,0) 54%),
     linear-gradient(180deg,rgba(7,9,7,.5) 0%,transparent 18%,transparent 80%,var(--noir) 100%),
-    radial-gradient(ellipse 46% 58% at 70% 58%,rgba(60,79,59,.32),transparent 72%);
+    radial-gradient(ellipse 46% 58% at 70% 58%,rgba(60,79,59,.18),transparent 72%);
 }
 .genese-texte{position:relative;width:100%}
 
@@ -60,7 +78,15 @@
   .hero--genese{align-items:flex-start;padding-top:6.5rem;min-height:max(720px,100svh)}
   .genese-voile{
     background:
-      linear-gradient(180deg,rgba(7,9,7,.95) 0%,rgba(7,9,7,.82) 34%,rgba(7,9,7,0) 56%,transparent 88%,var(--noir) 100%),
+      linear-gradient(180deg,rgba(7,9,7,.9) 0%,rgba(7,9,7,.7) 34%,rgba(7,9,7,0) 56%,transparent 88%,var(--noir) 100%),
       radial-gradient(ellipse 80% 40% at 50% 70%,rgba(60,79,59,.3),transparent 72%);
   }
+}
+
+/* téléphone : l'aurore enveloppe la ville, sous le texte */
+@media (max-width:759px){
+  .genese-aurore i:nth-child(1){width:115vw;height:115vw;left:8%;top:42%}
+  .genese-aurore i:nth-child(2){width:95vw;height:95vw;left:40%;top:62%}
+  .genese-aurore i:nth-child(3){width:85vw;height:85vw;left:-24%;top:58%}
+  .genese-aurore i:nth-child(4){width:65vw;height:65vw;left:58%;top:36%}
 }

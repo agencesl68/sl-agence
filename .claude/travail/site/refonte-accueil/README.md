@@ -67,3 +67,6 @@ chacun se pose en tuile d'un plan de ville isométrique, puis s'élève en immeu
 éclatent ; des impulsions de données circulent dans les rues et allument les documents ; sous la souris,
 les tuiles se soulèvent. Canvas 2D, sans bibliothèque. Titre en 2 temps (désordre / ordre).
 Aperçu v8 (privé) : voir le lien donné à Loïc. Aperçu v7 : https://claude.ai/artifact/ArtZA25oUSFhQ31yv6HvGF
+- v8.1 (2026-10-13) : aurore de couleurs derrière la ville (verts, bleu-vert, touche dorée), lame dès 0,7 s
+  (ville posée vers 1,8 s), livraisons continues de documents qui ajoutent un étage aux immeubles, envois
+  (gerbe verte) quand un immeuble est plein.

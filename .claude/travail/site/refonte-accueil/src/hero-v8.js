@@ -20,8 +20,9 @@
   var W = 0, H = 0, T = 40, S = 34, O = {x:0, y:0}, EX = {x:0, y:0}, EY = {x:0, y:0}, mobile = false;
   var GRILLE = 11, RUES = [3, 7];
   var TYPES = ['facture', 'bon', 'tableur', 'mail', 'agenda'];
-  var LAME_DEBUT = 1700, LAME_DUREE = 1500;
-  var cartes = [], decor = [], eclats = [], impulsions = [];
+  var LAME_DEBUT = 700, LAME_DUREE = 1100;
+  var cartes = [], decor = [], eclats = [], impulsions = [], livraisons = [];
+  var prochaineLivraison = 0, prochainEnvoi = 0;
   var souris = {x:-1e4, y:-1e4}, t0 = null, avant = 0, visible = true, construit = false, prochaine = 0;
 
   function rand(a, b){ return a + Math.random() * (b - a); }
@@ -52,7 +53,7 @@
       th: rand(-Math.PI, Math.PI), vth: rand(-.5, .5),
       ph: rand(0, Math.PI * 2), vph: rand(.5, 1.4),
       k: rand(.6, 1.45),
-      u: 0, depart: null, duree: rand(1000, 1450),
+      u: 0, depart: null, duree: rand(800, 1150),
       lift: 0, flash: 0, traite: 0,
       // hauteur finale de l'« immeuble » : plus haut vers le centre du plan, quelques tours
       haut: (gx < 0 ? 0 : (.1 + Math.pow(Math.random(), 2.4) * 1.5) * (1 - .55 * (Math.abs(gx - 5) + Math.abs(gy - 5)) / 10))
@@ -60,7 +61,7 @@
   }
 
   function creer(){
-    cartes = []; decor = []; eclats = []; impulsions = [];
+    cartes = []; decor = []; eclats = []; impulsions = []; livraisons = [];
     for(var gx = 0; gx < GRILLE; gx++){
       for(var gy = 0; gy < GRILLE; gy++){
         if(!estRue(gx) && !estRue(gy)){ cartes.push(papier(gx, gy)); }
@@ -88,8 +89,9 @@
     if(c.gx < 0){ return [A[0], A[1], A[2], A[3], c.x, c.y, 0, s]; }
     var p = iso(c.gx + .5, c.gy + .5), r = .86;
     var B = [EX.x * r, EX.y * r, EY.x * r, EY.y * r];
+    var toit = c.cible ? c.cible.lift : 0;
     var x = mix(c.x, p.x, e);
-    var y = mix(c.y, p.y, e) - Math.sin(Math.PI * e) * T * 1.8 - c.lift;
+    var y = mix(c.y, p.y - toit, e) - Math.sin(Math.PI * e) * T * (c.cible ? .6 : 1.8) - c.lift;
     return [mix(A[0], B[0], e), mix(A[1], B[1], e), mix(A[2], B[2], e), mix(A[3], B[3], e), x, y, e, s];
   }
 
@@ -126,6 +128,14 @@
 
   function dessinerCarte(c){
     var M = matrice(c), e = M[6];
+    // un document livré arrive avec sa lueur
+    if(c.cible){
+      var lu = Math.sin(Math.PI * Math.min(1, c.u * 1.2)) * .5;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      var gl = ctx.createRadialGradient(M[4], M[5], 0, M[4], M[5], T * 1.3);
+      gl.addColorStop(0, 'rgba(200,236,180,' + lu + ')'); gl.addColorStop(1, 'rgba(169,196,159,0)');
+      ctx.fillStyle = gl; ctx.fillRect(M[4] - T * 1.3, M[5] - T * 1.3, T * 2.6, T * 2.6);
+    }
     var dos = e < .5 && M[7] < 0;
     var base = dos ? DOS : PAPIER;
     var f = c.gx < 0 ? 0 : e;
@@ -261,6 +271,11 @@
       eclats.push({x: c.x + rand(-12, 12), y: c.y + rand(-16, 16), vx: rand(-60, 90), vy: rand(-90, 30), v: 1, s: rand(1.5, 3.2)});
     }
   }
+  function gerbe(x, y){
+    for(var i = 0; i < 16; i++){
+      eclats.push({x: x + rand(-8, 8), y: y + rand(-4, 4), vx: rand(-40, 40), vy: rand(-230, -110), v: 1, s: rand(1.6, 3), vert: true});
+    }
+  }
 
   function dessinerEclats(dt){
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -268,7 +283,8 @@
       var e = eclats[i];
       e.v -= dt * 1.1; if(e.v <= 0){ eclats.splice(i, 1); continue; }
       e.x += e.vx * dt; e.y += e.vy * dt; e.vy += 40 * dt;
-      ctx.fillStyle = 'rgba(' + Math.round(mix(169, 236, e.v)) + ',' + Math.round(mix(196, 232, e.v)) + ',' + Math.round(mix(159, 220, e.v)) + ',' + e.v + ')';
+      ctx.fillStyle = e.vert ? 'rgba(200,236,180,' + e.v + ')'
+        : 'rgba(' + Math.round(mix(169, 236, e.v)) + ',' + Math.round(mix(196, 232, e.v)) + ',' + Math.round(mix(159, 220, e.v)) + ',' + e.v + ')';
       ctx.fillRect(e.x, e.y, e.s, e.s);
     }
   }
@@ -323,7 +339,8 @@
     });
 
     // ordre de dessin : désordre (par profondeur), puis plan (de l'arrière vers l'avant), puis vols
-    var tous = decor.concat(cartes);
+    majVille(t, dt);
+    var tous = decor.concat(cartes, livraisons);
     tous.sort(function(a, b){ return cle(a) - cle(b); });
     tous.forEach(dessinerCarte);
 
@@ -339,7 +356,49 @@
     requestAnimationFrame(image);
   }
 
+  /* ---------- la ville ne s'arrête jamais ----------
+     Des documents arrivent du haut et se posent sur un toit : l'immeuble prend un étage.
+     Quand un immeuble est plein, il est « traité » : gerbe verte, il redescend à zéro.  */
+
+  function livrer(t){
+    var cible = cartes[Math.floor(Math.random() * cartes.length)];
+    if(!cible || cible.u < 1){ return; }
+    var p = iso(cible.gx + .5, cible.gy + .5);
+    var l = papier(cible.gx, cible.gy);
+    l.cible = cible;
+    l.x = p.x + rand(-W * .18, W * .18); l.y = -60;
+    l.vx = l.vy = 0; l.k = rand(.8, 1.1);
+    l.depart = t; l.duree = rand(1150, 1500);
+    livraisons.push(l);
+  }
+
+  function envoyer(){
+    var plein = null;
+    cartes.forEach(function(c){ if(c.u >= 1 && c.haut > 1.15 && (!plein || c.haut > plein.haut)){ plein = c; } });
+    if(!plein){ return; }
+    var p = iso(plein.gx + .5, plein.gy + .5);
+    gerbe(p.x, p.y - plein.lift);
+    plein.haut = .12; plein.flash = 1; plein.traite = 1;
+  }
+
+  function majVille(t, dt){
+    if(t < LAME_DEBUT + LAME_DUREE + 1300){ return; }
+    if(t > prochaineLivraison){ livrer(t); prochaineLivraison = t + (mobile ? rand(500, 850) : rand(200, 420)); }
+    if(t > prochainEnvoi){ envoyer(); prochainEnvoi = t + rand(1400, 2400); }
+    for(var i = livraisons.length - 1; i >= 0; i--){
+      var l = livraisons[i];
+      l.th += l.vth * dt; l.ph += l.vph * dt;
+      l.u = borne((t - l.depart) / l.duree);
+      if(l.u >= 1){
+        var c = l.cible;
+        c.haut = Math.min(1.9, c.haut + .24); c.flash = 1; c.traite = 1; c.type = l.type;
+        livraisons.splice(i, 1);
+      }
+    }
+  }
+
   function cle(c){
+    if(c.cible){ return 400 + c.u; }
     if(c.u <= 0){ return c.k; }
     if(c.u < 1){ return 300 + c.u; }
     return 200 + c.gx + c.gy;
