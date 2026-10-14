@@ -64,6 +64,20 @@
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://slagence.fr/application-metier-mulhouse</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://slagence.fr/application-metier-saint-louis</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://slagence.fr/realisations</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
