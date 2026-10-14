@@ -16,6 +16,8 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Facture électronique](https://slagence.fr/facture-electronique-tpe): préparation des TPE et PME à la réforme 2026-2027.
 - [Bon d'intervention numérique](https://slagence.fr/bon-intervention-numerique): bons remplis et signés sur téléphone, PDF envoyé automatiquement.
 - [Logiciel BTP sur mesure](https://slagence.fr/logiciel-btp-sur-mesure): application de chantier pour les entreprises du BTP du Haut-Rhin (bons, heures, carburant, planning).
+- [Logiciel sur mesure à Mulhouse (BTP, transport)](https://slagence.fr/logiciel-entreprise-mulhouse): outils pour le bâtiment, le transport et les services de terrain de Mulhouse et de son agglomération ; déplacement depuis Friesen.
+- [Logiciel sur mesure à Saint-Louis (BTP, transport)](https://slagence.fr/logiciel-entreprise-saint-louis): outils pour les entreprises de Saint-Louis Agglomération (transport, chantier, contrôles) ; déplacement depuis Friesen.
 
 ## Réalisations
 
