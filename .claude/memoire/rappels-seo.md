@@ -16,7 +16,8 @@
 
 ## À rappeler (en attente)
 
-- [ ] Fusionner la PR #9 (pages Mulhouse / Saint-Louis), puis Search Console : demander l'indexation des 2 pages.
+- [x] 2026-10-14 · PR #9 fusionnée : pages en ligne (/logiciel-entreprise-mulhouse, /logiciel-entreprise-saint-louis).
+- [ ] Search Console : demander l'indexation des 2 pages (Loïc).
 - [ ] Sacha : lien vers les 2 pages ville depuis l'accueil (`template.html`, hors dépôt).
 - [ ] Prochains articles métier, dans l'ordre : **terrassement** → plombier-chauffagiste → électricien
       (briefs dans `travail/seo/audit-contenus-2026-10-14.md`).
@@ -24,6 +25,6 @@
 - [ ] Corriger 6 titles > 60 car. et 3 metas > 155 car. (liste dans l'audit du 14/10).
 - [ ] Doublon de H2 accueil / `automatisation-taches-administratives` (via Sacha pour l'accueil).
 - [ ] Page politique de confidentialité (A6 du plan).
-- [ ] Mesure J+28 des pages ville (≈ 28 jours après la mise en ligne) → décider Colmar.
+- [ ] Mesure J+28 des pages ville le **2026-11-11** → décider Colmar.
 - [ ] Questions ouvertes pour enrichir les pages ville : temps de trajet depuis Friesen, une réalisation
       anonymisée par ville, questions réellement posées par des entreprises de la zone, 2 captures floutées (Sacha).
