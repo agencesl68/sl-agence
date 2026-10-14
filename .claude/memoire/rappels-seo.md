@@ -14,7 +14,11 @@
   « application métier ». URL : `/logiciel-entreprise-<ville>`.
 - 2026-10-14 · Articles : intro, 4-5 parties, **vraie partie « Conclusion »**, FAQ, images utiles.
 
+- 2026-10-14 · À chaque nouvelle page / article mis en ligne : donner à Loïc l'URL à soumettre dans **Search Console ET Bing Webmaster Tools** (Soumission d'URL).
+
 ## À rappeler (en attente)
+
+- [ ] Bing : renvoyer le sitemap + soumettre les 19 URL (liste donnée le 14/10) ; si besoin, Loïc envoie l'export « Explorateur de site » pour repérer les manquantes.
 
 - [x] 2026-10-14 · PR #9 fusionnée : pages en ligne (/logiciel-entreprise-mulhouse, /logiciel-entreprise-saint-louis).
 - [ ] Search Console : demander l'indexation des 2 pages (Loïc).
