@@ -18,6 +18,11 @@
 
 ## À rappeler (en attente)
 
+- [ ] Fusionner la PR #10 (métiers, titres, politique de confidentialité), puis soumettre `/politique-de-confidentialite` et `/logiciel-btp-sur-mesure` (Google + Bing).
+- [ ] Sacha : reporter dans `template.html` le lien « Politique de confidentialité » du pied de page + la mention sous le formulaire (sinon perdus à la régénération).
+- [ ] Questions RGPD pour Sacha : où arrivent les messages du formulaire et combien de temps Make garde l'historique ; DPA Make accepté ; « données exportables à tout moment » confirmé ; contrat de sous-traitance (art. 28) pour les outils clients.
+- [ ] Trancher : prix « à partir de 1 000 € » affiché sur /logiciel-sur-mesure alors que agence.md dit « aucun prix public ».
+
 - [ ] Bing : renvoyer le sitemap + soumettre les 19 URL (liste donnée le 14/10) ; si besoin, Loïc envoie l'export « Explorateur de site » pour repérer les manquantes.
 
 - [x] 2026-10-14 · PR #9 fusionnée : pages en ligne (/logiciel-entreprise-mulhouse, /logiciel-entreprise-saint-louis).
