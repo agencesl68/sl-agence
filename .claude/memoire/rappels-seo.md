@@ -25,10 +25,10 @@
 - [ ] Sacha : lien vers les 2 pages ville depuis l'accueil (`template.html`, hors dépôt).
 - [ ] Prochains articles métier, dans l'ordre : **terrassement** → plombier-chauffagiste → électricien
       (briefs dans `travail/seo/audit-contenus-2026-10-14.md`).
-- [ ] Ajouter des métiers précis dans les pages de service existantes (zéro occurrence au 14/10).
-- [ ] Corriger 6 titles > 60 car. et 3 metas > 155 car. (liste dans l'audit du 14/10).
-- [ ] Doublon de H2 accueil / `automatisation-taches-administratives` (via Sacha pour l'accueil).
-- [ ] Page politique de confidentialité (A6 du plan).
+- [x] 2026-10-14 · Métiers précis ajoutés dans 7 pages de service (PR en attente de fusion). Reste : `template.html` de l'accueil (Sacha).
+- [x] 2026-10-14 · 6 titles > 60 et 3 metas > 155 corrigés (PR en attente de fusion).
+- [x] 2026-10-14 · Doublon de H2 résolu côté page de service (l'accueil n'a pas besoin de changer).
+- [ ] Page politique de confidentialité : écrite et liée dans tous les pieds de page (PR en attente). Reste à faire par Sacha : lien + mention dans `template.html`, vérifier la rétention du formulaire (Make) ; Loïc : valider les points listés dans le rapport.
 - [ ] Mesure J+28 des pages ville le **2026-11-11** → décider Colmar.
 - [ ] Questions ouvertes pour enrichir les pages ville : temps de trajet depuis Friesen, une réalisation
       anonymisée par ville, questions réellement posées par des entreprises de la zone, 2 captures floutées (Sacha).
