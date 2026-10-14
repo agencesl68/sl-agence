@@ -16,6 +16,9 @@ SRC = ICI / "src"
 # variante de héros : HERO=v8 python3 build.py → etape-1-accueil-v8.html (la v7 reste intacte)
 V = os.environ.get("HERO", "")
 SUF = ("-" + V) if V else ""
+# v9 réutilise l'atelier de la v7 (hero.css / hero.js) et y ajoute sa mise en page
+CSS_HEROS = ["hero.css", "hero-v9.css"] if V == "v9" else ["hero" + SUF + ".css"]
+JS_HERO = "hero.js" if V == "v9" else "hero" + SUF + ".js"
 
 html = (RACINE / "index.html").read_text(encoding="utf-8")
 CAL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e"
@@ -37,7 +40,7 @@ def entre(debut, fin, nouveau):
 
 
 # ---- styles : héros + compléments, après la feuille principale ----
-css = "\n".join((SRC / f).read_text(encoding="utf-8") for f in ("hero" + SUF + ".css", "constat.css", "domaines.css", "extra.css"))
+css = "\n".join((SRC / f).read_text(encoding="utf-8") for f in CSS_HEROS + ["constat.css", "domaines.css", "extra.css"])
 i = html.index("</style>", html.index("Vert #3c4f3b"))
 html = html[:i] + "\n" + css + html[i:]
 
@@ -50,6 +53,18 @@ remplace('<div class="rideau" id="rideau" hidden aria-hidden="true"><span class=
 # ---- en-tête : un bouton d'action clair ----
 remplace('<a class="head-contact" href="#contact">Nous contacter</a>',
          '<a class="head-contact" href="#contact">Demander un devis</a>')
+
+# ---- v9 : barre du haut façon Apple — logo, rubriques, menu (le blog reste dans le menu) ----
+if V == "v9":
+    remplace('<a class="head-contact" href="#contact">Demander un devis</a>',
+             """<nav class="barre-nav" aria-label="Rubriques">
+      <a href="#constat">Le constat</a>
+      <a href="#domaines">Ce que nous faisons</a>
+      <a href="/realisations">Réalisations</a>
+      <a href="#metiers">Votre métier</a>
+      <a href="#methode">Notre intervention</a>
+      <a href="#contact">Parlons-en</a>
+    </nav>""")
 
 # ---- panneau : bouton de rendez-vous ----
 remplace('<div class="panneau-pied">',
@@ -144,7 +159,7 @@ barre = """<script>
 </script>
 """
 i = html.rindex("</body>")
-html = html[:i] + (SRC / ("hero" + SUF + ".js")).read_text(encoding="utf-8") + (SRC / "constat.js").read_text(encoding="utf-8") + (SRC / "domaines.js").read_text(encoding="utf-8") + barre + "\n" + html[i:]
+html = html[:i] + (SRC / JS_HERO).read_text(encoding="utf-8") + (SRC / "constat.js").read_text(encoding="utf-8") + (SRC / "domaines.js").read_text(encoding="utf-8") + barre + "\n" + html[i:]
 
 # chemins d'images absolus : identiques en ligne, et la maquette s'affiche depuis son dossier
 html = re.sub(r'(src|poster)="(p-[a-z]+\.jpg|pub-sl-agence\.(?:mp4|jpg))"', r'\1="/\2"', html)

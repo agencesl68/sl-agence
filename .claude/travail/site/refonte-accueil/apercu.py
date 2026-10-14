@@ -53,7 +53,7 @@ h = h.replace(ancien, ancien + """
 # pastille maquette
 h += """
 <div style="position:fixed;left:12px;bottom:12px;z-index:300;padding:.45rem .8rem;border-radius:99px;background:#a9c49f;color:#070907;font:600 .7rem/1.2 Geist,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">MAQUETTE_ETIQUETTE · pas en ligne</div>
-""".replace("MAQUETTE_ETIQUETTE", "Maquette · v8 Genèse" if V else "Maquette · étape 1 (v7)")
+""".replace("MAQUETTE_ETIQUETTE", {"v8": "Maquette · v8 Genèse", "v9": "Maquette · v9 vitrine"}.get(V, "Maquette · étape 1 (v7)"))
 
 (OUT / "index.html").write_text(h, encoding="utf-8")
 print("aperçu :", OUT / "index.html")

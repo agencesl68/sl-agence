@@ -77,3 +77,10 @@ Aperçu v8 (privé) : voir le lien donné à Loïc. Aperçu v7 : https://claude.
 - v8.3 (2026-10-13) : tout en vert (accents retirés, choix de Loïc). Beaucoup plus de lumières blanches :
   grandes impulsions dans les rues et sur le pourtour (8 max), fines entre les rangées de documents (14 max) ;
   bande de reflet qui balaie les toits en biais toutes les 6 s ; scintillements blancs sur les toits.
+
+## v9 « vitrine » (2026-10-14) — repart de la v7, mise en page façon Apple
+`HERO=v9 python3 build.py` → `etape-1-accueil-v9.html` (hero.css + hero-v9.css, hero.js de la v7).
+Barre du haut : logo · rubriques (Le constat, Ce que nous faisons, Réalisations, Votre métier, Notre
+intervention, Parlons-en) · Menu (le blog reste dans le menu). Héros centré : devise, « En savoir plus »
+(→ #constat) et « Décrire mon besoin ». Dessous : l'atelier téléphone → ordinateur centré, devant un grand
+mot en chrome « SUR MESURE » (relief + reflet qui passe). Sur téléphone, le mot passe au-dessus de l'animation.
