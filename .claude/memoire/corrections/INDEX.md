@@ -18,3 +18,4 @@
 | [c008](c008-utiliser-un-outil-payant-indisponible-ahrefs.md) | tous | moyenne | Ne pas appeler Ahrefs |
 | [c009](c009-visuels-trop-charges-et-peu-lisibles.md) | manager | moyenne | Les visuels pour Loïc suivent une hiérarchie simple et classique (Loïc → Manager → équipes), un seul message par écran, les détails au clic. |
 | [c010](c010-signal-d-approche-flou-ou-trop-ancien.md) | prospection | moyenne | Un signal est daté précisément et a moins de 90 jours si possible (sinon dit honnêtement) |
+| [c011](c011-deduction-non-sourcee-tiree-d-un-chiffre-source.md) | seo-site, contenu-linkedin, analyste | moyenne | Toute déduction tirée d'un chiffre sourcé est marquée (« en moyenne », « hypothèse », « calcul SL Agence ») ; jamais de généralisation |
