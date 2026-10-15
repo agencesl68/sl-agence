@@ -24,9 +24,9 @@
 - [x] 2026-10-15 · Lien vers les 2 pages ville depuis l'accueil : fait dans la refonte v9.
 - [x] 2026-10-15 · Doublon de H2 accueil / `automatisation-taches-administratives` : résolu des deux côtés (H2 de l'accueil
       changé dans la v9, H2 de la page de service changé dans la PR #10).
-- [ ] Fusionner la PR #10 (métiers, titres, politique de confidentialité) — conflits de mémoire résolus le 15/10 ; le lien
-      du pied de page et la mention sous le formulaire de l'accueil y sont inclus. Puis soumettre `/politique-de-confidentialite`
-      et `/logiciel-btp-sur-mesure` (Google + Bing).
+- [x] 2026-10-15 · PR #10 en ligne (vérifié : 20 URL du sitemap en 200, lien « Politique de confidentialité » sur toutes
+      les pages, accueil compris, section métiers visible sur la page BTP).
+- [ ] Soumettre `/politique-de-confidentialite` et `/logiciel-btp-sur-mesure` (Google + Bing).
 - [x] 2026-10-14 · Métiers précis ajoutés dans 7 pages de service (PR #10).
 - [x] 2026-10-14 · 6 titles > 60 et 3 metas > 155 corrigés (PR #10).
 - [ ] Questions RGPD pour Sacha : où arrivent les messages du formulaire et combien de temps Make garde l'historique ; DPA Make
