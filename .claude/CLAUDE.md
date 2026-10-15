@@ -221,6 +221,7 @@ au format défini dans `travail/transmissions/FORMAT.md`. Chaînes types :
 
 ## Fichiers
 
+- `memoire/rappels-seo.md` — décisions SEO et rappels dus : **à relire et rappeler à Loïc à chaque demande SEO / blog / page**
 - `memoire/` — source de vérité (agence, cible, ton, concurrents, objectifs, outils, journal, apprentissages, qg)
 - `savoirs/` — manuels métier des agents, sourcés et datés
 - `agents/` — définitions des agents

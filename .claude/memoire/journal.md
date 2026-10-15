@@ -1,7 +1,18 @@
 # Journal des décisions, actions et résultats
 
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
-> Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
+> Format : `## 2026-10-14 — Espace SEO : audit des contenus et 2 pages SEO local
+
+- Audit à la demande de Loïc : 18 URL indexables, aucune page par ville, aucun métier précis cité ; les articles
+  n'ont pas de H2 « Conclusion » (gabarit maison à corriger pour les prochains). Benchmark Google : aucune agence
+  concurrente visible sur les requêtes locales testées.
+- Décisions de Loïc : 2 pages SEO local (Mulhouse, Saint-Louis) ; pas de référence client par ville pour l'instant ;
+  déplacement sur place dans tout le 68.
+- Pages `/application-metier-mulhouse` et `/application-metier-saint-louis` : VALIDÉ 9,5/10 après 2 passes ;
+  PR https://github.com/agencesl68/sl-agence/pull/9. Nouvelle correction c011 (déductions marquées comme hypothèses).
+- Prochain : articles par métier (terrassement, plombier-chauffagiste, électricien) ; Colmar après verdict J+28.
+
+## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
 ## 2026-10-06 — Organisation par modèle, mémoire des corrections, workflows en commandes
 

@@ -17,7 +17,7 @@ textes des domaines resserrés, appels à l'action dans 5 sections + barre mobil
 Ouverture épurée (plus de fil, de pastilles, de lien sous les onglets, d'étiquette « Nous construisons » ;
 une phrase sous le titre ; fond plus discret). Section 01 refaite : plus de photos, la double saisie
 racontée au défilement (le titre et son double qui se recollent, la ligne retapée le soir, puis reliée).
-Correction enregistrée : c011.
+Correction enregistrée : c012.
 
 ## Ce qui ne bouge pas (SEO)
 Title, meta description, canonical, Open Graph, JSON-LD (FAQ incluse), H1 « Automatisation et logiciel
@@ -29,17 +29,17 @@ les changements là-bas aussi, sinon une régénération les effacerait.
 « Trop de texte » sur 02 : les 8 paragraphes deviennent un schéma « Vous saisissez une fois → votre logiciel
 sur mesure → le reste se fait tout seul ». 8 cartes d'une ligne, titres H3 = noms des pages de service, et
 chaque carte renvoie à sa page : 7 pages de service liées + le centre vers /logiciel-sur-mesure (avant : 5
-liens). Correction enregistrée : c012 (chaque section se comprend en 5 secondes).
+liens). Correction enregistrée : c013 (chaque section se comprend en 5 secondes).
 
 ## Étape 1 v4 (2026-10-13) — retours complets de Loïc
 - Héros : partie gauche épurée (« trop chargé, fait IA ») : surtitre simple (H1 conservé), titre sans effets,
   une phrase, un bouton + un lien. Plus de quadrillage animé. Le téléphone ne change pas.
-- 01 : plus de défilement figé (c014) : l'animation se joue seule (~4 s) à l'apparition.
+- 01 : plus de défilement figé (c015) : l'animation se joue seule (~4 s) à l'apparition.
 - Vidéo « En 45 secondes » retirée de l'accueil, et son balisage VideoObject avec.
 - 02 : schéma retravaillé (ports, traits fins, lueurs qui circulent, disque central soigné) + vos outils
   en une ligne de pastilles (ex-section 05, logos retirés).
 - 03 Votre métier : 4 familles de métiers au lieu des bulles flottantes ; le bandeau défilant est retiré.
-- Nombres en chiffres (c013). Sections renumérotées 01 → 06. Avis et « Notre intervention » inchangés.
+- Nombres en chiffres (c014). Sections renumérotées 01 → 06. Avis et « Notre intervention » inchangés.
 
 ## Étape 1 v5 (2026-10-13)
 - Héros : après chaque scène, le téléphone s'ouvre en écran d'ordinateur (même outil), puis revient — sans texte.

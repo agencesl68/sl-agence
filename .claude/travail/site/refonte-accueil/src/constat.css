@@ -3,7 +3,7 @@
    Quand la section apparaît, l'animation joue seule (~4 s) : le
    titre et son double (en trait) se recollent, la même ligne est
    retapée le soir, puis les deux saisies se relient.
-   Rien ne retient le défilement (correction c014).
+   Rien ne retient le défilement (correction c015).
    Variables pilotées en JS : --d (écart du double, 1 → 0),
    --l (liaison, 0 → 1), --c (phrase de chute, 0 → 1).
    Sans JS : état final, tout visible.

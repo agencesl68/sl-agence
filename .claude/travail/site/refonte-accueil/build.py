@@ -169,7 +169,7 @@ for ancien, nouveau in [("07 — Ce qu'on nous demande", "05 — Ce qu'on nous d
                         ("08 — Parlons-en", "06 — Parlons-en")]:
     remplace(ancien, nouveau)
 
-# ---- les quantités en chiffres (correction c013) ; les citations de clients restent telles quelles ----
+# ---- les quantités en chiffres (correction c014) ; les citations de clients restent telles quelles ----
 remplace("Quinze minutes au téléphone suffisent", "15 minutes au téléphone suffisent")
 remplace("Écrivez-nous en deux minutes.", "Écrivez-nous en 2 minutes.")
 

@@ -1,5 +1,5 @@
 ---
-id: c012
+id: c013
 date: 2026-10-12
 agents: [manager, seo-site, contenu-linkedin]
 gravite: moyenne
