@@ -20,7 +20,8 @@ SUF = ("-" + V) if V else ""
 CSS_HEROS = ["hero.css", "hero-v9.css"] if V == "v9" else ["hero" + SUF + ".css"]
 JS_HERO = "hero.js" if V == "v9" else "hero" + SUF + ".js"
 
-html = (RACINE / "index.html").read_text(encoding="utf-8")
+# source : l'accueil tel qu'il était avant la refonte (copie figée ; index.html contient désormais la v9)
+html = (SRC / "index-avant-refonte.html").read_text(encoding="utf-8")
 CAL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e"
 
 
@@ -115,6 +116,14 @@ entre('    <div class="entete reveal">\n      <p class="pill">06 — Notre inter
     <p class="etapes-cta reveal"><a class="btn btn-plein btn-fleche" href="{CAL}" target="_blank" rel="noopener">Commencer par l'étape 01</a></p>
 
 """)
+
+# ---- près de chez vous : H2 propre à l'accueil (doublon avec /automatisation-taches-administratives, audit du 14/10)
+#      et liens vers les 2 pages ville (rappel SEO : « lien vers les pages ville depuis l'accueil ») ----
+remplace('<h2 class="titre-l">Automatisation d\'entreprise à Mulhouse et dans le Haut-Rhin.</h2>',
+         '<h2 class="titre-l">Logiciel sur mesure et automatisation à Mulhouse, Saint-Louis et dans le Haut-Rhin.</h2>')
+remplace('nous accompagnons les entreprises de Mulhouse, Colmar, Saint-Louis, Altkirch et de tout le Haut-Rhin.',
+         'nous accompagnons les entreprises de <a href="/logiciel-entreprise-mulhouse" style="color:var(--vert-clair)">Mulhouse</a>, '
+         'Colmar, <a href="/logiciel-entreprise-saint-louis" style="color:var(--vert-clair)">Saint-Louis</a>, Altkirch et de tout le Haut-Rhin.')
 
 # ---- près de chez vous + guides : titres plus petits, guides en lignes cliquables ----
 remplace("""    <div class="entete reveal" style="margin-top:clamp(4rem,10vh,7rem)">\n      <p class="pill">Près de chez vous</p>""",

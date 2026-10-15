@@ -85,3 +85,9 @@ intervention, Parlons-en) · Menu (le blog reste dans le menu). Héros centré :
 (→ #constat) et « Décrire mon besoin ». Dessous : l'atelier téléphone → ordinateur centré, devant un grand
 mot en chrome « SUR MESURE » (relief + reflet qui passe). Sur téléphone, le mot passe au-dessus de l'animation.
 - v9.1 (2026-10-15) : « SUR MESURE » au-dessus de l'animation sur ordinateur aussi (derrière le téléphone, on ne lisait que « SUR »).
+
+## Mise en ligne de la v9 (2026-10-15)
+`index.html` = `etape-1-accueil-v9.html`. La source de la maquette est désormais la copie figée
+`src/index-avant-refonte.html` (l'ancien accueil). Ajouts au passage : H2 local dédoublonné et liens vers
+`/logiciel-entreprise-mulhouse` et `/logiciel-entreprise-saint-louis`. **Sacha doit reporter la v9 dans
+`template.html`** (hors dépôt), sinon `build.py` / `make-deploy.py` de son côté écraseraient l'accueil.
