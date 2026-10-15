@@ -343,7 +343,7 @@ En attendant : demander à chaque nouveau contact « Comment nous avez-vous trou
 9. **Outils de suivi de positions qui interrogent Google automatiquement depuis nos machines** : « machine-generated traffic ». Utiliser Search Console.
 10. **Balisage structuré qui ne correspond pas au contenu visible** (faux avis en `aggregateRating`, FAQ invisible) : non conforme aux consignes de données structurées ; les avis « auto-proclamés » ne sont pas éligibles aux extraits d'avis. Source : Google, LocalBusiness / Review snippet ; Google Search Central Blog (16 sept. 2019).
 11. **Inventer un client, un chiffre, un témoignage ou un volume de recherche** (règle absolue de l'agence) ; citer un client par son nom.
-12. **Modifier le site sur `main`**, toucher au script du formulaire (webhook Make) ou modifier `index.html` sans signaler qu'il est généré depuis un `template.html` hors dépôt.
+12. **Modifier le site sur `main`**, toucher au script du formulaire (webhook Make) (depuis le 15/10/2026, `index.html` se modifie directement dans le dépôt, par branche + PR).
 13. **Changer d'URL sans redirection** (GitHub Pages ne gère pas les 301 côté serveur : conserver les URL existantes, ou utiliser une page avec `meta refresh` + `canonical` en dernier recours).
 14. **Perdre du temps sur ce qui ne compte pas** : `llms.txt`, meta keywords, densité de mots-clés, nombre de mots cible.
 

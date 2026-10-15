@@ -89,5 +89,5 @@ mot en chrome « SUR MESURE » (relief + reflet qui passe). Sur téléphone, le 
 ## Mise en ligne de la v9 (2026-10-15)
 `index.html` = `etape-1-accueil-v9.html`. La source de la maquette est désormais la copie figée
 `src/index-avant-refonte.html` (l'ancien accueil). Ajouts au passage : H2 local dédoublonné et liens vers
-`/logiciel-entreprise-mulhouse` et `/logiciel-entreprise-saint-louis`. **Sacha doit reporter la v9 dans
-`template.html`** (hors dépôt), sinon `build.py` / `make-deploy.py` de son côté écraseraient l'accueil.
+`/logiciel-entreprise-mulhouse` et `/logiciel-entreprise-saint-louis`. PR #11 fusionnée le 15/10.
+Décision de Sacha : plus de `template.html` pour l'accueil, `index.html` se modifie directement dans le dépôt.

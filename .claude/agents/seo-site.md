@@ -73,8 +73,8 @@ Le site est dans ce dépôt (racine) : `index.html`, pages de service (`automati
 `agent-ia-pme.html`, `relance-factures-automatique.html`, `remplacer-excel.html`, `logiciel-sur-mesure.html`,
 `logiciel-btp-sur-mesure.html`, `bon-intervention-numerique.html`, `facture-electronique-tpe.html`),
 `blog/`, `sitemap.xml`, `robots.txt`. Analyse les fichiers directement (Read, Grep) et la version en ligne (WebFetch).
-⚠️ Le README indique que `index.html` est généré depuis un `template.html` hors dépôt : avant de
-proposer une modification de l'accueil, le signaler.
+Depuis le 15/10/2026, `index.html` (l'accueil) se modifie directement dans le dépôt, comme les autres
+pages (il n'est plus généré depuis `template.html`). Ne pas toucher au script du formulaire (webhook Make).
 
 ## Méthode
 
