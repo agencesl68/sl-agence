@@ -23,3 +23,4 @@
 | [c013](c013-sections-du-site-trop-bavardes.md) | manager, seo-site, contenu-linkedin | moyenne | Chaque section du site se comprend en 5 secondes : titre avec mot-clé, schéma ou phrase courte, une ligne max par élément. |
 | [c014](c014-nombres-ecrits-en-lettres-sur-le-site.md) | manager, seo-site, contenu-linkedin | moyenne | Sur le site, les quantités en chiffres (15 minutes, 4 temps), sauf citations de clients. |
 | [c015](c015-animation-qui-bloque-le-defilement.md) | manager, seo-site | moyenne | Aucune animation ne retient le défilement : elle se lance à l'apparition et joue seule. |
+| [c016](c016-affirmation-non-verifiee-sur-un-prestataire.md) | seo-site, contenu-linkedin | moyenne | Texte juridique : chaque affirmation sur un prestataire (nationalité, DPF, hébergement) est vérifiée sur sa page officielle |

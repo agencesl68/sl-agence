@@ -14,16 +14,29 @@
   « application métier ». URL : `/logiciel-entreprise-<ville>`.
 - 2026-10-14 · Articles : intro, 4-5 parties, **vraie partie « Conclusion »**, FAQ, images utiles.
 
+- 2026-10-14 · À chaque nouvelle page / article mis en ligne : donner à Loïc l'URL à soumettre dans **Search Console ET Bing Webmaster Tools** (Soumission d'URL).
+
 ## À rappeler (en attente)
 
-- [ ] Fusionner la PR #9 (pages Mulhouse / Saint-Louis), puis Search Console : demander l'indexation des 2 pages.
-- [x] 2026-10-15 · Lien vers les 2 pages ville depuis l'accueil : fait dans la refonte v9 (PR #11 fusionnée le 15/10).
+- [x] 2026-10-14 · PR #9 fusionnée : pages en ligne (/logiciel-entreprise-mulhouse, /logiciel-entreprise-saint-louis).
+- [x] 2026-10-15 · Refonte de l'accueil (v9) en ligne (PR #11). Depuis le 15/10, `index.html` se modifie directement
+      dans le dépôt : plus rien à reporter dans `template.html` (décision de Sacha).
+- [x] 2026-10-15 · Lien vers les 2 pages ville depuis l'accueil : fait dans la refonte v9.
+- [x] 2026-10-15 · Doublon de H2 accueil / `automatisation-taches-administratives` : résolu des deux côtés (H2 de l'accueil
+      changé dans la v9, H2 de la page de service changé dans la PR #10).
+- [ ] Fusionner la PR #10 (métiers, titres, politique de confidentialité) — conflits de mémoire résolus le 15/10 ; le lien
+      du pied de page et la mention sous le formulaire de l'accueil y sont inclus. Puis soumettre `/politique-de-confidentialite`
+      et `/logiciel-btp-sur-mesure` (Google + Bing).
+- [x] 2026-10-14 · Métiers précis ajoutés dans 7 pages de service (PR #10).
+- [x] 2026-10-14 · 6 titles > 60 et 3 metas > 155 corrigés (PR #10).
+- [ ] Questions RGPD pour Sacha : où arrivent les messages du formulaire et combien de temps Make garde l'historique ; DPA Make
+      accepté ; « données exportables à tout moment » confirmé ; contrat de sous-traitance (art. 28) pour les outils clients.
+- [ ] Trancher : prix « à partir de 1 000 € » affiché sur /logiciel-sur-mesure alors que agence.md dit « aucun prix public ».
+- [ ] Search Console : demander l'indexation de l'accueil (refonte) et des 2 pages ville (Loïc).
+- [ ] Bing : renvoyer le sitemap + soumettre les URL (liste donnée le 14/10) ; si besoin, Loïc envoie l'export « Explorateur
+      de site » pour repérer les manquantes.
 - [ ] Prochains articles métier, dans l'ordre : **terrassement** → plombier-chauffagiste → électricien
       (briefs dans `travail/seo/audit-contenus-2026-10-14.md`).
-- [ ] Ajouter des métiers précis dans les pages de service existantes (zéro occurrence au 14/10).
-- [ ] Corriger 6 titles > 60 car. et 3 metas > 155 car. (liste dans l'audit du 14/10).
-- [x] 2026-10-15 · Doublon de H2 accueil / `automatisation-taches-administratives` : H2 de l'accueil remplacé dans la refonte v9.
-- [ ] Page politique de confidentialité (A6 du plan).
-- [ ] Mesure J+28 des pages ville (≈ 28 jours après la mise en ligne) → décider Colmar.
+- [ ] Mesure J+28 des pages ville le **2026-11-11** → décider Colmar.
 - [ ] Questions ouvertes pour enrichir les pages ville : temps de trajet depuis Friesen, une réalisation
       anonymisée par ville, questions réellement posées par des entreprises de la zone, 2 captures floutées (Sacha).
