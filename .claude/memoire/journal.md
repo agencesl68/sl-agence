@@ -13,7 +13,8 @@
   2 pages ville ajoutés ; 7 pages de service liées depuis le schéma.
 - Corrections c012 à c015 (premier écran épuré, sections lisibles en 5 s, chiffres en chiffres, pas de
   défilement bloqué). Maquettes et sources : `travail/site/refonte-accueil/`.
-- À faire : Loïc fusionne la PR ; Sacha reporte la v9 dans `template.html` (sinon une régénération l'efface).
+- PR #11 fusionnée le 15/10, v9 en ligne. Décision de Sacha : l'accueil ne passe plus par `template.html` ;
+  `index.html` se modifie directement dans le dépôt (README mis à jour).
 
 ## 2026-10-14 — Espace SEO : audit des contenus et 2 pages SEO local
 

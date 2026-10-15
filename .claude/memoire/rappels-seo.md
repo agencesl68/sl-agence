@@ -17,7 +17,7 @@
 ## À rappeler (en attente)
 
 - [ ] Fusionner la PR #9 (pages Mulhouse / Saint-Louis), puis Search Console : demander l'indexation des 2 pages.
-- [x] 2026-10-15 · Lien vers les 2 pages ville depuis l'accueil : fait dans la refonte v9 (PR à fusionner ; Sacha doit le reporter dans `template.html`).
+- [x] 2026-10-15 · Lien vers les 2 pages ville depuis l'accueil : fait dans la refonte v9 (PR #11 fusionnée le 15/10).
 - [ ] Prochains articles métier, dans l'ordre : **terrassement** → plombier-chauffagiste → électricien
       (briefs dans `travail/seo/audit-contenus-2026-10-14.md`).
 - [ ] Ajouter des métiers précis dans les pages de service existantes (zéro occurrence au 14/10).

@@ -7,7 +7,7 @@
 >
 > **Statuts** : à faire → en cours → en ligne → mesurée (gagné / neutre / perdu).
 > **Qui** : Claude = agent `seo-site` (textes, PR) ou `contenu-linkedin` (articles) ; Loïc = actions hors dépôt ;
-> Sacha = accueil (`template.html` hors dépôt), formulaire, hébergement.
+> Sacha = formulaire, hébergement. Depuis le 15/10, l'accueil (`index.html`) se modifie directement dans le dépôt (plus de `template.html`).
 > **Effort** = temps de travail estimé, pas un délai.
 > **Règle de mise en ligne** : rien sur le site tant que Loïc n'a pas autorisé les branches `seo/<sujet>` ; ensuite,
 > 1 branche + 1 pull request par action, Loïc fusionne.

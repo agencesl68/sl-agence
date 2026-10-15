@@ -26,11 +26,11 @@ adresse ne réponde encore.
 
 ## Modifier le site
 
-Ne pas éditer `index.html` à la main : il est généré.
-La source est `template.html`, dans le dossier parent.
-
-    python3 build.py        # régénère index.html
-    python3 make-deploy.py  # réassemble ce dossier
+Depuis le 15/10/2026 (refonte de l'accueil, PR #11), **`index.html` se modifie directement dans ce
+dépôt**, comme les autres pages : il n'est plus généré depuis `template.html` (choix de Sacha).
+Chaque modification passe par une branche et une pull request.
+Les sources de la refonte (maquettes, scripts) sont dans `.claude/travail/site/refonte-accueil/`
+(dossier non publié).
 
 ## Photographies
 
