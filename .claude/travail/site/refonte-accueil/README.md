@@ -84,3 +84,4 @@ Barre du haut : logo · rubriques (Le constat, Ce que nous faisons, Réalisation
 intervention, Parlons-en) · Menu (le blog reste dans le menu). Héros centré : devise, « En savoir plus »
 (→ #constat) et « Décrire mon besoin ». Dessous : l'atelier téléphone → ordinateur centré, devant un grand
 mot en chrome « SUR MESURE » (relief + reflet qui passe). Sur téléphone, le mot passe au-dessus de l'animation.
+- v9.1 (2026-10-15) : « SUR MESURE » au-dessus de l'animation sur ordinateur aussi (derrière le téléphone, on ne lisait que « SUR »).
