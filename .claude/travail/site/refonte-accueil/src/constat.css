@@ -1,0 +1,136 @@
+/* ============================================================
+   01 · LE CONSTAT — la double saisie
+   Quand la section apparaît, l'animation joue seule (~4 s) : le
+   titre et son double (en trait) se recollent, la même ligne est
+   retapée le soir, puis les deux saisies se relient.
+   Rien ne retient le défilement (correction c015).
+   Variables pilotées en JS : --d (écart du double, 1 → 0),
+   --l (liaison, 0 → 1), --c (phrase de chute, 0 → 1).
+   Sans JS : état final, tout visible.
+   ============================================================ */
+
+.constat-wrap{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+.constat-titre{
+  display:grid;margin-top:1.5rem;max-width:13ch;
+  font-size:clamp(2.4rem,1rem + 5.2vw,5.4rem);text-wrap:balance;
+}
+.constat-titre > span,
+.constat-titre::after{grid-area:1/1}
+.constat-titre::after{
+  content:attr(data-echo);pointer-events:none;
+  color:transparent;-webkit-text-stroke:1px rgba(169,196,159,.6);
+  transform:translate(calc(var(--d,0) * .08em),calc(var(--d,0) * .1em));
+  opacity:var(--d,0);
+}
+.constat-lead{margin-top:1.4rem;max-width:44ch}
+
+.saisies{
+  margin-top:clamp(2rem,5vh,3rem);width:100%;max-width:920px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;
+}
+.saisie{
+  display:flex;flex-direction:column;gap:.6rem;
+  padding:1.3rem 1.5rem 1.2rem;border-radius:16px;text-align:left;
+  transition:box-shadow .5s var(--ease),transform .6s var(--expo);
+}
+.saisie small{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.compteur{font-size:.8rem;font-weight:600;display:grid}
+.compteur b{grid-area:1/1;font-weight:600}
+
+/* le bon papier : réglure, léger angle */
+.saisie-1{
+  background:#ebe7da;color:#24241e;transform:rotate(-1.5deg);
+  background-image:repeating-linear-gradient(180deg,transparent 0 25px,rgba(60,79,59,.16) 25px 26px);
+  box-shadow:0 24px 40px -26px rgba(0,0,0,.9);
+}
+.saisie-1 small,.saisie-1 .compteur{color:#6b6a5c}
+.manuscrit{font-style:italic;font-size:clamp(1.05rem,1rem + .4vw,1.3rem);letter-spacing:-.01em;line-height:1.35}
+
+/* le tableur du soir */
+.saisie-2{background:var(--surface-2);color:var(--blanc);box-shadow:inset 0 0 0 1px rgba(169,196,159,.55)}
+.saisie-2 small{color:var(--texte-faible)}
+.clavier{
+  min-height:2.3em;padding:.5rem .7rem;border-radius:6px;
+  background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--filet);
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:clamp(.82rem,.78rem + .25vw,.98rem);line-height:1.35;
+}
+.saisie-2 .c-apres{color:var(--vert-clair)}
+.saisie-2 .c-avant{color:#e5ad78;visibility:hidden}
+.saisie-2 .curseur{display:none}
+
+/* la liaison : un trait qui se tire d'une saisie à l'autre */
+.liaison{position:relative;width:clamp(3.5rem,9vw,6.5rem);display:grid;place-items:center}
+.liaison i{display:block;width:100%;height:2px;background:var(--vert-clair);transform-origin:left;transform:scaleX(var(--l,1))}
+.liaison span{
+  position:absolute;top:calc(50% + .55rem);
+  font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--vert-clair);opacity:var(--l,1);
+}
+
+.constat-chute{
+  margin-top:clamp(1.6rem,4vh,2.4rem);
+  font-size:clamp(1.2rem,1rem + 1vw,1.7rem);letter-spacing:-.03em;color:var(--blanc);
+  opacity:var(--c,1);transform:translateY(calc((1 - var(--c,1)) * 12px));
+}
+.constat-chute strong{font-weight:500;color:var(--vert-clair)}
+
+/* avant la liaison : on retape encore, compteur orange, curseur actif */
+.constat-piste.attente .saisie-2{box-shadow:inset 0 0 0 1px var(--filet)}
+.constat-piste.attente .c-avant{visibility:visible}
+.constat-piste.attente .c-apres{visibility:hidden}
+.constat-piste.attente .saisie-2 .curseur{display:inline-block}
+
+@media (max-width:720px){
+  .saisies{grid-template-columns:1fr;max-width:340px;justify-items:stretch}
+  .liaison{width:auto;height:2.6rem}
+  .liaison i{width:2px;height:100%;transform-origin:top;transform:scaleY(var(--l,1))}
+  .liaison span{top:50%;left:calc(50% + .7rem);transform:translateY(-50%)}
+  .constat-lead{font-size:1rem}
+}
+
+/* ============================================================
+   Contours vivants : une lueur fait le tour de chaque carte.
+   Orange tant qu'on recopie à la main, verte une fois relié.
+   Sur le trait « automatique », une étincelle circule en continu.
+   ============================================================ */
+@property --tour{syntax:"<angle>";inherits:false;initial-value:0deg}
+
+.saisie{position:relative}
+.saisie::before{
+  content:"";position:absolute;inset:-2.5px;padding:2.5px;border-radius:18px;pointer-events:none;
+  background:conic-gradient(from var(--tour),transparent 0 42%,var(--lueur) 72%,#fff 80%,var(--lueur) 86%,transparent 100%);
+  filter:drop-shadow(0 0 6px var(--lueur)) drop-shadow(0 0 14px var(--lueur));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:tour 2.8s linear infinite;
+  transition:opacity .6s var(--ease);
+}
+.saisie-1{--lueur:#e5ad78}
+.saisie-1::before{animation-delay:-1.4s}
+.saisie-2{--lueur:#a9c49f;transition:box-shadow .6s var(--ease)}
+.constat-piste:not(.attente) .saisie-2{
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.55),0 0 50px -12px rgba(169,196,159,.55);
+}
+.constat-piste.attente .saisie-2{--lueur:#e5ad78}
+/* une fois relié, le bon papier passe au vert lui aussi : une seule saisie, partout */
+.constat-piste:not(.attente) .saisie-1{--lueur:#a9c49f}
+@keyframes tour{to{--tour:360deg}}
+
+.liaison i{position:relative;overflow:hidden}
+.liaison i::after{
+  content:"";position:absolute;top:-2px;bottom:-2px;left:0;width:40%;
+  background:linear-gradient(90deg,transparent,#fff,transparent);
+  filter:blur(.5px);
+  animation:etincelle 1.3s linear infinite;
+}
+@keyframes etincelle{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+@media (max-width:720px){
+  .liaison i::after{left:-2px;right:-2px;top:0;bottom:auto;width:auto;height:40%;
+    background:linear-gradient(180deg,transparent,#fff,transparent);animation-name:etincelle-v}
+  @keyframes etincelle-v{from{transform:translateY(-100%)}to{transform:translateY(260%)}}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .saisie::before,.liaison i::after{animation:none}
+}

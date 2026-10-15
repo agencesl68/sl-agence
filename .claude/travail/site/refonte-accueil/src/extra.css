@@ -1,0 +1,115 @@
+/* ============================================================
+   Refonte de l'accueil — compléments hors héros
+   ============================================================ */
+
+/* l'ancien voile du héros (photo d'archives) n'a plus de raison d'être */
+.hero::after{content:none}
+
+/* relais : un appel à l'action discret en fin de section */
+.relais{
+  margin-top:clamp(2.5rem,6vh,4rem);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.2rem 2rem;
+  padding:clamp(1.3rem,3vw,1.8rem) clamp(1.3rem,3vw,2rem);
+  border-radius:20px;
+  background:linear-gradient(120deg,rgba(60,79,59,.55),rgba(60,79,59,.18));
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.22);
+}
+.relais p{max-width:52ch;color:var(--texte);font-size:1.02rem;line-height:1.45}
+.relais p b{display:block;color:var(--blanc);font-weight:500;font-size:clamp(1.15rem,1rem + .6vw,1.4rem);letter-spacing:-.03em;margin-bottom:.2rem}
+.relais-actions{display:flex;flex-wrap:wrap;gap:.6rem}
+
+/* domaines : texte resserré, liens bien visibles */
+.domaine p a{display:inline-block;margin-top:.35rem;color:var(--vert-clair);text-underline-offset:3px}
+
+/* panneau de navigation : un bouton d'action en plus des numéros */
+.panneau-pied .btn{color:var(--noir);font-size:.95rem;padding-block:1rem}
+
+/* barre d'action collée en bas, sur téléphone, une fois le héros passé */
+.barre-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:55;
+  display:none;gap:.5rem;
+  padding:.6rem max(16px,env(safe-area-inset-left)) calc(.6rem + env(safe-area-inset-bottom,0px));
+  background:rgba(7,9,7,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-top:1px solid var(--filet);
+  transform:translateY(110%);transition:transform .45s var(--expo);
+}
+.barre-cta .btn{flex:1;min-height:48px;padding:.8rem 1rem;font-size:.92rem}
+.barre-cta.montre{transform:none}
+@media (max-width:760px){
+  .barre-cta{display:flex}
+  .site-foot{padding-bottom:6rem}
+}
+
+/* bouton avec flèche (relais, avis) */
+.btn-fleche::after{
+  content:"";width:.5em;height:.5em;margin-left:.75em;
+  border-top:1.6px solid currentColor;border-right:1.6px solid currentColor;
+  transform:rotate(45deg);transition:transform .35s var(--expo);
+}
+.btn-fleche:hover::after{transform:translateX(3px) rotate(45deg)}
+
+/* 03 · votre métier : 4 familles, lues d'un coup d'œil */
+.familles{
+  margin-top:clamp(2.5rem,6vh,4rem);
+  display:grid;gap:1px;background:var(--filet);border:1px solid var(--filet);border-radius:20px;overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+}
+.famille{background:var(--surface);padding:clamp(1.4rem,2.6vw,1.9rem);display:flex;flex-direction:column;gap:.7rem}
+.famille-ico{
+  display:grid;place-items:center;width:44px;height:44px;border-radius:13px;margin-bottom:.4rem;
+  background:linear-gradient(145deg,#4c6449,#2a3829);color:#dfe8d8;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16);
+}
+.famille-ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.famille h3{font-size:1.15rem;font-weight:500;letter-spacing:-.025em;line-height:1.2}
+.famille p{font-size:.92rem;line-height:1.5;color:var(--texte-faible)}
+
+/* 04 · notre intervention : 4 étapes sur une ligne, reliées */
+.entete--centre{text-align:center;max-width:none}
+@media (min-width:1000px){.entete--centre{display:block}}
+.entete--centre h2{margin-inline:auto}
+.etapes{
+  list-style:none;margin:clamp(2.5rem,6vh,3.5rem) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative;
+}
+.etapes::before{   /* le fil qui relie les 4 numéros */
+  content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:1px;
+  background:linear-gradient(90deg,var(--vert-clair),rgba(169,196,159,.25));
+}
+.etapes li{position:relative;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.etapes i{
+  display:grid;place-items:center;width:54px;height:54px;border-radius:50%;
+  font-style:normal;font-size:.85rem;font-weight:600;letter-spacing:.06em;color:var(--noir);
+  background:var(--vert-clair);box-shadow:0 0 0 8px var(--surface);
+}
+.etapes h3{font-size:clamp(1.05rem,1rem + .4vw,1.3rem);font-weight:500;letter-spacing:-.025em}
+.etapes-cta{margin-top:clamp(2rem,5vh,3rem);text-align:center}
+@media (max-width:700px){
+  .etapes{grid-template-columns:1fr;gap:1.1rem}
+  .etapes::before{left:27px;right:auto;top:27px;bottom:27px;width:1px;height:auto;background:linear-gradient(180deg,var(--vert-clair),rgba(169,196,159,.25))}
+  .etapes li{flex-direction:row;text-align:left}
+}
+
+/* près de chez vous / guides : titres secondaires, plus petits */
+.entete--petit{margin-top:clamp(4rem,9vh,6rem)}
+.entete--petit .pill{margin-bottom:1.1rem}
+.entete--petit h2{font-size:clamp(1.45rem,1rem + 1.5vw,2.1rem);max-width:24ch}
+.entete--petit p:not(.pill){font-size:.95rem}
+
+/* guides : une ligne cliquable chacun */
+.guides-liste{margin-top:1.6rem;display:grid;border-top:1px solid var(--filet)}
+.guide-ligne{
+  display:flex;align-items:baseline;gap:1rem;padding:.95rem .2rem;
+  border-bottom:1px solid var(--filet);text-decoration:none;
+  transition:padding-left .35s var(--expo);
+}
+.guide-ligne small{flex:0 0 auto;min-width:9.5rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--vert-clair)}
+.guide-ligne b{flex:1;min-width:0;font-weight:400;font-size:.95rem;color:var(--blanc)}
+.guide-ligne::after{content:"→";color:var(--vert-clair);transition:transform .35s var(--expo)}
+.guide-ligne:hover{padding-left:.6rem}
+.guide-ligne:hover b{color:var(--vert-clair)}
+.guide-ligne:hover::after{transform:translateX(3px)}
+@media (max-width:560px){
+  .guide-ligne{flex-wrap:wrap;gap:.2rem .8rem}
+  .guide-ligne small{min-width:0;flex-basis:100%}
+}

@@ -1,7 +1,21 @@
 # Journal des décisions, actions et résultats
 
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
-> Format : `## 2026-10-14 — Espace SEO : audit des contenus et 2 pages SEO local
+> Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
+
+## 2026-10-15 — Refonte de l'accueil : la v9 « vitrine » part en PR
+
+- Refonte menue en maquettes privées (v1 → v7, puis variantes v8 « ville de documents » et v9 « vitrine »
+  façon Apple) ; Loïc choisit la **v9** : barre de rubriques, devise centrée, « En savoir plus » / « Décrire
+  mon besoin », atelier téléphone → ordinateur sous un mot chromé « SUR MESURE ».
+- SEO conservé (title, meta, canonical, H1, FAQ balisée) ; vidéo et son balisage retirés de l'accueil ;
+  H2 local dédoublonné (« Logiciel sur mesure et automatisation à Mulhouse, Saint-Louis… ») ; liens vers les
+  2 pages ville ajoutés ; 7 pages de service liées depuis le schéma.
+- Corrections c012 à c015 (premier écran épuré, sections lisibles en 5 s, chiffres en chiffres, pas de
+  défilement bloqué). Maquettes et sources : `travail/site/refonte-accueil/`.
+- À faire : Loïc fusionne la PR ; Sacha reporte la v9 dans `template.html` (sinon une régénération l'efface).
+
+## 2026-10-14 — Espace SEO : audit des contenus et 2 pages SEO local
 
 - Audit à la demande de Loïc : 18 URL indexables, aucune page par ville, aucun métier précis cité ; les articles
   n'ont pas de H2 « Conclusion » (gabarit maison à corriger pour les prochains). Benchmark Google : aucune agence
@@ -12,7 +26,6 @@
   PR https://github.com/agencesl68/sl-agence/pull/9. Nouvelle correction c011 (déductions marquées comme hypothèses).
 - Prochain : articles par métier (terrassement, plombier-chauffagiste, électricien) ; Colmar après verdict J+28.
 
-## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
 ## 2026-10-06 — Organisation par modèle, mémoire des corrections, workflows en commandes
 

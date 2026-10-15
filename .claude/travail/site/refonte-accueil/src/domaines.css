@@ -1,0 +1,156 @@
+/* ============================================================
+   02 · CE QUE NOUS FAISONS — le schéma
+   À gauche ce que vous saisissez, au centre votre outil, à droite
+   ce qui part tout seul. Chaque carte a un « port » sur son bord
+   intérieur ; un trait le relie au centre et une petite lueur y
+   circule dans le sens de l'information (JS). Sous le schéma : vos
+   outils actuels (ancienne section 05). Sur téléphone : une colonne.
+   ============================================================ */
+
+/* l'ancienne mise en page (titre collant à gauche) ne s'applique plus */
+@media (min-width:1000px){
+  #domaines .wrap{display:block}
+  #domaines .entete{position:static;display:block;max-width:none;text-align:center}
+  #domaines .entete h2{max-width:22ch;margin-inline:auto}
+  #domaines .entete p:not(.pill){max-width:44ch;margin:1.4rem auto 0}
+}
+#domaines{overflow:hidden}
+#domaines .entete{text-align:center;max-width:none}
+#domaines .entete h2{margin-inline:auto;text-wrap:balance}
+#domaines .entete p:not(.pill){margin-inline:auto;color:var(--vert-clair)}
+
+.schema{
+  position:relative;isolation:isolate;margin-top:clamp(3rem,7vh,4.5rem);
+  display:grid;gap:2rem;
+}
+/* halo doux derrière le centre */
+.schema::before{
+  content:"";position:absolute;z-index:-1;left:50%;top:50%;
+  width:min(760px,90%);aspect-ratio:1;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(60,79,59,.45) 0%,rgba(60,79,59,.12) 38%,transparent 66%);
+  pointer-events:none;
+}
+@media (min-width:1000px){
+  .schema{grid-template-columns:minmax(0,1fr) 260px minmax(0,1fr);gap:0 clamp(4rem,7vw,7rem);align-items:center}
+}
+
+/* ---------- traits ---------- */
+.schema-liens{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;display:none}
+@media (min-width:1000px){.schema-liens{display:block}}
+.schema-liens .trait{fill:none;stroke:rgba(169,196,159,.2);stroke-width:1.25;transition:stroke .35s var(--ease)}
+.schema-liens .trait.actif{stroke:rgba(169,196,159,.75)}
+.schema-liens .port{fill:var(--surface);stroke:rgba(169,196,159,.55);stroke-width:1.25}
+.schema-liens .lueur{fill:#dfe8d8;filter:url(#lueurFlou)}
+.schema-liens .lueur-coeur{fill:#fff}
+
+/* ---------- colonnes et cartes ---------- */
+.schema-col{position:relative;z-index:1;display:grid;grid-auto-rows:1fr;gap:.8rem}
+.schema-legende{
+  display:flex;align-items:center;gap:.7rem;
+  font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--vert-clair);margin-bottom:.4rem;
+}
+.schema-legende::before{content:"";width:18px;height:1px;background:currentColor;opacity:.6}
+/* la légende garde sa hauteur ; les 4 cartes se partagent le reste à parts égales */
+.schema-col{grid-template-rows:auto}
+@media (min-width:1000px){
+  .schema-col--entree .schema-legende{justify-content:flex-start;flex-direction:row-reverse}
+}
+
+.noeud{
+  position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;align-items:center;
+  padding:1.05rem 1.2rem;border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 1px 0 rgba(255,255,255,.06),0 20px 40px -30px rgba(0,0,0,.9);
+  transition:box-shadow .35s var(--ease),transform .45s var(--expo),background .35s var(--ease);
+}
+.noeud:has(a){grid-template-columns:auto minmax(0,1fr) auto}
+.noeud:hover,.noeud.actif{
+  background:linear-gradient(180deg,rgba(169,196,159,.1),rgba(169,196,159,.03));
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.55),0 24px 50px -30px rgba(169,196,159,.35);
+}
+@media (min-width:1000px){
+  .schema-col--entree .noeud:hover{transform:translateX(4px)}
+  .schema-col--sortie .noeud:hover{transform:translateX(-4px)}
+}
+.noeud:focus-within{outline:2px solid var(--vert-clair);outline-offset:3px}
+.noeud a:focus-visible{outline:none}
+
+.noeud-ico{
+  display:grid;place-items:center;width:44px;height:44px;border-radius:13px;
+  background:linear-gradient(145deg,#4c6449,#2a3829);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 6px 14px -8px rgba(0,0,0,.8);
+  color:#dfe8d8;
+}
+.noeud-ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.noeud h3{font-size:1.02rem;font-weight:500;letter-spacing:-.02em;line-height:1.25;color:var(--blanc)}
+.noeud h3 a{color:inherit;text-decoration:none}
+.noeud h3 a::after{content:"";position:absolute;inset:0;border-radius:18px}   /* toute la carte est cliquable */
+.noeud p{margin-top:.25rem;font-size:.88rem;line-height:1.4;color:var(--texte-faible)}
+
+/* pastille flèche des cartes qui mènent à une page */
+.noeud:has(a)::after{
+  content:"";width:30px;height:30px;border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.35);
+  transition:transform .35s var(--expo),background-color .35s var(--ease),box-shadow .35s var(--ease);
+}
+.noeud:has(a)::before{
+  content:"";position:absolute;right:calc(1.2rem + 11px);top:50%;width:5px;height:5px;margin-top:-3px;
+  border-top:1.5px solid var(--vert-clair);border-right:1.5px solid var(--vert-clair);transform:rotate(45deg);
+  transition:transform .35s var(--expo);
+}
+.noeud:has(a):hover::after{background-color:rgba(169,196,159,.14);box-shadow:inset 0 0 0 1px var(--vert-clair)}
+.noeud:has(a):hover::before{transform:translateX(2px) rotate(45deg)}
+
+/* ---------- le centre ---------- */
+.schema-coeur{position:relative;z-index:1;display:grid;place-items:center}
+.moyeu{
+  position:relative;display:grid;place-items:center;
+  width:min(100%,260px);aspect-ratio:1;border-radius:50%;
+  color:var(--blanc);text-decoration:none;
+}
+.moyeu-anneau{position:absolute;inset:0;width:100%;height:100%;animation:tourne 60s linear infinite}
+.moyeu-anneau circle{fill:none;stroke:rgba(169,196,159,.4);stroke-width:.35;stroke-dasharray:.6 2.4;stroke-linecap:round}
+@keyframes tourne{to{transform:rotate(360deg)}}
+.moyeu-disque{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;
+  width:80%;aspect-ratio:1;border-radius:50%;padding:1.4rem;text-align:center;
+  background:
+    radial-gradient(circle at 50% 22%,rgba(255,255,255,.14),transparent 46%),
+    radial-gradient(circle at 50% 40%,#4a6247 0%,#2c3a2b 58%,#1a2219 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(169,196,159,.5),
+    inset 0 -12px 30px rgba(0,0,0,.35),
+    0 0 0 8px rgba(169,196,159,.06),
+    0 30px 80px -20px rgba(169,196,159,.4);
+  transition:transform .5s var(--expo),box-shadow .4s var(--ease);
+}
+.moyeu:hover .moyeu-disque{transform:scale(1.03)}
+.moyeu:focus-visible{outline:none}
+.moyeu:focus-visible .moyeu-disque{outline:2px solid var(--vert-clair);outline-offset:6px}
+.moyeu-logo{width:46px;color:#dfe8d8;margin-bottom:.25rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.moyeu b{font-size:1.1rem;font-weight:500;letter-spacing:-.03em;line-height:1.2}
+.moyeu small{font-size:.76rem;color:rgba(255,255,255,.72)}
+
+/* ---------- vos outils (ex-section 05) ---------- */
+.compat{margin-top:clamp(2.5rem,6vh,3.5rem);text-align:center}
+.compat-titre{color:var(--texte);font-size:1rem}
+.compat-titre b{color:var(--blanc);font-weight:500}
+.compat-liste{list-style:none;margin:1.1rem auto 0;padding:0;max-width:860px;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.compat-liste li{
+  padding:.45rem .95rem;border-radius:99px;font-size:.86rem;color:var(--blanc);
+  box-shadow:inset 0 0 0 1px var(--filet);background:rgba(255,255,255,.02);
+}
+
+/* ---------- téléphone et tablette ---------- */
+@media (max-width:999px){
+  .schema-coeur{order:-1}
+  .moyeu{width:210px}
+  .schema-col{grid-auto-rows:auto;gap:.6rem}
+  .noeud{padding:.85rem 1rem;gap:.85rem}
+  .noeud-ico{width:38px;height:38px;border-radius:11px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .moyeu-anneau{animation:none}
+}

@@ -19,3 +19,7 @@
 | [c009](c009-visuels-trop-charges-et-peu-lisibles.md) | manager | moyenne | Les visuels pour Loïc suivent une hiérarchie simple et classique (Loïc → Manager → équipes), un seul message par écran, les détails au clic. |
 | [c010](c010-signal-d-approche-flou-ou-trop-ancien.md) | prospection | moyenne | Un signal est daté précisément et a moins de 90 jours si possible (sinon dit honnêtement) |
 | [c011](c011-deduction-non-sourcee-tiree-d-un-chiffre-source.md) | seo-site, contenu-linkedin, analyste | moyenne | Toute déduction tirée d'un chiffre sourcé est marquée (« en moyenne », « hypothèse », « calcul SL Agence ») ; jamais de généralisation |
+| [c012](c012-premier-ecran-du-site-surcharge.md) | manager, seo-site | moyenne | Premier écran du site épuré : une seule animation, titre + une phrase + boutons, aucun élément décoratif en plus. |
+| [c013](c013-sections-du-site-trop-bavardes.md) | manager, seo-site, contenu-linkedin | moyenne | Chaque section du site se comprend en 5 secondes : titre avec mot-clé, schéma ou phrase courte, une ligne max par élément. |
+| [c014](c014-nombres-ecrits-en-lettres-sur-le-site.md) | manager, seo-site, contenu-linkedin | moyenne | Sur le site, les quantités en chiffres (15 minutes, 4 temps), sauf citations de clients. |
+| [c015](c015-animation-qui-bloque-le-defilement.md) | manager, seo-site | moyenne | Aucune animation ne retient le défilement : elle se lance à l'apparition et joue seule. |

@@ -40,7 +40,6 @@
 })();
 </script>
 
-<link rel="preload" href="/logo-sl.png" as="image">
 <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Geist (SIL Open Font License), hébergée sur le site : pas d'appel à Google Fonts. */
@@ -351,16 +350,6 @@
   ]
 }
 </script>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "SL Agence : ce que l'automatisation change, en 45 secondes",
-  "description": "Fichiers Excel réunis dans un seul écran, relances automatiques, bons d'intervention signés sur le terrain : comment SL Agence supprime la double saisie dans les TPE et PME.",
-  "thumbnailUrl": "https://slagence.fr/pub-sl-agence.jpg",
-  "contentUrl": "https://slagence.fr/pub-sl-agence.mp4",
-  "uploadDate": "2026-10-01T14:43:57+02:00",
-  "duration": "PT44S"
-}</script>
 
 <style>
 /* ============================================================
@@ -885,7 +874,7 @@ img{display:block;max-width:100%;height:auto}
 .guide small{font-size:.8rem;color:var(--texte-faible)}
 
 /* Avis clients */
-.avis{margin-top:clamp(4rem,10vh,7rem)}
+.avis{margin-top:0}
 .avis-grille{display:grid;gap:1rem;margin-top:2rem}
 @media (min-width:760px){.avis-grille{grid-template-columns:1fr 1fr}}
 .avis-carte{margin:0;border:1px solid var(--filet);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem}
@@ -1066,6 +1055,867 @@ input:focus,select:focus,textarea:focus{
   .panneau:not([hidden]),.panneau-nav a,.panneau-pied,.faq .rep{animation:none}
   .btn,.domaine,.outil,.cas article,.faq summary{transition:none}
 }
+
+/* ============================================================
+   HÉROS « du besoin à l'outil »
+   À gauche, la promesse ; à droite, l'atelier : une phrase de
+   dirigeant (Vous décrivez) devient une application (Nous
+   construisons). Fond : un plan millimétré qui s'allume sous
+   le pointeur, comme une table d'architecte.
+   Sans JS ou en mouvement réduit : tout est visible, à l'arrêt.
+   ============================================================ */
+
+.hero{
+  min-height:min(100svh,980px);
+  display:flex;align-items:center;
+  padding-block:clamp(7rem,13vh,9.5rem) clamp(3rem,7vh,5rem);
+  position:relative;overflow:hidden;isolation:isolate;
+}
+/* un seul halo, derrière le téléphone : le reste du fond reste noir */
+.hero-halo{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 42% 50% at 76% 50%,rgba(60,79,59,.38),transparent 72%);
+}
+
+.hero-grille{display:grid;gap:clamp(3rem,6vw,4.5rem);align-items:center;width:100%}
+@media (min-width:1040px){
+  .hero-grille{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+
+/* ---------- le texte : sobre ---------- */
+
+.hero-surtitre{
+  font-size:.8rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--vert-clair);line-height:1.4;
+}
+.titre-hero{
+  margin-top:1.4rem;max-width:12ch;
+  color:var(--blanc);
+  font-size:clamp(2.6rem,1.2rem + 4.2vw,4.6rem);
+  font-weight:500;line-height:1.02;letter-spacing:-.045em;
+  text-wrap:balance;
+}
+.titre-hero span{color:var(--vert-clair)}
+
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem;margin-top:2.2rem}
+.hero-lien{color:var(--blanc);font-size:.95rem;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:4px}
+.hero-lien:hover{text-decoration-color:var(--vert-clair);color:var(--vert-clair)}
+
+/* entrée : un simple fondu, une fois */
+.staged .ent{opacity:0;transform:translateY(14px)}
+.hero.play .ent{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1s var(--doux)}
+.hero.play .ent-1{transition-delay:.05s}
+.hero.play .ent-2{transition-delay:.15s}
+.hero.play .ent-3{transition-delay:.3s}
+.hero.play .ent-4{transition-delay:.45s}
+
+/* ---------- l'atelier ---------- */
+
+.atelier-bloc{min-width:0}
+.atelier{position:relative;height:590px;max-width:500px;margin-inline:auto}
+
+.etiquette{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--vert-clair);
+}
+.etiquette::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(169,196,159,.16)}
+
+.bulle{
+  position:absolute;left:0;top:96px;z-index:3;width:min(250px,52%);
+  padding:1.1rem 1.25rem 1.2rem;border-radius:18px 18px 18px 4px;
+  background:rgba(23,31,22,.86);
+  box-shadow:inset 0 0 0 1px var(--filet),0 30px 60px -30px rgba(0,0,0,.9);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.bulle-texte{
+  margin-top:.65rem;min-height:4.4em;
+  color:var(--blanc);font-size:1.02rem;line-height:1.42;letter-spacing:-.015em;
+}
+.bulle-texte::before{content:"« "}
+.bulle-texte::after{content:" »"}
+/* le curseur disparaît quand la phrase est finie */
+.bulle.tapee .curseur{opacity:0;animation:none}
+.curseur{
+  display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;
+  background:var(--vert-clair);animation:clignote 1s steps(1) infinite;
+}
+
+/* le téléphone */
+.tel{position:absolute;right:0;top:0;z-index:2;width:282px}
+.tel-cadre{
+  position:relative;height:590px;border-radius:44px;padding:10px;
+  background:linear-gradient(160deg,#2a3428,#11160f 55%,#1b2319);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 50px 90px -40px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.6);
+}
+.tel-barre{
+  position:absolute;left:10px;right:10px;top:10px;z-index:4;height:38px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 24px;
+  font-size:.72rem;font-weight:600;color:#1c241b;
+}
+.tel-barre i{width:86px;height:24px;border-radius:99px;background:#0b0e0a;position:absolute;left:50%;top:8px;transform:translateX(-50%)}
+.tel-ecran{
+  position:relative;height:100%;border-radius:34px;overflow:hidden;
+  background:#f3f5f0;
+  /* plan millimétré discret sous l'interface */
+  background-image:
+    linear-gradient(rgba(60,79,59,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(60,79,59,.07) 1px,transparent 1px);
+  background-size:16px 16px;
+  color:#141a13;
+}
+
+.scene{
+  position:absolute;inset:0;padding:52px 14px 14px;
+  display:flex;flex-direction:column;gap:8px;
+  opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility 0s .5s;
+}
+.scene.on{opacity:1;visibility:visible;transition:opacity .5s var(--ease)}
+html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
+
+/* briques d'interface */
+.b{position:relative;border-radius:12px}
+.b::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  border:1.5px dashed rgba(60,79,59,.55);background:rgba(169,196,159,.18);
+  opacity:0;
+}
+.ap-tete{display:flex;align-items:baseline;justify-content:space-between;padding:6px 4px 4px}
+.ap-tete b{font-size:1.06rem;font-weight:600;letter-spacing:-.03em}
+.ap-tete small{font-size:.7rem;color:#5d6a5b}
+.ap-champ{display:flex;flex-direction:column;gap:2px;padding:9px 12px;background:#fff;box-shadow:0 1px 0 rgba(20,26,19,.06)}
+.ap-champ small,.ap-signature small,.ap-courbe small{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6f7d6c}
+.ap-champ b{font-size:.84rem;font-weight:500;letter-spacing:-.015em}
+.ap-duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ap-photos{display:flex;gap:4px;margin-top:2px}
+.ap-photos i{width:22px;height:18px;border-radius:4px;background:linear-gradient(135deg,#a9c49f,#3c4f3b)}
+.ap-photos i:nth-child(2){background:linear-gradient(135deg,#c9d6c2,#6f8a69)}
+.ap-photos i:nth-child(3){background:linear-gradient(135deg,#8ea887,#26321f)}
+.ap-signature{padding:9px 12px 4px;background:#fff;box-shadow:0 1px 0 rgba(20,26,19,.06)}
+.ap-signature svg,.ap-courbe svg{display:block;width:100%;height:auto}
+.trace{fill:none;stroke:#26321f;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ap-courbe .trace{stroke:#3c4f3b;stroke-width:2.6}
+.ap-bouton{
+  margin-top:2px;padding:12px;text-align:center;border-radius:99px;
+  background:#141a13;color:#fff;font-size:.82rem;font-weight:500;
+}
+.ap-ligne{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;
+  padding:9px 12px;background:#fff;box-shadow:0 1px 0 rgba(20,26,19,.06);
+}
+.ap-ligne > span{display:flex;flex-direction:column;min-width:0}
+.ap-ligne b{font-size:.8rem;font-weight:600;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ap-ligne small{font-size:.68rem;color:#6f7d6c}
+.st{
+  grid-column:2;grid-row:1;justify-self:end;
+  font-style:normal;font-size:.64rem;font-weight:600;white-space:nowrap;
+  padding:4px 8px;border-radius:99px;opacity:0;
+}
+.ap-ligne .st:last-child{opacity:1}
+.st-a{background:#f6e2cc;color:#8a4a14}
+.st-b{background:#dfe8d8;color:#2f3f2e}
+.st-c{background:#3c4f3b;color:#fff}
+.ap-courbe{padding:9px 12px 6px;background:#fff;box-shadow:0 1px 0 rgba(20,26,19,.06)}
+.ap-recherche{padding:10px 12px 10px 32px;border-radius:99px;background:#fff;font-size:.74rem;color:#7c887a;box-shadow:inset 0 0 0 1px rgba(20,26,19,.08)}
+.ap-recherche::before{content:"";position:absolute;left:13px;top:50%;width:9px;height:9px;margin-top:-6px;border:1.6px solid #7c887a;border-radius:50%}
+.ap-kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ap-kpi div{padding:9px 12px;border-radius:12px;background:#141a13;color:#fff}
+.ap-kpi b{display:block;font-size:1.25rem;font-weight:600;letter-spacing:-.04em;color:#a9c49f}
+.ap-kpi small{font-size:.66rem;color:rgba(255,255,255,.7)}
+
+.ap-toast{
+  position:absolute;left:12px;right:12px;bottom:14px;
+  display:flex;align-items:center;gap:8px;padding:11px 14px;border-radius:14px;
+  background:#141a13;color:#fff;font-size:.78rem;font-weight:500;
+  box-shadow:0 18px 30px -16px rgba(0,0,0,.6);
+}
+.ap-toast i{
+  display:grid;place-items:center;width:20px;height:20px;border-radius:50%;
+  background:#a9c49f;color:#141a13;font-style:normal;font-size:.7rem;font-weight:700;
+}
+
+.fichiers{display:none}
+
+/* onglets sous l'atelier */
+.onglets{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.6rem}
+.onglet{
+  position:relative;overflow:hidden;
+  padding:.65rem 1.1rem;min-height:44px;border:0;border-radius:99px;cursor:pointer;
+  background:transparent;color:var(--texte-faible);
+  box-shadow:inset 0 0 0 1px var(--filet);
+  font-family:inherit;font-size:.84rem;font-weight:500;
+  transition:color .3s var(--ease),box-shadow .3s var(--ease);
+}
+.onglet:hover{color:var(--blanc)}
+.onglet[aria-pressed="true"]{color:var(--blanc);box-shadow:inset 0 0 0 1px var(--vert-clair)}
+.onglet:focus-visible{outline:2px solid var(--vert-clair);outline-offset:3px}
+.onglet i{
+  position:absolute;left:0;bottom:0;height:2px;width:100%;
+  background:var(--vert-clair);transform:scaleX(0);transform-origin:left;
+}
+.onglet[aria-pressed="true"] i{transform:scaleX(1)}
+.atelier.tourne ~ .onglets .onglet[aria-pressed="true"] i{animation:jauge var(--duree,9s) linear both}
+@keyframes jauge{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* ---------- chorégraphie d'une scène (seulement en mouvement autorisé) ---------- */
+
+.staged .scene .b{opacity:0;transform:translateY(10px) scale(.97)}
+.staged .scene .b::after{opacity:1}
+.staged .scene .b > *{opacity:0}
+.staged .scene .ap-toast{opacity:0;transform:translateY(14px)}
+.staged .scene .trace{stroke-dasharray:420;stroke-dashoffset:420}
+.staged .scene .st{opacity:0}
+
+.staged .scene.bati .b{animation:brique .55s var(--expo) calc(var(--k) * 65ms) both}
+.staged .scene.bati .b::after{animation:sans-plan .5s var(--ease) calc(.45s + var(--k) * 80ms) both}
+.staged .scene.bati .b > *{animation:apparait .45s var(--ease) calc(.45s + var(--k) * 80ms) both}
+.staged .scene.bati .trace{animation:trace .8s var(--ease) 1s forwards}
+.staged .scene.bati .ap-bouton{animation:brique .55s var(--expo) calc(var(--k) * 65ms) both,presse .5s var(--ease) 1.75s both}
+.staged .scene.bati .ap-toast{animation:toast .5s var(--expo) 2s both}
+
+/* statuts des factures : en retard → relancée → payée */
+.staged .scene.bati .st-a{animation:apparait .3s var(--ease) calc(.45s + var(--k) * 80ms) both,disparait .3s var(--ease) calc(1s + var(--k) * 140ms) forwards}
+.staged .scene.bati .st-b{animation:pop .4s var(--expo) calc(1s + var(--k) * 140ms) both}
+.staged .scene.bati .st-b:not(:last-child){animation:pop .4s var(--expo) calc(1s + var(--k) * 140ms) both,disparait .3s var(--ease) calc(1.6s + var(--k) * 140ms) forwards}
+.staged .scene.bati .st-c{animation:pop .4s var(--expo) calc(1.6s + var(--k) * 140ms) both}
+.staged .scene.bati .st-a:last-child,
+.staged .scene.bati .st-fixe{animation:apparait .3s var(--ease) calc(.45s + var(--k) * 80ms) both}
+
+/* fichiers Excel aspirés dans l'outil */
+.staged .scene .fichiers{display:block;position:absolute;left:18px;right:18px;top:96px;z-index:5}
+.staged .scene .fichiers span{
+  position:absolute;left:0;top:0;
+  display:flex;align-items:center;gap:7px;padding:8px 11px;border-radius:10px;
+  background:#fff;box-shadow:0 10px 24px -12px rgba(0,0,0,.35),inset 0 0 0 1px rgba(20,26,19,.08);
+  font-size:.72rem;font-weight:500;color:#26321f;white-space:nowrap;
+  transform:translate(var(--fx),var(--fy)) rotate(var(--fr));opacity:0;
+}
+.staged .scene .fichiers span::before{
+  content:"X";display:grid;place-items:center;width:18px;height:18px;border-radius:4px;
+  background:#1f6e43;color:#fff;font-size:.62rem;font-weight:700;
+}
+.staged .scene.on .fichiers span{animation:fichier .5s var(--expo) both}
+.staged .scene.on .fichiers span:nth-child(2){animation-delay:.25s}
+.staged .scene.on .fichiers span:nth-child(3){animation-delay:.5s}
+.staged .scene.bati .fichiers span{animation:aspire .55s var(--ease) both}
+.staged .scene.bati .fichiers span:nth-child(2){animation-delay:.08s}
+.staged .scene.bati .fichiers span:nth-child(3){animation-delay:.16s}
+
+@keyframes brique{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes sans-plan{to{opacity:0}}
+@keyframes apparait{from{opacity:0}to{opacity:1}}
+@keyframes disparait{to{opacity:0}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes trace{to{stroke-dashoffset:0}}
+@keyframes presse{0%{transform:none}35%{transform:scale(.95);background:#3c4f3b}100%{transform:none;background:#3c4f3b}}
+@keyframes toast{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fichier{from{opacity:0;transform:translate(var(--fx),calc(var(--fy) + 16px)) rotate(0)}to{opacity:1;transform:translate(var(--fx),var(--fy)) rotate(var(--fr))}}
+@keyframes aspire{
+  from{opacity:1;transform:translate(var(--fx),var(--fy)) rotate(var(--fr))}
+  to{opacity:0;transform:translate(60px,140px) scale(.2) rotate(0)}
+}
+
+/* ---------- petits écrans : la bulle au-dessus, le téléphone dessous ---------- */
+@media (max-width:1039px){
+  .atelier{height:auto;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:2.6rem}
+  .bulle{position:relative;left:auto;top:auto;width:100%}
+  .tel{position:relative;right:auto;top:auto}
+}
+@media (max-width:1039px){
+  .tel{width:256px}
+  .tel-cadre{height:520px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .curseur{animation:none}
+}
+
+@keyframes clignote{50%{opacity:0}}
+
+/* ============================================================
+   Téléphone → ordinateur : après chaque scène, le cadre s'ouvre en
+   écran de portable (même outil, même données), puis revient.
+   Aucun texte : le geste suffit à dire « sur PC comme sur mobile ».
+   La mise en page interne suit la largeur de l'écran (container query).
+   ============================================================ */
+.tel{transition:width .9s var(--expo),top .9s var(--expo)}
+.tel-cadre{transition:height .9s var(--expo),border-radius .9s var(--expo),padding .9s var(--expo)}
+.tel-ecran{container-type:inline-size;transition:border-radius .9s var(--expo)}
+.bulle{transition:opacity .5s var(--ease),transform .6s var(--expo)}
+.tel-barre span,.tel-barre i{transition:opacity .4s var(--ease)}
+
+/* pastilles de fenêtre et barre latérale, invisibles sur téléphone */
+.tel-barre::before{
+  content:"";position:absolute;left:16px;top:50%;width:7px;height:7px;margin-top:-4px;border-radius:50%;
+  background:#d97f6b;box-shadow:12px 0 0 #e0b65a,24px 0 0 #8fb07f;opacity:0;transition:opacity .4s var(--ease);
+}
+.tel-ecran::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:52px;z-index:0;
+  background:
+    radial-gradient(circle at 26px 52px,#a9c49f 0 5px,transparent 6px),
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 82px/20px 3px no-repeat,
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 104px/20px 3px no-repeat,
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 126px/20px 3px no-repeat,
+    #141a13;
+  opacity:0;transition:opacity .4s var(--ease);
+}
+/* socle du portable */
+.tel::after{
+  content:"";position:absolute;left:-7%;right:-7%;top:100%;height:13px;margin-top:-1px;
+  border-radius:2px 2px 16px 16px;
+  background:linear-gradient(180deg,#36423a,#151b14 70%);
+  box-shadow:0 18px 30px -14px rgba(0,0,0,.9);
+  opacity:0;transform:scaleX(.5);transition:opacity .5s var(--ease),transform .9s var(--expo);
+}
+
+.atelier.pc .tel{width:100%;top:120px}
+.atelier.pc .tel-cadre{height:340px;border-radius:16px;padding:9px}
+.atelier.pc .tel-ecran{border-radius:7px}
+.atelier.pc .tel-barre{left:9px;right:9px;top:9px;height:28px}
+.atelier.pc .tel-barre span,.atelier.pc .tel-barre i{opacity:0}
+.atelier.pc .tel-barre::before,.atelier.pc .tel-ecran::before{opacity:1}
+.atelier.pc .tel::after{opacity:1;transform:none}
+.atelier.pc .bulle{opacity:0;transform:translateY(-10px);pointer-events:none}
+/* pendant le changement de format, l'écran se vide une fraction de seconde : pas de mise en page bancale */
+.atelier.bascule .scene.on{opacity:0;transition:opacity .15s var(--ease)}
+
+@container (min-width:300px){
+  .scene{
+    padding:40px 14px 14px 66px;
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start;
+  }
+  .ap-tete,.ap-recherche,.ap-courbe{grid-column:1/-1}
+  .ap-tete{padding-top:2px}
+  .ap-courbe svg{height:48px}
+  .ap-toast{left:auto;right:12px;bottom:12px;max-width:62%}
+  .fichiers{display:none !important}
+}
+
+@media (max-width:1039px){
+  .atelier.pc .tel{width:100%}
+  .atelier.pc .tel-cadre{height:280px}
+}
+
+/* ============================================================
+   v9 « VITRINE » — mise en page centrée, inspirée des pages produit
+   d'Apple. S'ajoute à hero.css (l'atelier de la v7 est réutilisé).
+   ============================================================ */
+
+/* ---------- barre du haut : logo · rubriques · menu ---------- */
+.site-head{
+  background:rgba(8,11,8,.8);
+  -webkit-backdrop-filter:saturate(1.6) blur(18px);backdrop-filter:saturate(1.6) blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.site-head.stuck{background:rgba(8,11,8,.86)}
+.head-inner{height:56px;gap:1.5rem}
+.brand{margin-right:0}
+.brand .logo-mark{width:26px}
+.brand-nom{font-size:.82rem}
+.barre-nav{display:flex;align-items:center;gap:clamp(1rem,2.3vw,2.3rem);margin-inline:auto}
+.barre-nav a{
+  font-size:.8rem;color:rgba(255,255,255,.78);text-decoration:none;letter-spacing:-.005em;white-space:nowrap;
+  padding-block:.6rem;transition:color .25s var(--ease);
+}
+.barre-nav a:hover{color:#fff}
+.menu-btn{padding:.5rem 1rem;min-height:36px;font-size:.7rem}
+@media (max-width:1060px){
+  .barre-nav{display:none}
+  .brand{margin-right:auto}
+}
+.panneau{padding-top:calc(56px + 2rem)}
+
+/* ---------- le héros ---------- */
+.hero--vitrine{
+  min-height:0;display:block;
+  padding-block:calc(56px + clamp(3.5rem,9vh,6rem)) clamp(3rem,7vh,5rem);
+  text-align:center;overflow:hidden;position:relative;isolation:isolate;
+}
+.vitrine-texte{display:flex;flex-direction:column;align-items:center}
+.vitrine-titre{
+  margin-top:1.2rem;max-width:20ch;
+  color:var(--blanc);font-size:clamp(2.4rem,1rem + 4.4vw,4.9rem);
+  font-weight:600;line-height:1.04;letter-spacing:-.045em;text-wrap:balance;
+}
+.vitrine-titre span{color:var(--vert-clair);white-space:nowrap}
+.vitrine-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem}
+.vitrine-cta .btn{min-width:11rem;font-size:1rem}
+.btn-ligne{background:transparent;color:var(--vert-clair);box-shadow:inset 0 0 0 1.5px var(--vert-clair)}
+.btn-ligne:hover{background:rgba(169,196,159,.1)}
+
+.staged .hero--vitrine .ent{opacity:0;transform:translateY(16px)}
+.hero--vitrine.play .ent{opacity:1;transform:none;transition:opacity 1s var(--ease),transform 1.1s var(--doux)}
+.hero--vitrine.play .ent-1{transition-delay:.05s}
+.hero--vitrine.play .ent-2{transition-delay:.15s}
+.hero--vitrine.play .ent-3{transition-delay:.3s}
+.hero--vitrine.play .ent-4{transition-delay:.45s}
+
+/* ---------- la scène : le mot chromé au-dessus de l'atelier ---------- */
+.vitrine-scene{position:relative;margin-top:clamp(2.5rem,6vh,4rem)}
+.vitrine-mot{
+  /* au-dessus de l'animation, lisible en entier (retour de Loïc : derrière le téléphone, on ne lisait que « SUR ») */
+  position:relative;margin-bottom:clamp(1.5rem,4vh,2.6rem);
+  display:grid;justify-items:center;pointer-events:none;z-index:0;
+  font-size:clamp(3.4rem,10.5vw,10.5rem);font-weight:800;line-height:.8;letter-spacing:-.05em;white-space:nowrap;
+}
+.vitrine-mot span{grid-area:1/1}
+/* le relief : la tranche des lettres, plusieurs ombres empilées vers le bas */
+.mot-relief{
+  color:#2a3229;
+  text-shadow:
+    0 1px 0 #3c463a,0 2px 0 #343d33,0 3px 0 #2e362d,0 4px 0 #283027,0 5px 0 #222920,
+    0 6px 0 #1c221b,0 8px 4px rgba(0,0,0,.6),0 24px 50px rgba(0,0,0,.85);
+}
+/* le chrome : un dégradé métal, teinté de vert, avec des irisations chaudes et froides
+   sur les arêtes, et un reflet qui passe lentement */
+.mot-chrome{
+  color:transparent;
+  background:
+    linear-gradient(105deg,transparent 38%,rgba(255,255,255,.85) 48%,transparent 58%) -150% 0/250% 100% no-repeat,
+    linear-gradient(180deg,#e9f1f6 0%,#fbfcf8 9%,#d4ddd0 24%,#8b9789 38%,#3b463c 48%,#b9c5b3 54%,#f4f6f0 66%,#c7cfbf 80%,#f3e2cc 93%,#fbf7ef 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-stroke:1px rgba(255,255,255,.7);
+  filter:drop-shadow(0 -1px 0 rgba(196,222,240,.55)) drop-shadow(0 1px 0 rgba(240,206,168,.45));
+  animation:reflet-chrome 7s var(--ease) infinite;
+}
+@keyframes reflet-chrome{
+  0%,55%{background-position:-150% 0,0 0}
+  100%{background-position:250% 0,0 0}
+}
+
+/* l'atelier, centré sous le mot */
+.hero--vitrine .atelier-bloc{position:relative;z-index:1}
+.hero--vitrine .atelier{max-width:760px;height:600px;text-align:left}
+.hero--vitrine .tel{right:auto;left:50%;transform:translateX(-50%);top:0}
+.hero--vitrine .atelier.pc .tel{width:min(640px,100%);top:130px}
+.hero--vitrine .bulle{left:calc(50% - 390px);top:40px;width:250px}
+.hero--vitrine .onglets{margin-top:1.4rem}
+/* cadre du téléphone plus soigné : titane sombre, liseré clair */
+.hero--vitrine .tel-cadre{
+  background:linear-gradient(145deg,#3a4538 0%,#151b14 40%,#0d110c 60%,#2b3429 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.18),inset 0 0 0 3px rgba(0,0,0,.6),
+    0 60px 120px -40px rgba(0,0,0,.95),0 0 80px -20px rgba(169,196,159,.25);
+}
+
+@media (max-width:1039px){
+  .hero--vitrine .atelier{height:auto}
+  .hero--vitrine .tel{left:auto;transform:none}
+  .hero--vitrine .atelier.pc .tel{width:100%;top:auto}
+  .hero--vitrine .bulle{left:auto;top:auto;width:100%}
+  .vitrine-mot{font-size:12.6vw;margin-bottom:1.6rem}
+}
+@media (prefers-reduced-motion:reduce){.mot-chrome{animation:none}}
+
+/* ============================================================
+   01 · LE CONSTAT — la double saisie
+   Quand la section apparaît, l'animation joue seule (~4 s) : le
+   titre et son double (en trait) se recollent, la même ligne est
+   retapée le soir, puis les deux saisies se relient.
+   Rien ne retient le défilement (correction c015).
+   Variables pilotées en JS : --d (écart du double, 1 → 0),
+   --l (liaison, 0 → 1), --c (phrase de chute, 0 → 1).
+   Sans JS : état final, tout visible.
+   ============================================================ */
+
+.constat-wrap{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+.constat-titre{
+  display:grid;margin-top:1.5rem;max-width:13ch;
+  font-size:clamp(2.4rem,1rem + 5.2vw,5.4rem);text-wrap:balance;
+}
+.constat-titre > span,
+.constat-titre::after{grid-area:1/1}
+.constat-titre::after{
+  content:attr(data-echo);pointer-events:none;
+  color:transparent;-webkit-text-stroke:1px rgba(169,196,159,.6);
+  transform:translate(calc(var(--d,0) * .08em),calc(var(--d,0) * .1em));
+  opacity:var(--d,0);
+}
+.constat-lead{margin-top:1.4rem;max-width:44ch}
+
+.saisies{
+  margin-top:clamp(2rem,5vh,3rem);width:100%;max-width:920px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;
+}
+.saisie{
+  display:flex;flex-direction:column;gap:.6rem;
+  padding:1.3rem 1.5rem 1.2rem;border-radius:16px;text-align:left;
+  transition:box-shadow .5s var(--ease),transform .6s var(--expo);
+}
+.saisie small{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.compteur{font-size:.8rem;font-weight:600;display:grid}
+.compteur b{grid-area:1/1;font-weight:600}
+
+/* le bon papier : réglure, léger angle */
+.saisie-1{
+  background:#ebe7da;color:#24241e;transform:rotate(-1.5deg);
+  background-image:repeating-linear-gradient(180deg,transparent 0 25px,rgba(60,79,59,.16) 25px 26px);
+  box-shadow:0 24px 40px -26px rgba(0,0,0,.9);
+}
+.saisie-1 small,.saisie-1 .compteur{color:#6b6a5c}
+.manuscrit{font-style:italic;font-size:clamp(1.05rem,1rem + .4vw,1.3rem);letter-spacing:-.01em;line-height:1.35}
+
+/* le tableur du soir */
+.saisie-2{background:var(--surface-2);color:var(--blanc);box-shadow:inset 0 0 0 1px rgba(169,196,159,.55)}
+.saisie-2 small{color:var(--texte-faible)}
+.clavier{
+  min-height:2.3em;padding:.5rem .7rem;border-radius:6px;
+  background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--filet);
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:clamp(.82rem,.78rem + .25vw,.98rem);line-height:1.35;
+}
+.saisie-2 .c-apres{color:var(--vert-clair)}
+.saisie-2 .c-avant{color:#e5ad78;visibility:hidden}
+.saisie-2 .curseur{display:none}
+
+/* la liaison : un trait qui se tire d'une saisie à l'autre */
+.liaison{position:relative;width:clamp(3.5rem,9vw,6.5rem);display:grid;place-items:center}
+.liaison i{display:block;width:100%;height:2px;background:var(--vert-clair);transform-origin:left;transform:scaleX(var(--l,1))}
+.liaison span{
+  position:absolute;top:calc(50% + .55rem);
+  font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--vert-clair);opacity:var(--l,1);
+}
+
+.constat-chute{
+  margin-top:clamp(1.6rem,4vh,2.4rem);
+  font-size:clamp(1.2rem,1rem + 1vw,1.7rem);letter-spacing:-.03em;color:var(--blanc);
+  opacity:var(--c,1);transform:translateY(calc((1 - var(--c,1)) * 12px));
+}
+.constat-chute strong{font-weight:500;color:var(--vert-clair)}
+
+/* avant la liaison : on retape encore, compteur orange, curseur actif */
+.constat-piste.attente .saisie-2{box-shadow:inset 0 0 0 1px var(--filet)}
+.constat-piste.attente .c-avant{visibility:visible}
+.constat-piste.attente .c-apres{visibility:hidden}
+.constat-piste.attente .saisie-2 .curseur{display:inline-block}
+
+@media (max-width:720px){
+  .saisies{grid-template-columns:1fr;max-width:340px;justify-items:stretch}
+  .liaison{width:auto;height:2.6rem}
+  .liaison i{width:2px;height:100%;transform-origin:top;transform:scaleY(var(--l,1))}
+  .liaison span{top:50%;left:calc(50% + .7rem);transform:translateY(-50%)}
+  .constat-lead{font-size:1rem}
+}
+
+/* ============================================================
+   Contours vivants : une lueur fait le tour de chaque carte.
+   Orange tant qu'on recopie à la main, verte une fois relié.
+   Sur le trait « automatique », une étincelle circule en continu.
+   ============================================================ */
+@property --tour{syntax:"<angle>";inherits:false;initial-value:0deg}
+
+.saisie{position:relative}
+.saisie::before{
+  content:"";position:absolute;inset:-2.5px;padding:2.5px;border-radius:18px;pointer-events:none;
+  background:conic-gradient(from var(--tour),transparent 0 42%,var(--lueur) 72%,#fff 80%,var(--lueur) 86%,transparent 100%);
+  filter:drop-shadow(0 0 6px var(--lueur)) drop-shadow(0 0 14px var(--lueur));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:tour 2.8s linear infinite;
+  transition:opacity .6s var(--ease);
+}
+.saisie-1{--lueur:#e5ad78}
+.saisie-1::before{animation-delay:-1.4s}
+.saisie-2{--lueur:#a9c49f;transition:box-shadow .6s var(--ease)}
+.constat-piste:not(.attente) .saisie-2{
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.55),0 0 50px -12px rgba(169,196,159,.55);
+}
+.constat-piste.attente .saisie-2{--lueur:#e5ad78}
+/* une fois relié, le bon papier passe au vert lui aussi : une seule saisie, partout */
+.constat-piste:not(.attente) .saisie-1{--lueur:#a9c49f}
+@keyframes tour{to{--tour:360deg}}
+
+.liaison i{position:relative;overflow:hidden}
+.liaison i::after{
+  content:"";position:absolute;top:-2px;bottom:-2px;left:0;width:40%;
+  background:linear-gradient(90deg,transparent,#fff,transparent);
+  filter:blur(.5px);
+  animation:etincelle 1.3s linear infinite;
+}
+@keyframes etincelle{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+@media (max-width:720px){
+  .liaison i::after{left:-2px;right:-2px;top:0;bottom:auto;width:auto;height:40%;
+    background:linear-gradient(180deg,transparent,#fff,transparent);animation-name:etincelle-v}
+  @keyframes etincelle-v{from{transform:translateY(-100%)}to{transform:translateY(260%)}}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .saisie::before,.liaison i::after{animation:none}
+}
+
+/* ============================================================
+   02 · CE QUE NOUS FAISONS — le schéma
+   À gauche ce que vous saisissez, au centre votre outil, à droite
+   ce qui part tout seul. Chaque carte a un « port » sur son bord
+   intérieur ; un trait le relie au centre et une petite lueur y
+   circule dans le sens de l'information (JS). Sous le schéma : vos
+   outils actuels (ancienne section 05). Sur téléphone : une colonne.
+   ============================================================ */
+
+/* l'ancienne mise en page (titre collant à gauche) ne s'applique plus */
+@media (min-width:1000px){
+  #domaines .wrap{display:block}
+  #domaines .entete{position:static;display:block;max-width:none;text-align:center}
+  #domaines .entete h2{max-width:22ch;margin-inline:auto}
+  #domaines .entete p:not(.pill){max-width:44ch;margin:1.4rem auto 0}
+}
+#domaines{overflow:hidden}
+#domaines .entete{text-align:center;max-width:none}
+#domaines .entete h2{margin-inline:auto;text-wrap:balance}
+#domaines .entete p:not(.pill){margin-inline:auto;color:var(--vert-clair)}
+
+.schema{
+  position:relative;isolation:isolate;margin-top:clamp(3rem,7vh,4.5rem);
+  display:grid;gap:2rem;
+}
+/* halo doux derrière le centre */
+.schema::before{
+  content:"";position:absolute;z-index:-1;left:50%;top:50%;
+  width:min(760px,90%);aspect-ratio:1;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(60,79,59,.45) 0%,rgba(60,79,59,.12) 38%,transparent 66%);
+  pointer-events:none;
+}
+@media (min-width:1000px){
+  .schema{grid-template-columns:minmax(0,1fr) 260px minmax(0,1fr);gap:0 clamp(4rem,7vw,7rem);align-items:center}
+}
+
+/* ---------- traits ---------- */
+.schema-liens{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;display:none}
+@media (min-width:1000px){.schema-liens{display:block}}
+.schema-liens .trait{fill:none;stroke:rgba(169,196,159,.2);stroke-width:1.25;transition:stroke .35s var(--ease)}
+.schema-liens .trait.actif{stroke:rgba(169,196,159,.75)}
+.schema-liens .port{fill:var(--surface);stroke:rgba(169,196,159,.55);stroke-width:1.25}
+.schema-liens .lueur{fill:#dfe8d8;filter:url(#lueurFlou)}
+.schema-liens .lueur-coeur{fill:#fff}
+
+/* ---------- colonnes et cartes ---------- */
+.schema-col{position:relative;z-index:1;display:grid;grid-auto-rows:1fr;gap:.8rem}
+.schema-legende{
+  display:flex;align-items:center;gap:.7rem;
+  font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--vert-clair);margin-bottom:.4rem;
+}
+.schema-legende::before{content:"";width:18px;height:1px;background:currentColor;opacity:.6}
+/* la légende garde sa hauteur ; les 4 cartes se partagent le reste à parts égales */
+.schema-col{grid-template-rows:auto}
+@media (min-width:1000px){
+  .schema-col--entree .schema-legende{justify-content:flex-start;flex-direction:row-reverse}
+}
+
+.noeud{
+  position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;align-items:center;
+  padding:1.05rem 1.2rem;border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 1px 0 rgba(255,255,255,.06),0 20px 40px -30px rgba(0,0,0,.9);
+  transition:box-shadow .35s var(--ease),transform .45s var(--expo),background .35s var(--ease);
+}
+.noeud:has(a){grid-template-columns:auto minmax(0,1fr) auto}
+.noeud:hover,.noeud.actif{
+  background:linear-gradient(180deg,rgba(169,196,159,.1),rgba(169,196,159,.03));
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.55),0 24px 50px -30px rgba(169,196,159,.35);
+}
+@media (min-width:1000px){
+  .schema-col--entree .noeud:hover{transform:translateX(4px)}
+  .schema-col--sortie .noeud:hover{transform:translateX(-4px)}
+}
+.noeud:focus-within{outline:2px solid var(--vert-clair);outline-offset:3px}
+.noeud a:focus-visible{outline:none}
+
+.noeud-ico{
+  display:grid;place-items:center;width:44px;height:44px;border-radius:13px;
+  background:linear-gradient(145deg,#4c6449,#2a3829);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 6px 14px -8px rgba(0,0,0,.8);
+  color:#dfe8d8;
+}
+.noeud-ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.noeud h3{font-size:1.02rem;font-weight:500;letter-spacing:-.02em;line-height:1.25;color:var(--blanc)}
+.noeud h3 a{color:inherit;text-decoration:none}
+.noeud h3 a::after{content:"";position:absolute;inset:0;border-radius:18px}   /* toute la carte est cliquable */
+.noeud p{margin-top:.25rem;font-size:.88rem;line-height:1.4;color:var(--texte-faible)}
+
+/* pastille flèche des cartes qui mènent à une page */
+.noeud:has(a)::after{
+  content:"";width:30px;height:30px;border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.35);
+  transition:transform .35s var(--expo),background-color .35s var(--ease),box-shadow .35s var(--ease);
+}
+.noeud:has(a)::before{
+  content:"";position:absolute;right:calc(1.2rem + 11px);top:50%;width:5px;height:5px;margin-top:-3px;
+  border-top:1.5px solid var(--vert-clair);border-right:1.5px solid var(--vert-clair);transform:rotate(45deg);
+  transition:transform .35s var(--expo);
+}
+.noeud:has(a):hover::after{background-color:rgba(169,196,159,.14);box-shadow:inset 0 0 0 1px var(--vert-clair)}
+.noeud:has(a):hover::before{transform:translateX(2px) rotate(45deg)}
+
+/* ---------- le centre ---------- */
+.schema-coeur{position:relative;z-index:1;display:grid;place-items:center}
+.moyeu{
+  position:relative;display:grid;place-items:center;
+  width:min(100%,260px);aspect-ratio:1;border-radius:50%;
+  color:var(--blanc);text-decoration:none;
+}
+.moyeu-anneau{position:absolute;inset:0;width:100%;height:100%;animation:tourne 60s linear infinite}
+.moyeu-anneau circle{fill:none;stroke:rgba(169,196,159,.4);stroke-width:.35;stroke-dasharray:.6 2.4;stroke-linecap:round}
+@keyframes tourne{to{transform:rotate(360deg)}}
+.moyeu-disque{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;
+  width:80%;aspect-ratio:1;border-radius:50%;padding:1.4rem;text-align:center;
+  background:
+    radial-gradient(circle at 50% 22%,rgba(255,255,255,.14),transparent 46%),
+    radial-gradient(circle at 50% 40%,#4a6247 0%,#2c3a2b 58%,#1a2219 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(169,196,159,.5),
+    inset 0 -12px 30px rgba(0,0,0,.35),
+    0 0 0 8px rgba(169,196,159,.06),
+    0 30px 80px -20px rgba(169,196,159,.4);
+  transition:transform .5s var(--expo),box-shadow .4s var(--ease);
+}
+.moyeu:hover .moyeu-disque{transform:scale(1.03)}
+.moyeu:focus-visible{outline:none}
+.moyeu:focus-visible .moyeu-disque{outline:2px solid var(--vert-clair);outline-offset:6px}
+.moyeu-logo{width:46px;color:#dfe8d8;margin-bottom:.25rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.moyeu b{font-size:1.1rem;font-weight:500;letter-spacing:-.03em;line-height:1.2}
+.moyeu small{font-size:.76rem;color:rgba(255,255,255,.72)}
+
+/* ---------- vos outils (ex-section 05) ---------- */
+.compat{margin-top:clamp(2.5rem,6vh,3.5rem);text-align:center}
+.compat-titre{color:var(--texte);font-size:1rem}
+.compat-titre b{color:var(--blanc);font-weight:500}
+.compat-liste{list-style:none;margin:1.1rem auto 0;padding:0;max-width:860px;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.compat-liste li{
+  padding:.45rem .95rem;border-radius:99px;font-size:.86rem;color:var(--blanc);
+  box-shadow:inset 0 0 0 1px var(--filet);background:rgba(255,255,255,.02);
+}
+
+/* ---------- téléphone et tablette ---------- */
+@media (max-width:999px){
+  .schema-coeur{order:-1}
+  .moyeu{width:210px}
+  .schema-col{grid-auto-rows:auto;gap:.6rem}
+  .noeud{padding:.85rem 1rem;gap:.85rem}
+  .noeud-ico{width:38px;height:38px;border-radius:11px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .moyeu-anneau{animation:none}
+}
+
+/* ============================================================
+   Refonte de l'accueil — compléments hors héros
+   ============================================================ */
+
+/* l'ancien voile du héros (photo d'archives) n'a plus de raison d'être */
+.hero::after{content:none}
+
+/* relais : un appel à l'action discret en fin de section */
+.relais{
+  margin-top:clamp(2.5rem,6vh,4rem);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.2rem 2rem;
+  padding:clamp(1.3rem,3vw,1.8rem) clamp(1.3rem,3vw,2rem);
+  border-radius:20px;
+  background:linear-gradient(120deg,rgba(60,79,59,.55),rgba(60,79,59,.18));
+  box-shadow:inset 0 0 0 1px rgba(169,196,159,.22);
+}
+.relais p{max-width:52ch;color:var(--texte);font-size:1.02rem;line-height:1.45}
+.relais p b{display:block;color:var(--blanc);font-weight:500;font-size:clamp(1.15rem,1rem + .6vw,1.4rem);letter-spacing:-.03em;margin-bottom:.2rem}
+.relais-actions{display:flex;flex-wrap:wrap;gap:.6rem}
+
+/* domaines : texte resserré, liens bien visibles */
+.domaine p a{display:inline-block;margin-top:.35rem;color:var(--vert-clair);text-underline-offset:3px}
+
+/* panneau de navigation : un bouton d'action en plus des numéros */
+.panneau-pied .btn{color:var(--noir);font-size:.95rem;padding-block:1rem}
+
+/* barre d'action collée en bas, sur téléphone, une fois le héros passé */
+.barre-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:55;
+  display:none;gap:.5rem;
+  padding:.6rem max(16px,env(safe-area-inset-left)) calc(.6rem + env(safe-area-inset-bottom,0px));
+  background:rgba(7,9,7,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-top:1px solid var(--filet);
+  transform:translateY(110%);transition:transform .45s var(--expo);
+}
+.barre-cta .btn{flex:1;min-height:48px;padding:.8rem 1rem;font-size:.92rem}
+.barre-cta.montre{transform:none}
+@media (max-width:760px){
+  .barre-cta{display:flex}
+  .site-foot{padding-bottom:6rem}
+}
+
+/* bouton avec flèche (relais, avis) */
+.btn-fleche::after{
+  content:"";width:.5em;height:.5em;margin-left:.75em;
+  border-top:1.6px solid currentColor;border-right:1.6px solid currentColor;
+  transform:rotate(45deg);transition:transform .35s var(--expo);
+}
+.btn-fleche:hover::after{transform:translateX(3px) rotate(45deg)}
+
+/* 03 · votre métier : 4 familles, lues d'un coup d'œil */
+.familles{
+  margin-top:clamp(2.5rem,6vh,4rem);
+  display:grid;gap:1px;background:var(--filet);border:1px solid var(--filet);border-radius:20px;overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+}
+.famille{background:var(--surface);padding:clamp(1.4rem,2.6vw,1.9rem);display:flex;flex-direction:column;gap:.7rem}
+.famille-ico{
+  display:grid;place-items:center;width:44px;height:44px;border-radius:13px;margin-bottom:.4rem;
+  background:linear-gradient(145deg,#4c6449,#2a3829);color:#dfe8d8;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16);
+}
+.famille-ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.famille h3{font-size:1.15rem;font-weight:500;letter-spacing:-.025em;line-height:1.2}
+.famille p{font-size:.92rem;line-height:1.5;color:var(--texte-faible)}
+
+/* 04 · notre intervention : 4 étapes sur une ligne, reliées */
+.entete--centre{text-align:center;max-width:none}
+@media (min-width:1000px){.entete--centre{display:block}}
+.entete--centre h2{margin-inline:auto}
+.etapes{
+  list-style:none;margin:clamp(2.5rem,6vh,3.5rem) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative;
+}
+.etapes::before{   /* le fil qui relie les 4 numéros */
+  content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:1px;
+  background:linear-gradient(90deg,var(--vert-clair),rgba(169,196,159,.25));
+}
+.etapes li{position:relative;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.etapes i{
+  display:grid;place-items:center;width:54px;height:54px;border-radius:50%;
+  font-style:normal;font-size:.85rem;font-weight:600;letter-spacing:.06em;color:var(--noir);
+  background:var(--vert-clair);box-shadow:0 0 0 8px var(--surface);
+}
+.etapes h3{font-size:clamp(1.05rem,1rem + .4vw,1.3rem);font-weight:500;letter-spacing:-.025em}
+.etapes-cta{margin-top:clamp(2rem,5vh,3rem);text-align:center}
+@media (max-width:700px){
+  .etapes{grid-template-columns:1fr;gap:1.1rem}
+  .etapes::before{left:27px;right:auto;top:27px;bottom:27px;width:1px;height:auto;background:linear-gradient(180deg,var(--vert-clair),rgba(169,196,159,.25))}
+  .etapes li{flex-direction:row;text-align:left}
+}
+
+/* près de chez vous / guides : titres secondaires, plus petits */
+.entete--petit{margin-top:clamp(4rem,9vh,6rem)}
+.entete--petit .pill{margin-bottom:1.1rem}
+.entete--petit h2{font-size:clamp(1.45rem,1rem + 1.5vw,2.1rem);max-width:24ch}
+.entete--petit p:not(.pill){font-size:.95rem}
+
+/* guides : une ligne cliquable chacun */
+.guides-liste{margin-top:1.6rem;display:grid;border-top:1px solid var(--filet)}
+.guide-ligne{
+  display:flex;align-items:baseline;gap:1rem;padding:.95rem .2rem;
+  border-bottom:1px solid var(--filet);text-decoration:none;
+  transition:padding-left .35s var(--expo);
+}
+.guide-ligne small{flex:0 0 auto;min-width:9.5rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--vert-clair)}
+.guide-ligne b{flex:1;min-width:0;font-weight:400;font-size:.95rem;color:var(--blanc)}
+.guide-ligne::after{content:"→";color:var(--vert-clair);transition:transform .35s var(--expo)}
+.guide-ligne:hover{padding-left:.6rem}
+.guide-ligne:hover b{color:var(--vert-clair)}
+.guide-ligne:hover::after{transform:translateX(3px)}
+@media (max-width:560px){
+  .guide-ligne{flex-wrap:wrap;gap:.2rem .8rem}
+  .guide-ligne small{min-width:0;flex-basis:100%}
+}
 </style>
 </head>
 
@@ -1073,7 +1923,6 @@ input:focus,select:focus,textarea:focus{
 
 <a class="saut" href="#contenu">Aller au contenu</a>
 
-<div class="rideau" id="rideau" hidden aria-hidden="true"><span class="rideau-logo"></span></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="site-head" id="siteHead">
@@ -1083,7 +1932,14 @@ input:focus,select:focus,textarea:focus{
       <span class="brand-nom" aria-hidden="true">Agence</span>
       <span class="sr">SL Agence — accueil</span>
     </a>
-    <a class="head-contact" href="#contact">Nous contacter</a>
+    <nav class="barre-nav" aria-label="Rubriques">
+      <a href="#constat">Le constat</a>
+      <a href="#domaines">Ce que nous faisons</a>
+      <a href="/realisations">Réalisations</a>
+      <a href="#metiers">Votre métier</a>
+      <a href="#methode">Notre intervention</a>
+      <a href="#contact">Parlons-en</a>
+    </nav>
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="panneau">
       <span id="menuLabel">Menu</span>
     </button>
@@ -1101,6 +1957,7 @@ input:focus,select:focus,textarea:focus{
     <a href="/blog/"><i>07</i>Blog</a>
   </nav>
   <div class="panneau-pied">
+    <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a>
     <a href="tel:+33767081943">Sacha — 07 67 08 19 43</a>
     <a href="tel:+33601160762">Loïc — 06 01 16 07 62</a>
     <a href="mailto:agence.sl.68@gmail.com">agence.sl.68@gmail.com</a>
@@ -1109,151 +1966,215 @@ input:focus,select:focus,textarea:focus{
 
 <main id="contenu">
 
-<!-- ============ HÉROS ============ -->
-<section class="hero" id="top">
-  <div class="hero-photo" aria-hidden="true"></div>
-  <div class="wrap">
-    <h1 class="pill etape etape-1">Automatisation et logiciel sur mesure à Mulhouse</h1>
-
-    <p class="titre-xl">
-      <span class="h-ligne"><span>Si vous savez</span></span>
-      <span class="h-ligne"><span>le décrire,</span></span>
-      <span class="h-ligne"><span>nous savons le construire.</span></span>
-    </p>
-
-    <p class="accroche etape etape-2">
-      <span>Ce qui vous prend du temps :</span>
-      <span class="rotor" aria-hidden="true">
-        <span class="rotor-piste">
-          <b>la même information saisie deux fois.</b>
-          <b>la relance qu'on oublie.</b>
-          <b>le tableur en double.</b>
-          <b>le dossier qu'on cherche.</b>
-          <b>le document retapé à la main.</b>
-        </span>
-      </span>
-      <span class="sr">la même information saisie deux fois, la relance qu'on oublie, le tableur en double, le dossier qu'on cherche, le document retapé à la main.</span>
-    </p>
-
-    <div class="hero-bas">
-      <p class="lead etape etape-3">
-        Nous supprimons les tâches qui vous font perdre du temps, pour que
-        vous vous concentriez sur votre métier.
-      </p>
-      <div class="hero-cta etape etape-4">
-        <a class="btn btn-plein" href="#contact">Décrire mon besoin</a>
-        <a class="btn btn-creux" href="tel:+33767081943">07 67 08 19 43</a>
-      </div>
+<!-- ============ HÉROS v9 « vitrine » : mise en page centrée façon Apple ============
+     La devise au centre, 2 boutons, puis l'atelier (téléphone → ordinateur) devant un
+     grand mot en chrome. -->
+<section class="hero hero--vitrine" id="top">
+  <div class="wrap vitrine-texte">
+    <h1 class="hero-surtitre ent ent-1">Automatisation et logiciel sur mesure à Mulhouse</h1>
+    <p class="vitrine-titre ent ent-2">Si vous savez le décrire,<br> nous savons <span>le construire.</span></p>
+    <div class="vitrine-cta ent ent-3">
+      <a class="btn btn-plein" href="#constat">En savoir plus</a>
+      <a class="btn btn-ligne" href="#contact">Décrire mon besoin</a>
     </div>
+  </div>
 
-    <div class="hero-meta etape etape-5">
-      <span>Mulhouse, Colmar, Saint-Louis et tout le Haut-Rhin</span>
-      <span>Indépendants, TPE, PME, cabinets et associations</span>
-      <span>Devis gratuit, réponse sous 24 h</span>
+  <div class="vitrine-scene ent ent-4">
+    <div class="vitrine-mot" aria-hidden="true"><span class="mot-relief">SUR MESURE</span><span class="mot-chrome">SUR MESURE</span></div>
+    <div class="wrap">
+    <!-- L'atelier : une phrase de dirigeant devient un outil, sous vos yeux.
+           Décoratif (aria-hidden) ; les liens utiles sont dans les onglets. -->
+      <div class="atelier-bloc ent ent-3">
+        <div class="atelier" id="atelier" aria-hidden="true">
+
+          <div class="bulle">
+            <span class="etiquette">Vous décrivez</span>
+            <p class="bulle-texte"><span id="bulleTexte">Mes techniciens remplissent les bons sur papier. Le soir, je ressaisis tout.</span><i class="curseur"></i></p>
+          </div>
+
+          <div class="tel">
+            <div class="tel-cadre">
+              <div class="tel-barre"><span>9:41</span><i></i></div>
+              <div class="tel-ecran">
+
+                <!-- Scène 1 : bon d'intervention -->
+                <div class="scene" data-scene="0">
+                  <div class="b ap-tete" style="--k:0"><b>Bon d'intervention</b><small>n° 0142</small></div>
+                  <div class="b ap-champ" style="--k:1"><small>Client</small><b>Chantier rue des Vignes</b></div>
+                  <div class="b ap-champ" style="--k:2"><small>Intervention</small><b>Remplacement du chauffe-eau</b></div>
+                  <div class="b ap-duo" style="--k:3">
+                    <div class="ap-champ"><small>Durée</small><b>2 h 30</b></div>
+                    <div class="ap-champ"><small>Photos</small><span class="ap-photos"><i></i><i></i><i></i></span></div>
+                  </div>
+                  <div class="b ap-signature" style="--k:4">
+                    <small>Signature du client</small>
+                    <svg viewBox="0 0 200 54"><path class="trace" d="M8 38c10-22 20-30 26-22s-8 26 2 24 14-28 22-26-4 22 4 22 12-16 18-16 2 14 10 13 12-10 20-9 6 8 14 6 18-8 26-10 18 2 26 0"/></svg>
+                  </div>
+                  <div class="b ap-bouton" style="--k:5"><span>Envoyer le PDF au client</span></div>
+                  <div class="ap-toast"><i>✓</i>PDF envoyé · rien à ressaisir</div>
+                </div>
+
+                <!-- Scène 2 : relances -->
+                <div class="scene" data-scene="1">
+                  <div class="b ap-tete" style="--k:0"><b>Factures à suivre</b><small>Aujourd'hui</small></div>
+                  <div class="b ap-ligne" style="--k:1"><span><b>F-2026-118</b><small>Échue depuis 12 j</small></span><em class="st st-a">En retard</em><em class="st st-b">Relancée</em><em class="st st-c">Payée</em></div>
+                  <div class="b ap-ligne" style="--k:2"><span><b>F-2026-121</b><small>Échue depuis 5 j</small></span><em class="st st-a">En retard</em><em class="st st-b">Relancée</em><em class="st st-c">Payée</em></div>
+                  <div class="b ap-ligne" style="--k:3"><span><b>F-2026-124</b><small>Échéance demain</small></span><em class="st st-a">À venir</em><em class="st st-b">Rappel prêt</em></div>
+                  <div class="b ap-ligne" style="--k:4"><span><b>F-2026-127</b><small>Payée le 8 oct.</small></span><em class="st st-c st-fixe">Payée</em></div>
+                  <div class="b ap-courbe" style="--k:5"><small>Encaissé ce mois-ci</small><svg viewBox="0 0 200 50" preserveAspectRatio="none"><path class="trace" d="M2 44 L30 40 L58 41 L86 30 L114 32 L142 20 L170 14 L198 6"/></svg></div>
+                  <div class="ap-toast"><i>✓</i>Relances parties seules ce matin</div>
+                </div>
+
+                <!-- Scène 3 : fichiers Excel -->
+                <div class="scene" data-scene="2">
+                  <div class="fichiers">
+                    <span style="--fx:-18px;--fy:-6px;--fr:-6deg">clients_2025_v3_FINAL.xlsx</span>
+                    <span style="--fx:22px;--fy:52px;--fr:4deg">suivi chantiers (copie).xlsx</span>
+                    <span style="--fx:-6px;--fy:112px;--fr:-3deg">relances-OK-OK.xlsx</span>
+                  </div>
+                  <div class="b ap-tete" style="--k:0"><b>Clients</b><small>1 seul écran</small></div>
+                  <div class="b ap-recherche" style="--k:1"><span>Rechercher un client, un chantier…</span></div>
+                  <div class="b ap-kpi" style="--k:2"><div><b>48</b><small>clients</small></div><div><b>12</b><small>chantiers en cours</small></div></div>
+                  <div class="b ap-ligne" style="--k:3"><span><b>Garage · Altkirch</b><small>3 dossiers</small></span><em class="st st-c st-fixe">À jour</em></div>
+                  <div class="b ap-ligne" style="--k:4"><span><b>Comptable · Colmar</b><small>Contrat renouvelé</small></span><em class="st st-c st-fixe">À jour</em></div>
+                  <div class="b ap-ligne" style="--k:5"><span><b>Agence immo · Mulhouse</b><small>Pièce manquante</small></span><em class="st st-a st-fixe">À relancer</em></div>
+                  <div class="ap-toast"><i>✓</i>Toute l'équipe sur le même écran</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="onglets" id="onglets">
+          <button type="button" class="onglet" data-scene="0" aria-pressed="true"><i></i>Bons d'intervention</button>
+          <button type="button" class="onglet" data-scene="1" aria-pressed="false"><i></i>Relances de factures</button>
+          <button type="button" class="onglet" data-scene="2" aria-pressed="false"><i></i>Fichiers Excel</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ============ BANDEAU ============ -->
-<div class="bandeau" aria-label="Secteurs déjà équipés">
-  <div class="bandeau-piste" id="piste">
-    <span>Cabinet d'avocats</span><span>Expertise comptable</span><span>Notariat</span><span>Courtage et assurance</span><span>Cabinet médical</span><span>Architecte</span><span>Bureau d'études</span><span>Agence immobilière</span><span>Transport et logistique</span><span>Terrassement</span><span>Travaux agricoles</span><span>Artisanat du bâtiment</span><span>Commerce et restauration</span><span>Sécurité et prévention</span><span>Gestion de patrimoine</span><span>Associations</span>
-  </div>
-</div>
-
-<!-- ============ 01 · LE CONSTAT ============ -->
+<!-- ============ 01 · LE CONSTAT : la double saisie, racontée au défilement ============ -->
 <section class="section constat" id="constat">
-  <div class="wrap">
-    <div class="eparpille" id="eparpille">
+  <div class="constat-piste" id="constatPiste">
+    <div class="constat-collant">
+      <div class="wrap constat-wrap">
 
-      <img src="p-epandage.jpg" alt="Engin agricole au travail dans un champ" width="720" height="900" loading="lazy" data-depth=".26" style="--x:0%;--y:8%;--w:20%">
-      <img src="p-terrain.jpg" alt="Chef de chantier consultant une tablette sur le terrain" width="720" height="900" loading="lazy" data-depth=".14" style="--x:79%;--y:6%;--w:21%">
-      <img src="p-avocat.jpg" alt="Bureau d'un cabinet d'avocats avec des documents à signer" width="720" height="900" loading="lazy" data-depth=".34" style="--x:6%;--y:58%;--w:17%">
-      <img src="p-comptable.jpg" alt="Factures et documents comptables papier sur un bureau" width="720" height="900" loading="lazy" data-depth=".20" style="--x:78%;--y:58%;--w:19%">
-      <!-- Colonne centrale : seuls des formats courts y tiennent, avec au moins
-           BORNE px de marge — la parallaxe les fait balayer une bande. -->
-      <img src="p-bureau.jpg" alt="Salariée saisissant des papiers administratifs sur son téléphone" width="1280" height="720" loading="lazy" data-depth=".30" style="--x:39%;--y:7%;--w:22%">
-      <img src="p-plaine.jpg" alt="Vue aérienne de champs cultivés" width="1280" height="720" loading="lazy" data-depth=".40" style="--x:38.5%;--y:79%;--w:23%">
-
-      <div class="enonce reveal">
         <p class="pill pill--creux">01 — Le point de départ</p>
-        <h2 class="titre-l" style="margin-top:1.6rem">Le travail est fait deux fois.</h2>
-        <p class="lead">
+        <h2 class="titre-l constat-titre" data-echo="Le travail est fait 2 fois."><span>Le travail est fait 2 fois.</span></h2>
+        <p class="lead constat-lead">
           Une fois quand l'information arrive, une fois quand on la recopie.
           Ce n'est pas un défaut d'organisation : c'est un outil qui manque.
         </p>
+
+        <div class="saisies" aria-hidden="true">
+          <div class="saisie saisie-1">
+            <small>Sur le chantier · 16 h 40</small>
+            <p class="manuscrit">Rue des Vignes · 2 h 30 · signé</p>
+            <span class="compteur">Saisie n° 1</span>
+          </div>
+          <div class="liaison"><i></i><span>automatique</span></div>
+          <div class="saisie saisie-2">
+            <small>Au bureau · 21 h 15</small>
+            <p class="clavier"><span id="ressaisie">Rue des Vignes · 2 h 30 · signé</span><i class="curseur"></i></p>
+            <span class="compteur"><b class="c-avant">Saisie n° 2</b><b class="c-apres">Déjà là · rien à recopier</b></span>
+          </div>
+        </div>
+
+        <p class="constat-chute">Avec le bon outil : <strong>une seule fois.</strong></p>
+
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ============ VIDÉO ============ -->
-<section class="section" id="video">
-  <div class="wrap video-grille">
-
-    <div class="video-texte reveal">
-      <p class="pill pill--creux">En 45 secondes</p>
-      <h2 class="titre-l" style="margin-top:1.6rem">Ce que ça change, concrètement.</h2>
-      <p class="lead">
-        La même information saisie deux fois, puis neuf. Des fichiers qui ne se parlent pas.
-        Voici comment nous relions tout, de la demande du client jusqu'au règlement de la facture.
-      </p>
-      <ul class="video-points">
-        <li>Vos fichiers Excel réunis dans un seul écran</li>
-        <li>Les relances qui partent seules, au bon moment</li>
-        <li>Le bon rempli sur le terrain, signé au doigt</li>
-      </ul>
-      <a class="btn btn-plein" href="#contact">Décrire mon besoin</a>
-    </div>
-
-    <div class="telephone reveal">
-      <video id="pubVideo" src="pub-sl-agence.mp4" poster="pub-sl-agence.jpg" preload="none" playsinline width="720" height="1280" aria-label="Vidéo de présentation de SL Agence"></video>
-      <button class="lecture" id="pubLecture" type="button" aria-label="Lire la vidéo (avec le son)">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
-      </button>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 02 · CE QUE NOUS FAISONS ============ -->
+<!-- ============ 02 · CE QUE NOUS FAISONS : un schéma, lu en 5 secondes (+ vos outils, ex-section 05) ============ -->
 <section class="section section--surface" id="domaines">
   <div class="wrap">
 
     <div class="entete reveal">
       <p class="pill">02 — Ce que nous faisons</p>
       <h2 class="titre-l">Automatisation, applications métier et IA : ce que nous construisons.</h2>
-      <p>Un aperçu, pas un catalogue. Si ce que vous avez en tête n'y figure pas, la réponse est très probablement oui.</p>
+      <p>Vous saisissez une information une fois. Le reste suit, tout seul.</p>
     </div>
 
-    <div class="domaines reveal casc">
-      <article class="domaine"><i>01</i><h3>Applications terrain et bons d'intervention numériques</h3><p>Bons d'intervention, feuilles d'heures, relevés, états des lieux, contrôles. Signature du client au doigt, photos horodatées, et tout fonctionne sans réseau. <a href="/bon-intervention-numerique" style="color:var(--vert-clair)">Le bon d'intervention numérique</a></p></article>
-      <article class="domaine"><i>02</i><h3>Remplacer vos fichiers Excel par un seul écran</h3><p>Clients, dossiers, contrats, véhicules, chantiers réunis dans un seul écran. Recherche instantanée, chiffres du jour, exports prêts pour le comptable. <a href="/remplacer-excel" style="color:var(--vert-clair)">Remplacer Excel par une application</a></p></article>
-      <article class="domaine"><i>03</i><h3>Documents générés</h3><p>Devis, factures, contrats, attestations, comptes rendus et rapports produits, nommés, classés et envoyés sans que personne n'y touche.</p></article>
-      <article class="domaine"><i>04</i><h3>Relances automatiques de factures et d'échéances</h3><p>Impayés, collecte de pièces, renouvellements, dates limites, rendez-vous annuels : suivis jusqu'au règlement, sur le bon canal, au bon moment. <a href="/relance-factures-automatique" style="color:var(--vert-clair)">Automatiser vos relances de factures</a></p></article>
-      <article class="domaine"><i>05</i><h3>Assistants IA pour TPE et PME</h3><p>Une photo de facture et la saisie est faite. Un vocal et le compte rendu est écrit. Le courrier trié et pré-répondu, l'information retrouvée dans un dossier de cent pages. <a href="/agent-ia-pme" style="color:var(--vert-clair)">Découvrir les agents IA pour PME</a></p></article>
-      <article class="domaine"><i>06</i><h3>Portails et prise de rendez-vous</h3><p>Réservation en ligne, dépôt de pièces, suivi de dossier, historique consultable. Confirmations et rappels partent seuls.</p></article>
-      <article class="domaine"><i>07</i><h3>Conformité et registres</h3><p>Habilitations, formations, contrôles réglementaires et obligations légales suivis à l'avance. Le jour du contrôle, tout s'exporte en un clic.</p></article>
-      <article class="domaine"><i>08</i><h3>Automatisation entre vos logiciels</h3><p>Comptabilité, paie, agenda, messagerie, tableurs, caisse : vos outils actuels se parlent enfin, au lieu de vous obliger à recopier. <a href="/automatisation-taches-administratives" style="color:var(--vert-clair)">Automatiser vos tâches administratives</a></p></article>
+    <div class="schema reveal" id="schema">
+      <svg class="schema-liens" id="schemaLiens" aria-hidden="true"></svg>
+
+      <div class="schema-col schema-col--entree">
+        <p class="schema-legende">Vous saisissez une fois</p>
+        <article class="noeud" data-sens="entree">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5.5H5.5v15h13v-15H17"/><path d="m9 14 2 2 4-4"/></svg></span>
+          <div><h3><a href="/bon-intervention-numerique">Bon d'intervention numérique</a></h3><p>Signé au doigt sur le chantier, même sans réseau.</p></div>
+        </article>
+        <article class="noeud" data-sens="entree">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg></span>
+          <div><h3><a href="/remplacer-excel">Remplacer Excel par une application</a></h3><p>Clients, chantiers et dossiers sur un seul écran.</p></div>
+        </article>
+        <article class="noeud" data-sens="entree">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V10l6-5 6 5v10"/><path d="M10 20v-5h4v5"/></svg></span>
+          <div><h3><a href="/logiciel-btp-sur-mesure">Logiciel BTP sur mesure</a></h3><p>Heures, engins et chantiers suivis depuis le terrain.</p></div>
+        </article>
+        <article class="noeud" data-sens="entree">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 13.8 9 19.5 10.8 13.8 12.6 12 18.3 10.2 12.6 4.5 10.8 10.2 9z"/><path d="M18.5 16.5 19.2 18.3 21 19 19.2 19.7 18.5 21.5 17.8 19.7 16 19 17.8 18.3z"/></svg></span>
+          <div><h3><a href="/agent-ia-pme">Agents IA pour PME</a></h3><p>Une photo ou un vocal : la saisie est faite.</p></div>
+        </article>
+      </div>
+
+      <div class="schema-coeur">
+        <a class="moyeu" href="/logiciel-sur-mesure">
+          <svg class="moyeu-anneau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48.5"/></svg>
+          <span class="moyeu-disque">
+            <span class="moyeu-logo logo-mark" aria-hidden="true"></span>
+            <b>Votre logiciel sur mesure</b>
+            <small>relié à vos outils actuels</small>
+          </span>
+        </a>
+      </div>
+
+      <div class="schema-col schema-col--sortie">
+        <p class="schema-legende">Le reste se fait tout seul</p>
+        <article class="noeud" data-sens="sortie">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span>
+          <div><h3><a href="/automatisation-taches-administratives">Automatisation des tâches administratives</a></h3><p>Devis, documents et classement, sans ressaisie.</p></div>
+        </article>
+        <article class="noeud" data-sens="sortie">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 8a7.5 7.5 0 1 0 1 5"/><path d="M19.5 3.5V8H15"/><path d="M12 8v4.5l3 1.5"/></svg></span>
+          <div><h3><a href="/relance-factures-automatique">Relance automatique de factures</a></h3><p>Suivies jusqu'au règlement, au bon moment.</p></div>
+        </article>
+        <article class="noeud" data-sens="sortie">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2z"/><path d="M9 8.5h6M9 12h6"/></svg></span>
+          <div><h3><a href="/facture-electronique-tpe">Facture électronique</a></h3><p>Reçue et émise sans ressaisie, avant l'échéance 2027.</p></div>
+        </article>
+        <article class="noeud" data-sens="sortie">
+          <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9.5"/><path d="M11 6.5 13 4.5a4 4 0 0 1 6.5 6.5L17.5 13M13 17.5 11 19.5A4 4 0 0 1 4.5 13L6.5 11"/></svg></span>
+          <div><h3>Liaison entre vos logiciels</h3><p>Compta, paie, agenda : vos outils se parlent.</p></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="compat reveal">
+      <p class="compat-titre"><b>Rien à jeter.</b> L'outil se branche sur ce que vous utilisez déjà :</p>
+      <ul class="compat-liste">
+        <li>Excel</li><li>Outlook</li><li>Gmail</li><li>Google Agenda</li><li>Microsoft 365</li><li>WhatsApp</li>
+        <li>Sage</li><li>EBP</li><li>Cegid</li><li>Pennylane</li><li>Logiciels de paie</li><li>Caisses</li>
+      </ul>
+    </div>
+
+    <div class="relais reveal">
+      <p><b>Votre besoin n'est pas sur le schéma ?</b>Parlons-en : la réponse est très probablement oui.</p>
+      <div class="relais-actions"><a class="btn btn-plein btn-fleche" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes avec nous</a></div>
     </div>
 
   </div>
 </section>
 
-<!-- ============ 03 · RÉALISATIONS : page dédiée /realisations ============ -->
+<!-- ============ AVIS CLIENTS (les réalisations ont leur page : /realisations, dans le menu) ============ -->
 <section class="section" id="preuves">
   <div class="wrap">
-    <div class="chiffres reveal">
-      <p class="chiffres-intro">Moins de charge administrative pour vous et votre équipe, et du temps retrouvé pour vos clients et vos soirées.</p>
-      <div class="chiffres-grille">
-        <div><b>Jusqu'à 20 h</b><span>récupérées chaque semaine chez un client</span></div>
-        <div><b>7 jours</b><span>pour mettre en place votre premier outil</span></div>
-        <div><b>24 h</b><span>pour recevoir votre devis</span></div>
-      </div>
-      <p class="chiffres-suite"><a href="/realisations">Voir nos réalisations, secteur par secteur</a></p>
-    </div>
-
     <div class="avis reveal">
       <div class="entete">
         <p class="pill">Ils en parlent</p>
@@ -1276,91 +2197,39 @@ input:focus,select:focus,textarea:focus{
   </div>
 </section>
 
-<!-- ============ 04 · VOTRE MÉTIER ============ -->
+<!-- ============ 03 · POUR QUI : les métiers, rangés en 4 familles (remplace les bulles flottantes et le bandeau) ============ -->
 <section class="section section--surface" id="metiers">
-  <div class="wrap">
-    <div class="metiers" id="jetons">
-
-      <!-- Le porteur dérive au défilement (JS), la bulle flotte dedans (CSS).
-           Durées et amplitudes toutes différentes : synchronisées, elles
-           auraient l'air mécaniques au lieu de flotter. -->
-      <span class="porteur" data-depth=".22" style="--x:1%;--y:12%"><span class="jeton" style="--dur:8.4s;--del:-1.2s;--dx:7px;--dy:-11px;--rot:1.1deg">Plomberie</span></span>
-      <span class="porteur" data-depth=".30" style="--x:6%;--y:26%"><span class="jeton" style="--dur:10.6s;--del:-4.1s;--dx:-9px;--dy:-8px;--rot:-1.4deg">Électricité</span></span>
-      <span class="porteur" data-depth=".16" style="--x:0%;--y:40%"><span class="jeton" style="--dur:7.2s;--del:-2.7s;--dx:6px;--dy:9px;--rot:1.6deg">Notariat</span></span>
-      <span class="porteur" data-depth=".36" style="--x:4%;--y:54%"><span class="jeton" style="--dur:11.8s;--del:-0.5s;--dx:-7px;--dy:-12px;--rot:-0.9deg">Maçonnerie</span></span>
-      <span class="porteur" data-depth=".24" style="--x:9%;--y:68%"><span class="jeton" style="--dur:9.3s;--del:-5.4s;--dx:8px;--dy:7px;--rot:1.3deg">Cabinet médical</span></span>
-      <span class="porteur" data-depth=".18" style="--x:2%;--y:82%"><span class="jeton" style="--dur:12.5s;--del:-3.3s;--dx:-6px;--dy:-9px;--rot:-1.5deg">Transport</span></span>
-
-      <span class="porteur" data-depth=".28" style="--x:78%;--y:14%"><span class="jeton" style="--dur:9.9s;--del:-2.1s;--dx:-8px;--dy:10px;--rot:-1.2deg">Garage</span></span>
-      <span class="porteur" data-depth=".20" style="--x:83%;--y:28%"><span class="jeton" style="--dur:7.8s;--del:-6.2s;--dx:7px;--dy:-10px;--rot:1.5deg">Avocats</span></span>
-      <span class="porteur" data-depth=".38" style="--x:76%;--y:42%"><span class="jeton" style="--dur:11.2s;--del:-1.8s;--dx:-9px;--dy:8px;--rot:-1.1deg">Restauration</span></span>
-      <span class="porteur" data-depth=".14" style="--x:81%;--y:56%"><span class="jeton" style="--dur:8.7s;--del:-4.8s;--dx:6px;--dy:-11px;--rot:1.4deg">Immobilier</span></span>
-      <span class="porteur" data-depth=".32" style="--x:74%;--y:70%"><span class="jeton" style="--dur:13.1s;--del:-0.9s;--dx:-7px;--dy:-7px;--rot:-1.6deg">Comptabilité</span></span>
-      <span class="porteur" data-depth=".26" style="--x:80%;--y:81%"><span class="jeton" style="--dur:10.1s;--del:-3.7s;--dx:8px;--dy:9px;--rot:1.2deg">Associations</span></span>
-
-      <div class="metiers-coeur reveal">
-        <p class="pill">04 — Votre métier</p>
-        <h2 class="titre-l" style="margin-top:1.6rem">Le vôtre n'y est pas ? Il y entre.</h2>
-        <p class="lead">Décrivez-nous une journée type. Quinze minutes suffisent.</p>
-        <a class="btn btn-plein" href="#contact">Nous appeler</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ VOS OUTILS ============ -->
-<section class="section" id="outils">
   <div class="wrap">
 
     <div class="entete reveal">
-      <p class="pill">05 — Vos outils</p>
-      <h2 class="titre-l">Nous nous branchons sur ce que vous avez.</h2>
-      <p>Rien à jeter, rien à réapprendre. C'est l'application qui vient s'y raccorder, quels que soient vos logiciels.</p>
+      <p class="pill">03 — Votre métier</p>
+      <h2 class="titre-l">Pour les artisans, cabinets et PME du <span style="white-space:nowrap">Haut-Rhin</span>.</h2>
+      <p>Indépendants, TPE, PME et associations, de Mulhouse à Colmar.</p>
     </div>
 
-    <div class="outils reveal casc">
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path d="M12 2.4 13.9 8.1 19.6 10 13.9 11.9 12 17.6 10.1 11.9 4.4 10 10.1 8.1Z" fill="#3c4f3b"/><path d="M18.4 15.2 19.3 17.8 21.9 18.7 19.3 19.6 18.4 22.2 17.5 19.6 14.9 18.7 17.5 17.8Z" fill="#3c4f3b" opacity=".55"/></svg></span><b>Intelligence artificielle</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 74 100" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="google-sheets-mask0_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask0_1:52)"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L56.4365 16.8843L45.398 1.43036Z" fill="#0F9D58"/></g><mask id="google-sheets-mask1_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask1_1:52)"><path d="M18.9054 48.8962V80.908H54.2288V48.8962H18.9054ZM34.3594 76.4926H23.3209V70.9733H34.3594V76.4926ZM34.3594 67.6617H23.3209V62.1424H34.3594V67.6617ZM34.3594 58.8309H23.3209V53.3116H34.3594V58.8309ZM49.8134 76.4926H38.7748V70.9733H49.8134V76.4926ZM49.8134 67.6617H38.7748V62.1424H49.8134V67.6617ZM49.8134 58.8309H38.7748V53.3116H49.8134V58.8309Z" fill="#F1F1F1"/></g><mask id="google-sheets-mask2_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask2_1:52)"><path d="M47.3352 25.9856L71.8905 50.5354V27.9229L47.3352 25.9856Z" fill="url(#google-sheets-paint0_linear_1:52)"/></g><mask id="google-sheets-mask3_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask3_1:52)"><path d="M45.398 1.43036V21.2998C45.398 24.959 48.3618 27.9229 52.0211 27.9229H71.8905L45.398 1.43036Z" fill="#87CEAC"/></g><mask id="google-sheets-mask4_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask4_1:52)"><path d="M7.86688 1.43036C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V8.60542C1.24374 4.9627 4.22415 1.98229 7.86688 1.98229H45.398V1.43036H7.86688Z" fill="white" fill-opacity="0.2"/></g><mask id="google-sheets-mask5_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask5_1:52)"><path d="M65.2674 98.0177H7.86688C4.22415 98.0177 1.24374 95.0373 1.24374 91.3946V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V91.3946C71.8905 95.0373 68.9101 98.0177 65.2674 98.0177Z" fill="#263238" fill-opacity="0.2"/></g><mask id="google-sheets-mask6_1:52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="71" height="98"><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="white"/></mask><g mask="url(#google-sheets-mask6_1:52)"><path d="M52.0211 27.9229C48.3618 27.9229 45.398 24.959 45.398 21.2998V21.8517C45.398 25.511 48.3618 28.4748 52.0211 28.4748H71.8905V27.9229H52.0211Z" fill="#263238" fill-opacity="0.1"/></g><path d="M45.398 1.43036H7.86688C4.22415 1.43036 1.24374 4.41077 1.24374 8.0535V91.9465C1.24374 95.5893 4.22415 98.5697 7.86688 98.5697H65.2674C68.9101 98.5697 71.8905 95.5893 71.8905 91.9465V27.9229L45.398 1.43036Z" fill="url(#google-sheets-paint1_radial_1:52)"/><defs><linearGradient id="google-sheets-paint0_linear_1:52" x1="59.6142" y1="28.0935" x2="59.6142" y2="50.5388" gradientUnits="userSpaceOnUse"><stop stop-color="#263238" stop-opacity="0.2"/><stop offset="1" stop-color="#263238" stop-opacity="0.02"/></linearGradient><radialGradient id="google-sheets-paint1_radial_1:52" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(3.48187 3.36121) scale(113.917)"><stop stop-color="white" stop-opacity="0.1"/><stop offset="1" stop-color="white" stop-opacity="0"/></radialGradient></defs></svg></span><b>Tableurs</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 49.4 512 399.42"><g fill="none" fill-rule="evenodd"><g fill-rule="nonzero"><path fill="#4285f4" d="M34.91 448.818h81.454V251L0 163.727V413.91c0 19.287 15.622 34.91 34.91 34.91z"/><path fill="#34a853" d="M395.636 448.818h81.455c19.287 0 34.909-15.622 34.909-34.909V163.727L395.636 251z"/><path fill="#fbbc04" d="M395.636 99.727V251L512 163.727v-46.545c0-43.142-49.25-67.782-83.782-41.891z"/></g><path fill="#ea4335" d="M116.364 251V99.727L256 204.455 395.636 99.727V251L256 355.727z"/><path fill="#c5221f" fill-rule="nonzero" d="M0 117.182v46.545L116.364 251V99.727L83.782 75.291C49.25 49.4 0 74.04 0 117.18z"/></g></svg></span><b>Messagerie</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#google-calendar-clip0_5072_3766)"><path d="M390.736 121.264H121.264V390.736H390.736V121.264Z" fill="white"/><path d="M390.736 512L512 390.736L451.368 380.392L390.736 390.736L379.67 446.196L390.736 512Z" fill="#EA4335"/><path d="M0 390.736V471.578C0 493.912 18.088 512 40.42 512H121.264L133.714 451.368L121.264 390.736L55.198 380.392L0 390.736Z" fill="#188038"/><path d="M512 121.264V40.42C512 18.088 493.912 0 471.58 0H390.736C383.36 30.072 379.671 52.2027 379.67 66.392C379.67 80.58 383.359 98.8707 390.736 121.264C417.556 128.944 437.767 132.784 451.368 132.784C464.969 132.784 485.18 128.945 512 121.264Z" fill="#1967D2"/><path d="M512 121.264H390.736V390.736H512V121.264Z" fill="#FBBC04"/><path d="M390.736 390.736H121.264V512H390.736V390.736Z" fill="#34A853"/><path d="M390.736 0H40.422C18.088 0 0 18.088 0 40.42V390.736H121.264V121.264H390.736V0Z" fill="#4285F4"/><path d="M176.54 330.308C166.468 323.504 159.494 313.568 155.688 300.428L179.066 290.796C181.186 298.88 184.891 305.145 190.182 309.592C195.436 314.038 201.836 316.228 209.314 316.228C216.959 316.228 223.527 313.903 229.018 309.254C234.51 304.606 237.272 298.678 237.272 291.504C237.272 284.16 234.375 278.164 228.582 273.516C222.788 268.868 215.512 266.544 206.822 266.544H193.314V243.404H205.44C212.917 243.404 219.216 241.382 224.336 237.338C229.456 233.298 232.016 227.772 232.016 220.732C232.016 214.468 229.726 209.482 225.146 205.744C220.566 202.004 214.77 200.118 207.73 200.118C200.858 200.118 195.402 201.938 191.36 205.608C187.319 209.289 184.282 213.937 182.534 219.116L159.394 209.482C162.458 200.792 168.084 193.112 176.336 186.476C184.588 179.84 195.132 176.506 207.932 176.506C217.398 176.506 225.92 178.326 233.466 181.996C241.01 185.668 246.938 190.754 251.216 197.222C255.496 203.722 257.616 210.998 257.616 219.082C257.616 227.334 255.63 234.308 251.656 240.034C247.682 245.76 242.796 250.138 237.002 253.204V254.584C244.483 257.669 250.982 262.735 255.798 269.238C260.682 275.806 263.142 283.654 263.142 292.818C263.142 301.978 260.816 310.164 256.168 317.338C251.52 324.514 245.088 330.172 236.934 334.282C228.75 338.392 219.554 340.482 209.348 340.482C197.524 340.514 186.612 337.112 176.54 330.308ZM320.132 214.298L294.466 232.858L281.632 213.39L327.678 180.176H345.328V336.842H320.132V214.298Z" fill="#4285F4"/></g><defs><clipPath id="google-calendar-clip0_5072_3766"><rect width="512" height="512" fill="white"/></clipPath></defs></svg></span><b>Agendas</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128"><path fill="#0061FE" d="M0 0h128v128H0z"/><path fill="#F7F5F2" d="M43.7 32 23.404 44.75 43.701 57.5 64 44.75 84.3 57.5l20.298-12.75L84.299 32 64.002 44.75 43.7 32Zm0 51L23.404 70.25 43.701 57.5 64 70.25 43.702 83Zm20.302-12.75L84.299 57.5l20.298 12.75L84.299 83 64.002 70.25Zm0 29.75L43.7 87.25 64 74.5l20.3 12.75L64.002 100Z"/></svg></span><b>Fichiers</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false"
-  enable-background="new 0 0 2447.6 2452.5"
-  viewBox="0 0 2447.6 2452.5"
-  xmlns="http://www.w3.org/2000/svg"
-><g clip-rule="evenodd" fill-rule="evenodd"><path
-      d="m897.4 0c-135.3.1-244.8 109.9-244.7 245.2-.1 135.3 109.5 245.1 244.8 245.2h244.8v-245.1c.1-135.3-109.5-245.1-244.9-245.3.1 0 .1 0 0 0m0 654h-652.6c-135.3.1-244.9 109.9-244.8 245.2-.2 135.3 109.4 245.1 244.7 245.3h652.7c135.3-.1 244.9-109.9 244.8-245.2.1-135.4-109.5-245.2-244.8-245.3z"
-      fill="#36c5f0"
-    /><path
-      d="m2447.6 899.2c.1-135.3-109.5-245.1-244.8-245.2-135.3.1-244.9 109.9-244.8 245.2v245.3h244.8c135.3-.1 244.9-109.9 244.8-245.3zm-652.7 0v-654c.1-135.2-109.4-245-244.7-245.2-135.3.1-244.9 109.9-244.8 245.2v654c-.2 135.3 109.4 245.1 244.7 245.3 135.3-.1 244.9-109.9 244.8-245.3z"
-      fill="#2eb67d"
-    /><path
-      d="m1550.1 2452.5c135.3-.1 244.9-109.9 244.8-245.2.1-135.3-109.5-245.1-244.8-245.2h-244.8v245.2c-.1 135.2 109.5 245 244.8 245.2zm0-654.1h652.7c135.3-.1 244.9-109.9 244.8-245.2.2-135.3-109.4-245.1-244.7-245.3h-652.7c-135.3.1-244.9 109.9-244.8 245.2-.1 135.4 109.4 245.2 244.7 245.3z"
-      fill="#ecb22e"
-    /><path
-      d="m0 1553.2c-.1 135.3 109.5 245.1 244.8 245.2 135.3-.1 244.9-109.9 244.8-245.2v-245.2h-244.8c-135.3.1-244.9 109.9-244.8 245.2zm652.7 0v654c-.2 135.3 109.4 245.1 244.7 245.3 135.3-.1 244.9-109.9 244.8-245.2v-653.9c.2-135.3-109.4-245.1-244.7-245.3-135.4 0-244.9 109.8-244.8 245.1 0 0 0 .1 0 0"
-      fill="#e01e5a"
-    /></g></svg></span><b>Équipes</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 360 362"><path fill="#25D366" fill-rule="evenodd" d="M307.546 52.566C273.709 18.684 228.706.017 180.756 0 81.951 0 1.538 80.404 1.504 179.235c-.017 31.594 8.242 62.432 23.928 89.609L0 361.736l95.024-24.925c26.179 14.285 55.659 21.805 85.655 21.814h.077c98.788 0 179.21-80.413 179.244-179.244.017-47.898-18.608-92.926-52.454-126.807v-.008Zm-126.79 275.788h-.06c-26.73-.008-52.952-7.194-75.831-20.765l-5.44-3.231-56.391 14.791 15.05-54.981-3.542-5.638c-14.912-23.721-22.793-51.139-22.776-79.286.035-82.14 66.867-148.973 149.051-148.973 39.793.017 77.198 15.53 105.328 43.695 28.131 28.157 43.61 65.596 43.593 105.398-.035 82.149-66.867 148.982-148.982 148.982v.008Zm81.719-111.577c-4.478-2.243-26.497-13.073-30.606-14.568-4.108-1.496-7.09-2.243-10.073 2.243-2.982 4.487-11.568 14.577-14.181 17.559-2.613 2.991-5.226 3.361-9.704 1.117-4.477-2.243-18.908-6.97-36.02-22.226-13.313-11.878-22.304-26.54-24.916-31.027-2.613-4.486-.275-6.91 1.959-9.136 2.011-2.011 4.478-5.234 6.721-7.847 2.244-2.613 2.983-4.486 4.478-7.469 1.496-2.991.748-5.603-.369-7.847-1.118-2.243-10.073-24.289-13.812-33.253-3.636-8.732-7.331-7.546-10.073-7.692-2.613-.13-5.595-.155-8.586-.155-2.991 0-7.839 1.118-11.947 5.604-4.108 4.486-15.677 15.324-15.677 37.361s16.047 43.344 18.29 46.335c2.243 2.991 31.585 48.225 76.51 67.632 10.684 4.615 19.029 7.374 25.535 9.437 10.727 3.412 20.49 2.931 28.208 1.779 8.604-1.289 26.498-10.838 30.228-21.298 3.73-10.46 3.73-19.433 2.613-21.298-1.117-1.865-4.108-2.991-8.586-5.234l.008-.017Z" clip-rule="evenodd"/></svg></span><b>Contact client</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="100 100 312 312"><path fill="#533afd" fill-rule="evenodd" d="m120 392 272-57.683V120l-272 58.357z" clip-rule="evenodd"/></svg></span><b>Paiement</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 256 292" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357-1.055-.088-23.383-1.743-23.383-1.743s-15.507-15.395-17.209-17.099c-1.703-1.703-5.029-1.185-6.32-.805-.19.056-3.388 1.043-8.678 2.68-5.18-14.906-14.322-28.604-30.405-28.604-.444 0-.901.018-1.358.044C129.31 3.407 123.644.779 118.75.779c-37.465 0-55.364 46.835-60.976 70.635-14.558 4.511-24.9 7.718-26.221 8.133-8.126 2.549-8.383 2.805-9.45 10.462C21.3 95.806.038 260.235.038 260.235l165.678 31.042 89.77-19.42S223.973 58.8 223.775 57.34zM156.49 40.848l-14.019 4.339c.005-.988.01-1.96.01-3.023 0-9.264-1.286-16.723-3.349-22.636 8.287 1.04 13.806 10.469 17.358 21.32zm-27.638-19.483c2.304 5.773 3.802 14.058 3.802 25.238 0 .572-.005 1.095-.01 1.624-9.117 2.824-19.024 5.89-28.953 8.966 5.575-21.516 16.025-31.908 25.161-35.828zm-11.131-10.537c1.617 0 3.246.549 4.805 1.622-12.007 5.65-24.877 19.88-30.312 48.297l-22.886 7.088C75.694 46.16 90.81 10.828 117.72 10.828z" fill="#95BF46"/><path d="M221.237 54.983c-1.055-.088-23.383-1.743-23.383-1.743s-15.507-15.395-17.209-17.099c-.637-.634-1.496-.959-2.394-1.099l-12.527 256.233 89.762-19.418S223.972 58.8 223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357" fill="#5E8E3E"/><path d="M135.242 104.585l-11.069 32.926s-9.698-5.176-21.586-5.176c-17.428 0-18.305 10.937-18.305 13.693 0 15.038 39.2 20.8 39.2 56.024 0 27.713-17.577 45.558-41.277 45.558-28.44 0-42.984-17.7-42.984-17.7l7.615-25.16s14.95 12.835 27.565 12.835c8.243 0 11.596-6.49 11.596-11.232 0-19.616-32.16-20.491-32.16-52.724 0-27.129 19.472-53.382 58.778-53.382 15.145 0 22.627 4.338 22.627 4.338" fill="#FFF"/></svg></span><b>Boutique</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 268"><path fill="#FFF" d="M16.092 11.538 164.09.608c18.179-1.56 22.85-.508 34.28 7.801l47.243 33.282C253.406 47.414 256 48.975 256 55.207v182.527c0 11.439-4.155 18.205-18.696 19.24L65.44 267.378c-10.913.517-16.11-1.043-21.825-8.327L8.826 213.814C2.586 205.487 0 199.254 0 191.97V29.726c0-9.352 4.155-17.153 16.092-18.188Z"/><path d="M164.09.608 16.092 11.538C4.155 12.573 0 20.374 0 29.726v162.245c0 7.284 2.585 13.516 8.826 21.843l34.789 45.237c5.715 7.284 10.912 8.844 21.825 8.327l171.864-10.404c14.532-1.035 18.696-7.801 18.696-19.24V55.207c0-5.911-2.336-7.614-9.21-12.66l-1.185-.856L198.37 8.409C186.94.1 182.27-.952 164.09.608ZM69.327 52.22c-14.033.945-17.216 1.159-25.186-5.323L23.876 30.778c-2.06-2.086-1.026-4.69 4.163-5.207l142.274-10.395c11.947-1.043 18.17 3.12 22.842 6.758l24.401 17.68c1.043.525 3.638 3.637.517 3.637L71.146 52.095l-1.819.125Zm-16.36 183.954V81.222c0-6.767 2.077-9.887 8.3-10.413L230.02 60.93c5.724-.517 8.31 3.12 8.31 9.879v153.917c0 6.767-1.044 12.49-10.387 13.008l-161.487 9.361c-9.343.517-13.489-2.594-13.489-10.921ZM212.377 89.53c1.034 4.681 0 9.362-4.681 9.897l-7.783 1.542v114.404c-6.758 3.637-12.981 5.715-18.18 5.715-8.308 0-10.386-2.604-16.609-10.396l-50.898-80.079v77.476l16.1 3.646s0 9.362-12.989 9.362l-35.814 2.077c-1.043-2.086 0-7.284 3.63-8.318l9.351-2.595V109.823l-12.98-1.052c-1.044-4.68 1.55-11.439 8.826-11.965l38.426-2.585 52.958 81.113v-71.76l-13.498-1.552c-1.043-5.733 3.111-9.896 8.3-10.404l35.84-2.087Z"/></svg></span><b>Documentation</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><defs><linearGradient id="telegram-a" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#2AABEE"/><stop offset="100%" stop-color="#229ED9"/></linearGradient></defs><path fill="url(#telegram-a)" d="M128 0C94.06 0 61.48 13.494 37.5 37.49A128.038 128.038 0 0 0 0 128c0 33.934 13.5 66.514 37.5 90.51C61.48 242.506 94.06 256 128 256s66.52-13.494 90.5-37.49c24-23.996 37.5-56.576 37.5-90.51 0-33.934-13.5-66.514-37.5-90.51C194.52 13.494 161.94 0 128 0Z"/><path fill="#FFF" d="M57.94 126.648c37.32-16.256 62.2-26.974 74.64-32.152 35.56-14.786 42.94-17.354 47.76-17.441 1.06-.017 3.42.245 4.96 1.49 1.28 1.05 1.64 2.47 1.82 3.467.16.996.38 3.266.2 5.038-1.92 20.24-10.26 69.356-14.5 92.026-1.78 9.592-5.32 12.808-8.74 13.122-7.44.684-13.08-4.912-20.28-9.63-11.26-7.386-17.62-11.982-28.56-19.188-12.64-8.328-4.44-12.906 2.76-20.386 1.88-1.958 34.64-31.748 35.26-34.45.08-.338.16-1.598-.6-2.262-.74-.666-1.84-.438-2.64-.258-1.14.256-19.12 12.152-54 35.686-5.1 3.508-9.72 5.218-13.88 5.128-4.56-.098-13.36-2.584-19.9-4.708-8-2.606-14.38-3.984-13.82-8.41.28-2.304 3.46-4.662 9.52-7.072Z"/></svg></span><b>Alertes</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.3 78"><path fill="#0066da" d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 53H0c0 1.55.4 3.1 1.2 4.5z"/><path fill="#00ac47" d="M43.65 25 29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44A9.06 9.06 0 0 0 0 53h27.5z"/><path fill="#ea4335" d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75L86.1 57.5c.8-1.4 1.2-2.95 1.2-4.5H59.798l5.852 11.5z"/><path fill="#00832d" d="M43.65 25 57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z"/><path fill="#2684fc" d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z"/><path fill="#ffba00" d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 59.8 53h27.45c0-1.55-.4-3.1-1.2-4.5z"/></svg></span><b>Stockage</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="4 4 36 38"><path fill="url(#microsoft-teams-a)" d="M22 20h12a6 6 0 0 1 6 6v10a6 6 0 0 1-12 0V26a6 6 0 0 0-6-6Z"/><path fill="url(#microsoft-teams-b)" d="M8 24a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v12a6 6 0 0 0 6 6H18c-5.523 0-10-4.477-10-10v-8Z"/><path fill="url(#microsoft-teams-c)" fill-opacity=".7" d="M8 24a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v12a6 6 0 0 0 6 6H18c-5.523 0-10-4.477-10-10v-8Z"/><path fill="url(#microsoft-teams-d)" fill-opacity=".7" d="M8 24a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v12a6 6 0 0 0 6 6H18c-5.523 0-10-4.477-10-10v-8Z"/><path fill="url(#microsoft-teams-e)" d="M33 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path fill="url(#microsoft-teams-f)" fill-opacity=".46" d="M33 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path fill="url(#microsoft-teams-g)" fill-opacity=".4" d="M33 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path fill="url(#microsoft-teams-h)" d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path fill="url(#microsoft-teams-i)" fill-opacity=".6" d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path fill="url(#microsoft-teams-j)" fill-opacity=".5" d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><rect x="4" y="23" fill="url(#microsoft-teams-k)" rx="3.25"/><rect width="16" height="16" x="4" y="23" fill="url(#microsoft-teams-l)" fill-opacity=".7" rx="3.25"/><path fill="#fff" d="M15.48 28.105h-2.448v7.466h-2.065v-7.466H8.52V26.43h6.96v1.676Z"/><defs><radialGradient id="microsoft-teams-a" cx="0" cy="0" r="1" gradientTransform="matrix(13.4784 0 0 33.2694 39.797 22.174)" gradientUnits="userSpaceOnUse"><stop stop-color="#A98AFF"/><stop offset=".14" stop-color="#8C75FF"/><stop offset=".565" stop-color="#5F50E2"/><stop offset=".9" stop-color="#3C2CB8"/></radialGradient><radialGradient id="microsoft-teams-b" cx="0" cy="0" r="1" gradientTransform="matrix(12.1875 30.39997 -30.74442 12.3256 8.812 16.4)" gradientUnits="userSpaceOnUse"><stop stop-color="#85C2FF"/><stop offset=".69" stop-color="#7588FF"/><stop offset="1" stop-color="#6459FE"/></radialGradient><radialGradient id="microsoft-teams-d" cx="0" cy="0" r="1" gradientTransform="rotate(113.326 8.093 17.645) scale(19.2186 15.4273)" gradientUnits="userSpaceOnUse"><stop stop-color="#BD96FF"/><stop offset=".687" stop-color="#BD96FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-e" cx="0" cy="0" r="1" gradientTransform="matrix(0 -10 12.6216 0 33 11.571)" gradientUnits="userSpaceOnUse"><stop offset=".268" stop-color="#6868F7"/><stop offset="1" stop-color="#3923B1"/></radialGradient><radialGradient id="microsoft-teams-f" cx="0" cy="0" r="1" gradientTransform="matrix(5.47024 4.59847 -6.65117 7.91208 28.867 10.544)" gradientUnits="userSpaceOnUse"><stop offset=".271" stop-color="#A1D3FF"/><stop offset=".813" stop-color="#A1D3FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-g" cx="0" cy="0" r="1" gradientTransform="rotate(-41.658 32.118 -43.42) scale(8.51275 20.8824)" gradientUnits="userSpaceOnUse"><stop stop-color="#E3ACFD"/><stop offset=".816" stop-color="#9FA2FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-h" cx="0" cy="0" r="1" gradientTransform="matrix(0 -12 15.146 0 18 8.286)" gradientUnits="userSpaceOnUse"><stop offset=".268" stop-color="#8282FF"/><stop offset="1" stop-color="#3923B1"/></radialGradient><radialGradient id="microsoft-teams-i" cx="0" cy="0" r="1" gradientTransform="rotate(40.052 -3.155 21.416) scale(8.57554 12.4035)" gradientUnits="userSpaceOnUse"><stop offset=".271" stop-color="#A1D3FF"/><stop offset=".813" stop-color="#A1D3FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-j" cx="0" cy="0" r="1" gradientTransform="rotate(-41.658 20.382 -26.516) scale(10.2153 25.0589)" gradientUnits="userSpaceOnUse"><stop stop-color="#E3ACFD"/><stop offset=".816" stop-color="#9FA2FF" stop-opacity="0"/></radialGradient><radialGradient id="microsoft-teams-k" cx="0" cy="0" r="1" gradientTransform="rotate(45 -25.763 16.328) scale(22.6274)" gradientUnits="userSpaceOnUse"><stop offset=".047" stop-color="#688EFF"/><stop offset=".947" stop-color="#230F94"/></radialGradient><radialGradient id="microsoft-teams-l" cx="0" cy="0" r="1" gradientTransform="matrix(0 11.2 -13.0702 0 12 32.6)" gradientUnits="userSpaceOnUse"><stop offset=".571" stop-color="#6965F6" stop-opacity="0"/><stop offset="1" stop-color="#8F8FFF"/></radialGradient><linearGradient id="microsoft-teams-c" x1="20.594" x2="20.594" y1="18" y2="42" gradientUnits="userSpaceOnUse"><stop offset=".801" stop-color="#6864F6" stop-opacity="0"/><stop offset="1" stop-color="#5149DE"/></linearGradient></defs></svg></span><b>Visioconférence</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256"><defs><linearGradient id="zoom-a" x1="23.666%" x2="76.334%" y1="95.6118%" y2="4.3882%"><stop offset=".00006%" stop-color="#0845BF"/><stop offset="19.11%" stop-color="#0950DE"/><stop offset="38.23%" stop-color="#0B59F6"/><stop offset="50%" stop-color="#0B5CFF"/><stop offset="67.32%" stop-color="#0E5EFE"/><stop offset="77.74%" stop-color="#1665FC"/><stop offset="86.33%" stop-color="#246FF9"/><stop offset="93.88%" stop-color="#387FF4"/><stop offset="100%" stop-color="#4F90EE"/></linearGradient></defs><path fill="url(#zoom-a)" d="M256 128c0 13.568-1.024 27.136-3.328 40.192-6.912 43.264-41.216 77.568-84.48 84.48C155.136 254.976 141.568 256 128 256c-13.568 0-27.136-1.024-40.192-3.328-43.264-6.912-77.568-41.216-84.48-84.48C1.024 155.136 0 141.568 0 128c0-13.568 1.024-27.136 3.328-40.192 6.912-43.264 41.216-77.568 84.48-84.48C100.864 1.024 114.432 0 128 0c13.568 0 27.136 1.024 40.192 3.328 43.264 6.912 77.568 41.216 84.48 84.48C254.976 100.864 256 114.432 256 128Z"/><path fill="#FFF" d="M204.032 207.872H75.008c-8.448 0-16.64-4.608-20.48-12.032-4.608-8.704-2.816-19.2 4.096-26.112l89.856-89.856H83.968c-17.664 0-32-14.336-32-32h118.784c8.448 0 16.64 4.608 20.48 12.032 4.608 8.704 2.816 19.2-4.096 26.112l-89.6 90.112h74.496c17.664 0 32 14.08 32 31.744Z"/></svg></span><b>Réunions</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" viewBox="0 0 122.52 122.523" xmlns="http://www.w3.org/2000/svg"><g fill="#21759b"><path d="m8.708 61.26c0 20.802 12.089 38.779 29.619 47.298l-25.069-68.686c-2.916 6.536-4.55 13.769-4.55 21.388z"/><path d="m96.74 58.608c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501l19.138 56.925 11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989z"/><path d="m62.184 65.857-15.768 45.819c4.708 1.384 9.687 2.141 14.846 2.141 6.12 0 11.989-1.058 17.452-2.979-.141-.225-.269-.464-.374-.724z"/><path d="m107.376 36.046c.226 1.674.354 3.471.354 5.404 0 5.333-.996 11.328-3.996 18.824l-16.053 46.413c15.624-9.111 26.133-26.038 26.133-45.426.001-9.137-2.333-17.729-6.438-25.215z"/><path d="m61.262 0c-33.779 0-61.262 27.481-61.262 61.26 0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263-.001-33.779-27.487-61.26-61.265-61.26zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z"/></g></svg></span><b>Site internet</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="7.056000232696533 3 37.35095977783203 45"><g xmlns="http://www.w3.org/2000/svg"><path fill="#002991" d="M38.914 13.35c0 5.574-5.144 12.15-12.927 12.15H18.49l-.368 2.322L16.373 39H7.056l5.605-36h15.095c5.083 0 9.082 2.833 10.555 6.77a9.687 9.687 0 0 1 .603 3.58z"></path><path fill="#60CDFF" d="M44.284 23.7A12.894 12.894 0 0 1 31.53 34.5h-5.206L24.157 48H14.89l1.483-9 1.75-11.178.367-2.322h7.497c7.773 0 12.927-6.576 12.927-12.15 3.825 1.974 6.055 5.963 5.37 10.35z"></path><path fill="#008CFF" d="M38.914 13.35C37.31 12.511 35.365 12 33.248 12h-12.64L18.49 25.5h7.497c7.773 0 12.927-6.576 12.927-12.15z"></path></g></svg></span><b>Encaissement</b></div>
-      <div class="outil"><span><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256"><path d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453" fill="#0A66C2"/></svg></span><b>Prospection</b></div>
+    <div class="familles reveal casc">
+      <div class="famille">
+        <span class="famille-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V10l6-5 6 5v10"/><path d="M10 20v-5h4v5"/></svg></span>
+        <h3>Bâtiment et terrain</h3>
+        <p>Plomberie, électricité, maçonnerie, terrassement, architectes, bureaux d'études</p>
+      </div>
+      <div class="famille">
+        <span class="famille-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M5 8h14"/><path d="M5 8 2.5 14a3 3 0 0 0 5 0zM19 8l-2.5 6a3 3 0 0 0 5 0zM8 20h8"/></svg></span>
+        <h3>Cabinets et conseil</h3>
+        <p>Avocats, expertise comptable, notariat, courtage et assurance, gestion de patrimoine</p>
+      </div>
+      <div class="famille">
+        <span class="famille-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5M4 9.5h16M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 12v8h13v-8M10 20v-5h4v5"/></svg></span>
+        <h3>Commerce et services</h3>
+        <p>Restauration, commerces, garages, agences immobilières, cabinets médicaux</p>
+      </div>
+      <div class="famille">
+        <span class="famille-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 16V7h11v9M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></span>
+        <h3>Transport, agriculture et associations</h3>
+        <p>Transport et logistique, travaux agricoles, sécurité et prévention, associations</p>
+      </div>
     </div>
 
-    <p class="outils-plus reveal">
-      Excel et Outlook, Microsoft 365, Sage, EBP, Cegid, Pennylane, les logiciels de
-      paie, les CRM, les caisses, les plannings, les logiciels métier de votre secteur :
-      si l'outil sait échanger des données, nous nous y raccordons. Et s'il ne sait pas,
-      il reste presque toujours un export à automatiser.
-    </p>
 
   </div>
 </section>
@@ -1369,37 +2238,37 @@ input:focus,select:focus,textarea:focus{
 <section class="section section--surface" id="methode">
   <div class="wrap">
 
-    <div class="entete reveal">
-      <p class="pill">06 — Notre intervention</p>
-      <h2 class="titre-l">Quatre temps, pas un de plus.</h2>
-      <p>Un périmètre écrit, un délai et un prix ferme avant que quoi que ce soit ne commence.</p>
+    <div class="entete entete--centre reveal">
+      <p class="pill">04 — Notre intervention</p>
+      <h2 class="titre-l">4 temps, pas un de plus.</h2>
     </div>
 
-    <div class="temps reveal casc">
-      <div><i>01</i><h3>Nous vous écoutons</h3><p>Un quart d'heure au téléphone, puis un partage d'écran où vous nous montrez vos bons et vos tableurs.</p></div>
-      <div><i>02</i><h3>Nous construisons</h3><p>Un outil utilisable sur le terrain comme derrière un bureau. S'il faut un mode d'emploi, c'est qu'il est raté.</p></div>
-      <div><i>03</i><h3>Vos équipes l'essaient</h3><p>Une première version part sur leurs téléphones. Ce sont eux qui disent ce qui coince.</p></div>
-      <div><i>04</i><h3>Nous restons</h3><p>L'outil est ajusté au fil du temps. Vous avez quelqu'un qui connaît votre dossier et qui répond.</p></div>
-    </div>
+    <ol class="etapes reveal casc">
+      <li><i>01</i><h3>Nous vous écoutons</h3></li>
+      <li><i>02</i><h3>Nous construisons</h3></li>
+      <li><i>03</i><h3>Vos équipes l'essaient</h3></li>
+      <li><i>04</i><h3>Vous gagnez du temps</h3></li>
+    </ol>
+    <p class="etapes-cta reveal"><a class="btn btn-plein btn-fleche" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Commencer par l'étape 01</a></p>
 
-    <div class="entete reveal" style="margin-top:clamp(4rem,10vh,7rem)">
+    <div class="entete entete--petit reveal">
       <p class="pill">Près de chez vous</p>
-      <h2 class="titre-l">Automatisation d'entreprise à Mulhouse et dans le Haut-Rhin.</h2>
-      <p>Basés à Friesen, dans le Sundgau, nous accompagnons les entreprises de Mulhouse, Colmar, Saint-Louis, Altkirch et de tout le Haut-Rhin. <a href="/bon-intervention-numerique" style="color:var(--vert-clair)">Bons d'intervention</a>, <a href="/remplacer-excel" style="color:var(--vert-clair)">fichiers Excel</a>, <a href="/relance-factures-automatique" style="color:var(--vert-clair)">relances de factures</a> : nous venons voir comment vous travaillez, puis nous automatisons ce qui vous prend du temps.</p>
+      <h2 class="titre-l">Logiciel sur mesure et automatisation à Mulhouse, Saint-Louis et dans le Haut-Rhin.</h2>
+      <p>Basés à Friesen, dans le Sundgau, nous accompagnons les entreprises de <a href="/logiciel-entreprise-mulhouse" style="color:var(--vert-clair)">Mulhouse</a>, Colmar, <a href="/logiciel-entreprise-saint-louis" style="color:var(--vert-clair)">Saint-Louis</a>, Altkirch et de tout le Haut-Rhin. <a href="/bon-intervention-numerique" style="color:var(--vert-clair)">Bons d'intervention</a>, <a href="/remplacer-excel" style="color:var(--vert-clair)">fichiers Excel</a>, <a href="/relance-factures-automatique" style="color:var(--vert-clair)">relances de factures</a> : nous venons voir comment vous travaillez, puis nous automatisons ce qui vous prend du temps.</p>
     </div>
 
-    <div class="entete reveal" style="margin-top:clamp(4rem,10vh,7rem)">
+    <div class="entete entete--petit reveal">
       <p class="pill">Guides pratiques</p>
       <h2 class="titre-l">Nos conseils, à appliquer dès demain.</h2>
       <p>Des méthodes et des modèles gratuits, tirés du terrain. <a href="/blog/" style="color:var(--vert-clair)">Tous les articles du blog</a></p>
     </div>
-    <div class="guides reveal">
-      <a class="guide" href="/blog/bon-intervention-contenu-modele"><small>Guide · Terrain</small><b>Bon d'intervention : ce qu'il doit contenir, et un modèle gratuit</b><span>La liste complète, la valeur de la signature du client et les erreurs qui coûtent cher.</span></a>
-      <a class="guide" href="/blog/feuille-heures-salaries"><small>Guide · Personnel</small><b>Feuille d'heures des salariés : obligations et modèle</b><span>Ce que dit le Code du travail, combien de temps la garder, le cas des chantiers.</span></a>
-      <a class="guide" href="/blog/comment-relancer-une-facture-poliment"><small>Guide · Trésorerie</small><b>Relancer une facture poliment : calendrier et 6 modèles</b><span>Du rappel amical à la mise en demeure : les mots justes, le bon moment et ce que dit la loi.</span></a>
-      <a class="guide" href="/blog/relancer-un-devis-sans-reponse"><small>Guide · Vente</small><b>Relancer un devis sans réponse : 8 modèles à copier</b><span>Pourquoi le client se tait, quand le relancer et quoi lui écrire selon la situation.</span></a>
-      <a class="guide" href="/blog/limites-excel-entreprise"><small>Guide · Organisation</small><b>Excel ne suffit plus ? 7 signes à repérer</b><span>Versions en double, ressaisies, erreurs de formule : le test, le coût réel et par où commencer.</span></a>
-      <a class="guide" href="/blog/logiciel-gestion-transport-parc-engins"><small>Guide · Transport et engins</small><b>Logiciel transport et parc d'engins : lequel choisir ?</b><span>Excel, logiciel du marché ou sur mesure : le comparatif et les échéances à ne pas rater.</span></a>
+    <div class="guides-liste reveal">
+      <a class="guide-ligne" href="/blog/bon-intervention-contenu-modele"><small>Guide terrain</small><b>Bon d'intervention : ce qu'il doit contenir, et un modèle gratuit</b></a>
+      <a class="guide-ligne" href="/blog/feuille-heures-salaries"><small>Guide personnel</small><b>Feuille d'heures des salariés : obligations et modèle</b></a>
+      <a class="guide-ligne" href="/blog/comment-relancer-une-facture-poliment"><small>Guide trésorerie</small><b>Relancer une facture poliment : calendrier et 6 modèles</b></a>
+      <a class="guide-ligne" href="/blog/relancer-un-devis-sans-reponse"><small>Guide vente</small><b>Relancer un devis sans réponse : 8 modèles à copier</b></a>
+      <a class="guide-ligne" href="/blog/limites-excel-entreprise"><small>Guide organisation</small><b>Excel ne suffit plus ? 7 signes à repérer</b></a>
+      <a class="guide-ligne" href="/blog/logiciel-gestion-transport-parc-engins"><small>Guide transport</small><b>Logiciel transport et parc d'engins : lequel choisir ?</b></a>
     </div>
 
   </div>
@@ -1410,7 +2279,7 @@ input:focus,select:focus,textarea:focus{
   <div class="wrap">
 
     <div class="entete reveal">
-      <p class="pill">07 — Ce qu'on nous demande</p>
+      <p class="pill">05 — Ce qu'on nous demande</p>
       <h2 class="titre-l">Questions fréquentes sur l'automatisation et le logiciel sur mesure.</h2>
     </div>
 
@@ -1453,6 +2322,13 @@ input:focus,select:focus,textarea:focus{
       </details>
     </div>
 
+    <div class="relais reveal">
+      <p><b>Une autre question ?</b>Posez-la directement à Loïc ou à Sacha, du lundi au samedi, de 8 h à 19 h.</p>
+      <div class="relais-actions">
+        <a class="btn btn-plein btn-fleche" href="#contact">Poser ma question</a>
+        <a class="btn btn-creux" href="tel:+33601160762">06 01 16 07 62</a>
+      </div>
+    </div>
     <div class="promesses reveal casc">
       <div><b>Devis gratuit</b><span>sans engagement</span></div>
       <div><b>Prix ferme</b><span>annoncé avant de commencer</span></div>
@@ -1469,10 +2345,10 @@ input:focus,select:focus,textarea:focus{
     <div class="contact-grid">
 
       <div class="reveal">
-        <p class="pill">08 — Parlons-en</p>
+        <p class="pill">06 — Parlons-en</p>
         <h2 class="titre-l" style="margin-top:1.6rem">Ce qui vous fait perdre du temps, nous le faisons disparaître.</h2>
         <p class="lead" style="margin-top:1.5rem;max-width:36ch">
-          Quinze minutes au téléphone suffisent : vous repartez avec un avis clair et une
+          15 minutes au téléphone suffisent : vous repartez avec un avis clair et une
           première piste, même si nous ne travaillons pas ensemble ensuite.
         </p>
 
@@ -1487,7 +2363,7 @@ input:focus,select:focus,textarea:focus{
 
       <div class="carte reveal">
         <div id="vueForm">
-          <h3>Écrivez-nous en deux minutes.</h3>
+          <h3>Écrivez-nous en 2 minutes.</h3>
           <p class="intro">Nous revenons vers vous avec une première piste, sans engagement.</p>
 
           <form id="contactForm" novalidate>
@@ -1537,6 +2413,11 @@ input:focus,select:focus,textarea:focus{
 </section>
 
 </main>
+
+<div class="barre-cta" id="barreCta">
+  <a class="btn btn-creux" href="tel:+33767081943">Appeler</a>
+  <a class="btn btn-plein" href="#contact">Demander un devis</a>
+</div>
 
 <footer class="site-foot">
   <div class="wrap">
@@ -1857,6 +2738,261 @@ input:focus,select:focus,textarea:focus{
     });
   });
 
+})();
+</script>
+
+<script>
+/* ============ Héros : l'atelier (une phrase devient un outil) ============ */
+(function(){
+  "use strict";
+
+  var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero = document.querySelector('.hero');
+  if(!hero){ return; }
+
+
+  /* ---- atelier : la phrase devient un outil ---- */
+
+  var atelier = document.getElementById('atelier');
+  var scenes = atelier ? atelier.querySelectorAll('.scene') : [];
+  var onglets = document.querySelectorAll('.onglet');
+  var bulle = document.getElementById('bulleTexte');
+
+  var PHRASES = [
+    "Mes techniciens remplissent les bons sur papier. Le soir, je ressaisis tout.",
+    "Je passe mes vendredis à relancer les factures en retard.",
+    "Un fichier Excel par client. Plus personne ne s'y retrouve."
+  ];
+  var DUREE = 8200;   // durée indicative d'une scène (jauge de l'onglet)
+
+  if(!atelier || !scenes.length){ return; }
+
+  var courante = -1, minuteurs = [], visible = true, enPause = false;
+
+  function attendre(fn, ms){ minuteurs.push(setTimeout(fn, ms)); }
+  function annuler(){ minuteurs.forEach(clearTimeout); minuteurs = []; }
+
+
+  function taper(texte, fin){
+    var n = 0, cadre = bulle.parentNode.parentNode;
+    cadre.classList.remove('tapee');
+    bulle.textContent = '';
+    (function suite(){
+      n++;
+      bulle.textContent = texte.slice(0, n);
+      if(n < texte.length){ attendre(suite, 12 + Math.random() * 16); }
+      else{ cadre.classList.add('tapee'); attendre(fin, 250); }
+    })();
+  }
+
+  // après chaque scène, le téléphone s'ouvre en écran d'ordinateur : même outil, sur PC comme sur mobile
+  function ordinateur(on){
+    atelier.classList.add('bascule');
+    atelier.classList.toggle('pc', on);
+    attendre(function(){ atelier.classList.remove('bascule'); }, 900);
+  }
+
+  function montrer(i, auto){
+    annuler();
+    if(atelier.classList.contains('pc') && !REDUCE){
+      ordinateur(false);
+      attendre(function(){ lancer(i, auto); }, 950);
+      return;
+    }
+    lancer(i, auto);
+  }
+
+  function lancer(i, auto){
+    courante = i;
+    scenes.forEach(function(s, j){
+      s.classList.remove('bati');
+      s.classList.toggle('on', j === i);
+      s.classList.toggle('off', j !== i);
+    });
+    onglets.forEach(function(o, j){ o.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+
+    if(REDUCE){
+      bulle.textContent = PHRASES[i];
+      scenes[i].classList.add('bati');
+      return;
+    }
+
+    // relance la jauge de l'onglet
+    atelier.classList.remove('tourne');
+    void atelier.offsetWidth;
+    if(auto !== false){ atelier.parentNode.style.setProperty('--duree', DUREE + 'ms'); atelier.classList.add('tourne'); }
+
+    taper(PHRASES[i], function(){
+      scenes[i].classList.add('bati');
+      attendre(function(){ ordinateur(true); }, 2600);
+      attendre(function(){ if(visible && !enPause){ montrer((i + 1) % scenes.length); } }, 2600 + 3600);
+    });
+  }
+
+  onglets.forEach(function(o, j){
+    o.addEventListener('click', function(){ montrer(j); });
+  });
+
+  // on ne fait tourner l'atelier que lorsqu'il est à l'écran
+  if(window.IntersectionObserver && !REDUCE){
+    new IntersectionObserver(function(e){
+      var avant = visible;
+      visible = e[0].isIntersecting;
+      if(visible && !avant){ montrer((courante + 1) % scenes.length); }
+      if(!visible){ annuler(); atelier.classList.remove('tourne'); }
+    }, {threshold:.15}).observe(atelier);
+  }
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){ annuler(); atelier.classList.remove('tourne'); enPause = true; }
+    else if(enPause){ enPause = false; if(visible){ montrer((courante + 1) % scenes.length); } }
+  });
+
+  // départ : juste après l'entrée du titre
+  setTimeout(function(){ montrer(0); }, REDUCE ? 0 : 300);
+
+})();
+</script>
+<script>
+/* ============ 01 · Le constat : la double saisie, jouée une fois à l'apparition ============ */
+(function(){
+  "use strict";
+  var piste = document.getElementById('constatPiste');
+  var ligne = document.getElementById('ressaisie');
+  if(!piste || !ligne || !window.IntersectionObserver ||
+     window.matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
+
+  var texte = ligne.textContent, DUREE = 4200;
+  function borne(a, b, p){ return Math.min(1, Math.max(0, (p - a) / (b - a))); }
+
+  function etat(p){
+    ligne.textContent = texte.slice(0, Math.round(borne(.12, .45, p) * texte.length));
+    piste.style.setProperty('--d', (1 - borne(.45, .7, p)).toFixed(3));
+    piste.style.setProperty('--l', borne(.66, .8, p).toFixed(3));
+    piste.style.setProperty('--c', borne(.8, .95, p).toFixed(3));
+    piste.classList.toggle('attente', p < .72);
+  }
+  etat(0);
+
+  new IntersectionObserver(function(e, obs){
+    if(!e[0].isIntersecting){ return; }
+    obs.disconnect();
+    var t0 = null;
+    (function pas(t){
+      if(t0 === null){ t0 = t; }
+      var p = Math.min(1, (t - t0) / DUREE);
+      etat(p);
+      if(p < 1){ requestAnimationFrame(pas); }
+    })(performance.now());
+  }, {threshold:.3}).observe(piste);
+})();
+</script>
+<script>
+/* ============ 02 · Le schéma : traits, ports et lueurs qui circulent ============ */
+(function(){
+  "use strict";
+  var schema = document.getElementById('schema');
+  var svg = document.getElementById('schemaLiens');
+  if(!schema || !svg){ return; }
+  var NS = 'http://www.w3.org/2000/svg';
+  var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var noeuds = Array.prototype.slice.call(schema.querySelectorAll('.noeud'));
+  var disque = schema.querySelector('.moyeu-disque');
+  var liens = [];   // {trait, lueurs:[g], L, decal}
+
+  function el(nom, attrs){
+    var e = document.createElementNS(NS, nom);
+    for(var k in attrs){ e.setAttribute(k, attrs[k]); }
+    return e;
+  }
+
+  function trace(){
+    svg.innerHTML = '';
+    liens = [];
+    if(window.innerWidth < 1000){ return; }
+
+    // flou de la lueur
+    var defs = el('defs', {});
+    var f = el('filter', {id:'lueurFlou', x:'-200%', y:'-200%', width:'500%', height:'500%'});
+    f.appendChild(el('feGaussianBlur', {stdDeviation:'2.6'}));
+    defs.appendChild(f);
+    svg.appendChild(defs);
+
+    var s = schema.getBoundingClientRect(), m = disque.getBoundingClientRect();
+    var cx = m.left - s.left + m.width / 2, cy = m.top - s.top + m.height / 2, R = m.width / 2;
+
+    noeuds.forEach(function(n, i){
+      var r = n.getBoundingClientRect();
+      var entree = n.dataset.sens === 'entree';
+      var x = entree ? r.right - s.left : r.left - s.left, y = r.top - s.top + r.height / 2;
+      // le trait arrive sur le disque, réparti en éventail sur son bord
+      var ang = Math.atan2(y - cy, x - cx);
+      var hx = cx + Math.cos(ang) * R, hy = cy + Math.sin(ang) * R;
+      var k = Math.abs(hx - x) * .55;
+      var d = entree
+        ? 'M' + x + ',' + y + ' C' + (x + k) + ',' + y + ' ' + (hx - k * .6) + ',' + hy + ' ' + hx + ',' + hy
+        : 'M' + hx + ',' + hy + ' C' + (hx + k * .6) + ',' + hy + ' ' + (x - k) + ',' + y + ' ' + x + ',' + y;
+
+      var trait = el('path', {d:d, 'class':'trait'});
+      svg.appendChild(trait);
+      svg.appendChild(el('circle', {cx:x, cy:y, r:3.5, 'class':'port'}));
+      svg.appendChild(el('circle', {cx:hx, cy:hy, r:2.5, 'class':'port'}));
+
+      var g = el('g', {});
+      g.appendChild(el('circle', {r:4.5, 'class':'lueur'}));
+      g.appendChild(el('circle', {r:1.6, 'class':'lueur-coeur'}));
+      g.style.opacity = 0;
+      svg.appendChild(g);
+
+      liens.push({n:n, trait:trait, g:g, L:trait.getTotalLength(), decal:(i * .37) % 1});
+      n._trait = trait;
+    });
+    if(REDUCE){ liens.forEach(function(l){ l.g.style.display = 'none'; }); }
+  }
+
+  // les lueurs parcourent chaque trait, en décalé, dans le sens de l'information
+  var visible = false, T = 2600;
+  function boucle(t){
+    if(!visible){ return; }
+    for(var i = 0; i < liens.length; i++){
+      var l = liens[i];
+      var p = ((t / T) + l.decal) % 1;
+      var pt = l.trait.getPointAtLength(l.L * p);
+      l.g.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ',' + pt.y.toFixed(1) + ')');
+      l.g.style.opacity = Math.sin(p * Math.PI).toFixed(2);   // apparaît et s'éteint aux extrémités
+    }
+    requestAnimationFrame(boucle);
+  }
+
+  noeuds.forEach(function(n){
+    function bascule(on){ if(n._trait){ n._trait.classList.toggle('actif', on); } }
+    n.addEventListener('pointerenter', function(){ bascule(true); });
+    n.addEventListener('pointerleave', function(){ bascule(false); });
+    n.addEventListener('focusin', function(){ bascule(true); });
+    n.addEventListener('focusout', function(){ bascule(false); });
+  });
+
+  trace();
+  window.addEventListener('resize', trace);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(trace); }
+
+  if(window.IntersectionObserver){
+    new IntersectionObserver(function(e){
+      var avant = visible;
+      visible = e[0].isIntersecting;
+      if(visible){ setTimeout(trace, 1200); }   // après l'apparition des cartes
+      if(visible && !avant && !REDUCE){ requestAnimationFrame(boucle); }
+    }).observe(schema);
+  }
+})();
+</script>
+<script>
+(function(){
+  var b = document.getElementById('barreCta'), h = document.querySelector('.hero'), c = document.getElementById('contact');
+  if(!b || !h || !window.IntersectionObserver){ return; }
+  var horsHero = false, surContact = false;
+  function maj(){ b.classList.toggle('montre', horsHero && !surContact); }
+  new IntersectionObserver(function(e){ horsHero = !e[0].isIntersecting; maj(); }).observe(h);
+  if(c){ new IntersectionObserver(function(e){ surContact = e[0].isIntersecting; maj(); }, {threshold:.2}).observe(c); }
 })();
 </script>
 

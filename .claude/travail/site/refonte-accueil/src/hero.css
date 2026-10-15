@@ -1,0 +1,339 @@
+/* ============================================================
+   HÉROS « du besoin à l'outil »
+   À gauche, la promesse ; à droite, l'atelier : une phrase de
+   dirigeant (Vous décrivez) devient une application (Nous
+   construisons). Fond : un plan millimétré qui s'allume sous
+   le pointeur, comme une table d'architecte.
+   Sans JS ou en mouvement réduit : tout est visible, à l'arrêt.
+   ============================================================ */
+
+.hero{
+  min-height:min(100svh,980px);
+  display:flex;align-items:center;
+  padding-block:clamp(7rem,13vh,9.5rem) clamp(3rem,7vh,5rem);
+  position:relative;overflow:hidden;isolation:isolate;
+}
+/* un seul halo, derrière le téléphone : le reste du fond reste noir */
+.hero-halo{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 42% 50% at 76% 50%,rgba(60,79,59,.38),transparent 72%);
+}
+
+.hero-grille{display:grid;gap:clamp(3rem,6vw,4.5rem);align-items:center;width:100%}
+@media (min-width:1040px){
+  .hero-grille{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+
+/* ---------- le texte : sobre ---------- */
+
+.hero-surtitre{
+  font-size:.8rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--vert-clair);line-height:1.4;
+}
+.titre-hero{
+  margin-top:1.4rem;max-width:12ch;
+  color:var(--blanc);
+  font-size:clamp(2.6rem,1.2rem + 4.2vw,4.6rem);
+  font-weight:500;line-height:1.02;letter-spacing:-.045em;
+  text-wrap:balance;
+}
+.titre-hero span{color:var(--vert-clair)}
+
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem;margin-top:2.2rem}
+.hero-lien{color:var(--blanc);font-size:.95rem;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:4px}
+.hero-lien:hover{text-decoration-color:var(--vert-clair);color:var(--vert-clair)}
+
+/* entrée : un simple fondu, une fois */
+.staged .ent{opacity:0;transform:translateY(14px)}
+.hero.play .ent{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1s var(--doux)}
+.hero.play .ent-1{transition-delay:.05s}
+.hero.play .ent-2{transition-delay:.15s}
+.hero.play .ent-3{transition-delay:.3s}
+.hero.play .ent-4{transition-delay:.45s}
+
+/* ---------- l'atelier ---------- */
+
+.atelier-bloc{min-width:0}
+.atelier{position:relative;height:590px;max-width:500px;margin-inline:auto}
+
+.etiquette{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--vert-clair);
+}
+.etiquette::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(169,196,159,.16)}
+
+.bulle{
+  position:absolute;left:0;top:96px;z-index:3;width:min(250px,52%);
+  padding:1.1rem 1.25rem 1.2rem;border-radius:18px 18px 18px 4px;
+  background:rgba(23,31,22,.86);
+  box-shadow:inset 0 0 0 1px var(--filet),0 30px 60px -30px rgba(0,0,0,.9);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.bulle-texte{
+  margin-top:.65rem;min-height:4.4em;
+  color:var(--blanc);font-size:1.02rem;line-height:1.42;letter-spacing:-.015em;
+}
+.bulle-texte::before{content:"« "}
+.bulle-texte::after{content:" »"}
+/* le curseur disparaît quand la phrase est finie */
+.bulle.tapee .curseur{opacity:0;animation:none}
+.curseur{
+  display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;
+  background:var(--vert-clair);animation:clignote 1s steps(1) infinite;
+}
+
+/* le téléphone */
+.tel{position:absolute;right:0;top:0;z-index:2;width:282px}
+.tel-cadre{
+  position:relative;height:590px;border-radius:44px;padding:10px;
+  background:linear-gradient(160deg,#2a3428,#11160f 55%,#1b2319);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 50px 90px -40px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.6);
+}
+.tel-barre{
+  position:absolute;left:10px;right:10px;top:10px;z-index:4;height:38px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 24px;
+  font-size:.72rem;font-weight:600;color:#1c241b;
+}
+.tel-barre i{width:86px;height:24px;border-radius:99px;background:#0b0e0a;position:absolute;left:50%;top:8px;transform:translateX(-50%)}
+.tel-ecran{
+  position:relative;height:100%;border-radius:34px;overflow:hidden;
+  background:#f3f5f0;
+  /* plan millimétré discret sous l'interface */
+  background-image:
+    linear-gradient(rgba(60,79,59,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(60,79,59,.07) 1px,transparent 1px);
+  background-size:16px 16px;
+  color:#141a13;
+}
+
+.scene{
+  position:absolute;inset:0;padding:52px 14px 14px;
+  display:flex;flex-direction:column;gap:8px;
+  opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility 0s .5s;
+}
+.scene.on{opacity:1;visibility:visible;transition:opacity .5s var(--ease)}
+html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
+
+/* briques d'interface */
+.b{position:relative;border-radius:12px}
+.b::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  border:1.5px dashed rgba(60,79,59,.55);background:rgba(169,196,159,.18);
+  opacity:0;
+}
+.ap-tete{display:flex;align-items:baseline;justify-content:space-between;padding:6px 4px 4px}
+.ap-tete b{font-size:1.06rem;font-weight:600;letter-spacing:-.03em}
+.ap-tete small{font-size:.7rem;color:#5d6a5b}
+.ap-champ{display:flex;flex-direction:column;gap:2px;padding:9px 12px;background:#fff;box-shadow:0 1px 0 rgba(20,26,19,.06)}
+.ap-champ small,.ap-signature small,.ap-courbe small{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6f7d6c}
+.ap-champ b{font-size:.84rem;font-weight:500;letter-spacing:-.015em}
+.ap-duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ap-photos{display:flex;gap:4px;margin-top:2px}
+.ap-photos i{width:22px;height:18px;border-radius:4px;background:linear-gradient(135deg,#a9c49f,#3c4f3b)}
+.ap-photos i:nth-child(2){background:linear-gradient(135deg,#c9d6c2,#6f8a69)}
+.ap-photos i:nth-child(3){background:linear-gradient(135deg,#8ea887,#26321f)}
+.ap-signature{padding:9px 12px 4px;background:#fff;box-shadow:0 1px 0 rgba(20,26,19,.06)}
+.ap-signature svg,.ap-courbe svg{display:block;width:100%;height:auto}
+.trace{fill:none;stroke:#26321f;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ap-courbe .trace{stroke:#3c4f3b;stroke-width:2.6}
+.ap-bouton{
+  margin-top:2px;padding:12px;text-align:center;border-radius:99px;
+  background:#141a13;color:#fff;font-size:.82rem;font-weight:500;
+}
+.ap-ligne{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;
+  padding:9px 12px;background:#fff;box-shadow:0 1px 0 rgba(20,26,19,.06);
+}
+.ap-ligne > span{display:flex;flex-direction:column;min-width:0}
+.ap-ligne b{font-size:.8rem;font-weight:600;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ap-ligne small{font-size:.68rem;color:#6f7d6c}
+.st{
+  grid-column:2;grid-row:1;justify-self:end;
+  font-style:normal;font-size:.64rem;font-weight:600;white-space:nowrap;
+  padding:4px 8px;border-radius:99px;opacity:0;
+}
+.ap-ligne .st:last-child{opacity:1}
+.st-a{background:#f6e2cc;color:#8a4a14}
+.st-b{background:#dfe8d8;color:#2f3f2e}
+.st-c{background:#3c4f3b;color:#fff}
+.ap-courbe{padding:9px 12px 6px;background:#fff;box-shadow:0 1px 0 rgba(20,26,19,.06)}
+.ap-recherche{padding:10px 12px 10px 32px;border-radius:99px;background:#fff;font-size:.74rem;color:#7c887a;box-shadow:inset 0 0 0 1px rgba(20,26,19,.08)}
+.ap-recherche::before{content:"";position:absolute;left:13px;top:50%;width:9px;height:9px;margin-top:-6px;border:1.6px solid #7c887a;border-radius:50%}
+.ap-kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ap-kpi div{padding:9px 12px;border-radius:12px;background:#141a13;color:#fff}
+.ap-kpi b{display:block;font-size:1.25rem;font-weight:600;letter-spacing:-.04em;color:#a9c49f}
+.ap-kpi small{font-size:.66rem;color:rgba(255,255,255,.7)}
+
+.ap-toast{
+  position:absolute;left:12px;right:12px;bottom:14px;
+  display:flex;align-items:center;gap:8px;padding:11px 14px;border-radius:14px;
+  background:#141a13;color:#fff;font-size:.78rem;font-weight:500;
+  box-shadow:0 18px 30px -16px rgba(0,0,0,.6);
+}
+.ap-toast i{
+  display:grid;place-items:center;width:20px;height:20px;border-radius:50%;
+  background:#a9c49f;color:#141a13;font-style:normal;font-size:.7rem;font-weight:700;
+}
+
+.fichiers{display:none}
+
+/* onglets sous l'atelier */
+.onglets{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.6rem}
+.onglet{
+  position:relative;overflow:hidden;
+  padding:.65rem 1.1rem;min-height:44px;border:0;border-radius:99px;cursor:pointer;
+  background:transparent;color:var(--texte-faible);
+  box-shadow:inset 0 0 0 1px var(--filet);
+  font-family:inherit;font-size:.84rem;font-weight:500;
+  transition:color .3s var(--ease),box-shadow .3s var(--ease);
+}
+.onglet:hover{color:var(--blanc)}
+.onglet[aria-pressed="true"]{color:var(--blanc);box-shadow:inset 0 0 0 1px var(--vert-clair)}
+.onglet:focus-visible{outline:2px solid var(--vert-clair);outline-offset:3px}
+.onglet i{
+  position:absolute;left:0;bottom:0;height:2px;width:100%;
+  background:var(--vert-clair);transform:scaleX(0);transform-origin:left;
+}
+.onglet[aria-pressed="true"] i{transform:scaleX(1)}
+.atelier.tourne ~ .onglets .onglet[aria-pressed="true"] i{animation:jauge var(--duree,9s) linear both}
+@keyframes jauge{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* ---------- chorégraphie d'une scène (seulement en mouvement autorisé) ---------- */
+
+.staged .scene .b{opacity:0;transform:translateY(10px) scale(.97)}
+.staged .scene .b::after{opacity:1}
+.staged .scene .b > *{opacity:0}
+.staged .scene .ap-toast{opacity:0;transform:translateY(14px)}
+.staged .scene .trace{stroke-dasharray:420;stroke-dashoffset:420}
+.staged .scene .st{opacity:0}
+
+.staged .scene.bati .b{animation:brique .55s var(--expo) calc(var(--k) * 65ms) both}
+.staged .scene.bati .b::after{animation:sans-plan .5s var(--ease) calc(.45s + var(--k) * 80ms) both}
+.staged .scene.bati .b > *{animation:apparait .45s var(--ease) calc(.45s + var(--k) * 80ms) both}
+.staged .scene.bati .trace{animation:trace .8s var(--ease) 1s forwards}
+.staged .scene.bati .ap-bouton{animation:brique .55s var(--expo) calc(var(--k) * 65ms) both,presse .5s var(--ease) 1.75s both}
+.staged .scene.bati .ap-toast{animation:toast .5s var(--expo) 2s both}
+
+/* statuts des factures : en retard → relancée → payée */
+.staged .scene.bati .st-a{animation:apparait .3s var(--ease) calc(.45s + var(--k) * 80ms) both,disparait .3s var(--ease) calc(1s + var(--k) * 140ms) forwards}
+.staged .scene.bati .st-b{animation:pop .4s var(--expo) calc(1s + var(--k) * 140ms) both}
+.staged .scene.bati .st-b:not(:last-child){animation:pop .4s var(--expo) calc(1s + var(--k) * 140ms) both,disparait .3s var(--ease) calc(1.6s + var(--k) * 140ms) forwards}
+.staged .scene.bati .st-c{animation:pop .4s var(--expo) calc(1.6s + var(--k) * 140ms) both}
+.staged .scene.bati .st-a:last-child,
+.staged .scene.bati .st-fixe{animation:apparait .3s var(--ease) calc(.45s + var(--k) * 80ms) both}
+
+/* fichiers Excel aspirés dans l'outil */
+.staged .scene .fichiers{display:block;position:absolute;left:18px;right:18px;top:96px;z-index:5}
+.staged .scene .fichiers span{
+  position:absolute;left:0;top:0;
+  display:flex;align-items:center;gap:7px;padding:8px 11px;border-radius:10px;
+  background:#fff;box-shadow:0 10px 24px -12px rgba(0,0,0,.35),inset 0 0 0 1px rgba(20,26,19,.08);
+  font-size:.72rem;font-weight:500;color:#26321f;white-space:nowrap;
+  transform:translate(var(--fx),var(--fy)) rotate(var(--fr));opacity:0;
+}
+.staged .scene .fichiers span::before{
+  content:"X";display:grid;place-items:center;width:18px;height:18px;border-radius:4px;
+  background:#1f6e43;color:#fff;font-size:.62rem;font-weight:700;
+}
+.staged .scene.on .fichiers span{animation:fichier .5s var(--expo) both}
+.staged .scene.on .fichiers span:nth-child(2){animation-delay:.25s}
+.staged .scene.on .fichiers span:nth-child(3){animation-delay:.5s}
+.staged .scene.bati .fichiers span{animation:aspire .55s var(--ease) both}
+.staged .scene.bati .fichiers span:nth-child(2){animation-delay:.08s}
+.staged .scene.bati .fichiers span:nth-child(3){animation-delay:.16s}
+
+@keyframes brique{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes sans-plan{to{opacity:0}}
+@keyframes apparait{from{opacity:0}to{opacity:1}}
+@keyframes disparait{to{opacity:0}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes trace{to{stroke-dashoffset:0}}
+@keyframes presse{0%{transform:none}35%{transform:scale(.95);background:#3c4f3b}100%{transform:none;background:#3c4f3b}}
+@keyframes toast{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fichier{from{opacity:0;transform:translate(var(--fx),calc(var(--fy) + 16px)) rotate(0)}to{opacity:1;transform:translate(var(--fx),var(--fy)) rotate(var(--fr))}}
+@keyframes aspire{
+  from{opacity:1;transform:translate(var(--fx),var(--fy)) rotate(var(--fr))}
+  to{opacity:0;transform:translate(60px,140px) scale(.2) rotate(0)}
+}
+
+/* ---------- petits écrans : la bulle au-dessus, le téléphone dessous ---------- */
+@media (max-width:1039px){
+  .atelier{height:auto;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:2.6rem}
+  .bulle{position:relative;left:auto;top:auto;width:100%}
+  .tel{position:relative;right:auto;top:auto}
+}
+@media (max-width:1039px){
+  .tel{width:256px}
+  .tel-cadre{height:520px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .curseur{animation:none}
+}
+
+@keyframes clignote{50%{opacity:0}}
+
+/* ============================================================
+   Téléphone → ordinateur : après chaque scène, le cadre s'ouvre en
+   écran de portable (même outil, même données), puis revient.
+   Aucun texte : le geste suffit à dire « sur PC comme sur mobile ».
+   La mise en page interne suit la largeur de l'écran (container query).
+   ============================================================ */
+.tel{transition:width .9s var(--expo),top .9s var(--expo)}
+.tel-cadre{transition:height .9s var(--expo),border-radius .9s var(--expo),padding .9s var(--expo)}
+.tel-ecran{container-type:inline-size;transition:border-radius .9s var(--expo)}
+.bulle{transition:opacity .5s var(--ease),transform .6s var(--expo)}
+.tel-barre span,.tel-barre i{transition:opacity .4s var(--ease)}
+
+/* pastilles de fenêtre et barre latérale, invisibles sur téléphone */
+.tel-barre::before{
+  content:"";position:absolute;left:16px;top:50%;width:7px;height:7px;margin-top:-4px;border-radius:50%;
+  background:#d97f6b;box-shadow:12px 0 0 #e0b65a,24px 0 0 #8fb07f;opacity:0;transition:opacity .4s var(--ease);
+}
+.tel-ecran::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:52px;z-index:0;
+  background:
+    radial-gradient(circle at 26px 52px,#a9c49f 0 5px,transparent 6px),
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 82px/20px 3px no-repeat,
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 104px/20px 3px no-repeat,
+    linear-gradient(#3c4f3b,#3c4f3b) 16px 126px/20px 3px no-repeat,
+    #141a13;
+  opacity:0;transition:opacity .4s var(--ease);
+}
+/* socle du portable */
+.tel::after{
+  content:"";position:absolute;left:-7%;right:-7%;top:100%;height:13px;margin-top:-1px;
+  border-radius:2px 2px 16px 16px;
+  background:linear-gradient(180deg,#36423a,#151b14 70%);
+  box-shadow:0 18px 30px -14px rgba(0,0,0,.9);
+  opacity:0;transform:scaleX(.5);transition:opacity .5s var(--ease),transform .9s var(--expo);
+}
+
+.atelier.pc .tel{width:100%;top:120px}
+.atelier.pc .tel-cadre{height:340px;border-radius:16px;padding:9px}
+.atelier.pc .tel-ecran{border-radius:7px}
+.atelier.pc .tel-barre{left:9px;right:9px;top:9px;height:28px}
+.atelier.pc .tel-barre span,.atelier.pc .tel-barre i{opacity:0}
+.atelier.pc .tel-barre::before,.atelier.pc .tel-ecran::before{opacity:1}
+.atelier.pc .tel::after{opacity:1;transform:none}
+.atelier.pc .bulle{opacity:0;transform:translateY(-10px);pointer-events:none}
+/* pendant le changement de format, l'écran se vide une fraction de seconde : pas de mise en page bancale */
+.atelier.bascule .scene.on{opacity:0;transition:opacity .15s var(--ease)}
+
+@container (min-width:300px){
+  .scene{
+    padding:40px 14px 14px 66px;
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start;
+  }
+  .ap-tete,.ap-recherche,.ap-courbe{grid-column:1/-1}
+  .ap-tete{padding-top:2px}
+  .ap-courbe svg{height:48px}
+  .ap-toast{left:auto;right:12px;bottom:12px;max-width:62%}
+  .fichiers{display:none !important}
+}
+
+@media (max-width:1039px){
+  .atelier.pc .tel{width:100%}
+  .atelier.pc .tel-cadre{height:280px}
+}
