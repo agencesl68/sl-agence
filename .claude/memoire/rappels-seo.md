@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-15 · Article terrassement (et articles métier) **en pause** à la demande de Loïc : ne pas lancer sans son feu vert ; le rappeler seulement s'il redemande du contenu.
+
 - 2026-10-14 · Citer des **métiers précis** (terrassier, plombier-chauffagiste, électricien, menuisier, couvreur,
   paysagiste…) dans tout le site : pages de service existantes + 1 article de blog par métier.
 - 2026-10-14 · **Pages ville : 3 au maximum** (Mulhouse et Saint-Louis faites ; **Colmar** en 3e, après le verdict
@@ -26,7 +28,7 @@
       changé dans la v9, H2 de la page de service changé dans la PR #10).
 - [x] 2026-10-15 · PR #10 en ligne (vérifié : 20 URL du sitemap en 200, lien « Politique de confidentialité » sur toutes
       les pages, accueil compris, section métiers visible sur la page BTP).
-- [ ] Soumettre `/politique-de-confidentialite` et `/logiciel-btp-sur-mesure` (Google + Bing).
+- [x] 2026-10-15 · Toutes les URL soumises dans Google (Loïc). Bing : à confirmer.
 - [x] 2026-10-14 · Métiers précis ajoutés dans 7 pages de service (PR #10).
 - [x] 2026-10-14 · 6 titles > 60 et 3 metas > 155 corrigés (PR #10).
 - [ ] Questions RGPD pour Sacha : où arrivent les messages du formulaire et combien de temps Make garde l'historique ; DPA Make
