@@ -25,3 +25,4 @@
 | [c015](c015-animation-qui-bloque-le-defilement.md) | manager, seo-site | moyenne | Aucune animation ne retient le défilement : elle se lance à l'apparition et joue seule. |
 | [c016](c016-affirmation-non-verifiee-sur-un-prestataire.md) | seo-site, contenu-linkedin | moyenne | Texte juridique : chaque affirmation sur un prestataire (nationalité, DPF, hébergement) est vérifiée sur sa page officielle |
 | [c017](c017-police-des-visuels-reseaux.md) | tous | moyenne | Visuels réseaux (Instagram, stories, motion, Canva) : DM Sans uniquement, fond noir, détails kaki #3C4F3B, épuré et peu de texte. Site : Geist. |
+| [c018](c018-carrousel-qui-repete-le-meme-message.md) | tous | moyenne | Story/carrousel : une idée nouvelle par écran ; l écran « pour qui » = situations concrètes et variées, jamais la promesse reformulée. Suivre le modèle de Loïc de près. |
