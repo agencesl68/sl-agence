@@ -71,3 +71,6 @@
 - Constats de départ : ~190 entreprises « À contacter » dans la feuille Drive ; CRM et robot de relance
   déjà construits par Sacha ; aucune mesure d'audience sur le site ; Ahrefs et Gmail non connectés.
 - À décider par Loïc : positionnement de référence, tarifs à jour, objectifs chiffrés, mode brouillon du robot CRM.
+
+## 2026-10-16
+- Décision Loïc : police des visuels réseaux sociaux = DM Sans (Geist absente de Canva). Site inchangé en Geist. Correction c017.
