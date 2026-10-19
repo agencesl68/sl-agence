@@ -17,7 +17,7 @@ Cadence : 1 post par semaine suffit. Si le post « facture électronique » (`po
 
 Vos équipes pointent encore leurs heures sur papier ? Notre modèle de feuille d'heures est gratuit : Excel avec totaux automatiques, ou PDF à imprimer pour le chantier. Le Code du travail n'impose aucun outil, seulement un décompte fiable.
 
-Pour une petite équipe, une feuille papier signée chaque semaine suffit, selon nous. Elle doit contenir :
+Pour une petite équipe, une feuille papier signée chaque semaine suffit, selon nous. Nous conseillons d'y noter :
 - l'heure de début, de fin et la pause de chaque jour ;
 - le chantier ;
 - le total du jour et de la semaine ;
