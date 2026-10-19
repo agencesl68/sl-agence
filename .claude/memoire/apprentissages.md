@@ -36,3 +36,8 @@
 - 33 clics, 1 340 impressions, CTR 2,5 %, position moyenne 17,4 (Web).
 - Impressions quasi nulles jusqu'au 28/09, puis 20 à 100 par jour à partir de fin septembre (pages de service, blog, puis pages ville le 14/10).
 - Le « 43e » vu par Loïc était une période ou une requête isolée ; sur 3 mois la moyenne est 17,4 (2e page).
+- Pages (3 mois) : accueil 25 clics/181 impr. ; relancer-un-devis 2/470 ; relancer-une-facture 4/213 ; facture-electronique-tpe 0/140 ;
+  remplacer-excel 0/97 ; feuille-heures 0/93 ; agent-ia-pme 0/79 ; logiciel-sur-mesure 0/42 ; bon-intervention 2/8.
+- Requêtes : « facture électronique tpe » 39, « facturation électronique tpe » 20+19, « agence automatisation ia » 27,
+  « remplacer excel » 23, « comment faire un rappel de paiement poliment » 21 (1 clic), « application excel sur mesure » 19, « agent ia pme » 19.
+- Leçon : Google nous montre déjà (impressions) mais personne ne clique → priorité aux titres/descriptions (CTR) des pages à impressions, avant de créer.
