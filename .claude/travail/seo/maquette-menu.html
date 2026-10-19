@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maquette menu SL Agence</title>
+<style>
+:root{--noir:#070907;--surface:#0f140e;--vert:#3c4f3b;--vc:#a9c49f;--vp:#dfe8d8;--blanc:#fff;--texte:rgba(255,255,255,.74);--faible:rgba(255,255,255,.5);--filet:rgba(255,255,255,.13);--f:"Geist","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--noir);color:var(--texte);font-family:var(--f);min-height:100vh}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:rgba(7,9,7,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--filet)}
+.bar{max-width:1240px;margin:auto;display:flex;align-items:center;gap:2rem;padding:0 24px;height:60px}
+.logo{font-weight:800;color:var(--blanc);letter-spacing:.02em;font-size:1.1rem}
+.logo span{font-weight:400;font-size:.75rem;letter-spacing:.2em;margin-left:.3rem}
+nav{display:flex;gap:.3rem;flex:1;justify-content:center}
+.item>button{background:none;border:0;color:var(--texte);font:inherit;font-size:.92rem;padding:.55rem .9rem;border-radius:999px;cursor:pointer;transition:.2s}
+.item:hover>button,.item.ouvert>button{color:var(--blanc);background:rgba(255,255,255,.07)}
+.cta{background:var(--vc);color:var(--noir);font-weight:600;font-size:.88rem;padding:.6rem 1.1rem;border-radius:999px;white-space:nowrap}
+.panneau{position:absolute;left:0;right:0;top:60px;background:rgba(15,20,14,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--filet);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s,transform .35s cubic-bezier(.16,1,.3,1),visibility .25s}
+.item:hover .panneau,.item.ouvert .panneau{opacity:1;visibility:visible;transform:none}
+.in{max-width:1240px;margin:auto;padding:2.2rem 24px 2.6rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+.col h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faible);font-weight:500;margin-bottom:1rem}
+.col a{display:block;padding:.38rem 0;color:var(--blanc);font-size:1.05rem;transition:color .15s}
+.col a small{display:block;color:var(--faible);font-size:.8rem;margin-top:.1rem}
+.col a:hover{color:var(--vc)}
+.col.gros a{font-size:1.45rem;font-weight:600;letter-spacing:-.01em;padding:.3rem 0}
+.carte{background:var(--surface);border:1px solid var(--filet);border-radius:16px;padding:1.2rem;margin-bottom:.7rem;transition:border-color .2s}
+.carte:hover{border-color:var(--vc)}
+.carte b{color:var(--blanc);display:block;font-weight:600}
+.carte span{font-size:.82rem;color:var(--faible)}
+.voile{position:fixed;inset:60px 0 0;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:.3s;z-index:5}
+body:has(.item:hover) .voile{opacity:1}
+.hero{max-width:1240px;margin:auto;padding:9rem 24px 6rem}
+.hero p.tag{color:var(--vc);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.hero h1{color:var(--blanc);font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.03em;margin:1rem 0 1.5rem;max-width:14ch}
+.hero .note{max-width:52ch;line-height:1.6}
+.demo{margin-top:3rem;padding:1rem 1.2rem;border:1px dashed var(--filet);border-radius:12px;font-size:.85rem;max-width:60ch}
+.burger{display:none;background:none;border:0;color:var(--blanc);font-size:1.5rem;cursor:pointer}
+@media(max-width:900px){
+ nav{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--surface);padding:1rem 16px 2rem;border-bottom:1px solid var(--filet);max-height:calc(100vh - 60px);overflow:auto}
+ nav.ouvert{display:flex}.burger{display:block}.bar{justify-content:space-between}.cta{font-size:.8rem;padding:.5rem .8rem}
+ .item>button{width:100%;text-align:left;font-size:1.25rem;padding:.9rem 0;color:var(--blanc);border-radius:0;border-bottom:1px solid var(--filet)}
+ .item:hover>button{background:none}
+ .panneau{position:static;opacity:1;visibility:visible;transform:none;display:none;background:none;border:0}
+ .item:hover .panneau{display:none}.item.ouvert .panneau{display:block}
+ .in{grid-template-columns:1fr;gap:1.2rem;padding:1rem 0}
+ .voile{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="bar">
+  <a class="logo" href="#">SL<span>AGENCE</span></a>
+  <nav id="nav">
+
+   <div class="item"><button>Votre métier</button>
+    <div class="panneau"><div class="in">
+     <div class="col gros"><h4>Vous êtes…</h4>
+      <a href="/logiciel-btp-sur-mesure">Bâtiment et travaux publics</a>
+      <a href="/blog/logiciel-gestion-transport-parc-engins">Transport et logistique</a>
+      <a href="/automatisation-taches-administratives">Artisans et PME de services</a>
+     </div>
+     <div class="col"><h4>Dans le bâtiment</h4>
+      <a href="/logiciel-btp-sur-mesure#metiers">Terrassier<small>Heures et carburant des engins</small></a>
+      <a href="/logiciel-btp-sur-mesure#metiers">Plombier-chauffagiste<small>Bons d'intervention signés</small></a>
+      <a href="/logiciel-btp-sur-mesure#metiers">Électricien, menuisier, couvreur…<small>Tous les métiers du chantier</small></a>
+     </div>
+     <div class="col"><h4>Près de chez vous</h4>
+      <a href="/logiciel-entreprise-mulhouse">Mulhouse et agglomération</a>
+      <a href="/logiciel-entreprise-saint-louis">Saint-Louis et la frontière</a>
+      <a href="#">Tout le Haut-Rhin<small>Nous nous déplaçons depuis Friesen</small></a>
+     </div>
+    </div></div>
+   </div>
+
+   <div class="item"><button>Ce qu'on règle</button>
+    <div class="panneau"><div class="in">
+     <div class="col gros"><h4>Le plus fréquent</h4>
+      <a href="/bon-intervention-numerique">Les papiers du chantier</a>
+      <a href="/remplacer-excel">La ressaisie au bureau</a>
+      <a href="/relance-factures-automatique">Les factures qui traînent</a>
+     </div>
+     <div class="col"><h4>Au bureau</h4>
+      <a href="/automatisation-taches-administratives">Les tâches répétitives<small>Jusqu'à 20 h gagnées par semaine</small></a>
+      <a href="/remplacer-excel">Excel devenu ingérable<small>Une application à la place</small></a>
+      <a href="/agent-ia-pme">Un assistant IA<small>Mails, documents, tri</small></a>
+     </div>
+     <div class="col"><h4>Échéance à ne pas rater</h4>
+      <a class="carte" href="/facture-electronique-tpe"><b>Facture électronique 2026-2027</b><span>Ce qui change pour vous, et quand</span></a>
+      <a class="carte" href="/logiciel-sur-mesure"><b>Votre logiciel sur mesure</b><span>Premier outil en 7 jours · prix ferme</span></a>
+     </div>
+    </div></div>
+   </div>
+
+   <div class="item"><button>Réalisations</button>
+    <div class="panneau"><div class="in">
+     <div class="col"><h4>Terrassement</h4>
+      <a class="carte" href="/realisations"><b>Le carburant visible le jour même</b><span>Fini les tickets perdus</span></a>
+      <a class="carte" href="/realisations"><b>Les heures pointées avant de rentrer</b><span>Rappel automatique en fin de journée</span></a>
+     </div>
+     <div class="col"><h4>Chantier et transport</h4>
+      <a class="carte" href="/realisations"><b>Le bon rempli une fois, pas deux</b><span>Signé sur place, envoyé au bureau</span></a>
+      <a class="carte" href="/realisations"><b>Un logiciel devenu trop lourd, remplacé</b><span>Transport routier</span></a>
+     </div>
+     <div class="col gros"><h4>Tout voir</h4>
+      <a href="/realisations">Toutes nos réalisations →</a>
+     </div>
+    </div></div>
+   </div>
+
+   <div class="item"><button>Ressources</button>
+    <div class="panneau"><div class="in">
+     <div class="col gros"><h4>Gratuit</h4>
+      <a href="/blog/bon-intervention-contenu-modele">Modèle de bon d'intervention</a>
+      <a href="/blog/feuille-heures-salaries">Feuille d'heures salariés</a>
+     </div>
+     <div class="col"><h4>Guides</h4>
+      <a href="/blog/relancer-un-devis-sans-reponse">Relancer un devis sans réponse</a>
+      <a href="/blog/comment-relancer-une-facture-poliment">Relancer une facture poliment</a>
+      <a href="/blog/limites-excel-entreprise">Les limites d'Excel en entreprise</a>
+     </div>
+     <div class="col gros"><h4>Le blog</h4>
+      <a href="/blog/">Tous les articles →</a>
+     </div>
+    </div></div>
+   </div>
+
+  </nav>
+  <a class="cta" href="#">Parlons de votre cas</a>
+  <button class="burger" onclick="document.getElementById('nav').classList.toggle('ouvert')">☰</button>
+ </div>
+</header>
+<div class="voile"></div>
+<section class="hero">
+ <p class="tag">Maquette · menu de navigation</p>
+ <h1>Passez la souris sur le menu.</h1>
+ <p class="note">Ordinateur : survolez « Votre métier », « Ce qu'on règle », « Réalisations », « Ressources ». Téléphone : touchez ☰ puis un titre pour l'ouvrir. Les couleurs et la police sont celles du site.</p>
+ <p class="demo">Rien n'est en ligne : c'est un aperçu. Les liens pointent vers les vraies pages de slagence.fr (ils ne fonctionnent que sur le site).</p>
+</section>
+<script>
+document.querySelectorAll('.item>button').forEach(b=>b.addEventListener('click',()=>{
+ const it=b.parentElement,o=it.classList.contains('ouvert');
+ document.querySelectorAll('.item').forEach(x=>x.classList.remove('ouvert'));
+ if(!o)it.classList.add('ouvert');
+}));
+document.addEventListener('click',e=>{if(!e.target.closest('.item'))document.querySelectorAll('.item').forEach(x=>x.classList.remove('ouvert'))});
+</script>
+</body>
+</html>

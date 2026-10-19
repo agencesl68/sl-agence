@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-15 · Article terrassement (et articles métier) **en pause** à la demande de Loïc : ne pas lancer sans son feu vert ; le rappeler seulement s'il redemande du contenu.
+
 - 2026-10-14 · Citer des **métiers précis** (terrassier, plombier-chauffagiste, électricien, menuisier, couvreur,
   paysagiste…) dans tout le site : pages de service existantes + 1 article de blog par métier.
 - 2026-10-14 · **Pages ville : 3 au maximum** (Mulhouse et Saint-Louis faites ; **Colmar** en 3e, après le verdict
@@ -18,15 +20,18 @@
 
 ## À rappeler (en attente)
 
+- [ ] PR #14 (pages transport + artisan, article facture électronique) : fusionner, soumettre les 3 URL (Google + Bing), publier le post Google (`travail/contenu/post-google-2026-10-19.md`) après mise en ligne.
+- [ ] Diagnostic « position 43 » : demander à Loïc la capture Search Console > Performances > Requêtes (impressions + position).
+
 - [x] 2026-10-14 · PR #9 fusionnée : pages en ligne (/logiciel-entreprise-mulhouse, /logiciel-entreprise-saint-louis).
 - [x] 2026-10-15 · Refonte de l'accueil (v9) en ligne (PR #11). Depuis le 15/10, `index.html` se modifie directement
       dans le dépôt : plus rien à reporter dans `template.html` (décision de Sacha).
 - [x] 2026-10-15 · Lien vers les 2 pages ville depuis l'accueil : fait dans la refonte v9.
 - [x] 2026-10-15 · Doublon de H2 accueil / `automatisation-taches-administratives` : résolu des deux côtés (H2 de l'accueil
       changé dans la v9, H2 de la page de service changé dans la PR #10).
-- [ ] Fusionner la PR #10 (métiers, titres, politique de confidentialité) — conflits de mémoire résolus le 15/10 ; le lien
-      du pied de page et la mention sous le formulaire de l'accueil y sont inclus. Puis soumettre `/politique-de-confidentialite`
-      et `/logiciel-btp-sur-mesure` (Google + Bing).
+- [x] 2026-10-15 · PR #10 en ligne (vérifié : 20 URL du sitemap en 200, lien « Politique de confidentialité » sur toutes
+      les pages, accueil compris, section métiers visible sur la page BTP).
+- [x] 2026-10-15 · Toutes les URL soumises dans Google (Loïc). Bing : à confirmer.
 - [x] 2026-10-14 · Métiers précis ajoutés dans 7 pages de service (PR #10).
 - [x] 2026-10-14 · 6 titles > 60 et 3 metas > 155 corrigés (PR #10).
 - [ ] Questions RGPD pour Sacha : où arrivent les messages du formulaire et combien de temps Make garde l'historique ; DPA Make

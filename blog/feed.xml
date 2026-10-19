@@ -6,7 +6,16 @@
     <atom:link href="https://slagence.fr/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Conseils concrets pour gagner du temps dans votre entreprise : relances, Excel, transport, automatisation, IA, facture électronique.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Mon, 12 Oct 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 08:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Facture électronique : ce qui change pour les artisans et TPE</title>
+      <link>https://slagence.fr/blog/facture-electronique-artisan-ce-qui-change</link>
+      <guid isPermaLink="true">https://slagence.fr/blog/facture-electronique-artisan-ce-qui-change</guid>
+      <pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+      <dc:creator>Loïc Bitsch</dc:creator>
+      <description>Réception obligatoire depuis le 1er septembre 2026, émission en 2027 : qui est concerné, plateforme agréée, e-reporting, cas du BTP et checklist.</description>
+      <enclosure url="https://slagence.fr/blog/og-blog.png" type="image/png" length="273657"/>
+    </item>
     <item>
       <title>Logiciel de gestion transport et parc d'engins : Excel, logiciel du marché ou sur mesure ?</title>
       <link>https://slagence.fr/blog/logiciel-gestion-transport-parc-engins</link>
