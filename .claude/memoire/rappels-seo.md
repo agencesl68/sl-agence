@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-19 · Search Console : quota de demandes d'indexation manuelles atteint à répétition. Désormais, après chaque mise en ligne, Loïc **renvoie seulement le sitemap** (Sitemaps > sitemap.xml > Envoyer) ; soumission manuelle réservée à 1 page vraiment urgente. Bing : Soumission d'URL (pas de souci de quota).
+
 - 2026-10-15 · Article terrassement (et articles métier) **en pause** à la demande de Loïc : ne pas lancer sans son feu vert ; le rappeler seulement s'il redemande du contenu.
 
 - 2026-10-14 · Citer des **métiers précis** (terrassier, plombier-chauffagiste, électricien, menuisier, couvreur,
@@ -19,6 +21,10 @@
 - 2026-10-14 · À chaque nouvelle page / article mis en ligne : donner à Loïc l'URL à soumettre dans **Search Console ET Bing Webmaster Tools** (Soumission d'URL).
 
 ## À rappeler (en attente)
+
+- [ ] Fusionner la PR des titles/metas (CTR), renvoyer le sitemap ; mesure CTR le **2026-11-16**.
+- [ ] Décision Loïc : H1 de l'accueil « Automatisation et logiciel sur mesure à Mulhouse » → « Agence d'automatisation et d'IA à Mulhouse » (évite de concurrencer /logiciel-entreprise-mulhouse).
+- [ ] Capture Search Console avec la colonne « Position moyenne » pour repérer les mots en positions 8-20.
 
 - [x] 2026-10-19 · PR #14 en ligne, 3 URL soumises (Google). Reste : publier le post Google (`travail/contenu/post-google-2026-10-19.md`) après mise en ligne.
 - [ ] Diagnostic « position 43 » : demander à Loïc la capture Search Console > Performances > Requêtes (impressions + position).
