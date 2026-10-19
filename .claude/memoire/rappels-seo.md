@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-19 · Search Console : quota de demandes d'indexation manuelles atteint à répétition. Désormais, après chaque mise en ligne, Loïc **renvoie seulement le sitemap** (Sitemaps > sitemap.xml > Envoyer) ; soumission manuelle réservée à 1 page vraiment urgente. Bing : Soumission d'URL (pas de souci de quota).
+
 - 2026-10-15 · Article terrassement (et articles métier) **en pause** à la demande de Loïc : ne pas lancer sans son feu vert ; le rappeler seulement s'il redemande du contenu.
 
 - 2026-10-14 · Citer des **métiers précis** (terrassier, plombier-chauffagiste, électricien, menuisier, couvreur,
