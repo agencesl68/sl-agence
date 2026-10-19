@@ -20,3 +20,6 @@ Exceptions : les citations de clients (verbatim) et les expressions figées où 
 
 ## Vérification (contrôle qualité)
 Rechercher deux, trois, quatre… quinze, vingt, cent, « quart d'heure » dans le texte visible : aucun ne doit rester hors citation.
+
+
+Récidive 2026-10-19 : « six modèles », « deux jours », « un mois » oubliés dans le texte courant et une réponse de FAQ. Vérification renforcée : après toute réécriture, Grep `\b(un|deux|trois|quatre|cinq|six|sept|huit|neuf|dix|quinze)\b` suivi d'une unité dans le texte visible ET dans le JSON-LD.
