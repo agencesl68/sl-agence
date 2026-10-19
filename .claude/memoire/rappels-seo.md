@@ -20,7 +20,7 @@
 
 ## À rappeler (en attente)
 
-- [ ] PR #14 (pages transport + artisan, article facture électronique) : fusionner, soumettre les 3 URL (Google + Bing), publier le post Google (`travail/contenu/post-google-2026-10-19.md`) après mise en ligne.
+- [x] 2026-10-19 · PR #14 en ligne, 3 URL soumises (Google). Reste : publier le post Google (`travail/contenu/post-google-2026-10-19.md`) après mise en ligne.
 - [ ] Diagnostic « position 43 » : demander à Loïc la capture Search Console > Performances > Requêtes (impressions + position).
 
 - [x] 2026-10-14 · PR #9 fusionnée : pages en ligne (/logiciel-entreprise-mulhouse, /logiciel-entreprise-saint-louis).
