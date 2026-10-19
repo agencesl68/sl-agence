@@ -164,5 +164,7 @@
   <url>
     <loc>https://slagence.fr/blog/facture-electronique-artisan-ce-qui-change</loc>
     <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

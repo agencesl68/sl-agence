@@ -25,3 +25,4 @@
 | [c015](c015-animation-qui-bloque-le-defilement.md) | manager, seo-site | moyenne | Aucune animation ne retient le défilement : elle se lance à l'apparition et joue seule. |
 | [c016](c016-affirmation-non-verifiee-sur-un-prestataire.md) | seo-site, contenu-linkedin | moyenne | Texte juridique : chaque affirmation sur un prestataire (nationalité, DPF, hébergement) est vérifiée sur sa page officielle |
 | [c017](c017-liens-de-pied-de-page-en-double.md) | seo-site | basse | Après ajout de liens de pied de page, vérifier par Grep qu'aucun href n'est en double (pages nouvelles comprises) |
+| [c018](c018-texte-reglementaire-non-fidele-a-la-source.md) | seo-site, contenu-linkedin | moyenne | Texte réglementaire : chaque phrase retrouvable dans la source officielle, titres exacts, rien d'ajouté ni d'incertain à tort |

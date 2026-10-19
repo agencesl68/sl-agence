@@ -17,7 +17,7 @@ Ce qu'il faut faire maintenant :
 - compléter le numéro SIREN de vos clients professionnels ;
 - prévenir votre expert-comptable.
 
-Un PDF envoyé par e-mail ne sera plus conforme entre entreprises. Dans le bâtiment, les factures de situation et l'autoliquidation de la TVA se vérifient avec votre comptable.
+À partir du 1er septembre 2027, un PDF envoyé par e-mail ne sera plus conforme entre entreprises. Dans le bâtiment, les factures de situation et l'autoliquidation de la TVA se vérifient avec votre comptable.
 
 Notre guide donne la checklist, les amendes prévues et les sources officielles.
 
