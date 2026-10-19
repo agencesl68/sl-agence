@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://slagence.fr/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://slagence.fr/og.png</image:loc></image:image>
@@ -16,14 +16,14 @@
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-sur-mesure</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/remplacer-excel</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/remplacer-excel.png</image:loc></image:image>
@@ -37,14 +37,14 @@
   </url>
   <url>
     <loc>https://slagence.fr/agent-ia-pme</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/agent-ia-pme.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/facture-electronique-tpe</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/facture-electronique-tpe.png</image:loc></image:image>
@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/blog/feuille-heures-salaries</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://slagence.fr/img/og/feuille-heures-salaries.png</image:loc></image:image>
@@ -139,7 +139,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/blog/relancer-un-devis-sans-reponse</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://slagence.fr/blog/og-relancer-un-devis-sans-reponse.png</image:loc></image:image>
@@ -148,7 +148,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/blog/comment-relancer-une-facture-poliment</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://slagence.fr/blog/og-comment-relancer-une-facture-poliment.png</image:loc></image:image>
