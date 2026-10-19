@@ -159,3 +159,11 @@ La visibilité locale se gagne d'abord par la fiche Google (B), les citations (F
 | Date | Changement |
 |---|---|
 | 2026-10-06 | Création ; remplace `backlog.md`. Action C1 préparée. Mesures de départ : `positions.md`, `etat-2026-10-06.md`. |
+
+## Ajout du 2026-10-19 (sprint position moyenne 43)
+
+| Id | Action | Priorité | Impact attendu | Effort | Qui | Statut |
+|---|---|---|---|---|---|---|
+| G1 | Page `/logiciel-transport-sur-mesure` (pilier transport, commerciale, liens croisés avec l'article) | P1 | Impressions « logiciel transport sur mesure / gestion flotte / transport routier » | fait | Claude | en cours (PR à fusionner par Loïc) |
+| G2 | Page `/logiciel-artisan-sur-mesure` (artisans bâtiment et hors bâtiment, renvoie vers /logiciel-btp-sur-mesure) | P1 | Impressions « logiciel artisan / devis facture artisan » | fait | Claude | en cours (PR à fusionner par Loïc) |
+| G3 | Après fusion : soumettre les 2 URL dans Search Console et Bing Webmaster Tools | P1 | Indexation plus rapide | 5 min | Loïc | à faire |
