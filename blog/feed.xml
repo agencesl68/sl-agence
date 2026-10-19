@@ -6,7 +6,16 @@
     <atom:link href="https://slagence.fr/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Conseils concrets pour gagner du temps dans votre entreprise : relances, Excel, transport, automatisation, IA, facture électronique.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Mon, 19 Oct 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Pointage des heures sur chantier : papier, application ou sur mesure ?</title>
+      <link>https://slagence.fr/blog/pointage-chantier-papier-application-sur-mesure</link>
+      <guid isPermaLink="true">https://slagence.fr/blog/pointage-chantier-papier-application-sur-mesure</guid>
+      <pubDate>Mon, 19 Oct 2026 09:00:00 +0000</pubDate>
+      <dc:creator>Loïc Bitsch</dc:creator>
+      <description>Pointage chantier : papier, application du marché ou sur mesure ? Ce que dit la loi, la géolocalisation (CNIL), un comparatif honnête et notre cas réel.</description>
+      <enclosure url="https://slagence.fr/blog/og-blog.png" type="image/png" length="273657"/>
+    </item>
     <item>
       <title>Facture électronique : ce qui change pour les artisans et TPE</title>
       <link>https://slagence.fr/blog/facture-electronique-artisan-ce-qui-change</link>
