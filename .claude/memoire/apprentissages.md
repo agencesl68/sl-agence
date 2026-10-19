@@ -31,3 +31,8 @@
 |---|---|---|---|
 | 2026-10-06 | Feuille « Prospection SL agence » | ~40 % d'entreprises fermées, introuvables ou trop petites ; peu de BTP vérifiable | Sourcer le BTP via l'API Recherche d'entreprises / annuaires professionnels |
 | 2026-10-06 | Ahrefs | Abonnement sans accès API | Travailler avec Search Console et outils gratuits |
+
+## 2026-10-19 — Search Console, 3 mois (31/08 → 19/10/2026)
+- 33 clics, 1 340 impressions, CTR 2,5 %, position moyenne 17,4 (Web).
+- Impressions quasi nulles jusqu'au 28/09, puis 20 à 100 par jour à partir de fin septembre (pages de service, blog, puis pages ville le 14/10).
+- Le « 43e » vu par Loïc était une période ou une requête isolée ; sur 3 mois la moyenne est 17,4 (2e page).
