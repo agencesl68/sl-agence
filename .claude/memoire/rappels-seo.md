@@ -22,6 +22,10 @@
 
 ## À rappeler (en attente)
 
+- [ ] Fusionner la PR des titles/metas (CTR), renvoyer le sitemap ; mesure CTR le **2026-11-16**.
+- [ ] Décision Loïc : H1 de l'accueil « Automatisation et logiciel sur mesure à Mulhouse » → « Agence d'automatisation et d'IA à Mulhouse » (évite de concurrencer /logiciel-entreprise-mulhouse).
+- [ ] Capture Search Console avec la colonne « Position moyenne » pour repérer les mots en positions 8-20.
+
 - [x] 2026-10-19 · PR #14 en ligne, 3 URL soumises (Google). Reste : publier le post Google (`travail/contenu/post-google-2026-10-19.md`) après mise en ligne.
 - [ ] Diagnostic « position 43 » : demander à Loïc la capture Search Console > Performances > Requêtes (impressions + position).
 
