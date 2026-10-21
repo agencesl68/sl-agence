@@ -21,6 +21,11 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Logiciel sur mesure à Mulhouse (BTP, transport)](https://slagence.fr/logiciel-entreprise-mulhouse): outils pour le bâtiment, le transport et les services de terrain de Mulhouse et de son agglomération ; déplacement depuis Friesen.
 - [Logiciel sur mesure à Saint-Louis (BTP, transport)](https://slagence.fr/logiciel-entreprise-saint-louis): outils pour les entreprises de Saint-Louis Agglomération (transport, chantier, contrôles) ; déplacement depuis Friesen.
 
+## Choisir et connaître l'agence
+
+- [Comment choisir son agence d'automatisation et d'IA dans le Haut-Rhin](https://slagence.fr/agence-ia-automatisation-haut-rhin): 6 critères, comparatif par type de prestataire, questions à poser avant de signer.
+- [À propos de SL Agence](https://slagence.fr/a-propos): les 2 associés, la méthode en 4 temps, les engagements, la zone d'intervention.
+
 ## Réalisations
 
 - [Nos réalisations](https://slagence.fr/realisations): outils en service chez des entreprises d'Alsace (terrassement, travaux agricoles, transport, gestion de patrimoine, prévention, événementiel), avant et après.
