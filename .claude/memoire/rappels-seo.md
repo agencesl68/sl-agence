@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-21 · Profils publics reliés au site (`sameAs` + pied de page) : LinkedIn entreprise https://www.linkedin.com/company/116042975/ , PagesJaunes https://www.pagesjaunes.fr/pros/65429543 . À ajouter quand ils existent : Bing Places (lien public de la fiche), Apple Plans, La Fabrique du Net, Malt/Codeur.
+
 - 2026-10-21 · ChatGPT : SL Agence 1re sur « quelle agence d'automatisation IA à Mulhouse ». Nouvel objectif de Loïc : être recommandé **dans toute la France** → niches nationales (applications terrain BTP/transport/agricole, facture électronique TPE). Plan : `travail/seo/plan-geo-2026-10-21.md` §6.
 
 - 2026-10-19 · Search Console : quota de demandes d'indexation manuelles atteint à répétition. Désormais, après chaque mise en ligne, Loïc **renvoie seulement le sitemap** (Sitemaps > sitemap.xml > Envoyer) ; soumission manuelle réservée à 1 page vraiment urgente. Bing : Soumission d'URL (pas de souci de quota).
