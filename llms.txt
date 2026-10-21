@@ -40,3 +40,4 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Logiciel transport et parc d'engins](https://slagence.fr/blog/logiciel-gestion-transport-parc-engins): Excel, logiciel du marché ou sur mesure, et les échéances à suivre.
 
 Auteur des guides : Loïc Bitsch, associé de SL Agence (https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/).
+- [Application de bon d'épandage sur mesure : étude de cas](https://slagence.fr/application-bon-epandage-agricole): entreprise de travaux agricoles, bon d'épandage numérique signé au doigt, envoyé en PDF, sans ressaisie.

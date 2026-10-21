@@ -187,4 +187,10 @@
     <priority>0.6</priority>
     <image:image><image:loc>https://slagence.fr/og.png</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://slagence.fr/application-bon-epandage-agricole</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
