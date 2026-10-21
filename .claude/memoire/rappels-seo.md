@@ -26,6 +26,8 @@
 
 ## À rappeler (en attente)
 
+- [ ] Bing Places (Bing for Business) : fiche créée le 21/10, validation ~12 jours (vers le **2026-11-02**). Ensuite : récupérer le lien public et l'ajouter au `sameAs` + vérifier NAP identique.
+
 - [ ] Fusionner la PR des titles/metas (CTR), renvoyer le sitemap ; mesure CTR le **2026-11-16**.
 - [ ] Décision Loïc : H1 de l'accueil « Automatisation et logiciel sur mesure à Mulhouse » → « Agence d'automatisation et d'IA à Mulhouse » (évite de concurrencer /logiciel-entreprise-mulhouse).
 - [ ] Capture Search Console avec la colonne « Position moyenne » pour repérer les mots en positions 8-20.
