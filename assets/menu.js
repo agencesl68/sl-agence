@@ -47,7 +47,7 @@
     if(menuOuvert){ setBurger(false); burger.focus(); }
     else if(ouvert){ ouvert.querySelector('.mn-top').focus(); }
   });
-  head.addEventListener('mouseleave',function(){ head.classList.remove('mn-esc'); });
+  ['mouseenter','mouseleave'].forEach(function(ev){ head.addEventListener(ev,function(){ head.classList.remove('mn-esc'); }); });
 
   /* changement de taille : on repart d'un état propre */
   (desktop.addEventListener?desktop.addEventListener.bind(desktop,'change'):desktop.addListener.bind(desktop))(function(){ setBurger(false); closeAll(); });
