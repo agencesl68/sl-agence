@@ -73,7 +73,7 @@
   background:rgba(12,16,11,.98);border-bottom:1px solid var(--mn-filet);
   box-shadow:0 30px 60px rgba(0,0,0,.35);
   opacity:0;visibility:hidden;transform:translateY(-6px);
-  transition:opacity .22s,transform .35s cubic-bezier(.16,1,.3,1),visibility .22s;
+  transition:opacity .22s,transform .35s cubic-bezier(.16,1,.3,1),visibility 0s linear .22s;
 }
 .mn-in{
   max-width:1320px;margin-inline:auto;
@@ -110,15 +110,15 @@
 }
 
 /* ouverture : survol (ordinateur), clic / clavier (JavaScript), focus (sans JavaScript) */
-.mn-item.is-open .mn-panel{opacity:1;visibility:visible;transform:none}
+.mn-item.is-open .mn-panel{opacity:1;visibility:visible;transform:none;transition-delay:0s}
 body:has(.mn-item.is-open) .mn-voile{opacity:1;visibility:visible}
 @media (min-width:901px) and (hover:hover){
-  .site-head:not(.mn-esc) .mn-item:hover .mn-panel{opacity:1;visibility:visible;transform:none}
+  .site-head:not(.mn-esc) .mn-item:hover .mn-panel{opacity:1;visibility:visible;transform:none;transition-delay:0s}
   .site-head:not(.mn-esc) .mn-item:hover .mn-top{color:#fff}
   .site-head:not(.mn-esc) .mn-item:hover .mn-top::after{opacity:1}
   body:has(.site-head:not(.mn-esc) .mn-item:hover) .mn-voile{opacity:1;visibility:visible}
 }
-html:not(.mn-js) .mn-item:focus-within .mn-panel{opacity:1;visibility:visible;transform:none}
+html:not(.mn-js) .mn-item:focus-within .mn-panel{opacity:1;visibility:visible;transform:none;transition-delay:0s}
 
 /* mobile : accordéon */
 @media (max-width:900px){
