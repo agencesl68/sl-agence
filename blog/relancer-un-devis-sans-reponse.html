@@ -32,6 +32,9 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quand relancer un devis sans réponse ?","acceptedAnswer":{"@type":"Answer","text":"En général une semaine après l'envoi, après avoir vérifié sa bonne réception au bout de 2 jours. Ensuite, un appel vers J+10, une relance avec un argument nouveau vers J+15, puis un message de clôture au bout de 30 jours."}},{"@type":"Question","name":"Comment relancer un devis poliment par mail ?","acceptedAnswer":{"@type":"Answer","text":"Rappelez le numéro et l'objet du devis, joignez-le au mail, demandez simplement si le client a eu le temps de l'étudier et proposez un échange de 10 minutes pour répondre à ses questions."}},{"@type":"Question","name":"Combien de fois relancer un devis ?","acceptedAnswer":{"@type":"Answer","text":"Trois ou quatre relances, chacune avec un apport différent : un rappel, une proposition d'échange, un argument ou une option, puis un message de clôture."}},{"@type":"Question","name":"Peut-on relancer un devis par SMS ?","acceptedAnswer":{"@type":"Answer","text":"Oui, pour un message court et direct, surtout avec des artisans et des particuliers. Gardez le mail pour envoyer le devis et les détails."}},{"@type":"Question","name":"Combien de temps un devis reste-t-il valable ?","acceptedAnswer":{"@type":"Answer","text":"Le temps que vous indiquez dessus : la loi ne fixe pas de durée générale. Mentionnez toujours une date de validité, par exemple 30 jours. Elle protège vos prix et vous donne une raison simple de relancer avant l'échéance."}},{"@type":"Question","name":"Un devis signé engage-t-il le client ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Un devis accepté et signé par le client vaut contrat : il engage les deux parties sur les prestations, le prix et les délais qu'il décrit."}},{"@type":"Question","name":"Peut-on automatiser la relance des devis ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Un outil repère les devis sans réponse et envoie la relance prévue au bon moment, dans votre ton. Voir comment nous automatisons les relances."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://slagence.fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://slagence.fr/blog/"},{"@type":"ListItem","position":3,"name":"Relancer un devis sans réponse","item":"https://slagence.fr/blog/relancer-un-devis-sans-reponse"}]}</script>
 <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("mn-js")</script>
+<link rel="stylesheet" href="/assets/menu.css">
+<script src="/assets/menu.js" defer></script>
 <style>
 /* Geist (SIL Open Font License), hébergée sur le site : pas d'appel à Google Fonts. */
 @font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/geist-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -144,83 +147,7 @@ img{display:block;max-width:100%;height:auto}
 .btn-creux{background:transparent;color:var(--blanc);box-shadow:inset 0 0 0 1px var(--filet)}
 .btn-creux:hover{box-shadow:inset 0 0 0 1px var(--blanc);background:rgba(255,255,255,.06)}
 
-/* ---------- en-tête ---------- */
-
-.site-head{
-  position:fixed;inset:0 0 auto;z-index:60;
-  transition:background-color .4s var(--ease),backdrop-filter .4s var(--ease);
-}
-.site-head.stuck{background:rgba(7,9,7,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-
-.head-inner{display:flex;align-items:center;gap:1rem;height:74px}
-.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--blanc);margin-right:auto;padding-block:.6rem}
-.brand .logo-mark{width:30px}
-/* le monogramme dit déjà « SL » : on ne complète qu'avec « Agence » */
-.brand-nom{
-  font-size:.95rem;font-weight:500;letter-spacing:.14em;
-  text-transform:uppercase;line-height:1;padding-top:2px;
-}
-@media (max-width:400px){.brand-nom{display:none}}
-
-.menu-btn{
-  display:inline-flex;align-items:center;gap:.6rem;
-  padding:.75rem 1.2rem;min-height:44px;
-  background:var(--vert-clair);color:var(--noir);
-  border:0;border-radius:99px;cursor:pointer;
-  font-family:inherit;font-size:.76rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
-  transition:background-color .3s var(--ease);
-}
-.menu-btn:hover{background:var(--vert-pale)}
-.head-contact{
-  display:inline-flex;align-items:center;
-  padding:.75rem 1.2rem;min-height:44px;border-radius:99px;
-  color:var(--blanc);text-decoration:none;
-  font-size:.82rem;font-weight:500;letter-spacing:-.005em;white-space:nowrap;
-  box-shadow:inset 0 0 0 1px var(--filet);
-  transition:box-shadow .3s var(--ease),background-color .3s var(--ease);
-}
-.head-contact:hover{box-shadow:inset 0 0 0 1px var(--blanc);background:rgba(255,255,255,.06)}
-@media (max-width:480px){.head-contact{display:none}}
-
-/* ---------- panneau de navigation ---------- */
-
-.panneau{
-  position:fixed;inset:0;z-index:70;
-  background:var(--surface);
-  padding:calc(74px + 2rem) var(--gut) 2.5rem;
-  display:flex;flex-direction:column;justify-content:center;
-  overflow-y:auto;
-}
-.panneau[hidden]{display:none}
-.panneau:not([hidden]){animation:panneauIn .45s var(--expo)}
-@keyframes panneauIn{from{opacity:0}}
-
-.panneau-nav{display:flex;flex-direction:column;max-width:var(--maxw);margin-inline:auto;width:100%}
-.panneau-nav a{
-  display:flex;align-items:baseline;gap:1.2rem;
-  padding:.85rem 0;text-decoration:none;color:var(--blanc);
-  font-size:clamp(1.8rem,6vw,3.4rem);font-weight:500;letter-spacing:-.045em;line-height:1.1;
-  border-bottom:1px solid var(--filet);
-  animation:panneauItem .6s var(--expo) backwards;
-  transition:color .3s var(--ease),padding-left .4s var(--expo);
-}
-.panneau-nav a:hover{color:var(--vert-clair);padding-left:.6rem}
-.panneau-nav a i{font-style:normal;font-size:.8rem;font-weight:600;letter-spacing:.1em;color:var(--texte-faible)}
-@keyframes panneauItem{from{opacity:0;transform:translateY(18px)}}
-.panneau-nav a:nth-child(1){animation-delay:.04s}
-.panneau-nav a:nth-child(2){animation-delay:.09s}
-.panneau-nav a:nth-child(3){animation-delay:.14s}
-.panneau-nav a:nth-child(4){animation-delay:.19s}
-.panneau-nav a:nth-child(5){animation-delay:.24s}
-.panneau-nav a:nth-child(6){animation-delay:.29s}
-
-.panneau-pied{
-  max-width:var(--maxw);margin:2.5rem auto 0;width:100%;
-  display:flex;flex-wrap:wrap;gap:1rem 2.5rem;
-  animation:panneauItem .6s var(--expo) .34s backwards;
-}
-.panneau-pied a{color:var(--blanc);text-decoration:none;font-size:1.05rem;padding-block:.6rem}
-.panneau-pied a:hover{color:var(--vert-clair)}
+/* ---------- en-tête et menu : voir /assets/menu.css ---------- */
 
 /* ---------- rideau d'ouverture ---------- */
 
@@ -692,7 +619,7 @@ input:focus,select:focus,textarea:focus{
   .rotor b{animation:none;opacity:0;transform:none}
   .rotor b:first-child{opacity:1}
   .domaine::before{display:none}
-  .panneau:not([hidden]),.panneau-nav a,.panneau-pied,.faq .rep{animation:none}
+  .faq .rep{animation:none}
   .btn,.domaine,.outil,.cas article,.faq summary{transition:none}
 }
 
@@ -772,35 +699,107 @@ input:focus,select:focus,textarea:focus{
 <body>
 <a class="saut" href="#contenu">Aller au contenu</a>
 <header class="site-head" id="siteHead">
-  <div class="wrap head-inner">
+  <div class="mn-bar">
     <a class="brand" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
       <span class="brand-nom" aria-hidden="true">Agence</span>
       <span class="sr">SL Agence — accueil</span>
     </a>
-    <a class="head-contact" href="/#contact">Nous contacter</a>
-    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="panneau">
-      <span id="menuLabel">Menu</span>
-    </button>
+    <nav class="mn-nav" id="mnNav" aria-label="Navigation principale">
+      <ul class="mn-list">
+        <li class="mn-item">
+          <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p1">Votre métier</button>
+          <div class="mn-panel" id="mn-p1"><div class="mn-in">
+        <div class="mn-col mn-c1">
+            <a href="/logiciel-btp-sur-mesure">Bâtiment et travaux</a>
+            <a href="/logiciel-artisan-sur-mesure">Artisans</a>
+            <a href="/logiciel-transport-sur-mesure">Transport et logistique</a>
+            <a href="/automatisation-taches-administratives">Commerces et services</a>
+            <a href="/logiciel-sur-mesure">Cabinets et indépendants</a>
+            <a href="/logiciel-sur-mesure">Associations</a>
+        </div>
+        <div class="mn-col mn-c2">
+            <a href="/bon-intervention-numerique">Interventions et dépannages</a>
+            <a href="/logiciel-btp-sur-mesure">Chantiers et équipes terrain</a>
+            <a href="/remplacer-excel">Stocks et commandes</a>
+            <a href="/automatisation-taches-administratives">Rendez-vous et dossiers clients</a>
+        </div>
+        <div class="mn-col mn-c3">
+            <a href="/logiciel-entreprise-mulhouse">Mulhouse</a>
+            <a href="/logiciel-entreprise-saint-louis">Saint-Louis</a>
+            <a href="/agence-ia-automatisation-haut-rhin">Tout le Haut-Rhin</a>
+        </div>
+          </div></div>
+        </li>
+        <li class="mn-item">
+          <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p2">Ce qu'on règle</button>
+          <div class="mn-panel" id="mn-p2"><div class="mn-in">
+        <div class="mn-col mn-c1">
+            <a href="/automatisation-taches-administratives">Les tâches répétitives</a>
+            <a href="/remplacer-excel">Les fichiers Excel</a>
+            <a href="/relance-factures-automatique">Les factures qui traînent</a>
+            <a href="/bon-intervention-numerique">Les papiers du terrain</a>
+        </div>
+        <div class="mn-col mn-c2">
+            <a href="/logiciel-sur-mesure">Logiciel sur mesure</a>
+            <a href="/agent-ia-pme">Assistant IA</a>
+            <a href="/bon-intervention-numerique">Bon d'intervention numérique</a>
+            <a href="/relance-factures-automatique">Relances automatiques</a>
+        </div>
+        <div class="mn-col mn-c3">
+            <a href="/facture-electronique-tpe">Facture électronique 2026-2027</a>
+            <a href="/logiciel-sur-mesure">Premier outil en 7 jours</a>
+            <a href="/logiciel-sur-mesure">Prix ferme, devis sous 24 h</a>
+        </div>
+          </div></div>
+        </li>
+        <li class="mn-item">
+          <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p3">Réalisations</button>
+          <div class="mn-panel" id="mn-p3"><div class="mn-in">
+        <div class="mn-col mn-c1">
+            <a href="/realisations#terrain">Le carburant visible le jour même</a>
+            <a href="/realisations#terrain">Les heures pointées avant de rentrer</a>
+            <a href="/realisations#terrain">Le bon rempli une fois, pas deux</a>
+        </div>
+        <div class="mn-col mn-c2">
+            <a href="/realisations#terrain">Un logiciel trop lourd, remplacé</a>
+            <a href="/realisations#bureau">Plus une échéance oubliée</a>
+            <a href="/realisations#bureau">Des réservations qui se classent seules</a>
+        </div>
+        <div class="mn-col mn-c3">
+            <a href="/application-bon-epandage-agricole">Étude de cas : le bon d'épandage</a>
+            <a href="/realisations">Toutes nos réalisations</a>
+        </div>
+          </div></div>
+        </li>
+        <li class="mn-item">
+          <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p4">Ressources</button>
+          <div class="mn-panel" id="mn-p4"><div class="mn-in">
+        <div class="mn-col mn-c1">
+            <a href="/blog/bon-intervention-contenu-modele">Modèle de bon d'intervention</a>
+            <a href="/blog/feuille-heures-salaries">Feuille d'heures salariés</a>
+            <a href="/blog/relancer-un-devis-sans-reponse">Relancer un devis sans réponse</a>
+            <a href="/blog/comment-relancer-une-facture-poliment">Relancer une facture poliment</a>
+        </div>
+        <div class="mn-col mn-c2">
+            <a href="/blog/facture-electronique-artisan-ce-qui-change">Facture électronique : ce qui change</a>
+            <a href="/blog/pointage-chantier-papier-application-sur-mesure">Pointage de chantier</a>
+            <a href="/blog/limites-excel-entreprise">Les limites d'Excel</a>
+        </div>
+        <div class="mn-col mn-c3">
+            <a href="/agence-ia-automatisation-haut-rhin">Comment choisir son agence</a>
+            <a href="/a-propos">À propos</a>
+            <a href="/blog/">Tous les articles</a>
+        </div>
+          </div></div>
+        </li>
+      </ul>
+    </nav>
+    <a class="mn-cta" href="/#contact">Parlons de votre cas</a>
+    <button class="mn-burger" id="mnBurger" type="button" aria-expanded="false" aria-controls="mnNav" aria-label="Ouvrir le menu"><span></span></button>
   </div>
 </header>
-
-<div class="panneau" id="panneau" hidden>
-  <nav class="panneau-nav" aria-label="Navigation">
-    <a href="/#constat"><i>01</i>Le constat</a>
-    <a href="/#domaines"><i>02</i>Ce que nous faisons</a>
-    <a href="/realisations"><i>03</i>Réalisations</a>
-    <a href="/#metiers"><i>04</i>Votre métier</a>
-    <a href="/#methode"><i>05</i>Notre intervention</a>
-    <a href="/#contact"><i>06</i>Parlons-en</a>
-    <a href="/blog/"><i>07</i>Blog</a>
-  </nav>
-  <div class="panneau-pied">
-    <a href="tel:+33767081943">Sacha — 07 67 08 19 43</a>
-    <a href="tel:+33601160762">Loïc — 06 01 16 07 62</a>
-    <a href="mailto:agence.sl.68@gmail.com">agence.sl.68@gmail.com</a>
-  </div>
-</div>
+<div class="mn-voile" aria-hidden="true"></div>
 
 <main id="contenu">
 
@@ -1074,11 +1073,6 @@ document.querySelectorAll('.copier').forEach(function(b){
 <script>
 (function(){
   var y=document.getElementById('annee'); if(y){ y.textContent=new Date().getFullYear(); }
-  var menuBtn=document.getElementById('menuBtn'), menuLabel=document.getElementById('menuLabel'), panneau=document.getElementById('panneau');
-  function bascule(o){ panneau.hidden=!o; menuBtn.setAttribute('aria-expanded',o?'true':'false'); menuLabel.textContent=o?'Fermer':'Menu'; document.body.style.overflow=o?'hidden':''; }
-  menuBtn.addEventListener('click',function(){ bascule(panneau.hidden); });
-  panneau.addEventListener('click',function(e){ if(e.target.closest('a')){ bascule(false); } });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!panneau.hidden){ bascule(false); menuBtn.focus(); } });
 })();
 </script>
 </body>
