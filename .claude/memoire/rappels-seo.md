@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-21 · ChatGPT : SL Agence 1re sur « quelle agence d'automatisation IA à Mulhouse ». Nouvel objectif de Loïc : être recommandé **dans toute la France** → niches nationales (applications terrain BTP/transport/agricole, facture électronique TPE). Plan : `travail/seo/plan-geo-2026-10-21.md` §6.
+
 - 2026-10-19 · Search Console : quota de demandes d'indexation manuelles atteint à répétition. Désormais, après chaque mise en ligne, Loïc **renvoie seulement le sitemap** (Sitemaps > sitemap.xml > Envoyer) ; soumission manuelle réservée à 1 page vraiment urgente. Bing : Soumission d'URL (pas de souci de quota).
 
 - 2026-10-15 · Article terrassement (et articles métier) **en pause** à la demande de Loïc : ne pas lancer sans son feu vert ; le rappeler seulement s'il redemande du contenu.
