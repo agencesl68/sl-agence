@@ -26,6 +26,9 @@
 
 ## À rappeler (en attente)
 
+- [x] 2026-10-21 · PR #17 (GEO : choisir son agence, À propos, étude de cas épandage, LinkedIn + PagesJaunes) et PR #18 (date de création) en ligne. Renvoyer le sitemap.
+- [ ] **Lundi 2026-10-26** : premier relevé du suivi IA (10 questions locales + questions nationales × ChatGPT, Gemini, Perplexity, Copilot) — plan-geo §4 et §6.
+
 - [ ] Bing Places (Bing for Business) : fiche créée le 21/10, validation ~12 jours (vers le **2026-11-02**). Ensuite : récupérer le lien public et l'ajouter au `sameAs` + vérifier NAP identique.
 
 - [ ] Fusionner la PR des titles/metas (CTR), renvoyer le sitemap ; mesure CTR le **2026-11-16**.
