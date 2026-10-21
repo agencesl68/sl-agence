@@ -8,7 +8,7 @@ Faits réglementaires : uniquement ceux de l'article validé `blog/facture-elect
 
 1. **La citation (§ « Citation »)** est une proposition de texte. Elle engage Loïc : à relire, réécrire avec ses mots, ou supprimer.
 2. Date de diffusion et lieu de la mention « MULHOUSE, [date] ».
-3. Numéro de téléphone du contact presse (06 01 16 07 62, Loïc, proposé ; changer si le numéro unique est décidé autrement).
+3. Numéro de téléphone du contact presse (07 67 08 19 43, Loïc, proposé ; changer si le numéro unique est décidé autrement).
 4. Vérifier le jour de l'envoi que les règles n'ont pas changé : relire les pages officielles du §6 (les amendes viennent de service-public.gouv.fr, loi de finances 2026).
 
 ---
@@ -46,7 +46,7 @@ SL Agence conçoit des applications métier, des automatisations et des assistan
 ### Contact presse
 
 Loïc Bitsch, associé de SL Agence
-Téléphone : 06 01 16 07 62
+Téléphone : 07 67 08 19 43
 E-mail : agence.sl.68@gmail.com
 Adresse : 3 rue Principale, 68580 Friesen
 Disponible pour un entretien ou un commentaire sur la facture électronique des TPE et artisans.
@@ -70,7 +70,7 @@ Visuel : aucun fourni (pas de photo de client ni de logo de client). Une photo d
 >
 > Bien cordialement,
 > Loïc Bitsch, SL Agence
-> 06 01 16 07 62 · agence.sl.68@gmail.com
+> 07 67 08 19 43 · agence.sl.68@gmail.com
 >
 > [Coller le communiqué dans le corps du message, pas en pièce jointe.]
 
