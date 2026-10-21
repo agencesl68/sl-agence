@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-21 · Numéro unique (décision F0, Loïc) : **07 67 08 19 43** partout (annuaires, fiches, presse, site).
+
 - 2026-10-21 · Profils publics reliés au site (`sameAs` + pied de page) : LinkedIn entreprise https://www.linkedin.com/company/116042975/ , PagesJaunes https://www.pagesjaunes.fr/pros/65429543 . À ajouter quand ils existent : Bing Places (lien public de la fiche), Apple Plans, La Fabrique du Net, Malt/Codeur.
 
 - 2026-10-21 · ChatGPT : SL Agence 1re sur « quelle agence d'automatisation IA à Mulhouse ». Nouvel objectif de Loïc : être recommandé **dans toute la France** → niches nationales (applications terrain BTP/transport/agricole, facture électronique TPE). Plan : `travail/seo/plan-geo-2026-10-21.md` §6.
@@ -25,6 +27,9 @@
 - 2026-10-14 · À chaque nouvelle page / article mis en ligne : donner à Loïc l'URL à soumettre dans **Search Console ET Bing Webmaster Tools** (Soumission d'URL).
 
 ## À rappeler (en attente)
+
+- [x] 2026-10-21 · PR #17 (GEO : choisir son agence, À propos, étude de cas épandage, LinkedIn + PagesJaunes) et PR #18 (date de création) en ligne. Renvoyer le sitemap.
+- [ ] **Lundi 2026-10-26** : premier relevé du suivi IA (10 questions locales + questions nationales × ChatGPT, Gemini, Perplexity, Copilot) — plan-geo §4 et §6.
 
 - [ ] Bing Places (Bing for Business) : fiche créée le 21/10, validation ~12 jours (vers le **2026-11-02**). Ensuite : récupérer le lien public et l'ajouter au `sameAs` + vérifier NAP identique.
 
