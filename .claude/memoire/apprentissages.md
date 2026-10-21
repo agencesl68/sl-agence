@@ -41,3 +41,7 @@
 - Requêtes : « facture électronique tpe » 39, « facturation électronique tpe » 20+19, « agence automatisation ia » 27,
   « remplacer excel » 23, « comment faire un rappel de paiement poliment » 21 (1 clic), « application excel sur mesure » 19, « agent ia pme » 19.
 - Leçon : Google nous montre déjà (impressions) mais personne ne clique → priorité aux titres/descriptions (CTR) des pages à impressions, avant de créer.
+
+## 2026-10-20 — LinkedIn (retour de Loïc)
+- Le post qui a le mieux marché : une capture d'écran de l'outil réalisé pour un gestionnaire de patrimoine. Ce qui marche : **un métier précis + une capture d'un outil réellement livré**.
+- Avis clients, annuaires et fiche Google : déjà faits par Loïc (à vérifier, ne pas reproposer comme action prioritaire).

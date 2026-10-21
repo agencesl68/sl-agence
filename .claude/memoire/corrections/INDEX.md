@@ -27,3 +27,4 @@
 | [c017](c017-liens-de-pied-de-page-en-double.md) | seo-site | basse | Après ajout de liens de pied de page, vérifier par Grep qu'aucun href n'est en double (pages nouvelles comprises) |
 | [c018](c018-texte-reglementaire-non-fidele-a-la-source.md) | seo-site, contenu-linkedin | moyenne | Texte réglementaire : chaque phrase retrouvable dans la source officielle, titres exacts, rien d'ajouté ni d'incertain à tort |
 | [c019](c019-resultat-de-realisation-enrichi.md) | seo-site, contenu-linkedin | moyenne | Un cas client ne reprend que les résultats écrits dans realisations.html / agence.md, rien de déduit |
+| [c020](c020-meta-trop-longue-livree.md) | seo-site, contenu-linkedin | basse | Compter title (60) et meta (155) avec un outil et raccourcir soi-même avant livraison |
