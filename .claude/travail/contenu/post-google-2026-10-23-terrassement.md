@@ -15,13 +15,13 @@ Cadence : 1 post par semaine. Si le post « pointage » (`post-google-2026-10-19
 
 ## Post principal (prêt à coller)
 
-11 engins suivis, une photo du compteur avant et après chaque plein : le dirigeant d'une entreprise de terrassement voit les pleins du jour, le jour même.
+Terrassement : comment un dirigeant voit les pleins de ses engins le jour même, sans attendre les tickets.
 
 Avant : les pleins étaient notés sur papier, les tickets passaient par plusieurs mains, et le dirigeant attendait le retour des papiers pour savoir ce qui avait été consommé.
 
 Après : une application sur téléphone. À chaque plein, une photo du compteur avant et après. 11 engins sont suivis. Le dirigeant voit les pleins du jour, le jour même.
 
-C'est une entreprise de terrassement que nous accompagnons. Dans notre guide, nous détaillons les 5 endroits où se logent les coûts cachés d'un chantier de terrassement : les heures, le carburant, les engins, les bons de chantier et d'évacuation, le planning. Nous y donnons aussi un ordre pour commencer : une seule information à la fois, testée avec 2 ou 3 personnes de l'équipe.
+C'est une réalisation de l'agence. Dans notre guide, nous détaillons les 5 endroits où se logent les coûts cachés d'un chantier de terrassement : les heures, le carburant, les engins, les bons de chantier et d'évacuation, le planning. Nous y donnons aussi un ordre pour commencer : une seule information à la fois, testée avec 2 ou 3 personnes de l'équipe.
 
 SL Agence, Friesen : applications et automatisations sur mesure pour les entreprises du Haut-Rhin.
 
