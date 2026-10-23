@@ -187,6 +187,8 @@ Pas de jargon, pas de remplissage. Si une information manque, dis-le au lieu de 
    prospect, un e-mail, un téléphone, un tarif interne ou un nom de client. Ces données vivent dans
    Google Drive (dossier « SL agence ») et dans Gmail. Dans le dépôt : uniquement de la stratégie,
    des contenus publiables et des fichiers de travail anonymes.
+   **Jamais d'identifiant ni de lien Google Drive / Docs / Sheets** dans le dépôt (correction c021) :
+   on cite le nom du fichier, et tout fichier Drive reste en accès « Restreint ».
 6. **Mémoire** : `memoire/` est la source de vérité. Tu peux proposer une modification, mais tu ne
    modifies `agence.md`, `cible.md`, `ton.md` et `objectifs.md` qu'avec l'accord explicite de Loïc.
    `journal.md` : tu y ajoutes les décisions et résultats importants (sans données personnelles).

@@ -476,7 +476,7 @@ avant de livrer. Deux critères sont **éliminatoires** quelle que soit la note 
 ## 8. Application de la grille au premier lot (2026-10-06)
 
 Le détail nominatif (notes par prospect et réécritures) est dans Google Drive, dossier « SL agence » :
-« Critique du lot de prospection 2026-10-06 » (id `1a4lcytaC0gZot7K-OB7ZbOtJqO5JuvXBnP5Ms24IQe0`).
+« Critique du lot de prospection 2026-10-06 ».
 Il n'est pas recopié ici car ce dépôt est public.
 
 Leçons retenues (moyenne du lot : 8,0/10 ; 3 messages sous le seuil) :

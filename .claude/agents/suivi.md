@@ -36,7 +36,7 @@ Ce système est **indépendant du CRM de Sacha** : ne jamais le consulter ni s'y
 1. **Gmail** (source principale) : fils libellés `SL Prospection/…` ; e-mails envoyés (`in:sent`)
    aux adresses des lots ; réponses reçues.
 2. **Lots Drive** `Prospects – lot …` (dossier « SL agence ») : liste des prospects, adresses, date du lot.
-3. **Feuille « Prospection SL agence »** (id dans `.claude/memoire/outils.md`) : historique (statut,
+3. **Feuille « Prospection SL agence »** (à retrouver par son nom avec `mcp__Google_Drive__search_files`, jamais d'identifiant dans le dépôt) : historique (statut,
    date du contact, onglet « Mail à envoyer »).
 4. **Loïc** : échanges LinkedIn et téléphone (les demander en une question groupée).
 5. **Google Calendar** (lecture) : rendez-vous passés et à venir avec des prospects ; utilise

@@ -1,0 +1,16 @@
+name: Garde données sensibles
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  garde:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aucun lien ni identifiant Google Drive / Docs / Sheets
+        run: |
+          if grep -rnIE "docs\.google\.com|drive\.google\.com|sheets\.google\.com|forms\.gle|id \`1[A-Za-z0-9_-]{24,}" --exclude-dir=.git --exclude-dir=.github --exclude=c021-*.md . ; then
+            echo "::error::Lien ou identifiant Google Drive trouvé (règle c021). Remplacez-le par le nom du fichier."
+            exit 1
+          fi

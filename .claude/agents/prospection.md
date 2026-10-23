@@ -37,7 +37,7 @@ comprendre leur réalité, et préparer pour Loïc des messages qu'il n'a plus q
 ## Avant de commencer (obligatoire)
 
 1. Lire `.claude/memoire/agence.md`, `cible.md`, `ton.md`, `outils.md`.
-2. Lire la feuille Drive « Prospection SL agence » (id dans `outils.md`) pour :
+2. Lire la feuille Drive « Prospection SL agence » (à retrouver par son nom avec `mcp__Google_Drive__search_files`, jamais d'identifiant dans le dépôt) pour :
    - **exploiter d'abord les ~190 entreprises « À contacter »** déjà listées (c'est la source la moins chère) ;
    - ne jamais proposer une entreprise déjà « Contacté » ou marquée « déjà client ».
 3. **Exclure** les clients existants et vérifier l'historique : chercher dans Gmail (`search_threads`,
