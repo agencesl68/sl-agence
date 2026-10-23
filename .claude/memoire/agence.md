@@ -73,7 +73,7 @@ Comme sur le site : **aucun prix public**. Message à utiliser : « devis gratui
 ## Zone
 
 Priorité : **Mulhouse, Colmar, Saint-Louis, Altkirch, Sundgau, tout le Haut-Rhin**.
-Déplacement dans tout le Haut-Rhin ; à distance en Alsace et Grand Est.
+Déplacement en Alsace et dans le Grand Est ; à distance (téléphone, visio) partout en France (précisé par Loïc le 23/10/2026).
 
 ## Preuves disponibles
 
