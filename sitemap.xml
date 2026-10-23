@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://slagence.fr/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://slagence.fr/og.png</image:loc></image:image>
@@ -16,7 +16,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-sur-mesure</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-sur-mesure.png</image:loc></image:image>
@@ -51,49 +51,63 @@
   </url>
   <url>
     <loc>https://slagence.fr/bon-intervention-numerique</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/bon-intervention-numerique.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-btp-sur-mesure</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-transport-sur-mesure</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-artisan-sur-mesure</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-entreprise-mulhouse</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-entreprise-saint-louis</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://slagence.fr/logiciel-entreprise-colmar</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://slagence.fr/img/og/logiciel-sur-mesure.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://slagence.fr/logiciel-entreprise-travaux-agricoles</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://slagence.fr/p-plaine.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://slagence.fr/realisations</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/og-realisations.png</image:loc></image:image>
@@ -189,8 +203,14 @@
   </url>
   <url>
     <loc>https://slagence.fr/application-bon-epandage-agricole</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://slagence.fr/blog/terrassement-heures-engins-carburant</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
