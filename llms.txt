@@ -20,6 +20,8 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Logiciel artisan sur mesure](https://slagence.fr/logiciel-artisan-sur-mesure): devis, bons, factures, relances et planning pour les artisans du Haut-Rhin, bâtiment ou non.
 - [Logiciel sur mesure à Mulhouse (BTP, transport)](https://slagence.fr/logiciel-entreprise-mulhouse): outils pour le bâtiment, le transport et les services de terrain de Mulhouse et de son agglomération ; déplacement depuis Friesen.
 - [Logiciel sur mesure à Saint-Louis (BTP, transport)](https://slagence.fr/logiciel-entreprise-saint-louis): outils pour les entreprises de Saint-Louis Agglomération (transport, chantier, contrôles) ; déplacement depuis Friesen.
+- [Logiciel sur mesure à Colmar (BTP, artisans, transport)](https://slagence.fr/logiciel-entreprise-colmar): outils pour les entreprises du bâtiment, de l'artisanat et du transport de Colmar Agglomération ; déplacement depuis Friesen.
+- [Logiciel pour entreprise de travaux agricoles](https://slagence.fr/logiciel-entreprise-travaux-agricoles): bons signés sur téléphone, rendez-vous pré-rempli depuis l'agenda, heures, carburant et planning pour ETA, épandeurs et CUMA ; à distance partout en France.
 
 ## Choisir et connaître l'agence
 
@@ -29,6 +31,7 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 ## Réalisations
 
 - [Nos réalisations](https://slagence.fr/realisations): outils en service chez des entreprises d'Alsace (terrassement, travaux agricoles, transport, gestion de patrimoine, prévention, événementiel), avant et après.
+- [Application de bon d'épandage sur mesure : étude de cas](https://slagence.fr/application-bon-epandage-agricole): entreprise de travaux agricoles, bon d'épandage numérique signé au doigt, envoyé en PDF, sans ressaisie.
 
 ## Guides
 
@@ -38,6 +41,6 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Relancer un devis sans réponse](https://slagence.fr/blog/relancer-un-devis-sans-reponse): quand relancer et 8 modèles à copier.
 - [Excel ne suffit plus ? 7 signes](https://slagence.fr/blog/limites-excel-entreprise): les signes, le coût réel et les solutions.
 - [Logiciel transport et parc d'engins](https://slagence.fr/blog/logiciel-gestion-transport-parc-engins): Excel, logiciel du marché ou sur mesure, et les échéances à suivre.
+- [Terrassement : heures, engins et carburant](https://slagence.fr/blog/terrassement-heures-engins-carburant): les coûts cachés d'un chantier de terrassement, 2 cas réels et par où commencer.
 
 Auteur des guides : Loïc Bitsch, associé de SL Agence (https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/).
-- [Application de bon d'épandage sur mesure : étude de cas](https://slagence.fr/application-bon-epandage-agricole): entreprise de travaux agricoles, bon d'épandage numérique signé au doigt, envoyé en PDF, sans ressaisie.

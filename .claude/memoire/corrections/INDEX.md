@@ -29,3 +29,5 @@
 | [c019](c019-resultat-de-realisation-enrichi.md) | seo-site, contenu-linkedin | moyenne | Un cas client ne reprend que les résultats écrits dans realisations.html / agence.md, rien de déduit |
 | [c020](c020-meta-trop-longue-livree.md) | seo-site, contenu-linkedin | basse | Compter title (60) et meta (155) avec un outil et raccourcir soi-même avant livraison |
 | [c021](c021-identifiants-google-drive-dans-le-depot-public.md) | tous | haute | Jamais d'identifiant ni de lien Google Drive/Docs/Sheets dans le dépôt ; fichiers Drive en accès « Restreint » |
+| [c022](c022-regle-conditionnelle-generalisee-dans-un-resume.md) | seo-site, contenu-linkedin | moyenne | Les résumés (FAQ, JSON-LD, meta) gardent les conditions d'une règle ; jamais de généralisation en raccourcissant |
+| [c023](c023-faq-clonee-entre-pages-ville.md) | seo-site | moyenne | Pages ville : au plus 2 questions de FAQ de même structure, au moins 3 propres à la page |
