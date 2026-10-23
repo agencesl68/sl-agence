@@ -10,10 +10,10 @@ de Loïc vit dans ses propres outils : **Gmail** (conversations et statuts via l
 
 | Donnée | Emplacement | Accès |
 |---|---|---|
-| Fichier de prospection historique (~205 entreprises de Mulhouse, statuts, e-mails déjà préparés) | Google Drive — feuille « Prospection SL agence » (id `1tLAhiIe2DXZNqb8vuc2Ao_nNI-0v2qi_s18lr7Z_REY`), onglets « Prospection chèque cadeau » et « Mail à envoyer » | Lecture (`mcp__Google_Drive__read_file_content`) |
-| Dossier de travail Drive | « SL agence » (id `1rAcFi7NBf_cXGzN_qJ0sBAe3Y5wTl4b3`) | Les lots de prospects (`Prospects – lot AAAA-MM-JJ`) et listes de relances y sont créés |
+| Fichier de prospection historique (~205 entreprises de Mulhouse, statuts, e-mails déjà préparés) | Google Drive — feuille « Prospection SL agence » (retrouver par son nom : `mcp__Google_Drive__search_files`), onglets « Prospection chèque cadeau » et « Mail à envoyer » | Lecture (`mcp__Google_Drive__read_file_content`) |
+| Dossier de travail Drive | « SL agence » (retrouver par son nom) | Les lots de prospects (`Prospects – lot AAAA-MM-JJ`) et listes de relances y sont créés |
 | Conversations avec les prospects | Gmail **agence.sl.68@gmail.com** (boîte partagée de l'agence, Sacha la voit aussi ; ~200 fils envoyés, dont une prospection d'août 2026) | Lecture, brouillons, libellés (jamais d'envoi) |
-| Analyse de marché + grille tarifaire (confidentiel) | Drive — « Analyse de marché SLagence.docx » (id `1y9U0WFV4y5UhABLhKoN1ASu0jA0n-jfk`) | Lecture seule, jamais recopiée dans le dépôt |
+| Analyse de marché + grille tarifaire (confidentiel) | Drive — « Analyse de marché SLagence.docx » (retrouver par son nom) | Lecture seule, jamais recopiée dans le dépôt |
 | Données SEO (positions, mots-clés, Search Console, concurrents) | Ahrefs (plan sans API pour l'instant) ; exports Search Console de Loïc | Lecture |
 | Site | Ce dépôt (racine) | Modifications par branche + pull request validée |
 
@@ -77,3 +77,6 @@ Jamais de données personnelles de prospects dans Notion au-delà du nom d'entre
 - Toute écriture dans Make (scénarios, webhooks, data stores, connexions…) et l'outil d'envoi du CRM
 - Supprimer ou partager des fichiers Google Drive
 - Exporter (dépenser des crédits) Vibe Prospecting sans confirmation
+
+
+> **Sécurité (2026-10-23)** : ce dépôt est public. On n'écrit JAMAIS d'identifiant ni de lien Google Drive / Docs / Sheets ici (un identifiant + un partage « Tous les utilisateurs disposant du lien » = accès pour tout le monde). Les agents retrouvent les fichiers par leur nom avec `mcp__Google_Drive__search_files`. Voir correction c021.
