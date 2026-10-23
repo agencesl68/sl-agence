@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-23 · Loïc lève la pause de l'article terrassement (rédigé le 23/10) et autorise la page Colmar sans attendre le bilan du 11/11.
+
 - 2026-10-21 · Numéro unique (décision F0, Loïc) : **07 67 08 19 43** partout (annuaires, fiches, presse, site).
 
 - 2026-10-21 · Profils publics reliés au site (`sameAs` + pied de page) : LinkedIn entreprise https://www.linkedin.com/company/116042975/ , PagesJaunes https://www.pagesjaunes.fr/pros/65429543 . À ajouter quand ils existent : Bing Places (lien public de la fiche), Apple Plans, La Fabrique du Net, Malt/Codeur.
