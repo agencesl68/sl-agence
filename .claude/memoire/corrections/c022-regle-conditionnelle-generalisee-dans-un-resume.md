@@ -17,3 +17,5 @@ Les résumés (FAQ, « En bref », JSON-LD, meta) conservent les conditions d'ap
 
 ## Vérification (contrôle qualité)
 Chaque phrase réglementaire de la FAQ est comparée au paragraphe du corps et à la source.
+
+Récidive 2026-10-23 (page travaux agricoles) : phrase d'un point de contrôle précis (Télépac, point 3) présentée comme « le contrôle » en général. Une phrase tirée d'une sous-section d'une source (point de contrôle, alinéa, cas particulier) cite cette sous-section ; jamais « le contrôle » ou « la règle » au sens général.
