@@ -71,3 +71,10 @@
 - Constats de départ : ~190 entreprises « À contacter » dans la feuille Drive ; CRM et robot de relance
   déjà construits par Sacha ; aucune mesure d'audience sur le site ; Ahrefs et Gmail non connectés.
 - À décider par Loïc : positionnement de référence, tarifs à jour, objectifs chiffrés, mode brouillon du robot CRM.
+
+## 2026-10-26 (fin de journée) — Audit Semrush : santé du site 100 %
+
+- **Résultat mesuré** : audit de site Semrush (compte gratuit, 41 URL) passé de **95 % → 100 %** de santé, **19 erreurs → 0**, **33 avertissements → 0**, pages saines 3 → 33 ; santé recherche IA 99 %. Corrections : PR #26 (adresse sur les 19 `ProfessionalService` imbriqués, menu.min.js, CSS de l'accueil et du blog sortis du HTML, hreflang, méta-description) et PR #27 (Facebook, Instagram, LinkedIn à son adresse publique).
+- **Avis restants** : HSTS (impossible sur GitHub Pages, sans effet sur le classement) ; « 6 pages avec un seul lien entrant » = les 6 fichiers de `modeles/` → page **`/modeles-gratuits`** créée (PR #28) qui les relie tous.
+- **Décision Loïc** : pas d'abonnement Semrush payant (≈ 190 €/mois). Suivi gratuit : Search Console, Bing Webmaster Tools, Ahrefs Webmaster Tools, audit Semrush gratuit (≤ 100 pages) et crawl maison.
+- **Leçon** : le « score SEO /100 » du vérificateur gratuit Semrush = moyenne de on-page, technique, off-page et réseaux sociaux ; il ne mesure pas la santé du site (40/100 le même jour que 95 % à l'audit).
