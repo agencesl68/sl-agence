@@ -22,3 +22,4 @@
 - Hypothèse : hausse du CTR sans perte de position. Mesure J+28 : 2026-11-16.
 - Avant (Search Console, 3 mois au 19/10) : relancer-un-devis 2/470 ; relancer-une-facture 4/213 ; facture-electronique-tpe 0/140 ;
   remplacer-excel 0/97 ; feuille-heures 0/93 ; agent-ia-pme 0/79 ; logiciel-sur-mesure 0/42 ; accueil 25/181 (title passé sur « agence automatisation ia »).
+| 2026-10-26 | Désambiguïsation entité (alternateName, disambiguatingDescription, phrase /a-propos) + liens internes « remplacer Excel par une application » (accueil, Mulhouse, Colmar) | /remplacer-excel pos. 24,4 (GSC) ; carte ChatGPT au logo de S2i | J+28 après mise en ligne : position /remplacer-excel, carte ChatGPT (logo, clic) |
