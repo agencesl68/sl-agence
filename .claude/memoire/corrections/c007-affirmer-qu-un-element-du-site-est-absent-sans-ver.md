@@ -1,7 +1,7 @@
 ---
 id: c007
 date: 2026-10-06
-agents: [seo-site]
+agents: [tous]
 gravite: moyenne
 source: Manager
 remplace: aucune

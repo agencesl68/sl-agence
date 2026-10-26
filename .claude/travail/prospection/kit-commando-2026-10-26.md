@@ -30,8 +30,7 @@ aucun fait inventé ni signal sans date (c010), aucun identifiant ni lien Drive 
 5. **Aucune adresse ou numéro deviné** (pas de prenom.nom@…). Uniquement ce que l'entreprise publie ou ce que la personne donne.
 6. **Aucune donnée nominative dans le dépôt** : noms, numéros, e-mails restent dans Drive (« Restreint ») et Gmail.
 
-Mise à jour de règle à noter : jusqu'ici `ton.md` et `savoirs/prospection.md` disaient « jamais de prix ». Depuis la décision publique de Loïc du 26/10,
-le prix « à partir de 500 € » se dit **quand on le demande** (objection n° 5) et figure sur la fiche A4. Il reste **hors des e-mails et des invitations LinkedIn**.
+Règle du 26/10 (prospection.md l.44, emailing.md l.335) : le prix « à partir de 500 € » se dit à l'oral **quand on le demande** et figure sur la fiche A4 ; pas de prix dans un premier message écrit (e-mails, invitations LinkedIn).
 
 ---
 
@@ -381,7 +380,7 @@ Votre numéro figure sur [source : votre site internet / l'annuaire officiel des
 entreprises]. Si vous ne souhaitez plus être contacté, répondez « non » : je le note
 aussitôt.
 ```
-Longueur : 102 mots, pied et signature compris (compté à la main).
+Longueur : 101 mots, pied et signature compris (compté à la main).
 Si l'adresse e-mail a été **donnée au téléphone**, remplacer la première phrase du pied par : « Vous m'avez donné cette adresse au téléphone. »
 Si l'interlocuteur travaille dans les travaux agricoles ou le transport, remplacer la phrase de preuve par la réalisation correspondante du §1.2 (même vocabulaire que le site).
 
