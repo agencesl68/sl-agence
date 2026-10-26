@@ -45,3 +45,11 @@
 ## 2026-10-20 — LinkedIn (retour de Loïc)
 - Le post qui a le mieux marché : une capture d'écran de l'outil réalisé pour un gestionnaire de patrimoine. Ce qui marche : **un métier précis + une capture d'un outil réellement livré**.
 - Avis clients, annuaires et fiche Google : déjà faits par Loïc (à vérifier, ne pas reproposer comme action prioritaire).
+
+## Relevé IA n°1 (Loïc, 26/10/2026, questions posées par Loïc)
+| Question | Gemini | ChatGPT |
+|---|---|---|
+| Meilleure agence d'automatisation IA à Mulhouse | 4e | 3e (de mémoire de Loïc) |
+| Remplacer Excel (Haut-Rhin) | absent | **1er** |
+| Application bon d'épandage / création d'application | absent | absent |
+- Anomalie ChatGPT : sur « remplacer Excel », SL Agence est 1re mais la carte affiche le **logo du 2e** et un clic sur le nom ouvre d'autres entreprises aux noms proches, jamais notre fiche Google ni le site. Côté site vérifié OK (logo.png, favicon, JSON-LD logo + sameAs Google/LinkedIn/PagesJaunes). Hypothèse : fiche d'entreprise absente ou mal reliée dans la base de lieux utilisée par ChatGPT (Bing Places en attente de validation ~02/11). Diagnostic sourcé demandé à l'analyste.
