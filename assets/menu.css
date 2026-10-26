@@ -164,3 +164,5 @@ html:not(.mn-js) .mn-item:focus-within .mn-panel{opacity:1;visibility:visible;tr
   .mn-panel,.mn-voile,.mn-col a,.mn-top,.mn-top::after{transition:none!important}
   .mn-col a:hover{transform:none}
 }
+/* Cibles tactiles d'au moins 24 px (WCAG 2.2, critère 2.5.8) */
+.mn-col a{min-height:24px}
