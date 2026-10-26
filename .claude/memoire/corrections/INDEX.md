@@ -33,3 +33,4 @@
 | [c023](c023-faq-clonee-entre-pages-ville.md) | seo-site | moyenne | Pages ville : au plus 2 questions de FAQ de même structure, au moins 3 propres à la page |
 | [c024](c024-page-modifiee-sans-corriger-les-defauts-connus.md) | seo-site, contenu-linkedin | moyenne | Page modifiée = relue en entier ; on corrige au passage les défauts déjà connus (c014, c019, c022) |
 | [c025](c025-information-rgpd-plus-rassurante-que-la-source.md) | veille, seo-site, contenu-linkedin | moyenne | Texte RGPD sur un outil tiers : toutes les données, négations fidèles à la source, opposition vérifiée, destinataire et durée |
+| [c026](c026-action-deja-faite-ou-contredite-par-les-donnees.md) | analyste, seo-site, manager | moyenne | Vérifier branche + main avant de proposer une action ; confronter les hypothèses aux captures de Loïc ; rien présenté avant QC |
