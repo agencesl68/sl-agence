@@ -53,3 +53,10 @@
 | Remplacer Excel (Haut-Rhin) | absent | **1er** |
 | Application bon d'épandage / création d'application | absent | absent |
 - Anomalie ChatGPT : sur « remplacer Excel », SL Agence est 1re mais la carte affiche le **logo du 2e** et un clic sur le nom ouvre d'autres entreprises aux noms proches, jamais notre fiche Google ni le site. Côté site vérifié OK (logo.png, favicon, JSON-LD logo + sameAs Google/LinkedIn/PagesJaunes). Hypothèse : fiche d'entreprise absente ou mal reliée dans la base de lieux utilisée par ChatGPT (Bing Places en attente de validation ~02/11). Diagnostic sourcé demandé à l'analyste.
+- Captures reçues (26/10) :
+  - ChatGPT « remplacer Excel Haut-Rhin » : 1. SL Agence (carte : **logo de S2i Evolution**, notre favicon bien affiché dans la puce source « SL Agence Mul… », les 2 numéros 07 et 06 affichés), 2. S2i Evolution (Didenheim), 3. HDKN (Mulhouse).
+  - ChatGPT « agence automatisation IA Mulhouse » : 1. SmartFlow (« 150 workflows »), 2. S MEDIA (« INNOV'AI, 40 agences »), 3. SEINSIGHTS (« tarif de départ 1 200 € HT »), 4. hors capture. Nous ne sommes pas dans le top 3 sur cette capture (Loïc pensait 3e : résultats variables).
+  - ChatGPT « application épandage » : Adventiel, Atol CD, S2i Evolution, Spot My Web ; absents.
+  - Gemini « agence automatisation IA Mulhouse » : 1. S MEDIA, 2. IA Agency, 3. Mankova Consulting, SL Agence 4e (Loïc).
+- Leçon : ChatGPT met en avant des **chiffres concrets et un prix de départ** (150 workflows, 40 agences, 1 200 € HT). Nos pages doivent afficher les résultats de realisations.html et « à partir de 500 € ».
+- Écart NAP : les cartes reprennent les 2 numéros affichés sur le site (07 et 06), alors que la décision du 21/10 est 07 partout.
