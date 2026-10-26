@@ -8,6 +8,9 @@
 
 - 2026-10-26 · Prix affiché : **à partir de 500 €** (Loïc). Mesure d'audience : pas d'outil payant → solution gratuite à proposer.
 
+- 2026-10-26 · IndexNow en ligne (PR 25). 1re soumission : 24 URL (nouvelle page + pages modifiées le 26/10), réponse 202 (acceptée). À refaire après chaque PR fusionnée.
+- 2026-10-26 · Loïc : **Google Ads déjà prévu de son côté** ; **experts-comptables abandonnés** (ne plus proposer). Il veut un « coup de boost » court terme, pas forcément SEO (prospection directe ouverte).
+
 - 2026-10-26 · **Bing : soumission par IndexNow** (Loïc n'arrive pas à soumettre les URL à la main). Fichier-clé public à la racine du site (`<clé>.txt`, clé non secrète par conception). Après chaque PR fusionnée, le Manager soumet lui-même les URL nouvelles ou modifiées à https://api.indexnow.org/indexnow (Bing, Yandex…). Loïc n'a plus rien à faire pour Bing ; Google : il renvoie seulement le sitemap.
 - 2026-10-26 · Mesure d'audience : Loïc **ne veut pas de GoatCounter** (ni d'outil tiers pour l'instant). On s'appuie sur Search Console, Bing Webmaster et les statistiques de la fiche Google (appels, clics vers le site, itinéraires). Ne pas reproposer d'outil sans nouvelle demande.
 - 2026-10-26 · Yelp : abandonné (trop compliqué pour Loïc, couverture France incertaine). Ne pas relancer.
