@@ -53,7 +53,7 @@ Outils compatibles cités : Excel, Outlook, Microsoft 365, Sage, EBP, Cegid, Pen
 
 ## Tarifs
 
-Comme sur le site : **aucun prix public**. Message à utiliser : « devis gratuit, prix ferme sous 24 h ».
+Prix public (décision de Loïc, 26/10/2026) : **à partir de 500 €** sur /logiciel-sur-mesure. Message à utiliser : « à partir de 500 €, devis gratuit, prix ferme sous 24 h ».
 - Une grille interne confidentielle existe (Google Drive : « Analyse de marché SLagence.docx ») : référence
   pour Loïc uniquement, jamais recopiée dans ce dépôt (public), jamais annoncée sans son accord.
 

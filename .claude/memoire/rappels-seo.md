@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-26 · Prix affiché : **à partir de 500 €** (Loïc). Mesure d'audience : pas d'outil payant → solution gratuite à proposer.
+
 - 2026-10-23 · Loïc lève la pause de l'article terrassement (rédigé le 23/10) et autorise la page Colmar sans attendre le bilan du 11/11.
 
 - 2026-10-21 · Numéro unique (décision F0, Loïc) : **07 67 08 19 43** partout (annuaires, fiches, presse, site).
@@ -55,7 +57,7 @@
 - [x] 2026-10-14 · 6 titles > 60 et 3 metas > 155 corrigés (PR #10).
 - [ ] Questions RGPD pour Sacha : où arrivent les messages du formulaire et combien de temps Make garde l'historique ; DPA Make
       accepté ; « données exportables à tout moment » confirmé ; contrat de sous-traitance (art. 28) pour les outils clients.
-- [ ] Trancher : prix « à partir de 1 000 € » affiché sur /logiciel-sur-mesure alors que agence.md dit « aucun prix public ».
+- [x] 2026-10-26 · Prix tranché par Loïc : « à partir de 500 € » (automatisations plus petites déjà réalisées).
 - [ ] Search Console : demander l'indexation de l'accueil (refonte) et des 2 pages ville (Loïc).
 - [ ] Bing : renvoyer le sitemap + soumettre les URL (liste donnée le 14/10) ; si besoin, Loïc envoie l'export « Explorateur
       de site » pour repérer les manquantes.
