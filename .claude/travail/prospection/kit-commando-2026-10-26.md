@@ -2,7 +2,7 @@
 
 > Kit de travail pour Loïc. Aucune donnée de prospect dans ce fichier (dépôt public) : les noms, numéros et e-mails
 > des entreprises vivent dans la feuille de suivi (Drive, accès « Restreint ») et dans Gmail.
-> Seuls les numéros déjà publics sur slagence.fr apparaissent : Loïc 06 01 16 07 62 · Sacha 07 67 08 19 43.
+> Seuls les numéros déjà publics sur slagence.fr apparaissent : Loïc 06 01 16 07 62 · Agence 07 67 08 19 43.
 > Conventions : `[crochets]` = à remplacer ou à confirmer avant usage. « FAIT » = sourcé ; « HYPOTHÈSE » = à tester,
 > à noter ensuite dans `memoire/apprentissages.md`.
 > Hors périmètre de ce fichier : le lot de 40 entreprises (il viendra après le feu vert de Loïc).
@@ -13,7 +13,7 @@
 |---|---|---|---|
 | 1 | Nombre de places `[N]` et date limite `[date]` de l'offre « premier outil en 7 jours » ; contenu exact d'un « premier outil à partir de 500 € » | Sacha | Tant que ce n'est pas confirmé, ne pas dire ni imprimer l'offre. Le compteur doit être réel : on le barre à chaque place prise, on ne l'invente jamais |
 | 2 | Qui mène le diagnostic de 15 minutes : Loïc seul, ou Loïc avec Sacha ? | Loïc et Sacha | Le script dit « avec Sacha » dans une phrase facultative ; à retirer si Sacha ne vient pas |
-| 3 | « À partir de 500 € » est-il en ligne ? Vérifié le 26/10 sur la version du dépôt : la page `/logiciel-sur-mesure` ne contient pas encore ce prix | Loïc / seo-site | Ne pas imprimer la fiche A4 avant que le site affiche le même prix (cohérence) |
+| 3 | Prix | Loïc / seo-site | En ligne : « à partir de 500 euros » sur /logiciel-sur-mesure (PR 24). Rien de bloquant. |
 | 4 | Page d'arrivée du QR code | seo-site | Une page dédiée à l'offre, pas l'accueil (plan du 26/10) |
 | 5 | Jour disponible pour la demi-journée de terrain de la semaine 1 (puis de la semaine 2) ; existe-t-il une carte de visite ? | Loïc | Voir §4 |
 | 6 | Avant chaque appel ou passage : l'entreprise a-t-elle déjà été contactée ou est-elle cliente ? (c005) | agent prospection | Gmail est déconnecté aujourd'hui : la vérification `in:anywhere` (nom ET domaine) se fera à la création du lot. Chaque fiche du lot portera « Gmail vérifié le [date] » |
@@ -26,7 +26,7 @@ aucun fait inventé ni signal sans date (c010), aucun identifiant ni lien Drive 
 1. **S'identifier dès les premiers mots** : « Loïc, de SL Agence, à Friesen » (appel, passage, e-mail, LinkedIn).
 2. **Liste « Ne plus contacter »** (onglet 2 de la feuille de suivi, §6) vérifiée **avant chaque lot** ; un refus clair arrête tout, sur tous les canaux, définitivement.
 3. **E-mail récapitulatif** : l'origine des données (art. 14 du RGPD : « votre numéro figure sur… » ou « vous m'avez donné cette adresse ») et un moyen de s'opposer (« répondez non ») figurent **dès le premier envoi**. Les gabarits du §5 le font.
-4. **Téléphone** : appeler **la ligne de l'entreprise** publiée par elle. Le portable personnel d'un entrepreneur individuel n'est jamais appelé. Précision de vérification : `savoirs/prospection.md` §9 dit que le régime de consentement préalable au démarchage téléphonique entré en vigueur le 11/08/2026 (loi n° 2025-594) **vise les consommateurs**, et conseille de ne pas appeler le numéro personnel d'un entrepreneur individuel pour autre chose que son activité ; il n'écrit pas que ce numéro est soumis au régime des consommateurs. La règle du kit est donc la prudence (ligne de l'entreprise uniquement) ; si Loïc veut une réponse ferme sur ce point, il faut un avis juridique.
+4. **Téléphone** : un portable publié par l'entreprise comme numéro professionnel (site, fiche Google, annuaire) est la ligne de l'entreprise : on l'appelle pour son activité, aux heures ouvrées. On ne cherche ni n'appelle jamais un numéro personnel non publié par l'entreprise.
 5. **Aucune adresse ou numéro deviné** (pas de prenom.nom@…). Uniquement ce que l'entreprise publie ou ce que la personne donne.
 6. **Aucune donnée nominative dans le dépôt** : noms, numéros, e-mails restent dans Drive (« Restreint ») et Gmail.
 
@@ -39,7 +39,7 @@ le prix « à partir de 500 € » se dit **quand on le demande** (objection n°
 
 ### 1.1 Avant de composer (30 secondes)
 
-- Numéro **publié par l'entreprise** (site, annuaire officiel). Jamais le portable personnel d'un entrepreneur individuel (voir l'encadré RGPD ci-dessous).
+- Un portable publié par l'entreprise comme numéro professionnel (site, fiche Google, annuaire) est la ligne de l'entreprise : on l'appelle pour son activité, aux heures ouvrées. On ne cherche ni n'appelle jamais un numéro personnel non publié par l'entreprise (encadré RGPD ci-dessus).
 - La fiche du lot est ouverte : secteur, un fait réel daté si on en a un (offre d'emploi, reprise, nouvelle agence), source du numéro.
 - Pas de fait réel ? On n'en invente pas : on s'appuie sur l'accroche A ci-dessous (papiers de chantier), à voix haute et sans prétendre connaître l'entreprise.
 - Créneaux (HYPOTHÈSE, à tester pendant 4 semaines, noter l'heure de chaque appel décroché) : 7 h 30-8 h 15, 17 h 30-18 h 30, et 10 h-11 h. Source du dernier créneau : Cognism/WHAM 2026, marchés anglo-saxons (`savoirs/prospection.md` §6.2). Pas d'appel le soir tard ni le week-end.
@@ -120,7 +120,7 @@ Durée : environ 150 à 190 mots à dire, soit 60 à 90 secondes à un rythme ca
 **Question à connaître : « Qui vous a donné mon numéro ? »**
 « Votre numéro est publié sur [votre site / l'annuaire officiel des entreprises]. Si vous préférez que je ne vous appelle plus, je le note tout de suite. » (information sur l'origine des données, RGPD art. 14, `savoirs/prospection.md` §9.)
 
-**Source de la variante B (FAIT)** : impots.gouv.fr, « La facturation électronique, qu'est-ce que ça change pour moi ? » et guide pratique de démarrage au 1er septembre 2026 : réception pour toutes les entreprises assujetties à la TVA au 1er septembre 2026 ; émission pour les PME, TPE et micro-entreprises au 1er septembre 2027 (consultées le 26/10/2026).
+**Source de la variante B (FAIT)** : https://www.impots.gouv.fr/professionnel/je-decouvre-la-facturation-electronique (page vérifiée le 26/10/2026) : les PME, TPE et micro-entreprises « auront jusqu'au 1er septembre 2027 pour émettre électroniquement leurs factures » ; toutes les entreprises doivent être en mesure de recevoir des factures électroniques à compter du 1er septembre 2026. Complément : « La facturation électronique, qu'est-ce que ça change pour moi ? » et guide pratique de démarrage au 1er septembre 2026, sur impots.gouv.fr.
 **Ne jamais citer l'amende en prospection** : elle vise la non-émission, qui ne s'applique aux PME qu'au 1er septembre 2027, et ce serait de la peur, pas de l'aide (`ton.md`). Ne jamais présenter la facture électronique comme une urgence. Elle reste une variante secondaire ; l'accroche principale est celle des papiers de chantier.
 
 ### 1.3 Variante répondeur (20 secondes)
@@ -208,7 +208,7 @@ Conditions (en petit)
 ─────────────────────────────────────────────
 
 POUR EN PARLER
-Loïc : 06 01 16 07 62
+Loïc : 06 01 16 07 62 · Agence : 07 67 08 19 43
 [QR CODE → page d'arrivée de l'offre, à définir] · slagence.fr
 
 Nos clients sont présentés par leur activité. Leurs noms restent entre eux et nous,
@@ -216,7 +216,7 @@ comme le vôtre le restera.
 
 Vos informations : nous notons le nom de votre entreprise et le contact pour vous
 recontacter à propos de cette visite. Pour ne plus être contacté ou pour effacer ces
-informations : 06 01 16 07 62. Conservation : 3 ans au maximum.
+informations : 06 01 16 07 62 ou 07 67 08 19 43. Conservation : 3 ans au maximum.
 ─────────────────────────────────────────────
 ```
 
@@ -224,7 +224,7 @@ Notes de mise en page (HYPOTHÈSES de bon sens, à ajuster au rendu) :
 - Phrase « Nos clients sont présentés… » : reprise mot pour mot de `realisations.html` (rassure sur la confidentialité, évite de citer un nom).
 - La ligne « Conservation : 3 ans au maximum » reprend la doctrine CNIL résumée dans `savoirs/prospection.md` §9 ; à garder courte, en petit corps, en pied de page. Ce n'est pas un avis juridique.
 - QR code d'au moins 3 cm de côté, testé avec deux téléphones avant impression, sur une page dédiée (jamais l'accueil, plan du 26/10). Page à définir par `seo-site`.
-- Si Sacha le souhaite, le numéro de Sacha (07 67 08 19 43) peut s'ajouter sous celui de Loïc ; le kit ne le fait pas par défaut, car Loïc tient les rendez-vous.
+- Numéros : le 06 de Loïc reçoit les appels commerciaux (décision du 26/10) ; le 07 est le numéro de l'agence, déjà public sur le site.
 - Si le compteur de places est épuisé, barrer la ligne « [N] places » sur les fiches restantes plutôt que de réimprimer ; ne jamais laisser une date ou un nombre périmé.
 - **Encarts de remplacement** pour les visites chez une entreprise de travaux agricoles ou de transport (même règle, mot pour mot de `realisations.html`) :
 
@@ -289,9 +289,9 @@ sur téléphone pour des entreprises de chantier d'Alsace.
 
 ## 4. Plan de tournée : UNE demi-journée par semaine (deux semaines, deux zones)
 
-Volume (consigne du contrôle qualité) : 10 à 12 adresses sur **une seule demi-journée par semaine**, pas deux. La semaine 1 couvre le Sundgau, la semaine 2 la région mulhousienne. Le temps total de Loïc reste **sous 8 h par semaine** (tableau en fin de section).
+Volume (plan du 26/10 et contrôle qualité) : 10 passages sur **une seule demi-journée par semaine**, pas deux. La semaine 1 couvre le Sundgau, la semaine 2 la région mulhousienne. Le temps total de Loïc reste **à 8 h par semaine au maximum** (tableau en fin de section).
 
-Principe : on ne choisit pas les entreprises ici. Les 10 à 12 adresses de chaque demi-journée viendront du lot de 40 (après feu vert de Loïc), triées par code postal. Priorité du passage : les entreprises « chaudes » qui n'ont pas décroché après 1 ou 2 appels, puis les autres du lot situées dans la même zone (`savoirs/prospection.md` §7.5). Toutes les zones ci-dessous sont des **zones d'activité réelles** ; aucune entreprise n'est nommée.
+Principe : on ne choisit pas les entreprises ici. Les 10 adresses de chaque demi-journée viendront du lot de 40 (après feu vert de Loïc), triées par code postal. Priorité du passage : les entreprises « chaudes » qui n'ont pas décroché après 1 ou 2 appels, puis les autres du lot situées dans la même zone (`savoirs/prospection.md` §7.5). Toutes les zones ci-dessous sont des **zones d'activité réelles** ; aucune entreprise n'est nommée.
 
 Avertissement sur les sources : la liste de la Communauté de communes Sundgau est officielle. Pour la région mulhousienne, la liste officielle de m2A ne détaille pas les zones d'Illzach et de Sausheim ; ces deux noms viennent d'un site d'annuaire immobilier (source commerciale, surfaces affichées jugées peu fiables et non reprises). **À confirmer sur une carte avant de partir.** Les distances et temps de trajet n'ont pas été mesurés.
 
@@ -306,8 +306,8 @@ Avertissement sur les sources : la liste de la Communauté de communes Sundgau e
 
 Codes postaux 68210, 68560 et 68130 : mêmes sources (annuaire immobilier). Option si le temps le permet : ZI Forge à Tagolsheim (cc-sundgau.fr, même page).
 
-- **Horaires conseillés (HYPOTHÈSE, non sourcée, à tester)** : arriver **7 h 30-9 h 00** dans les zones à dépôts (BTP, terrassement, transport : le dirigeant est souvent là avant le départ des équipes), puis **9 h 30-11 h 30** pour les bureaux. Fin avant la pause déjeuner. Logique de `savoirs/prospection.md` §7.5 : « début ou fin de journée pour un dépôt, milieu de matinée pour un bureau ».
-- Durée prévue : 10 à 12 passages × environ 10 à 15 minutes, trajets compris dans une demi-journée de 4 heures (HYPOTHÈSE de calcul).
+- **Horaires conseillés (HYPOTHÈSE, non sourcée, à tester)** : arriver **7 h 30-9 h 00** dans les zones à dépôts (BTP, terrassement, transport : le dirigeant est souvent là avant le départ des équipes), puis **9 h 30-10 h 30** pour les bureaux (tournée de 3 h en tout). Fin avant la pause déjeuner. Logique de `savoirs/prospection.md` §7.5 : « début ou fin de journée pour un dépôt, milieu de matinée pour un bureau ».
+- Durée prévue : 10 passages × environ 10 à 15 minutes, trajets compris dans 3 heures (HYPOTHÈSE de calcul, alignée sur le plan validé).
 - Jour conseillé : mercredi ou jeudi (meilleurs jours d'appel dans l'étude Cognism/WHAM citée plus haut ; pas de donnée pour la visite : HYPOTHÈSE).
 
 ### Semaine 2, demi-journée unique : région mulhousienne et retour par l'axe Mulhouse-Altkirch
@@ -321,29 +321,30 @@ Codes postaux 68210, 68560 et 68130 : mêmes sources (annuaire immobilier). Opti
 
 À sauter : la ZAC Tival de Kingersheim (zone commerciale d'après la source) et toute zone dominée par un grand groupe.
 
-- **Horaires conseillés (HYPOTHÈSE)** : de **16 h 15 à 18 h 30**, au retour des équipes sur les dépôts (créneau 17 h 30-18 h 30 de l'hypothèse BTP du plan du 26/10), ou le matin de 9 h 30 à 11 h 30 pour les bureaux. Choisir l'un ou l'autre selon les jours libres de Loïc, et noter l'heure de chaque porte ouverte pour trancher après 2 semaines.
+- **Horaires conseillés (HYPOTHÈSE)** : de **15 h 45 à 18 h 45**, avec le gros des passages à 17 h 30-18 h 30, au retour des équipes sur les dépôts (créneau de l'hypothèse BTP du plan du 26/10), ou le matin de 8 h 30 à 11 h 30 pour les bureaux. Choisir l'un ou l'autre selon les jours libres de Loïc, et noter l'heure de chaque porte ouverte pour trancher après 2 semaines.
 - Sens du parcours (HYPOTHÈSE : nord de Mulhouse d'abord, puis retour vers le sud et le Sundgau par Brunstatt-Didenheim et Illfurth, sur le chemin de retour) : à vérifier sur une carte.
 
 ### Avant de partir / pendant / après
 
-- **Avant** : 25 à 30 fiches A4 par demi-journée (HYPOTHÈSE), stylo, la liste des adresses imprimée ou sur téléphone, vérifier l'heure d'ouverture sur la fiche Google de chaque entreprise, la fiche du lot pointée « Gmail vérifié ».
+- **Avant** : 15 à 20 fiches A4 par demi-journée, pour 10 passages plus une marge (HYPOTHÈSE), stylo, la liste des adresses imprimée ou sur téléphone, vérifier l'heure d'ouverture sur la fiche Google de chaque entreprise, la fiche du lot pointée « Gmail vérifié ».
 - **Pendant** : un passage = 3 lignes dans la feuille de suivi (§6) ; stationner hors des passages d'engins ; ne rien photographier.
 - **Après (le jour même)** : e-mails récapitulatifs (§5) aux personnes rencontrées dont l'adresse est publiée ou donnée ; rappels sous 48 h à ceux qui ont reçu une fiche en leur absence.
 - **Mesure** : à la fin de chaque demi-journée, noter le nombre de passages, de dirigeants rencontrés, de fiches laissées, de rendez-vous pris. Aucun chiffre cible n'est affirmé ici : l'objectif du plan (2 rendez-vous par semaine) est une HYPOTHÈSE à confronter à la réalité.
 
-### Temps de Loïc par semaine (HYPOTHÈSE de calcul, plafond 8 h)
+### Temps de Loïc par semaine (HYPOTHÈSE de calcul, alignée sur le plan validé, plafond 8 h)
 
-| Activité | Détail | Temps |
-|---|---|---|
-| Séances d'appel | 2 séances de 45 minutes (plan : 2 à 3 ; la troisième est supprimée pour tenir le plafond) | 1 h 30 |
-| Tournée | 1 demi-journée, 10 à 12 passages, trajets compris | 4 h 00 |
-| Diagnostics | 2 rendez-vous de 15 minutes (objectif du plan, hypothèse) | 0 h 30 |
-| E-mails récapitulatifs, rappels sous 48 h, saisie dans la feuille de suivi | environ 5 à 8 minutes par prospect touché | 0 h 45 |
-| LinkedIn | 20 à 30 invitations ciblées, dont 5 notes par mois au maximum (compte gratuit) | 0 h 30 |
-| Bilan de fin de semaine | comptage dans l'onglet « Bilan » | 0 h 15 |
-| **Total** | | **7 h 30** |
+| Poste | Temps |
+|---|---|
+| Tournée de 10 passages, trajets compris | 3 h |
+| 2 séances d'appel | 1 h 30 |
+| Diagnostics (2 × 15 min) | 30 min |
+| E-mails, rappels à 48 h et saisie (20 × 5 min) | 1 h 40 |
+| LinkedIn (10 à 15 invitations ; 5 notes par mois au maximum avec un compte gratuit) | 20 min |
+| Offre, compteur et Ads | 20 min (40 min en semaine 1) |
+| Bilan | 20 min |
+| **Total** | **7 h 40 (8 h en semaine 1)** |
 
-Les 25 contacts de la semaine se répartissent entre appels, passages et invitations LinkedIn (objectif `memoire/objectifs.md`). Si le temps réel dépasse 8 h, on réduit le LinkedIn avant de réduire les appels. Le temps réel est à noter dans l'onglet « Bilan » pour corriger ce tableau après la semaine 1.
+Objectif : 20 nouveaux prospects par semaine (plan du 26/10), répartis entre appels, passages et invitations LinkedIn. Si le temps réel dépasse 8 h, on réduit le LinkedIn avant de réduire les appels. Le temps réel est à noter dans l'onglet « Bilan » pour corriger ce tableau après la semaine 1.
 
 ### Piste complémentaire : rencontrer des prescripteurs (à vérifier)
 
@@ -357,8 +358,8 @@ Règles communes (`savoirs/emailing.md`, `ton.md`) : vouvoiement, texte brut, au
 
 ### 5.1 E-mail récapitulatif : variante A (rendez-vous pris)
 
-Objet (jusqu'à 43 caractères en usage réel) : `notre point de 15 minutes, [jour] [heure]`
-Exemple le plus long : « notre point de 15 minutes, mercredi 17 h 30 » = 43 caractères.
+Objet : `notre appel de [jour] [heure]`
+Exemple le plus long : « notre appel de mercredi 17 h 30 » = 31 caractères.
 
 ```
 Bonjour Monsieur [Nom],
@@ -367,7 +368,7 @@ Merci de m'avoir répondu tout à l'heure. Je vous appelle donc [jour] à [heure
 au [numéro donné par la personne].
 
 Rien à préparer. Si vous avez un bon, une feuille d'heures ou une facture sous la
-main, nous partirons de celui-là.
+main, nous partirons de là.
 
 Je vous montrerai ce que nous avons fait chez un terrassier d'Alsace : chacun saisit
 sa journée sur place, en 30 secondes, avant de rentrer. Vous me direz franchement
@@ -419,10 +420,11 @@ Bonjour [Prénom], nous avons échangé [mardi] au téléphone. Je serais heureu
 ```
 Variante : remplacer « au téléphone » par « chez vous » après un passage.
 
-**Variante B : premier contact avec un fait réel (le fait tient en 50 caractères maximum)** (environ 140 caractères avec un fait de 50)
+**Variante B : premier contact avec un fait réel (fait réel de 35 caractères au maximum ; ≈ 185 caractères au total, à recompter avec un outil avant chaque envoi)**
 ```
-Bonjour [Prénom], je suis à Friesen et je travaille avec des entreprises de [terrassement] du Haut-Rhin. J'ai vu [fait réel daté, 50 caractères]. Ravi d'échanger entre voisins. Loïc
+Bonjour [Prénom], je suis à Friesen et je travaille avec des entreprises de [terrassement] du Haut-Rhin. J'ai vu [fait réel daté, 35 caractères max]. Ravi d'échanger entre voisins. Loïc
 ```
+Attention : « travaux agricoles » à la place de « terrassement » ajoute 5 caractères ; un prénom long aussi. Recompter chaque note.
 Sans fait réel daté et vérifié : envoyer l'invitation **sans note** ; n'en inventer aucun (c010).
 
 Après acceptation (rappel du modèle déjà validé, `savoirs/prospection.md` §7.4) : un message court qui reprend le fait ou la conversation, une seule question, 15 minutes en dernier. Pas de prix.
@@ -466,7 +468,7 @@ Un tableau de comptage simple, rempli à la main ou avec des formules de comptag
 
 ## Sources consultées (26/10/2026)
 
-- Facture électronique, calendrier : https://www.impots.gouv.fr/facturation-electronique-qu-est-ce-que-ca-change-pour-moi ; guide pratique : https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/guide_pratique_facturation_electronique.pdf ; fiche 3 : https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/fiche-3_tpe_a-partir-de-quand-mon-entreprise-doit-etre-prete.pdf
+- Facture électronique, calendrier : https://www.impots.gouv.fr/professionnel/je-decouvre-la-facturation-electronique (page vérifiée le 26/10/2026 : « auront jusqu'au 1er septembre 2027 pour émettre électroniquement leurs factures ») ; https://www.impots.gouv.fr/facturation-electronique-qu-est-ce-que-ca-change-pour-moi ; guide pratique : https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/guide_pratique_facturation_electronique.pdf ; fiche 3 : https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/fiche-3_tpe_a-partir-de-quand-mon-entreprise-doit-etre-prete.pdf
 - Zones d'activité du Sundgau : https://cc-sundgau.fr/entreprendre/simplanter/ (page officielle de la Communauté de communes Sundgau)
 - Zones d'activité de m2A : https://www.m2a.fr/economie/zones-activites-quartiers-affaires/ (page officielle ; pas de détail pour Illzach ni Sausheim)
 - Zones de Dannemarie, Sausheim, Illzach, Kingersheim (annuaire immobilier, source commerciale) : https://unemplacement.com/entrepots/haut-rhin-68/dannemarie-68210 ; https://unemplacement.com/entrepots/haut-rhin-68/sausheim-68390 ; https://unemplacement.com/entrepots/haut-rhin-68/altkirch-68130
@@ -486,9 +488,9 @@ Le kit n'est pas un lot de prospects : la grille de lot (`prospection.md` §10) 
 | Bon canal (critère 8) | 1 | Téléphone et passage pour les dirigeants de terrain, e-mail et LinkedIn en confirmation, avec la condition « adresse publiée ou donnée » |
 | Conformité et rangement (critère 10 / C9) | 1 | Aucune donnée nominative ; encadré RGPD ; origine de l'adresse et opposition dans chaque e-mail ; règle d'arrêt ; liste « Ne plus contacter » ; mention RGPD courte sur la fiche ; facture électronique en variante sans amende ni urgence, à valider par Loïc |
 | Ton (C8) et forme (C10) | 1 | Vouvoiement, pas de jargon, pas de mots de la liste interdite, signature exacte, aucun prix dans les e-mails ni LinkedIn |
-| Longueurs (C6, C7) | 1 | E-mails de 102 et 92 mots (≤ 120), objets de 39 à 43 caractères (≤ 50), LinkedIn ≈ 150 caractères (≤ 200) |
+| Longueurs (C6, C7) | 1 | E-mails de 101 et 92 mots (≤ 120, comptés à la main), objets de 31 à 41 caractères (≤ 50), LinkedIn A ≈ 150, B ≈ 185 (≤ 200, à recompter avec un outil avant chaque envoi) |
 | Sources des zones | 0,5 | Sundgau : source officielle ; Mulhouse-nord et Dannemarie : annuaire immobilier (source commerciale), donc marqué « à vérifier » ; trajets et horaires = hypothèses déclarées |
-| Offre | 0,5 | Volontairement en crochets en attente de Sacha ; prix de la fiche non encore visible sur la version du dépôt de `/logiciel-sur-mesure` |
-| Complétude des 6 livrables | 1 | Script, répondeur, 6 objections, règle d'arrêt, fiche A4 (avec ligne de conditions), porte-à-porte, tournée d'une demi-journée par semaine avec tableau de temps (7 h 30 sous le plafond de 8 h), 2 × 2 gabarits, feuille décrite, piste FFI à vérifier |
+| Offre | 0,5 | Volontairement en crochets en attente de Sacha (places, date, contenu du premier outil) ; le prix est en ligne (PR 24) |
+| Complétude des 6 livrables | 1 | Script, répondeur, 6 objections, règle d'arrêt, fiche A4 (avec ligne de conditions), porte-à-porte, tournée de 10 passages sur une demi-journée par semaine avec tableau de temps (7 h 40, 8 h en semaine 1), 2 × 2 gabarits, feuille décrite, piste FFI à vérifier |
 
-**Note : 8,5 / 10.** Points faibles à lever avant usage : accord de Sacha (places, date, contenu du « premier outil »), publication du prix sur le site, vérification cartographique des zones de Mulhouse-nord et de Dannemarie, chronométrage du script à voix haute.
+**Note : 8,0 / 10** (le contrôle qualité avait mis 7/10 ; corrections appliquées le 26/10 : prix déjà en ligne, longueur LinkedIn B, tableau de temps, portable, source impots.gouv.fr, accord, objet, numéros de la fiche). Points faibles à lever avant usage : accord de Sacha (places, date, contenu du « premier outil »), vérification cartographique des zones de Mulhouse-nord et de Dannemarie, chronométrage du script à voix haute.
