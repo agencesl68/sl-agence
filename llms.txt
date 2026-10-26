@@ -46,3 +46,4 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Terrassement : heures, engins et carburant](https://slagence.fr/blog/terrassement-heures-engins-carburant): les coûts cachés d'un chantier de terrassement, 2 cas réels et par où commencer.
 
 Auteur des guides : Loïc Bitsch, associé de SL Agence (https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/).
+- [Modèles gratuits](https://slagence.fr/modeles-gratuits): bon d'intervention (Word, PDF), feuille d'heures (Excel, PDF), relances de facture et de devis (Word).
