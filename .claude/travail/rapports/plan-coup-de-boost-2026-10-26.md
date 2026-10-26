@@ -22,7 +22,7 @@ Message honnête : aucun levier n'amènera « une affluence de ouf » de visiteu
 - Accroche principale de la prospection : les papiers, les heures, le carburant (réalisations de terrassement).
 - Variante éventuelle (**dérogation à valider par Loïc**) : « Vous recevez déjà les factures électroniques ; l'émission arrive en septembre 2027. » Le §7.2 la réserve aujourd'hui au cas où le prospect évoque lui-même le sujet.
 - **L'amende ne se cite jamais en prospection.**
-- FAIT (impots.gouv.fr, https://www.impots.gouv.fr/professionnel/je-decouvre-la-facturation-electronique, consultée le 26/10/2026, « modifié le 26/05/2026 ») : réception obligatoire pour toutes les entreprises depuis le 1/09/2026 ; émission au 1/09/2027 pour les « petites et micro-entreprises ».
+- FAIT (impots.gouv.fr, https://www.impots.gouv.fr/professionnel/je-decouvre-la-facturation-electronique, consultée le 26/10/2026, « modifié le 26/05/2026 ») : réception obligatoire pour toutes les entreprises depuis le 1/09/2026 ; les PME et micro-entreprises « auront jusqu'au 1er septembre 2027 pour émettre » leurs factures électroniquement.
 - FAIT (service-public.gouv.fr, A18802, 20/02/2026) : 50 € par facture non émise électroniquement, plafond 15 000 €/an ; pas appliquée pour une 1re infraction sur l'année civile et les 3 précédentes, à condition qu'elle soit réparée spontanément ou sous 30 jours après la 1re demande de l'administration.
 - SL Agence n'est pas une plateforme agréée : elle relie la plateforme choisie par l'entreprise à ses autres outils.
 - savoirs/marche-2026.md corrigé le 26/10 (50 €/facture).
@@ -81,6 +81,8 @@ Acheter trafic, avis, backlinks ou fichier d'e-mails ; envoyer en masse ou autom
 5. Le communiqué est-il parti ? (Gmail déconnecté.)
 6. Quel jour pour la demi-journée de terrain ?
 
-Auto-évaluation de l'analyste : 7,5/10 (limites : CPC du 68 non vérifié, taux d'appel anglo-saxons, L121-4/L121-5 non vérifiés, Gmail inaccessible).
+Choix assumé pour tenir dans 8 h/semaine : 20 prospects et 1 post LinkedIn par semaine, au lieu des 25 prospects et 3 posts de objectifs.md.
+
+Contrôle qualité : VALIDÉ 8,5/10 (2e passe, 26/10). Auto-évaluation de l'analyste : 7,5/10 (limites : CPC du 68 non vérifié, taux d'appel anglo-saxons, L121-4/L121-5 non vérifiés, Gmail inaccessible).
 
 Sources (26/10/2026) : impots.gouv.fr (je-decouvre-la-facturation-electronique) · entreprendre.service-public.gouv.fr/actualites/A18802 · business.linkedin.com/marketing-solutions/best-practices/ad-tips/maximize-your-budget · linkedin.com/help/lms/answer/a423690 · support.google.com/google-ads/answer/6100664 · codeur.com/pages/tarifs-codeur-com · kolonell.com (CPC, non sourcé) · blogdumoderateur.com (frais Google 2021) · legifrance L121-4 (non consulté, 403).
