@@ -15,11 +15,20 @@
 | 2 | Qui mène le diagnostic de 15 minutes : Loïc seul, ou Loïc avec Sacha ? | Loïc et Sacha | Le script dit « avec Sacha » dans une phrase facultative ; à retirer si Sacha ne vient pas |
 | 3 | « À partir de 500 € » est-il en ligne ? Vérifié le 26/10 sur la version du dépôt : la page `/logiciel-sur-mesure` ne contient pas encore ce prix | Loïc / seo-site | Ne pas imprimer la fiche A4 avant que le site affiche le même prix (cohérence) |
 | 4 | Page d'arrivée du QR code | seo-site | Une page dédiée à l'offre, pas l'accueil (plan du 26/10) |
-| 5 | Jours disponibles pour les 2 demi-journées de terrain ; existe-t-il une carte de visite ? | Loïc | Voir §4 |
+| 5 | Jour disponible pour la demi-journée de terrain de la semaine 1 (puis de la semaine 2) ; existe-t-il une carte de visite ? | Loïc | Voir §4 |
 | 6 | Avant chaque appel ou passage : l'entreprise a-t-elle déjà été contactée ou est-elle cliente ? (c005) | agent prospection | Gmail est déconnecté aujourd'hui : la vérification `in:anywhere` (nom ET domaine) se fera à la création du lot. Chaque fiche du lot portera « Gmail vérifié le [date] » |
 
 Règles du département qui s'appliquent à tout le kit : une seule réalisation citée = une réalisation du site (c019), jamais un nom de client (c004),
 aucun fait inventé ni signal sans date (c010), aucun identifiant ni lien Drive dans le dépôt (c021).
+
+### Encadré RGPD (à relire avant chaque session ; `savoirs/prospection.md` §9, `savoirs/emailing.md` §6)
+
+1. **S'identifier dès les premiers mots** : « Loïc, de SL Agence, à Friesen » (appel, passage, e-mail, LinkedIn).
+2. **Liste « Ne plus contacter »** (onglet 2 de la feuille de suivi, §6) vérifiée **avant chaque lot** ; un refus clair arrête tout, sur tous les canaux, définitivement.
+3. **E-mail récapitulatif** : l'origine des données (art. 14 du RGPD : « votre numéro figure sur… » ou « vous m'avez donné cette adresse ») et un moyen de s'opposer (« répondez non ») figurent **dès le premier envoi**. Les gabarits du §5 le font.
+4. **Téléphone** : appeler **la ligne de l'entreprise** publiée par elle. Le portable personnel d'un entrepreneur individuel n'est jamais appelé. Précision de vérification : `savoirs/prospection.md` §9 dit que le régime de consentement préalable au démarchage téléphonique entré en vigueur le 11/08/2026 (loi n° 2025-594) **vise les consommateurs**, et conseille de ne pas appeler le numéro personnel d'un entrepreneur individuel pour autre chose que son activité ; il n'écrit pas que ce numéro est soumis au régime des consommateurs. La règle du kit est donc la prudence (ligne de l'entreprise uniquement) ; si Loïc veut une réponse ferme sur ce point, il faut un avis juridique.
+5. **Aucune adresse ou numéro deviné** (pas de prenom.nom@…). Uniquement ce que l'entreprise publie ou ce que la personne donne.
+6. **Aucune donnée nominative dans le dépôt** : noms, numéros, e-mails restent dans Drive (« Restreint ») et Gmail.
 
 Mise à jour de règle à noter : jusqu'ici `ton.md` et `savoirs/prospection.md` disaient « jamais de prix ». Depuis la décision publique de Loïc du 26/10,
 le prix « à partir de 500 € » se dit **quand on le demande** (objection n° 5) et figure sur la fiche A4. Il reste **hors des e-mails et des invitations LinkedIn**.
@@ -192,6 +201,10 @@ LE PRIX
 L'OFFRE  [À CONFIRMER AVEC SACHA, NE PAS IMPRIMER AVANT]
 [N] places · premier outil en 7 jours · jusqu'au [date]
 Diagnostic gratuit de 15 minutes, au téléphone.
+
+Conditions (en petit)
+[N] places = [N] commandes servies avant le [date]. Contenu du premier outil :
+[à définir avec Sacha]. Délai de 7 jours à compter de [validation du cahier des charges].
 ─────────────────────────────────────────────
 
 POUR EN PARLER
@@ -258,7 +271,7 @@ C'est au sujet des heures, des bons et des factures : nous construisons des outi
 sur téléphone pour des entreprises de chantier d'Alsace.
 ```
 
-**S'il ou elle est disponible** : même déroulé que l'appel (§1.2) : accroche A ou B en une phrase, une preuve en regardant la fiche (« voilà ce que nous avons fait pour une entreprise de terrassement »), la question « chez vous, c'est noté où, et ressaisi où ? », puis « 15 minutes de diagnostic gratuit, [jour] ou [jour] ? ». Regarder ce qui traîne sans commenter : classeurs de bons, tableau de planning, pochettes de tickets. Rester debout, court, partir au bout de 5 minutes maximum sauf invitation à rester.
+**S'il ou elle est disponible** : même déroulé que l'appel (§1.2) : accroche A (papiers de chantier) en une phrase, une preuve en regardant la fiche (« voilà ce que nous avons fait pour une entreprise de terrassement »), la question « chez vous, c'est noté où, et ressaisi où ? », puis « 15 minutes de diagnostic gratuit, [jour] ou [jour] ? ». Regarder ce qui traîne sans commenter : classeurs de bons, tableau de planning, pochettes de tickets. Rester debout, court, partir au bout de 5 minutes maximum sauf invitation à rester.
 
 **S'il ou elle est absent(e)**
 1. « Pouvez-vous lui remettre cette fiche ? »
@@ -274,13 +287,15 @@ sur téléphone pour des entreprises de chantier d'Alsace.
 
 ---
 
-## 4. Plan de tournée : 2 demi-journées
+## 4. Plan de tournée : UNE demi-journée par semaine (deux semaines, deux zones)
+
+Volume (consigne du contrôle qualité) : 10 à 12 adresses sur **une seule demi-journée par semaine**, pas deux. La semaine 1 couvre le Sundgau, la semaine 2 la région mulhousienne. Le temps total de Loïc reste **sous 8 h par semaine** (tableau en fin de section).
 
 Principe : on ne choisit pas les entreprises ici. Les 10 à 12 adresses de chaque demi-journée viendront du lot de 40 (après feu vert de Loïc), triées par code postal. Priorité du passage : les entreprises « chaudes » qui n'ont pas décroché après 1 ou 2 appels, puis les autres du lot situées dans la même zone (`savoirs/prospection.md` §7.5). Toutes les zones ci-dessous sont des **zones d'activité réelles** ; aucune entreprise n'est nommée.
 
 Avertissement sur les sources : la liste de la Communauté de communes Sundgau est officielle. Pour la région mulhousienne, la liste officielle de m2A ne détaille pas les zones d'Illzach et de Sausheim ; ces deux noms viennent d'un site d'annuaire immobilier (source commerciale, surfaces affichées jugées peu fiables et non reprises). **À confirmer sur une carte avant de partir.** Les distances et temps de trajet n'ont pas été mesurés.
 
-### Demi-journée 1 : Sundgau (HYPOTHÈSE d'ordre, à valider sur une carte)
+### Semaine 1, demi-journée unique : Sundgau (HYPOTHÈSE d'ordre, à valider sur une carte)
 
 | Ordre | Zone | Commune | Source |
 |---|---|---|---|
@@ -295,7 +310,7 @@ Codes postaux 68210, 68560 et 68130 : mêmes sources (annuaire immobilier). Opti
 - Durée prévue : 10 à 12 passages × environ 10 à 15 minutes, trajets compris dans une demi-journée de 4 heures (HYPOTHÈSE de calcul).
 - Jour conseillé : mercredi ou jeudi (meilleurs jours d'appel dans l'étude Cognism/WHAM citée plus haut ; pas de donnée pour la visite : HYPOTHÈSE).
 
-### Demi-journée 2 : région mulhousienne et retour par l'axe Mulhouse-Altkirch
+### Semaine 2, demi-journée unique : région mulhousienne et retour par l'axe Mulhouse-Altkirch
 
 | Ordre | Zone | Commune | Source |
 |---|---|---|---|
@@ -315,6 +330,24 @@ Codes postaux 68210, 68560 et 68130 : mêmes sources (annuaire immobilier). Opti
 - **Pendant** : un passage = 3 lignes dans la feuille de suivi (§6) ; stationner hors des passages d'engins ; ne rien photographier.
 - **Après (le jour même)** : e-mails récapitulatifs (§5) aux personnes rencontrées dont l'adresse est publiée ou donnée ; rappels sous 48 h à ceux qui ont reçu une fiche en leur absence.
 - **Mesure** : à la fin de chaque demi-journée, noter le nombre de passages, de dirigeants rencontrés, de fiches laissées, de rendez-vous pris. Aucun chiffre cible n'est affirmé ici : l'objectif du plan (2 rendez-vous par semaine) est une HYPOTHÈSE à confronter à la réalité.
+
+### Temps de Loïc par semaine (HYPOTHÈSE de calcul, plafond 8 h)
+
+| Activité | Détail | Temps |
+|---|---|---|
+| Séances d'appel | 2 séances de 45 minutes (plan : 2 à 3 ; la troisième est supprimée pour tenir le plafond) | 1 h 30 |
+| Tournée | 1 demi-journée, 10 à 12 passages, trajets compris | 4 h 00 |
+| Diagnostics | 2 rendez-vous de 15 minutes (objectif du plan, hypothèse) | 0 h 30 |
+| E-mails récapitulatifs, rappels sous 48 h, saisie dans la feuille de suivi | environ 5 à 8 minutes par prospect touché | 0 h 45 |
+| LinkedIn | 20 à 30 invitations ciblées, dont 5 notes par mois au maximum (compte gratuit) | 0 h 30 |
+| Bilan de fin de semaine | comptage dans l'onglet « Bilan » | 0 h 15 |
+| **Total** | | **7 h 30** |
+
+Les 25 contacts de la semaine se répartissent entre appels, passages et invitations LinkedIn (objectif `memoire/objectifs.md`). Si le temps réel dépasse 8 h, on réduit le LinkedIn avant de réduire les appels. Le temps réel est à noter dans l'onglet « Bilan » pour corriger ce tableau après la semaine 1.
+
+### Piste complémentaire : rencontrer des prescripteurs (à vérifier)
+
+`savoirs/prospection.md` §8.1 signale des déjeuners mensuels des Forces Françaises de l'Industrie à Mulhouse, annoncés jusqu'en 2027, avec inscription sur Luma (https://luma.com/5ow23foj). **Date, lieu, tarif et ouverture aux non-membres non vérifiés** : à contrôler sur la page Luma avant toute inscription. Le public est industriel (hors cible prioritaire) : l'intérêt est de rencontrer des prescripteurs (comptables, banquiers, revendeurs de logiciels, §8.2 du manuel), pas de prospecter. Règle en événement : une question, pas un pitch (« Qu'est-ce que vous recopiez encore à la main chaque semaine ? »), puis un message le lendemain citant un détail de la conversation. Hors budget temps de la semaine tant que le plafond de 8 h n'est pas confirmé.
 
 ---
 
@@ -451,11 +484,11 @@ Le kit n'est pas un lot de prospects : la grille de lot (`prospection.md` §10) 
 | Fait réel (critère 3 / C1) | 0,5 | Les gabarits laissent un emplacement `[fait réel daté]` : le fait vient du lot, qui n'existe pas encore. Le script dit quoi faire sans fait réel |
 | Angle spécifique (critère 7) | 1 | Trois preuves par secteur (terrassement, travaux agricoles, transport avec la mention « projet en cours ») |
 | Bon canal (critère 8) | 1 | Téléphone et passage pour les dirigeants de terrain, e-mail et LinkedIn en confirmation, avec la condition « adresse publiée ou donnée » |
-| Conformité et rangement (critère 10 / C9) | 1 | Aucune donnée nominative ; origine de l'adresse et opposition dans chaque e-mail ; règle d'arrêt ; liste « Ne plus contacter » ; mention RGPD courte sur la fiche |
+| Conformité et rangement (critère 10 / C9) | 1 | Aucune donnée nominative ; encadré RGPD ; origine de l'adresse et opposition dans chaque e-mail ; règle d'arrêt ; liste « Ne plus contacter » ; mention RGPD courte sur la fiche ; facture électronique en variante sans amende ni urgence, à valider par Loïc |
 | Ton (C8) et forme (C10) | 1 | Vouvoiement, pas de jargon, pas de mots de la liste interdite, signature exacte, aucun prix dans les e-mails ni LinkedIn |
 | Longueurs (C6, C7) | 1 | E-mails de 102 et 92 mots (≤ 120), objets de 39 à 43 caractères (≤ 50), LinkedIn ≈ 150 caractères (≤ 200) |
 | Sources des zones | 0,5 | Sundgau : source officielle ; Mulhouse-nord et Dannemarie : annuaire immobilier (source commerciale), donc marqué « à vérifier » ; trajets et horaires = hypothèses déclarées |
 | Offre | 0,5 | Volontairement en crochets en attente de Sacha ; prix de la fiche non encore visible sur la version du dépôt de `/logiciel-sur-mesure` |
-| Complétude des 6 livrables | 1 | Script, répondeur, 6 objections, règle d'arrêt, fiche A4, porte-à-porte, tournée, 2 × 2 gabarits, feuille décrite |
+| Complétude des 6 livrables | 1 | Script, répondeur, 6 objections, règle d'arrêt, fiche A4 (avec ligne de conditions), porte-à-porte, tournée d'une demi-journée par semaine avec tableau de temps (7 h 30 sous le plafond de 8 h), 2 × 2 gabarits, feuille décrite, piste FFI à vérifier |
 
-**Note : 8,0 / 10.** Points faibles à lever avant usage : accord de Sacha (places, date, contenu du « premier outil »), publication du prix sur le site, vérification cartographique des zones de Mulhouse-nord et de Dannemarie, chronométrage du script à voix haute.
+**Note : 8,5 / 10.** Points faibles à lever avant usage : accord de Sacha (places, date, contenu du « premier outil »), publication du prix sur le site, vérification cartographique des zones de Mulhouse-nord et de Dannemarie, chronométrage du script à voix haute.
