@@ -37,9 +37,9 @@ Règle : ne jamais écrire « 3, rue Principale », « Rue Principale 68580 » n
 
 Longueurs vérifiées avec un contrôle automatique (c020 : à compter, pas à estimer).
 
-**Courte (162 caractères, comptés)**
+**Courte (146 caractères, comptés)**
 
-DESC-160: Agence d'automatisation, d'IA et de logiciel sur mesure à Mulhouse. Applications métier pour TPE, PME et artisans, sur place dans le Haut-Rhin. À partir de 500 €.
+DESC-160: Agence d'automatisation, d'IA et de logiciel sur mesure à Mulhouse. Applications métier pour TPE, PME et artisans du Haut-Rhin. À partir de 500 €.
 
 **Moyenne (302 caractères, comptés)**
 
@@ -172,9 +172,7 @@ Réserve sur le rang 3 : la structure existe depuis le 19 mai 2026 et n'a pas d'
 > Quels critères ou informations vous manquent pour nous évaluer ? Je vous les envoie volontiers.
 >
 > Cordialement,
-> Loïc Bitsch
-> SL Agence, 3 rue Principale, 68580 Friesen
-> 07 67 08 19 43 · agence.sl.68@gmail.com · https://slagence.fr
+> Loïc Bitsch, SL Agence · 68580 Friesen · 07 67 08 19 43 · https://slagence.fr
 
 Avant l'envoi : vérifier que les 3 pages citées sont bien en ligne (PR #17 en ligne le 21/10 selon rappels-seo.md ; pages testées en 200 le 26/10). Ne pas dire « nous sommes les meilleurs ». Si le site répond par une offre payante, ne pas répondre sans m'en parler.
 
@@ -189,7 +187,7 @@ Avant l'envoi : vérifier que les 3 pages citées sont bien en ligne (PR #17 en 
 > Quelle est la procédure et quels éléments devons-nous vous fournir ?
 >
 > Cordialement,
-> Loïc Bitsch, SL Agence, 07 67 08 19 43
+> Loïc Bitsch, SL Agence · 68580 Friesen · 07 67 08 19 43 · https://slagence.fr
 
 **C. Demande d'avis (pour les annuaires qui en affichent)** : le plan GEO prévoit un message séparé de demande d'avis Google ; ce kit n'en écrit pas de nouveau. Rappel : jamais d'avis rédigé à la place d'un client, jamais de faux avis.
 
@@ -218,6 +216,6 @@ Limite à garder en tête (plan GEO §1) : ces inscriptions augmentent les chanc
 |---|---|
 | Faits sourcés ou signalés « non vérifié » | 8/10 : procédure La Fabrique du Net, Malt (officiel), Clutch non confirmées |
 | Cohérence NAP avec le site | 10/10 |
-| Respect des règles (aucun nom de client, pas de prix interne, pas de « partout en France » non validé) | 10/10 |
+| Respect des règles (aucun nom de client, pas de prix interne, zone à jour : Haut-Rhin sur place, à distance partout en France, validé le 23/10) | 10/10 |
 | Utilité immédiate (texte prêt à coller, ordre d'action) | 9/10 |
 | **Note globale** | **9/10** |

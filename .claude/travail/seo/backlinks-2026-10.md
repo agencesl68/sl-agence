@@ -20,7 +20,7 @@ Colonnes : « Page ouverte » = ouverte ce jour avec un navigateur simulé (curl
 |---|---|---|---|---|---|---|---|---|
 | L1 | Organisme local | CCI Alsace Eurométropole · https://www.alsace-eurometropole.cci.fr/ | Page protégée (403), à vérifier par Loïc | Non trouvé | Non vérifié | À faire (message C1) | 20 min | S1 |
 | L2 | Organisme local | Chambre de métiers d'Alsace (CMA Région Grand Est) · https://www.cma-alsace-moselle-grandest.fr/alsace (cm-alsace.fr y redirige) | Oui. La page « Maîtriser sa facturation électronique ! » est en une. La formation « Solution de gestion et facturation électronique » affiche « Tarif 245 € », « Éligible au PASS CMA Liberté », session du 02/11/2026 à Schiltigheim (https://www.cma-alsace-moselle-grandest.fr/formations/facturation-electronique-alsace) | Un relais ou une mention : aucun tarif trouvé. La formation est payante : on ne la concurrence pas (le kit du 21/10 parlait d'une formation gratuite, non retrouvée) | Non vérifié | À faire (message C2) | 15 min | S1 |
-| L3 | Organisme local | Communauté de communes Sud Alsace Largue (Friesen en est membre : « Friesen » figure dans la liste « Les communes ») · https://www.sudalsace-largue.fr/ ; contact : https://www.sudalsace-largue.fr/contact.htm | Oui. Le menu propose « Guide du consommer local » et « Annuaire des associations ». Le lien « Guide du consommer local » mène à une page intitulée « Rénovation et adaptation de l'habitat » : lien du menu probablement erroné | Non trouvé | Non vérifié | À faire (message C3) | 15 min | S2 |
+| L3 | Organisme local | Communauté de communes Sud Alsace Largue (Friesen en est membre : « Friesen » figure dans la liste « Les communes ») · https://www.sudalsace-largue.fr/ ; contact : https://www.sudalsace-largue.fr/contact.htm | Oui. Le menu propose « Guide du consommer local » et « Annuaire des associations ». Le lien « Guide du consommer local » pointe vers /economie/annuaire-entreprises.htm mais cette adresse affiche la page « Rénovation et adaptation de l'habitat » : lien du menu probablement erroné, à signaler | Non trouvé | Non vérifié | À faire (message C3) | 15 min | S2 |
 | L4 | Réseau local | CPME 68 (syndicat patronal, Mulhouse et Colmar) · https://cpme68.fr/adherer/ | Oui. « Payez votre cotisation en ligne : Cotisation, Prix, Nombre de salariés ». Le montant n'est pas affiché | Payant (cotisation selon le nombre de salariés), montant : non trouvé | La page « Partenaires » : lien sortant observé avec `rel="noopener noreferrer"` (pas de nofollow) sur une autre entité (formation GIFOP) | À décider par Loïc (budget) | 15 min | S4 |
 | L5 | Réseau local | KMØ, hub d'innovation industrielle et numérique, Mulhouse · https://www.km0.info/contact/ (formulaire) ; page https://www.km0.info/km0/partenaires/ | Oui. Rubriques « Partenaires », « Intégrer le KMØ », « Devenir habitant », « Club des Locomotives » | Non trouvé | Page Partenaires : liens sortants sans attribut `rel` (donc a priori suivis) vers d'autres sites. Hypothèse pour SL Agence : non vérifié | À faire (formulaire) | 15 min | S4 |
 | L6 | Réseau numérique | Alsace Digitale (association, Strasbourg, communautés numériques et IA) · https://www.alsacedigitale.org/ ; adhésion : https://www.helloasso.com/associations/alsace-digitale/adhesions/membre-alsace-digitale-2026 | Site oui. Page d'adhésion HelloAsso : page protégée (captcha), à vérifier par Loïc. L'espace https://membres.alsacedigitale.org/ annonce « L'annuaire des membres » (connexion requise) | D'après une recherche web (non lu sur la page) : 5 €, 10 € ou 20 € pour les particuliers ; tarif « personne morale » : non trouvé | Annuaire derrière connexion : lien public non vérifié | À décider (hors Haut-Rhin : Strasbourg) | 15 min | S4 |
@@ -51,6 +51,8 @@ Retirées après vérification : **Rhénatic** (https://www.rhenatic.eu/ ouvre a
 | P1 | Clients | 1 à 3 clients (hors dépôt : choix de Loïc) : mention « Outil réalisé par SL Agence » en pied de page ou mentions légales, ancre = « SL Agence » | Sans objet | Gratuit, accord écrit du client requis | Lien à demander sans nofollow (hypothèse : le client décide) | À faire (message C5) | 20 min | S2 |
 | P2 | Partenaire | 1 cabinet d'expert-comptable du Haut-Rhin que Loïc connaît (pas de nom ici) : page « partenaires » ou article commun sur la facture électronique | Sans objet | Gratuit, échange de recommandations sans contrepartie financière | Selon le cabinet | À faire (message C6) | 20 min | S3 |
 
+Fiches automatiques et annuaires écartés : **Pappers** et **Societe.com** (fiches créées automatiquement depuis Sirene, à regarder le 27/10 avec N1 ; pages non ouvertes : non vérifié) ; **Kompass** (page protégée, 405 : non vérifié, non retenu).
+
 **Bilan du tableau** : 20 cibles (9 locales, 9 nationales, 2 clients et partenaires). Déjà faites : 1 (Annuaire des entreprises, automatique). Les 6 profils déjà en ligne (Google, PagesJaunes, LinkedIn, Facebook, Instagram, Bing en cours) sont hors décompte. Famille 6 (ressources nationales de niche, pages « ressources BTP/artisans ») : aucune page ouverte et vérifiée aujourd'hui, donc aucune ligne (pas d'invention). Tâche prévue : Claude cherche 5 pages ressources réelles en S3 (voir D).
 
 ## B. Kit annuaires mis à jour (fichier : `travail/contenu/kit-annuaires.md`)
@@ -60,7 +62,7 @@ Le fichier existant est conservé (NAP, services, catégories, pas à pas, messa
 1. **Téléphone** : 07 67 08 19 43 seul numéro hors site (décision du 26/10). Le §0 point 1 est clos.
 2. **Zone** : « à distance partout en France » (précisé par Loïc le 23/10, déjà sur le site). Le §0 point 2 est clos ; les descriptions 300 et 750 sont réécrites.
 3. **Prix public** : « à partir de 500 € » (décision du 26/10), ajouté aux descriptions 150, 300 et 750. La ligne « Aucun prix public » des engagements est remplacée. Pour Malt, le TJM reste une décision à part (pas le même chiffre).
-4. **Descriptions recomptées** (outil Python, c020) : courte **162** caractères, moyenne **302**, longue **744**. Les mentions « Devis gratuit, prix ferme » sont conservées en moyenne et longue.
+4. **Descriptions recomptées** (outil Python, c020) : courte **146** caractères, moyenne **302**, longue **744**. Les mentions « Devis gratuit, prix ferme » sont conservées en moyenne et longue.
 5. **Statuts** : fiche Google, PagesJaunes, LinkedIn, Facebook, Instagram faits ; Bing Places en validation. Apple Business Connect s'appelle désormais Apple Business (même adresse https://business.apple.com/).
 6. **Mise à jour du §5 et de la checklist §8** : Annuaire des entreprises vérifié (fiche existante), Codeur confirmé mot pour mot, Rhénatic non repris, renvoi vers ce fichier pour le calendrier.
 
@@ -68,7 +70,7 @@ NAP exact (hors site) : SL Agence · 68580 Friesen (adresse complète « 3 rue P
 
 Descriptions à coller (longueurs comptées) :
 
-- DESC-160 (162 car.) : Agence d'automatisation, d'IA et de logiciel sur mesure à Mulhouse. Applications métier pour TPE, PME et artisans, sur place dans le Haut-Rhin. À partir de 500 €.
+- DESC-160 (146 car.) : Agence d'automatisation, d'IA et de logiciel sur mesure à Mulhouse. Applications métier pour TPE, PME et artisans du Haut-Rhin. À partir de 500 €.
 - DESC-300 (302 car.) : SL Agence crée des applications métier, automatisations et assistants IA sur mesure pour TPE, PME et artisans (BTP, transport, travaux agricoles). Basés à Friesen, près de Mulhouse, nous intervenons dans le Haut-Rhin et à distance partout en France. À partir de 500 €, devis gratuit, réponse sous 24 h.
 - DESC-750 (744 car.) : voir `kit-annuaires.md` §2.
 
@@ -90,7 +92,7 @@ Objet : Facture électronique : un guide pour vos ressortissants du Haut-Rhin
 > Pourriez-vous le relayer à vos ressortissants, ou nous dire si un atelier sur le sujet est prévu où nous pourrions intervenir ?
 >
 > Cordialement,
-> Loïc, SL Agence, 07 67 08 19 43
+> Loïc Bitsch, SL Agence · 68580 Friesen · 07 67 08 19 43 · https://slagence.fr
 
 **C2. Chambre de métiers d'Alsace** (formulaire de contact ; viser la personne en charge du numérique ou de la communication)
 Objet : Modèles gratuits pour vos artisans (bon d'intervention, feuille d'heures, relances)
@@ -104,7 +106,7 @@ Objet : Modèles gratuits pour vos artisans (bon d'intervention, feuille d'heure
 > Seriez-vous d'accord pour les indiquer dans vos ressources aux artisans, ou pour m'orienter vers la bonne personne ?
 >
 > Cordialement,
-> Loïc, SL Agence, 07 67 08 19 43
+> Loïc Bitsch, SL Agence · 68580 Friesen · 07 67 08 19 43 · https://slagence.fr
 
 **C3. Communauté de communes Sud Alsace Largue** (page contact ; la commune de Friesen en est membre)
 Objet : Entreprise de Friesen : présence dans vos ressources aux entreprises
@@ -113,12 +115,12 @@ Objet : Entreprise de Friesen : présence dans vos ressources aux entreprises
 >
 > Je suis Loïc, associé de SL Agence, une entreprise installée à Friesen depuis mai 2026 (création de logiciels, automatisation et IA pour les TPE et artisans).
 >
-> Votre site propose un « Guide du consommer local » et un espace dédié aux entreprises. Existe-t-il une liste ou un annuaire des entreprises du territoire où nous pourrions figurer ? Voici notre présentation : https://slagence.fr/a-propos
+> Sur votre site, le lien « Guide du consommer local » mène à une page sur la rénovation de l'habitat (adresse /economie/annuaire-entreprises.htm), sans doute une erreur de lien. Existe-t-il une liste ou un annuaire des entreprises du territoire où nous pourrions figurer ? Voici notre présentation : https://slagence.fr/a-propos
 >
 > Si la démarche est différente, pourriez-vous m'indiquer laquelle ?
 >
 > Cordialement,
-> Loïc, SL Agence, 07 67 08 19 43
+> Loïc Bitsch, SL Agence · 68580 Friesen · 07 67 08 19 43 · https://slagence.fr
 
 **C4. Presse locale** (L'Alsace, DNA, ici Alsace : un message par rédaction, communiqué dans le corps du mail, texte intégral dans `travail/contenu/communique-presse-facture-electronique.md`)
 Objet : Facture électronique : où en sont les TPE et artisans du Haut-Rhin ? (communiqué)
@@ -132,7 +134,7 @@ Objet : Facture électronique : où en sont les TPE et artisans du Haut-Rhin ? (
 > Je suis joignable pour un commentaire ou un entretien.
 >
 > Bien cordialement,
-> Loïc, SL Agence, 07 67 08 19 43
+> Loïc Bitsch, SL Agence · 68580 Friesen · 07 67 08 19 43 · https://slagence.fr
 >
 > [Coller ici le communiqué du fichier ; relire la citation avant envoi (elle engage Loïc).]
 
@@ -148,7 +150,7 @@ Objet : Petite mention de l'outil que nous avons réalisé pour vous
 > Aucune obligation : si vous préférez ne pas apparaître, ce n'est pas un problème, et je ne citerai pas votre nom de mon côté.
 >
 > Merci d'avance,
-> Loïc, SL Agence, 07 67 08 19 43
+> Loïc Bitsch, SL Agence · 68580 Friesen · 07 67 08 19 43 · https://slagence.fr
 
 **C6. Un expert-comptable du Haut-Rhin** (cabinet que Loïc connaît ; échange de recommandations sans contrepartie financière)
 Objet : Facture électronique : une page utile pour vos clients artisans
@@ -162,11 +164,11 @@ Objet : Facture électronique : une page utile pour vos clients artisans
 > Seriez-vous d'accord pour la citer dans une page « ressources » ou une lettre à vos clients ? De notre côté, nous vous recommandons volontiers aux entreprises qui cherchent un cabinet.
 >
 > Cordialement,
-> Loïc, SL Agence, 07 67 08 19 43
+> Loïc Bitsch, SL Agence · 68580 Friesen · 07 67 08 19 43 · https://slagence.fr
 
-## D. Calendrier jour par jour (27/10 au 21/11, 15 à 30 min par jour)
+## D. Calendrier jour par jour (27/10 au 20/11, puis mesure le 23/11 ; 15 à 30 min par jour)
 
-Les week-ends et le mercredi 11/11 (férié) sont des jours de repos. Si un jour est raté, décaler d'un jour sans rattraper deux actions à la fois.
+Les week-ends (dont le samedi 21/11) et le mercredi 11/11 (férié) sont des jours de repos. Si un jour est raté, décaler d'un jour sans rattraper deux actions à la fois.
 
 **Semaine 1 : mise en place et organismes consulaires**
 - Mar 27/10 (20 min) : relevé J0 (voir E) + regarder la fiche N1 « Annuaire des entreprises » dans le navigateur. Me dire si elle est correcte.
@@ -194,8 +196,8 @@ Les week-ends et le mercredi 11/11 (férié) sont des jours de repos. Si un jour
 - Mar 17/11 (15 min) : relance C4 à L'Alsace ; envoyer C4 à ici Alsace si les deux premières rédactions n'ont rien répondu.
 - Mer 18/11 (15 min) : relancer les clients (C5) qui n'ont pas répondu, une fois.
 - Jeu 19/11 (20 min) : décisions budget : CPME 68 (L4), Alsace Digitale (L6), KMØ (L5, formulaire) ; envoyer le formulaire KMØ si la réponse est oui.
-- Ven 20/11 (20 min) : Malt, Codeur ou Sortlist (N6 à N8) : une seule plateforme, profil gratuit uniquement, ou rien si les statuts ci-dessus ne sont pas réglés.
-- Sam 21/11 (10 min) : mettre à jour le statut de chaque ligne du tableau (envoyé, répondu, publié, refus) et me l'envoyer.
+- Ven 20/11 (30 min) : (15 min) mettre à jour le statut de chaque ligne du tableau (envoyé, répondu, publié, refus) et me l'envoyer ; (15 min) Malt, Codeur ou Sortlist (N6 à N8) : une seule plateforme, profil gratuit uniquement, ou rien si les statuts ne sont pas réglés.
+- Lun 23/11 : mesure J+28 (voir E).
 
 ## E. Suivi : l'indicateur et la mesure du 23/11/2026
 
@@ -220,7 +222,7 @@ Les week-ends et le mercredi 11/11 (férié) sont des jours de repos. Si un jour
 | # | Critère | Note | Remarque |
 |---|---|---|---|
 | 1 | Intention (cibles adaptées au but) | 1 | Chaque cible a une famille, un message ou une raison de la retirer |
-| 2 | Longueurs (c020) | 1 | Descriptions comptées par outil (162, 302, 744) ; messages comptés ≤ 120 mots |
+| 2 | Longueurs (c020) | 1 | Descriptions comptées par outil (146, 302, 744) ; messages comptés ≤ 120 mots |
 | 3 | Réponse directe (action n° 1 en tête) | 1 | |
 | 4 | Expérience prouvée (réalisations réelles) | 0,5 | Les messages ne citent pas de réalisation (volontaire, c004/c019) ; les liens mènent aux pages qui les portent |
 | 5 | Exactitude (faits cités ou « non trouvé ») | 0,5 | Pages protégées : CCI, La Fabrique du Net, Malt, Sortlist, HelloAsso, Annuaire des entreprises (API officielle utilisée à la place) ; type de lien non vérifié pour la plupart |
