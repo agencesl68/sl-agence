@@ -123,16 +123,17 @@ La visibilité locale se gagne d'abord par la fiche Google (B), les citations (F
 
 | ID | Action | P | Impact attendu | Effort · Qui | Indicateur de réussite | Statut |
 |---|---|---|---|---|---|---|
-| F0 | **Décider le numéro unique** (site, fiche, annuaires) et l'adresse affichée (adresse masquée ou non) | P1 | Condition de toutes les citations | 5 min · Loïc + Sacha | Décision notée dans `journal.md` | à faire |
-| F1 | Bing Places (import depuis la fiche Google) | P2 | Faible à moyen — Bing, Copilot | 15 min · Loïc | Fiche active | à faire |
-| F2 | PagesJaunes (fiche gratuite, refuser les options payantes), Apple Business Connect, vérification Annuaire des entreprises / Pappers / Societe.com (activité et nom commercial) | P2 | Moyen — PagesJaunes occupe 3 places sur la requête 2 | 1 h · Loïc | 4 citations cohérentes | à faire |
-| F3 | Page LinkedIn entreprise + page Facebook avec le même NAP et le lien du site | P2 | Faible à moyen — mentions de marque (meilleur prédicteur de présence dans les AI Overviews, Ahrefs 2025) | 30 min · Loïc | Pages créées | à faire |
+| F0 | **Décider le numéro unique** (site, fiche, annuaires) et l'adresse affichée (adresse masquée ou non) | P1 | Condition de toutes les citations | 5 min · Loïc + Sacha | Décision notée dans `journal.md` | fait (07 67 08 19 43, décision 21/10 et 26/10) |
+| F1 | Bing Places (import depuis la fiche Google) | P2 | Faible à moyen — Bing, Copilot | 15 min · Loïc | Fiche active | en cours (fiche créée le 21/10, validation vers le 02/11) |
+| F2 | PagesJaunes (fiche gratuite, refuser les options payantes), Apple Business Connect, vérification Annuaire des entreprises / Pappers / Societe.com (activité et nom commercial) | P2 | Moyen — PagesJaunes occupe 3 places sur la requête 2 | 1 h · Loïc | 4 citations cohérentes | en cours (PagesJaunes fait ; Apple Business et vérification des fiches restent) |
+| F3 | Page LinkedIn entreprise + page Facebook avec le même NAP et le lien du site | P2 | Faible à moyen — mentions de marque (meilleur prédicteur de présence dans les AI Overviews, Ahrefs 2025) | 30 min · Loïc | Pages créées | fait (LinkedIn, Facebook, Instagram) |
 | F4 | Profil La Fabrique du Net (agences automatisation IA / développement, Grand Est) — conditions et coût à vérifier avant | P2 | Moyen — l'annuaire occupe la requête 4 et liste un concurrent | 30 min · Loïc | Profil publié | à faire |
 | F5 | CCI Alsace Eurométropole : proposer une intervention « facture électronique pour TPE » | P2 | Moyen — lien et mention d'autorité locale | 1 h · Loïc | 1 mention ou lien | à faire |
-| F6 | 1 réseau local (Rhénatic, KM0, CPME 68, club d'entreprises) — **coûts non vérifiés** | P3 | Moyen à long terme — annuaire membres, recommandations | 1 h · Loïc | 1 adhésion ou invitation | à faire |
+| F6 | 1 réseau local (KM0, Alsace Digitale (Rhénatic : domaine détourné le 26/10, retiré), CPME 68, club d'entreprises) — **coûts non vérifiés** | P3 | Moyen à long terme — annuaire membres, recommandations | 1 h · Loïc | 1 adhésion ou invitation | à faire |
 | F7 | Mention « outil réalisé par SL Agence » sur le site d'un client (avec accord) | P3 | Faible à moyen | 15 min/client · Loïc | 1 lien client | à faire |
 | F8 | Proposition à la presse locale (angle facture électronique pour les TPE alsaciennes, cas chiffré anonymisé) | P3 | Moyen si publié | 2 h · Claude (texte) + Loïc (envoi) | 1 article publié | à faire (après E2) |
 | F9 | Profils prestataires Malt / Codeur.com | P3 | Faible | 30 min · Loïc | Profils actifs | à faire |
+| F10 | Campagne backlinks et mentions 27/10 → 21/11 (20 cibles, 6 messages, calendrier quotidien) : voir `backlinks-2026-10.md` | P1 | Moyen à élevé (hypothèse) — aucun domaine référent au 26/10 (Semrush) | 20-30 min/jour · Loïc (Claude prépare, relance le suivi) | ≥ 2 nouveaux domaines référents au 23/11 (Bing Webmaster + Search Console) | en cours (plan livré le 26/10) |
 
 ## Lot G — Conversion (hypothèses à mesurer : rien n'est mesuré tant que A4 n'est pas en place)
 

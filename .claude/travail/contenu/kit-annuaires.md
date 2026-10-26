@@ -1,28 +1,31 @@
 # Kit annuaires et comparatifs : à copier-coller (21/10/2026)
 
+Mis à jour le 26/10/2026 (07 67 08 19 43 seul numéro hors site, « à distance partout en France », prix public « à partir de 500 € »). Calendrier d'envoi et cibles locales : `travail/seo/backlinks-2026-10.md`.
+
 Objectif : être cité par des sources tierces (annuaires, comparatifs) avec les mêmes informations partout.
 Origine : plan GEO `travail/seo/plan-geo-2026-10-21.md` §2 actions 2 et 3, §3 point 5.
 Règles appliquées : aucun nom de client (c004), réalisations reprises de `agence.md` sans enrichissement (c019), quantités en chiffres (c014), pas de déduction non marquée (c011).
 
-## 0. À confirmer avant de commencer (3 points)
+## 0. Décisions prises (plus rien à confirmer, mises à jour le 26/10/2026)
 
-1. **Numéro unique.** Le site met le 07 67 08 19 43 (Sacha) dans le JSON-LD (`telephone`) et le bouton « Appeler » ; le pied de page affiche les deux numéros. Ce kit utilise le **07 67 08 19 43** partout. Si vous préférez le 06 01 16 07 62, remplacez-le partout, JSON-LD compris.
-2. **« Partout en France à distance »** : cette phrase **n'est écrite nulle part** dans `agence.md`, le site, `a-propos` ni `llms.txt` (qui disent : à distance en Alsace et dans le Grand Est). Elle n'est donc **pas** dans les descriptions ci-dessous. Si c'est vrai, dites-le : il suffira de remplacer « en Alsace et dans le Grand Est » par « partout en France » dans ce kit **et** sur le site (même formulation partout, sinon les annuaires et le site se contredisent).
-3. **Compte et identité.** SL Agence est le nom commercial de Sacha Muller (entrepreneur individuel, SIRET 105 220 677 00014, APE 62.01Z, création le 19 mai 2026). Malt et certains annuaires vérifient l'identité : le profil doit être au nom de la personne ou de l'EI. Qui crée les comptes, Sacha ou vous ? Pour les e-mails de validation, l'adresse agence.sl.68@gmail.com est utilisée partout.
+1. **Numéro unique hors site : 07 67 08 19 43** (décision de Loïc, 26/10/2026). Sur le site, le 06 de Loïc reste affiché (contact commercial) : ne pas l'écrire dans les annuaires.
+2. **Zone** : Haut-Rhin sur place, **à distance partout en France** (précisé par Loïc le 23/10/2026, déjà sur le site). Ne plus écrire « Alsace et Grand Est » pour le travail à distance.
+3. **Prix public** : **à partir de 500 €** (décision de Loïc, 26/10/2026). À écrire dans les descriptions ; pour un champ « tarif » ou « TJM » obligatoire, voir §6 Malt.
+4. **Compte et identité.** SL Agence est le nom commercial de Sacha Muller (entrepreneur individuel, SIRET 105 220 677 00014, APE 62.01Z, création le 19 mai 2026). Malt et certains annuaires vérifient l'identité : le profil doit être au nom de la personne ou de l'EI. Qui crée les comptes, Sacha ou Loïc ? À dire avant la création de Malt. E-mail de validation : agence.sl.68@gmail.com.
 
 ## 1. NAP exact (identique au site : pied de page et JSON-LD de `index.html`)
 
 | Champ | Valeur à saisir |
 |---|---|
 | Nom | SL Agence |
-| Adresse | 3 rue Principale, 68580 Friesen (Haut-Rhin, Grand Est, France) |
+| Adresse | 3 rue Principale, 68580 Friesen (Haut-Rhin, Grand Est, France). N'écrire l'adresse complète que si l'annuaire l'exige ; sinon « 68580 Friesen » (l'adresse n'est pas affichée sur la fiche Google) |
 | Téléphone | 07 67 08 19 43 (format international : +33 7 67 08 19 43) |
 | E-mail | agence.sl.68@gmail.com |
 | Site | https://slagence.fr |
 | Horaires | Lundi au samedi, 8 h à 19 h (dimanche fermé) |
 | Création | 19 mai 2026 |
 | SIRET · APE | 105 220 677 00014 · 62.01Z (Programmation informatique) |
-| Fiche Google | https://share.google/Z1kICVkc8RkIBGOQ2 |
+| Fiche Google | https://share.google/Z1kICVkc8RkIBGOQ2 (en ligne, 2 avis) |
 | LinkedIn entreprise | https://www.linkedin.com/company/116042975/ |
 | PagesJaunes | https://www.pagesjaunes.fr/pros/65429543 |
 | Logo | https://slagence.fr/logo.png |
@@ -34,17 +37,17 @@ Règle : ne jamais écrire « 3, rue Principale », « Rue Principale 68580 » n
 
 Longueurs vérifiées avec un contrôle automatique (c020 : à compter, pas à estimer).
 
-**Courte (≈150 caractères)**
+**Courte (162 caractères, comptés)**
 
-DESC-150: Agence d'automatisation, d'IA et de logiciel sur mesure à Mulhouse. Applications métier pour TPE, PME et artisans du Haut-Rhin. Devis gratuit.
+DESC-160: Agence d'automatisation, d'IA et de logiciel sur mesure à Mulhouse. Applications métier pour TPE, PME et artisans, sur place dans le Haut-Rhin. À partir de 500 €.
 
-**Moyenne (≈300 caractères)**
+**Moyenne (302 caractères, comptés)**
 
-DESC-300: SL Agence crée des applications métier, automatisations et assistants IA sur mesure pour TPE, PME et artisans (BTP, transport, travaux agricoles). Basés à Friesen, près de Mulhouse, nous intervenons dans tout le Haut-Rhin. Devis gratuit sans engagement, prix ferme, réponse sous 24 h.
+DESC-300: SL Agence crée des applications métier, automatisations et assistants IA sur mesure pour TPE, PME et artisans (BTP, transport, travaux agricoles). Basés à Friesen, près de Mulhouse, nous intervenons dans le Haut-Rhin et à distance partout en France. À partir de 500 €, devis gratuit, réponse sous 24 h.
 
-**Longue (≈750 caractères)**
+**Longue (744 caractères, comptés)**
 
-DESC-750: SL Agence est une agence d'automatisation, d'intelligence artificielle et de logiciel sur mesure, basée à Friesen, près de Mulhouse (Haut-Rhin). Nous travaillons pour les indépendants, TPE, PME, cabinets et associations : entreprises du BTP et du terrassement, transport, travaux agricoles, artisans. Nous supprimons la double saisie : bons d'intervention signés sur téléphone, fichiers Excel remplacés par un seul écran, devis et factures générés automatiquement, relances de factures, assistants IA, préparation à la facture électronique. Nous nous déplaçons dans tout le Haut-Rhin (Mulhouse, Colmar, Saint-Louis) et travaillons à distance en Alsace et dans le Grand Est. Devis gratuit, prix ferme avant de commencer, réponse sous 24 h.
+DESC-750: SL Agence est une agence d'automatisation, d'intelligence artificielle et de logiciel sur mesure, basée à Friesen, près de Mulhouse (Haut-Rhin). Nous travaillons pour les indépendants, TPE, PME, cabinets et associations : entreprises du BTP et du terrassement, transport, travaux agricoles, artisans. Nous supprimons la double saisie : bons d'intervention signés sur téléphone, fichiers Excel remplacés par un seul écran, devis et factures générés automatiquement, relances de factures, assistants IA, préparation à la facture électronique. Nous nous déplaçons dans tout le Haut-Rhin (Mulhouse, Colmar, Saint-Louis) et travaillons à distance partout en France. À partir de 500 €, devis gratuit, prix ferme avant de commencer, réponse sous 24 h.
 
 **Profil Malt / Codeur (à la première personne du pluriel, titre court)**
 
@@ -73,7 +76,7 @@ automatisation, intelligence artificielle, IA, agent IA, logiciel sur mesure, ap
 - Réponse sous 24 h
 - Premier outil mis en place en 7 jours
 - Jusqu'à 20 h récupérées par semaine chez un client
-- Aucun prix public : ne rien écrire dans les champs « tarif », « budget » ou « TJM » sauf s'ils sont obligatoires (voir §5 Malt).
+- Prix public : « à partir de 500 € » (décision du 26/10/2026). Dans un champ « tarif », « budget » ou « TJM » : écrire « à partir de 500 € » seulement si le champ est un prix de projet ; pour un TJM de Malt, décision de Loïc (voir §6 Malt).
 - Non repris ici : « données exportables à tout moment » (la confirmation de Sacha est encore en attente dans `rappels-seo.md`).
 
 **Méthode en 4 temps (pour les champs « comment travaillez-vous »)**
@@ -104,12 +107,12 @@ Ne joindre ni capture, ni logo, ni nom de client. Aucun témoignage ni avis n'es
 
 Les listes de catégories changent : prenez celles qui existent dans le formulaire, jamais une catégorie éloignée (par exemple « marketing digital » ou « création de site »).
 
-## 5. Annuaires : qui, où, combien (vérifié le 21/10/2026)
+## 5. Annuaires : qui, où, combien (vérifié le 21/10/2026, recontrôlé le 26/10/2026 dans `backlinks-2026-10.md`)
 
 | # | Annuaire | Gratuit ? | Où s'inscrire | Utilité GEO |
 |---|---|---|---|---|
 | 1 | **Annuaire des entreprises** (État) | Oui, fiche automatique depuis Sirene (INSEE) | https://annuaire-entreprises.data.gouv.fr/ : rien à créer, seulement vérifier | Moyen : source officielle, cohérence du NAP |
-| 2 | **Apple Business Connect** | Oui, d'après Apple ([newsroom](https://www.apple.com/fr/newsroom/2023/01/introducing-apple-business-connect/) : « outil gratuit », identifiant Apple requis) | https://business.apple.com/ (puis « revendiquer votre emplacement » dans Plans) | Moyen à fort : alimente Plans, Siri |
+| 2 | **Apple Business Connect** (devenu « Apple Business » sur business.apple.com au 26/10/2026) | Oui, d'après Apple ([newsroom](https://www.apple.com/fr/newsroom/2023/01/introducing-apple-business-connect/) : « outil gratuit », identifiant Apple requis) | https://business.apple.com/ (puis « revendiquer votre emplacement » dans Plans) | Moyen à fort : alimente Plans, Siri |
 | 3 | **La Fabrique du Net** | Aucun tarif d'inscription publié. Des partenariats visibles existent, coût non public. Sélection éditoriale (existence légale, offres claires, références) | https://www.lafabriquedunet.fr/agences/methodologie : sur une fiche agence absente, une invitation « Vous souhaitez référencer » apparaît. Procédure exacte non vérifiée (le site bloque la lecture automatique) | Fort : c'est une source type des comparatifs « meilleures agences » |
 | 4 | **Comparateur-IA** | Pas de grille publique | Contact : https://comparateur-ia.com/contact/ (autres pages : /devenir-partenaire/) | Fort si présent dans « Meilleures agences automatisation IA en 2026 ». Attention : édité par une agence concurrente (NEWP), liens partenaires signalés « sponsored » |
 | 5 | **Impli** | Pas de grille publique | https://www.impli.fr/contact (via « Nous contacter » et « Contact & Partenariats ») | Moyen à fort : liste « Agences IA » de 12 agences, classement non expliqué |
@@ -119,7 +122,7 @@ Les listes de catégories changent : prenez celles qui existent dans le formulai
 | 9 | Clutch, GoodFirms | Non vérifié (aucune condition officielle trouvée) | À ne pas faire cette semaine | Non évalué |
 | 10 | Yelp, Mappy, Cylex, etc. | Non vérifié | À ne pas faire cette semaine : pas de preuve d'utilité en France pour une agence B2B | Non évalué |
 
-Déjà faits (rappels-seo.md) : fiche Google, LinkedIn entreprise, PagesJaunes. Bing Places : en validation (vers le 02/11).
+Déjà faits (rappels-seo.md) : fiche Google (2 avis), LinkedIn entreprise, PagesJaunes, Facebook, Instagram. Bing Places : en validation (vers le 02/11). Abandonné : Yelp. Annuaire des entreprises : fiche présente (vérifiée le 26/10 par l'API officielle).
 
 Réserve sur le rang 3 : la structure existe depuis le 19 mai 2026 et n'a pas d'avis publics en grand nombre (agence.md). La Fabrique du Net peut refuser. Ce n'est pas un échec : demandez, notez la réponse, ne payez pas un partenariat sans me demander une comparaison.
 
@@ -128,7 +131,7 @@ Réserve sur le rang 3 : la structure existe depuis le 19 mai 2026 et n'a pas d'
 **Apple Business Connect** (20 minutes)
 1. Se connecter avec un identifiant Apple sur https://business.apple.com/.
 2. Ajouter l'entreprise : nom, adresse, téléphone, site et horaires du §1.
-3. Coller DESC-150 ou DESC-300 selon la limite du champ.
+3. Coller DESC-160 ou DESC-300 selon la limite du champ.
 4. Valider la vérification demandée par Apple (appel ou justificatif). Ne pas modifier l'adresse en cours de vérification.
 5. Récupérer l'URL publique de la fiche et me l'envoyer pour le `sameAs`.
 
@@ -139,8 +142,8 @@ Réserve sur le rang 3 : la structure existe depuis le 19 mai 2026 et n'a pas d'
 2. Description : DESC-750 réécrite à la première personne **seulement si vous le souhaitez** ; sinon la copier telle quelle.
 3. Compétences : automatisation, développement d'applications métier, intelligence artificielle, Excel vers application.
 4. Réalisations : les 6 lignes du §3.
-5. TJM : Malt peut l'exiger. Ne pas inventer ni recopier la grille interne (agence.md : jamais annoncée sans votre accord). Si le champ est obligatoire, **décision de Loïc requise** (affichage « sur devis » ou valeur à choisir).
-6. Zone : Haut-Rhin sur place, Alsace et Grand Est à distance.
+5. TJM : Malt peut l'exiger. Ne pas inventer ni recopier la grille interne. Le prix public « à partir de 500 € » est un prix de projet, pas un TJM : si le champ est obligatoire, **décision de Loïc requise** (affichage « sur devis » ou valeur à choisir).
+6. Zone : Haut-Rhin sur place, à distance partout en France.
 
 **Codeur** (15 minutes) : créer le profil prestataire gratuit, titre TITRE-MALT, description DESC-300, mêmes services. Ne pas souscrire d'abonnement.
 
@@ -173,7 +176,7 @@ Réserve sur le rang 3 : la structure existe depuis le 19 mai 2026 et n'a pas d'
 > SL Agence, 3 rue Principale, 68580 Friesen
 > 07 67 08 19 43 · agence.sl.68@gmail.com · https://slagence.fr
 
-Avant l'envoi : vérifier que les 3 pages citées sont bien en ligne (PR #17 en ligne le 21/10 selon rappels-seo.md). Ne pas dire « nous sommes les meilleurs ». Si le site répond par une offre payante, ne pas répondre sans m'en parler.
+Avant l'envoi : vérifier que les 3 pages citées sont bien en ligne (PR #17 en ligne le 21/10 selon rappels-seo.md ; pages testées en 200 le 26/10). Ne pas dire « nous sommes les meilleurs ». Si le site répond par une offre payante, ne pas répondre sans m'en parler.
 
 **B. Demande de référencement, La Fabrique du Net**
 
@@ -194,7 +197,7 @@ Avant l'envoi : vérifier que les 3 pages citées sont bien en ligne (PR #17 en 
 
 | Ordre | Action | Temps | Pourquoi |
 |---|---|---|---|
-| 1 | Décider les 3 points du §0 (numéro, « partout en France », qui crée les comptes) | 5 min | Tout le reste en dépend |
+| 1 | Dire qui crée les comptes (point 4 du §0) ; les autres points sont décidés | 5 min | Tout le reste en dépend |
 | 2 | Annuaire des entreprises : vérifier la fiche | 5 min | NAP officiel cohérent |
 | 3 | Apple Business Connect | 20 min | Gratuit, sûr, alimente Plans |
 | 4 | Demande La Fabrique du Net (message B) | 15 min | Source la plus citée dans les comparatifs |
