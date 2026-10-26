@@ -55,7 +55,8 @@ Sources du tableau (toutes consultées le 2026-10-26) :
 **Ce qu'il faut accepter** :
 1. Gratuité « actuelle » et sans engagement écrit : si le service ferme, on remplace la balise (export des données possible, cf. README GitHub).
 2. Pas de DPA public trouvé : on le demande par e-mail à support@goatcounter.com (adresse indiquée sur la page https://www.goatcounter.com/help/campaigns) et on garde la réponse.
-3. GoatCounter n'est pas « validé CNIL » (aucune solution ne l'est depuis le remplacement du programme). L'éditeur dit « probably », il n'est pas juriste.
+3. GoatCounter n'est pas « validé CNIL » (aucune solution ne l'est depuis le remplacement du programme). L'éditeur dit « probably », il n'est pas juriste. Je n'ai trouvé aucun document d'auto-évaluation CNIL publié par GoatCounter (non vérifié) : on le demande au support.
+4. Le script envoie le titre de la page, la largeur d'écran, le référent complet et la chaîne de paramètres de l'adresse (`location.search`), d'après le code public https://github.com/arp242/goatcounter (public/count.js, consulté le 2026-10-26). Ce n'est pas bloquant tant qu'on ne met ni UTM ni donnée personnelle dans nos liens, mais c'est plus large que le minimum recommandé par la CNIL (référent limité au domaine, pas d'UTM).
 
 **Plan B** : Umami Cloud Hobby (DPA existant, événements), au prix d'un hébergement États-Unis/Allemagne et de 14 sous-traitants à citer dans la politique de confidentialité.
 
@@ -67,7 +68,7 @@ Les champs exacts du formulaire n'ont pas été vérifiés (page d'inscription n
 3. Renseigner le domaine `slagence.fr`.
 4. Dans les réglages, onglet « Tracking » : ajouter l'adresse IP de Loïc dans la liste d'IP ignorées (fonction vérifiée sur https://www.goatcounter.com/code/skip-dev). Ouvrir une fois `https://slagence.fr/#toggle-goatcounter` sur chaque navigateur de Loïc et de Sacha pour ne pas fausser les chiffres.
 5. Noter le code du site et le transmettre au Manager (pas d'identifiants dans le dépôt).
-6. Écrire à support@goatcounter.com : « Je suis éditeur de slagence.fr (France, RGPD). Fournissez-vous un accord de sous-traitance (DPA) ? Les données sont-elles bien hébergées chez Hetzner (Finlande/Allemagne) ? Peut-on désactiver la collecte des paramètres UTM ? » et conserver la réponse.
+6. Écrire à support@goatcounter.com : « Je suis éditeur de slagence.fr (France, RGPD). Fournissez-vous un accord de sous-traitance (DPA) ? Avez-vous rempli l'outil d'auto-évaluation CNIL (juillet 2025) pour GoatCounter ? Pouvez-vous me le transmettre ? Les données sont-elles bien hébergées chez Hetzner (Finlande/Allemagne) ? Peut-on désactiver la collecte des paramètres UTM et des paramètres d'adresse ? Peut-on limiter la conservation des statistiques à 25 mois, et si oui, où se règle-t-elle ? » et conserver la réponse.
 
 ## 5. Ce qu'il faudra ajouter au site (rien n'est modifié)
 
@@ -94,14 +95,42 @@ Il faut modifier trois endroits :
 - Ligne 877 : « aucun appel à Google Fonts ni à YouTube » reste vrai, mais la balise appelle désormais gc.zgo.at et goatcounter.com : le préciser.
 - Ligne 881 : la phrase « Si nous ajoutons un jour… » est à remplacer ; ajouter GoatCounter dans la liste des destinataires (section 04, ligne 844 environ). Pas de transfert hors UE à ajouter à la section 05, **si** l'hébergement UE est confirmé par la réponse au point 6.
 
-Texte proposé (à faire valider par Loïc ; chaque phrase est tirée de la page GoatCounter citée) :
+Texte proposé (à faire valider par Loïc) :
 
-> **Mesure d'audience.** Le site utilise GoatCounter, un outil de statistiques qui ne dépose aucun cookie et ne stocke aucune information dans votre navigateur. Il compte les pages consultées, les sites d'origine des visiteurs et les clics sur les boutons « Appeler » et « Prendre rendez-vous ». Votre adresse IP et votre navigateur ne sont pas enregistrés ; seul un identifiant aléatoire est conservé. Les données sont hébergées chez Hetzner Online GmbH, en Finlande et en Allemagne. Elles servent uniquement à mesurer la fréquentation du site, pour le compte de SL Agence, sur la base de notre intérêt légitime à connaître l'usage du site. **Vous pouvez vous y opposer** : [ne pas être compté](https://slagence.fr/#toggle-goatcounter).
+> **Mesure d'audience.** Le site utilise GoatCounter, un outil de statistiques exploité depuis l'Irlande, qui ne dépose aucun cookie. Il nous donne les informations suivantes : les pages consultées et leurs titres, le site d'origine du visiteur, le navigateur et le système utilisés, la taille de l'écran, le pays, les paramètres de campagne de l'adresse (le cas échéant) et les clics sur les boutons « Appeler » et « Prendre rendez-vous ». Votre adresse IP et l'en-tête complet de votre navigateur ne sont jamais enregistrés sur disque ; ils sont gardés en mémoire au plus 8 heures pour ne pas compter deux fois la même visite. Les données sont hébergées chez Hetzner Online GmbH, en Finlande et en Allemagne, et conservées 25 mois au plus. Elles servent uniquement à mesurer la fréquentation du site, pour le compte de SL Agence, sur la base de notre intérêt légitime à connaître l'usage du site. **Vous pouvez refuser d'être compté** : [ne plus être compté](https://slagence.fr/#toggle-goatcounter). Dans ce cas, un simple indicateur est enregistré dans votre navigateur pour retenir ce choix.
 
-Réserves : la phrase « ne sont pas enregistrés » reprend https://www.goatcounter.com/help/sessions (IP et User-Agent « never stored to the database or disk ») ; un export GoatCounter liste pourtant un champ User-Agent (source tierce, non vérifié) → à confirmer avec la réponse du support avant publication. Le lien d'opposition utilise la fonction officielle `#toggle-goatcounter` (https://www.goatcounter.com/code/skip-dev) ; la page ne précise pas ce qu'elle stocke dans le navigateur (non vérifié) : à tester avant publication.
+**Sources de chaque affirmation du texte :**
+- Pas de cookie, rien d'autre stocké dans le navigateur : https://www.goatcounter.com/privacy (consultée le 2026-10-26).
+- IP et en-tête du navigateur « never stored to the database or disk », mémoire de 8 heures : https://www.goatcounter.com/help/sessions et /privacy.
+- Pages, titres, référent, largeur d'écran, paramètres d'adresse, clics : code public https://github.com/arp242/goatcounter (public/count.js).
+- Hetzner Finlande/Allemagne, exploitant en Irlande : https://www.goatcounter.com/privacy et /terms.
+- Pays et navigateur : https://github.com/arp242/goatcounter (« Browser, location, screen size, referring sites, campaigns »). **Système d'exploitation : non vérifié** (le README ne cite que le navigateur) ; retirer « et le système » si le support ne le confirme pas. **Région/ville : non vérifié, donc non mentionné.**
+- Intérêt légitime et opposition : exigés par la FAQ CNIL (question 10) ; c'est notre choix de base juridique, pas une affirmation de GoatCounter.
+
+**Points à confirmer avant publication :**
+- **Durée de conservation 25 mois** : c'est une recommandation CNIL ; je n'ai trouvé aucun réglage de durée dans la documentation GoatCounter (non vérifié). La question est posée au support (§4, point 6). Sans réglage possible, Loïc supprime à la main les données de plus de 25 mois, ou la phrase est retirée.
+- **Hébergement Hetzner et « jamais enregistrés sur disque »** : à faire confirmer par le support, car un export GoatCounter liste un champ User-Agent (source tierce, non vérifiée).
+
+**Lien « ne plus être compté » (constaté dans le code public https://github.com/arp242/goatcounter, public/count.js, consulté le 2026-10-26)** : `#toggle-goatcounter` enregistre dans le navigateur une clé `skipgc` = `t` (aucun identifiant), puis le script affiche une fenêtre d'alerte. Pour Loïc : **le message de confirmation s'affiche en anglais** (« GoatCounter tracking is now DISABLED in this browser until … is loaded again »). Le visiteur est ensuite non compté tant que cette clé existe ; cliquer à nouveau sur le lien le recompte. Il faudra le préciser juste avant le lien (par exemple : « Un message de confirmation en anglais s'affichera »).
 
 ## 6. Actions
 
 1. **Loïc** : créer le compte (§4) et envoyer l'e-mail au support. 15 min au total.
 2. **seo-site** (après réponse du support) : pull request ajoutant la balise, les attributs de clic et le texte du §5c ; aucune mise en ligne avant validation de Loïc (règle 4).
 3. **Manager** : à J+28, lire les chiffres (pages, clics Appeler) et consigner le résultat dans `memoire/apprentissages.md`.
+
+## 7. Auto-évaluation (grille du manuel `savoirs/veille.md` §4, adaptée : chaque outil est traité comme une fiche concurrent)
+
+| Critère | Points | Note | Justification |
+|---|---|---|---|
+| Identité vérifiée | 1 | 1 | Éditeurs, exploitants et URL consultées pour les 5 outils |
+| Offre décrite | 1 | 1 | Une ligne par outil dans le tableau |
+| Prix publics | 1,5 | 1,5 | Montants avec URL ; devise Matomo et mensuel/annuel Plausible signalés comme non précisés |
+| Sources et dates | 1,5 | 1,25 | Toutes les pages sont datées du 2026-10-26 ; plusieurs cases Matomo et Cloudflare restent « non vérifié » |
+| Constaté / hypothèse | 1 | 1 | Hypothèses et « non vérifié » étiquetés (art. 82 sans cookie, système d'exploitation, requêtes Google) |
+| Force et faiblesse | 1 | 1 | Ligne « Point faible » par outil |
+| Visibilité | 1 | 0 | Sans objet pour un outil de mesure : non traité, aucun point accordé |
+| Opportunité pour SL Agence | 1 | 1 | Recommandation unique et plan B |
+| Action recommandée | 1 | 0,75 | Actions attribuées (Loïc, seo-site, Manager) ; dépendent d'une réponse du support qui peut changer le texte |
+
+**Note : 8,5 / 10** (1 + 1 + 1,5 + 1,25 + 1 + 1 + 0 + 1 + 0,75 ; seuil 8). Limites restantes : pas de DPA ni de document d'auto-évaluation CNIL de GoatCounter trouvés ; durée de conservation et système d'exploitation non vérifiés ; aucun outil n'est « validé CNIL ».
