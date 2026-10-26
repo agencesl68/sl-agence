@@ -3,6 +3,13 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-10-26 — Campagne backlinks lancée (0 domaine référent au départ)
+
+- Directive Loïc : sortir du « off-page 0 % ». Chaîne analyste → seo-site → contrôle qualité (À CORRIGER 8,5 puis VALIDÉ 9/10).
+- Livrable : `travail/seo/backlinks-2026-10.md` — 20 cibles vérifiées (9 locales), kit annuaires mis à jour (07 seul hors site, « partout en France à distance », « à partir de 500 € »), 6 messages, calendrier 27/10 → 20/11 (≤ 30 min/jour).
+- Retirées : Rhénatic (domaine détourné, page de casino), REISA (domaine à vendre). Correction c027 créée (signature unique).
+- Mesure J+28 le 23/11/2026 (Bing Webmaster > Backlinks, Search Console > Liens). Barème proposé : gagné ≥ 2 domaines référents indépendants.
+
 ## 2026-10-26 — Audit Semrush : santé du site 100 %
 
 - **Résultat mesuré** : audit de site Semrush (compte gratuit, 41 URL) passé de **95 % → 100 %** de santé, **19 erreurs → 0**, **33 avertissements → 0**, pages saines 3 → 33 ; santé recherche IA 99 %. Corrections : PR #26 (adresse sur les 19 `ProfessionalService` imbriqués, menu.min.js, CSS de l'accueil et du blog sortis du HTML, hreflang, méta-description) et PR #27 (Facebook, Instagram, LinkedIn à son adresse publique).

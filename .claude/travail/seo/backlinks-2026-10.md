@@ -1,4 +1,4 @@
-# Stratégie de backlinks et de mentions : 27/10 au 21/11/2026 (mesure le 23/11)
+# Stratégie de backlinks et de mentions : 27/10 au 20/11/2026 (mesure le 23/11)
 
 Rédigé le 26/10/2026 par `seo-site`, d'après le brief `travail/transmissions/2026-10-26-analyste-vers-seo-site-backlinks.md`.
 Règles : aucun lien acheté, aucun échange massif, aucune dépense sans accord de Loïc (règle 10 du manuel, Google : règles anti-spam), pas de promesse de classement. Les déductions sont marquées « hypothèse ».
@@ -61,7 +61,7 @@ Le fichier existant est conservé (NAP, services, catégories, pas à pas, messa
 
 1. **Téléphone** : 07 67 08 19 43 seul numéro hors site (décision du 26/10). Le §0 point 1 est clos.
 2. **Zone** : « à distance partout en France » (précisé par Loïc le 23/10, déjà sur le site). Le §0 point 2 est clos ; les descriptions 300 et 750 sont réécrites.
-3. **Prix public** : « à partir de 500 € » (décision du 26/10), ajouté aux descriptions 150, 300 et 750. La ligne « Aucun prix public » des engagements est remplacée. Pour Malt, le TJM reste une décision à part (pas le même chiffre).
+3. **Prix public** : « à partir de 500 € » (décision du 26/10), ajouté aux descriptions 160, 300 et 750. La ligne « Aucun prix public » des engagements est remplacée. Pour Malt, le TJM reste une décision à part (pas le même chiffre).
 4. **Descriptions recomptées** (outil Python, c020) : courte **146** caractères, moyenne **302**, longue **744**. Les mentions « Devis gratuit, prix ferme » sont conservées en moyenne et longue.
 5. **Statuts** : fiche Google, PagesJaunes, LinkedIn, Facebook, Instagram faits ; Bing Places en validation. Apple Business Connect s'appelle désormais Apple Business (même adresse https://business.apple.com/).
 6. **Mise à jour du §5 et de la checklist §8** : Annuaire des entreprises vérifié (fiche existante), Codeur confirmé mot pour mot, Rhénatic non repris, renvoi vers ce fichier pour le calendrier.
@@ -196,7 +196,7 @@ Les week-ends (dont le samedi 21/11) et le mercredi 11/11 (férié) sont des jou
 - Mar 17/11 (15 min) : relance C4 à L'Alsace ; envoyer C4 à ici Alsace si les deux premières rédactions n'ont rien répondu.
 - Mer 18/11 (15 min) : relancer les clients (C5) qui n'ont pas répondu, une fois.
 - Jeu 19/11 (20 min) : décisions budget : CPME 68 (L4), Alsace Digitale (L6), KMØ (L5, formulaire) ; envoyer le formulaire KMØ si la réponse est oui.
-- Ven 20/11 (30 min) : (15 min) mettre à jour le statut de chaque ligne du tableau (envoyé, répondu, publié, refus) et me l'envoyer ; (15 min) Malt, Codeur ou Sortlist (N6 à N8) : une seule plateforme, profil gratuit uniquement, ou rien si les statuts ne sont pas réglés.
+- Ven 20/11 (30 min) : (15 min) mettre à jour le statut de chaque ligne du tableau (envoyé, répondu, publié, refus) et me l'envoyer ; (15 min) Codeur ou Sortlist (N7, N8) : une seule plateforme, profil gratuit uniquement, ou rien si les statuts ne sont pas réglés. Malt (N6, 30 min) : à faire un autre jour.
 - Lun 23/11 : mesure J+28 (voir E).
 
 ## E. Suivi : l'indicateur et la mesure du 23/11/2026
@@ -213,7 +213,7 @@ Les week-ends (dont le samedi 21/11) et le mercredi 11/11 (férié) sont des jou
 **Barème de verdict (à valider)** : gagné = au moins 2 nouveaux domaines référents indépendants (hors fiches que nous créons nous-mêmes) ; neutre = 1 ; perdu = 0 avec au moins 6 messages envoyés. Le délai pour qu'un organisme publie dépasse parfois 4 semaines : si les messages ont été envoyés après le 06/11, prévoir une seconde mesure le 21/12/2026.
 
 **Ligne prête pour `memoire/apprentissages.md`** (section SEO, à remplir le 23/11) :
-`2026-11-23 · Backlinks, campagne du 27/10 au 21/11 : <n> messages envoyés (CCI, CMA, commune, presse, client, expert-comptable), <n> réponses, <n> nouveaux domaines référents (Bing Webmaster / Search Console). Source qui a répondu : <…>. Verdict : gagné / neutre / perdu. Leçon : <…>.`
+`2026-11-23 · Backlinks, campagne du 27/10 au 20/11 : <n> messages envoyés (CCI, CMA, commune, presse, client, expert-comptable), <n> réponses, <n> nouveaux domaines référents (Bing Webmaster / Search Console). Source qui a répondu : <…>. Verdict : gagné / neutre / perdu. Leçon : <…>.`
 
 **Entrée pour `travail/seo/experiences.md`** (à créer à l'envoi du premier message) : action « campagne backlinks S1-S4 » ; hypothèse « 2 domaines référents d'ici le 23/11 » ; indicateur « domaines référents Bing / GSC » ; valeur avant « 0 (Semrush 26/10), à confirmer le 27/10 » ; date de mesure 23/11/2026.
 

@@ -39,6 +39,8 @@
 
 ## À rappeler (en attente)
 
+- [ ] Campagne backlinks (`travail/seo/backlinks-2026-10.md`) : relevé J0 le **27/10**, une action par jour ouvré jusqu'au 20/11, mesure J+28 le **2026-11-23**. Valider le barème (gagné ≥ 2 domaines référents).
+
 - [x] 2026-10-21 · PR #17 (GEO : choisir son agence, À propos, étude de cas épandage, LinkedIn + PagesJaunes) et PR #18 (date de création) en ligne. Renvoyer le sitemap.
 - [ ] **Lundi 2026-10-26** : premier relevé du suivi IA (10 questions locales + questions nationales × ChatGPT, Gemini, Perplexity, Copilot) — plan-geo §4 et §6.
 
