@@ -8,6 +8,10 @@
 
 - 2026-10-26 · Prix affiché : **à partir de 500 €** (Loïc). Mesure d'audience : pas d'outil payant → solution gratuite à proposer.
 
+- 2026-10-26 · Téléphone (Loïc) : **07 67 08 19 43 partout hors site** (fiches, annuaires, Yelp, Bing, presse). **Sur le site, on garde aussi le 06 de Loïc** (c'est lui qui reçoit les appels commerciaux) : numéro principal déclaré aux moteurs = 07 (`telephone`), 06 = contact « sales » de Loïc (`contactPoint`). Ne plus proposer de retirer le 06 du site.
+- 2026-10-26 · Fiche Google : Loïc a ajouté la localisation (Friesen) ; adresse non affichée publiquement. Ne plus reposer la question.
+- 2026-10-26 · Yelp : Loïc crée la fiche gratuite (même nom, adresse, 07). Lien public à ajouter au `sameAs` quand il l'envoie.
+
 - 2026-10-23 · Loïc lève la pause de l'article terrassement (rédigé le 23/10) et autorise la page Colmar sans attendre le bilan du 11/11.
 
 - 2026-10-21 · Numéro unique (décision F0, Loïc) : **07 67 08 19 43** partout (annuaires, fiches, presse, site).
