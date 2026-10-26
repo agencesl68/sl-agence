@@ -16,3 +16,7 @@ for f in glob.glob('*.html')+glob.glob('blog/*.html'):
     t=re.sub(r'<style id="menu-css">.*?</style>',lambda m:block,t,flags=re.S)
     if t!=o: open(f,'w',encoding='utf-8').write(t); n+=1
 print(n,'pages mises à jour')
+# menu.js est la source lisible ; les pages chargent menu.min.js (Semrush signale les JS non minifiés).
+import subprocess
+r=subprocess.run(['npx','--yes','terser@5','assets/menu.js','-c','-m','-o','assets/menu.min.js'],capture_output=True,text=True)
+print('menu.min.js régénéré' if r.returncode==0 else 'ATTENTION : menu.min.js non régénéré, lancer : npx terser assets/menu.js -c -m -o assets/menu.min.js')

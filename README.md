@@ -49,3 +49,14 @@ Traitées en bichromie pour tenir avec la charte.
 - **Logos** : `logo-sl.png` et `logo-sl-mark.png` (masques CSS), plus de base64 dans les pages.
 - **404** : `404.html` est servie automatiquement par GitHub Pages.
 - **Modèles téléchargeables** : `modeles/` (Word, Excel, PDF) ; visuels des articles dans `img/blog/`.
+
+## Styles et scripts partagés (assets/)
+
+- `assets/menu.css` et `assets/menu.js` : sources du menu. Après modification,
+  lancer `python3 assets/inject-menu.py` (réinjecte le CSS dans chaque page et
+  régénère `assets/menu.min.js`, seul fichier chargé par les pages).
+- `assets/accueil.css` et `assets/blog-index.css` : styles de l'accueil et de la
+  page blog, sortis du HTML (ratio texte/HTML signalé par Semrush). Les pages
+  chargent les versions `.min.css` : après modification, lancer
+  `npx clean-css-cli -O1 -o assets/accueil.min.css assets/accueil.css`
+  (idem pour `blog-index`).
