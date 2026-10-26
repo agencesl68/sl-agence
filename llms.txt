@@ -9,6 +9,7 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 ## Services
 
 - [Automatisation des tâches administratives](https://slagence.fr/automatisation-taches-administratives): saisies en double, relances, documents et tableaux de bord automatisés avec les outils existants.
+- [Connecter ses logiciels d'entreprise](https://slagence.fr/connecter-logiciels-entreprise): Excel, messagerie, agenda, comptabilité et facturation reliés entre eux (accès direct, export ou application au milieu), limites techniques à vérifier outil par outil.
 - [Logiciel sur mesure](https://slagence.fr/logiciel-sur-mesure): ce qui fait le prix, les délais et la méthode.
 - [Remplacer Excel](https://slagence.fr/remplacer-excel): une application partagée à la place des fichiers Excel multiples.
 - [Relance automatique de factures](https://slagence.fr/relance-factures-automatique): relances de factures et de devis envoyées au bon moment.

@@ -167,3 +167,13 @@ La visibilité locale se gagne d'abord par la fiche Google (B), les citations (F
 | G1 | Page `/logiciel-transport-sur-mesure` (pilier transport, commerciale, liens croisés avec l'article) | P1 | Impressions « logiciel transport sur mesure / gestion flotte / transport routier » | fait | Claude | en cours (PR à fusionner par Loïc) |
 | G2 | Page `/logiciel-artisan-sur-mesure` (artisans bâtiment et hors bâtiment, renvoie vers /logiciel-btp-sur-mesure) | P1 | Impressions « logiciel artisan / devis facture artisan » | fait | Claude | en cours (PR à fusionner par Loïc) |
 | G3 | Après fusion : soumettre les 2 URL dans Search Console et Bing Webmaster Tools | P1 | Indexation plus rapide | 5 min | Loïc | à faire |
+
+## 2026-10-26 — Pages qui vendent (export Search Console du 26/10)
+
+| Action | Priorité | Impact | Effort | Qui | Statut |
+|---|---|---|---|---|---|
+| `/remplacer-excel` : intention « remplacer Excel par une application » (H1 inchangé, title/meta INCHANGÉS jusqu'à la mesure du 16/11), tableau avant/après patrimoine, liens entrants descriptifs | P1 | moyen (impr. 125, pos. 24,4, 0 clic) | 2 h | Claude | en cours (branche, PR à faire par Loïc) |
+| Encarts de conversion dans les articles de relance et feuille d'heures | P1 | moyen (article devis : 581 impr., 2 clics) | 1 h | Claude | en cours |
+| Nouvelle page `/connecter-logiciels-entreprise` | P2 | faible à moyen (demande probablement faible, pages concurrentes surtout éditeurs et blogs) | 3 h | Claude | en cours |
+| `/logiciel-sur-mesure` : section « Exemples par métier » ; prix « à partir de 500 € » | P1 | moyen | 1 h | Claude | en cours |
+| Mesure J+28 de ces 4 chantiers, hors titles/metas (déjà datés du 19/10) | P1 | — | 30 min | Claude | à faire (≈ 2026-11-23 après mise en ligne) |
