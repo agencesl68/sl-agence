@@ -8,7 +8,7 @@
 
 ## 0. À savoir avant de lancer (honnêteté sur les chances)
 
-- **Le volume local est probablement très faible.** Le 26/10/2026, la saisie semi-automatique Google ne propose **aucune** suggestion pour « logiciel sur mesure mulhouse », « logiciel sur mesure alsace », « logiciel sur mesure haut-rhin », « application sur mesure mulhouse », « logiciel btp mulhouse », « logiciel transport mulhouse ». Cela ne prouve pas un volume de 0 (la saisie masque les requêtes rares), mais c'est un indice de faible demande. La zone « Haut-Rhin » en « Présence » fait le travail local : les mots-clés sans ville (ex. « développement logiciel sur mesure », présent dans la saisie auto) ne seront montrés qu'aux personnes présentes dans le département.
+- **Le volume local est probablement très faible.** Le 26/10/2026, la saisie semi-automatique Google ne propose **aucune** suggestion pour « logiciel sur mesure mulhouse », « logiciel sur mesure alsace », « logiciel sur mesure haut-rhin », « application sur mesure mulhouse », « logiciel btp mulhouse », « logiciel transport mulhouse ». Cela ne prouve pas un volume de 0 (la saisie masque les requêtes rares), mais c'est un indice de faible demande. La zone « Haut-Rhin » en « Présence » fait le travail local : les mots-clés sans ville (ex. « développement logiciel sur mesure », présent dans la saisie auto) ne seront montrés qu'aux personnes situées dans le département ou qui s'y rendent régulièrement.
 - **Aucun volume n'est inventé.** Search Console ne donne que les impressions de notre propre site (3 mois, du 31/08 au 19/10/2026 : « remplacer excel » 23, « application excel sur mesure » 19, « agence automatisation ia » 27) : ce n'est pas la demande du marché. Le chiffre de demande réel viendra du **Planificateur de mots clés** du compte Ads (à ouvrir avant de publier : voir étape 1 du pas-à-pas) et, ensuite, du rapport « Termes de recherche ». Tout volume ci-dessous est « non mesuré ».
 - **Estimation du plan (hypothèse, non sourcée)** : 26 à 140 clics sur 3 semaines pour 210 € HT (CPC de 1,50 € à 8 €). Sur cette base, le but réaliste est d'obtenir **quelques demandes de contact**, pas du trafic. Si le Planificateur indique des volumes quasi nuls, la décision honnête est de ne pas dépenser les 210 € et de les garder.
 - **Cohérence annonce / page** : la mention « à partir de 500 € » n'est affichée que sur `/logiciel-sur-mesure` (vérifié par recherche dans le dépôt : 0 occurrence sur `logiciel-btp-sur-mesure.html`, `logiciel-transport-sur-mesure.html`, `bon-intervention-numerique.html`, `remplacer-excel.html`). **Le prix n'apparaît donc que dans les annonces du groupe 1.** Les groupes 2 et 2B n'en mentionnent aucun, pour ne pas envoyer le visiteur sur une page qui contredit l'annonce.
@@ -33,8 +33,8 @@
 | AI Max, « Adaptation du texte », « Extension d'URL finale » | **Tout désactiver** (Campagnes > Paramètres > AI Max, puis décocher chaque option). Sans cela, Google peut envoyer le visiteur sur une autre page et réécrire les annonces | Oui pour AI Max et l'extension d'URL finale (aides 15909989 et 16230205). Le panneau exact « Optimisation des composants » : non vérifié |
 | Recommandations de Google | Ne rien appliquer automatiquement ; ne pas accepter « mots-clés en requête large » ni « augmenter le budget » | Principe seulement ; le menu exact des « recommandations appliquées automatiquement » n'a pas été vérifié |
 | Mots-clés | Uniquement **Expression exacte** et **Mot clé exact**. Jamais « Requête large » | Oui : 3 types sur le Réseau de Recherche, la requête large étant le type par défaut (aide 2453972) |
-| Suivi des appels (compte) | **Désactivé**, pour que le vrai 07 67 08 19 43 s'affiche (décision de Loïc : 07 partout, sans second numéro) | Oui : Admin > Paramètres du compte > « Suivi des appels » > Désactivé ; Google précise alors qu'il ne peut plus suivre les appels (aide 9141717). Contrepartie : pas de durée d'appel ni de rapport d'appels |
-| Balise de suivi sur le site | **Aucune** (Loïc refuse les outils tiers ; la CNIL exclut le suivi marketing de l'exemption de consentement) | Décision de Loïc, 2026-10-26 |
+| Suivi des appels (compte) | **Désactivé**, pour que le vrai 07 67 08 19 43 s'affiche (décision de Loïc du 26/10 : 07 partout hors site ; le 06 reste sur le site) | Oui : Admin > Paramètres du compte > « Suivi des appels » > Désactivé ; Google précise alors qu'il ne peut plus suivre les appels (aide 9141717). Contrepartie : pas de durée d'appel ni de rapport d'appels |
+| Balise de suivi sur le site | **Aucune** (Loïc refuse les outils tiers ; la CNIL exclut le suivi marketing de l'exemption de consentement : « Cookies : solutions pour les outils de mesure d'audience », 04/07/2025, cité dans savoirs/seo.md § 6) | Décision de Loïc, 2026-10-26 |
 
 ### Frais réglementaires France : statut vérifié
 
@@ -45,6 +45,7 @@
 
 ## 2. Budget : comment tenir 210 € HT
 
+0. Si l'assistant propose un « budget total de la campagne » (avec dates de début et de fin), le choisir et saisir 210 € : selon l'aide 10486938, le montant payé « ne dépassera jamais votre budget total » (hors supplément France de 2 %). Disponibilité pour le Réseau de Recherche : non vérifiée. Sinon, 10 €/jour et les verrous ci-dessous.
 1. Google peut dépenser jusqu'à 20 € un jour donné avec un budget de 10 € ; la moyenne se rééquilibre sur le mois (aide 10486938). Sur 21 jours, 210 € est la cible, pas une garantie.
 2. **Verrou le plus sûr (à vérifier sur le compte)** : si le paiement manuel (prépaiement) est proposé, payer **215 €** : les annonces s'arrêtent quand le solde est dépensé. L'aide indique que les suppléments sont facturés une fois le paiement entièrement dépensé et qu'un solde négatif peut apparaître : donc un prépaiement de 215 € peut dépasser de quelques euros. La disponibilité du paiement manuel sur ce compte est **non vérifiée**.
 3. À défaut : date de fin posée, puis contrôle **J+7 (2026-11-04 si lancement le 28/10)** et **J+14** : coût cumulé > 110 € à J+7 ou > 160 € à J+14 = baisser le budget à 7 €/jour (seuils internes SL Agence, pas des normes Google).
@@ -105,9 +106,9 @@ Signal de demande = présence de la requête dans la saisie semi-automatique Goo
 | 6 | Devis gratuit sous 24 h | 23/30 |
 | 7 | Prix ferme annoncé d'avance | 27/30 |
 | 8 | Remplacez vos fichiers Excel | 28/30 |
-| 9 | Un seul écran, plus d'Excel | 27/30 |
+| 9 | Tous vos fichiers, un écran | 27/30 |
 | 10 | Sans cahier des charges | 23/30 |
-| 11 | Diagnostic offert, 15 minutes | 29/30 |
+| 11 | Diagnostic offert | 17/30 |
 | 12 | SL Agence, Friesen (68) | 23/30 |
 | 13 | Vos données restent à vous | 26/30 |
 | 14 | Outils en service en Alsace | 27/30 |
@@ -511,7 +512,7 @@ Au J+3, J+7, J+14 : rapport « Termes de recherche » de la campagne ; ajouter e
 - Numéro : **07 67 08 19 43** (France). Pas de numéro dans le texte des annonces (il se met uniquement dans ce composant).
 - Planning (« Options avancées » du composant) : lundi au samedi, 8 h 00 à 19 h 00, comme la campagne (l'aide 2453991 confirme la planification du composant).
 - Rapport d'appels : désactivé (voir § 1). Un clic sur le bouton d'appel est facturé au CPC normal (même aide).
-- Les appels arrivent sur le téléphone de Sacha (le 07). Question à Loïc en fin de document.
+- Les appels arrivent sur le 07. Prévenir Sacha (voir § 11).
 
 ### 8.2 Informations sur l'établissement (ex-« composant Lieu »)
 
@@ -587,7 +588,7 @@ Autres lectures gratuites, sans nouvelle balise : recherches sur la marque « SL
 1. **Compte** : ouvrir le compte Google Ads en **mode Expert** (pas la campagne intelligente), pays France, devise euro, fuseau Europe/Paris. Ouvrir le **Planificateur de mots clés** (menu Outils) et regarder les prévisions des mots-clés du groupe 1 : si les clics prévus sont quasi nuls ou le CPC > 8 €, **me le dire avant d'aller plus loin**. Si Google demande la validation de l'identité de l'annonceur (Admin > Règlement > Compte), la faire.
 2. **Nouvelle campagne** : Campagnes > « + » > « Créer une campagne sans objectif spécifique » > type « Rechercher ». Nom du § 1.
 3. **Réseaux, zone, langue** : décocher « Inclure les partenaires du Réseau de Recherche de Google » et « Réseau Display ». Zone « Haut-Rhin » en option « Présence ». Langue français. Désactiver AI Max, adaptation du texte et extension d'URL finale.
-4. **Budget, enchères, dates** : 10 €/jour ; optimisation « Clics » ; limite d'enchère au CPC maximale 3 € ; dates début et fin (§ 1). Dans « Afficher plus de paramètres », créer le « Calendrier de diffusion des annonces » lundi-samedi 8 h-19 h.
+4. **Budget, enchères, dates** : budget total de 210 € si l'option est proposée, sinon 10 €/jour ; optimisation « Clics » ; limite d'enchère au CPC maximale 3 € ; dates début et fin (§ 1). Dans « Afficher plus de paramètres », créer le « Calendrier de diffusion des annonces » lundi-samedi 8 h-19 h.
 5. **Groupe 1** : coller les mots-clés du § 4 ; annonce responsive : URL finale, chemin d'affichage, 15 titres, 4 descriptions (copier-coller des tableaux). Vérifier l'« Efficacité de l'annonce » (viser « Bonne » ; ne pas ajouter de titres non listés ici).
 6. **Groupe 2** (§ 5), puis **groupe 2B** (§ 6, facultatif) : même méthode, chacun avec sa page d'arrivée.
 7. **Exclusions** : coller la liste du § 7.1 au niveau campagne, puis celles du § 7.2 dans chaque groupe.
@@ -599,7 +600,7 @@ Autres lectures gratuites, sans nouvelle balise : recherches sur la marque « SL
 
 - **Non vérifié** (aide Google Ads consultée le 2026-10-26, interface non ouverte) : libellé « mode Expert » et nom exact du « Planificateur de mots clés » ; « Haut-Rhin » comme lieu ciblable ; raccourci « Lun-Sam » du calendrier ; budget total pour le Réseau de Recherche ; libellé exact de l'option de limite de CPC dans l'assistant ; limite de 35 caractères des descriptions de liens annexes et de 25 des valeurs d'extraits ; menu des recommandations appliquées automatiquement ; liaison de la fiche Google avec une adresse masquée ; régime de TVA des factures Google ; disponibilité du paiement manuel.
 - **Hypothèses chiffrées** : CPC max 3,00 €, 70 clics, seuils du § 9 et du § 2.
-- **Décisions pour Loïc** : (1) oui/non au plafond de 210 € HT (214,20 € HT avec le supplément France à 2 %) ; (2) garder le groupe 2B transport ou le retirer ; (3) les appels sonnent chez Sacha (07) pendant 8 h-19 h du lundi au samedi : est-il prévenu, ou préfères-tu que l'annonce affiche le 06 (hors décision « 07 partout ») ? (4) date de lancement ; (5) accord de Sacha sur la page d'offre pour remplacer l'URL du groupe 1.
+- **Décisions pour Loïc** : (1) oui/non au plafond de 210 € HT (214,20 € HT avec le supplément France à 2 %) ; (2) garder le groupe 2B transport ou le retirer ; (3) prévenir Sacha : les appels de l'annonce sonnent sur le 07, du lundi au samedi de 8 h à 19 h ; (4) date de lancement ; (5) accord de Sacha sur la page d'offre pour remplacer l'URL du groupe 1.
 
 ## 12. Sources (aide Google Ads, consultée le 2026-10-26)
 

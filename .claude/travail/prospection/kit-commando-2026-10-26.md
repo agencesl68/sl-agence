@@ -12,7 +12,7 @@
 | # | Point | Qui | Pourquoi |
 |---|---|---|---|
 | 1 | Nombre de places `[N]` et date limite `[date]` de l'offre « premier outil en 7 jours » ; contenu exact d'un « premier outil à partir de 500 € » | Sacha | Tant que ce n'est pas confirmé, ne pas dire ni imprimer l'offre. Le compteur doit être réel : on le barre à chaque place prise, on ne l'invente jamais |
-| 2 | Qui mène le diagnostic de 15 minutes : Loïc seul, ou Loïc avec Sacha ? | Loïc et Sacha | Le script dit « avec Sacha » dans une phrase facultative ; à retirer si Sacha ne vient pas |
+| 2 | Qui mène l'appel de 15 minutes : Loïc seul, ou Loïc avec Sacha ? | Loïc et Sacha | Le script dit « avec Sacha » dans une phrase facultative ; à retirer si Sacha ne vient pas |
 | 3 | Prix | Loïc / seo-site | En ligne : « à partir de 500 euros » sur /logiciel-sur-mesure (PR 24). Rien de bloquant. |
 | 4 | Page d'arrivée du QR code | seo-site | Une page dédiée à l'offre, pas l'accueil (plan du 26/10) |
 | 5 | Jour disponible pour la demi-journée de terrain de la semaine 1 (puis de la semaine 2) ; existe-t-il une carte de visite ? | Loïc | Voir §4 |
@@ -87,7 +87,7 @@ Si la personne répond, 3 relances au choix (méthode CHAMP, `savoirs/prospectio
   - « Si on vous enlevait ça, ce serait pour maintenant ou après la saison ? »
 
 [60-90 s] PROPOSITION ET RENDEZ-VOUS
-« Je vous propose un diagnostic gratuit de 15 minutes, au téléphone, avec partage
+« Je vous propose un appel de 15 minutes, au téléphone, avec partage
 d'écran si vous voulez. Vous me montrez comment ça se passe, et je vous dis
 franchement si un outil vaut le coup. Rien à préparer.
 [SEULEMENT SI SACHA A CONFIRMÉ : Et en ce moment, nous ouvrons [N] places pour un
@@ -199,7 +199,7 @@ LE PRIX
 
 L'OFFRE  [À CONFIRMER AVEC SACHA, NE PAS IMPRIMER AVANT]
 [N] places · premier outil en 7 jours · jusqu'au [date]
-Diagnostic gratuit de 15 minutes, au téléphone.
+Un appel de 15 minutes, au téléphone, pour regarder votre cas.
 
 Conditions (en petit)
 [N] places = [N] commandes servies avant le [date]. Contenu du premier outil :
@@ -270,7 +270,7 @@ C'est au sujet des heures, des bons et des factures : nous construisons des outi
 sur téléphone pour des entreprises de chantier d'Alsace.
 ```
 
-**S'il ou elle est disponible** : même déroulé que l'appel (§1.2) : accroche A (papiers de chantier) en une phrase, une preuve en regardant la fiche (« voilà ce que nous avons fait pour une entreprise de terrassement »), la question « chez vous, c'est noté où, et ressaisi où ? », puis « 15 minutes de diagnostic gratuit, [jour] ou [jour] ? ». Regarder ce qui traîne sans commenter : classeurs de bons, tableau de planning, pochettes de tickets. Rester debout, court, partir au bout de 5 minutes maximum sauf invitation à rester.
+**S'il ou elle est disponible** : même déroulé que l'appel (§1.2) : accroche A (papiers de chantier) en une phrase, une preuve en regardant la fiche (« voilà ce que nous avons fait pour une entreprise de terrassement »), la question « chez vous, c'est noté où, et ressaisi où ? », puis « un appel de 15 minutes, [jour] ou [jour] ? ». Regarder ce qui traîne sans commenter : classeurs de bons, tableau de planning, pochettes de tickets. Rester debout, court, partir au bout de 5 minutes maximum sauf invitation à rester.
 
 **S'il ou elle est absent(e)**
 1. « Pouvez-vous lui remettre cette fiche ? »
@@ -336,7 +336,7 @@ Codes postaux 68210, 68560 et 68130 : mêmes sources (annuaire immobilier). Opti
 |---|---|
 | Tournée de 10 passages, trajets compris | 3 h |
 | 2 séances d'appel | 1 h 30 |
-| Diagnostics (2 × 15 min) | 30 min |
+| Appels de 15 min (2 × 15 min) | 30 min |
 | E-mails, rappels à 48 h et saisie (20 × 5 min) | 1 h 40 |
 | LinkedIn (10 à 15 invitations ; 5 notes par mois au maximum avec un compte gratuit) | 20 min |
 | Offre, compteur et Ads | 20 min (40 min en semaine 1) |
