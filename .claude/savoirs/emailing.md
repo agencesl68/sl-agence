@@ -331,8 +331,8 @@ Après R3 : statut « sans réponse » dans la feuille Drive, aucune nouvelle ap
 ## 5. Réponses types
 
 Principe : répondre dans la journée (engagement public « réponse sous 24 h »), court, sans
-argumenter contre un refus, toujours vers une prochaine étape légère. Pas de prix par e-mail
-(`agence.md` : « devis gratuit, prix ferme sous 24 h » après un échange).
+argumenter contre un refus, toujours vers une prochaine étape légère. Pas de prix dans un premier message ; en réponse à une question de prix :
+« à partir de 500 €, devis gratuit, prix ferme sous 24 h » (décision de Loïc, 26/10/2026).
 
 **« Pas intéressé »**
 > Merci de m'avoir répondu, Monsieur ⟨Nom⟩, c'est noté : je ne vous écrirai plus. Bonne continuation à vous et à vos équipes.
@@ -347,7 +347,7 @@ CNIL, pas une option.)
 polie de dire non : une question ouverte permet de le savoir.)
 
 **« C'est combien ? »**
-> Bonne question. Comme tout est fait sur mesure, nous annonçons un prix ferme, par écrit, avant de commencer, et le devis est gratuit. Pour vous le donner, j'ai besoin de 15 minutes pour comprendre ce que vous voulez remplacer. Demain à 8 h 30 ou jeudi à 17 h, cela vous irait ?
+> Bonne question. Nos premiers outils démarrent à partir de 500 €. Comme tout est fait sur mesure, nous annonçons un prix ferme, par écrit, avant de commencer, et le devis est gratuit. Pour vous le donner, j'ai besoin de 15 minutes pour comprendre ce que vous voulez remplacer. Demain à 8 h 30 ou jeudi à 17 h, cela vous irait ?
 
 **« Rappelez-moi dans 3 mois »**
 > Entendu, je vous recontacte la semaine du ⟨date⟩. D'ici là, une question pour préparer : qu'est-ce qui rend la période actuelle chargée, ⟨la saison des chantiers⟩ ?
@@ -467,7 +467,7 @@ avant de livrer. Deux critères sont **éliminatoires** quelle que soit la note 
 | C5 | Demande légère et unique | Une seule demande, de type intérêt au premier contact (créneau précis seulement en relance 2). |
 | C6 | Longueur et lisibilité | Corps de 50 à 90 mots (pied de message non compté), phrases courtes, lisible sur téléphone sans défiler. |
 | C7 | Objet | Moins de 50 caractères, 2 à 5 mots, minuscules, spécifique, cohérent avec la première ligne (LinkedIn : on note la première phrase). |
-| C8 | Ton SL Agence | Vouvoiement, aucun mot interdit de `ton.md`, pas de jargon ni de vocabulaire ROI, typographie française, pas de prix. |
+| C8 | Ton SL Agence | Vouvoiement, aucun mot interdit de `ton.md`, pas de jargon ni de vocabulaire ROI, typographie française, pas de prix (premier message). |
 | C9 | Conformité | Expéditeur identifié, origine de l'adresse indiquée, opposition simple (réponse « non ») ; adresse générique ou publiée vérifiée. |
 | C10 | Signature et forme | Signature exacte « Loïc — SL Agence » + « 06 01 16 07 62 · slagence.fr » ; texte brut, aucune pièce jointe, 0 lien. |
 

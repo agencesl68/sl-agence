@@ -41,7 +41,7 @@
    LinkedIn servent à préparer et confirmer. Pour les cabinets (comptables, avocats, patrimoine), LinkedIn et
    l'e-mail pèsent davantage.
 6. **On vend un rendez-vous de 15 minutes, pas un logiciel.** Toute approche se termine par une demande
-   légère : « 15 minutes au téléphone pour voir si ça vaut le coup ». Jamais de prix.
+   légère : « 15 minutes au téléphone pour voir si ça vaut le coup ». Pas de prix à l'écrit au premier contact ; si on le demande : « à partir de 500 €, devis gratuit, prix ferme sous 24 h » (décision de Loïc, 26/10/2026).
 7. **Ne jamais citer un client.** On parle de « une entreprise de terrassement du Haut-Rhin, 12 salariés ».
 8. **Aucune donnée nominative dans le dépôt.** Noms, e-mails, téléphones vivent dans Drive et Gmail.
 9. **Toute information non trouvée s'écrit « non trouvé ».** Jamais d'adresse devinée (prenom.nom@…).
@@ -378,7 +378,7 @@ souvent un réflexe pour raccrocher, pas une analyse.
 | 2. « Je n'ai pas le temps, je suis sur un chantier. » | « Je comprends, je vous rappelle. Demain 7 h 45 ou plutôt en fin de journée ? » (obtenir un créneau précis, pas un « rappelez plus tard »). |
 | 3. « On a déjà un logiciel / mon comptable s'en occupe. » | « Très bien. Il y a quand même des choses que vous ressaisissez à côté, sur Excel ou sur papier ? Nous, on ne remplace pas ce qui marche : on relie ce qui existe (Sage, EBP, Pennylane…) pour supprimer la double saisie. » |
 | 4. « Ça ne m'intéresse pas. » | « D'accord, je ne vais pas insister. Juste par curiosité : la paperasse, c'est un sujet réglé chez vous, ou c'est simplement pas le moment ? » → si « réglé » : remercier, noter, arrêter. |
-| 5. « C'est combien ? » | « Ça dépend vraiment de ce qu'on supprime : on annonce un prix ferme sous 24 h, devis gratuit et sans engagement. Pour vous donner un ordre d'idée juste, il me faut ces 15 minutes. » (jamais de prix au téléphone) |
+| 5. « C'est combien ? » | « Nos premiers outils démarrent à partir de 500 €. Ensuite, ça dépend de ce qu'on supprime : on annonce un prix ferme sous 24 h, devis gratuit et sans engagement. Pour vous donner un chiffre juste, il me faut ces 15 minutes. » (décision de Loïc, 26/10/2026) |
 | 6. « On est trop petits / ça marche très bien comme ça. » | « Tant mieux si ça marche. La question, c'est combien d'heures par semaine ça vous coûte, à vous ou à votre secrétaire. Chez un client, on en a récupéré jusqu'à 20 par semaine ; si chez vous c'est 1 heure, ça ne vaut pas le coup et je vous le dirai. » |
 
 Bonus facture électronique (à n'utiliser que si le prospect l'évoque) : « Vous recevez déjà les factures
@@ -422,7 +422,7 @@ le bon canal d'ouverture.
 
 Quand : prospect « chaud » sur un trajet déjà prévu, ou après 2 appels sans décroché. Créneau : début ou fin
 de journée pour un dépôt, milieu de matinée pour un bureau. Toujours avec une **fiche A4** : les 2 réalisations
-du secteur (anonymes), « devis gratuit, prix ferme sous 24 h », numéro de Loïc.
+du secteur (anonymes), « à partir de 500 €, devis gratuit, prix ferme sous 24 h », numéro de Loïc.
 
 Script (30 secondes à l'accueil) :
 > « Bonjour, Loïc, de SL Agence, on est à Friesen. Je passais dans le secteur. J'ai vu que vous <fait réel>.
