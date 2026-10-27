@@ -24,9 +24,7 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Logiciel sur mesure à Saint-Louis (BTP, transport)](https://slagence.fr/logiciel-entreprise-saint-louis): outils pour les entreprises de Saint-Louis Agglomération (transport, chantier, contrôles) ; déplacement depuis Friesen.
 - [Logiciel sur mesure à Colmar (BTP, artisans, transport)](https://slagence.fr/logiciel-entreprise-colmar): outils pour les entreprises du bâtiment, de l'artisanat et du transport de Colmar Agglomération ; déplacement depuis Friesen.
 - [Logiciel pour entreprise de travaux agricoles](https://slagence.fr/logiciel-entreprise-travaux-agricoles): bons signés sur téléphone, rendez-vous pré-rempli depuis l'agenda, heures, carburant et planning pour ETA, épandeurs et CUMA ; à distance partout en France.
-- [Logiciel de gestion du carburant](https://slagence.fr/logiciel-gestion-carburant): application sur téléphone, photo du compteur avant et après chaque plein, 11 engins suivis dans une entreprise de terrassement, pleins du jour visibles le jour même.
 - [Application de pointage de chantier](https://slagence.fr/application-pointage-chantier): pointage des heures sur téléphone pour 12 salariés d'une entreprise de terrassement, rappel automatique en fin de journée, saisie en 30 secondes avant de rentrer.
-- [Logiciel pour cabinet de gestion de patrimoine (CGP)](https://slagence.fr/logiciel-cgp-sur-mesure): clients, contrats et échéances dans une seule application, questionnaire pendant le rendez-vous, score calculé en direct, clients à relancer signalés automatiquement.
 
 ## Choisir et connaître l'agence
 
