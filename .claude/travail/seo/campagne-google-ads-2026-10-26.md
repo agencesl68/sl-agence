@@ -4,14 +4,14 @@
 > **Rien n'est dépensé tant que Loïc n'a pas dit « oui »** (règle absolue n° 3). Le site n'est pas modifié.
 > Tous les comptes de caractères ci-dessous ont été calculés avec un script Python (`len`) le 2026-10-26.
 
-**L'action qui aura probablement le plus d'impact maintenant : créer la campagne le jour du « oui » de Loïc avec le groupe 1 pointé sur `/logiciel-sur-mesure` (la seule page qui affiche déjà « à partir de 500 € »), puis remplacer cette URL par la page d'offre dès que sa pull request est fusionnée.**
+**L'action qui aura probablement le plus d'impact maintenant : créer la campagne le jour du « oui » de Loïc avec le groupe 1 pointé sur `/logiciel-sur-mesure` (page la plus complète ; décision de Loïc du 27/10 : **aucun prix dans les annonces**, tout pousse à appeler), puis remplacer cette URL par la page d'offre dès que sa pull request est fusionnée.**
 
 ## 0. À savoir avant de lancer (honnêteté sur les chances)
 
 - **Le volume local est probablement très faible.** Le 26/10/2026, la saisie semi-automatique Google ne propose **aucune** suggestion pour « logiciel sur mesure mulhouse », « logiciel sur mesure alsace », « logiciel sur mesure haut-rhin », « application sur mesure mulhouse », « logiciel btp mulhouse », « logiciel transport mulhouse ». Cela ne prouve pas un volume de 0 (la saisie masque les requêtes rares), mais c'est un indice de faible demande. La zone « Haut-Rhin » en « Présence » fait le travail local : les mots-clés sans ville (ex. « développement logiciel sur mesure », présent dans la saisie auto) ne seront montrés qu'aux personnes situées dans le département ou qui s'y rendent régulièrement.
 - **Aucun volume n'est inventé.** Search Console ne donne que les impressions de notre propre site (3 mois, du 31/08 au 19/10/2026 : « remplacer excel » 23, « application excel sur mesure » 19, « agence automatisation ia » 27) : ce n'est pas la demande du marché. Le chiffre de demande réel viendra du **Planificateur de mots clés** du compte Ads (à ouvrir avant de publier : voir étape 1 du pas-à-pas) et, ensuite, du rapport « Termes de recherche ». Tout volume ci-dessous est « non mesuré ».
 - **Estimation du plan (hypothèse, non sourcée)** : 26 à 140 clics sur 3 semaines pour 210 € HT (CPC de 1,50 € à 8 €). Sur cette base, le but réaliste est d'obtenir **quelques demandes de contact**, pas du trafic. Si le Planificateur indique des volumes quasi nuls, la décision honnête est de ne pas dépenser les 210 € et de les garder.
-- **Cohérence annonce / page** : la mention « à partir de 500 € » n'est affichée que sur `/logiciel-sur-mesure` (vérifié par recherche dans le dépôt : 0 occurrence sur `logiciel-btp-sur-mesure.html`, `logiciel-transport-sur-mesure.html`, `bon-intervention-numerique.html`, `remplacer-excel.html`). **Le prix n'apparaît donc que dans les annonces du groupe 1.** Les groupes 2 et 2B n'en mentionnent aucun, pour ne pas envoyer le visiteur sur une page qui contredit l'annonce.
+- **Cohérence annonce / page** : la mention « à partir de 500 € » n'est affichée que sur `/logiciel-sur-mesure` (vérifié par recherche dans le dépôt : 0 occurrence sur `logiciel-btp-sur-mesure.html`, `logiciel-transport-sur-mesure.html`, `bon-intervention-numerique.html`, `remplacer-excel.html`). **Décision de Loïc (27/10) : aucune annonce ne mentionne de prix** ; les annonces poussent à appeler (composant appel, 07).
 - **État des pages (vérifié le 2026-10-26 sur `origin/main` et la branche de travail)** : les 3 pages d'arrivée, `/realisations`, `/bon-intervention-numerique`, `/remplacer-excel` et `/a-propos` sont en production. Aucune page d'offre n'existe sur aucune branche distante.
 - **Page d'offre « 5 places »** : pas encore créée ni validée (il faut l'accord de Sacha sur la capacité). Aucune mention de rareté ou de date dans les annonces tant que ce n'est pas vrai. Quand la page est en ligne : changer l'URL finale du groupe 1 et ajouter 1 titre.
 
@@ -102,7 +102,7 @@ Signal de demande = présence de la requête dans la saisie semi-automatique Goo
 | 2 | Logiciel sur mesure Haut-Rhin | 29/30 |
 | 3 | Application sur mesure Alsace | 29/30 |
 | 4 | Premier outil en 7 jours | 24/30 |
-| 5 | À partir de 500 € | 17/30 |
+| 5 | Appelez-nous aujourd'hui | 24/30 |
 | 6 | Devis gratuit sous 24 h | 23/30 |
 | 7 | Prix ferme annoncé d'avance | 27/30 |
 | 8 | Remplacez vos fichiers Excel | 28/30 |
@@ -118,12 +118,12 @@ Signal de demande = présence de la requête dans la saisie semi-automatique Goo
 
 | # | Description | Car. |
 |---|---|---|
-| 1 | Logiciel sur mesure pour TPE et PME du Haut-Rhin. Premier outil en 7 jours, dès 500 €. | 86/90 |
+| 1 | Logiciel sur mesure pour TPE et PME du Haut-Rhin. Premier outil en 7 jours. Appelez-nous. | 89/90 |
 | 2 | Devis gratuit sous 24 h, prix ferme annoncé avant de commencer. Sans cahier des charges. | 88/90 |
 | 3 | Fichiers Excel qui se multiplient ? Réunis dans un seul écran, partagé par toute l'équipe. | 90/90 |
 | 4 | Outils en service chez des entreprises d'Alsace. Vos données restent à vous, exportables. | 89/90 |
 
-Aucune épingle (« pinning ») : laisser Google combiner. Faits tous issus de `logiciel-sur-mesure.html` et `realisations.html` : « à partir de 500 euros », « devis gratuit et prix ferme sous 24 h », « un premier outil en 7 jours », « sans cahier des charges », « un diagnostic offert », « vos données à vous, exportables à tout moment », « des outils en service chez des entreprises d'Alsace ». « Friesen » et « associés » : `agence.md`.
+Aucune épingle (« pinning ») : laisser Google combiner. Faits tous issus de `logiciel-sur-mesure.html` et `realisations.html` : « devis gratuit et prix ferme sous 24 h », « un premier outil en 7 jours », « sans cahier des charges », « un diagnostic offert », « vos données à vous, exportables à tout moment », « des outils en service chez des entreprises d'Alsace ». « Friesen » et « associés » : `agence.md`.
 
 ## 5. Groupe 2 : logiciel BTP, bon d'intervention
 

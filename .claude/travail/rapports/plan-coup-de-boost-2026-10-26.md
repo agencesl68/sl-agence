@@ -1,5 +1,7 @@
 # Plan « coup de boost 3 semaines » : des rendez-vous, pas des vanités (analyste, 26/10/2026, version corrigée après contrôle qualité)
 
+Mise à jour du 27/10 (Loïc) : aucun prix sur les supports écrits et les annonces, tout pousse à appeler.
+
 Directive de Loïc (26/10) : un coup de boost à court terme, pas forcément par le SEO. Il a précisé trois choses : Google Ads est déjà prévu de son côté, l'idée des experts-comptables est abandonnée, la prospection directe est ouverte.
 
 Message honnête : aucun levier n'amènera « une affluence de ouf » de visiteurs qualifiés en 3 semaines sur un site local de 5 mois. Des rendez-vous, en revanche, c'est faisable : on va les chercher (téléphone, terrain, e-mail) avec une offre à saisir, et le site et Google Ads servent de point de chute.
@@ -8,7 +10,7 @@ Message honnête : aucun levier n'amènera « une affluence de ouf » de visiteu
 | Rang | Levier | 1er effet | Coût | Temps de Loïc | Résultat plausible |
 |---|---|---|---|---|---|
 | 1 | Prospection directe : téléphone, porte-à-porte en zones d'activité, e-mail récapitulatif (BTP, terrassement, transport, ETA du 68) | 1 à 5 j | 0 € | 7 h/sem. (terrain 3 h, appels 1 h 30, e-mails et LinkedIn 1 h 30, suites 1 h ; total du plan 8 h, voir le tableau) | FAIT : un appel à froid réussit dans 2,7 % des cas en moyenne et 11,3 % pour une équipe entraînée (Cognism/WHAM 2026, marchés anglo-saxons, savoirs/prospection.md §6.2). Calcul SL Agence : ~60 prospects × 2,7 à 11,3 % ≈ 2 à 7 rendez-vous en 3 semaines ; taux mesurés hors de France et hors BTP, transposition = HYPOTHÈSE |
-| 2 | Petit pari « Opération 5 places : premier outil en 7 jours, à partir de 500 € » jusqu'à une date réelle, avec l'appel de 15 minutes proposé sur le site | 3 à 7 j | 0 € | Décision 20 min, puis ~10 min/sem. | FAIT : sur la capture ChatGPT du 26/10, 1 des 3 premiers affiche un tarif de départ, les 2 autres des chiffres concrets (apprentissages.md). HYPOTHÈSE : afficher « à partir de 500 € » aide à être cité ; l'offre donne une raison de dire oui maintenant |
+| 2 | Petit pari « Opération 5 places : premier outil en 7 jours » jusqu'à une date réelle, avec l'appel de 15 minutes proposé sur le site | 3 à 7 j | 0 € | Décision 20 min, puis ~10 min/sem. | FAIT : sur la capture ChatGPT du 26/10, 1 des 3 premiers affiche un tarif de départ, les 2 autres des chiffres concrets (apprentissages.md). HYPOTHÈSE : afficher « à partir de 500 € » aide à être cité ; l'offre donne une raison de dire oui maintenant |
 | 3 | Google Ads Search local en appui (déjà prévu par Loïc), vers la page de l'offre. **Conditionné** à la réponse de Loïc sur son compte et son budget | 1 à 3 j | Plafond proposé : 10 €/j × 21 j = 210 € HT, plus frais Google France (2 % en 2021, taux actuel non vérifié) et TVA ; CPC du 68 non vérifié | Vérification 20 min, puis 10 min/sem. | Calcul SL Agence : 210 € ÷ CPC de 1,5 à 8 € (kolonell, estimation d'agence non vérifiée) ≈ 26 à 140 clics. HYPOTHÈSE : volume local faible (Search Console, 3 mois : 27 impressions sur « agence automatisation ia », 23 sur « remplacer excel ») |
 | 4 | Communiqué de presse facture électronique (déjà prêt) | 1 à 3 sem. | 0 € | 45 min, en option (hors des 8 h) | HYPOTHÈSE : reprise possible, non garantie |
 | 5 | Événements et clubs locaux | 1 à 4 sem. | non vérifié | 2 à 3 h/événement | Aucun événement BTP/TPE trouvé ; déjeuner FFI Mulhouse de novembre (industrie, hors cible, utile pour les prescripteurs) à vérifier sur Luma (prospection.md §8.1) |
@@ -29,7 +31,7 @@ Message honnête : aucun levier n'amènera « une affluence de ouf » de visiteu
 
 ## TOP 3 cette semaine
 1. **Commando « 15 jours Haut-Rhin »** (téléphone + terrain) : 20 nouveaux prospects/semaine, dont ~10 ouverts par téléphone (avec e-mail récapitulatif si l'appel n'est pas décroché) et ~10 visités pendant 1 demi-journée de porte-à-porte en zones d'activité (Altkirch, Mulhouse, autour de Friesen). 2 sessions d'appel de 45 min (7 h 30-8 h 15 ou 17 h 30-18 h 30, HYPOTHÈSE BTP). Lots : **lot 1 de 40 (semaines 1-2, adresses de tournée comprises)**, **lot 2 de 20 à J+10** ; 60 prospects en 3 semaines.
-2. **Petit pari « 5 places »** : le crochet commun à tous les canaux (appel, fiche A4, LinkedIn, fiche Google, Ads). Accord de Sacha requis d'abord (capacité, contenu du « premier outil à 500 € »).
+2. **Petit pari « 5 places »** : le crochet commun à tous les canaux (appel, fiche A4, LinkedIn, fiche Google, Ads). Accord de Sacha requis d'abord (capacité, contenu du « premier outil »).
 3. **Google Ads en appui**, plafonné à 210 € HT sur 3 semaines, vers la page de l'offre, seulement si Loïc confirme son compte et son budget.
 Bonus en option : envoyer le communiqué (CCI, L'Alsace), 45 min, si le reste est tenu.
 
@@ -37,7 +39,7 @@ Bonus en option : envoyer le communiqué (CCI, L'Alsace), 45 min, si le reste es
 - Une place = une commande signée, réellement servie dans les 3 semaines ; capacité confirmée par écrit par Sacha avant toute annonce.
 - Le compteur ne baisse qu'à la signature, jamais à la réservation d'un appel.
 - Pas de relance de la même opération juste après la date limite.
-- « À partir de 500 € » correspond à un livrable réel décrit sur la page.
+- Le « premier outil » correspond à un livrable réel décrit sur la page (aucun prix affiché, décision du 27/10).
 - Conditions écrites sur la page et la fiche A4 : contenu, point de départ du délai de 7 jours (par exemple la validation du périmètre écrit), date limite.
 - Fondement : Code de la consommation L121-4 (pratiques commerciales réputées trompeuses, dont la fausse urgence) ; texte exact non vérifié (Légifrance inaccessible le 26/10) ; L121-5 (application aux professionnels) à vérifier.
 
@@ -56,9 +58,9 @@ Cible : 6 rendez-vous en 3 semaines, l'objectif validé (2/semaine, objectifs.md
 | **Total** | **8 h** |
 
 ## Livrables par agent
-- **prospection** : lot 1 de 40 (Drive, Restreint) dont 20 adresses regroupées pour les 2 tournées ; lot 2 de 20 à J+10 ; fiche A4 (2 réalisations de terrassement mot pour mot, « à partir de 500 €, devis gratuit, prix ferme sous 24 h », conditions et date, numéro) ; script d'appel (accroche papiers/heures/carburant) ; objection n° 5 avec « à partir de 500 € » ; e-mails récapitulatifs en brouillons Gmail (source + opposition) ; 10 à 15 invitations LinkedIn/semaine vers des dirigeants actifs (§7.4).
+- **prospection** : lot 1 de 40 (Drive, Restreint) dont 20 adresses regroupées pour les 2 tournées ; lot 2 de 20 à J+10 ; fiche A4 (2 réalisations de terrassement mot pour mot, « devis gratuit, prix ferme sous 24 h », conditions et date, numéro (aucun prix, décision du 27/10)) ; script d'appel (accroche papiers/heures/carburant) ; objection n° 5 avec « à partir de 500 € » ; e-mails récapitulatifs en brouillons Gmail (source + opposition) ; 10 à 15 invitations LinkedIn/semaine vers des dirigeants actifs (§7.4).
 - **contenu-linkedin** (co-création, c003) : 2 plans de posts « métier précis + capture d'outil » (annonce, compteur réel), 3 accroches chacun, 1 post « Offre » fiche Google avec conditions et date de fin.
-- **seo-site** : page d'offre **absente** (grep du 26/10 ; main à relire avant la PR, c026), livrée en PR avec conditions écrites, livrable à 500 € décrit, boutons appeler / réserver 15 min ; campagne Google Ads prête à coller, **conditionnée** à la réponse de Loïc (Search seul, Haut-Rhin en « Présence », lun.-sam. 8 h-19 h, 2 groupes, 15 titres ≤ 30 et 4 descriptions ≤ 90 caractères comptés, négatifs, composants) ; grille de suivi.
+- **seo-site** : page d'offre **absente** (grep du 26/10 ; main à relire avant la PR, c026), livrée en PR avec conditions écrites, livrable décrit, sans prix (27/10), boutons appeler / réserver 15 min ; campagne Google Ads prête à coller, **conditionnée** à la réponse de Loïc (Search seul, Haut-Rhin en « Présence », lun.-sam. 8 h-19 h, 2 groupes, 15 titres ≤ 30 et 4 descriptions ≤ 90 caractères comptés, négatifs, composants) ; grille de suivi.
 
 ## RGPD de la prospection (prospection.md §9)
 - S'identifier à chaque contact : « Loïc, de SL Agence ».
@@ -74,7 +76,7 @@ Réservations dans l'agenda ; « Comment nous avez-vous connus ? » notée dans 
 Acheter trafic, avis, backlinks ou fichier d'e-mails ; envoyer en masse ou automatiser LinkedIn ; inventer de la rareté ou relancer l'opération juste après sa date ; citer l'amende en prospection ; promettre une aide de la Région ; balise Ads ou pixel Meta sans consentement ; annonces vers l'accueil, Display ou Performance Max ; annonces LinkedIn ; spam dans les groupes ; contacter sans recherche Gmail préalable (c005) ; reproposer experts-comptables, GoatCounter ou Yelp.
 
 ## Questions pour Loïc
-1. Sacha : 5 livraisons de 7 jours possibles dans les 3 semaines ? Contenu exact du « premier outil à 500 € » ?
+1. Sacha : 5 livraisons de 7 jours possibles dans les 3 semaines ? Contenu exact du « premier outil » ?
 2. Date limite de l'offre ? Point de départ des 7 jours ?
 3. Compte Google Ads créé ? Budget prévu ? Accord pour un plafond de 210 € HT ?
 4. Variante facture électronique en accroche (dérogation §7.2) : oui ou non ?

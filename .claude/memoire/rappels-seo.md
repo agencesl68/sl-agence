@@ -8,6 +8,7 @@
 
 - 2026-10-26 · Prix affiché : **à partir de 500 €** (Loïc). Mesure d'audience : pas d'outil payant → solution gratuite à proposer.
 
+- 2026-10-27 · **Pas de prix dans la prospection ni dans les annonces** (Loïc : « enlève à partir de, faut juste pousser à appeler »). Fiche A4, e-mails, LinkedIn, Google Ads, page d'offre : aucun « à partir de 500 € » ; tout pousse à appeler (07). Le prix ne se dit qu'à l'oral si on le demande. Le site (/logiciel-sur-mesure) : question posée à Loïc le 27/10.
 - 2026-10-27 · Google Ads : le numéro affiché dans les annonces est le **07 67 08 19 43** (décision de Loïc). Sacha doit être prévenu que les appels des annonces arrivent sur le 07.
 - 2026-10-26 · IndexNow en ligne (PR 25). 1re soumission : 24 URL (nouvelle page + pages modifiées le 26/10), réponse 202 (acceptée). À refaire après chaque PR fusionnée.
 - 2026-10-26 · Loïc : **Google Ads déjà prévu de son côté** ; **experts-comptables abandonnés** (ne plus proposer). Il veut un « coup de boost » court terme, pas forcément SEO (prospection directe ouverte).

@@ -11,7 +11,7 @@
 
 | # | Point | Qui | Pourquoi |
 |---|---|---|---|
-| 1 | Nombre de places `[N]` et date limite `[date]` de l'offre « premier outil en 7 jours » ; contenu exact d'un « premier outil à partir de 500 € » | Sacha | Tant que ce n'est pas confirmé, ne pas dire ni imprimer l'offre. Le compteur doit être réel : on le barre à chaque place prise, on ne l'invente jamais |
+| 1 | Nombre de places `[N]` et date limite `[date]` de l'offre « premier outil en 7 jours » ; contenu exact d'un « premier outil » | Sacha | Tant que ce n'est pas confirmé, ne pas dire ni imprimer l'offre. Le compteur doit être réel : on le barre à chaque place prise, on ne l'invente jamais |
 | 2 | Qui mène l'appel de 15 minutes : Loïc seul, ou Loïc avec Sacha ? | Loïc et Sacha | Le script dit « avec Sacha » dans une phrase facultative ; à retirer si Sacha ne vient pas |
 | 3 | Prix | Loïc / seo-site | En ligne : « à partir de 500 euros » sur /logiciel-sur-mesure (PR 24). Rien de bloquant. |
 | 4 | Page d'arrivée du QR code | seo-site | Une page dédiée à l'offre, pas l'accueil (plan du 26/10) |
@@ -30,7 +30,7 @@ aucun fait inventé ni signal sans date (c010), aucun identifiant ni lien Drive 
 5. **Aucune adresse ou numéro deviné** (pas de prenom.nom@…). Uniquement ce que l'entreprise publie ou ce que la personne donne.
 6. **Aucune donnée nominative dans le dépôt** : noms, numéros, e-mails restent dans Drive (« Restreint ») et Gmail.
 
-Règle du 26/10 (prospection.md l.44, emailing.md l.335) : le prix « à partir de 500 € » se dit à l'oral **quand on le demande** et figure sur la fiche A4 ; pas de prix dans un premier message écrit (e-mails, invitations LinkedIn).
+Règle du 26/10 (prospection.md l.44, emailing.md l.335) : **décision de Loïc du 27/10 : aucun prix sur les supports écrits (fiche A4, e-mails, LinkedIn, annonces) ; tout pousse à appeler.** Le prix ne se dit qu'à l'oral, si on le demande (objection 5).
 
 ---
 
@@ -195,7 +195,7 @@ avant de rentrer.
 ─────────────────────────────────────────────
 
 LE PRIX
-À partir de 500 €. Devis gratuit. Prix ferme sous 24 h.
+Devis gratuit. Prix ferme sous 24 h. Appelez-nous, on regarde votre cas ensemble.
 
 L'OFFRE  [À CONFIRMER AVEC SACHA, NE PAS IMPRIMER AVANT]
 [N] places · premier outil en 7 jours · jusqu'au [date]
