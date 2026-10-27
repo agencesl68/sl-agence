@@ -6,7 +6,12 @@
 
 ## Décisions prises
 
-- 2026-10-26 · Prix affiché : **à partir de 500 €** (Loïc). Mesure d'audience : pas d'outil payant → solution gratuite à proposer.
+- ~~2026-10-26 · Prix affiché : à partir de 500 €~~ → **remplacé le 27/10 : aucun prix affiché nulle part (site compris, PR 29)** ; à l'oral seulement si on le demande.
+
+- 2026-10-27 · **Pas de prix dans la prospection ni dans les annonces** (Loïc : « enlève à partir de, faut juste pousser à appeler »). Fiche A4, e-mails, LinkedIn, Google Ads, page d'offre : aucun « à partir de 500 € » ; tout pousse à appeler (07). Le prix ne se dit qu'à l'oral si on le demande. Site : prix retiré aussi (oui de Loïc le 27/10, PR 29).
+- 2026-10-27 · Google Ads : le numéro affiché dans les annonces est le **07 67 08 19 43** (décision de Loïc). Sacha doit être prévenu que les appels des annonces arrivent sur le 07.
+- 2026-10-26 · IndexNow en ligne (PR 25). 1re soumission : 24 URL (nouvelle page + pages modifiées le 26/10), réponse 202 (acceptée). À refaire après chaque PR fusionnée.
+- 2026-10-26 · Loïc : **Google Ads déjà prévu de son côté** ; **experts-comptables abandonnés** (ne plus proposer). Il veut un « coup de boost » court terme, pas forcément SEO (prospection directe ouverte).
 
 - 2026-10-26 · **Bing : soumission par IndexNow** (Loïc n'arrive pas à soumettre les URL à la main). Fichier-clé public à la racine du site (`<clé>.txt`, clé non secrète par conception). Après chaque PR fusionnée, le Manager soumet lui-même les URL nouvelles ou modifiées à https://api.indexnow.org/indexnow (Bing, Yandex…). Loïc n'a plus rien à faire pour Bing ; Google : il renvoie seulement le sitemap.
 - 2026-10-26 · Mesure d'audience : Loïc **ne veut pas de GoatCounter** (ni d'outil tiers pour l'instant). On s'appuie sur Search Console, Bing Webmaster et les statistiques de la fiche Google (appels, clics vers le site, itinéraires). Ne pas reproposer d'outil sans nouvelle demande.

@@ -14,7 +14,7 @@
 | [c004](c004-donnees-de-prospects-dans-le-depot-public.md) | tous | haute | Aucun nom de prospect, de dirigeant, d'e-mail, de téléphone, de client ni de tarif interne dans le dépôt |
 | [c005](c005-ecrire-un-premier-message-a-une-entreprise-deja-co.md) | prospection | haute | Avant tout message : recherche Gmail (in:anywhere, domaine ET nom de l'entreprise) |
 | [c006](c006-creer-un-fichier-drive-vide-pour-le-remplir-ensuit.md) | manager | moyenne | Créer un fichier Drive en une seule fois, avec son contenu final (create_file avec textContent) |
-| [c007](c007-affirmer-qu-un-element-du-site-est-absent-sans-ver.md) | seo-site | moyenne | Avant d'affirmer une absence, chercher dans tous les fichiers (Grep sur le dépôt) et sur la version en ligne ; citer l'endroit vérifié. |
+| [c007](c007-affirmer-qu-un-element-du-site-est-absent-sans-ver.md) | tous | moyenne | Avant d'affirmer une absence, chercher toutes les graphies dans tous les fichiers (Grep sur le dépôt) et sur la version en ligne ; citer l'endroit vérifié. |
 | [c008](c008-utiliser-un-outil-payant-indisponible-ahrefs.md) | tous | moyenne | Ne pas appeler Ahrefs |
 | [c009](c009-visuels-trop-charges-et-peu-lisibles.md) | manager | moyenne | Les visuels pour Loïc suivent une hiérarchie simple et classique (Loïc → Manager → équipes), un seul message par écran, les détails au clic. |
 | [c010](c010-signal-d-approche-flou-ou-trop-ancien.md) | prospection | moyenne | Un signal est daté précisément et a moins de 90 jours si possible (sinon dit honnêtement) |
@@ -34,3 +34,5 @@
 | [c024](c024-page-modifiee-sans-corriger-les-defauts-connus.md) | seo-site, contenu-linkedin | moyenne | Page modifiée = relue en entier ; on corrige au passage les défauts déjà connus (c014, c019, c022) |
 | [c025](c025-information-rgpd-plus-rassurante-que-la-source.md) | veille, seo-site, contenu-linkedin | moyenne | Texte RGPD sur un outil tiers : toutes les données, négations fidèles à la source, opposition vérifiée, destinataire et durée |
 | [c026](c026-action-deja-faite-ou-contredite-par-les-donnees.md) | analyste, seo-site, manager | moyenne | Vérifier branche + main avant de proposer une action ; confronter les hypothèses aux captures de Loïc ; rien présenté avant QC |
+| [c027](c027-plan-qui-depasse-le-temps-ou-les-volumes-reels.md) | analyste, manager | moyenne | Plan : tableau du temps de Loïc ≤ capacité, volumes = cadence × durée ; jamais l'amende FE en prospection |
+| [c028](c028-deux-faits-du-site-fusionnes.md) | analyste, seo-site, prospection, contenu-linkedin | moyenne | Une promesse chiffrée reprend une seule phrase du site, sans fusionner deux faits |
