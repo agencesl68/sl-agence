@@ -38,3 +38,4 @@
 | [c028](c028-deux-faits-du-site-fusionnes.md) | analyste, seo-site, prospection, contenu-linkedin | moyenne | Une promesse chiffrée reprend une seule phrase du site, sans fusionner deux faits |
 | [c029](c029-choix-des-pages-limite-aux-realisations.md) | analyste, seo-site, manager | haute | Choisir les pages selon la demande sur tout ce qu'on sait construire, pas seulement les réalisations |
 | [c030](c030-indice-de-demande-non-filtre.md) | analyste, seo-site | moyenne | Indice de demande trié (pertinentes, intention) ; score sur la demande atteignable ; cannibalisation via le menu |
+| [c031](c031-faq-et-tableaux-clones-entre-pages-de-service.md) | seo-site, contenu-linkedin | moyenne | Pages de service : au plus 2 questions de FAQ communes, aucune réponse ni ligne de tableau recopiée |
