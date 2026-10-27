@@ -195,6 +195,27 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://slagence.fr/logiciel-gestion-carburant</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://slagence.fr/img/og/logiciel-gestion-carburant.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://slagence.fr/application-pointage-chantier</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://slagence.fr/img/og/application-pointage-chantier.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://slagence.fr/logiciel-cgp-sur-mesure</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://slagence.fr/img/og/logiciel-cgp-sur-mesure.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://slagence.fr/agence-ia-automatisation-haut-rhin</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
