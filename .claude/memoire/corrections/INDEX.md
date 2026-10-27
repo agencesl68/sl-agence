@@ -37,3 +37,4 @@
 | [c027](c027-plan-qui-depasse-le-temps-ou-les-volumes-reels.md) | analyste, manager | moyenne | Plan : tableau du temps de Loïc ≤ capacité, volumes = cadence × durée ; jamais l'amende FE en prospection |
 | [c028](c028-deux-faits-du-site-fusionnes.md) | analyste, seo-site, prospection, contenu-linkedin | moyenne | Une promesse chiffrée reprend une seule phrase du site, sans fusionner deux faits |
 | [c029](c029-choix-des-pages-limite-aux-realisations.md) | analyste, seo-site, manager | haute | Choisir les pages selon la demande sur tout ce qu'on sait construire, pas seulement les réalisations |
+| [c030](c030-indice-de-demande-non-filtre.md) | analyste, seo-site | moyenne | Indice de demande trié (pertinentes, intention) ; score sur la demande atteignable ; cannibalisation via le menu |
