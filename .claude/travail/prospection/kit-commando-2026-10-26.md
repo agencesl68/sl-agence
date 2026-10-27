@@ -13,7 +13,7 @@
 |---|---|---|---|
 | 1 | Nombre de places `[N]` et date limite `[date]` de l'offre « premier outil en 7 jours » ; contenu exact d'un « premier outil » | Sacha | Tant que ce n'est pas confirmé, ne pas dire ni imprimer l'offre. Le compteur doit être réel : on le barre à chaque place prise, on ne l'invente jamais |
 | 2 | Qui mène l'appel de 15 minutes : Loïc seul, ou Loïc avec Sacha ? | Loïc et Sacha | Le script dit « avec Sacha » dans une phrase facultative ; à retirer si Sacha ne vient pas |
-| 3 | Prix | Loïc / seo-site | En ligne : « à partir de 500 euros » sur /logiciel-sur-mesure (PR 24). Rien de bloquant. |
+| 3 | Prix | Loïc / seo-site | Aucun prix affiché (décision de Loïc du 27/10) ; à l'oral seulement, si on le demande. |
 | 4 | Page d'arrivée du QR code | seo-site | Une page dédiée à l'offre, pas l'accueil (plan du 26/10) |
 | 5 | Jour disponible pour la demi-journée de terrain de la semaine 1 (puis de la semaine 2) ; existe-t-il une carte de visite ? | Loïc | Voir §4 |
 | 6 | Avant chaque appel ou passage : l'entreprise a-t-elle déjà été contactée ou est-elle cliente ? (c005) | agent prospection | Gmail est déconnecté aujourd'hui : la vérification `in:anywhere` (nom ET domaine) se fera à la création du lot. Chaque fiche du lot portera « Gmail vérifié le [date] » |
