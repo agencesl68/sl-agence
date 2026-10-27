@@ -3,6 +3,7 @@
 > Agence d'automatisation et de logiciel sur mesure pour indépendants, TPE, PME, cabinets et associations. Basée à Friesen (68580), près de Mulhouse ; se déplace en Alsace et dans le Grand Est, et travaille à distance (téléphone, visio) partout en France. Devis gratuit et prix ferme sous 24 h, premier outil en place en 7 jours.
 
 Contact : Sacha, 07 67 08 19 43 · Loïc, 06 01 16 07 62 · agence.sl.68@gmail.com
+Réseaux : LinkedIn https://www.linkedin.com/company/sl-agence/ · Facebook https://www.facebook.com/profile.php?id=61595522516578 · Instagram https://www.instagram.com/sl.agence/
 Horaires : du lundi au samedi, de 8 h à 19 h
 Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 
@@ -45,3 +46,4 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Terrassement : heures, engins et carburant](https://slagence.fr/blog/terrassement-heures-engins-carburant): les coûts cachés d'un chantier de terrassement, 2 cas réels et par où commencer.
 
 Auteur des guides : Loïc Bitsch, associé de SL Agence (https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/).
+- [Modèles gratuits](https://slagence.fr/modeles-gratuits): bon d'intervention (Word, PDF), feuille d'heures (Excel, PDF), relances de facture et de devis (Word).
