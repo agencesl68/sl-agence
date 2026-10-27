@@ -36,3 +36,4 @@
 | [c026](c026-action-deja-faite-ou-contredite-par-les-donnees.md) | analyste, seo-site, manager | moyenne | Vérifier branche + main avant de proposer une action ; confronter les hypothèses aux captures de Loïc ; rien présenté avant QC |
 | [c027](c027-plan-qui-depasse-le-temps-ou-les-volumes-reels.md) | analyste, manager | moyenne | Plan : tableau du temps de Loïc ≤ capacité, volumes = cadence × durée ; jamais l'amende FE en prospection |
 | [c028](c028-deux-faits-du-site-fusionnes.md) | analyste, seo-site, prospection, contenu-linkedin | moyenne | Une promesse chiffrée reprend une seule phrase du site, sans fusionner deux faits |
+| [c029](c029-choix-des-pages-limite-aux-realisations.md) | analyste, seo-site, manager | haute | Choisir les pages selon la demande sur tout ce qu'on sait construire, pas seulement les réalisations |
