@@ -731,6 +731,7 @@ input:focus,select:focus,textarea:focus{
 .guide b::after{content:"\00a0→";color:var(--vert-clair)}
 .guide span{color:var(--texte);font-size:.93rem;line-height:1.5}
 </style>
+<link rel="stylesheet" href="/assets/rdv.css">
 </head>
 <body>
 <a class="saut" href="#contenu">Aller au contenu</a>
@@ -1054,7 +1055,7 @@ input:focus,select:focus,textarea:focus{
 <div class="encart">
   <p class="titre">Montrez-nous votre outil actuel.</p>
   <p>SL Agence accompagne les transporteurs, les entreprises de terrassement et les loueurs d'engins de Mulhouse, Colmar, Saint-Louis, Altkirch et de tout le Haut-Rhin. En 15 minutes au téléphone, vous repartez avec une première piste concrète. Devis gratuit sous 24 h.</p>
-  <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" rel="noopener" target="_blank">Réserver mon appel de 15 minutes</a>
+  <a class="btn btn-plein" href="#rendez-vous" target="_blank">Réserver mon appel de 15 minutes</a>
 </div>
 
 <h2 id="faq">Questions fréquentes</h2>
@@ -1173,5 +1174,6 @@ input:focus,select:focus,textarea:focus{
   var y=document.getElementById('annee'); if(y){ y.textContent=new Date().getFullYear(); }
 })();
 </script>
+<script src="/assets/rdv.js" defer></script>
 </body>
 </html>

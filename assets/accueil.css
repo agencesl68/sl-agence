@@ -1006,10 +1006,11 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 /* ---------- la scène : le mot chromé au-dessus de l'atelier ---------- */
 .vitrine-scene{position:relative;margin-top:clamp(2.5rem,6vh,4rem)}
 .vitrine-mot{
-  /* au-dessus de l'animation, lisible en entier (retour de Loïc : derrière le téléphone, on ne lisait que « SUR ») */
+  /* au-dessus de l'animation, lisible en entier (retour de Loïc : derrière le téléphone, on ne lisait que « SUR ») ;
+     un peu réduit ensuite pour ne pas être la première chose qu'on voit, mais toujours plus grand que la devise */
   position:relative;margin-bottom:clamp(1.5rem,4vh,2.6rem);
   display:grid;justify-items:center;pointer-events:none;z-index:0;
-  font-size:clamp(3.4rem,10.5vw,10.5rem);font-weight:800;line-height:.8;letter-spacing:-.05em;white-space:nowrap;
+  font-size:clamp(3rem,8.4vw,8.4rem);font-weight:800;line-height:.8;letter-spacing:-.05em;white-space:nowrap;
 }
 .vitrine-mot span{grid-area:1/1}
 /* le relief : la tranche des lettres, plusieurs ombres empilées vers le bas */
@@ -1056,7 +1057,7 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
   .hero--vitrine .tel{left:auto;transform:none}
   .hero--vitrine .atelier.pc .tel{width:100%;top:auto}
   .hero--vitrine .bulle{left:auto;top:auto;width:100%}
-  .vitrine-mot{font-size:12.6vw;margin-bottom:1.6rem}
+  .vitrine-mot{font-size:11.4vw;margin-bottom:1.6rem}
 }
 @media (prefers-reduced-motion:reduce){.mot-chrome{animation:none}}
 
