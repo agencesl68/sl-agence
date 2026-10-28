@@ -1,10 +1,10 @@
 # Mail de base de la campagne « 25 premiers contacts par jour ouvré »
 
 > Lu par `/campagne` (`skills/campagne/SKILL.md`). Rédigé le 2026-10-28 par `prospection` d'après le brief de l'analyste
-> `transmissions/2026-10-28-analyste-vers-prospection-mail-de-base.md`. Statut : **à valider par le contrôle qualité, puis par Loïc, avant le premier lot du jeudi 29/10.**
+> `transmissions/2026-10-28-analyste-vers-prospection-mail-de-base.md`. Statut : **VALIDÉ par le contrôle qualité le 2026-10-28 (2e passe, 9/10) — à valider par Loïc avant le premier lot du jeudi 29/10.**
 > Fichier anonyme : aucune entreprise ni personne réelle, aucune adresse, aucun lien Drive (c004, c021). Les trois exemples (section F) sont **fictifs**.
 > Savoirs : `savoirs/emailing.md` (§2, §3, §4, §6, §7), `savoirs/prospection.md` (§2-4, §9), `memoire/agence.md`, `ton.md`, `cible.md`, `apprentissages.md`.
-> Corrections respectées : c002, c004, c005, c007, c010, c011, c019, c021, c026, c027, c028.
+> Corrections respectées : c002, c004, c005, c007, c010, c011, c019, c021, c026, c027, c028, c032.
 > Seule donnée terrain : la campagne générique d'août 2026 n'a eu aucune réponse connue. Le fait réel n'est donc pas négociable.
 
 ## Sommaire
@@ -272,7 +272,7 @@ Chaque étape cite son outil, sa requête et sa condition. La source de chaque i
 - Jamais de civilité déduite d'un prénom, jamais « Bonjour ⟨Prénom⟩ », jamais « Madame, Monsieur ». Source de la formule notée dans le compte rendu. Nom issu de l'annuaire : voir le pied (section A).
 
 ### D.5 Fait réel
-- **Outils** : `WebFetch` du site (accueil, services, actualités, carrières, contact), `WebFetch` de France Travail (`https://candidat.francetravail.fr/offres/recherche?motsCles=<nom de l'entreprise>&lieux=68D&offresPartenaires=true&tri=1` ; si la page est illisible : `WebSearch` « <entreprise> » recrute), BODACC (`https://bodacc-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/annonces-commerciales/records` avec `where=registre like "<SIREN>*"` ; le champ `registre` donne le SIREN), `WebSearch` (L'Alsace, DNA, Journal des entreprises, page LinkedIn de l'entreprise : lecture seule).
+- **Outils** : `WebFetch` du site (accueil, services, actualités, carrières, contact), `WebFetch` de France Travail (`https://candidat.francetravail.fr/offres/recherche?motsCles=<nom de l'entreprise>&lieux=68D&offresPartenaires=true&tri=1` ; si la page est illisible : `WebSearch` « <entreprise> » recrute ; les dates « publiée il y a N jours » sont converties en date absolue = date de consultation − N, calcul noté dans le compte rendu, c011), BODACC (`https://bodacc-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/annonces-commerciales/records` avec `where=registre like "<SIREN>*"` ; le champ `registre` donne le SIREN), `WebSearch` (L'Alsace, DNA, Journal des entreprises, page LinkedIn de l'entreprise : lecture seule).
 - **Niveau 1** : signal de **moins de 90 jours** : annonce d'emploi avec employeur nommé, BODACC, presse locale, nouvelle agence, publication datée de l'entreprise.
 - **Niveau 2** : de 90 jours à 6 mois, cité **au passé avec sa date**.
 - **Niveau 3** : constat vérifiable du jour sur le site ou la fiche, **lié à une douleur** : formulaire PDF à imprimer, « envoyez-nous votre bon par mail », rendez-vous par téléphone uniquement, contrats d'entretien, parc d'engins. URL et **date de consultation** obligatoires.
@@ -382,7 +382,7 @@ Le 20 octobre, Bureau d'études Exemple ouvrait une seconde agence à Saint-Loui
 
 Une information arrivée dans une agence doit-elle être saisie une seconde fois pour être visible dans l'autre ?
 
-Nous construisons des outils pour qu'une information soit saisie une fois, visible par ceux qui en ont besoin. Le premier outil est en place en 7 jours.
+Nous construisons des outils pour qu'une information soit saisie une fois, visible par ceux qui en ont besoin. Jusqu'à 20 h récupérées chaque semaine chez un client.
 
 Est-ce un sujet chez vous en ce moment ?
 
@@ -393,8 +393,8 @@ Votre adresse figure sur votre site internet. Si le sujet ne vous concerne pas, 
 ```
 
 - Objet : 20 caractères, 3 mots.
-- Corps : **64 mots** (67 en séparant les apostrophes).
-- Note §7 : C1 1 · C2 1 · C3 1 · C4 0 (preuve générique, et la phrase « 7 jours » est choisie alors que le fait ne parle pas de lancement : variante non par défaut) · C5 1 · C6 1 · C7 1 · C8 1 · C9 1 · C10 1 = **9/10**.
+- Corps : **64 mots** (68 en séparant les apostrophes).
+- Note §7 : C1 1 · C2 1 · C3 1 · C4 0,5 (preuve générique, variante par défaut « 20 h ») · C5 1 · C6 1 · C7 1 · C8 1 · C9 1 · C10 1 = **9,5/10**.
 
 Les trois dépassent le seuil de 8/10, C1 et C9 sont respectés. Notes attribuées par `prospection` : le contrôle qualité les refait.
 

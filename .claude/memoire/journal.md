@@ -3,6 +3,13 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-10-28 — Campagne e-mail automatisée : 25 brouillons par jour
+
+- **Décision Loïc** : objectif relevé à 25 premiers contacts par jour ouvré ; phase test en brouillons Gmail (il relit et envoie) ; 3 relances sur 3 semaines.
+- **Mis en place** : commande `/campagne` + tâche programmée chaque jour ouvré à 6 h 40 (Paris), liée à la session de création ; feuille Drive « Campagne – liste à contacter » (Loïc remplit Entreprise, Ville, E-mail) ; mail de base (7 familles, relances, procédure, motifs d'écartement) VALIDÉ 9/10 au 2e passage du contrôle qualité.
+- **Bloquant connu** : le connecteur Google Sheets répond « Forbidden » ; lecture de la liste via Drive (export CSV), statuts tenus dans le compte rendu Drive quotidien.
+- **Prochaine étape** : 1re tournée le jeudi 29/10 ; mesurer le temps réel de relecture et le taux de réponse au `/bilan`.
+
 ## 2026-10-26 — Audit Semrush : santé du site 100 %
 
 - **Résultat mesuré** : audit de site Semrush (compte gratuit, 41 URL) passé de **95 % → 100 %** de santé, **19 erreurs → 0**, **33 avertissements → 0**, pages saines 3 → 33 ; santé recherche IA 99 %. Corrections : PR #26 (adresse sur les 19 `ProfessionalService` imbriqués, menu.min.js, CSS de l'accueil et du blog sortis du HTML, hreflang, méta-description) et PR #27 (Facebook, Instagram, LinkedIn à son adresse publique).

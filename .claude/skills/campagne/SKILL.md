@@ -34,7 +34,7 @@ Une ligne est **déjà traitée** si l'un de ces cas est vrai :
 4. la feuille « Prospection SL agence » la marque « déjà client » ou contactée ;
 5. l'adresse figure dans la liste « Ne plus contacter » (Drive, recherche `fullText contains '<adresse>'`) — opposition CNIL.
 
-Déjà contactée il y a plus de 30 jours sans réponse : ce n'est pas un écartement mais une **relance dans le fil
+Exception aux cas 1 et 4 — déjà contactée il y a plus de 30 jours sans réponse : ce n'est pas un écartement mais une **relance dans le fil
 existant**, signalée comme telle et hors quota des 25. Ligne sans entreprise ou sans e-mail : écartée (LIGNE-INCOMPLÈTE).
 
 Les N premières lignes **non traitées**, dans l'ordre de la feuille, forment le lot du jour.
