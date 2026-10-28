@@ -1,0 +1,128 @@
+/* ============================================================
+   Prise de rendez-vous SL Agence — fenêtre « jour → créneau → coordonnées »
+   Couleurs reprises de la charte (variables du site, avec valeurs de secours).
+   ============================================================ */
+
+.rdv{
+  --rv-vc:var(--vert-clair,#a9c49f);--rv-vp:var(--vert-pale,#dfe8d8);--rv-noir:var(--noir,#070907);
+  --rv-surface:var(--surface,#0f140e);--rv-surface-2:var(--surface-2,#171f16);
+  --rv-filet:var(--filet,rgba(255,255,255,.13));--rv-texte:var(--texte,rgba(255,255,255,.74));
+  --rv-faible:var(--texte-faible,rgba(255,255,255,.56));
+  position:fixed;inset:0;z-index:300;display:grid;place-items:center;
+  padding:max(16px,env(safe-area-inset-top,0px)) 16px max(16px,env(safe-area-inset-bottom,0px));
+  font-family:"Geist","Helvetica Neue",Arial,sans-serif;color:var(--rv-texte);
+}
+.rdv[hidden]{display:none}
+.rdv *{box-sizing:border-box}
+.rdv-voile{position:absolute;inset:0;background:rgba(3,5,3,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);animation:rv-fondu .25s ease}
+.rdv-carte{
+  position:relative;width:min(100%,640px);max-height:min(100%,760px);overflow:auto;overscroll-behavior:contain;
+  background:var(--rv-surface);border-radius:24px;
+  box-shadow:inset 0 0 0 1px var(--rv-filet),0 40px 120px -30px rgba(0,0,0,.9);
+  padding:clamp(1.3rem,4vw,2rem);animation:rv-monte .4s cubic-bezier(.16,1,.3,1);
+}
+@keyframes rv-fondu{from{opacity:0}}
+@keyframes rv-monte{from{opacity:0;transform:translateY(18px) scale(.98)}}
+
+.rdv-tete{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.rdv-tete h2{margin:0;color:#fff;font-size:clamp(1.45rem,1.1rem + 1.4vw,1.9rem);font-weight:600;letter-spacing:-.035em;line-height:1.1}
+.rdv-tete p{margin:.35rem 0 0;font-size:.95rem;color:var(--rv-faible)}
+.rdv-x{
+  flex:0 0 auto;width:40px;height:40px;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.07);color:#fff;font:inherit;font-size:1.3rem;line-height:1;
+  display:grid;place-items:center;transition:background .2s;
+}
+.rdv-x:hover{background:rgba(255,255,255,.14)}
+
+/* fil d'étapes : 1 Créneau · 2 Coordonnées */
+.rdv-fil{list-style:none;display:flex;gap:.5rem;margin:1.3rem 0 1.4rem;padding:0;counter-reset:rv}
+.rdv-fil li{
+  flex:1;counter-increment:rv;padding-top:.55rem;border-top:2px solid var(--rv-filet);
+  font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--rv-faible);
+  transition:color .3s,border-color .3s;
+}
+.rdv-fil li::before{content:counter(rv) " · "}
+.rdv-fil li.rv-fait,.rdv-fil li.rv-actif{border-color:var(--rv-vc);color:var(--rv-vc)}
+
+/* jours */
+.rdv-jours{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.4rem;margin-inline:-.2rem;padding-inline:.2rem;scroll-snap-type:x proximity;scrollbar-width:thin}
+.rdv-jour{
+  flex:0 0 auto;width:72px;padding:.6rem 0 .55rem;border:0;border-radius:16px;cursor:pointer;scroll-snap-align:start;
+  background:var(--rv-surface-2);box-shadow:inset 0 0 0 1px var(--rv-filet);color:#fff;font:inherit;
+  display:flex;flex-direction:column;align-items:center;gap:.1rem;transition:background .2s,box-shadow .2s,transform .2s;
+}
+.rdv-jour small{font-size:.7rem;color:var(--rv-faible);text-transform:uppercase;letter-spacing:.08em}
+.rdv-jour b{font-size:1.4rem;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.rdv-jour:hover{box-shadow:inset 0 0 0 1px var(--rv-vc)}
+.rdv-jour[aria-pressed="true"]{background:var(--rv-vc);box-shadow:none;color:var(--rv-noir)}
+.rdv-jour[aria-pressed="true"] small{color:rgba(7,9,7,.7)}
+
+/* créneaux : des carrés */
+.rdv-moment{margin:1.3rem 0 .6rem;font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rv-faible)}
+.rdv-grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:.5rem}
+.rdv-creneau{
+  aspect-ratio:1.55;border:0;border-radius:14px;cursor:pointer;font:inherit;
+  font-size:1rem;font-weight:500;letter-spacing:-.01em;font-variant-numeric:tabular-nums;
+  background:var(--rv-surface-2);box-shadow:inset 0 0 0 1px var(--rv-filet);color:#fff;
+  transition:background .2s,box-shadow .2s,transform .2s;
+}
+.rdv-creneau:hover{box-shadow:inset 0 0 0 1.5px var(--rv-vc);transform:translateY(-1px)}
+.rdv-creneau[aria-pressed="true"]{background:var(--rv-vc);color:var(--rv-noir);box-shadow:none}
+.rdv-vide{margin:1.2rem 0 0;color:var(--rv-faible);font-size:.95rem}
+
+.rdv :focus-visible{outline:2px solid var(--rv-vc);outline-offset:3px}
+
+/* étape 2 */
+.rdv-rappel{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;
+  padding:1rem 1.1rem;border:0;border-radius:16px;cursor:pointer;font:inherit;text-align:left;
+  background:rgba(169,196,159,.12);box-shadow:inset 0 0 0 1px rgba(169,196,159,.45);color:#fff;
+}
+.rdv-rappel b{display:block;font-weight:600;font-size:1.05rem;letter-spacing:-.02em}
+.rdv-rappel small{display:block;margin-top:.15rem;color:var(--rv-faible);font-size:.85rem}
+.rdv-rappel span{color:var(--rv-vc);font-size:.88rem;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
+.rdv-form{margin-top:1.2rem;display:grid;gap:.85rem}
+.rdv-duo{display:grid;gap:.85rem;grid-template-columns:1fr 1fr}
+@media (max-width:520px){.rdv-duo{grid-template-columns:1fr}}
+.rdv-champ{display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.rdv-champ label{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--rv-vc)}
+.rdv-champ label i{font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;color:var(--rv-faible)}
+.rdv-champ input{
+  width:100%;min-height:50px;padding:.8rem .95rem;border-radius:12px;
+  font:inherit;font-size:1rem;color:#fff;background:var(--rv-noir);border:1px solid var(--rv-filet);
+  transition:border-color .2s,background .2s;
+}
+.rdv-champ input:focus{outline:none;border-color:var(--rv-vc);background:var(--rv-surface-2);box-shadow:0 0 0 3px rgba(169,196,159,.18)}
+.rdv-champ input[aria-invalid="true"]{border-color:#e08a6d}
+.rdv-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.rdv-envoyer{
+  margin-top:.3rem;min-height:54px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--rv-vc);color:var(--rv-noir);font:inherit;font-size:1rem;font-weight:600;
+  transition:background .2s;
+}
+.rdv-envoyer:hover{background:var(--rv-vp)}
+.rdv-envoyer[disabled]{opacity:.55;cursor:progress}
+.rdv-erreur{display:none;padding:.8rem 1rem;border-radius:12px;background:rgba(224,138,109,.12);border:1px solid rgba(224,138,109,.4);color:#f0a58a;font-size:.92rem}
+.rdv-erreur.montre{display:block}
+.rdv-erreur a{color:inherit}
+.rdv-note{margin:0;font-size:.82rem;line-height:1.5;color:var(--rv-faible)}
+.rdv-note a{color:var(--rv-vc)}
+
+/* étape 3 */
+.rdv-fait{text-align:center;padding:1.5rem 0 .5rem}
+.rdv-coche{width:64px;height:64px;margin:0 auto 1.2rem;border-radius:50%;display:grid;place-items:center;background:var(--rv-vc);color:var(--rv-noir);animation:rv-pop .5s cubic-bezier(.16,1,.3,1)}
+.rdv-coche svg{width:30px;height:30px}
+@keyframes rv-pop{from{transform:scale(.4);opacity:0}}
+.rdv-fait h3{margin:0;color:#fff;font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
+.rdv-fait p{margin:.8rem auto 0;max-width:40ch;line-height:1.5}
+.rdv-fait strong{color:#fff;font-weight:600}
+.rdv-fait .rdv-envoyer{margin-top:1.6rem;padding-inline:2rem}
+
+/* téléphone : la fenêtre monte du bas, plein largeur */
+@media (max-width:600px){
+  .rdv{place-items:end center;padding:0}
+  .rdv-carte{width:100%;max-height:92vh;max-height:92dvh;border-radius:24px 24px 0 0;padding-bottom:max(1.3rem,env(safe-area-inset-bottom,0px))}
+  @keyframes rv-monte{from{transform:translateY(40px);opacity:0}}
+}
+@media (prefers-reduced-motion:reduce){.rdv-voile,.rdv-carte,.rdv-coche{animation:none}}
+html.rdv-ouvert,html.rdv-ouvert body{overflow:hidden}
