@@ -30,7 +30,12 @@ Une ligne est **déjà traitée** si l'un de ces cas est vrai :
    `list_drafts` avec la même requête pour les brouillons) ;
 2. elle figure dans un compte rendu précédent `Campagne – brouillons AAAA-MM-JJ` (Drive, dossier « SL agence »),
    y compris comme **écartée** ;
-3. la colonne `Statut` n'est pas vide.
+3. la colonne `Statut` n'est pas vide ;
+4. la feuille « Prospection SL agence » la marque « déjà client » ou contactée ;
+5. l'adresse figure dans la liste « Ne plus contacter » (Drive, recherche `fullText contains '<adresse>'`) — opposition CNIL.
+
+Déjà contactée il y a plus de 30 jours sans réponse : ce n'est pas un écartement mais une **relance dans le fil
+existant**, signalée comme telle et hors quota des 25. Ligne sans entreprise ou sans e-mail : écartée (LIGNE-INCOMPLÈTE).
 
 Les N premières lignes **non traitées**, dans l'ordre de la feuille, forment le lot du jour.
 Si la liste est épuisée : le dire dans le compte rendu (« liste épuisée, X restantes ») et s'arrêter.
@@ -48,7 +53,7 @@ chaque jour ; il l'est si Loïc corrige le modèle ou si le taux de réponse est
 1. **Lire la liste** et constituer le lot (section précédente). Écrire le QG (prospection « au travail »).
 2. **Prospection** — pour chaque entreprise (savoirs : `emailing.md`, `prospection.md` ; corrections
    `prospection` et `tous`) :
-   - **Suivre la procédure de vérification du mail de base** (doublons → identité → adresse → formule
+   - **Lancer les requêtes telles qu'écrites dans le mail de base** (correction c032) et suivre sa procédure de vérification (doublons → identité → adresse → formule
      d'appel → fait), sans raccourci. En particulier :
      - **adresse** : domaine identique à celui du site, ou adresse affichée par l'entreprise elle-même
        (cette page devient l'origine citée dans le pied) ; MX vérifié ; jamais devinée ni corrigée ;
@@ -79,7 +84,8 @@ chaque jour ; il l'est si Loïc corrige le modèle ou si le taux de réponse est
 
 ## Relances (3 sur 3 semaines)
 
-Séquence de `savoirs/emailing.md` §4 : R1 à J+4, R2 à J+10, R3 (rupture) à J+20, toujours dans le même fil,
+Bases dans `travail/prospection/mail-de-base.md`, cadence en **jours ouvrés** (jours fériés sautés) :
+R1 à E1 + 3 jours ouvrés, R2 à E1 + 8, R3 (rupture) à E1 + 14 — toujours dans le même fil,
 arrêt dès la première réponse (même « non »). Elles sont préparées par `/relances` (agent `suivi`), qui
 repère les mails de campagne envoyés par Loïc (`in:sent`) et pose le libellé `SL Prospection/Contacté`.
 La tâche programmée enchaîne `/campagne` puis `/relances`.
