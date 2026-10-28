@@ -1,6 +1,6 @@
 ---
 name: campagne
-description: Campagne e-mail quotidienne - prend les 25 entreprises suivantes de la feuille Drive « Campagne – liste à contacter » (fournie par Loïc - entreprise, ville, e-mail), vérifie chacune, personnalise le mail de base avec un fait réel, contrôle qualité, puis crée un brouillon Gmail par entreprise et un compte rendu dans Drive. Lancée chaque jour ouvré par une tâche programmée, ou à la main (« /campagne », « /campagne 5 » pour un test).
+description: Campagne e-mail quotidienne - prend les 25 entreprises suivantes de la feuille Drive « Campagne – liste à contacter » (remplie par ChatGPT ou par Loïc - entreprise, ville, e-mail facultatif), vérifie chacune, personnalise le mail de base avec un fait réel, contrôle qualité, puis crée un brouillon Gmail par entreprise et un compte rendu dans Drive. Lancée chaque jour ouvré par une tâche programmée, ou à la main (« /campagne », « /campagne 5 » pour un test).
 ---
 
 # /campagne — 25 premiers contacts par jour, prêts à envoyer
@@ -35,6 +35,8 @@ Une ligne est **déjà traitée** si l'un de ces cas est vrai :
 3. la colonne `Statut` n'est pas vide ;
 4. la feuille « Prospection SL agence » la marque « déjà client » ou contactée ;
 5. l'adresse figure dans la liste « Ne plus contacter » (Drive, recherche `fullText contains '<adresse>'`) — opposition CNIL.
+
+Case E-mail vide : les cas 1 (adresse et domaine) et 5 sont vérifiés dès que l'adresse est trouvée (D.1 du mail de base).
 
 Exception aux cas 1 et 4 — déjà contactée il y a plus de 30 jours sans réponse : ce n'est pas un écartement mais une **relance dans le fil
 existant**, signalée comme telle et hors quota des 25. Ligne sans nom d'entreprise ou sans ville : écartée (LIGNE-INCOMPLÈTE). Une case E-mail vide n'est pas un écartement :

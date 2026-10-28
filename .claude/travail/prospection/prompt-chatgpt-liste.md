@@ -2,7 +2,8 @@
 
 > Rédigé le 2026-10-28 par `prospection`. Fichier anonyme : aucune entreprise, personne ou adresse réelle, aucun lien Drive (c004, c021).
 > Contexte : `/campagne` (`skills/campagne/SKILL.md`) traite 25 premiers contacts par jour ouvré à partir de la feuille Google
-> « Campagne – liste à contacter » (propriétaire : le compte de l'agence, partagée en éditeur avec Loïc, c034).
+> « Campagne – liste à contacter » (doit appartenir au compte de l'agence et être partagée en éditeur avec Loïc, c034 ; au 28/10, elle est encore sur le compte de Loïc : transfert de propriété à faire, voir ci-dessous).
+> Écart volontaire avec `cible.md` : santé libérale exclue (aucune famille dans le mail de base, souvent déjà équipée).
 > ChatGPT remplit les colonnes A-C ; la campagne remplit D-G.
 > Principe de sécurité : ChatGPT peut se tromper ou inventer. La procédure D du mail de base (`mail-de-base.md`) revérifie TOUT
 > (API Recherche d'entreprises, adresse publiée, MX, doublons) : ce qui est faux est écarté, rien n'est envoyé sans Loïc.
@@ -22,14 +23,14 @@ Ajoute environ 40 nouvelles lignes à la feuille Google « Campagne – liste à
 - C : E-mail (voir règles ci-dessous ; case vide si tu n'es pas sûr à 100 %)
 
 ÉCRITURE DANS LA FEUILLE
-1. Commence par lire toute la feuille. Repère la première ligne vide sous les données existantes.
+1. Commence par lire toute la feuille. Repère la première ligne vide sous les données existantes. Si tu ne peux pas lire la feuille, dis-le en première ligne de ta réponse et demande-moi de te coller la colonne A avant de commencer.
 2. Écris à la suite des lignes existantes, colonnes A, B, C seulement. Ne modifie jamais les colonnes D, E, F, G. Ne supprime, ne déplace, ne trie et ne modifie aucune ligne existante. N'ajoute pas de colonne.
 3. Pas de doublon : avant d'ajouter une entreprise, vérifie qu'elle ne figure pas déjà dans la colonne A (compare sans tenir compte des majuscules, accents, formes juridiques SARL/SAS/EURL) et qu'elle n'est pas déjà dans ton lot.
-4. Si tu ne peux pas écrire dans Google Sheets, ne dis pas que c'est fait : rends-moi un tableau de 3 colonnes (Entreprise | Ville | E-mail), une ligne par entreprise, sans autre colonne, que je collerai moi-même à la suite de la feuille.
+4. Si tu ne peux pas écrire dans Google Sheets, ne dis pas que c'est fait : rends-moi un tableau de 3 colonnes (Entreprise | Ville | E-mail), une ligne par entreprise, sans ligne de titres, sans autre colonne, que je collerai moi-même à la suite de la feuille.
 
 QUELLES ENTREPRISES
 Entreprises RÉELLES, actives, dont le siège est dans le Haut-Rhin (68). Indépendantes, de 1 à 50 salariés (idéal : 3 à 20). Répartis les 40 lignes à peu près ainsi :
-- Environ 24 lignes, secteurs prioritaires : bâtiment et travaux (terrassement, démolition, maçonnerie et gros œuvre, électricité, plomberie-chauffage, couverture, charpente, menuiserie, peinture, plâtrerie), travaux publics et VRD, aménagement paysager, travaux agricoles et forestiers (entreprises de travaux agricoles, ETA), sécurité privée, sécurité incendie et contrôles réglementaires, diagnostics et inspections techniques.
+- Environ 24 lignes, secteurs prioritaires : bâtiment et travaux (terrassement, démolition, maçonnerie et gros œuvre, électricité, plomberie-chauffage, couverture, charpente, menuiserie, peinture, plâtrerie), maintenance et dépannage (chauffage, froid, portails, ascenseurs), nettoyage professionnel, travaux publics et VRD, aménagement paysager, travaux agricoles et forestiers (entreprises de travaux agricoles, ETA), sécurité privée, sécurité incendie et contrôles réglementaires, diagnostics et inspections techniques.
 - Environ 12 lignes : cabinets et services (experts-comptables indépendants, cabinets d'avocats, études notariales, gestion de patrimoine, courtage en crédit ou en assurance), agences immobilières indépendantes, transport routier de marchandises, déménagement, logistique.
 - Environ 4 lignes : associations, événementiel, restauration ou commerce de proximité.
 Varie les communes : Mulhouse, Colmar, Saint-Louis, Altkirch, le Sundgau, Guebwiller, Thann, Cernay, Wittenheim, Rixheim, Ensisheim, Kaysersberg, Munster, etc. Pas plus de 8 lignes pour une même commune.
@@ -43,6 +44,7 @@ Varie les communes : Mulhouse, Colmar, Saint-Louis, Altkirch, le Sundgau, Guebwi
 - Toute entreprise que tu n'arrives pas à confirmer sur le web.
 
 VÉRIFICATION OBLIGATOIRE POUR CHAQUE LIGNE
+0. Si tu n'as pas accès à la recherche web pendant cette session, arrête-toi, n'écris aucune ligne et réponds seulement : « Recherche web indisponible ».
 Pour chaque entreprise, avant de l'écrire :
 1. Trouve son site officiel ou sa fiche officielle (site de l'entreprise, fiche Google, PagesJaunes) et confirme qu'elle existe, qu'elle est en activité et que son activité correspond au secteur.
 2. Confirme sur l'annuaire officiel des entreprises (annuaire-entreprises.data.gouv.fr) qu'elle est « en activité » et que son siège est dans le Haut-Rhin. Une entreprise introuvable sur cet annuaire n'est pas ajoutée.
@@ -51,7 +53,7 @@ Pour chaque entreprise, avant de l'écrire :
 RÈGLES POUR LA COLONNE E-MAIL (les plus importantes)
 - N'écris une adresse QUE si tu l'as lue, caractère par caractère, sur le site officiel de l'entreprise (page Contact, Mentions légales, pied de page) ou sur sa fiche officielle (fiche Google, PagesJaunes).
 - Ne devine JAMAIS une adresse. Jamais de format prenom.nom@, contact@, info@, accueil@ ou direction@ construit à partir du nom de domaine. Jamais d'adresse « probable » ou tirée de ta mémoire. Jamais d'adresse trouvée sur un site tiers de revente de données, un annuaire de leads ou un réseau social privé.
-- Recopie l'adresse exactement, sans la corriger. Une seule adresse par ligne (la plus générale, de préférence celle de l'entreprise plutôt que celle d'une personne).
+- Recopie l'adresse exactement, sans la corriger. Une seule adresse par ligne : l'adresse générale de l'entreprise. Si seule une adresse nominative (au nom d'une personne) est affichée, laisse la case vide.
 - Si l'adresse n'est pas affichée, ou si tu hésites, laisse la colonne C VIDE. Une case vide est normale et attendue : ne la remplis pas pour « faire joli ». Un autre outil cherchera ensuite l'adresse sur le site.
 - Ne cherche ni nom de dirigeant, ni téléphone, ni adresse personnelle. N'écris aucune donnée sur des personnes.
 
@@ -61,7 +63,8 @@ Après l'écriture (ou le tableau à coller), donne en 4 lignes : nombre de lign
 
 ## 2. Mode d'emploi pour Loïc (1 minute)
 
+0. **Une seule fois, avant tout** (propriété de la feuille, c034) : depuis ton compte, ouvre la feuille › Partager › ajoute le compte de l'agence en Éditeur › menu à côté de son nom › Transférer la propriété ; puis accepte le transfert depuis le compte de l'agence.
 1. **Première fois** : ouvre ChatGPT avec la recherche web activée, donne-lui accès à la feuille « Campagne – liste à contacter » (connecteur Google Drive) si tu peux ; colle le prompt. Sinon, il te rend un tableau à 3 colonnes que tu colles sous la dernière ligne, colonnes A à C.
-2. **Quand relancer** : dès que le compte rendu quotidien indique « restantes dans la liste : X » avec X inférieur à 50 lignes non traitées (une ligne dont la colonne Statut est vide). Rends le même prompt à ChatGPT : il ajoute un nouveau lot de 40 lignes à la suite.
+2. **Quand relancer** : dès que le compte rendu quotidien indique « restantes dans la liste : X » avec X inférieur à 50 lignes non traitées (une ligne dont la colonne Statut est vide). Redonne le même prompt à ChatGPT : il ajoute un nouveau lot de 40 lignes à la suite.
 3. **Les cases E-mail vides sont normales** : la campagne cherche elle-même l'adresse affichée sur le site officiel de l'entreprise ; si elle n'y est pas, la ligne est écartée (motif ADRESSE) et tu le vois dans le compte rendu. Ne remplis pas les cases à la main avec une adresse non vérifiée.
 4. **Contrôle** : regarde le compte rendu des 3 premiers jours. Si plus de la moitié des lignes sont écartées (introuvable, hors zone, réseau, adresse), dis-le au Manager : le prompt sera resserré. Le quota de 25 brouillons par jour dépend du nombre de lignes fournies, pas de ChatGPT seul.
