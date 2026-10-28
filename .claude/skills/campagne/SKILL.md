@@ -82,13 +82,22 @@ chaque jour ; il l'est si Loïc corrige le modèle ou si le taux de réponse est
 8. **Journal** (`memoire/journal.md`, sans donnée personnelle) : « Campagne : N brouillons, M écartées (raisons) ».
    Commiter et pousser.
 
-## Relances (3 sur 3 semaines)
+## Relances — plafond de Loïc : 50 brouillons par jour au total
 
-Bases dans `travail/prospection/mail-de-base.md`, cadence en **jours ouvrés** (jours fériés sautés) :
-R1 à E1 + 3 jours ouvrés, R2 à E1 + 8, R3 (rupture) à E1 + 14 — toujours dans le même fil,
-arrêt dès la première réponse (même « non »). Elles sont préparées par `/relances` (agent `suivi`), qui
-repère les mails de campagne envoyés par Loïc (`in:sent`) et pose le libellé `SL Prospection/Contacté`.
-La tâche programmée enchaîne `/campagne` puis `/relances`.
+**Règle de Loïc (2026-10-28, correction c033)** : au plus **50 brouillons par jour** à relire = **25 premiers
+contacts + 25 relances maximum**. Les relances ne dépassent jamais 50 − (premiers contacts du jour).
+
+Bases dans `travail/prospection/mail-de-base.md` §C, cadence en **jours ouvrés** (jours fériés sautés) :
+R1 à E1 + 3, R2 à E1 + 8, R3 (rupture) à E1 + 14 — toujours dans le même fil, arrêt dès la première
+réponse (même « non »). Quand il y a plus de relances dues que de places, ordre de priorité :
+1. **R1** (la plus utile : un élément nouveau), de la plus ancienne à la plus récente ;
+2. puis **R2**, puis **R3**, avec les places restantes (jours où moins de 25 premiers contacts sont partis) ;
+3. une R2 ou R3 en retard de plus de 10 jours ouvrés est abandonnée (contact clos, noté dans le compte rendu).
+Conséquence assumée par Loïc : à 25 premiers contacts par jour, la plupart des contacts ne recevront qu'une relance.
+Les relances « hors quota » (entreprise de la liste déjà contactée avant) comptent dans les 25 relances.
+
+Elles sont préparées par `/relances` (agent `suivi`) avec ce plafond ; `suivi` repère les mails de campagne envoyés
+par Loïc (`in:sent`) et pose le libellé `SL Prospection/Contacté`. La tâche programmée enchaîne `/campagne` puis `/relances`.
 
 ## Restitution à Loïc
 
@@ -97,5 +106,5 @@ La tâche programmée enchaîne `/campagne` puis `/relances`.
 → À faire (≈ <N> min) : ouvrir Gmail › Brouillons, relire, envoyer entre 8 h et 10 h, étalés.
 → Compte rendu : <lien du Doc>
 → Écartées : <entreprise — raison>, …
-→ Relances du jour : <nombre> (voir /relances)
+→ Relances du jour : <nombre> / <places restantes sur 50> (R1 · R2 · R3), abandonnées : <nombre>
 ```

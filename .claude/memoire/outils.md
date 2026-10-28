@@ -11,7 +11,7 @@ de Loïc vit dans ses propres outils : **Gmail** (conversations et statuts via l
 | Donnée | Emplacement | Accès |
 |---|---|---|
 | Fichier de prospection historique (~205 entreprises de Mulhouse, statuts, e-mails déjà préparés) | Google Drive — feuille « Prospection SL agence » (retrouver par son nom : `mcp__Google_Drive__search_files`), onglets « Prospection chèque cadeau » et « Mail à envoyer » | Lecture (`mcp__Google_Drive__read_file_content`) |
-| Liste de la campagne quotidienne (entreprise, ville, e-mail fournis par Loïc) | Google Drive — feuille « Campagne – liste à contacter » (dossier « SL agence ») ; comptes rendus `Campagne – brouillons AAAA-MM-JJ` | Lecture complète : Drive `download_file_content` en `text/csv` (commande `/campagne`) |
+| Liste de la campagne quotidienne (entreprise, ville, e-mail fournis par Loïc) | Google Drive — feuille « Campagne – liste à contacter », **propriété du compte de l'agence agence.sl.68@gmail.com** (c034), partagée en éditeur avec le compte de Loïc qu'utilise le connecteur ; comptes rendus `Campagne – brouillons AAAA-MM-JJ` | Lecture complète : Drive `download_file_content` en `text/csv` (commande `/campagne`) |
 | Dossier de travail Drive | « SL agence » (retrouver par son nom) | Les lots de prospects (`Prospects – lot AAAA-MM-JJ`) et listes de relances y sont créés |
 | Conversations avec les prospects | Gmail **agence.sl.68@gmail.com** (boîte partagée de l'agence, Sacha la voit aussi ; ~200 fils envoyés, dont une prospection d'août 2026) | Lecture, brouillons, libellés (jamais d'envoi) |
 | Analyse de marché + grille tarifaire (confidentiel) | Drive — « Analyse de marché SLagence.docx » (retrouver par son nom) | Lecture seule, jamais recopiée dans le dépôt |

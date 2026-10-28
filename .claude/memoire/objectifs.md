@@ -25,7 +25,7 @@ et générer progressivement plus de demandes entrantes et sortantes.
 ## Temps que Loïc doit y passer (cible)
 
 - Brief du matin : 5 min de lecture
-- Validation et envoi des messages : 25 à 30 min / jour (25 premiers contacts) ; jusqu'à environ 1 h / jour
-  en régime établi, quand les relances (jusqu'à 3 par contact sur 3 semaines) s'ajoutent — à mesurer au `/bilan`
+- Validation et envoi des messages : **au plus 50 brouillons par jour** (25 premiers contacts + 25 relances maximum,
+  règle de Loïc du 2026-10-28) ; temps réel à mesurer au `/bilan`
 - LinkedIn : 15 min / jour (publication + commentaires)
 - Bilan hebdo : 20 min le vendredi

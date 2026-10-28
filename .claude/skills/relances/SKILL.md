@@ -11,6 +11,12 @@ QG : agent(s) « au travail » + activité → **suivi** (exécution, Sonnet) �
 **controle-qualite** (verdict ; si À CORRIGER, renvoyer à l'agent, 2 fois max) → présentation à Loïc
 → QG : livrables, mission, agents « disponibles » → commit.
 
+## Plafond (Loïc, 2026-10-28, c033)
+
+Au plus **50 brouillons par jour au total** : relances ≤ 50 − premiers contacts créés le jour même par `/campagne`
+(soit ≤ 25 les jours de campagne). Priorité : réponses à traiter (hors plafond) → R1 → R2 → R3 ; détail dans
+`skills/campagne/SKILL.md`, section « Relances ».
+
 ## Étapes
 
 1. **Suivi** exécute :

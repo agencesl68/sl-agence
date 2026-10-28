@@ -174,6 +174,9 @@ Pour chaque famille : la phrase de preuve (bloc 3), sa source (`realisations.htm
 
 ## C. Bases des relances
 
+> **Plafond (Loïc, 2026-10-28, c033)** : au plus 25 relances par jour (50 brouillons au total avec les 25 premiers contacts).
+> Priorité R1, puis R2, puis R3 avec les places restantes : voir `skills/campagne/SKILL.md`, section « Relances ».
+
 Les brouillons de relance sont créés par `suivi` (`replyToMessageId`, après l'envoi par Loïc). `prospection` n'écrit que les bases ci-dessous. Une relance ne compte jamais dans le quota des 25 E1.
 
 **Règles communes** : même fil Gmail, **même objet, même formule d'appel que l'E1** ; 2 à 3 phrases ; pied toujours présent (même source que l'E1) ; signature imposée ;

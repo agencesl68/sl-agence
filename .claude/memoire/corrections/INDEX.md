@@ -40,3 +40,5 @@
 | [c030](c030-indice-de-demande-non-filtre.md) | analyste, seo-site | moyenne | Indice de demande trié (pertinentes, intention) ; score sur la demande atteignable ; cannibalisation via le menu |
 | [c031](c031-faq-et-tableaux-clones-entre-pages-de-service.md) | seo-site, contenu-linkedin | moyenne | Pages de service : au plus 2 questions de FAQ communes, aucune réponse ni ligne de tableau recopiée |
 | [c032](c032-requete-d-outil-non-testee.md) | prospection, analyste, suivi, manager | moyenne | Toute requête écrite dans une procédure est testée sur un cas réel avant livraison ; promesse du site = phrase exacte (Grep) |
+| [c033](c033-volume-de-brouillons-au-dela-de-la-capacite-de-loic.md) | manager, analyste, suivi, prospection | haute | Au plus 50 brouillons/jour : 25 premiers contacts + 25 relances max ; priorité R1 → R2 → R3 |
+| [c034](c034-feuille-de-campagne-sur-le-compte-de-loic.md) | manager, prospection, suivi | moyenne | Fichiers commerciaux partagés = propriété du compte de l'agence, partagés en éditeur avec Loïc |
