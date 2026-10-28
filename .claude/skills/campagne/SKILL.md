@@ -14,8 +14,10 @@ envisagé que sur décision écrite de Loïc, depuis une boîte @slagence.fr (vo
 ## Entrées
 
 - **La liste** : feuille Google « Campagne – liste à contacter » (dossier Drive « SL agence »), à retrouver
-  par son nom (`mcp__Google_Drive__search_files`, jamais d'identifiant dans le dépôt). Loïc remplit les
-  colonnes A-C : `Entreprise`, `Ville`, `E-mail`. Les colonnes D-G (`Statut`, `Date du brouillon`,
+  par son nom (`mcp__Google_Drive__search_files`, jamais d'identifiant dans le dépôt). La liste est constituée
+  par ChatGPT (prompt : `travail/prospection/prompt-chatgpt-liste.md`) ou par Loïc, colonnes A-C : `Entreprise`,
+  `Ville`, `E-mail` (cette dernière peut être vide : voir ci-dessous). Une liste fournie par un outil n'est
+  jamais une source : tout est revérifié par la procédure D. Les colonnes D-G (`Statut`, `Date du brouillon`,
   `Fait utilisé (source)`, `Remarque`) sont remplies par la campagne.
   Lecture complète : `mcp__Google_Drive__download_file_content` avec `exportMimeType: text/csv`
   (le contenu revient en base64 : le décoder). `read_file_content` ne rend qu'un extrait : ne pas l'utiliser.
@@ -35,7 +37,9 @@ Une ligne est **déjà traitée** si l'un de ces cas est vrai :
 5. l'adresse figure dans la liste « Ne plus contacter » (Drive, recherche `fullText contains '<adresse>'`) — opposition CNIL.
 
 Exception aux cas 1 et 4 — déjà contactée il y a plus de 30 jours sans réponse : ce n'est pas un écartement mais une **relance dans le fil
-existant**, signalée comme telle et hors quota des 25. Ligne sans entreprise ou sans e-mail : écartée (LIGNE-INCOMPLÈTE).
+existant**, signalée comme telle et hors quota des 25. Ligne sans nom d'entreprise ou sans ville : écartée (LIGNE-INCOMPLÈTE). Une case E-mail vide n'est pas un écartement :
+l'agent cherche l'adresse affichée sur le site officiel ou la fiche officielle (règle D.3 du mail de base, MX vérifié) ;
+introuvable → écartée (ADRESSE).
 
 Les N premières lignes **non traitées**, dans l'ordre de la feuille, forment le lot du jour.
 Si la liste est épuisée : le dire dans le compte rendu (« liste épuisée, X restantes ») et s'arrêter.
@@ -56,7 +60,8 @@ chaque jour ; il l'est si Loïc corrige le modèle ou si le taux de réponse est
    - **Lancer les requêtes telles qu'écrites dans le mail de base** (correction c032) et suivre sa procédure de vérification (doublons → identité → adresse → formule
      d'appel → fait), sans raccourci. En particulier :
      - **adresse** : domaine identique à celui du site, ou adresse affichée par l'entreprise elle-même
-       (cette page devient l'origine citée dans le pied) ; MX vérifié ; jamais devinée ni corrigée ;
+       (cette page devient l'origine citée dans le pied, jamais « ChatGPT » ni la liste) ; MX vérifié ; jamais
+       devinée ni corrigée ; case E-mail vide = on la cherche sur le site officiel / la fiche officielle ;
      - **formule d'appel** : « Monsieur/Madame <Nom> » seulement si une source nomme le dirigeant **avec sa
        civilité** (l'API Recherche d'entreprises ne la donne pas) ; « Maître » pour les avocats ; sinon « Bonjour, ».
    - **Trouver un fait réel**, daté, de préférence de moins de 90 jours (c010) : site, offre d'emploi,
@@ -68,7 +73,7 @@ chaque jour ; il l'est si Loïc corrige le modèle ou si le taux de réponse est
    - Rendre au Manager : par entreprise, l'objet, le corps, le fait + URL, la note /10 (grille §7), ou la raison d'écartement.
 3. **Contrôle qualité** : un verdict par mail (seuil 8/10, faits sourcés, c004 c005 c010 c028).
    À CORRIGER → renvoi à prospection ; toujours sous 8 après 2 passes → écartée (« à revoir par Loïc »).
-4. **Gmail** : un brouillon par mail VALIDÉ (`create_draft` : destinataire = adresse de la liste, objet,
+4. **Gmail** : un brouillon par mail VALIDÉ (`create_draft` : destinataire = adresse vérifiée en D.3 (celle de la liste si retrouvée affichée, sinon celle trouvée sur le site), objet,
    corps en texte brut, signature imposée). Si l'entreprise a déjà un fil sans réponse : pas de premier
    message, mais une relance dans le fil (`replyToMessageId`) signalée comme telle.
    **Jamais d'envoi.**

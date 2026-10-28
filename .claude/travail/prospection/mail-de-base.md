@@ -251,7 +251,7 @@ Après R3 : statut « sans réponse », aucune nouvelle approche par e-mail avan
 Chaque étape cite son outil, sa requête et sa condition. La source de chaque information est notée dans la ligne du compte rendu (D.7). Au-delà de 10 minutes sans fait (D.5) : SANS-FAIT. Limite de l'API : 7 requêtes par seconde.
 
 ### D.1 Doublons (c005)
-- **Outil** : `mcp__Gmail__search_threads`, trois requêtes : `in:anywhere <adresse>`, puis `in:anywhere <domaine>` (sauf domaine générique : gmail, orange, wanadoo, free, outlook… : la requête domaine est alors sautée), puis `in:anywhere "<nom de l'entreprise>"`. Puis `mcp__Gmail__list_drafts` avec la même requête (brouillons d'un lot précédent).
+- **Outil** : `mcp__Gmail__search_threads`, trois requêtes : `in:anywhere <adresse>` (sautée si la case E-mail est vide : on la relance dès que l'adresse est trouvée en D.3, avant tout brouillon), puis `in:anywhere <domaine>` (sauf domaine générique : gmail, orange, wanadoo, free, outlook… : la requête domaine est alors sautée), puis `in:anywhere "<nom de l'entreprise>"`. Puis `mcp__Gmail__list_drafts` avec la même requête (brouillons d'un lot précédent).
 - **Outil** : `mcp__Google_Drive__search_files`, deux requêtes : `fullText contains '<entreprise>' and title contains 'Campagne'` (comptes rendus « Campagne – brouillons » précédents, y compris les écartées), puis `fullText contains '<adresse>'` pour la liste « Ne plus contacter ».
 - **Outil** : `mcp__Google_Sheets__get_values` sur la feuille « Prospection SL agence » (statut « Contacté », « déjà client »). Si Google Sheets est refusé : `download_file_content` en `text/csv`. Jamais d'identifiant dans le dépôt : retrouver la feuille par son nom. Jamais le CRM de Sacha ni Make (c002).
 - **Résultat** : client, conversation en cours, opposition (« non »), contact de moins de 30 jours → **DÉJÀ-CONTACT**, écarter. Contacté plus tôt sans réponse (plus de 30 jours) → **pas d'E1** : relance dans le fil existant (`replyToMessageId`), signalée comme telle avec la date du premier envoi, hors quota des 25.
@@ -264,9 +264,11 @@ Chaque étape cite son outil, sa requête et sa condition. La source de chaque i
 - `statut_diffusion` partiel : ne rien contourner (pas de nom de dirigeant).
 
 ### D.3 Adresse
+- **Case E-mail de la liste vide ou renseignée** : la liste est constituée à l'avance (colonnes A-C) et n'est pas une source d'adresses. **Une case vide n'est pas un écartement** : on cherche l'adresse comme ci-dessous. Une adresse déjà inscrite en colonne C est traitée comme une proposition à vérifier : elle ne devient valable que si on la retrouve affichée sur le site ou la fiche officielle (même condition de réussite). Si l'adresse affichée diffère de celle de la liste, on retient celle qui est affichée.
 - **Outil** : `WebFetch` des pages Contact et mentions légales du site, de la fiche Google ou PagesJaunes (`WebSearch` si le site est inconnu).
 - **Réussite** : syntaxe correcte ; le domaine est **celui du site** ou l'adresse est **affichée par l'entreprise** (page contact, mentions légales, fiche Google, PagesJaunes). **L'URL de la page où l'adresse figure** sert d'origine dans le pied. Domaine propre → MX vérifié par `WebFetch` sur `https://dns.google/resolve?name=<domaine>&type=MX` : réponse avec un champ `Answer` contenant des MX = réussite.
-- **Échec** → **ADRESSE** : pas de MX (`Status` 3 ou pas de `Answer`) ; adresse nominative d'un salarié non publiée par l'entreprise ; adresse introuvable publiquement ; coquille ; domaine sans lien avec le site. **Jamais deviner ni corriger une adresse** (pas de prenom.nom@…).
+- **Échec** → **ADRESSE** : pas de MX (`Status` 3 ou pas de `Answer`) ; adresse nominative d'un salarié non publiée par l'entreprise ; adresse introuvable publiquement (**y compris quand la case E-mail de la liste était vide**) ; coquille ; domaine sans lien avec le site. **Jamais deviner ni corriger une adresse** (pas de prenom.nom@…, pas de contact@ construit à partir du domaine).
+- **Pied** : l'origine citée est toujours la page où l'adresse a été **vérifiée** (D.3), jamais la liste ni l'outil qui l'a fournie (jamais « ChatGPT »).
 
 ### D.4 Formule d'appel
 - L'API ne donne pas la civilité (vérifié le 28/10/2026). **Outil** : `WebFetch` / `WebSearch` : pages « À propos », « Notre équipe », mentions légales, presse locale, page entreprise.
@@ -303,11 +305,11 @@ Entreprise · ville · SIREN · famille · source de l'adresse (URL) · requête
 | HOMONYME | Plusieurs entreprises plausibles, impossible de trancher |
 | HORS-ZONE | Siège hors Alsace |
 | RÉSEAU | Franchise, réseau national, ETI, grand groupe |
-| ADRESSE | Incohérente avec le site, non publiée, nominative non publiée, sans MX, coquille |
+| ADRESSE | Incohérente avec le site, non publiée (y compris case E-mail vide de la liste et adresse introuvable sur le site ou la fiche officielle), nominative non publiée, sans MX, coquille |
 | DÉJÀ-CONTACT | Client, conversation en cours, opposition, contact de moins de 30 jours |
 | SANS-FAIT | Aucun fait de niveau 1-3 en 10 minutes |
 | HORS-CIBLE | `cible.md` (santé équipée, administration, enseigne, activité sans lien avec nos réalisations et sans douleur explicite) |
-| LIGNE-INCOMPLÈTE | Entreprise ou e-mail manquant dans la liste |
+| LIGNE-INCOMPLÈTE | Nom d'entreprise ou ville manquant dans la liste (une case E-mail vide n'en est pas une : voir D.3 et ADRESSE) |
 | QC | Moins de 8/10 après 2 passes : « à revoir par Loïc » |
 
 **RELANCE n'est pas un écartement, c'est un statut** : entreprise déjà contactée il y a plus de 30 jours sans réponse (D.1) → pas d'E1, relance dans le fil existant, signalée avec la date du premier envoi, hors quota des 25.
