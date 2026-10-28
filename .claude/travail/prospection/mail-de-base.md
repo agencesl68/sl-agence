@@ -83,9 +83,9 @@ Pour chaque famille : la phrase de preuve (bloc 3), sa source (`realisations.htm
   Source : l. 805 et 806.
 - Objets : « heures des équipes » · « carburant des engins » (ou « recrutement d'un ⟨poste⟩ » quand le fait est une annonce).
 - Questions (bloc 2) :
-  1. « Quand une équipe s'ajoute, comment les heures de chacun remontent-elles au bureau chez vous ? »
+  1. « Quand un chef de chantier arrive, comment les heures de son équipe remontent-elles au bureau ? »
   2. « Les pleins des engins, comment remontent-ils au bureau aujourd'hui ? »
-- R1 : l'autre preuve terrassement (si E1 = heures, R1 = carburant, et inversement) + l'article « Terrassement : les coûts cachés des heures, des engins et du carburant ».
+- R1 : l'autre preuve terrassement (si E1 = heures, R1 = carburant, et inversement) **ou** l'article « Terrassement : les coûts cachés des heures, des engins et du carburant » (deux variantes séparées, voir C).
 - R3, fin : « Si un jour les heures, les bons ou le carburant deviennent pénibles à récupérer, vous savez où me trouver. »
 
 ### Famille 2 · Interventions chez le client
@@ -97,7 +97,7 @@ Pour chaque famille : la phrase de preuve (bloc 3), sa source (`realisations.htm
 - Objets : « vos bons d'intervention » · « bons signés chez le client ».
 - Questions :
   1. « Quand un technicien termine chez un client, comment le bon revient-il ensuite au bureau ? »
-  2. « Un bon rempli chez le client est-il ensuite recopié quelque part ? »
+  2. « Une fois reçu par e-mail, ce bon est-il ressaisi quelque part au bureau ? » (quand le fait est un bon à renvoyer par e-mail ; sinon « Un bon rempli chez le client est-il ensuite recopié quelque part ? »)
 - R1 : si l'entreprise a des équipes, le pointage de 12 salariés (l. 820-821, secteur nommé : terrassement) ; sinon l'article sur le contenu d'un bon d'intervention (voir la règle sur les titres en C).
 - R3, fin : « Si un jour les bons d'intervention deviennent pénibles à ressaisir, vous savez où me trouver. »
 
@@ -159,10 +159,10 @@ Pour chaque famille : la phrase de preuve (bloc 3), sa source (`realisations.htm
 ### Famille 7 · Générique
 *Aucune famille proche.* Autorisée seulement avec un fait de niveau 1, ou de niveau 3 avec douleur explicite.
 
-- **Preuve** : « Nous construisons des outils sur mesure pour qu'une information ne soit saisie qu'une fois. » + **une seule** des deux phrases suivantes, jamais les deux (c028) :
-  - « Nous mettons en place votre premier outil en 7 jours. » (site : « 7 jours pour mettre en place votre premier outil », `realisations.html` l. 884) ;
-  - « Jusqu'à 20 h récupérées chaque semaine chez un client. » (site : « Jusqu'à 20 h récupérées chaque semaine chez un client », l. 883).
-  La première phrase est le principe du site, pas un résultat : référence `agence.md` (« Le travail est fait deux fois ») et `index.html` l. 636 (« Avec le bon outil : une seule fois. »). Elle n'est pas mot pour mot dans `realisations.html` : point signalé au contrôle qualité (section G).
+- **Preuve** : « Nous construisons des outils pour qu'une information soit saisie une fois, visible par ceux qui en ont besoin. » (site : « une information saisie une fois, visible par ceux qui en ont besoin », `realisations.html` l. 841) + **une seule** des deux phrases suivantes, jamais les deux (c028) :
+  - « Jusqu'à 20 h récupérées chaque semaine chez un client. » (site : « Jusqu'à 20 h récupérées chaque semaine chez un client », `realisations.html` l. 883) ;
+  - « Le premier outil est en place en 7 jours. » (site : phrase exacte, `logiciel-btp-sur-mesure.html` l. 1005).
+  **Variante par défaut : 20 h (C4 = 0,5) ; 7 jours seulement si le fait parle de lancement ou d'urgence (C4 = 0).** La première phrase est le principe du site, pas un résultat.
 - Objets : « double saisie » · « votre ⟨fait en 2-3 mots⟩ » (exemple : « votre seconde agence »).
 - Questions :
   1. « Une information arrivée à un endroit doit-elle être saisie une seconde fois ailleurs ? » (à adapter au fait, voir l'exemple 3)
@@ -177,7 +177,7 @@ Pour chaque famille : la phrase de preuve (bloc 3), sa source (`realisations.htm
 Les brouillons de relance sont créés par `suivi` (`replyToMessageId`, après l'envoi par Loïc). `prospection` n'écrit que les bases ci-dessous. Une relance ne compte jamais dans le quota des 25 E1.
 
 **Règles communes** : même fil Gmail, **même objet, même formule d'appel que l'E1** ; 2 à 3 phrases ; pied toujours présent (même source que l'E1) ; signature imposée ;
-interdits : « je reviens vers vous », « je me permets », « sauf erreur », « relance », « suite à mon précédent mail », « n'hésitez pas » ; 0 prix ; pas de mot « gratuit » ; au plus 1 lien (de préférence 0 : l'article est cité en texte).
+interdits : « je reviens vers vous », « je me permets », « sauf erreur », « relance », « petite relance », « je vous relance » (pour désigner le message lui-même ; le mot reste permis dans un titre d'article et pour parler des relances de clients du prospect), « suite à mon précédent mail », « n'hésitez pas » ; 0 prix ; pas de mot « gratuit » ; au plus 1 lien (de préférence 0 : l'article est cité en texte).
 **Arrêt** dès la première réponse, même « non » (alors : liste « Ne plus contacter », aucun autre message). Message d'absence : attendre le retour annoncé, puis reprendre.
 **Titres d'articles** : cités mot pour mot entre « », sans le point final, avec la mention « sur slagence.fr (rubrique blog) ». Quand le titre contient un mot déclencheur (« gratuit » dans l'article sur le bon d'intervention), l'article est décrit sans citer le titre.
 
@@ -202,9 +202,10 @@ Le 11/11 (férié) est sauté dans le décompte. Les week-ends aussi. Calcul SL 
 
 Bases par famille (compléter ⟨⟩, une seule variante par relance) :
 
-- **F1** : « Un autre aspect, plus terre à terre : pour une entreprise de terrassement, chaque plein est pris en photo (compteur avant et après) sur 11 engins, et le dirigeant voit les pleins du jour, le jour même. Nous avons publié un article sur le sujet, « Terrassement : les coûts cachés des heures, des engins et du carburant », sur slagence.fr (rubrique blog). Est-ce que ce suivi vous parlerait ? » (si E1 = carburant : remplacer la première phrase par la preuve « heures »).
+- **F1, variante preuve** : « Un autre aspect : pour une entreprise de terrassement, chaque plein est pris en photo (compteur avant et après) sur 11 engins, et le dirigeant voit les pleins du jour, le jour même. Est-ce que ce suivi vous parlerait ? » (si E1 = carburant : remplacer la première phrase par la preuve « heures »).
+- **F1, variante article** : « Nous avons publié « Terrassement : les coûts cachés des heures, des engins et du carburant » sur slagence.fr (rubrique blog). Est-ce un sujet chez vous ? »
 - **F2, variante équipe** : « Un autre aspect, si une équipe saisit ses heures : pour une entreprise de terrassement, 12 salariés saisissent leur journée sur place, en 30 secondes, avant de rentrer, avec un rappel automatique en fin de journée. Est-ce que ce suivi vous parlerait ? »
-- **F2, variante article** : « Nous avons publié un article sur ce qu'un bon d'intervention doit contenir, avec un modèle à télécharger, sur slagence.fr (rubrique blog). Il est utile même sans faire appel à nous. Est-ce que cela vous serait utile ? »
+- **F2, variante article** : « Nous avons publié un article sur ce qu'un bon d'intervention doit contenir, avec un modèle à télécharger, sur slagence.fr (rubrique blog). Il est utile même sans faire appel à nous. Est-ce que cela vous parlerait ? »
 - **F3** : « Un point de comparaison : si vos échéances de contrôle vivent dans un tableur, notre article « Excel ne suffit plus dans votre entreprise ? 7 signes qui ne trompent pas » en donne 7 à repérer, sur slagence.fr (rubrique blog). Est-ce que l'un d'eux vous parle ? »
 - **F4** : « Un point concret : les relances de ⟨devis / factures⟩. Nous avons publié « ⟨titre exact de B⟩ » sur slagence.fr (rubrique blog), utile même sans faire appel à nous. Est-ce un sujet pour ⟨le cabinet / l'agence⟩ ? »
 - **F5** : « Un point de repère : nous avons publié « Logiciel de gestion transport et parc d'engins : Excel, logiciel du marché ou sur mesure ? » sur slagence.fr (rubrique blog). Il compare ces trois options. Est-ce un sujet pour vous ? »
@@ -225,13 +226,13 @@ Bases par famille (compléter ⟨⟩, une seule variante par relance) :
 - Les deux créneaux sont **pris dans l'agenda de Loïc par `suivi`** (jamais inventés), jours ouvrés, avec la date complète.
 - ⟨ce qui est ressaisi chez eux⟩ : F1 « vos heures et vos pleins » · F2 « vos bons » · F3 « vos contrôles » · F4 « vos dossiers clients » · F5 « vos bons de commande » · F6 « vos réservations » · F7 « ce que vous saisissez deux fois ».
 - Variante si un numéro de standard est publié : « Je peux aussi vous appeler au standard : quel jour vous convient ? » (au choix de Loïc).
-- **Jamais « diagnostic offert »** (c028). Le site propose « Réserver un appel de 15 minutes » : c'est la seule promesse reprise.
+- **Jamais « diagnostic offert »** (c028). Phrase du site reprise : « 15 minutes au téléphone, avec partage d'écran. » (`a-propos.html` l. 822) ; « Réserver un appel de 15 minutes » reste la seule autre promesse.
 
-### R3 — rupture élégante (3 phrases)
+### R3 — rupture élégante (2 phrases ; l'engagement de ne plus écrire est dans le pied)
 
 > ⟨Formule d'appel de l'E1⟩
 >
-> Je n'insiste pas : j'imagine que ce n'est pas le moment. Je ne vous écrirai plus à ce sujet. ⟨Fin de la famille (B)⟩
+> Je n'insiste pas : j'imagine que ce n'est pas le moment. ⟨Fin de la famille (B)⟩
 >
 > Loïc — SL Agence
 > 06 01 16 07 62 · slagence.fr
@@ -248,14 +249,14 @@ Chaque étape cite son outil, sa requête et sa condition. La source de chaque i
 
 ### D.1 Doublons (c005)
 - **Outil** : `mcp__Gmail__search_threads`, trois requêtes : `in:anywhere <adresse>`, puis `in:anywhere <domaine>` (sauf domaine générique : gmail, orange, wanadoo, free, outlook… : la requête domaine est alors sautée), puis `in:anywhere "<nom de l'entreprise>"`. Puis `mcp__Gmail__list_drafts` avec la même requête (brouillons d'un lot précédent).
-- **Outil** : `mcp__Google_Drive__search_files` (nom de l'entreprise dans les comptes rendus « Campagne – brouillons » précédents, y compris les écartées ; dans la liste « Ne plus contacter » ; `fullText contains`).
-- **Outil** : `mcp__Google_Sheets__get_values` sur la feuille « Prospection SL agence » (statut « Contacté », « déjà client »). Jamais d'identifiant dans le dépôt : retrouver la feuille par son nom. Jamais le CRM de Sacha ni Make (c002).
+- **Outil** : `mcp__Google_Drive__search_files`, deux requêtes : `fullText contains '<entreprise>' and title contains 'Campagne'` (comptes rendus « Campagne – brouillons » précédents, y compris les écartées), puis `fullText contains '<adresse>'` pour la liste « Ne plus contacter ».
+- **Outil** : `mcp__Google_Sheets__get_values` sur la feuille « Prospection SL agence » (statut « Contacté », « déjà client »). Si Google Sheets est refusé : `download_file_content` en `text/csv`. Jamais d'identifiant dans le dépôt : retrouver la feuille par son nom. Jamais le CRM de Sacha ni Make (c002).
 - **Résultat** : client, conversation en cours, opposition (« non »), contact de moins de 30 jours → **DÉJÀ-CONTACT**, écarter. Contacté plus tôt sans réponse (plus de 30 jours) → **pas d'E1** : relance dans le fil existant (`replyToMessageId`), signalée comme telle avec la date du premier envoi, hors quota des 25.
 - **Réussite** : les trois requêtes et le résultat figurent dans la ligne du compte rendu.
 
 ### D.2 Identité
-- **Outil** : `WebFetch` sur `https://recherche-entreprises.api.gouv.fr/search?q=<nom>+<ville>&etat_administratif=A&per_page=5` (ajouter `&code_postal=<cp>` si connu ; `minimal=true&include=dirigeants` pour lire le dirigeant).
-- **Réussite** : un seul SIREN cohérent (nom, commune, code postal, activité). `etat_administratif=A`. Siège dans le Haut-Rhin (`siege.departement` = 68 ; Alsace tolérée). Noter NAF → famille, et effectif (« NN » si non renseigné : vérifier la taille sur le site ou une annonce).
+- **Outil** : `WebFetch` sur `https://recherche-entreprises.api.gouv.fr/search?q=<nom>+<ville>&per_page=5&minimal=true&include=siege,dirigeants` (ajouter `&code_postal=<cp>` si connu), **sans filtre d'état** : on lit `etat_administratif` dans la réponse (`C` → CESSÉE). Procédure collective : `WebFetch` sur le BODACC avec `where=registre like "<SIREN>*" and familleavis_lib="Procédures collectives"` (même adresse d'API que D.5) ; une annonce récente → CESSÉE.
+- **Réussite** : un seul SIREN cohérent (nom, commune, code postal, activité). `etat_administratif` = `A`. Siège dans le Haut-Rhin (`siege.departement` = 68 ; Alsace tolérée). Noter NAF → famille, et effectif (« NN » si non renseigné : vérifier la taille sur le site ou une annonce).
 - **Échec** : aucun résultat, ou plusieurs entreprises plausibles sans moyen de trancher → INTROUVABLE ou HOMONYME ; état « C » ou procédure collective → CESSÉE ; siège hors Alsace → HORS-ZONE ; ETI, grand groupe, franchise, réseau national (catégorie `ETI`/`GE`, nom d'enseigne, site de réseau) → RÉSEAU.
 - `statut_diffusion` partiel : ne rien contourner (pas de nom de dirigeant).
 
@@ -271,7 +272,7 @@ Chaque étape cite son outil, sa requête et sa condition. La source de chaque i
 - Jamais de civilité déduite d'un prénom, jamais « Bonjour ⟨Prénom⟩ », jamais « Madame, Monsieur ». Source de la formule notée dans le compte rendu. Nom issu de l'annuaire : voir le pied (section A).
 
 ### D.5 Fait réel
-- **Outils** : `WebFetch` du site (accueil, services, actualités, carrières, contact), `WebFetch` de France Travail (`https://candidat.francetravail.fr/offres/recherche?motsCles=<poste>&lieux=68D&offresPartenaires=true&tri=1`), BODACC (`https://bodacc-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/annonces-commerciales/records` avec `where=registre like "<SIREN>*"` ; le champ `registre` donne le SIREN), `WebSearch` (L'Alsace, DNA, Journal des entreprises, page LinkedIn de l'entreprise : lecture seule).
+- **Outils** : `WebFetch` du site (accueil, services, actualités, carrières, contact), `WebFetch` de France Travail (`https://candidat.francetravail.fr/offres/recherche?motsCles=<nom de l'entreprise>&lieux=68D&offresPartenaires=true&tri=1` ; si la page est illisible : `WebSearch` « <entreprise> » recrute), BODACC (`https://bodacc-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/annonces-commerciales/records` avec `where=registre like "<SIREN>*"` ; le champ `registre` donne le SIREN), `WebSearch` (L'Alsace, DNA, Journal des entreprises, page LinkedIn de l'entreprise : lecture seule).
 - **Niveau 1** : signal de **moins de 90 jours** : annonce d'emploi avec employeur nommé, BODACC, presse locale, nouvelle agence, publication datée de l'entreprise.
 - **Niveau 2** : de 90 jours à 6 mois, cité **au passé avec sa date**.
 - **Niveau 3** : constat vérifiable du jour sur le site ou la fiche, **lié à une douleur** : formulaire PDF à imprimer, « envoyez-nous votre bon par mail », rendez-vous par téléphone uniquement, contrats d'entretien, parc d'engins. URL et **date de consultation** obligatoires.
@@ -303,7 +304,10 @@ Entreprise · ville · SIREN · famille · source de l'adresse (URL) · requête
 | DÉJÀ-CONTACT | Client, conversation en cours, opposition, contact de moins de 30 jours |
 | SANS-FAIT | Aucun fait de niveau 1-3 en 10 minutes |
 | HORS-CIBLE | `cible.md` (santé équipée, administration, enseigne, activité sans lien avec nos réalisations et sans douleur explicite) |
+| LIGNE-INCOMPLÈTE | Entreprise ou e-mail manquant dans la liste |
 | QC | Moins de 8/10 après 2 passes : « à revoir par Loïc » |
+
+**RELANCE n'est pas un écartement, c'est un statut** : entreprise déjà contactée il y a plus de 30 jours sans réponse (D.1) → pas d'E1, relance dans le fil existant, signalée avec la date du premier envoi, hors quota des 25.
 
 ---
 
@@ -322,7 +326,7 @@ Bonjour,
 
 Le 14 octobre, Terrassements Exemple recrutait un chef de chantier.
 
-Quand une équipe s'ajoute, comment les heures de chacun remontent-elles au bureau chez vous ?
+Quand un chef de chantier arrive, comment les heures de son équipe remontent-elles au bureau ?
 
 Pour une entreprise de terrassement, nous avons construit un pointage sur téléphone : 12 salariés saisissent leur journée sur place, en 30 secondes, avant de rentrer, avec un rappel automatique en fin de journée.
 
@@ -335,7 +339,7 @@ Votre adresse figure sur votre site internet. Si le sujet ne vous concerne pas, 
 ```
 
 - Objet : 33 caractères, 5 mots.
-- Corps : **65 mots** (66 en séparant les apostrophes).
+- Corps : **66 mots** (66 en séparant les apostrophes).
 - Note §7 : C1 1 · C2 1 · C3 1 · C4 1 (secteur identique, nommé) · C5 1 · C6 1 · C7 1 · C8 1 · C9 1 · C10 1 = **10/10**.
 
 ### EXEMPLE FICTIF 2 — famille 2, fait de niveau 3
@@ -349,7 +353,7 @@ Bonjour Madame Exemple,
 
 Sur votre site, la page « Dépannage » (consultée le 28 octobre) demande d'imprimer un bon d'intervention en PDF et de le renvoyer par e-mail.
 
-Quand un technicien termine chez un client, comment le bon revient-il ensuite au bureau ?
+Une fois reçu par e-mail, ce bon est-il ressaisi quelque part au bureau ?
 
 Pour une entreprise de travaux agricoles, nous avons construit un bon d'intervention numérique : rempli et signé au doigt chez le client, envoyé en PDF dans la foulée, plus rien à recopier.
 
@@ -362,7 +366,7 @@ Votre adresse figure sur la page Contact de votre site internet. Si le sujet ne 
 ```
 
 - Objet : 23 caractères, 3 mots.
-- Corps : **80 mots** (83 en séparant les apostrophes).
+- Corps : **79 mots** (82 en séparant les apostrophes).
 - Note §7 : C1 1 (constat daté du jour, lié à une douleur) · C2 1 · C3 1 · C4 0,5 (secteur voisin, nommé honnêtement, pas identique) · C5 1 · C6 1 · C7 1 · C8 1 · C9 1 · C10 1 = **9,5/10**.
 
 ### EXEMPLE FICTIF 3 — famille 7 générique, fait de niveau 1
@@ -378,7 +382,7 @@ Le 20 octobre, Bureau d'études Exemple ouvrait une seconde agence à Saint-Loui
 
 Une information arrivée dans une agence doit-elle être saisie une seconde fois pour être visible dans l'autre ?
 
-Nous construisons des outils sur mesure pour qu'une information ne soit saisie qu'une fois. Nous mettons en place votre premier outil en 7 jours.
+Nous construisons des outils pour qu'une information soit saisie une fois, visible par ceux qui en ont besoin. Le premier outil est en place en 7 jours.
 
 Est-ce un sujet chez vous en ce moment ?
 
@@ -389,8 +393,8 @@ Votre adresse figure sur votre site internet. Si le sujet ne vous concerne pas, 
 ```
 
 - Objet : 20 caractères, 3 mots.
-- Corps : **61 mots** (65 en séparant les apostrophes).
-- Note §7 : C1 1 · C2 1 · C3 1 · C4 0,5 (pas de réalisation sectorielle : preuve générique par construction) · C5 1 · C6 1 · C7 1 · C8 1 · C9 1 · C10 1 = **9,5/10**.
+- Corps : **64 mots** (67 en séparant les apostrophes).
+- Note §7 : C1 1 · C2 1 · C3 1 · C4 0 (preuve générique, et la phrase « 7 jours » est choisie alors que le fait ne parle pas de lancement : variante non par défaut) · C5 1 · C6 1 · C7 1 · C8 1 · C9 1 · C10 1 = **9/10**.
 
 Les trois dépassent le seuil de 8/10, C1 et C9 sont respectés. Notes attribuées par `prospection` : le contrôle qualité les refait.
 
@@ -406,10 +410,10 @@ Les trois dépassent le seuil de 8/10, C1 et C9 sont respectés. Notes attribué
 | 1 carburant | l. 805 : « à chaque plein, une photo du compteur avant et après. 11 engins sont suivis. » · l. 806 : « Le dirigeant voit les pleins du jour, le jour même. » | « à chaque plein, une photo du compteur avant et après, sur 11 engins. Le dirigeant voit les pleins du jour, le jour même. » | « sur 11 engins » = « 11 engins sont suivis » |
 | 2 | l. 813 : « rempli et signé au doigt chez le client, puis envoyé en PDF dans la foulée » · l. 814 : « Plus rien à recopier » | « rempli et signé au doigt chez le client, envoyé en PDF dans la foulée, plus rien à recopier » | Suppression de « puis », rien ajouté |
 | 3 | l. 855 : « Un suivi de chaque contrôle, signalé à l'avance, avant la date et non après. » · l. 856 : « L'historique se constitue tout seul et s'exporte en un clic. » | Identique | Aucun |
-| 4 | l. 847 : « Un fichier Excel par client » · l. 848 : « Une seule application pour les clients, les contrats et les échéances. » · l. 849 : « Les clients à relancer sont signalés automatiquement. » | « nous avons remplacé un fichier Excel par client par une seule application. Les clients à relancer y sont signalés automatiquement. » | « remplacé » : sens de « Avant / Ce que nous avons construit » |
+| 4 | l. 847 : « Un fichier Excel par client » · l. 848 : « Une seule application pour les clients, les contrats et les échéances. » · l. 849 : « Les clients à relancer sont signalés automatiquement. » | « nous avons remplacé un fichier Excel par client par une seule application. Les clients à relancer y sont signalés automatiquement. » | « remplacé » : sens de « Avant / Ce que nous avons construit », confirmé par `realisations.html` l. 868-869 (alt de l'image : « qui remplace un fichier Excel par client » ; légende : « L'application qui a remplacé les fichiers Excel d'un cabinet de gestion de patrimoine ») |
 | 5 (en attente) | l. 828 : « Un planning relié directement aux commandes, des bons lus depuis Outlook et reportés automatiquement » · l. 825 : « Transport routier · projet en cours » | « un planning relié directement aux commandes, avec les bons lus depuis Outlook et reportés automatiquement » | Au présent « en ce moment » ; aucun résultat |
 | 6 | l. 862 : « le convive réserve et reçoit sa confirmation » · l. 863 : « Les organisateurs voient les totaux en direct, sans doublon. » | Identique | Aucun |
-| 7 | l. 884 : « 7 jours pour mettre en place votre premier outil » · l. 883 : « Jusqu'à 20 h récupérées chaque semaine chez un client » | « Nous mettons en place votre premier outil en 7 jours. » · « Jusqu'à 20 h récupérées chaque semaine chez un client. » | Une seule phrase par mail (c028) |
+| 7 | `realisations.html` l. 841 : « Les mêmes principes au bureau : une information saisie une fois, visible par ceux qui en ont besoin. » · l. 883 : « Jusqu'à 20 h récupérées chaque semaine chez un client » · `logiciel-btp-sur-mesure.html` l. 1005 : « Le premier outil est en place en 7 jours. » | « Nous construisons des outils pour qu'une information soit saisie une fois, visible par ceux qui en ont besoin. » · « Jusqu'à 20 h récupérées chaque semaine chez un client. » ou « Le premier outil est en place en 7 jours. » | Le principe est reformulé à la première personne (« Nous construisons des outils pour que… ») ; une seule des deux autres phrases par mail (c028) |
 
 Le nombre de salariés et d'engins n'apparaît qu'une fois par mail. Aucun lieu client. Aucun nom de client. Le mot « Haut-Rhin » n'est jamais associé à une réalisation.
 
