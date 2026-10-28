@@ -677,6 +677,7 @@ input:focus,select:focus,textarea:focus{
 .reassure{margin-top:1.2rem;color:var(--texte-faible);font-size:.92rem;max-width:62ch}
 @media (max-width:640px){.hero--page{padding-top:6.2rem}.hero--page .hero-cta{margin-top:1.6rem}}
 </style>
+<link rel="stylesheet" href="/assets/rdv.css">
 </head>
 <body>
 <a class="saut" href="#contenu">Aller au contenu</a>
@@ -800,7 +801,7 @@ input:focus,select:focus,textarea:focus{
     <h1 class="titre-l">Application de pointage de chantier : la journée saisie en 30 secondes, avant de rentrer.</h1>
     <p class="lead">Un pointage des heures sur téléphone pour 12 salariés d'une entreprise de terrassement, avec un rappel automatique en fin de journée. Chacun saisit sa journée sur place, en 30 secondes, avant de rentrer.</p>
     <div class="hero-cta">
-      <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a>
+      <a class="btn btn-plein" href="#rendez-vous">Réserver un appel de 15 minutes</a>
       <a class="btn btn-creux" href="tel:+33601160762">Loïc : 06 01 16 07 62</a>
     </div>
     <p class="reassure">Devis gratuit sous 24 h, sans engagement.</p>
@@ -868,7 +869,7 @@ input:focus,select:focus,textarea:focus{
     </div>
     <p class="sep-p">Autres réalisations : <a class="lien" href="/realisations#terrain">chantiers, engins et interventions</a>. Les outils du bâtiment : <a class="lien" href="/logiciel-btp-sur-mesure">logiciel BTP sur mesure</a>.</p>
     <div class="cta-duo">
-      <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a>
+      <a class="btn btn-plein" href="#rendez-vous">Réserver un appel de 15 minutes</a>
       <a class="btn btn-creux" href="tel:+33601160762">Loïc : 06 01 16 07 62</a>
     </div>
     <p class="reassure">Après un appel de 15 minutes, vous recevez un devis gratuit sous 24 h, avec un prix ferme avant de commencer. Le premier outil est en place en 7 jours.</p>
@@ -913,7 +914,7 @@ input:focus,select:focus,textarea:focus{
       <p>Nous sommes à Friesen, dans le Haut-Rhin, nous nous déplaçons en Alsace et dans le Grand Est, et nous travaillons à distance partout en France.</p>
     </div>
     <div class="cta-duo">
-      <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a>
+      <a class="btn btn-plein" href="#rendez-vous">Réserver un appel de 15 minutes</a>
       <a class="btn btn-creux" href="tel:+33601160762">Loïc : 06 01 16 07 62</a>
     </div>
   </div>
@@ -977,7 +978,7 @@ input:focus,select:focus,textarea:focus{
       <p>Le téléphone est ouvert dès 8 h et jusqu'à 19 h, 6 jours sur 7.</p>
     </div>
     <div class="cta-duo">
-      <a class="btn btn-plein" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a>
+      <a class="btn btn-plein" href="#rendez-vous">Réserver un appel de 15 minutes</a>
       <a class="btn btn-creux" href="tel:+33601160762">Loïc : 06 01 16 07 62</a>
       <a class="btn btn-creux" href="tel:+33767081943">Sacha : 07 67 08 19 43</a>
     </div>
@@ -1041,5 +1042,6 @@ input:focus,select:focus,textarea:focus{
   var y=document.getElementById('annee'); if(y){ y.textContent=new Date().getFullYear(); }
 })();
 </script>
+<script src="/assets/rdv.js" defer></script>
 </body>
 </html>

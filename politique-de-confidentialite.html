@@ -658,6 +658,7 @@ input:focus,select:focus,textarea:focus{
 @media (max-width:700px){.table-legal table,.table-legal tbody{display:block;min-width:0;width:100%}.table-legal thead{display:none}.table-legal tr,.table-legal tbody th,.table-legal td{display:block;width:auto}.table-legal tbody th{padding-bottom:.3rem;border-bottom:0;font-size:1.05rem}.table-legal td{padding:.5rem .9rem;border-bottom:0}.table-legal td::before{content:attr(data-label);display:block;color:var(--blanc);font-size:.8rem;font-weight:600;margin-bottom:.2rem}.table-legal tr{border-bottom:1px solid var(--filet);padding:.6rem 0}}
 .maj-legal{margin-top:2rem;color:var(--texte-faible);font-size:.9rem}
 </style>
+<link rel="stylesheet" href="/assets/rdv.css">
 </head>
 <body>
 <a class="saut" href="#contenu">Aller au contenu</a>
@@ -808,7 +809,7 @@ input:focus,select:focus,textarea:focus{
         <thead><tr><th>Situation</th><th>Données concernées</th><th>Pourquoi, sur quelle base</th><th>Durée de conservation</th></tr></thead>
         <tbody>
         <tr><th scope="row">Formulaire de contact (page d'accueil)</th><td data-label="Données concernées">Prénom, nom, e-mail, téléphone, besoin choisi et message. Entreprise (facultatif). Nous ajoutons la date et l'heure d'envoi et l'adresse de la page d'où part le formulaire.</td><td data-label="Pourquoi, sur quelle base">Répondre à votre demande et, si vous le souhaitez, vous adresser un devis. <br><i>Base légale : mesures précontractuelles prises à votre demande (article 6.1.b du RGPD).</i></td><td data-label="Durée de conservation">Sans suite : 3 ans après notre dernier échange. Si vous devenez client : la durée de la relation, puis 3 ans. Les factures et pièces comptables : 10 ans (obligation légale).</td></tr>
-        <tr><th scope="row">Prise de rendez-vous (agenda en ligne)</th><td data-label="Données concernées">Nom, e-mail et informations saisies sur la page de réservation Google Agenda. Ces données sont traitées par Google pour la réservation (voir sa politique de confidentialité). Nous recevons le rendez-vous.</td><td data-label="Pourquoi, sur quelle base">Fixer et tenir l'appel de 15 minutes. <br><i>Base légale : mesures précontractuelles prises à votre demande (article 6.1.b).</i></td><td data-label="Durée de conservation">Comme ci-dessus : 3 ans après notre dernier échange.</td></tr>
+        <tr><th scope="row">Prise de rendez-vous (bouton « Prendre rendez-vous »)</th><td data-label="Données concernées">Prénom, nom, e-mail, téléphone, entreprise (facultatif), et le jour et l'heure choisis pour l'appel. Nous ajoutons la date et l'heure d'envoi et l'adresse de la page. Ces données nous parviennent par le même circuit que le formulaire de contact.</td><td data-label="Pourquoi, sur quelle base">Fixer et tenir l'appel de 15 minutes. <br><i>Base légale : mesures précontractuelles prises à votre demande (article 6.1.b).</i></td><td data-label="Durée de conservation">Comme ci-dessus : 3 ans après notre dernier échange.</td></tr>
         <tr><th scope="row">E-mail, téléphone, LinkedIn</th><td data-label="Données concernées">Votre identité, vos coordonnées professionnelles et le contenu de nos échanges.</td><td data-label="Pourquoi, sur quelle base">Répondre à ceux qui nous écrivent ou nous appellent, suivre la relation. <br><i>Base légale : intérêt légitime à répondre aux demandes reçues (article 6.1.f), ou mesures précontractuelles.</i></td><td data-label="Durée de conservation">3 ans après notre dernier échange (clients : voir ci-dessus).</td></tr>
         <tr><th scope="row">Visite du site</th><td data-label="Données concernées">Adresse IP, date et heure, pages demandées, navigateur : ces journaux techniques sont tenus par l'hébergeur du site (GitHub). Nous ne les utilisons pas.</td><td data-label="Pourquoi, sur quelle base">Servir le site et le protéger. <br><i>Base légale : intérêt légitime d'un site disponible et sécurisé (article 6.1.f).</i></td><td data-label="Durée de conservation">Durée fixée par GitHub, que nous ne maîtrisons pas (voir sa déclaration de confidentialité).</td></tr>
         </tbody>
@@ -848,7 +849,7 @@ input:focus,select:focus,textarea:focus{
       <p>Vos données sont destinées à SL Agence. Pour fonctionner, nous nous appuyons sur quelques prestataires techniques, qui les traitent pour notre compte :</p>
       <ul>
         <li><b>GitHub</b> : hébergement du site (GitHub Pages).</li>
-        <li><b>Make</b> : outil d'automatisation qui transmet le message du formulaire vers nos outils.</li>
+        <li><b>Make</b> : outil d'automatisation qui transmet le message du formulaire et les demandes de rendez-vous vers nos outils.</li>
         <li><b>Google</b> : messagerie, agenda en ligne et stockage de documents.</li>
         <li>Les outils que nous utilisons pour suivre les demandes et les rendez-vous.</li>
       </ul>
@@ -882,7 +883,7 @@ input:focus,select:focus,textarea:focus{
         <li>Le site n'utilise <b>aucun outil de mesure d'audience</b>, aucun cookie publicitaire et aucun contenu de réseau social intégré.</li>
         <li>La police de caractères, les photos et la vidéo de présentation sont <b>hébergées sur le site</b> : aucun appel à Google Fonts ni à YouTube.</li>
         <li>La page d'accueil retient, le temps de votre visite, que l'animation d'introduction a déjà été affichée (mémoire de session du navigateur). Elle ne contient aucune donnée personnelle, disparaît à la fermeture de l'onglet et ne sert ni à la mesure d'audience ni à la publicité.</li>
-        <li>Les liens vers des sites tiers (Google Agenda, LinkedIn, fiche Google) mènent vers des services qui ont leurs propres règles.</li>
+        <li>Les liens vers des sites tiers (LinkedIn, fiche Google) mènent vers des services qui ont leurs propres règles.</li>
       </ul>
       <p>Comme le site ne dépose pas de traceur qui exige votre accord, aucun bandeau de consentement n'est affiché. Si nous ajoutons un jour un outil de mesure d'audience, cette page sera mise à jour avant sa mise en service et votre accord sera demandé quand la réglementation l'impose (<a href="https://www.cnil.fr/fr/cookies-solutions-pour-les-outils-de-mesure-daudience" rel="noopener" target="_blank">règles de la CNIL</a>).</p>
     </div>
@@ -913,7 +914,7 @@ input:focus,select:focus,textarea:focus{
     </div>
     <div class="cta-duo">
       <a class="btn btn-plein" href="mailto:agence.sl.68@gmail.com">agence.sl.68@gmail.com</a>
-      <a class="btn btn-creux" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1KMz4JuDOMopdFm9NB0qJJZbaCwd_soCiO8R13VrHiY730d95LPzufLbl6U8LXyVLgAThRYX2e" target="_blank" rel="noopener">Réserver un appel de 15 minutes</a>
+      <a class="btn btn-creux" href="#rendez-vous">Réserver un appel de 15 minutes</a>
     </div>
   </div>
 </section>
@@ -974,5 +975,6 @@ input:focus,select:focus,textarea:focus{
   var y=document.getElementById('annee'); if(y){ y.textContent=new Date().getFullYear(); }
 })();
 </script>
+<script src="/assets/rdv.js" defer></script>
 </body>
 </html>
