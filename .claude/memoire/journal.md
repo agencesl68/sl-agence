@@ -9,7 +9,7 @@
 - **Action** : `assets/rdv.css` + `assets/rdv.js` sur les 27 pages concernées ; 63 liens Google Agenda remplacés par `#rendez-vous`. Les demandes passent par le même circuit Make que le formulaire, avec un message qui commence par « DEMANDE DE RENDEZ-VOUS ». Politique de confidentialité mise à jour. « SUR MESURE » de l'accueil réduit d'environ 20 %.
 - **Vérifié en ligne** : la fenêtre s'ouvre sur l'accueil, la page BTP et la page à propos, sans nouvel onglet ni erreur ; plus aucun lien Google Agenda sur l'accueil.
 - **Limite** : le site ne lit pas l'agenda ; chaque demande est à confirmer par l'équipe (créneaux non bloqués automatiquement).
-- **À décider** : horaires proposés (lundi au vendredi 9 h – 12 h et 14 h – 18 h, samedi matin) ; création automatique de l'événement dans Google Agenda via Make (à demander à Sacha).
+- **À décider** : horaires proposés (lundi au vendredi 9 h – 12 h et 14 h – 18 h, samedi matin) ; création automatique de l'événement dans Google Agenda via Make : message envoyé à Sacha le 28/10 (`travail/site/rdv/message-sacha.md`), en attente de sa mise en place.
 
 ## 2026-10-26 — Audit Semrush : santé du site 100 %
 
