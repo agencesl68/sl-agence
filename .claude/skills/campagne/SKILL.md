@@ -48,12 +48,12 @@ chaque jour ; il l'est si Loïc corrige le modèle ou si le taux de réponse est
 1. **Lire la liste** et constituer le lot (section précédente). Écrire le QG (prospection « au travail »).
 2. **Prospection** — pour chaque entreprise (savoirs : `emailing.md`, `prospection.md` ; corrections
    `prospection` et `tous`) :
-   - **Vérifier l'adresse** : syntaxe valide ; domaine cohérent avec l'entreprise ; adresse publiée sur
-     son site ou une fiche officielle si possible (sinon le noter : « adresse fournie par Loïc ») ; une
-     adresse en @gmail/@orange… n'est acceptée que si l'entreprise l'affiche elle-même. Jamais d'adresse devinée.
-   - **Identifier l'entreprise** : API Recherche d'entreprises (`https://recherche-entreprises.api.gouv.fr/search?q=<nom>&departement=68`) :
-     activité (NAF), effectif, dirigeants publics → formule d'appel « Bonjour Monsieur/Madame <Nom>, » si
-     le dirigeant est public et que l'adresse est celle de l'entreprise, sinon « Bonjour, ».
+   - **Suivre la procédure de vérification du mail de base** (doublons → identité → adresse → formule
+     d'appel → fait), sans raccourci. En particulier :
+     - **adresse** : domaine identique à celui du site, ou adresse affichée par l'entreprise elle-même
+       (cette page devient l'origine citée dans le pied) ; MX vérifié ; jamais devinée ni corrigée ;
+     - **formule d'appel** : « Monsieur/Madame <Nom> » seulement si une source nomme le dirigeant **avec sa
+       civilité** (l'API Recherche d'entreprises ne la donne pas) ; « Maître » pour les avocats ; sinon « Bonjour, ».
    - **Trouver un fait réel**, daté, de préférence de moins de 90 jours (c010) : site, offre d'emploi,
      actualité, fiche Google. Source = URL.
    - **Écrire le mail** à partir du mail de base : bloc preuve de la famille de secteur la plus proche,
