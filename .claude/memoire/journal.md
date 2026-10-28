@@ -3,6 +3,14 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-10-28 — Prise de rendez-vous intégrée au site (PR #32, en ligne)
+
+- **Décision Loïc** : plus de détour par Google Agenda, jugé peu intuitif. « Prendre rendez-vous » ouvre une fenêtre sur le site : jour → créneau en carrés → prénom, nom, e-mail, téléphone. Pas besoin de décrire le besoin.
+- **Action** : `assets/rdv.css` + `assets/rdv.js` sur les 27 pages concernées ; 63 liens Google Agenda remplacés par `#rendez-vous`. Les demandes passent par le même circuit Make que le formulaire, avec un message qui commence par « DEMANDE DE RENDEZ-VOUS ». Politique de confidentialité mise à jour. « SUR MESURE » de l'accueil réduit d'environ 20 %.
+- **Vérifié en ligne** : la fenêtre s'ouvre sur l'accueil, la page BTP et la page à propos, sans nouvel onglet ni erreur ; plus aucun lien Google Agenda sur l'accueil.
+- **Limite** : le site ne lit pas l'agenda ; chaque demande est à confirmer par l'équipe (créneaux non bloqués automatiquement).
+- **À décider** : horaires proposés (lundi au vendredi 9 h – 12 h et 14 h – 18 h, samedi matin) ; création automatique de l'événement dans Google Agenda via Make (à demander à Sacha).
+
 ## 2026-10-26 — Audit Semrush : santé du site 100 %
 
 - **Résultat mesuré** : audit de site Semrush (compte gratuit, 41 URL) passé de **95 % → 100 %** de santé, **19 erreurs → 0**, **33 avertissements → 0**, pages saines 3 → 33 ; santé recherche IA 99 %. Corrections : PR #26 (adresse sur les 19 `ProfessionalService` imbriqués, menu.min.js, CSS de l'accueil et du blog sortis du HTML, hreflang, méta-description) et PR #27 (Facebook, Instagram, LinkedIn à son adresse publique).
