@@ -9,6 +9,7 @@
 - **Mis en place** : commande `/campagne` + tâche programmée chaque jour ouvré à 6 h 40 (Paris), liée à la session de création ; feuille Drive « Campagne – liste à contacter » (Loïc remplit Entreprise, Ville, E-mail) ; mail de base (7 familles, relances, procédure, motifs d'écartement) VALIDÉ 9/10 au 2e passage du contrôle qualité.
 - **Bloquant connu** : le connecteur Google Sheets répond « Forbidden » ; lecture de la liste via Drive (export CSV), statuts tenus dans le compte rendu Drive quotidien.
 - **Correction Loïc (c033, c034)** : au plus 50 brouillons par jour (25 premiers contacts + 25 relances, priorité R1) ; la feuille de campagne doit appartenir au compte de l'agence.
+- **Liste par ChatGPT** (décision Loïc) : prompt `travail/prospection/prompt-chatgpt-liste.md` VALIDÉ 9/10 (entreprises vérifiées sur le web et l'annuaire officiel, e-mail seulement s'il est affiché, sinon case vide cherchée par la campagne).
 - **Prochaine étape** : 1re tournée le jeudi 29/10 ; mesurer le temps réel de relecture et le taux de réponse au `/bilan`.
 
 ## 2026-10-26 — Audit Semrush : santé du site 100 %
