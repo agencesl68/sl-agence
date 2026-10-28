@@ -1,6 +1,7 @@
 # Objectifs et indicateurs
 
 > Validés par Loïc le 2026-10-06. À réajuster avec `/bilan` après 4 semaines.
+> 2026-10-28 : Loïc relève la prospection à **25 premiers contacts par jour ouvré** (commande `/campagne`).
 
 ## Objectif global
 
@@ -11,7 +12,7 @@ et générer progressivement plus de demandes entrantes et sortantes.
 
 | Domaine | Indicateur | Cible / semaine |
 |---|---|---|
-| Prospection | Nouveaux prospects contactés (messages validés et envoyés) | 25 (5 par jour ouvré) |
+| Prospection | Nouveaux prospects contactés (messages validés et envoyés) | 125 (25 par jour ouvré) |
 | Prospection | Taux de réponse | ≥ 10 % |
 | Conversion | Appels de 15 min / rendez-vous obtenus | 2 |
 | Conversion | Devis envoyés | 1 |
@@ -24,6 +25,7 @@ et générer progressivement plus de demandes entrantes et sortantes.
 ## Temps que Loïc doit y passer (cible)
 
 - Brief du matin : 5 min de lecture
-- Validation et envoi des messages : 20 min / jour
+- Validation et envoi des messages : 25 à 30 min / jour (25 premiers contacts) ; jusqu'à environ 1 h / jour
+  en régime établi, quand les relances (jusqu'à 3 par contact sur 3 semaines) s'ajoutent — à mesurer au `/bilan`
 - LinkedIn : 15 min / jour (publication + commentaires)
 - Bilan hebdo : 20 min le vendredi

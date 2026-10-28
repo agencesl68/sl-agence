@@ -13,6 +13,7 @@ Ouvre une session Claude Code sur ce dépôt et tape une commande :
 |---|---|
 | `/brief` | « Que dois-je faire aujourd'hui ? » — 4 à 6 priorités avec tout prêt (messages, post, action SEO) |
 | `/prospects 10 BTP Colmar` | 10 prospects qualifiés et sourcés + un message prêt pour chacun (Google Doc dans Drive) |
+| `/campagne` · `/campagne 5` | Chaque jour ouvré à 6 h 40 (automatique) : les 25 entreprises suivantes de ta feuille « Campagne – liste à contacter » → 25 brouillons Gmail personnalisés + compte rendu dans Drive |
 | `/relances` | Qui relancer aujourd'hui, prospects oubliés, demandes du site non traitées, messages prêts |
 | `/linkedin` · `/linkedin semaine` · `/linkedin commentaire <post>` | Post du jour, programme de la semaine, ou commentaires à valeur ajoutée |
 | `/seo` | L'action SEO / site à plus fort impact maintenant (+ rédaction et intégration si c'est un contenu) |

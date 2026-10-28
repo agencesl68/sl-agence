@@ -212,6 +212,7 @@ au format défini dans `travail/transmissions/FORMAT.md`. Chaînes types :
 
 - `/brief` — que dois-je faire aujourd'hui ?
 - `/prospects` — un lot de prospects qualifiés + messages prêts à valider
+- `/campagne` — les 25 entreprises suivantes de ta liste → 25 brouillons Gmail personnalisés (tâche programmée chaque jour ouvré)
 - `/relances` — qui relancer aujourd'hui, avec les messages
 - `/linkedin` — post(s) et commentaires LinkedIn
 - `/seo` — l'action SEO / site à plus fort impact maintenant

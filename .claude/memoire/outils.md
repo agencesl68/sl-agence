@@ -11,6 +11,7 @@ de Loïc vit dans ses propres outils : **Gmail** (conversations et statuts via l
 | Donnée | Emplacement | Accès |
 |---|---|---|
 | Fichier de prospection historique (~205 entreprises de Mulhouse, statuts, e-mails déjà préparés) | Google Drive — feuille « Prospection SL agence » (retrouver par son nom : `mcp__Google_Drive__search_files`), onglets « Prospection chèque cadeau » et « Mail à envoyer » | Lecture (`mcp__Google_Drive__read_file_content`) |
+| Liste de la campagne quotidienne (entreprise, ville, e-mail fournis par Loïc) | Google Drive — feuille « Campagne – liste à contacter » (dossier « SL agence ») ; comptes rendus `Campagne – brouillons AAAA-MM-JJ` | Lecture complète : Drive `download_file_content` en `text/csv` (commande `/campagne`) |
 | Dossier de travail Drive | « SL agence » (retrouver par son nom) | Les lots de prospects (`Prospects – lot AAAA-MM-JJ`) et listes de relances y sont créés |
 | Conversations avec les prospects | Gmail **agence.sl.68@gmail.com** (boîte partagée de l'agence, Sacha la voit aussi ; ~200 fils envoyés, dont une prospection d'août 2026) | Lecture, brouillons, libellés (jamais d'envoi) |
 | Analyse de marché + grille tarifaire (confidentiel) | Drive — « Analyse de marché SLagence.docx » (retrouver par son nom) | Lecture seule, jamais recopiée dans le dépôt |
@@ -62,7 +63,7 @@ Jamais de données personnelles de prospects dans Notion au-delà du nom d'entre
 | Google Drive | ✅ | Lecture de la prospection, création des lots et listes |
 | PageSpeed Insights API | ⚠️ clé API gratuite à créer par Loïc (Google Cloud) — sans clé, quota épuisé | Vitesse et SEO technique mesurés automatiquement |
 | Search Console | ⚠️ pas de connecteur : export CSV mensuel déposé par Loïc dans Drive « SL agence/SEO » | Impressions, clics, positions réelles par page et requête |
-| Google Sheets | ✅ | Mise à jour de la feuille de prospection (statuts, dates de relance, nouveaux prospects) |
+| Google Sheets | ⚠️ « Forbidden » sur toutes les feuilles le 2026-10-28 (à réactiver par Loïc dans les réglages du connecteur) ; en attendant, lecture via Drive (export CSV) | Mise à jour de la feuille de prospection (statuts, dates de relance, nouveaux prospects) |
 | Google Calendar | ✅ | Lecture des rendez-vous ; créneaux proposés dans les relances. Création d'événement : confirmation de Loïc |
 | Canva | ✅ | Carrousels et visuels LinkedIn aux couleurs de SL Agence |
 | Ahrefs | ⚠️ connecté mais l'abonnement actuel refuse l'accès API (« Insufficient plan », 2026-10-06) | Inutilisable tant que le plan n'inclut pas l'API. En attendant : WebSearch + exports Search Console fournis par Loïc |
