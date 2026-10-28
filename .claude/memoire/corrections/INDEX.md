@@ -42,3 +42,4 @@
 | [c032](c032-requete-d-outil-non-testee.md) | prospection, analyste, suivi, manager | moyenne | Toute requête écrite dans une procédure est testée sur un cas réel avant livraison ; promesse du site = phrase exacte (Grep) |
 | [c033](c033-volume-de-brouillons-au-dela-de-la-capacite-de-loic.md) | manager, analyste, suivi, prospection | haute | Au plus 50 brouillons/jour : 25 premiers contacts + 25 relances max ; priorité R1 → R2 → R3 |
 | [c034](c034-feuille-de-campagne-sur-le-compte-de-loic.md) | manager, prospection, suivi | moyenne | Fichiers commerciaux partagés = propriété du compte de l'agence, partagés en éditeur avec Loïc |
+| [c035](c035-etat-d-un-fichier-drive-affirme-sans-verification.md) | prospection, suivi, manager | moyenne | Propriétaire/partage d’un fichier Drive vérifié avant d’être affirmé ; vérifications dépendant d’une donnée reportée relancées dès qu’elle est connue |
