@@ -1,6 +1,6 @@
 ---
 name: campagne
-description: Campagne e-mail quotidienne - prend les 25 entreprises suivantes de la feuille Drive « Campagne – liste à contacter » (remplie par ChatGPT ou par Loïc - entreprise, ville, e-mail facultatif), vérifie chacune, personnalise le mail de base avec un fait réel, contrôle qualité, puis crée un brouillon Gmail par entreprise et un compte rendu dans Drive. Lancée chaque jour ouvré par une tâche programmée, ou à la main (« /campagne », « /campagne 5 » pour un test).
+description: Campagne e-mail quotidienne - l'équipe trouve elle-même les entreprises du Haut-Rhin (API Recherche d'entreprises, sites) et leur adresse publiée, plus celles que Loïc ajoute dans la feuille « Campagne – liste à contacter » ; vérifie chacune, personnalise le mail de base avec un fait réel, contrôle qualité, puis crée un brouillon Gmail par entreprise et un compte rendu dans Drive. Lancée chaque jour ouvré par une tâche programmée, ou à la main (« /campagne », « /campagne 5 » pour un test).
 ---
 
 # /campagne — 25 premiers contacts par jour, prêts à envoyer
@@ -13,14 +13,16 @@ envisagé que sur décision écrite de Loïc, depuis une boîte @slagence.fr (vo
 
 ## Entrées
 
-- **La liste** : feuille Google « Campagne – liste à contacter » (dossier Drive « SL agence »), à retrouver
-  par son nom (`mcp__Google_Drive__search_files`, jamais d'identifiant dans le dépôt). La liste est constituée
-  par ChatGPT (prompt : `travail/prospection/prompt-chatgpt-liste.md`) ou par Loïc, colonnes A-C : `Entreprise`,
-  `Ville`, `E-mail` (cette dernière peut être vide : voir ci-dessous). Une liste fournie par un outil n'est
-  jamais une source : tout est revérifié par la procédure D. Les colonnes D-G (`Statut`, `Date du brouillon`,
-  `Fait utilisé (source)`, `Remarque`) sont remplies par la campagne.
-  Lecture complète : `mcp__Google_Drive__download_file_content` avec `exportMimeType: text/csv`
-  (le contenu revient en base64 : le décoder). `read_file_content` ne rend qu'un extrait : ne pas l'utiliser.
+- **Les entreprises — trouvées par l'équipe (décision de Loïc du 2026-10-29, correction c036).** Les listes ChatGPT
+  ne donnaient pas d'adresses : c'est `prospection` qui source chaque jour les entreprises et leur adresse publiée.
+  1. D'abord les lignes que Loïc a ajoutées dans la feuille « Campagne – liste à contacter » (prioritaires, facultatives),
+     lues via `mcp__Google_Drive__download_file_content` en `text/csv` (base64 à décoder).
+  2. Puis le sourçage : API Recherche d'entreprises (`https://recherche-entreprises.api.gouv.fr/search?activite_principale=<NAF>&departement=68&etat_administratif=A&tranche_effectif_salarie=<code>&per_page=25&page=<n>`),
+     par famille du mail de base, en faisant tourner les codes NAF et les pages d'un jour à l'autre (noter dans le compte rendu
+     le NAF et la page atteints, pour reprendre le lendemain) ; feuille « Prospection SL agence » (lignes « À contacter ») en complément.
+  3. Adresse : uniquement celle affichée par l'entreprise (site, mentions légales, fiche officielle), procédure D.3.
+  Prévoir environ 40 candidats pour 25 brouillons (écartements). 3 agents `prospection` en parallèle, une famille chacun,
+  pour éviter les doublons.
 - **Le mail de base** : `.claude/travail/prospection/mail-de-base.md` (validé par le contrôle qualité,
   puis par Loïc). Toute personnalisation part de ce modèle.
 

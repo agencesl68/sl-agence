@@ -1,3 +1,5 @@
+> **Abandonné le 2026-10-29 (correction c036)** : Loïc a jugé les listes ChatGPT inutilisables ; l’équipe source elle-même.
+
 # Prompt ChatGPT : constituer la liste de la campagne quotidienne
 
 > Rédigé le 2026-10-28 par `prospection`. Fichier anonyme : aucune entreprise, personne ou adresse réelle, aucun lien Drive (c004, c021).
