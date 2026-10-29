@@ -3,6 +3,12 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-10-29 — Campagne mise en attente
+
+- **Décision Loïc** : listes ChatGPT abandonnées (pas d'adresses) → l'équipe source elle-même (c036). Puis campagne **mise en attente** (consommation trop élevée).
+- **État** : tâche programmée de 6 h 40 désactivée (pas supprimée) ; les 3 lots du jour arrêtés, aucun brouillon créé. Commande `/campagne`, mail de base validé et procédure restent prêts.
+- **Pour relancer** : réactiver la tâche, ou lancer `/campagne 5` à la main ; piste moins coûteuse à étudier : lots plus petits (5 à 10 par jour) et un seul agent.
+
 ## 2026-10-28 — Campagne e-mail automatisée : 25 brouillons par jour
 
 - **Décision Loïc** : objectif relevé à 25 premiers contacts par jour ouvré ; phase test en brouillons Gmail (il relit et envoie) ; 3 relances sur 3 semaines.
