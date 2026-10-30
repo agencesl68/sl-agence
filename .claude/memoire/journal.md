@@ -3,6 +3,12 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-10-30 — Reprise SEO : semaines 0 à 2 du plan en ligne
+
+- En ligne depuis le 27/10 (PR #30, #31) : `/application-pointage-chantier`, `/logiciel-gestion-stock-sur-mesure`, `/crm-sur-mesure` (vérifiées en 200 le 30/10). PR #32 (prise de rendez-vous sur tout le site) en ligne le 28/10.
+- IndexNow : 7 URL soumises le 30/10 (3 nouvelles pages, pilier, /remplacer-excel, accueil, sitemap), réponse 200 (acceptée).
+- Prochain du plan 12 semaines : semaine 3 = article « CRM sur mesure : fonctionnalités, prix et choix » (facteurs de prix, aucun montant).
+
 ## 2026-10-26 — Audit Semrush : santé du site 100 %
 
 - **Résultat mesuré** : audit de site Semrush (compte gratuit, 41 URL) passé de **95 % → 100 %** de santé, **19 erreurs → 0**, **33 avertissements → 0**, pages saines 3 → 33 ; santé recherche IA 99 %. Corrections : PR #26 (adresse sur les 19 `ProfessionalService` imbriqués, menu.min.js, CSS de l'accueil et du blog sortis du HTML, hreflang, méta-description) et PR #27 (Facebook, Instagram, LinkedIn à son adresse publique).

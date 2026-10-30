@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-30 · IndexNow refait après PR #30-#32 (7 URL, 200). Google : Loïc renvoie le sitemap (3 nouvelles pages : pointage, stock, CRM).
+
 - ~~2026-10-26 · Prix affiché : à partir de 500 €~~ → **remplacé le 27/10 : aucun prix affiché nulle part (site compris, PR 29)** ; à l'oral seulement si on le demande.
 
 - 2026-10-27 · Loïc : **aucun chiffre sans source agréée** sur le site (fourchette « 8 000 à 50 000 € selon les agences » retirée de /logiciel-sur-mesure). **Prénoms des avis Google : on les garde** sur l'accueil (« on s'en fiche ») ; ne plus proposer de les retirer.
