@@ -88,7 +88,7 @@ Cet exemple tient sur 1 page. Il ne dit pas comment l'outil sera programmé : c'
 
 Pour comparer avec du réel, voici comment la page [Réalisations](/realisations) décrit ce que nous avons construit pour une entreprise de terrassement : « Un pointage des heures sur téléphone pour 12 salariés, avec un rappel automatique en fin de journée. »
 
-### Le modèle vierge, prêt à copier.
+## Le modèle vierge, prêt à copier.
 
 Copiez le bloc ci-dessous dans un document, puis remplacez les points de suspension.
 
@@ -132,7 +132,7 @@ La rubrique « Supports et lieux » se remplit en 1 ligne. Voici, selon nous, la
 
 - **Application web.** « L'application s'ouvre dans le navigateur, sur ordinateur et sur téléphone, sans installation. » C'est le cas le plus simple pour une équipe mixte bureau et terrain, selon nous.
 - **Application mobile des boutiques.** « L'application s'installe depuis une boutique d'applications. » À écrire seulement si vous en avez besoin : cela change la nature du projet, et se discute avec le prestataire.
-- **Logiciel installé sur chaque poste.** « L'application s'installe sur chaque ordinateur. » À écrire seulement si une contrainte l'impose. Sinon, selon nous, chaque poste est à mettre à jour séparément.
+- **Logiciel installé sur chaque poste.** « L'application s'installe sur chaque ordinateur. » À écrire seulement si une contrainte l'impose : chaque poste est alors à mettre à jour séparément, selon nous.
 
 Selon MDN, une application web progressive (PWA) est une application construite avec les technologies du web, qui offre une expérience comparable à celle d'une application propre à une plateforme ; comme un site web, elle peut fonctionner sur plusieurs plateformes et appareils à partir d'un seul code source (source : [Progressive web apps, MDN](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps), traduction SL Agence).
 
