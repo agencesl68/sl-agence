@@ -6,6 +6,7 @@
 
 ## Décisions prises
 
+- 2026-10-30 · PR #33 fusionnée : /application-web-sur-mesure et /blog/cahier-des-charges-application en 200 (titles vérifiés en ligne, sitemap à jour). IndexNow : 14 URL (2 nouvelles + 12 pages modifiées), réponse 200. Mise en ligne = 30/10 (J+28 : 27/11).
 - 2026-10-30 · IndexNow refait après PR #30-#32 (7 URL, 200). Google : Loïc renvoie le sitemap (3 nouvelles pages : pointage, stock, CRM).
 
 - ~~2026-10-26 · Prix affiché : à partir de 500 €~~ → **remplacé le 27/10 : aucun prix affiché nulle part (site compris, PR 29)** ; à l'oral seulement si on le demande.
