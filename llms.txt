@@ -27,6 +27,7 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Application de pointage de chantier](https://slagence.fr/application-pointage-chantier): pointage des heures sur téléphone pour 12 salariés d'une entreprise de terrassement, rappel automatique en fin de journée, saisie en 30 secondes avant de rentrer.
 - [Logiciel de gestion de stock sur mesure](https://slagence.fr/logiciel-gestion-stock-sur-mesure): application de stock construite autour de vos articles (entrées, sorties, alertes, inventaire, selon vos besoins), sur téléphone ; ce que nous pouvons construire, avis Google, méthode en 4 temps, facteurs de prix.
 - [CRM sur mesure pour PME](https://slagence.fr/crm-sur-mesure): fiche client unique, suivi des devis et rappels de relance, reprise de vos fichiers ; ce que nous pouvons construire, exemple proche (gestion de patrimoine), méthode en 4 temps, facteurs de prix.
+- [Application web sur mesure](https://slagence.fr/application-web-sur-mesure): application qui s'ouvre sur ordinateur, tablette et téléphone sans rien installer ; ce que nous pouvons construire, réalisations par activité, application web ou application des boutiques, méthode en 4 temps, facteurs de prix.
 
 ## Choisir et connaître l'agence
 
@@ -47,6 +48,7 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Excel ne suffit plus ? 7 signes](https://slagence.fr/blog/limites-excel-entreprise): les signes, le coût réel et les solutions.
 - [Logiciel transport et parc d'engins](https://slagence.fr/blog/logiciel-gestion-transport-parc-engins): Excel, logiciel du marché ou sur mesure, et les échéances à suivre.
 - [Terrassement : heures, engins et carburant](https://slagence.fr/blog/terrassement-heures-engins-carburant): les coûts cachés d'un chantier de terrassement, 2 cas réels et par où commencer.
+- [Cahier des charges d'une application : modèle en 1 page](https://slagence.fr/blog/cahier-des-charges-application): les rubriques d'un cahier des charges simple pour une PME, modèle à copier et exemple rempli (exemple fictif).
 
 Auteur des guides : Loïc Bitsch, associé de SL Agence (https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/).
-- [Modèles gratuits](https://slagence.fr/modeles-gratuits): bon d'intervention (Word, PDF), feuille d'heures (Excel, PDF), relances de facture et de devis (Word).
+- [Modèles gratuits](https://slagence.fr/modeles-gratuits): bon d'intervention (Word, PDF), feuille d'heures (Excel, PDF), relances de facture et de devis (Word), cahier des charges d'application (modèle en 1 page, à copier depuis l'article).
