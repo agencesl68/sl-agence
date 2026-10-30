@@ -32,6 +32,13 @@
 | 2026-10-06 | Feuille « Prospection SL agence » | ~40 % d'entreprises fermées, introuvables ou trop petites ; peu de BTP vérifiable | Sourcer le BTP via l'API Recherche d'entreprises / annuaires professionnels |
 | 2026-10-06 | Ahrefs | Abonnement sans accès API | Travailler avec Search Console et outils gratuits |
 
+## 2026-10-30 — Fiche Google (GBP) > Performances, mai → oct. 2026 — référence avant le post « Offre »
+- Total sur la période : 55 interactions, 4 appels, 0 clic sur le chat, 7 clics vers le site Web. Captures de Loïc.
+- Par mois (lu sur les courbes, approximatif) : septembre ≈ 47 interactions, 3 appels, 4 clics vers le site ; octobre ≈ 8 interactions, 1 appel, 3 clics vers le site. Rien avant septembre (fiche récente).
+- Référence pour le post du 30/10 : ≈ 3 clics vers le site par mois, soit < 1 par semaine. Tout clic au-delà la semaine du post est attribuable au post (hypothèse : aucune autre action sur la fiche cette semaine-là).
+- Baisse septembre → octobre : hypothèse = pic de création de la fiche en septembre (visites de l'entourage, vérifications) ; à ne pas lire comme une perte.
+- Manque : le nombre de vues de la fiche (écran « personnes ayant consulté ») et les vues du post, nécessaires pour calculer un CTR.
+
 ## 2026-10-30 — Search Console, 28 jours (≈ 02/10 → 29/10/2026) — référence avant la PR 33
 - 37 clics, 2 190 impressions, CTR 1,7 %, position moyenne 20,5 (Web). Capture de Loïc.
 - Comparaison avec le relevé du 19/10 (3 mois : 33 clics, 1 340 impr., CTR 2,5 %, pos. 17,4) : plus de clics en 28 jours qu'en 3 mois, impressions × 1,6 ; le CTR et la position baissent parce que les nouvelles pages apparaissent d'abord en 2e-3e page (impressions sans clic). Lecture SL Agence, hypothèse à confirmer avec l'onglet Pages.
