@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-10-30 · IndexNow refait après PR #30-#32 (7 URL, 200). Google : Loïc renvoie le sitemap (3 nouvelles pages : pointage, stock, CRM).
+
 - ~~2026-10-26 · Prix affiché : à partir de 500 €~~ → **remplacé le 27/10 : aucun prix affiché nulle part (site compris, PR 29)** ; à l'oral seulement si on le demande.
 
 - 2026-10-27 · Loïc : **aucun chiffre sans source agréée** sur le site (fourchette « 8 000 à 50 000 € selon les agences » retirée de /logiciel-sur-mesure). **Prénoms des avis Google : on les garde** sur l'accueil (« on s'en fiche ») ; ne plus proposer de les retirer.
@@ -45,6 +47,10 @@
 - 2026-10-14 · À chaque nouvelle page / article mis en ligne : donner à Loïc l'URL à soumettre dans **Search Console ET Bing Webmaster Tools** (Soumission d'URL).
 
 ## À rappeler (en attente)
+
+- [ ] 2026-10-30 · Après fusion de la PR application web + cahier des charges : sitemap Search Console, capture GBP > Performances (référence), publier le post « Offre » (`travail/contenu/post-google-2026-10-30-cahier-des-charges.md`). Relevé du post le **06/11** (J+7) et le **27/11** (J+28).
+- [ ] Article CRM (semaine 3) décalé : trouver un angle distinct de /crm-sur-mesure (ex. « CRM ou Excel pour une TPE »).
+- [ ] Plus tard : réponse de zone identique mot pour mot sur /logiciel-sur-mesure, /remplacer-excel, /connecter-logiciels-entreprise (c031) ; /automatisation-taches-administratives ne cite ni l'Alsace ni le Grand Est.
 
 - [x] 2026-10-21 · PR #17 (GEO : choisir son agence, À propos, étude de cas épandage, LinkedIn + PagesJaunes) et PR #18 (date de création) en ligne. Renvoyer le sitemap.
 - [ ] **Lundi 2026-10-26** : premier relevé du suivi IA (10 questions locales + questions nationales × ChatGPT, Gemini, Perplexity, Copilot) — plan-geo §4 et §6.

@@ -39,3 +39,4 @@
 | [c029](c029-choix-des-pages-limite-aux-realisations.md) | analyste, seo-site, manager | haute | Choisir les pages selon la demande sur tout ce qu'on sait construire, pas seulement les réalisations |
 | [c030](c030-indice-de-demande-non-filtre.md) | analyste, seo-site | moyenne | Indice de demande trié (pertinentes, intention) ; score sur la demande atteignable ; cannibalisation via le menu |
 | [c031](c031-faq-et-tableaux-clones-entre-pages-de-service.md) | seo-site, contenu-linkedin | moyenne | Pages de service : au plus 2 questions de FAQ communes, aucune réponse ni ligne de tableau recopiée |
+| [c032](c032-zone-d-intervention-incoherente.md) | seo-site, contenu-linkedin | moyenne | Zone = agence.md : déplacement Haut-Rhin, Alsace, Grand Est ; à distance partout en France (visible + JSON-LD) |

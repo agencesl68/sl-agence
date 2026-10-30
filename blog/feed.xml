@@ -6,7 +6,16 @@
     <atom:link href="https://slagence.fr/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Conseils concrets pour gagner du temps dans votre entreprise : relances, Excel, transport, automatisation, IA, facture électronique.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Fri, 23 Oct 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Cahier des charges d'une application : le modèle simple, en 1 page, pour une PME</title>
+      <link>https://slagence.fr/blog/cahier-des-charges-application</link>
+      <guid isPermaLink="true">https://slagence.fr/blog/cahier-des-charges-application</guid>
+      <pubDate>Fri, 30 Oct 2026 12:00:00 +0000</pubDate>
+      <dc:creator>Loïc Bitsch</dc:creator>
+      <description>Cahier des charges d'application en 1 page : objectif, utilisateurs, écrans, données, outils à relier. Modèle gratuit à copier et exemple rempli.</description>
+      <enclosure url="https://slagence.fr/blog/og-blog.png" type="image/png" length="273657"/>
+    </item>
     <item>
       <title>Terrassement : les coûts cachés des heures, des engins et du carburant</title>
       <link>https://slagence.fr/blog/terrassement-heures-engins-carburant</link>

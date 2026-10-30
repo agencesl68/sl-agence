@@ -11,8 +11,8 @@ Source : synthèse ChatGPT fournie par Loïc (PDF « SL Agence — Plan SEO 12 s
 | 0 | Service | Application de pointage de chantier | application pointage chantier | PR 30 |
 | 1 | Service | Logiciel de gestion de stock sur mesure | logiciel gestion de stock sur mesure | en production 27/10 |
 | 2 | Service | CRM sur mesure pour PME | crm sur mesure | en production 27/10 |
-| 3 | Article | CRM sur mesure : fonctionnalités, prix et choix | développement crm sur mesure / prix | — (aucun prix chiffré affiché : facteurs de prix seulement) |
-| 4 | Service | Développement application web sur mesure | développement application web sur mesure | — (attention cannibalisation /logiciel-sur-mesure) |
+| 3 | Article | CRM sur mesure : fonctionnalités, prix et choix | développement crm sur mesure / prix | — **décalé** (cannibalise /crm-sur-mesure ; angle distinct à trouver). Remplacé le 30/10 par l'article « Cahier des charges d'une application » (PR du 30/10) |
+| 4 | Service | Développement application web sur mesure | développement application web sur mesure | PR du 30/10 (avancée avant la sem. 3), branche `claude/dreamy-brown-myy5ao` ; à J+28 une seule URL par requête (cannibalisation /logiciel-sur-mesure) |
 | 5 | Service | Agence n8n et automatisation | agence n8n | — **Sacha doit confirmer qu'on revendique n8n publiquement** |
 | 6 | Article | n8n, Make ou Zapier : quelle solution pour une PME ? | n8n / automatisation PME | — |
 | 7 | Service | Chatbot IA pour entreprise et site web | chatbot ia entreprise | — (AI Act art. 50 à vérifier, hébergement à confirmer) |
