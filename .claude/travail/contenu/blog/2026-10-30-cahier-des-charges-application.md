@@ -23,7 +23,7 @@ a_integrer_par: seo-site (gabarit article, balisage Article + FAQPage, sitemap, 
 - Liens internes du corps (ancres) : `/application-web-sur-mesure` (« développement d'application web sur mesure », 2 fois ; « application web sur mesure », 1 fois), `/logiciel-sur-mesure` (« logiciel sur mesure »), `/remplacer-excel` (« remplacer Excel »), `/blog/limites-excel-entreprise` (titre de l'article), `/crm-sur-mesure` (« CRM sur mesure »), `/realisations` (« Réalisations »), `/modeles-gratuits` (« modèles gratuits »).
 - Liens entrants à prévoir : blog/index, menu Ressources col. 1 (« Cahier des charges : modèle »), carte sur `/modeles-gratuits` (corps), réponse de la FAQ « Faut-il un cahier des charges ? » de `/logiciel-sur-mesure` (corps seulement, JSON-LD cohérent). Cette réponse du site n'est reprise nulle part dans la FAQ de l'article (c031) : elle n'est citée qu'une fois, entre guillemets, dans la partie 1.
 - Aucune image obligatoire. Option : aperçu du tableau rempli en `.webp` avec `alt`, mais le tableau HTML suffit.
-- Pas de prix, pas de « à partir de », aucun nom de client. Un seul fait de réalisation, repris mot pour mot de `realisations.html` l.820 (c019, c028).
+- Aucun montant, aucune fourchette, aucun nom de client. Un seul fait de réalisation, repris mot pour mot de `realisations.html` l.820 (c019, c028).
 - Mise à jour : l'URL doit répondre en 200 avant la publication du post Google.
 
 # Corps de l'article
