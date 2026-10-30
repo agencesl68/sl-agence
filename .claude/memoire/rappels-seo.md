@@ -49,7 +49,8 @@
 
 ## À rappeler (en attente)
 
-- [ ] 2026-10-30 · Après fusion de la PR application web + cahier des charges : sitemap Search Console, capture GBP > Performances (référence), publier le post « Offre » (`travail/contenu/post-google-2026-10-30-cahier-des-charges.md`). Relevé du post le **06/11** (J+7) et le **27/11** (J+28).
+- [x] 2026-10-30 · PR 33 en ligne, référence GBP et Search Console relevées (apprentissages.md), **post « Offre » publié le 30/10** (accepté en Offre).
+- [ ] **06/11** (J+7) : relevé du post — vues sur la carte du post, « consultations et clics » de l'offre si affichés, clics vers le site de la semaine (référence ≈ 3/mois). **27/11** (J+28) : idem + page application web et article (Search Console).
 - [ ] Article CRM (semaine 3) décalé : trouver un angle distinct de /crm-sur-mesure (ex. « CRM ou Excel pour une TPE »).
 - [ ] Plus tard : réponse de zone identique mot pour mot sur /logiciel-sur-mesure, /remplacer-excel, /connecter-logiciels-entreprise (c031) ; /automatisation-taches-administratives ne cite ni l'Alsace ni le Grand Est.
 
