@@ -2,7 +2,7 @@
 
 Objectif : **acquisition** (clics vers l'article, modèle gratuit en appât). Un seul objectif.
 Pilier : 3 (mode d'emploi). Type de post GBP : **Offre**, seul type pour lequel l'aide Google parle de « consultations et clics » (brief analyste, section C).
-Cible de Loïc : CTR du post >= 3 %. Hypothèse à garder en tête : la moyenne publiée (compilation searchlab.nl, méthode non documentée) est de 1,09 %, et 2,18 % pour les Offres : 3 % est ambitieux. À mesurer sur notre fiche, pas à promettre.
+Cible de Loïc : CTR du post >= 3 %. Hypothèse à garder en tête : la moyenne publiée (Publer, via searchlab.nl : https://searchlab.nl/en/statistics/google-business-profile-statistics-2026 ; méthode non documentée) est de 1,09 %, et 2,18 % pour les Offres : 3 % est ambitieux. À mesurer sur notre fiche, pas à promettre.
 À publier **seulement quand `https://slagence.fr/blog/cahier-des-charges-application` répond en 200** (sinon le lien renvoie vers une 404). Si Loïc veut publier avant la fusion de la PR : utiliser le plan B plus bas.
 
 ## Réglages dans l'interface (fiche Google > Ajouter une offre)
@@ -44,7 +44,9 @@ Pas de cahier des charges ? Chez nous, 15 minutes au téléphone suffisent : nou
 
 SL Agence, Friesen : applications et automatisations sur mesure pour les entreprises du Haut-Rhin.
 
-(Ni lien ni numéro de téléphone dans le texte : le bouton porte le lien. « 15 minutes » et « 7 rubriques » sont les seuls chiffres, tirés du site et de l'article.)
+### Note (ne pas coller)
+
+Ni lien ni numéro de téléphone dans le texte : le bouton porte le lien. « 15 minutes » et « 7 rubriques » sont les seuls chiffres, tirés du site et de l'article.
 
 ## Variante « Nouveauté » (si l'offre est refusée)
 
@@ -56,7 +58,7 @@ Contenu réel vérifié le 30/10/2026 dans `modeles-gratuits.html` (version actu
 
 Bouton : « En savoir plus » vers `https://slagence.fr/modeles-gratuits`. Environ 125 mots.
 
-4 modèles gratuits pour les entreprises du Haut-Rhin : bon d'intervention, feuille d'heures, relances de facture et de devis.
+Des modèles gratuits pour les entreprises du Haut-Rhin : bon d'intervention, feuille d'heures, relances de facture et de devis.
 
 Vous les téléchargez, vous les adaptez, sans inscription :
 - un bon d'intervention (Word ou PDF) : horaires, travaux réalisés, pièces utilisées, réserves et signatures ;
@@ -68,7 +70,7 @@ Chaque modèle renvoie vers un mode d'emploi. Quand un modèle devient une corv�
 
 SL Agence, Friesen : applications et automatisations sur mesure pour les entreprises du Haut-Rhin.
 
-Visuel du plan B : non fabriqué. Si ce plan est utilisé, demander au Manager une version du même gabarit avec le titre « 4 modèles gratuits ».
+Visuel du plan B : non fabriqué. Si ce plan est utilisé, demander au Manager une version du même gabarit avec le titre « Modèles gratuits » (sans chiffre).
 
 ## Visuel 1200 x 900
 
