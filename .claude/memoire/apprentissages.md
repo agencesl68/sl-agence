@@ -32,6 +32,12 @@
 | 2026-10-06 | Feuille « Prospection SL agence » | ~40 % d'entreprises fermées, introuvables ou trop petites ; peu de BTP vérifiable | Sourcer le BTP via l'API Recherche d'entreprises / annuaires professionnels |
 | 2026-10-06 | Ahrefs | Abonnement sans accès API | Travailler avec Search Console et outils gratuits |
 
+## 2026-10-30 — Search Console, 28 jours (≈ 02/10 → 29/10/2026) — référence avant la PR 33
+- 37 clics, 2 190 impressions, CTR 1,7 %, position moyenne 20,5 (Web). Capture de Loïc.
+- Comparaison avec le relevé du 19/10 (3 mois : 33 clics, 1 340 impr., CTR 2,5 %, pos. 17,4) : plus de clics en 28 jours qu'en 3 mois, impressions × 1,6 ; le CTR et la position baissent parce que les nouvelles pages apparaissent d'abord en 2e-3e page (impressions sans clic). Lecture SL Agence, hypothèse à confirmer avec l'onglet Pages.
+- Courbe : 0 à 6 clics/jour ; impressions de 20 à 100/jour, puis ≈ 150/jour à partir du 27/10 (pages pointage, stock, CRM et liens du 26-27/10).
+- Objectif de Loïc (30/10) : CTR > 3 %. Référence = 1,7 %. Prochaines mesures : 16/11 (titles du 19/10) et 27/11 (PR 33).
+
 ## 2026-10-19 — Search Console, 3 mois (31/08 → 19/10/2026)
 - 33 clics, 1 340 impressions, CTR 2,5 %, position moyenne 17,4 (Web).
 - Impressions quasi nulles jusqu'au 28/09, puis 20 à 100 par jour à partir de fin septembre (pages de service, blog, puis pages ville le 14/10).
