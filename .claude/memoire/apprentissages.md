@@ -34,6 +34,7 @@
 
 ## 2026-11-02 — Search Console, 28 jours (≈ 04/10 → 31/10/2026)
 - 36 clics, 2 240 impressions, CTR 1,6 %, position moyenne 20,4 (Web). Capture de Loïc. Stable par rapport au 30/10 (37 / 2 190 / 1,7 % / 20,5).
+- Détail par page (export Sheets de Loïc) : voir `travail/seo/ctr-2026-11-02.md`. Leçon : le CTR global est tiré vers le bas par (1) l'article « relancer un devis » (643 impr., 29 % du total, CTR 0,31 % en position 9) et (2) ≈ 740 impressions en 3e page et au-delà. Les titres seuls ne suffisent pas pour 3 % : il faut aussi des positions.
 - Impressions ≈ 150/jour du 27 au 29/10, puis redescendues vers 80-110/jour fin octobre (lecture de courbe). Clics 0 à 3/jour.
 
 ## 2026-10-30 — Fiche Google (GBP) > Performances, mai → oct. 2026 — référence avant le post « Offre »
