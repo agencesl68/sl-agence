@@ -54,6 +54,8 @@
 
 ## À rappeler (en attente)
 
+- [ ] Prochain lot : intro de /blog/crm-ou-excel (l.851) dit « plusieurs personnes… **ou** des devis en cours » : aligner sur « quand les signes se cumulent (3 points ou plus) » (c035).
+
 - [x] 2026-10-30 · PR 33 en ligne, référence GBP et Search Console relevées (apprentissages.md), **post « Offre » publié le 30/10** (accepté en Offre).
 - [ ] **06/11** (J+7) : relevé du post — vues sur la carte du post, « consultations et clics » de l'offre si affichés, clics vers le site de la semaine (référence ≈ 3/mois). **27/11** (J+28) : idem + page application web et article (Search Console).
 - [ ] Article CRM (semaine 3) décalé : trouver un angle distinct de /crm-sur-mesure (ex. « CRM ou Excel pour une TPE »).
