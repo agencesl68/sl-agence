@@ -17,3 +17,6 @@ Tout texte d'information RGPD sur un outil tiers : (1) liste toutes les données
 
 ## Vérification (contrôle qualité)
 Confronter chaque donnée du tableau comparatif au paragraphe proposé ; ouvrir la source de chaque négation ; tout écart → À CORRIGER.
+
+## Récidive 2026-11-02
+Article /blog/crm-ou-excel et modèle Excel : référentiel CNIL des activités commerciales cité comme « non contraignant » sans « il faut justifier de ses écarts ».
