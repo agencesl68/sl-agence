@@ -55,7 +55,7 @@ Voici Excel et un CRM du marché sur 6 points. Les cases « selon l'éditeur » 
 | Historique des échanges | À noter vous-même, dans une colonne « Notes » | Une fiche par client qui garde les échanges, selon l'éditeur |
 | Rappel de relance | Une date dans une colonne, à regarder régulièrement | Rappel prévu par l'outil, selon l'éditeur |
 | Une même fiche, plusieurs personnes | Possible avec un fichier partagé en ligne ; il faut convenir de qui modifie quoi | Prévu pour plusieurs utilisateurs, selon l'éditeur |
-| Ouvrir la fiche depuis un téléphone | Lisible si le tableau reste court | Selon l'éditeur |
+| Ouvrir la fiche depuis un téléphone | Peu lisible : un tableau large se lit mal sur un petit écran | Selon l'éditeur |
 | Coût de départ | Aucun si vous avez déjà Excel | Abonnement, selon l'éditeur |
 | Récupérer vos données | Le fichier est déjà chez vous | À demander : peut-on tout exporter, et dans quel format ? |
 
@@ -114,7 +114,7 @@ Voici un fichier de suivi client en Excel, sans inscription et sans macro. Il ga
 
 **Exemple fictif.** Les 3 lignes déjà remplies sont inventées (adresses en example.com, numéros en 06 00 00 00 00) : effacez-les avant de saisir vos vrais clients. Un second onglet, « Mode d'emploi », tient en quelques lignes.
 
-**Combien de temps garder une ligne ?** Ce fichier contient des coordonnées de personnes : ce sont des données personnelles. Selon le référentiel de la CNIL sur la gestion des activités commerciales, les données relatives aux prospects utilisées à des fins de prospection commerciale peuvent être conservées 3 ans à compter de leur collecte ou du dernier contact émanant du prospect. Celles d'un client, utilisées aux mêmes fins, peuvent l'être pendant la relation commerciale, puis 3 ans après sa fin. Les référentiels de la CNIL ne sont pas contraignants (source : CNIL, [« Questions-réponses sur les référentiels relatifs à la gestion des activités commerciales et des impayés dans une transaction commerciale »](https://www.cnil.fr/fr/questions-reponses-sur-les-referentiels-relatifs-la-gestion-des-activites-commerciales-et-des), page publiée le 28 janvier 2022, consultée le 2 novembre 2026).
+**Combien de temps garder une ligne ?** Ce fichier contient des coordonnées de personnes : ce sont des données personnelles. Selon le référentiel de la CNIL sur la gestion des activités commerciales, les données relatives aux prospects utilisées à des fins de prospection commerciale peuvent être conservées 3 ans à compter de leur collecte ou du dernier contact émanant du prospect. Celles d'un client, utilisées aux mêmes fins, peuvent l'être pendant la relation commerciale, puis 3 ans après sa fin. Les référentiels de la CNIL ne sont pas contraignants, mais celui qui s'en écarte (par exemple avec une autre durée) doit pouvoir justifier son choix (source : CNIL, [« Questions-réponses sur les référentiels relatifs à la gestion des activités commerciales et des impayés dans une transaction commerciale »](https://www.cnil.fr/fr/questions-reponses-sur-les-referentiels-relatifs-la-gestion-des-activites-commerciales-et-des), page publiée le 28 janvier 2022, consultée le 2 novembre 2026).
 
 Selon nous, remplissez la colonne « Revoir ou supprimer le » en même temps que la ligne : vous n'avez plus à y repenser ensuite.
 
@@ -148,11 +148,11 @@ Un cabinet de gestion de patrimoine. Ce n'est pas présenté comme un CRM : c'es
 
 *L'application qui a remplacé les fichiers Excel d'un cabinet de gestion de patrimoine. Données fictives.*
 
-Le suivi des devis et les rappels de relance sont des fonctions que nous pouvons construire : ils ne font pas partie de cet outil. Voir [la réalisation](/realisations#bureau).
+Le suivi des devis est une fonction que nous pouvons construire : il ne fait pas partie de cet outil. Voir [la réalisation](/realisations#bureau).
 
-## Conclusion : commencer par le fichier, passer au CRM quand une relance s'oublie
+## Conclusion : commencer par le fichier, passer au CRM quand les signes s'additionnent
 
-Pour suivre ses clients en TPE, Excel est un bon début, selon nous. Gardez-le tant que 1 ou 2 personnes tiennent le fichier et que chaque relance se fait à sa date. Passez à un CRM quand plusieurs personnes suivent les mêmes clients, quand des devis restent en attente, ou quand il vous faut le fichier hors du bureau.
+Pour suivre ses clients en TPE, Excel est un bon début, selon nous. Gardez-le tant que 1 ou 2 personnes tiennent le fichier et que chaque relance se fait à sa date. Passez à un CRM quand plusieurs de ces situations se cumulent (3 points ou plus au test) : plusieurs personnes suivent les mêmes clients, des devis restent en attente, il vous faut le fichier hors du bureau.
 
 Si aucun CRM du marché ne convient à votre façon de vendre, apportez-nous votre fichier : nous construisons un [CRM sur mesure pour PME](/crm-sur-mesure) autour de lui. Il suffit de 15 minutes au téléphone, au 07 67 08 19 43. Pour les factures impayées, c'est un autre sujet : voir la [relance automatique de factures](/relance-factures-automatique).
 
@@ -172,6 +172,6 @@ Un CRM sert à suivre les clients : contacts, échanges, devis, relances. Un ERP
 
 ### Combien de temps garder les coordonnées d'un prospect ?
 
-Selon le référentiel de la CNIL sur la gestion des activités commerciales, qui n'est pas contraignant, les données des prospects utilisées à des fins de prospection commerciale peuvent être conservées 3 ans à compter de leur collecte ou du dernier contact émanant du prospect. Celles d'un client, utilisées aux mêmes fins, peuvent l'être pendant la relation commerciale, puis 3 ans après sa fin (source : CNIL, « Questions-réponses sur les référentiels relatifs à la gestion des activités commerciales et des impayés dans une transaction commerciale »).
+Selon le référentiel de la CNIL sur la gestion des activités commerciales, qui n'est pas contraignant (s'en écarter doit pouvoir être justifié), les données des prospects utilisées à des fins de prospection commerciale peuvent être conservées 3 ans à compter de leur collecte ou du dernier contact émanant du prospect. Celles d'un client, utilisées aux mêmes fins, peuvent l'être pendant la relation commerciale, puis 3 ans après sa fin (source : CNIL, « Questions-réponses sur les référentiels relatifs à la gestion des activités commerciales et des impayés dans une transaction commerciale »).
 
 **À propos de l'auteur.** Loïc Bitsch est associé de SL Agence, à Friesen (Haut-Rhin). SL Agence conçoit des applications métier, des automatisations et des assistants d'intelligence artificielle sur mesure pour les indépendants, TPE, PME, cabinets et associations.
