@@ -17,3 +17,6 @@ Un test ou une liste de signes repris d'une page garde le même sens pour chaque
 
 ## Vérification (contrôle qualité)
 Répondre « oui » à chaque question du livrable et vérifier que cela donne le même résultat sur la page source ; seuil identique ; unités de toute formule de mesure sur la même période.
+
+## Récidive 2026-11-02
+Test appliqué au post principal mais pas à sa version de repli. Toute variante d'un livrable (repli, version courte, A/B) est vérifiée avec la même règle.

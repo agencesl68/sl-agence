@@ -22,7 +22,7 @@ Brief : `travail/transmissions/2026-11-02-analyste-crm-excel-post2.md` (section 
 
 « CRM ou Excel pour suivre vos clients ? Le modèle Excel gratuit, et quand passer à un écran unique. »
 
-## Prêt à coller (environ 172 mots comptés à la main, 182 si l'on compte les « ? » et « : » isolés ; la version de repli fait environ 164 mots ; le bloc contient uniquement le texte à publier)
+## Prêt à coller (environ 172 mots comptés à la main, 182 si l'on compte les « ? » et « : » isolés ; la version de repli fait environ 220 mots (script) ; le bloc contient uniquement le texte à publier)
 
 ```
 CRM ou Excel pour suivre vos clients ? Le modèle Excel gratuit, et quand passer à un écran unique.
@@ -60,16 +60,20 @@ Un fichier Excel par client, rangé dans des dossiers.
 Une seule application pour les clients, les contrats et les échéances.
 Les clients à relancer sont signalés automatiquement. Le conseiller ne cherche plus, il consulte.
 
-Nous développons un CRM autour de votre façon de vendre : une fiche par client, les devis suivis, les relances rappelées, et vos fichiers Excel repris.
-
 Le suivi des devis et les rappels sont des fonctions que nous pouvons construire : ils ne font pas partie de cet outil.
+
+Nous développons un CRM autour de votre façon de vendre : une fiche par client, les devis suivis, les relances rappelées, et vos fichiers Excel repris.
 
 Si un CRM du marché couvre déjà votre façon de vendre, prenez-le : nous intervenons quand rien ne couvre votre cas.
 
-Pour savoir si c'est le moment :
+5 questions pour savoir s'il est temps de passer à un outil de suivi client :
 - Plusieurs personnes écrivent-elles dans le fichier ?
 - Une relance a-t-elle déjà été oubliée ?
+- Devez-vous ouvrir plusieurs fichiers pour retrouver l'historique d'un client ?
 - Suivez-vous des devis en cours ?
+- Avez-vous besoin du fichier hors du bureau ?
+
+Repère SL Agence, pas une norme : 3 oui ou plus, comparez des CRM.
 
 Le premier outil est en place en 7 jours.
 
@@ -82,7 +86,7 @@ SL Agence, Friesen (Haut-Rhin) : applications et automatisations sur mesure.
 - Les 3 phrases du cas sont reprises mot pour mot de `realisations.html` (l.850-852 : « Un fichier Excel par client, rangé dans des dossiers. » ; « Une seule application pour les clients, les contrats et les échéances. » ; « Les clients à relancer sont signalés automatiquement. Le conseiller ne cherche plus, il consulte. »). Le cabinet n'est jamais appelé CRM (c019). Aucun lieu n'est donné pour le cabinet (la fiche n'en cite pas).
 - Version de repli, phrases exactes de `crm-sur-mesure.html` : l.812 « Nous développons un CRM autour de votre façon de vendre : une fiche par client, les devis suivis, les relances rappelées, et vos fichiers Excel repris. » ; l.824 « Si un CRM du marché couvre déjà votre façon de vendre, prenez-le : nous intervenons quand rien ne couvre votre cas. » Phrase adaptée (pas exacte) : celle de la l.889 (« Le suivi des devis et les rappels décrits plus haut sont des fonctions que nous pouvons construire : ils ne font pas partie de cet outil. »), sans « décrits plus haut », qui n'a pas de sens dans un post. « Le premier outil est en place en 7 jours. » vient du site, utilisée seule (c028).
 - Chiffres du texte : « 1 ou 2 personnes », « 5 questions » et « 3 oui ou plus » viennent de l'article ; « 7 jours » (repli) vient du site. Le repère « Selon nous » / « Repère SL Agence » marque ce qui est un conseil, pas une statistique (c011).
-- Test repris de l'article (c035) : chaque question du post se répond par « oui » = 1 point, comme dans l'article, et le seuil est le même (3 oui ou plus). Vérifié le 02/11/2026 sur la page en ligne : 0 point, Excel suffit encore ; 1 ou 2 points, améliorez d'abord le fichier ; 3 points ou plus, comparez des CRM. Le post ne reprend que le seuil « 3 ou plus ».
+- Test repris de l'article (c035) : chaque question du post se répond par « oui » = 1 point, comme dans l'article, et le seuil est le même (3 oui ou plus). Vérifié le 02/11/2026 sur la page en ligne : 0 point, Excel suffit encore ; 1 ou 2 points, améliorez d'abord le fichier ; 3 points ou plus, comparez des CRM. Le post et sa version de repli reprennent le même seuil « 3 oui ou plus » (valable pour le post et le repli ; corrigé par le Manager après le 2e passage QC).
 - Les 250 à 300 premiers caractères visibles sans clic contiennent l'accroche et la réponse directe (« Excel suffit tant que… »).
 - Si Loïc veut mettre le post en « Offre » plutôt qu'en « Nouveauté » : le texte reste identique, mais le brief garde la Nouveauté pour alterner avec l'Offre du 30/10 et mesurer les deux types.
 
@@ -104,7 +108,7 @@ Export : la page 1200 x 900 uniquement, PNG ou JPG.
 
 ## Auto-évaluation (grille du manuel SEO § 9, adaptée au post)
 
-Note : 9 / 10.
+Note : 8,5 / 10 (somme des critères ; visuel à noter après contrôle du rendu Canva). Contrôle qualité : VALIDÉ après 2 passages, corrections mécaniques du repli appliquées par le Manager.
 
 1. Objectif unique (acquisition vers l'article) : 1.
 2. Accroche de 98 caractères (comptée à la main) ; réponse directe dans les premières lignes : 1.

@@ -43,3 +43,4 @@
 | [c033](c033-title-concurrent-pendant-une-mesure.md) | seo-site, analyste | moyenne | Pendant une mesure de title, aucune autre page ne prend la même tête de requête ; title raccourci fidèle au contenu (c022) |
 | [c034](c034-statistique-cadree-par-le-communique.md) | seo-site, contenu-linkedin, analyste | moyenne | Un chiffre garde le qualificatif et le périmètre exacts de la source citée (sinon citer le communiqué) |
 | [c035](c035-test-repris-dans-le-mauvais-sens.md) | contenu-linkedin, seo-site, analyste | moyenne | Test repris : même sens par question, même seuil ; mesure : référence et mesure sur la même durée |
+| [c036](c036-phrase-du-site-deplacee.md) | contenu-linkedin, seo-site | basse | Phrase reprise avec « cet / ce / plus haut » : la placer juste après son référent, sinon nommer l élément |
