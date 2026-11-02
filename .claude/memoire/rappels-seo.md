@@ -6,6 +6,10 @@
 
 ## Décisions prises
 
+- 2026-11-02 · Loïc : **1 post Google par semaine** (alterner Offre / Nouveauté, toujours vers une page en 200, mesure à J+7). **Feu vert article « CRM ou Excel : que choisir pour une TPE ? »** (remplace l'article CRM de la sem. 3).
+- 2026-11-02 · Kit annuaires : descriptions 300 et 750 alignées sur la zone (c032). Les annuaires déjà remplis avec l'ancienne phrase (« à distance en Alsace et dans le Grand Est ») sont à corriger au fil de l'eau.
+
+- 2026-10-30 · PR #33 fusionnée : /application-web-sur-mesure et /blog/cahier-des-charges-application en 200 (titles vérifiés en ligne, sitemap à jour). IndexNow : 14 URL (2 nouvelles + 12 pages modifiées), réponse 200. Mise en ligne = 30/10 (J+28 : 27/11).
 - 2026-10-30 · IndexNow refait après PR #30-#32 (7 URL, 200). Google : Loïc renvoie le sitemap (3 nouvelles pages : pointage, stock, CRM).
 
 - ~~2026-10-26 · Prix affiché : à partir de 500 €~~ → **remplacé le 27/10 : aucun prix affiché nulle part (site compris, PR 29)** ; à l'oral seulement si on le demande.
@@ -48,7 +52,8 @@
 
 ## À rappeler (en attente)
 
-- [ ] 2026-10-30 · Après fusion de la PR application web + cahier des charges : sitemap Search Console, capture GBP > Performances (référence), publier le post « Offre » (`travail/contenu/post-google-2026-10-30-cahier-des-charges.md`). Relevé du post le **06/11** (J+7) et le **27/11** (J+28).
+- [x] 2026-10-30 · PR 33 en ligne, référence GBP et Search Console relevées (apprentissages.md), **post « Offre » publié le 30/10** (accepté en Offre).
+- [ ] **06/11** (J+7) : relevé du post — vues sur la carte du post, « consultations et clics » de l'offre si affichés, clics vers le site de la semaine (référence ≈ 3/mois). **27/11** (J+28) : idem + page application web et article (Search Console).
 - [ ] Article CRM (semaine 3) décalé : trouver un angle distinct de /crm-sur-mesure (ex. « CRM ou Excel pour une TPE »).
 - [ ] Plus tard : réponse de zone identique mot pour mot sur /logiciel-sur-mesure, /remplacer-excel, /connecter-logiciels-entreprise (c031) ; /automatisation-taches-administratives ne cite ni l'Alsace ni le Grand Est.
 

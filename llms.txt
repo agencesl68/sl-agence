@@ -48,7 +48,8 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Excel ne suffit plus ? 7 signes](https://slagence.fr/blog/limites-excel-entreprise): les signes, le coût réel et les solutions.
 - [Logiciel transport et parc d'engins](https://slagence.fr/blog/logiciel-gestion-transport-parc-engins): Excel, logiciel du marché ou sur mesure, et les échéances à suivre.
 - [Terrassement : heures, engins et carburant](https://slagence.fr/blog/terrassement-heures-engins-carburant): les coûts cachés d'un chantier de terrassement, 2 cas réels et par où commencer.
+- [CRM ou Excel pour une TPE : 5 questions et un modèle gratuit](https://slagence.fr/blog/crm-ou-excel): quand Excel suffit pour suivre ses clients, quand passer à un CRM, et un fichier de suivi client Excel à télécharger (exemple fictif).
 - [Cahier des charges d'une application : modèle en 1 page](https://slagence.fr/blog/cahier-des-charges-application): les rubriques d'un cahier des charges simple pour une PME, modèle à copier et exemple rempli (exemple fictif).
 
 Auteur des guides : Loïc Bitsch, associé de SL Agence (https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/).
-- [Modèles gratuits](https://slagence.fr/modeles-gratuits): bon d'intervention (Word, PDF), feuille d'heures (Excel, PDF), relances de facture et de devis (Word), cahier des charges d'application (modèle en 1 page, à copier depuis l'article).
+- [Modèles gratuits](https://slagence.fr/modeles-gratuits): bon d'intervention (Word, PDF), feuille d'heures (Excel, PDF), relances de facture et de devis (Word), cahier des charges d'application (modèle en 1 page, à copier depuis l'article), fichier de suivi client (Excel).
