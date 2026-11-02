@@ -22,12 +22,12 @@ Brief : `travail/transmissions/2026-11-02-analyste-crm-excel-post2.md` (section 
 
 « CRM ou Excel pour suivre vos clients ? Le modèle Excel gratuit, et quand passer à un écran unique. »
 
-## Prêt à coller (environ 195 mots ; contient uniquement le texte à publier)
+## Prêt à coller (environ 172 mots comptés à la main, 182 si l'on compte les « ? » et « : » isolés ; la version de repli fait environ 164 mots ; le bloc contient uniquement le texte à publier)
 
 ```
 CRM ou Excel pour suivre vos clients ? Le modèle Excel gratuit, et quand passer à un écran unique.
 
-Selon nous, Excel suffit tant que 1 ou 2 personnes tiennent le fichier et qu'aucune relance ne s'oublie. Quand plusieurs personnes suivent les mêmes clients ou des devis en cours, un écran unique devient plus sûr.
+Selon nous, Excel suffit tant que 1 ou 2 personnes tiennent le fichier et qu'aucune relance ne s'oublie. Quand les signes ci-dessous se cumulent, un écran unique devient plus sûr.
 
 Un exemple, chez un cabinet de gestion de patrimoine :
 Un fichier Excel par client, rangé dans des dossiers.
@@ -37,11 +37,11 @@ Les clients à relancer sont signalés automatiquement. Le conseiller ne cherche
 5 questions pour savoir s'il est temps de passer à un outil de suivi client :
 - Plusieurs personnes écrivent-elles dans le fichier ?
 - Une relance a-t-elle déjà été oubliée ?
-- Retrouvez-vous l'historique d'un client sans ouvrir plusieurs fichiers ?
+- Devez-vous ouvrir plusieurs fichiers pour retrouver l'historique d'un client ?
 - Suivez-vous des devis en cours ?
 - Avez-vous besoin du fichier hors du bureau ?
 
-Repère SL Agence, pas une norme : plus vous répondez oui, plus un outil de suivi devient sûr.
+Repère SL Agence, pas une norme : 3 oui ou plus, comparez des CRM.
 
 Le fichier de suivi client gratuit est dans l'article, sans inscription.
 
@@ -60,9 +60,11 @@ Un fichier Excel par client, rangé dans des dossiers.
 Une seule application pour les clients, les contrats et les échéances.
 Les clients à relancer sont signalés automatiquement. Le conseiller ne cherche plus, il consulte.
 
-Le suivi des devis et les rappels de relance sont des fonctions que nous pouvons construire : ils ne font pas partie de l'outil de ce cabinet.
+Nous développons un CRM autour de votre façon de vendre : une fiche par client, les devis suivis, les relances rappelées, et vos fichiers Excel repris.
 
-Si un CRM du marché couvre déjà votre façon de vendre, prenez-le. Nous intervenons quand rien ne couvre votre cas : fiche client unique, suivi des devis et rappels de relance, reprise de vos fichiers Excel.
+Le suivi des devis et les rappels sont des fonctions que nous pouvons construire : ils ne font pas partie de cet outil.
+
+Si un CRM du marché couvre déjà votre façon de vendre, prenez-le : nous intervenons quand rien ne couvre votre cas.
 
 Pour savoir si c'est le moment :
 - Plusieurs personnes écrivent-elles dans le fichier ?
@@ -77,9 +79,10 @@ SL Agence, Friesen (Haut-Rhin) : applications et automatisations sur mesure.
 ## Notes (hors du bloc, ne pas coller)
 
 - Aucun lien, aucun numéro de téléphone, aucun prix dans le texte : le bouton porte le lien.
-- Les 3 phrases du cas sont reprises mot pour mot de `realisations.html` (l.849 « Un fichier Excel par client, rangé dans des dossiers. », l.850 « Une seule application pour les clients, les contrats et les échéances. », l.851 « Les clients à relancer sont signalés automatiquement. Le conseiller ne cherche plus, il consulte. »). Le cabinet n'est jamais appelé CRM (c019). Aucun lieu n'est donné pour le cabinet (la fiche n'en cite pas).
-- Dans la version de repli, la phrase sur le suivi des devis et les rappels reprend celle de `crm-sur-mesure.html` (l.888), sans « décrits plus haut ». « Si un CRM du marché couvre déjà votre façon de vendre, prenez-le. » vient de la même page (l.823). « Le premier outil est en place en 7 jours. » est une phrase du site, utilisée seule (c028).
-- Chiffres du texte : « 1 ou 2 personnes » et « 5 questions » viennent de l'article ; « 7 jours » (repli) vient du site. Le repère « Selon nous » / « Repère SL Agence » marque ce qui est un conseil, pas une statistique (c011).
+- Les 3 phrases du cas sont reprises mot pour mot de `realisations.html` (l.850-852 : « Un fichier Excel par client, rangé dans des dossiers. » ; « Une seule application pour les clients, les contrats et les échéances. » ; « Les clients à relancer sont signalés automatiquement. Le conseiller ne cherche plus, il consulte. »). Le cabinet n'est jamais appelé CRM (c019). Aucun lieu n'est donné pour le cabinet (la fiche n'en cite pas).
+- Version de repli, phrases exactes de `crm-sur-mesure.html` : l.812 « Nous développons un CRM autour de votre façon de vendre : une fiche par client, les devis suivis, les relances rappelées, et vos fichiers Excel repris. » ; l.824 « Si un CRM du marché couvre déjà votre façon de vendre, prenez-le : nous intervenons quand rien ne couvre votre cas. » Phrase adaptée (pas exacte) : celle de la l.889 (« Le suivi des devis et les rappels décrits plus haut sont des fonctions que nous pouvons construire : ils ne font pas partie de cet outil. »), sans « décrits plus haut », qui n'a pas de sens dans un post. « Le premier outil est en place en 7 jours. » vient du site, utilisée seule (c028).
+- Chiffres du texte : « 1 ou 2 personnes », « 5 questions » et « 3 oui ou plus » viennent de l'article ; « 7 jours » (repli) vient du site. Le repère « Selon nous » / « Repère SL Agence » marque ce qui est un conseil, pas une statistique (c011).
+- Test repris de l'article (c035) : chaque question du post se répond par « oui » = 1 point, comme dans l'article, et le seuil est le même (3 oui ou plus). Vérifié le 02/11/2026 sur la page en ligne : 0 point, Excel suffit encore ; 1 ou 2 points, améliorez d'abord le fichier ; 3 points ou plus, comparez des CRM. Le post ne reprend que le seuil « 3 ou plus ».
 - Les 250 à 300 premiers caractères visibles sans clic contiennent l'accroche et la réponse directe (« Excel suffit tant que… »).
 - Si Loïc veut mettre le post en « Offre » plutôt qu'en « Nouveauté » : le texte reste identique, mais le brief garde la Nouveauté pour alterner avec l'Offre du 30/10 et mesurer les deux types.
 
@@ -92,10 +95,10 @@ Export : la page 1200 x 900 uniquement, PNG ou JPG.
 ## Consignes de mesure (Loïc, vendredi 06/11 ≈ 11 minutes)
 
 1. **Avant de publier** : relevé J+7 du post « Offre » du 30/10 (vues sur la carte du post, « consultations et clics » de l'offre si affichés, clics vers le site de la semaine, capture datée). Noter dans `memoire/apprentissages.md`.
-2. **Capture de référence pour ce post** : fiche Google > Performances, clics vers le site, avec la date. Référence habituelle ≈ 3 clics par mois (relevé de la fiche, à confirmer avec la nouvelle capture).
+2. **Capture de référence pour ce post** : fiche Google > Performances, clics vers le site, avec la date. Référence hebdomadaire ≈ 0,7 clic (≈ 3 clics par mois, relevé du 30/10 ; calcul SL Agence).
 3. **Publier** (réglages ci-dessus). Noter la date et l'heure. Ne pas publier un 2e post la même semaine.
-4. **J+7 (vendredi 13/11)** : relever les vues du post et les clics vers le site du 06 au 12/11. Si l'interface affiche les clics du post : CTR = clics ÷ vues. Sinon, estimation (calcul SL Agence, pas une mesure directe) : CTR estimé = (clics vers le site du 06 au 12/11 − référence) ÷ vues du post. Cette estimation attribue au post tout l'écart, y compris le trafic venu d'ailleurs : ordre de grandeur seulement.
-5. **Comparaison** (hypothèses publiées par searchlab.nl d'après Publer, méthode non documentée : https://searchlab.nl/en/statistics/google-business-profile-statistics-2026) : Nouveauté 0,56 % ; Offre 2,18 % ; l'objectif de 3 % est très ambitieux pour une Nouveauté. À mesurer sur notre fiche, pas à promettre.
+4. **J+7 (vendredi 13/11)** : relever les vues du post et les clics vers le site du 06 au 12/11. Si l'interface affiche les clics du post : CTR = clics ÷ vues. Sinon, estimation (calcul SL Agence, pas une mesure directe) : CTR estimé = (clics vers le site du 06 au 12/11 − référence hebdomadaire) ÷ vues du post, avec une référence hebdomadaire ≈ 0,7 clic (3 clics par mois ÷ 4,3 semaines, calcul SL Agence). Le post Offre du 30/10, toujours visible, peut aussi apporter des clics : ordre de grandeur seulement.
+5. **Comparaison** (CTR moyens publiés par searchlab.nl, attribués à Publer / Sterling Sky 2026, méthode non documentée, chiffres que la page dit parfois préliminaires : https://searchlab.nl/en/statistics/google-business-profile-statistics-2026) : Nouveauté (« Update ») 0,56 % ; Offre 2,18 % ; l'objectif de 3 % est très ambitieux pour une Nouveauté. À mesurer sur notre fiche, pas à promettre.
 6. **Article** : Search Console, impressions sur « crm excel », « suivi client excel », « fichier client excel » (J+28 : 30/11/2026 ; verdict J+56 : 28/12/2026). Pas d'UTM (aucun outil d'audience, décision de Loïc).
 7. Reporter le résultat dans `memoire/apprentissages.md` avec le type de post (Nouveauté) et dans `travail/seo/experiences.md`.
 
@@ -112,4 +115,4 @@ Note : 9 / 10.
 7. Lisibilité : 1 (phrases courtes, listes).
 8. Bouton vers l'article, repli prévu vers /crm-sur-mesure : 1.
 9. Visuel : voir la réponse (lien Canva) ; la note dépend du contrôle du rendu.
-10. Mesure : 0,5. Méthode d'estimation et limites dites ; référence ≈ 3 clics/mois et comparatifs 0,56 % / 3 % restent des hypothèses.
+10. Mesure : 0,5. Méthode d'estimation et limites dites ; référence hebdomadaire ≈ 0,7 clic (calcul SL Agence) et comparatifs 0,56 % / 3 % restent des hypothèses.
