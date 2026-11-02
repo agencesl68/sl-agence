@@ -6,7 +6,16 @@
     <atom:link href="https://slagence.fr/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Conseils concrets pour gagner du temps dans votre entreprise : relances, Excel, transport, automatisation, IA, facture électronique.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Fri, 30 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>CRM ou Excel : que choisir pour une TPE ? Les 5 questions à se poser, et un modèle gratuit</title>
+      <link>https://slagence.fr/blog/crm-ou-excel</link>
+      <guid isPermaLink="true">https://slagence.fr/blog/crm-ou-excel</guid>
+      <pubDate>Mon, 02 Nov 2026 12:00:00 +0000</pubDate>
+      <dc:creator>Loïc Bitsch</dc:creator>
+      <description>Excel suffit-il pour suivre vos clients ou faut-il un CRM ? 5 questions pour décider en TPE, et un fichier de suivi client Excel gratuit à télécharger.</description>
+      <enclosure url="https://slagence.fr/blog/og-blog.png" type="image/png" length="273657"/>
+    </item>
     <item>
       <title>Cahier des charges d'une application : le modèle simple, en 1 page, pour une PME</title>
       <link>https://slagence.fr/blog/cahier-des-charges-application</link>

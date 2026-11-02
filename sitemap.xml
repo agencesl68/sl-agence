@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/remplacer-excel</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/remplacer-excel.png</image:loc></image:image>
@@ -121,7 +121,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/blog/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://slagence.fr/blog/og-blog.png</image:loc></image:image>
@@ -135,7 +135,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/blog/limites-excel-entreprise</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://slagence.fr/blog/og-limites-excel-entreprise.png</image:loc></image:image>
@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/crm-sur-mesure</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/crm-sur-mesure.png</image:loc></image:image>
@@ -243,6 +243,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://slagence.fr/blog/crm-ou-excel</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://slagence.fr/blog/cahier-des-charges-application</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -256,6 +262,6 @@
   </url>
   <url>
     <loc>https://slagence.fr/modeles-gratuits</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
 </urlset>
