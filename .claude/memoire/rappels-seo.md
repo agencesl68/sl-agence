@@ -6,6 +6,8 @@
 
 ## Décisions prises
 
+- 2026-11-02 · PR #34 fusionnée : /blog/crm-ou-excel et le modèle .xlsx en 200 (title vérifié en ligne). IndexNow : 13 URL, réponse 200. Mise en ligne = 02/11 (J+28 : 30/11). Lot CTR (4 titles) en ligne le 02/11 : mesure J+28 le 30/11.
+
 - 2026-11-02 · Loïc : **1 post Google par semaine** (alterner Offre / Nouveauté, toujours vers une page en 200, mesure à J+7). **Feu vert article « CRM ou Excel : que choisir pour une TPE ? »** (remplace l'article CRM de la sem. 3).
 - 2026-11-02 · Kit annuaires : descriptions 300 et 750 alignées sur la zone (c032). Les annuaires déjà remplis avec l'ancienne phrase (« à distance en Alsace et dans le Grand Est ») sont à corriger au fil de l'eau.
 
