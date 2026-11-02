@@ -32,6 +32,10 @@
 | 2026-10-06 | Feuille « Prospection SL agence » | ~40 % d'entreprises fermées, introuvables ou trop petites ; peu de BTP vérifiable | Sourcer le BTP via l'API Recherche d'entreprises / annuaires professionnels |
 | 2026-10-06 | Ahrefs | Abonnement sans accès API | Travailler avec Search Console et outils gratuits |
 
+## 2026-11-02 — Search Console, 28 jours (≈ 04/10 → 31/10/2026)
+- 36 clics, 2 240 impressions, CTR 1,6 %, position moyenne 20,4 (Web). Capture de Loïc. Stable par rapport au 30/10 (37 / 2 190 / 1,7 % / 20,5).
+- Impressions ≈ 150/jour du 27 au 29/10, puis redescendues vers 80-110/jour fin octobre (lecture de courbe). Clics 0 à 3/jour.
+
 ## 2026-10-30 — Fiche Google (GBP) > Performances, mai → oct. 2026 — référence avant le post « Offre »
 - Total sur la période : 55 interactions, 4 appels, 0 clic sur le chat, 7 clics vers le site Web. Captures de Loïc.
 - Par mois (lu sur les courbes, approximatif) : septembre ≈ 47 interactions, 3 appels, 4 clics vers le site ; octobre ≈ 8 interactions, 1 appel, 3 clics vers le site. Rien avant septembre (fiche récente).
