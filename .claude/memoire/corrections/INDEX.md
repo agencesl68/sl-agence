@@ -44,3 +44,4 @@
 | [c034](c034-statistique-cadree-par-le-communique.md) | seo-site, contenu-linkedin, analyste | moyenne | Un chiffre garde le qualificatif et le périmètre exacts de la source citée (sinon citer le communiqué) |
 | [c035](c035-engagement-ou-garantie-ajoute-sans-source.md) | tous | moyenne | Support commercial : engagements et garanties repris du site ou du brief de Loïc, avec leur condition ; tout nouvel engagement conditionnel ou [À COMPLÉTER] |
 | [c036](c036-support-commercial-qui-s-eloigne-du-site.md) | manager, contenu-linkedin, analyste | haute | Support commercial : reprendre le discours du site (titres, sections, offres de logiciels), aucune douleur inventée |
+| [c037](c037-texte-fin-trop-petit-en-impression.md) | manager, contenu-linkedin | basse | Police fine : texte porteur de sens ≥ 11 pt, blanc pur sur fond foncé ; étiquettes et folios ≥ 8,5 pt |
