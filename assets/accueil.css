@@ -1422,6 +1422,8 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 
 /* près de chez vous / guides : titres secondaires, plus petits */
 .entete--petit{margin-top:clamp(4rem,9vh,6rem)}
+.section--guides{padding-block:clamp(3rem,8vh,5rem)}
+.entete--petit.entete--premier{margin-top:0}
 .entete--petit .pill{margin-bottom:1.1rem}
 .entete--petit h2{font-size:clamp(1.45rem,1rem + 1.5vw,2.1rem);max-width:24ch}
 .entete--petit p:not(.pill){font-size:.95rem}
