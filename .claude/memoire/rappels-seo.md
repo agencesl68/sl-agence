@@ -84,7 +84,8 @@
 - [ ] Questions RGPD pour Sacha : où arrivent les messages du formulaire et combien de temps Make garde l'historique ; DPA Make
       accepté ; « données exportables à tout moment » confirmé ; contrat de sous-traitance (art. 28) pour les outils clients.
 - [x] 2026-10-26 · Prix tranché par Loïc : « à partir de 500 € » (automatisations plus petites déjà réalisées).
-- [ ] Search Console : demander l'indexation de l'accueil (refonte du 03/11, liens envoyés à Loïc) et des 2 pages ville (Loïc).
+- [x] 2026-11-03 · Accueil (refonte sans métiers) : indexation demandée dans Search Console, sitemap renvoyé, URL soumise à Bing (Loïc).
+- [ ] Search Console : demander l'indexation des 2 pages ville (Loïc).
 - [ ] Bing : renvoyer le sitemap + soumettre les URL (liste donnée le 14/10) ; si besoin, Loïc envoie l'export « Explorateur
       de site » pour repérer les manquantes.
 - [ ] Prochains articles métier, dans l'ordre : **terrassement** → plombier-chauffagiste → électricien
