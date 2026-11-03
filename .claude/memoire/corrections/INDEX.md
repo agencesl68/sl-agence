@@ -42,3 +42,4 @@
 | [c032](c032-zone-d-intervention-incoherente.md) | seo-site, contenu-linkedin | moyenne | Zone = agence.md : déplacement Haut-Rhin, Alsace, Grand Est ; à distance partout en France (visible + JSON-LD) |
 | [c033](c033-title-concurrent-pendant-une-mesure.md) | seo-site, analyste | moyenne | Pendant une mesure de title, aucune autre page ne prend la même tête de requête ; title raccourci fidèle au contenu (c022) |
 | [c034](c034-statistique-cadree-par-le-communique.md) | seo-site, contenu-linkedin, analyste | moyenne | Un chiffre garde le qualificatif et le périmètre exacts de la source citée (sinon citer le communiqué) |
+| [c035](c035-engagement-ou-garantie-ajoute-sans-source.md) | tous | moyenne | Support commercial : engagements et garanties repris du site ou du brief de Loïc, avec leur condition ; tout nouvel engagement conditionnel ou [À COMPLÉTER] |

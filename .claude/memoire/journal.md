@@ -3,6 +3,12 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-11-03 — Plaquette PDF « Partenariat experts-comptables » (version test)
+
+- **Action** : PDF A4 de 8 pages (charte kaki, Libre Baskerville + Inria Serif embarquées, 1,4 Mo), pour un e-mail de prescription aux experts-comptables du Haut-Rhin. Hors dépôt (dépôt public) : livré à Loïc.
+- **Contrôle qualité** : À CORRIGER (engagements et garanties non sourcés), corrigé ; nouvelle correction c035.
+- **À décider par Loïc** : contrepartie éventuelle pour le cabinet (emplacement [À COMPLÉTER] en page 7).
+
 ## 2026-11-03 — Accueil et menu sans noms de métiers : on parle des situations du visiteur (PR à valider)
 
 - **Décision Loïc** (brief du 03/11) : sortir les métiers de la vitrine pour que tout dirigeant se reconnaisse. Les pages métiers restent toutes en ligne, sans changement.
