@@ -7,7 +7,7 @@ Règles appliquées : aucun nom de client (c004), réalisations reprises de `age
 ## 0. À confirmer avant de commencer (3 points)
 
 1. **Numéro unique.** Le site met le 07 67 08 19 43 (Sacha) dans le JSON-LD (`telephone`) et le bouton « Appeler » ; le pied de page affiche les deux numéros. Ce kit utilise le **07 67 08 19 43** partout. Si vous préférez le 06 01 16 07 62, remplacez-le partout, JSON-LD compris.
-2. **« Partout en France à distance »** : cette phrase **n'est écrite nulle part** dans `agence.md`, le site, `a-propos` ni `llms.txt` (qui disent : à distance en Alsace et dans le Grand Est). Elle n'est donc **pas** dans les descriptions ci-dessous. Si c'est vrai, dites-le : il suffira de remplacer « en Alsace et dans le Grand Est » par « partout en France » dans ce kit **et** sur le site (même formulation partout, sinon les annuaires et le site se contredisent).
+2. ~~**« Partout en France à distance »**~~ → **tranché par Loïc le 23/10 : oui** (agence.md ; correction c032, descriptions 300 et 750 mises à jour le 02/11). Ancienne note : cette phrase **n'est écrite nulle part** dans `agence.md`, le site, `a-propos` ni `llms.txt` (qui disent : à distance en Alsace et dans le Grand Est). Elle n'est donc **pas** dans les descriptions ci-dessous. Si c'est vrai, dites-le : il suffira de remplacer « en Alsace et dans le Grand Est » par « partout en France » dans ce kit **et** sur le site (même formulation partout, sinon les annuaires et le site se contredisent).
 3. **Compte et identité.** SL Agence est le nom commercial de Sacha Muller (entrepreneur individuel, SIRET 105 220 677 00014, APE 62.01Z, création le 19 mai 2026). Malt et certains annuaires vérifient l'identité : le profil doit être au nom de la personne ou de l'EI. Qui crée les comptes, Sacha ou vous ? Pour les e-mails de validation, l'adresse agence.sl.68@gmail.com est utilisée partout.
 
 ## 1. NAP exact (identique au site : pied de page et JSON-LD de `index.html`)
@@ -40,11 +40,11 @@ DESC-150: Agence d'automatisation, d'IA et de logiciel sur mesure à Mulhouse. A
 
 **Moyenne (≈300 caractères)**
 
-DESC-300: SL Agence crée des applications métier, automatisations et assistants IA sur mesure pour TPE, PME et artisans (BTP, transport, travaux agricoles). Basés à Friesen, près de Mulhouse, nous intervenons dans tout le Haut-Rhin. Devis gratuit sans engagement, prix ferme, réponse sous 24 h.
+DESC-300: SL Agence crée des applications métier, automatisations et assistants IA sur mesure pour TPE, PME et artisans (BTP, transport, travaux agricoles). Basés à Friesen, près de Mulhouse, nous nous déplaçons dans le Haut-Rhin, en Alsace et dans le Grand Est, et travaillons à distance partout en France. Devis gratuit sans engagement, prix ferme, réponse sous 24 h.
 
 **Longue (≈750 caractères)**
 
-DESC-750: SL Agence est une agence d'automatisation, d'intelligence artificielle et de logiciel sur mesure, basée à Friesen, près de Mulhouse (Haut-Rhin). Nous travaillons pour les indépendants, TPE, PME, cabinets et associations : entreprises du BTP et du terrassement, transport, travaux agricoles, artisans. Nous supprimons la double saisie : bons d'intervention signés sur téléphone, fichiers Excel remplacés par un seul écran, devis et factures générés automatiquement, relances de factures, assistants IA, préparation à la facture électronique. Nous nous déplaçons dans tout le Haut-Rhin (Mulhouse, Colmar, Saint-Louis) et travaillons à distance en Alsace et dans le Grand Est. Devis gratuit, prix ferme avant de commencer, réponse sous 24 h.
+DESC-750: SL Agence est une agence d'automatisation, d'intelligence artificielle et de logiciel sur mesure, basée à Friesen, près de Mulhouse (Haut-Rhin). Nous travaillons pour les indépendants, TPE, PME, cabinets et associations : entreprises du BTP et du terrassement, transport, travaux agricoles, artisans. Nous supprimons la double saisie : bons d'intervention signés sur téléphone, fichiers Excel remplacés par un seul écran, devis et factures générés automatiquement, relances de factures, assistants IA, préparation à la facture électronique. Nous nous déplaçons dans tout le Haut-Rhin (Mulhouse, Colmar, Saint-Louis), en Alsace et dans le Grand Est, et travaillons à distance partout en France. Devis gratuit, prix ferme avant de commencer, réponse sous 24 h.
 
 **Profil Malt / Codeur (à la première personne du pluriel, titre court)**
 

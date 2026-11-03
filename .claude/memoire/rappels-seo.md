@@ -6,6 +6,12 @@
 
 ## Décisions prises
 
+- 2026-11-02 · Loïc : **1 post Google par semaine** (alterner Offre / Nouveauté, toujours vers une page en 200, mesure à J+7). **Feu vert article « CRM ou Excel : que choisir pour une TPE ? »** (remplace l'article CRM de la sem. 3).
+- 2026-11-02 · Kit annuaires : descriptions 300 et 750 alignées sur la zone (c032). Les annuaires déjà remplis avec l'ancienne phrase (« à distance en Alsace et dans le Grand Est ») sont à corriger au fil de l'eau.
+
+- 2026-10-30 · PR #33 fusionnée : /application-web-sur-mesure et /blog/cahier-des-charges-application en 200 (titles vérifiés en ligne, sitemap à jour). IndexNow : 14 URL (2 nouvelles + 12 pages modifiées), réponse 200. Mise en ligne = 30/10 (J+28 : 27/11).
+- 2026-10-30 · IndexNow refait après PR #30-#32 (7 URL, 200). Google : Loïc renvoie le sitemap (3 nouvelles pages : pointage, stock, CRM).
+
 - ~~2026-10-26 · Prix affiché : à partir de 500 €~~ → **remplacé le 27/10 : aucun prix affiché nulle part (site compris, PR 29)** ; à l'oral seulement si on le demande.
 
 - 2026-10-27 · Loïc : **aucun chiffre sans source agréée** sur le site (fourchette « 8 000 à 50 000 € selon les agences » retirée de /logiciel-sur-mesure). **Prénoms des avis Google : on les garde** sur l'accueil (« on s'en fiche ») ; ne plus proposer de les retirer.
@@ -45,6 +51,11 @@
 - 2026-10-14 · À chaque nouvelle page / article mis en ligne : donner à Loïc l'URL à soumettre dans **Search Console ET Bing Webmaster Tools** (Soumission d'URL).
 
 ## À rappeler (en attente)
+
+- [x] 2026-10-30 · PR 33 en ligne, référence GBP et Search Console relevées (apprentissages.md), **post « Offre » publié le 30/10** (accepté en Offre).
+- [ ] **06/11** (J+7) : relevé du post — vues sur la carte du post, « consultations et clics » de l'offre si affichés, clics vers le site de la semaine (référence ≈ 3/mois). **27/11** (J+28) : idem + page application web et article (Search Console).
+- [ ] Article CRM (semaine 3) décalé : trouver un angle distinct de /crm-sur-mesure (ex. « CRM ou Excel pour une TPE »).
+- [ ] Plus tard : réponse de zone identique mot pour mot sur /logiciel-sur-mesure, /remplacer-excel, /connecter-logiciels-entreprise (c031) ; /automatisation-taches-administratives ne cite ni l'Alsace ni le Grand Est.
 
 - [x] 2026-10-21 · PR #17 (GEO : choisir son agence, À propos, étude de cas épandage, LinkedIn + PagesJaunes) et PR #18 (date de création) en ligne. Renvoyer le sitemap.
 - [ ] **Lundi 2026-10-26** : premier relevé du suivi IA (10 questions locales + questions nationales × ChatGPT, Gemini, Perplexity, Copilot) — plan-geo §4 et §6.
