@@ -3,6 +3,13 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-11-03 — Accueil et menu sans noms de métiers : on parle des situations du visiteur (PR à valider)
+
+- **Décision Loïc** (brief du 03/11) : sortir les métiers de la vitrine pour que tout dirigeant se reconnaisse. Les pages métiers restent toutes en ligne, sans changement.
+- **Action** : menu « Ce qui vous ralentit » (7 situations) sur les 39 pages ; héros en 5 situations de secteurs différents, écrans vert sombre ; 01 avec un exemple neutre ; 02 renommée (« Suivi des équipes et du terrain », « Fin de la paperasse ») ; 03 « Ça vous parle ? » (6 cartes) ; pied de page « Nous accompagnons aussi » + villes + « Gestion de stock ». Le stock n'était lié que par le menu (39 → 4 liens entrants sans ce lien de pied de page).
+- **Contrôles** : title, meta et canonical inchangés sur toutes les pages ; aucune page n'a perdu de lien entrant ; sitemap complet ; animation coupée si « réduire les animations » est activé.
+- **À mesurer** : positions de l'accueil et des pages métiers à J+28 de la mise en ligne (le H2 « Pour les artisans, cabinets et PME du Haut-Rhin » a disparu).
+
 ## 2026-10-30 — Page application web + article cahier des charges + post Google « Offre »
 
 - Directive de Loïc : un post Google à fort taux de clic (objectif ≥ 3 %), 1-2 pages et 1 article, en ligne le jour même.

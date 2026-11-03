@@ -284,8 +284,9 @@
     var a = e.target.closest('[data-rdv],a[href*="calendar.google.com/calendar/appointments"],a[href$="#rendez-vous"]');
     if(!a || e.ctrlKey || e.metaKey || e.shiftKey){ return; }
     var href = a.getAttribute("href") || "";
-    // un lien #rendez-vous vers une autre page : on laisse la navigation se faire
-    if(/#rendez-vous$/.test(href) && href.charAt(0) !== "#" && href.split("#")[0] !== location.pathname){ return; }
+    // un lien #rendez-vous vers une autre page : on laisse la navigation se faire,
+    // sauf s'il porte data-rdv (lien du menu, présent sur toutes les pages : la fenêtre s'ouvre sur place)
+    if(!a.hasAttribute("data-rdv") && /#rendez-vous$/.test(href) && href.charAt(0) !== "#" && href.split("#")[0] !== location.pathname){ return; }
     e.preventDefault();
     ouvrir();
   });

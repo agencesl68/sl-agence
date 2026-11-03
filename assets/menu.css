@@ -98,6 +98,12 @@
   }
 }
 .mn-c2 a:hover{filter:brightness(1.25)}
+/* « Ce qui vous ralentit » : phrases longues, sur 2 colonnes, un cran plus petites */
+.mn-douleurs{grid-column:span 2}
+.mn-c1.mn-douleurs a{font-size:1.3rem;font-weight:500;letter-spacing:-.015em}
+.mn-reco{margin:1.1rem 0 0;color:var(--mn-texte);font-size:1rem}
+.mn-col .mn-reco a{display:inline;padding:0;font-size:inherit;font-weight:600;color:var(--mn-vc);text-decoration:underline;text-underline-offset:3px}
+.mn-col .mn-reco a:hover{transform:none;opacity:.8}
 /* droite : vert clair */
 .mn-c3 a{color:var(--mn-vc);font-size:1.1rem;font-weight:500}
 .mn-c3 a:hover{opacity:.75}
@@ -147,6 +153,8 @@ html:not(.mn-js) .mn-item:focus-within .mn-panel{opacity:1;visibility:visible;tr
   .mn-item.is-open .mn-panel{display:block}
   .mn-in{grid-template-columns:1fr;gap:1.1rem;padding:0 0 1.3rem}
   .mn-c1 a{font-size:1.35rem}
+  .mn-douleurs{grid-column:auto}
+  .mn-c1.mn-douleurs a{font-size:1.1rem}
   .mn-col a{padding:.4rem 0}
   .mn-voile{display:none}
 }
@@ -166,3 +174,8 @@ html:not(.mn-js) .mn-item:focus-within .mn-panel{opacity:1;visibility:visible;tr
 }
 /* Cibles tactiles d'au moins 24 px (WCAG 2.2, critère 2.5.8) */
 .mn-col a{min-height:24px}
+
+/* pied de page commun : ligne des métiers et des villes (garde un lien vers chaque page métier) */
+.foot-metiers{margin:1.1rem 0 0;max-width:72ch;font-size:.82rem;line-height:1.7;color:var(--texte-faible,rgba(255,255,255,.56))}
+.foot-metiers a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);text-underline-offset:3px}
+.foot-metiers a:hover{color:#fff}
