@@ -14,6 +14,7 @@
 
 - ~~2026-10-26 · Prix affiché : à partir de 500 €~~ → **remplacé le 27/10 : aucun prix affiché nulle part (site compris, PR 29)** ; à l'oral seulement si on le demande.
 
+- 2026-11-03 · Loïc confirme que « 6 h gagnées par semaine » (fiche du jour) et « 3 h gagnées par semaine » (relances) de l'animation de l'accueil viennent de **cas clients réels** : on les garde, ne plus les remettre en question.
 - 2026-10-27 · Loïc : **aucun chiffre sans source agréée** sur le site (fourchette « 8 000 à 50 000 € selon les agences » retirée de /logiciel-sur-mesure). **Prénoms des avis Google : on les garde** sur l'accueil (« on s'en fiche ») ; ne plus proposer de les retirer.
 - 2026-10-27 · **Plan SEO 12 semaines adopté** (synthèse ChatGPT de Loïc) : 1 page forte par semaine, alternance service/article ; ordre : stock, CRM, article CRM, application web, n8n, article n8n/Make/Zapier, chatbot, article prix mobile, mobile (conditionnel), intranet, réservation, article stock. Fichier : `travail/seo/plan-12-semaines-2026-10-27.md`. Chaque nouvelle page de service reçoit un lien depuis /logiciel-sur-mesure (corps uniquement).
 - 2026-10-27 · **Pas de prix dans la prospection ni dans les annonces** (Loïc : « enlève à partir de, faut juste pousser à appeler »). Fiche A4, e-mails, LinkedIn, Google Ads, page d'offre : aucun « à partir de 500 € » ; tout pousse à appeler (07). Le prix ne se dit qu'à l'oral si on le demande. Site : prix retiré aussi (oui de Loïc le 27/10, PR 29).
@@ -83,7 +84,7 @@
 - [ ] Questions RGPD pour Sacha : où arrivent les messages du formulaire et combien de temps Make garde l'historique ; DPA Make
       accepté ; « données exportables à tout moment » confirmé ; contrat de sous-traitance (art. 28) pour les outils clients.
 - [x] 2026-10-26 · Prix tranché par Loïc : « à partir de 500 € » (automatisations plus petites déjà réalisées).
-- [ ] Search Console : demander l'indexation de l'accueil (refonte) et des 2 pages ville (Loïc).
+- [ ] Search Console : demander l'indexation de l'accueil (refonte du 03/11, liens envoyés à Loïc) et des 2 pages ville (Loïc).
 - [ ] Bing : renvoyer le sitemap + soumettre les URL (liste donnée le 14/10) ; si besoin, Loïc envoie l'export « Explorateur
       de site » pour repérer les manquantes.
 - [ ] Prochains articles métier, dans l'ordre : **terrassement** → plombier-chauffagiste → électricien
