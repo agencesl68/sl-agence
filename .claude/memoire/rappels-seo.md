@@ -89,5 +89,6 @@
 - [ ] Prochains articles métier, dans l'ordre : **terrassement** → plombier-chauffagiste → électricien
       (briefs dans `travail/seo/audit-contenus-2026-10-14.md`).
 - [ ] Mesure J+28 des pages ville le **2026-11-11** → décider Colmar.
+- [ ] Mesure J+28 de l'accueil sans métiers (PR #35, en ligne le 03/11) le **2026-12-01** : positions de l'accueil et des pages métiers (BTP, artisan, transport, travaux agricoles), qui ne sont plus liées que par le pied de page.
 - [ ] Questions ouvertes pour enrichir les pages ville : temps de trajet depuis Friesen, une réalisation
       anonymisée par ville, questions réellement posées par des entreprises de la zone, 2 captures floutées (Sacha).
