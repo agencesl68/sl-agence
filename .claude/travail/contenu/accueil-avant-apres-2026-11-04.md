@@ -35,7 +35,7 @@ H2 « Le travail est fait 2 fois. » inchangé (accroche de marque, mot-clé imp
 |---|---|---|---|---|
 | Lead | Une fois quand l'information arrive, une fois quand on la recopie. Ce n'est pas un défaut d'organisation : c'est un outil qui manque. | Une commande arrive en journée. Le soir, il faut la recopier. Chez vous, qui s'en charge ? | 1 + 2 | AG « Problème » (le travail fait deux fois) ; scène de l'animation de la page. Question, pas affirmation |
 | Lead (alternative) | idem | Une fois quand l'information arrive, une fois quand on la recopie. Chez vous, ce quelqu'un, c'est peut-être vous. | 2 | AG « Problème ». Condition gardée (« peut-être ») |
-| Chute | Avec le bon outil : <strong>une seule fois.</strong> | Avec le bon outil : <strong>une seule fois.</strong> Votre soirée reste à vous. | 3 | REAL 880 : « du temps retrouvé pour vos clients et vos soirées » |
+| Chute | Avec le bon outil : <strong>une seule fois.</strong> | Avec le bon outil : <strong>une seule fois.</strong> | | texte actuel gardé (contrôle qualité : « soir » limité à 2 fois, c037) |
 
 Retrait volontaire : « Ce n'est pas un défaut d'organisation : c'est un outil qui manque. » (tournure « pas X, c'est Y » citée comme marqueur d'écriture IA dans le manuel § 1.3). L'idée « ce n'est pas votre faute » est portée par la question « Chez vous, qui s'en charge ? ». La phrase reste sur AG pour mémoire.
 
@@ -86,7 +86,7 @@ Pill « 03 Ça vous parle ? » inchangée.
 | Carte 1, ligne 1 | Vous finissez votre journée de travail... et vous commencez la paperasse. | Vous finissez votre journée. Et la paperasse commence. | | 1 | Scène (situation possible) |
 | Carte 1, ligne 2 | Vos documents se remplissent pendant que le travail se fait. | Le bon est saisi une seule fois, sur place. | | 3 | REAL 813 (travaux agricoles) |
 | Carte 2, ligne 1 | Vous cherchez un fichier pendant 10 minutes. Tous les jours. | Vous cherchez le bon fichier, vous l'ouvrez, vous le fermez, vous recommencez. | | 1 + 2 | REAL 846 : « chercher, ouvrir, fermer, recommencer ». Aucun chiffre |
-| Carte 2, ligne 2 | Toutes vos informations sur un seul écran. | Un seul écran. Chez notre client en gestion de patrimoine, le conseiller ne cherche plus, il consulte. | | 4 | REAL 848 : « Le conseiller ne cherche plus, il consulte. » (paraphrase d'une page du site, sans guillemets, c037) |
+| Carte 2, ligne 2 | Toutes vos informations sur un seul écran. | Un seul écran. Notre client en gestion de patrimoine ne cherche plus, il consulte. | | 4 | REAL 848 : « Le conseiller ne cherche plus, il consulte. » (paraphrase d'une page du site, sans guillemets, c037) |
 | Carte 3, ligne 1 | Vous avez fait le travail. Vous attendez toujours d'être payé. | Inchangée (déjà une scène) | | 1 | Texte actuel |
 | Carte 3, ligne 2 | Les relances partent seules, au bon moment. | La relance part seule, au bon moment. Vous n'y pensez plus. | | 3 | AG offre 4 |
 | Carte 4, ligne 1 | Vous êtes le seul à savoir où en est chaque dossier. | Un client appelle. Vous êtes le seul à savoir où en est son dossier. | | 1 | Scène (situation possible) |
@@ -138,7 +138,7 @@ Préférée pour le H2 : B (formule déjà employée sur le site, donc sourcée,
 - Aucun chiffre ajouté en dehors de 15 minutes, 2 fois et « 6 phrases » (variante B écartée du H2 de la 03). 6 h et 3 h ne sont plus utilisés. « 10 minutes » supprimé.
 - Aucun nom de client, aucun prix, aucun tiret cadratin, aucun emoji.
 - Guillemets (c037) : aucun sur un texte de nos pages ; ceux qui restent dans le fichier citent des sources ou des textes « Avant ».
-- Mot « soir » dans le texte retenu : héros, lead 01 et chute 01 uniquement. Mot « recopier » : 01, intro 02 et carte 5 au plus.
+- Mot « soir » dans le texte retenu : héros et lead 01 uniquement. Mot « recopier » : 01, intro 02 et carte 5 au plus.
 - Longueur : nœuds de 44 à 53 caractères ; section 04 inchangée ; la page ne s'allonge pas.
 
 ---
@@ -180,3 +180,7 @@ Correction 1er aller-retour du contrôle qualité (7/10) : 8 points traités (h�
 - Carte 6 ligne 2 : dérivée d'un principe déjà affiché sur la page (carte 4), à valider.
 - Hero B : « Vous savez ce qui vous prend vos soirées » suppose que la soirée est le problème ; la bulle de l'animation et REAL 880 le soutiennent, mais tous les métiers ne sont pas concernés.
 - Nœud 5 : 53 caractères avec « Devis et rapports se font seuls. Plus rien à retaper. » ; la formule proposée (« Vos devis et rapports… ») faisait 57.
+
+
+---
+**Contrôle qualité : VALIDÉ 9/10 (2 passages, 04/11/2026)**, après les 2 retouches appliquées par le Manager.

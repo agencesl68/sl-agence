@@ -959,8 +959,8 @@ html:not(.staged) .scene[data-scene="0"]:not(.off){opacity:1;visibility:visible}
 }
 .vitrine-texte{display:flex;flex-direction:column;align-items:center}
 .vitrine-titre{
-  margin-top:1.2rem;max-width:20ch;
-  color:var(--blanc);font-size:clamp(2.4rem,1rem + 4.4vw,4.9rem);
+  margin-top:1.2rem;max-width:26ch;
+  color:var(--blanc);font-size:clamp(2.2rem,1rem + 3.6vw,4.2rem);
   font-weight:600;line-height:1.04;letter-spacing:-.045em;text-wrap:balance;
 }
 .vitrine-titre span{color:var(--vert-clair);white-space:nowrap}
