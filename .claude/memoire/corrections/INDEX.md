@@ -43,3 +43,4 @@
 | [c033](c033-title-concurrent-pendant-une-mesure.md) | seo-site, analyste | moyenne | Pendant une mesure de title, aucune autre page ne prend la même tête de requête ; title raccourci fidèle au contenu (c022) |
 | [c034](c034-statistique-cadree-par-le-communique.md) | seo-site, contenu-linkedin, analyste | moyenne | Un chiffre garde le qualificatif et le périmètre exacts de la source citée (sinon citer le communiqué) |
 | [c037](c037-texte-du-site-cite-comme-parole-de-client.md) | contenu-linkedin, seo-site, analyste | moyenne | Guillemets = paroles réelles de clients seulement ; chiffre confirmé repris avec son seul périmètre, jamais près d'un avis ; une formule ≤ 2 fois par page |
+| [c038](c038-mots-de-metier-sur-le-site.md) | tous | moyenne | Mots simples que tout le monde comprend (pas de jargon : ressaisie, process, CRM, agent IA non expliqué…), sans ton enfantin ; mots-clés SEO des titres gardés |
