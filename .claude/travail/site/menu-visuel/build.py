@@ -17,8 +17,8 @@ def lien(href, titre, desc):
     return f'<a class="mx-lien" href="{href}"><b>{titre}</b><span>{desc}</span></a>'
 
 RALENTIT = [
-    ("/automatisation-taches-administratives", "Le travail fait 2 fois", "Vous tapez 2 fois la même information."),
-    ("/remplacer-excel", "Les fichiers Excel", "Ils ne suivent plus, plus personne ne s'y retrouve."),
+    ("/automatisation-taches-administratives", "Le travail fait 2 fois", "Noté sur place, puis retapé au bureau."),
+    ("/remplacer-excel", "Les fichiers Excel", "Trop de fichiers, plus personne ne s'y retrouve."),
     ("/relance-factures-automatique", "Les factures qui traînent", "On vous doit de l'argent et personne ne relance."),
     ("/bon-intervention-numerique", "Les papiers du terrain", "Ils se perdent entre le terrain et le bureau."),
     ("/logiciel-sur-mesure", "Le suivi des équipes", "Vous ne savez pas ce qu'elles ont fait avant le soir."),
@@ -32,12 +32,12 @@ REGLE = [
     ("/bon-intervention-numerique", "Bon d'intervention numérique", "Rempli et signé sur place, même sans réseau."),
     ("/relance-factures-automatique", "Relances automatiques", "Vos factures relancées jusqu'au règlement."),
     ("/application-pointage-chantier", "Heures de chantier", "Pointées sur le téléphone, avant de rentrer."),
-    ("/logiciel-gestion-stock-sur-mesure", "Stocks et commandes", "Ce qui entre et ce qui sort, toujours à jour."),
-    ("/connecter-logiciels-entreprise", "Connecter ses logiciels", "Compta, agenda, devis : tout se parle."),
+    ("/logiciel-gestion-stock-sur-mesure", "Gestion de stock", "Ce qui entre, ce qui sort, ce qu'il reste."),
+    ("/connecter-logiciels-entreprise", "Connecter ses logiciels", "Compta, agenda, devis : vos logiciels se parlent."),
     ("/facture-electronique-tpe", "Facture électronique", "Reçue sans retaper, prête pour l'envoi de 2027."),
 ]
 AGENCE = [
-    ("/#questions", "Questions fréquentes", "Prix, délais, données, équipes : nos réponses."),
+    ("/#questions", "Questions fréquentes", "Prix, données, équipes, zone : nos réponses."),
     ("/#methode", "Notre méthode", "4 temps, du premier appel à l'outil en main."),
     ("/a-propos", "À propos", "Qui est derrière SL Agence, et pourquoi."),
     ("/agence-ia-automatisation-haut-rhin", "Bien choisir son agence", "Les points à vérifier avant de signer."),
@@ -54,8 +54,8 @@ TEL = """<span class="mx-tel" aria-hidden="true"><span class="mx-tel-cadre"><spa
   <span class="mx-tel-barre"><i>9:41</i><em></em></span>
   <span class="mx-app-tete"><b>Carburant</b><small>Aujourd'hui</small></span>
   <span class="mx-app-kpi"><b>11</b><small>engins suivis</small></span>
-  <span class="mx-app-ligne"><span><b>Pelle</b><small>Compteur avant, après</small></span><i class="mx-ph"></i><i class="mx-ph"></i><em>Validé</em></span>
-  <span class="mx-app-ligne"><span><b>Chargeuse</b><small>Compteur avant, après</small></span><i class="mx-ph"></i><i class="mx-ph"></i><em>Validé</em></span>
+  <span class="mx-app-ligne"><span><b>Pelle</b><small>Compteur avant, après</small></span><i class="mx-ph"></i><i class="mx-ph"></i><em>Noté</em></span>
+  <span class="mx-app-ligne"><span><b>Chargeuse</b><small>Compteur avant, après</small></span><i class="mx-ph"></i><i class="mx-ph"></i><em>Noté</em></span>
   <span class="mx-app-ligne"><span><b>Tombereau</b><small>Plein en cours</small></span><i class="mx-ph"></i><i class="mx-ph mx-ph-vide"></i><em class="mx-attente">Photo</em></span>
   <span class="mx-app-bouton">Nouveau plein</span>
 </span></span></span>"""
