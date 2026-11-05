@@ -14,11 +14,26 @@
 
 ## 0. La conclusion en 5 lignes
 
-1. **Le site est techniquement sain.** 40 pages en 200, contenu lisible sans JavaScript, canonicals justes, aucun lien interne cassé, JSON-LD valide et conforme sur 39 pages, tous les robots (Google, Bing, OpenAI, Perplexity, Anthropic, Apple) servis. Aucun chantier technique lourd n'est justifié.
+1. **Le site est techniquement sain.** Les 40 pages s'ouvrent normalement, le texte est lisible sans JavaScript, les adresses de référence (canonicals) sont justes, aucun lien interne n'est cassé, la fiche d'identité cachée (JSON-LD) est valide sur 39 pages, et tous les robots (Google, Bing, OpenAI, Perplexity, Anthropic, Apple) reçoivent les pages (test depuis une seule adresse, pas depuis les adresses des robots). Aucun chantier technique lourd n'est justifié.
 2. **Le vrai frein est hors du site : personne d'autre ne parle de SL Agence.** Seule mention tierce trouvée : le registre officiel des entreprises. Le nom « SL Agence » a au moins 4 homonymes. Les études les plus solides disponibles relient la visibilité dans les réponses IA aux **mentions par des tiers** (corrélation, pas causalité).
 3. **Le 2e frein : les preuves.** 7 réalisations (dont 1 en cours), 1 seule étude de cas, 2 avis Google affichés, contre 103 avis et 11 cas chiffrés chez DGS Création, 106 avis chez MB Informatique, 27 chez HDKN.
 4. **Le 3e : le site est encore jeune dans Google** (création de l'entreprise : 19/05/2026 ; position moyenne 20,4 dans Search Console ; absent des 18 requêtes testées avec notre outil, qui n'est pas Google).
-5. **Donc : peu de modifications du site (10 petites corrections réversibles), et l'effort sur les études de cas, les avis réels et les mentions externes.** Les priorités A et B de ta mission sont confirmées ; C est déjà en place ; D se limite à des retouches ; E (nouvelles pages) n'est pas prioritaire.
+5. **Donc : peu de modifications du site (7 petites corrections réversibles, en 3 PR calées sur les mesures en cours), et l'effort sur les études de cas, les avis réels et les mentions externes.** Les priorités A et B de ta mission sont confirmées ; C est déjà en place ; D se limite à des retouches ; E (nouvelles pages) n'est pas prioritaire.
+
+### Mini-lexique
+
+| Mot | En clair |
+|---|---|
+| « s'ouvre normalement » (code 200) / 404 / 301 | la page répond / page introuvable / redirection automatique vers la bonne adresse |
+| Canonical | l'adresse « officielle » d'une page, indiquée aux moteurs pour éviter les doublons |
+| JSON-LD (données structurées) | fiche d'identité cachée dans la page, lue par les moteurs (nom, adresse, services…) |
+| `sameAs` | liens, dans cette fiche, vers nos profils ailleurs (Google, LinkedIn, PagesJaunes) |
+| `areaServed` | la zone d'intervention déclarée dans cette fiche |
+| NAP | nom, adresse, téléphone : ils doivent être identiques partout |
+| `lastmod` / sitemap | date de dernière modification annoncée aux moteurs dans le plan du site |
+| Similarité (morceaux de 5 mots) | part du texte d'une page qu'on retrouve mot pour mot dans une autre |
+| Mention tierce | un autre site (annuaire, presse, réseau) qui parle de SL Agence |
+| Tirage | une question posée une fois à un assistant IA (la réponse change d'un tirage à l'autre) |
 
 ---
 
@@ -63,18 +78,20 @@
 | # | Anomalie | Preuve | Gravité |
 |---|---|---|---|
 | T1 | **3 sources mortes** sur les pages ville : PDF ADIRA en 404 (chiffres d'emploi, nombre de communes) | `logiciel-entreprise-mulhouse.html:771`, `-colmar.html:832`, `-saint-louis.html:772` ; `curl -L` → 404 (revérifié par le Manager) | Moyenne : une affirmation chiffrée dont la source ne s'ouvre plus |
-| T2 | **`/facture-electronique-tpe` cite ses sources sans lien** et n'indique aucune zone | ligne 731 : « Source : impots.gouv.fr et economie.gouv.fr » en texte simple ; page en position ~53 (export 02/11) ; l'article sœur a 6 sources officielles liées, toutes en 200 | Moyenne (sujet réglementaire, citation par les IA) |
+| T2 | **`/facture-electronique-tpe` cite ses sources sans lien** et n'indique aucune zone | ligne 731 : « Source : impots.gouv.fr et economie.gouv.fr » en texte simple ; page en position ~53 (export 02/11) ; l'article sœur a 6 sources liées (5 officielles + CAPEB), toutes accessibles | Moyenne (sujet réglementaire, citation par les IA) |
 | T3 | **`lastmod` du sitemap périmé sur 9 pages** et `dateModified` de `/a-propos` | accueil `2026-10-26` alors que `index.html` a changé les 03-05/11 ; `/a-propos` 21/10 alors que modifié le 05/11 | Faible |
-| T4 | **Blocs de texte recopiés entre `/crm-sur-mesure` et `/logiciel-gestion-stock-sur-mesure`** (règle c031) | 22 % de similarité (shingles de 5 mots), 27 passages identiques de 12 mots ou plus ; médiane des autres paires : 1,8 % | Moyenne (contenu « commodity » entre deux pages) |
-| T5 | `areaServed` hétérogène (règle c032) | 5 pages récentes = France + Haut-Rhin seulement ; BTP, transport, artisan listent Strasbourg/Sélestat/Haguenau dans le JSON-LD, visibles en texte seulement sur la page BTP | Faible (données structurées ≠ texte visible) |
-| T6 | 4 articles ouvrent le rendez-vous dans un nouvel onglet | `href="#rendez-vous" target="_blank"` : cahier-des-charges:819, limites-excel:968, logiciel-gestion-transport:999, terrassement:869 | Faible (conversion) |
-| T7 | `id="contenu"` en double | bon-intervention-contenu-modele (757, 812), feuille-heures-salaries (759, 818) | Faible (accessibilité) |
-| T8 | `/realisations` crée un 2e nœud `WebSite` sans `@id` ; pas de fil d'Ariane JSON-LD sur `/blog/` | JSON-LD de ces pages | Faible |
-| T9 | `llms.txt` incomplet | manquent l'accueil, `/blog/`, 2 articles, la confidentialité | Très faible (aucun système IA ne déclare l'utiliser, voir §4) |
-| T10 | `pub-sl-agence.mp4` (2,6 Mo) et `.jpg` ne sont plus utilisés par aucune page | grep sur pages, assets, sitemap, flux, llms : 0 | Très faible (fichier mort public) — **suppression seulement avec ton accord** |
+| T4 | **Blocs de texte recopiés entre `/crm-sur-mesure` et `/logiciel-gestion-stock-sur-mesure`** (règle c031) | 22 % de similarité (morceaux de 5 mots), 27 passages identiques de 12 mots ou plus ; médiane des 253 paires de pages de service : 1,8 % | Moyenne (texte générique commun à deux pages) |
+| T5 | `areaServed` incomplet sur 5 pages récentes (règle c032) | pointage, application web, CRM, stock, travaux agricoles : France + Haut-Rhin seulement, sans Alsace ni Grand Est | Faible (fiche cachée ≠ zone de référence) |
+| T6 | `id="contenu"` en double | bon-intervention-contenu-modele (757, 812), feuille-heures-salaries (759, 818) | Faible (accessibilité : le lien « aller au contenu » peut sauter au mauvais endroit) |
+| T7 | `llms.txt` incomplet | manquent l'accueil, `/blog/`, 2 articles, la confidentialité | Très faible (John Mueller, Google : « no AI system currently uses llms.txt », Bluesky, 17/06/2025) |
+| T8 | `pub-sl-agence.mp4` (2,6 Mo) et `.jpg` ne sont plus utilisés par aucune page | grep sur pages, assets, sitemap, flux, llms : 0 | Très faible (fichier mort public) — **suppression seulement avec ton accord** |
+
+Nettoyage sans effet visible (pas une anomalie) : 4 articles gardent `target="_blank"` sur leur lien `#rendez-vous` (cahier-des-charges:819, limites-excel:968, logiciel-gestion-transport:999, terrassement:869). Le script de rendez-vous capte ce clic et ouvre la fenêtre sur place (`assets/rdv.js:283-291`) ; un 2e onglet ne s'ouvrirait que si le script ne se chargeait pas.
 
 ### 2.3 Suspecté (à vérifier, avec la méthode)
 
+- **Zone dans la fiche cachée des pages BTP, transport, artisan** : elles listent Strasbourg, Sélestat, Haguenau (en Alsace, donc dans la zone), mais ces villes ne sont écrites dans le texte que sur la page BTP. À relire page par page.
+- **`/realisations`** crée un 2e nœud `WebSite` sans identifiant ; **`/blog/`** n'a pas de fil d'Ariane caché. Aucune erreur Google attendue ; à vérifier avec le test des résultats enrichis avant de toucher.
 - **Lien LinkedIn** : le site utilise `linkedin.com/company/sl-agence/` partout (vérifié), alors que la note du 21/10 cite `company/116042975`. Les deux renvoient 403 aux robots → **toi** : ouvre les deux dans un navigateur ; s'ils mènent à la même page, on garde le slug et je corrige la note.
 - **Cannibalisation d'intention** sur « agence IA / automatisation Mulhouse » entre `/`, `/agence-ia-automatisation-haut-rhin` et `/logiciel-sur-mesure` (pas de texte dupliqué ; le H1 de l'accueil est encore « …logiciel sur mesure à Mulhouse », décision en attente depuis octobre). À confirmer avec Search Console > Performances > Requêtes, filtre sur la requête, onglet Pages.
 - **Identité peu présente dans le corps de 12 pages** (« SL Agence » seulement dans le menu, le pied et le JSON-LD : agent-ia-pme, automatisation, bon-intervention, connecter, facture-électronique, artisan, btp, transport, travaux agricoles, realisations, relance-factures, remplacer-excel). [HYPOTHÈSE] : une phrase « qui construit cet outil » aide le lecteur et l'extraction (« Who created the content » de Google) — à tester sur 2-3 pages, pas partout.
@@ -104,7 +121,7 @@ Consulté le 05/11/2026. Tout chiffre ci-dessous est **affiché par le concurren
 | MB Informatique | Rixheim | non indiquée | aucune réalisation | 4,6/5, 106 avis | dès 28 € HT/poste/mois | non | pare-feu anti-robot (403) |
 | Acronet | Mulhouse | 2009 | 3 sites en vedette ; blog le plus actif (9 articles juil.-nov. 2026) | « 5/5 sur Google » | sites 990-4 990 € HT | 8 | LocalBusiness + sameAs ; page `/applications-metier` qui vise l'automatisation dans le Haut-Rhin |
 | S MEDIA | Mulhouse | 2013 | chiffres auto-déclarés | non | dès 5 000 € | — | — |
-| SEINSIGHTS | Mulhouse | 2005 | 3 missions anonymisées chiffrées | non | dès 590 € HT (site), 1 200 € HT (automatisation) | 14 | — |
+| SEINSIGHTS | Mulhouse | 2005 | 3 missions anonymisées chiffrées | non | dès 590 € HT (site), 1 200 € HT (automatisation) | 4 pages Mulhouse ; 14 villes citées | — |
 | HDKN | Mulhouse + Montréal | 2015 | ~6 réalisations nommées | 27 avis Google | non | non | — |
 
 **Dans les 18 recherches testées** (outil non-Google, non localisé, 1 tirage par requête), seuls S2i Evolution (3 fois) et 2LE (2 fois) de ta liste apparaissent ; DGS, Qizuna, MB et Acronet n'apparaissent dans aucune. Reviennent surtout des **annuaires et médias** (La Fabrique du Net 6 requêtes, Journal des Entreprises 6, PagesJaunes 4), puis Olwe Développement, Pepperbay, ITDM Group, Alphea net, et Kolonell sur les requêtes nationales. **Aucun acteur du 68 n'apparaît sur « bon d'intervention » ni « logiciel BTP ».**
@@ -126,10 +143,10 @@ Non confirmés comme concurrents réels : SmartFlow, IA Agency, Mankova Consulti
 | Ajouter citations, statistiques et sources augmente la visibilité « jusqu'à 40 % » | Aggarwal et al., KDD 2024 | Évalué par les pairs | Moyenne | **Moteur simulé** (GPT-3.5 sur 5 résultats Google) ; on modifie une source déjà retenue ; aucune question de recommandation locale. Utile : des faits réels et sourcés. Jamais de chiffres plaqués |
 | Les moteurs IA favorisent fortement les sources tierces (« earned media ») et les grandes marques | Chen et al., arXiv 2509.08919 (09/2025) | Préprint (résumé lu) | Moyenne | Les mentions externes sont le levier n°1 |
 | Mentions de marque sur le web : corrélation 0,664 avec la présence dans AI Overviews (backlinks 0,218) | Ahrefs (26/05/2025), 75 000 marques à DR > 40 | Étude d'éditeur | Moyenne | Corrélation, pas causalité ; échantillon de gros sites |
-| La fiche Google = 28,6 % des citations IA locales ; Yelp très cité par ChatGPT | BrightLocal (26/08/2026), US/UK/AU | Étude d'éditeur | Moyenne | Fiche Google = priorité ; transposition à la France = hypothèse |
+| La fiche Google = 28,6 % des citations IA locales ; Yelp très cité par ChatGPT | BrightLocal (26/08/2026), US/UK/AU | Étude d'éditeur | Moyenne | Fiche Google = priorité ; transposition à la France = hypothèse (Yelp abandonné le 26/10, non reproposé) |
 | Les listes de recommandation changent presque à chaque tirage (même liste < 1 % du temps) ; la fréquence d'apparition est plus stable que le rang | SparkToro/Gumshoe via SEJ (30/01/2026) ; Żatuchin, arXiv 2609.04047 (10/2026) | Éditeur / préprint | Moyenne | **Un rang isolé ne veut rien dire** : on mesure une fréquence sur plusieurs tirages |
 | Des séquences ou consignes cachées manipulent les recommandations des LLM | Kumar & Lakkaraju 2024 ; Pfrommer et al., EMNLP 2024 ; Nestaas et al. 2024 | Recherche | Élevée (sur le risque) | **Interdit** chez nous |
-| llms.txt : « no AI system currently uses llms.txt » | John Mueller, 17/06/2025 ; doc Google actuelle | Déclaration officielle | Élevée | On le garde, sans y investir |
+| llms.txt : « no AI system currently uses llms.txt » | John Mueller, Bluesky, 17/06/2025 ; doc Google actuelle (pas de « AI text files » nécessaires) | Déclaration d'un porte-parole de Google (réseau social) + doc officielle | Élevée | On le garde, sans y investir |
 
 **Re-vérification de nos propres chiffres d'octobre** : le « 43,8 % de listes tierces » (Ahrefs) mélange listes de tiers et de marques → mot « tierces » inexact ; le « −30 % des listes » (Seer) porte sur toutes les URL « best/top » pendant que le total baissait de 22,7 % ; le « +40 % » du papier GEO n'est pas « sur un moteur de type Bing Chat » (manuel `savoirs/seo.md` corrigé ce jour).
 
@@ -157,7 +174,7 @@ Non confirmés comme concurrents réels : SmartFlow, IA Agency, Mankova Consulti
 
 ## 6. Déjà en place — à ne surtout pas dupliquer
 
-robots.txt ouvert + sitemap déclaré · sitemap.xml (38 URL) · canonicals propres · redirections 301 · 404 dédiée · JSON-LD `ProfessionalService` complet (Friesen, géo, SIRET, horaires, `founder`, `sameAs` Google/LinkedIn/PagesJaunes, `alternateName`, `disambiguatingDescription`) · `Service`, `BreadcrumbList`, `BlogPosting` + `Person` · FAQ visibles et balisées sur 33 pages · llms.txt · IndexNow (fichier-clé + soumission après chaque PR) · Search Console vérifiée · fiche Google (localisation Friesen) · LinkedIn entreprise · PagesJaunes · Bing Places (en validation depuis le 21/10) · `/a-propos` (2 associés, méthode, zone) · `/agence-ia-automatisation-haut-rhin` (critères pour choisir) · `/realisations` + étude de cas épandage · `/modeles-gratuits` (6 modèles) · 11 articles signés Loïc · 3 pages ville (maximum décidé) · polices hébergées sur le site · images avec alt et lazy-loading · politique de confidentialité · communiqué de presse facture électronique **déjà rédigé** (`travail/contenu/communique-presse-facture-electronique.md`) · kit annuaires **déjà rédigé** (`travail/contenu/kit-annuaires.md`) · plan SEO 12 semaines adopté le 27/10.
+robots.txt ouvert + sitemap déclaré · sitemap.xml (38 URL) · canonicals propres · redirections 301 · 404 dédiée · JSON-LD `ProfessionalService` complet (Friesen, géo, SIRET, horaires, `founder`, `sameAs` Google/LinkedIn/PagesJaunes, `alternateName`, `disambiguatingDescription`) · `Service`, `BreadcrumbList`, `BlogPosting` + `Person` · FAQ visibles et balisées sur 33 pages · llms.txt · IndexNow (fichier-clé + soumission après chaque PR) · Search Console vérifiée · fiche Google (localisation Friesen) · LinkedIn entreprise · PagesJaunes · Bing Places (en validation depuis le 21/10) · `/a-propos` (2 associés, méthode, zone) · `/agence-ia-automatisation-haut-rhin` (critères pour choisir) · `/realisations` + étude de cas épandage · `/modeles-gratuits` (6 modèles) · 11 articles signés Loïc · 3 pages ville (maximum décidé) · polices hébergées sur le site · images avec alt et lazy-loading · politique de confidentialité · communiqué de presse facture électronique **déjà rédigé** (`travail/contenu/communique-presse-facture-electronique.md`) · kit annuaires **déjà rédigé** (`travail/contenu/kit-annuaires.md`) · avis clients demandés et annuaires remplis par toi (noté le 20/10, à vérifier) · plan SEO 12 semaines adopté le 27/10.
 
 ---
 
@@ -169,25 +186,25 @@ robots.txt ouvert + sitemap déclaré · sitemap.xml (38 URL) · canonicals prop
 | Ajouter des FAQ « pour le GEO » | Plus aucun affichage enrichi depuis le 07/05/2026 ; Bing vise le contenu « artificially engineered » [OFFICIEL] ; nos FAQ existantes restent car elles servent le lecteur |
 | Nouvelles pages ville (Altkirch, Sundgau…) suggérées par la veille | Décision « 3 pages ville au maximum » ; risque de pages satellites ; ta mission les exclut |
 | Notre propre classement « meilleures agences » | Effet mesuré faible (≈ 2-3 points) [ÉTUDE d'éditeur], risque de réputation |
-| Retravailler llms.txt en profondeur, ajouter Speakable / HowTo | Aucun usage documenté par les systèmes IA [OFFICIEL] |
+| Retravailler llms.txt en profondeur, ajouter des balisages « spécial IA » | Google : aucun balisage spécial requis pour les fonctions IA [OFFICIEL] ; llms.txt non utilisé selon Google |
 | Modifier robots.txt (ouvrir ou fermer des robots) | Tout est déjà ouvert ; les jetons d'entraînement sont un choix de principe pour toi, sans effet documenté sur la visibilité |
 | Afficher un prix de départ | Observation concurrentielle réelle, mais ta décision du 27/10 est « aucun prix affiché » : maintenue |
-| Wikidata | Pas assez de sources publiques indépendantes (règle de notoriété Wikidata) |
+| Wikidata | Pas assez de sources publiques indépendantes (règle de notoriété : https://www.wikidata.org/wiki/Wikidata:Notability ; appréciation du Manager) |
 | Refaire un audit technique complet ou une refonte | Aucune anomalie lourde ne le justifie |
 
 ---
 
 ## 8. Plan d'action priorisé — 90 jours (09/11/2026 → 05/02/2027)
 
-Classement : impact attendu × confiance ÷ effort. Les mesures déjà programmées sont respectées : CTR le 16/11, application web + article cahier des charges le 27/11, accueil le 01/12 (règle c033 : pas de changement de title/H1 pendant une mesure).
+Classement : impact attendu × confiance ÷ effort. Mesures déjà programmées, respectées (aucune page en mesure n'est modifiée avant sa date de verdict, contenu compris) : **pages ville le 11/11, CTR le 16/11 (dont `/facture-electronique-tpe`), application web et article cahier des charges le 27/11, accueil le 01/12**.
 
 | # | Action | Problème constaté | Preuve | Étiquette | Priorité | Effort | Risque | KPI |
 |---|---|---|---|---|---|---|---|---|
-| 1 | **Lot de 9 petites corrections** (T1 à T8 + T9 si tu veux) en une PR | Sources mortes, sources sans lien, dates périmées, JSON-LD hétérogène | §2.2 | [ANOMALIE] | P1 | 2 h équipe + 5 min toi | Très faible (aucun title/H1 touché) | 0 lien externe mort ; JSON-LD = texte visible |
+| 1 | **7 petites corrections** (T1 à T7 ; T8 seulement si tu dis oui) en **3 PR** calées sur les mesures (§10) | Sources mortes, sources sans lien, dates périmées, zone incomplète dans la fiche cachée | §2.2 | [ANOMALIE] | P1 | 2 h équipe + 3 × 5 min toi | Très faible (aucun title/meta/H1 touché, aucune page en mesure) | 0 lien externe mort ; zone identique partout |
 | 2 | **3 études de cas** au modèle en 10 rubriques (ordre proposé : gestion de patrimoine — ton post LinkedIn le plus performant, capture existante ; pointage ; carburant), puis transport à sa livraison | 1 seule étude de cas, sans capture ; aucun chiffre rattaché à une réalisation | §3, §5 ; `04-…md` partie 3 | [OFFICIEL] contenu original + [CONCURRENCE] | P1 | 30 min de questions avec Sacha par cas ; rédaction équipe | Faible si rien n'est inventé (c019, c037) | 1 → 4 études de cas ; impressions des pages cas |
-| 3 | **Avis Google réels** : demander à chacun des clients des réalisations un avis qui cite le service et la ville (jamais de faux, jamais de contrepartie) | 2 avis visibles contre 27 à 106 chez les concurrents | §3 | [ÉTUDE d'éditeur] BrightLocal + [CONCURRENCE] | P1 | 1 h toi | Nul | nb d'avis (départ : à me donner) |
-| 4 | **Mentions externes** (rien de payant sans ton accord) : finir Bing Places et vérifier le NAP ; Apple Business Connect ; La Fabrique du Net (vérifier le coût d'abord) ; annuaire Grand Est Développement (400 offreurs) ; envoyer le communiqué déjà rédigé au Journal des Entreprises / L'Alsace ; décider FFB 68 (club des partenaires, petit-déjeuner du 12/11 à Mulhouse) et CPME 68 | 0 mention tierce hors registre ; homonymes | `02-…md` §2-§5 | [ÉTUDE] (Chen ; Ahrefs, corrélation) + [HYPOTHÈSE] sur l'effet | P1 | 2-3 h toi sur 4 semaines | Faible | Mentions tierces : 0 → 5 à J+90 |
-| 5 | **Relevé IA de départ** (protocole §9), puis toutes les 2 semaines | Seul relevé : 1 tirage le 26/10, conditions non notées | apprentissages.md | [ÉTUDE] variabilité | P1 | 50 min toi par relevé (ou 36 min à 2 tirages) | Nul | Taux d'apparition, part de top 3 |
+| 3 | **Avis Google** : tu les as déjà demandés (noté le 20/10). Donne-moi le total actuel ; on relance seulement les clients des réalisations qui n'ont pas encore laissé d'avis (avis réels, qui citent le service et la ville ; jamais de contrepartie) | 2 avis visibles sur l'accueil contre 27 à 106 chez les concurrents | §3 | [CONCURRENCE] + [HYPOTHÈSE] | P2 | 15 min toi | Nul | nb d'avis (départ : à me donner) |
+| 4 | **Mentions externes** (rien de payant sans ton accord) : d'abord vérifier sur quels annuaires tu es déjà inscrit (noté fait le 20/10) ; puis finir Bing Places et vérifier nom-adresse-téléphone ; Apple Business Connect ; annuaire Grand Est Développement (400 offreurs) ; envoyer le communiqué déjà rédigé au Journal des Entreprises / L'Alsace ; décider FFB 68 (club des partenaires, petit-déjeuner du 12/11 à Mulhouse) **avant le 11/11** ; CPME 68 et La Fabrique du Net (coût à vérifier) ensuite | 0 mention tierce hors registre ; homonymes | `02-…md` §2-§5 | [ÉTUDE] (Chen ; Ahrefs, corrélation) + [HYPOTHÈSE] sur l'effet | P1 | ≈ 40 min toi par semaine pendant 4 semaines (+ 2 h si FFB le 12/11) | Faible | Mentions tierces : 0 → 5 à J+90 |
+| 5 | **Relevé IA de départ** (protocole §9), puis toutes les 2 semaines | Seul relevé : 1 tirage le 26/10, conditions non notées | apprentissages.md | [ÉTUDE] variabilité | P1 | ≈ 55 min toi pour le relevé pilote, puis ≈ 50 min par relevé (≈ 28 min/semaine) ou ≈ 36 min à 2 tirages (≈ 20 min/semaine) | Nul | Taux d'apparition, part de top 3 |
 | 6 | Réécrire les blocs communs `/crm-sur-mesure` ↔ `/logiciel-gestion-stock-sur-mesure` (méthode, facteurs de prix) pour qu'ils soient propres à chaque page | 22 % de texte commun | T4 | [ANOMALIE] + [OFFICIEL] contenu original | P2 — **après le 27/11** | 2 h équipe | Faible | Impressions des 2 pages à J+28 |
 | 7 | Ajouter un bouton de rendez-vous dans le corps des 6 articles, en commençant par « relancer un devis » | 29 % des impressions, pas de bouton dans le corps | §2.3 | [HYPOTHÈSE] conversion | P2 | 1 h équipe | Faible | Clics sur le rendez-vous (non mesurable sans outil d'audience : on comptera les demandes qui citent l'article) |
 | 8 | Phrase d'identité « qui construit cet outil » sur 3 pages de service (test) | « SL Agence » absent du corps de 12 pages | §2.3 | [HYPOTHÈSE] | P3 | 1 h | Faible | Exactitude de la question L9 (« Que penses-tu de SL Agence ? ») |
@@ -195,11 +212,25 @@ Classement : impact attendu × confiance ÷ effort. Les mesures déjà programm�
 | 10 | Rythme des nouvelles pages du plan 12 semaines : passer de 1/semaine à **2/mois** pour libérer du temps pour les études de cas | Les preuves pèsent plus que le volume de pages | §0, §5 | Recommandation du Manager | P2 | — | Faible | — |
 
 **Calendrier**
-- **Semaines 1-2 (09 → 22/11)** : PR du lot 1 ; questions à Sacha sur les 3 premières études de cas ; avis Google ; Bing Places, Apple, vérification LinkedIn ; relevé IA de départ ; mesure CTR du 16/11.
-- **Semaines 3-6 (23/11 → 20/12)** : 1re et 2e études de cas en ligne ; mesures du 27/11 et du 01/12 ; action 6 ; envoi du communiqué ; décision FFB 68 / CPME 68 / La Fabrique du Net ; relevés IA n°2 et n°3.
+- **Semaine 1 (09 → 15/11)** : décision FFB 68 avant le 11/11 ; PR 1a ; mesure des pages ville le 11/11 ; vérification LinkedIn et annuaires existants.
+- **Semaine 2 (16 → 22/11)** : mesure CTR du 16/11 puis PR 1b ; questions à Sacha sur les 3 premières études de cas ; total des avis ; Bing Places, Apple ; relevé IA de départ (pilote).
+- **Semaines 3-6 (23/11 → 20/12)** : mesures du 27/11 (puis PR 1c) et du 01/12 ; 1re et 2e études de cas en ligne ; action 6 ; envoi du communiqué ; décision CPME 68 / La Fabrique du Net ; relevés IA n°2 et n°3.
 - **Semaines 7-13 (21/12 → 05/02)** : 3e et 4e études de cas ; `/realisations` relie chaque cas détaillé ; actions 7 et 8 ; relevés IA n°4 à n°6 ; bilan J+90 le 05/02/2027.
 
-**Ton temps estimé** (règle c027) : ≈ 1 h 30 la 1re semaine, puis ≈ 1 h par semaine (relevé IA ~25 min/semaine en moyenne, avis, annuaires, réponses pour les études de cas).
+**Ton temps estimé** (règle c027 ; `objectifs.md` ne prévoit **aucun temps SEO** dans ta semaine : c'est du temps en plus, à valider)
+
+| Tâche | Sem. 1-2 (total) | Ensuite (par semaine) |
+|---|---|---|
+| Valider les PR | 10 min | ≈ 2 min |
+| Questions études de cas avec Sacha (3 × 30 min) | 1 h 30 | ≈ 15 min (1 cas toutes les 2-3 semaines) |
+| Avis Google (total + relances ciblées) | 15 min | — |
+| Annuaires : vérifier l'existant, Bing, Apple, LinkedIn | 45 min | ≈ 40 min pendant 4 semaines, puis 0 |
+| Relevé IA (pilote à 5 tirages, puis 3 tirages) | 55 min | ≈ 28 min (≈ 20 min à 2 tirages) |
+| Mesures prévues (11/11, 16/11) | 30 min | ≈ 10 min |
+| Réponses aux questions du §11 | 30 min | — |
+| **Total** | **≈ 4 h 35, soit ≈ 2 h 20 par semaine** (+ 2 h si FFB le 12/11) | **≈ 1 h 35 pendant 4 semaines, puis ≈ 55 min** |
+
+Le relevé IA à 3 tirages dépasse le budget de 20 min/semaine prévu dans le plan GEO du 21/10 : à toi de choisir (question au §11).
 
 ---
 
@@ -223,23 +254,36 @@ Limite : le trafic venu de ChatGPT n'est pas visible sans outil d'audience (refu
 
 ---
 
-## 10. Première proposition de modifications, fichier par fichier (lot 1, petites corrections réversibles)
+## 10. Première proposition de modifications, fichier par fichier (7 petites corrections réversibles, 3 PR)
 
-Aucune ne touche un title, une meta ou un H1 (mesures en cours). Une seule PR, contrôle qualité avant ouverture.
+Aucune ne touche un title, une meta ou un H1. Chaque page n'est modifiée qu'**après** sa date de mesure (contrôle croisé avec `rappels-seo.md` et `ctr-2026-11-02.md`). Contrôle qualité avant chaque PR.
+
+**PR 1a — dès ton accord (pages sans mesure en cours)**
 
 | Fichier | Modification | Raison | Étiquette |
 |---|---|---|---|
-| `logiciel-entreprise-mulhouse.html` (l. 771), `logiciel-entreprise-colmar.html` (l. 832), `logiciel-entreprise-saint-louis.html` (l. 772) | Remplacer le lien ADIRA mort par la nouvelle adresse officielle du même document si elle existe ; sinon retirer le chiffre ou citer une source officielle équivalente (INSEE) en gardant exactement son périmètre (c034) | Affirmation chiffrée dont la source est en 404 | [ANOMALIE] |
-| `facture-electronique-tpe.html` (l. 731 + section zone) | Transformer « impots.gouv.fr et economie.gouv.fr » en liens vers les pages officielles déjà citées et vérifiées dans l'article sœur ; ajouter la phrase de zone de référence (c032, rappel en attente) | Source non vérifiable par le lecteur ; zone absente | [ANOMALIE] + [ÉTUDE] (citations, papier GEO) |
-| `sitemap.xml` | `lastmod` des 9 pages réellement modifiées = date du dernier commit de la page | Dates fausses | [ANOMALIE] + [OFFICIEL] (Google utilise `lastmod` s'il est exact) |
-| `a-propos.html` (l. 28) | `dateModified` → 2026-11-05 | Idem | [ANOMALIE] |
-| `application-pointage-chantier.html`, `application-web-sur-mesure.html`, `crm-sur-mesure.html`, `logiciel-gestion-stock-sur-mesure.html`, `logiciel-entreprise-travaux-agricoles.html`, `logiciel-btp-sur-mesure.html`, `logiciel-transport-sur-mesure.html`, `logiciel-artisan-sur-mesure.html` | `areaServed` aligné sur la zone de référence (Haut-Rhin, Alsace, Grand Est ; France à distance) et retrait des villes du Bas-Rhin là où elles ne sont pas dans le texte | JSON-LD ≠ texte visible (c032) | [ANOMALIE] + [OFFICIEL] |
-| `blog/cahier-des-charges-application.html`, `blog/limites-excel-entreprise.html`, `blog/logiciel-gestion-transport-parc-engins.html`, `blog/terrassement-heures-engins-carburant.html` | Retirer `target="_blank"` des liens `#rendez-vous` | Le rendez-vous s'ouvre dans un onglet vide | [ANOMALIE] |
-| `blog/bon-intervention-contenu-modele.html`, `blog/feuille-heures-salaries.html` | Renommer le 2e `id="contenu"` | id en double | [ANOMALIE] |
-| `realisations.html` | Rattacher le nœud `WebSite` à l'`@id` du site | Doublon d'entité | [ANOMALIE] |
-| `blog/index.html` | Ajouter le `BreadcrumbList` (Accueil > Blog), comme les autres pages | Cohérence | [ANOMALIE] |
-| `llms.txt` (facultatif) | Ajouter les 5 pages manquantes | Inventaire incomplet ; effet IA non documenté | [ANOMALIE], valeur très faible |
-| `pub-sl-agence.mp4`, `pub-sl-agence.jpg` | **Suppression seulement si tu dis oui** | Fichiers morts publics | [ANOMALIE] |
+| `sitemap.xml` | `lastmod` des 9 pages réellement modifiées = date du dernier commit de la page | Dates fausses (T3) | [ANOMALIE] + [OFFICIEL] (Google utilise `lastmod` s'il est exact et vérifiable : https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap) |
+| `a-propos.html` (l. 28) | `dateModified` → date réelle de la dernière modification | T3 | [ANOMALIE] |
+| `application-pointage-chantier.html`, `crm-sur-mesure.html`, `logiciel-gestion-stock-sur-mesure.html`, `logiciel-entreprise-travaux-agricoles.html` | `areaServed` aligné sur la zone de référence (Haut-Rhin, Alsace, Grand Est ; France à distance), comme le texte visible | T5 (c032) | [ANOMALIE] + [OFFICIEL] (données structurées = contenu visible) |
+| `blog/bon-intervention-contenu-modele.html` | Renommer le 2e `id="contenu"` (l. 812) | T6 | [ANOMALIE] |
+| `llms.txt` (facultatif) | Ajouter les 5 pages manquantes | T7 ; effet IA non documenté | [ANOMALIE], valeur très faible |
+
+**PR 1b — après le 16/11 (pages ville mesurées le 11/11, pages en test CTR jusqu'au 16/11)**
+
+| Fichier | Modification | Raison | Étiquette |
+|---|---|---|---|
+| `logiciel-entreprise-mulhouse.html` (l. 771), `logiciel-entreprise-colmar.html` (l. 832), `logiciel-entreprise-saint-louis.html` (l. 772) | Remplacer le lien ADIRA mort par la nouvelle adresse officielle du même document si elle existe ; sinon retirer le chiffre ou citer une source officielle équivalente (INSEE) en gardant exactement son périmètre (c034) | T1 : affirmation chiffrée dont la source est introuvable | [ANOMALIE] |
+| `facture-electronique-tpe.html` (l. 731 + phrase de zone) | Transformer « impots.gouv.fr et economie.gouv.fr » en liens vers les pages officielles déjà vérifiées dans l'article sœur ; ajouter la phrase de zone de référence (c032) | T2 | [ANOMALIE] + [ÉTUDE] (citations de sources, papier GEO) |
+| `blog/feuille-heures-salaries.html` | Renommer le 2e `id="contenu"` (l. 818) | T6 (page en test CTR jusqu'au 16/11) | [ANOMALIE] |
+
+**PR 1c — après le 27/11 (mesure J+28 de l'application web et de l'article cahier des charges)**
+
+| Fichier | Modification | Raison | Étiquette |
+|---|---|---|---|
+| `application-web-sur-mesure.html` | `areaServed` aligné sur la zone de référence | T5 | [ANOMALIE] |
+| `blog/cahier-des-charges-application.html` + 3 autres articles (limites-excel, logiciel-gestion-transport, terrassement) | Retirer le `target="_blank"` inutile sur `#rendez-vous` | Nettoyage sans effet visible (rdv.js:283-291) | Nettoyage |
+
+**Sur ton seul accord** : supprimer `pub-sl-agence.mp4` et `pub-sl-agence.jpg` (T8, fichiers morts publics).
 
 ---
 
@@ -252,10 +296,12 @@ Aucune ne touche un title, une meta ou un H1 (mesures en cours). Une seule PR, c
 5. **Études de cas** : les réponses aux questions fermées (accord du client, taille, date, délai réel, chiffres mesurés, logiciels reliés, capture possible, témoignage) — liste complète dans `04-…md` partie 3, à voir avec Sacha.
 6. **D'où viennent les chiffres** « jusqu'à 20 h par semaine », « 6 h » et « 3 h » (quel cas, comment mesurés) : on les garde (décision du 03/11), mais les rattacher à une étude de cas les rendrait citables.
 7. **Positionnement** : on garde l'IA dans la phrase de référence ? (l'hypothèse de ta mission la retire ; `agence.md` ne change qu'avec ton accord).
-8. **Budget** : accord ou non pour une adhésion (FFB 68, CPME 68), un profil payant (La Fabrique du Net, Codeur 31,90 € HT/mois + 4 %), un label (France Num) — coûts à vérifier avant.
+8. **Budget** : accord ou non pour une adhésion (FFB 68, CPME 68), un profil payant (La Fabrique du Net ; Codeur 31,90 € HT/mois + 4 % par projet remporté, minimum 5 € HT), un label (France Num) — coûts à vérifier avant.
 9. **Communiqué facture électronique** : déjà envoyé à la presse ou non ?
 10. **PageSpeed** : un test manuel sur pagespeed.web.dev (mobile) de l'accueil, ou une clé API gratuite.
 11. **Captures du relevé IA du 26/10** : le lien exact affiché pour SmartFlow, IA Agency et Mankova Consulting.
+12. **Temps de mesure IA** : 28 min/semaine (3 tirages) ou ≈ 20 min (2 tirages, seo-site remplit la grille à partir de tes captures) ?
+13. **Temps SEO en général** : ≈ 2 h 20 par semaine pendant 2 semaines, puis ≈ 1 h 35, puis ≈ 55 min (§8) — d'accord ?
 
 ---
 
