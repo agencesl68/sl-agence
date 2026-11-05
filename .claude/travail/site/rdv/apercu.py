@@ -30,7 +30,7 @@ h = re.sub(r'<link rel="preload" href="/fonts/[^>]*>\s*', "", h)
 h = re.sub(r"@font-face\{[^}]*\}", "", h)
 h = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap">\n<style>:root{color-scheme:dark}</style>\n' + h
 
-for f in ["logo-sl.png", "logo-sl-mark.png", "p-comptable.jpg", "capture-portefeuille.jpg"]:
+for f in ["logo-sl.png", "logo-sl-mark.png", "p-comptable.webp"]:
     h = h.replace(f'"/{f}"', f'"{f}"').replace(f"(/{f})", f"({f})").replace(f'("/{f}")', f'("{f}")')
     shutil.copy(RACINE / f, OUT / f)
 

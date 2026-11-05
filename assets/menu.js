@@ -3,7 +3,8 @@
   var root=document.documentElement; root.classList.add('mn-js');
   var head=document.getElementById('siteHead'); if(!head) return;
   var nav=document.getElementById('mnNav'), burger=document.getElementById('mnBurger');
-  var items=[].slice.call(head.querySelectorAll('.mn-item'));
+  /* seuls les onglets qui ont un panneau s'ouvrent (« Réalisations » est un simple lien) */
+  var items=[].slice.call(head.querySelectorAll('.mn-item')).filter(function(i){ return i.querySelector('.mn-panel'); });
   var desktop=window.matchMedia('(min-width:901px)');
 
   function set(item,open){

@@ -81,9 +81,9 @@ villes = ('<p class="mx-villes">Près de chez vous : <a href="/logiciel-entrepri
 ress = re.search(r'aria-controls="mn-p4">Ressources</button>.*?</div></div>\n        </li>', h, re.S).group(0)
 RESS = [(m.group(1), m.group(2)) for m in re.finditer(r'<a href="([^"]+)">([^<]+)</a>', ress)]
 
-nav = f'''<ul class="mn-list">
+NAV = f'''<ul class="mn-list">
 {panneau(1, "Ce qui vous ralentit", RALENTIT,
-         '<div class="mx-cote">' + carte("p-comptable.jpg", "Des papiers à recopier", "Quelle phrase est la vôtre ? 15 minutes suffisent pour en parler.", "/#rendez-vous", "Réserver 15 minutes", True) + '</div>' + villes)}
+         '<div class="mx-cote">' + carte("p-comptable.webp", "Des papiers à recopier", "Quelle phrase est la vôtre ? 15 minutes suffisent pour en parler.", "/#rendez-vous", "Réserver 15 minutes", True) + '</div>' + villes)}
 {panneau(2, "Ce qu'on règle", REGLE,
          '<div class="mx-cote">' + carte_tel("Chez un client en terrassement, le dirigeant voit les pleins du jour, le jour même.", "/realisations#terrain", "Voir les réalisations") + '</div>')}
         <li class="mn-item mx-simple"><a class="mn-top mx-accent" href="/realisations">Réalisations</a></li>
@@ -99,13 +99,15 @@ nav = f'''<ul class="mn-list">
         </li>
       </ul>'''
 
-i = h.index('<ul class="mn-list">'); j = h.index('</ul>\n    </nav>', i) + len('</ul>')
-h = h[:i] + nav + h[j:]
-h = h.replace('<a class="mn-cta" href="#contact">Parlons de votre cas</a>',
-              '<a class="mx-rdv" href="#rendez-vous" data-rdv>Prendre rendez-vous</a>\n    <a class="mn-cta" href="#contact">Parlons de votre cas</a>', 1)
-h = h.replace('<header class="site-head" id="siteHead">', '<header class="site-head mx-flottant" id="siteHead">', 1)
+def transformer(h):
+    h = h.replace(h[h.index('<ul class="mn-list">'):h.index('</ul>\n    </nav>') + len('</ul>')], NAV, 1)
+    h = re.sub(r'(<a class="mn-cta" href="(/?)#contact">Parlons de votre cas</a>)',
+               r'<a class="mx-rdv" href="/#rendez-vous" data-rdv>Prendre rendez-vous</a>\n    \1', h, count=1)
+    return h.replace('<header class="site-head" id="siteHead">', '<header class="site-head mx-flottant" id="siteHead">', 1)
 
-css = (ICI / "menu-visuel.css").read_text(encoding="utf-8")
-h = h.replace("</style>\n</head>", "</style>\n<style>" + css + "</style>\n</head>", 1) if "</style>\n</head>" in h else h.replace("</head>", "<style>" + css + "</style>\n</head>", 1)
-(ICI / "maquette-index.html").write_text(h, encoding="utf-8")
-print("écrit :", (ICI / "maquette-index.html").relative_to(RACINE), len(RESS), "liens Ressources")
+if __name__ == '__main__':
+    h = transformer(h)
+    css = (ICI / "menu-visuel.css").read_text(encoding="utf-8")
+    h = h.replace("</style>\n</head>", "</style>\n<style>" + css + "</style>\n</head>", 1) if "</style>\n</head>" in h else h.replace("</head>", "<style>" + css + "</style>\n</head>", 1)
+    (ICI / "maquette-index.html").write_text(h, encoding="utf-8")
+    print("écrit :", (ICI / "maquette-index.html").relative_to(RACINE), len(RESS), "liens Ressources")
