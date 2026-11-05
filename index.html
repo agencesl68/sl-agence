@@ -572,9 +572,9 @@
                 <!-- 3 · les paiements relancés tout seuls (téléphone) -->
                 <div class="scene" data-scene="2">
                   <div class="b ap-tete" style="--k:0"><b>Paiements</b><small>Aujourd'hui</small></div>
-                  <div class="b ap-ligne ap-paie" style="--k:1"><span><b>F-2026-118</b><small>Échue depuis 12 j</small></span><em class="st st-a">En retard</em><em class="st st-b">Relancé automatiquement</em><em class="st st-c">Payé</em></div>
-                  <div class="b ap-ligne ap-paie" style="--k:2"><span><b>F-2026-121</b><small>Échue depuis 5 j</small></span><em class="st st-a">En retard</em><em class="st st-b">Relancé automatiquement</em></div>
-                  <div class="b ap-ligne ap-paie" style="--k:3"><span><b>F-2026-124</b><small>Échéance demain</small></span><em class="st st-a">À venir</em><em class="st st-b">Rappel prêt</em></div>
+                  <div class="b ap-ligne ap-paie" style="--k:1"><span><b>F-2026-118</b><small>Délai dépassé de 12 j</small></span><em class="st st-a">En retard</em><em class="st st-b">Relancé automatiquement</em><em class="st st-c">Payé</em></div>
+                  <div class="b ap-ligne ap-paie" style="--k:2"><span><b>F-2026-121</b><small>Délai dépassé de 5 j</small></span><em class="st st-a">En retard</em><em class="st st-b">Relancé automatiquement</em></div>
+                  <div class="b ap-ligne ap-paie" style="--k:3"><span><b>F-2026-124</b><small>À payer demain</small></span><em class="st st-a">À venir</em><em class="st st-b">Rappel prêt</em></div>
                   <div class="b ap-ligne ap-paie" style="--k:4"><span><b>F-2026-127</b><small>Payée le 8 nov.</small></span><em class="st st-c st-fixe">Payé</em></div>
                   <div class="ap-toast"><i>✓</i>3 h gagnées par semaine</div>
                 </div>
@@ -630,13 +630,13 @@
           <div class="saisie saisie-1">
             <small>Dans la journée · 16 h 40</small>
             <p class="manuscrit">Commande client : 3 articles, livraison jeudi</p>
-            <span class="compteur">Saisie n° 1</span>
+            <span class="compteur">1re fois</span>
           </div>
           <div class="liaison"><i></i><span>automatique</span></div>
           <div class="saisie saisie-2">
             <small>Le soir · 21 h 15</small>
             <p class="clavier"><span id="ressaisie">Commande client : 3 articles, livraison jeudi</span><i class="curseur"></i></p>
-            <span class="compteur"><b class="c-avant">Saisie n° 2</b><b class="c-apres">Déjà là, rien à recopier</b></span>
+            <span class="compteur"><b class="c-avant">2e fois</b><b class="c-apres">Déjà là, rien à recopier</b></span>
           </div>
         </div>
 
@@ -654,14 +654,14 @@
     <div class="entete reveal">
       <p class="pill">02 — Ce que nous faisons</p>
       <h2 class="titre-l">Votre logiciel sur mesure fait le reste.</h2>
-      <p>Vous saisissez une fois, sur le moment. Personne ne recopie derrière vous.</p>
+      <p>Vous notez l'information sur le moment. Personne ne la recopie derrière vous.</p>
     </div>
 
     <div class="schema reveal" id="schema">
       <svg class="schema-liens" id="schemaLiens" aria-hidden="true"></svg>
 
       <div class="schema-col schema-col--entree">
-        <p class="schema-legende">Vous saisissez une fois</p>
+        <p class="schema-legende">Vous notez une fois</p>
         <article class="noeud" data-sens="entree">
           <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5.5H5.5v15h13v-15H17"/><path d="m9 14 2 2 4-4"/></svg></span>
           <div><h3><a href="/bon-intervention-numerique">Bon d'intervention numérique</a></h3><p>Le client signe sur place, même sans réseau.</p></div>
@@ -676,7 +676,7 @@
         </article>
         <article class="noeud" data-sens="entree">
           <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 13.8 9 19.5 10.8 13.8 12.6 12 18.3 10.2 12.6 4.5 10.8 10.2 9z"/><path d="M18.5 16.5 19.2 18.3 21 19 19.2 19.7 18.5 21.5 17.8 19.7 16 19 17.8 18.3z"/></svg></span>
-          <div><h3><a href="/agent-ia-pme">Agents IA pour PME</a></h3><p>Une photo ou un vocal : la saisie est faite.</p></div>
+          <div><h3><a href="/agent-ia-pme">Agents IA pour PME</a></h3><p>Une photo ou un message vocal : c'est noté pour vous.</p></div>
         </article>
       </div>
 
@@ -703,11 +703,11 @@
         </article>
         <article class="noeud" data-sens="sortie">
           <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2z"/><path d="M9 8.5h6M9 12h6"/></svg></span>
-          <div><h3><a href="/facture-electronique-tpe">Facture électronique</a></h3><p>Reçue et émise sans ressaisie, avant l'échéance 2027.</p></div>
+          <div><h3><a href="/facture-electronique-tpe">Facture électronique</a></h3><p>Reçue sans retaper. Envoi obligatoire en sept. 2027.</p></div>
         </article>
         <article class="noeud" data-sens="sortie">
           <span class="noeud-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9.5"/><path d="M11 6.5 13 4.5a4 4 0 0 1 6.5 6.5L17.5 13M13 17.5 11 19.5A4 4 0 0 1 4.5 13L6.5 11"/></svg></span>
-          <div><h3><a href="/connecter-logiciels-entreprise">Liaison entre vos logiciels</a></h3><p>Vos logiciels se parlent : plus de double saisie.</p></div>
+          <div><h3><a href="/connecter-logiciels-entreprise">Liaison entre vos logiciels</a></h3><p>Vos logiciels se parlent : rien à taper 2 fois.</p></div>
         </article>
       </div>
     </div>
@@ -764,11 +764,11 @@
     </div>
 
     <ul class="douleurs reveal casc">
-      <li><p>Vous finissez votre journée. Et la paperasse commence.</p><span>Le bon est saisi une seule fois, sur place.</span></li>
+      <li><p>Vous finissez votre journée. Et la paperasse commence.</p><span>Le bon est rempli une seule fois, sur place.</span></li>
       <li><p>Vous cherchez le bon fichier, vous l'ouvrez, vous le fermez, vous recommencez.</p><span>Un seul écran. Notre client en gestion de patrimoine ne cherche plus, il consulte.</span></li>
       <li><p>Vous avez fait le travail. Vous attendez toujours d'être payé.</p><span>La relance part seule, au bon moment. Vous n'y pensez plus.</span></li>
-      <li><p>Un client appelle. Vous êtes le seul à savoir où en est son dossier.</p><span>Toute l'équipe voit où en est le dossier, en temps réel.</span></li>
-      <li><p>Un bon papier, un mail, un fichier : vous recopiez ce qui est déjà écrit ailleurs.</p><span>Une information saisie une fois. Une seule.</span></li>
+      <li><p>Un client appelle. Vous êtes le seul à savoir où en est son dossier.</p><span>Toute l'équipe voit où en est le dossier, au même moment.</span></li>
+      <li><p>Un bon papier, un mail, un fichier : vous recopiez ce qui est déjà écrit ailleurs.</p><span>Une information notée une fois. Une seule.</span></li>
       <li><p>Vous partez en congés. Votre téléphone sonne quand même.</p><span>Ce que vous seul saviez, l'équipe le retrouve dans l'outil.</span></li>
     </ul>
     <p class="douleurs-cta reveal"><a class="btn btn-plein btn-fleche" href="#rendez-vous" data-rdv>Réserver mes 15 minutes</a></p>
@@ -796,7 +796,7 @@
     <div class="entete entete--petit reveal">
       <p class="pill">Près de chez vous</p>
       <h2 class="titre-l">Logiciel sur mesure et automatisation à Mulhouse, Saint-Louis et dans le Haut-Rhin.</h2>
-      <p>SL Agence est une agence d'automatisation et d'IA basée à Friesen, dans le Sundgau. Vous parlez directement à ceux qui construisent votre outil. Nous accompagnons les entreprises de <a href="/logiciel-entreprise-mulhouse" style="color:var(--vert-clair)">Mulhouse</a>, <a href="/logiciel-entreprise-colmar" style="color:var(--vert-clair)">Colmar</a>, <a href="/logiciel-entreprise-saint-louis" style="color:var(--vert-clair)">Saint-Louis</a>, Altkirch et de tout le Haut-Rhin. <a href="/bon-intervention-numerique" style="color:var(--vert-clair)">Bons d'intervention</a>, <a href="/remplacer-excel" style="color:var(--vert-clair)">fichiers Excel</a>, <a href="/relance-factures-automatique" style="color:var(--vert-clair)">relances de factures</a>, <a href="/agent-ia-pme" style="color:var(--vert-clair)">agents IA</a> : nous venons voir comment vous travaillez, puis nous automatisons ce qui vous prend du temps.</p>
+      <p>SL Agence est une agence d'automatisation et d'IA basée à Friesen, dans le Sundgau. Vous parlez directement à ceux qui construisent votre outil. Nous accompagnons les entreprises de <a href="/logiciel-entreprise-mulhouse" style="color:var(--vert-clair)">Mulhouse</a>, <a href="/logiciel-entreprise-colmar" style="color:var(--vert-clair)">Colmar</a>, <a href="/logiciel-entreprise-saint-louis" style="color:var(--vert-clair)">Saint-Louis</a>, Altkirch et de tout le Haut-Rhin. <a href="/bon-intervention-numerique" style="color:var(--vert-clair)">Bons d'intervention</a>, <a href="/remplacer-excel" style="color:var(--vert-clair)">fichiers Excel</a>, <a href="/relance-factures-automatique" style="color:var(--vert-clair)">relances de factures</a>, <a href="/agent-ia-pme" style="color:var(--vert-clair)">assistants IA</a> : nous venons voir comment vous travaillez, puis nous automatisons ce qui vous prend du temps.</p>
     </div>
 
 
@@ -870,7 +870,7 @@
       <div><b>Devis gratuit</b><span>sans engagement</span></div>
       <div><b>Prix ferme</b><span>annoncé avant de commencer</span></div>
       <div><b>Réponse sous 24 h</b><span>même pour un simple avis</span></div>
-      <div><b>Vos données restent vôtres</b><span>exportables à tout moment</span></div>
+      <div><b>Vos données restent vôtres</b><span>à récupérer à tout moment</span></div>
     </div>
 
   </div>
@@ -962,7 +962,7 @@
     <div class="guides-liste reveal">
       <a class="guide-ligne" href="/blog/bon-intervention-contenu-modele"><small>Guide terrain</small><b>Bon d'intervention : ce qu'il doit contenir, et un modèle gratuit</b></a>
       <a class="guide-ligne" href="/blog/feuille-heures-salaries"><small>Guide personnel</small><b>Feuille d'heures des salariés : obligations et modèle</b></a>
-      <a class="guide-ligne" href="/blog/comment-relancer-une-facture-poliment"><small>Guide trésorerie</small><b>Relancer une facture poliment : calendrier et 6 modèles</b></a>
+      <a class="guide-ligne" href="/blog/comment-relancer-une-facture-poliment"><small>Guide factures</small><b>Relancer une facture poliment : calendrier et 6 modèles</b></a>
       <a class="guide-ligne" href="/blog/relancer-un-devis-sans-reponse"><small>Guide vente</small><b>Relancer un devis sans réponse : 8 modèles à copier</b></a>
       <a class="guide-ligne" href="/blog/limites-excel-entreprise"><small>Guide organisation</small><b>Excel ne suffit plus ? 7 signes à repérer</b></a>
       <a class="guide-ligne" href="/blog/logiciel-gestion-transport-parc-engins"><small>Guide transport</small><b>Logiciel transport et parc d'engins : lequel choisir ?</b></a>

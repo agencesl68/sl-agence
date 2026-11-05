@@ -245,4 +245,8 @@ Les citations des avis, le H1 et les noms d'outils (Excel, Outlook, Sage, EBP, C
 
 
 ---
-**Contrôle qualité : VALIDÉ 9/10 (2 passages, 04/11/2026)**, après les 2 retouches appliquées par le Manager.
+
+
+
+---
+**Contrôle qualité : sections 1 à 11 VALIDÉES 9/10 (04/11) ; section 12 VALIDÉE après retouches R1 à R5 (05/11), appliquées par le Manager dans index.html :** 1re fois / 2e fois ; « rien à taper 2 fois » ; « Reçue sans retaper. Envoi obligatoire en sept. 2027. » ; « Délai dépassé de 12 j / 5 j » ; intro 02 « Vous notez l'information sur le moment. Personne ne la recopie derrière vous. ». Variantes de H3 : aucune avant la mesure du 01/12 ; après : « Liaison entre vos logiciels » → « Connecter vos logiciels » (aligner FAQ + JSON-LD).

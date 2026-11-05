@@ -23,3 +23,6 @@ Rechercher deux, trois, quatre… quinze, vingt, cent, « quart d'heure » dans 
 
 
 Récidive 2026-10-19 : « six modèles », « deux jours », « un mois » oubliés dans le texte courant et une réponse de FAQ. Vérification renforcée : après toute réécriture, Grep `\b(un|deux|trois|quatre|cinq|six|sept|huit|neuf|dix|quinze)\b` suivi d'une unité dans le texte visible ET dans le JSON-LD.
+
+
+Récidive 2026-11-05 (passe mots simples) : « Première fois », « Deuxième fois », « rien à taper deux fois ». Les ordinaux s'écrivent aussi en chiffres (1re, 2e), et toute passe de simplification relance le Grep c014, ordinaux compris (premier|première|deuxième|troisième…).

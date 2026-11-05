@@ -92,5 +92,6 @@
       (briefs dans `travail/seo/audit-contenus-2026-10-14.md`).
 - [ ] Mesure J+28 des pages ville le **2026-11-11** → décider Colmar.
 - [ ] Mesure J+28 de l'accueil sans métiers (PR #35, en ligne le 03/11) le **2026-12-01** : positions de l'accueil et des pages métiers (BTP, artisan, transport, travaux agricoles), qui ne sont plus liées que par le pied de page.
+- [ ] Après la mesure du 01/12 : H3 du schéma de l'accueil « Liaison entre vos logiciels » → « Connecter vos logiciels » (mots simples, c038 ; mot-clé de /connecter-logiciels-entreprise), et aligner la FAQ + JSON-LD (« liaison entre vos logiciels », « horodaté », « exporter », « périmètre », « maintenance » : suggestions dans travail/contenu/accueil-avant-apres-2026-11-04.md § 12.3).
 - [ ] Questions ouvertes pour enrichir les pages ville : temps de trajet depuis Friesen, une réalisation
       anonymisée par ville, questions réellement posées par des entreprises de la zone, 2 captures floutées (Sacha).
