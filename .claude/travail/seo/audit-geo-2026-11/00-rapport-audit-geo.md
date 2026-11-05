@@ -6,6 +6,8 @@
 > Détail et preuves : `01-technique-contenu.md` + `pages.csv` · `02-serp-mentions-autorite.md` ·
 > `03-concurrents.md` · `04-recherche-geo-positionnement-mesure.md` (même dossier).
 >
+> **Contrôle qualité** : 2 passes (6,5/10 puis 7,5/10) ; les corrections précises de la 2e passe ont été appliquées par le Manager (pas de 3e passe : limite de 2 allers-retours).
+>
 > Étiquettes utilisées pour chaque proposition : **[ANOMALIE]** confirmée techniquement · **[OFFICIEL]**
 > recommandation officielle d'un moteur · **[ÉTUDE]** étude sérieuse (préciser le niveau) · **[CONCURRENCE]**
 > observation concurrentielle · **[HYPOTHÈSE]** à tester.
@@ -14,11 +16,11 @@
 
 ## 0. La conclusion en 5 lignes
 
-1. **Le site est techniquement sain.** Les 40 pages s'ouvrent normalement, le texte est lisible sans JavaScript, les adresses de référence (canonicals) sont justes, aucun lien interne n'est cassé, la fiche d'identité cachée (JSON-LD) est valide sur 39 pages, et tous les robots (Google, Bing, OpenAI, Perplexity, Anthropic, Apple) reçoivent les pages (test depuis une seule adresse, pas depuis les adresses des robots). Aucun chantier technique lourd n'est justifié.
+1. **Le site est techniquement sain.** Les 40 pages s'ouvrent normalement, le texte est lisible sans JavaScript, les adresses de référence (canonicals) sont justes, aucun lien interne n'est cassé, la fiche d'identité cachée (JSON-LD) se lit sans erreur sur 39 pages (syntaxe contrôlée, pas le validateur de Google, §2.4), et tous les robots (Google, Bing, OpenAI, Perplexity, Anthropic, Apple) reçoivent les pages (test depuis une seule adresse, pas depuis les adresses des robots). Aucun chantier technique lourd n'est justifié.
 2. **Le vrai frein est hors du site : personne d'autre ne parle de SL Agence.** Seule mention tierce trouvée : le registre officiel des entreprises. Le nom « SL Agence » a au moins 4 homonymes. Les études les plus solides disponibles relient la visibilité dans les réponses IA aux **mentions par des tiers** (corrélation, pas causalité).
 3. **Le 2e frein : les preuves.** 7 réalisations (dont 1 en cours), 1 seule étude de cas, 2 avis Google affichés, contre 103 avis et 11 cas chiffrés chez DGS Création, 106 avis chez MB Informatique, 27 chez HDKN.
 4. **Le 3e : le site est encore jeune dans Google** (création de l'entreprise : 19/05/2026 ; position moyenne 20,4 dans Search Console ; absent des 18 requêtes testées avec notre outil, qui n'est pas Google).
-5. **Donc : peu de modifications du site (7 petites corrections réversibles, en 3 PR calées sur les mesures en cours), et l'effort sur les études de cas, les avis réels et les mentions externes.** Les priorités A et B de ta mission sont confirmées ; C est déjà en place ; D se limite à des retouches ; E (nouvelles pages) n'est pas prioritaire.
+5. **Donc : peu de modifications du site (6 petites corrections réversibles — T1, T2, T3, T5, T6, T7 — + 1 nettoyage sans effet visible, en 4 PR calées sur les mesures en cours), et l'effort sur les études de cas, les avis réels et les mentions externes.** Les priorités A et B de ta mission sont confirmées ; C est déjà en place ; D se limite à des retouches ; E (nouvelles pages) n'est pas prioritaire.
 
 ### Mini-lexique
 
@@ -34,6 +36,8 @@
 | Similarité (morceaux de 5 mots) | part du texte d'une page qu'on retrouve mot pour mot dans une autre |
 | Mention tierce | un autre site (annuaire, presse, réseau) qui parle de SL Agence |
 | Tirage | une question posée une fois à un assistant IA (la réponse change d'un tirage à l'autre) |
+| Cannibalisation | deux pages du site qui visent la même recherche et se gênent |
+| Indicateur (KPI) | le chiffre qu'on suit pour savoir si une action marche |
 
 ---
 
@@ -88,14 +92,15 @@
 
 Nettoyage sans effet visible (pas une anomalie) : 4 articles gardent `target="_blank"` sur leur lien `#rendez-vous` (cahier-des-charges:819, limites-excel:968, logiciel-gestion-transport:999, terrassement:869). Le script de rendez-vous capte ce clic et ouvre la fenêtre sur place (`assets/rdv.js:283-291`) ; un 2e onglet ne s'ouvrirait que si le script ne se chargeait pas.
 
+Constat confirmé, hors lot (action 7) : **6 articles sans bouton de rendez-vous dans le corps** (seul le 06 du bloc auteur), dont `/blog/relancer-un-devis-sans-reponse` (29 % des impressions du site) ; seul l'effet sur la conversion est une [HYPOTHÈSE].
+
 ### 2.3 Suspecté (à vérifier, avec la méthode)
 
 - **Zone dans la fiche cachée des pages BTP, transport, artisan** : elles listent Strasbourg, Sélestat, Haguenau (en Alsace, donc dans la zone), mais ces villes ne sont écrites dans le texte que sur la page BTP. À relire page par page.
 - **`/realisations`** crée un 2e nœud `WebSite` sans identifiant ; **`/blog/`** n'a pas de fil d'Ariane caché. Aucune erreur Google attendue ; à vérifier avec le test des résultats enrichis avant de toucher.
-- **Lien LinkedIn** : le site utilise `linkedin.com/company/sl-agence/` partout (vérifié), alors que la note du 21/10 cite `company/116042975`. Les deux renvoient 403 aux robots → **toi** : ouvre les deux dans un navigateur ; s'ils mènent à la même page, on garde le slug et je corrige la note.
+- **Lien LinkedIn** : le site utilise `linkedin.com/company/sl-agence/` partout (vérifié), alors que la note du 21/10 cite `company/116042975`. Les deux renvoient 403 aux robots → **toi** : ouvre les deux dans un navigateur ; s'ils mènent à la même page, on garde l'adresse `/company/sl-agence/` et je corrige la note.
 - **Cannibalisation d'intention** sur « agence IA / automatisation Mulhouse » entre `/`, `/agence-ia-automatisation-haut-rhin` et `/logiciel-sur-mesure` (pas de texte dupliqué ; le H1 de l'accueil est encore « …logiciel sur mesure à Mulhouse », décision en attente depuis octobre). À confirmer avec Search Console > Performances > Requêtes, filtre sur la requête, onglet Pages.
 - **Identité peu présente dans le corps de 12 pages** (« SL Agence » seulement dans le menu, le pied et le JSON-LD : agent-ia-pme, automatisation, bon-intervention, connecter, facture-électronique, artisan, btp, transport, travaux agricoles, realisations, relance-factures, remplacer-excel). [HYPOTHÈSE] : une phrase « qui construit cet outil » aide le lecteur et l'extraction (« Who created the content » de Google) — à tester sur 2-3 pages, pas partout.
-- **6 articles sans bouton de rendez-vous dans le corps**, dont `/blog/relancer-un-devis-sans-reponse` (29 % des impressions du site). [HYPOTHÈSE] conversion.
 - Liens externes en 403/429/999 pour les robots (LinkedIn, Facebook, Instagram, PagesJaunes, make.com, 2 Legifrance) : probablement des protections anti-robot, à ouvrir à la main.
 
 ### 2.4 Non vérifiable ici (accès manquants)
@@ -196,25 +201,25 @@ robots.txt ouvert + sitemap déclaré · sitemap.xml (38 URL) · canonicals prop
 
 ## 8. Plan d'action priorisé — 90 jours (09/11/2026 → 05/02/2027)
 
-Classement : impact attendu × confiance ÷ effort. Mesures déjà programmées, respectées (aucune page en mesure n'est modifiée avant sa date de verdict, contenu compris) : **pages ville le 11/11, CTR le 16/11 (dont `/facture-electronique-tpe`), application web et article cahier des charges le 27/11, accueil le 01/12**.
+Classement : impact attendu × confiance ÷ effort. Mesures déjà programmées (aucune page en mesure n'est modifiée avant sa date de verdict, contenu compris ; croisé avec `rappels-seo.md`, `ctr-2026-11-02.md` et `experiences.md`) : **pages ville le 11/11, puis leurs titles réécrits le 11/11 (nouvelle mesure, J+28 ≈ 09/12) ; CTR le 16/11 (dont `/facture-electronique-tpe` et `/blog/feuille-heures-salaries`) ; créations pointage, CRM, stock (J+28 ≈ 27/11) ; application web et article cahier des charges le 27/11 ; lot CTR du 02/11 (limites-excel, BTP, travaux agricoles, agence IA : J+28 ≈ 30/11-03/12) ; article CRM ou Excel le 30/11 ; accueil et pages métiers (BTP, artisan, transport, travaux agricoles) le 01/12**.
 
-| # | Action | Problème constaté | Preuve | Étiquette | Priorité | Effort | Risque | KPI |
+| # | Action | Problème constaté | Preuve | Étiquette | Priorité | Effort | Risque | Indicateur |
 |---|---|---|---|---|---|---|---|---|
-| 1 | **7 petites corrections** (T1 à T7 ; T8 seulement si tu dis oui) en **3 PR** calées sur les mesures (§10) | Sources mortes, sources sans lien, dates périmées, zone incomplète dans la fiche cachée | §2.2 | [ANOMALIE] | P1 | 2 h équipe + 3 × 5 min toi | Très faible (aucun title/meta/H1 touché, aucune page en mesure) | 0 lien externe mort ; zone identique partout |
+| 1 | **6 petites corrections (T1, T2, T3, T5, T6, T7) + 1 nettoyage sans effet visible, en 4 PR calées sur les mesures** (§10 ; T4 = action 6 ; T8 seulement si tu dis oui) | Sources mortes, sources sans lien, dates périmées, zone incomplète dans la fiche cachée | §2.2 | [ANOMALIE] | P1 | 2 h équipe + 4 × 5 min toi | Très faible (aucun title/meta/H1 touché, aucune page en mesure) | 0 lien externe mort ; zone identique partout |
 | 2 | **3 études de cas** au modèle en 10 rubriques (ordre proposé : gestion de patrimoine — ton post LinkedIn le plus performant, capture existante ; pointage ; carburant), puis transport à sa livraison | 1 seule étude de cas, sans capture ; aucun chiffre rattaché à une réalisation | §3, §5 ; `04-…md` partie 3 | [OFFICIEL] contenu original + [CONCURRENCE] | P1 | 30 min de questions avec Sacha par cas ; rédaction équipe | Faible si rien n'est inventé (c019, c037) | 1 → 4 études de cas ; impressions des pages cas |
 | 3 | **Avis Google** : tu les as déjà demandés (noté le 20/10). Donne-moi le total actuel ; on relance seulement les clients des réalisations qui n'ont pas encore laissé d'avis (avis réels, qui citent le service et la ville ; jamais de contrepartie) | 2 avis visibles sur l'accueil contre 27 à 106 chez les concurrents | §3 | [CONCURRENCE] + [HYPOTHÈSE] | P2 | 15 min toi | Nul | nb d'avis (départ : à me donner) |
-| 4 | **Mentions externes** (rien de payant sans ton accord) : d'abord vérifier sur quels annuaires tu es déjà inscrit (noté fait le 20/10) ; puis finir Bing Places et vérifier nom-adresse-téléphone ; Apple Business Connect ; annuaire Grand Est Développement (400 offreurs) ; envoyer le communiqué déjà rédigé au Journal des Entreprises / L'Alsace ; décider FFB 68 (club des partenaires, petit-déjeuner du 12/11 à Mulhouse) **avant le 11/11** ; CPME 68 et La Fabrique du Net (coût à vérifier) ensuite | 0 mention tierce hors registre ; homonymes | `02-…md` §2-§5 | [ÉTUDE] (Chen ; Ahrefs, corrélation) + [HYPOTHÈSE] sur l'effet | P1 | ≈ 40 min toi par semaine pendant 4 semaines (+ 2 h si FFB le 12/11) | Faible | Mentions tierces : 0 → 5 à J+90 |
-| 5 | **Relevé IA de départ** (protocole §9), puis toutes les 2 semaines | Seul relevé : 1 tirage le 26/10, conditions non notées | apprentissages.md | [ÉTUDE] variabilité | P1 | ≈ 55 min toi pour le relevé pilote, puis ≈ 50 min par relevé (≈ 28 min/semaine) ou ≈ 36 min à 2 tirages (≈ 20 min/semaine) | Nul | Taux d'apparition, part de top 3 |
+| 4 | **Mentions externes** (rien de payant sans ton accord) : d'abord vérifier sur quels annuaires tu es déjà inscrit (noté fait le 20/10) ; puis finir Bing Places et vérifier nom-adresse-téléphone ; Apple Business Connect ; annuaire Grand Est Développement (400 offreurs) ; envoyer le communiqué déjà rédigé au Journal des Entreprises / L'Alsace ; décider FFB 68 (club des partenaires, petit-déjeuner du 12/11 à Mulhouse) **avant le 11/11** ; CPME 68 et La Fabrique du Net (coût à vérifier) ensuite | 0 mention tierce hors registre ; homonymes | `02-…md` §2-§5 | [ÉTUDE] (Chen ; Ahrefs, corrélation) + [HYPOTHÈSE] sur l'effet | P1 | ≈ 45 min sur les semaines 1-2, puis ≈ 40 min par semaine pendant 4 semaines (+ 3 h si FFB le 12/11, trajet compris) | Faible | Mentions tierces : 0 → 5 à J+90 |
+| 5 | **Relevé IA de départ** (protocole §9), puis toutes les 2 semaines | Seul relevé : 1 tirage le 26/10, conditions non notées | apprentissages.md | [ÉTUDE] variabilité | P1 | ≈ 55 min toi pour le relevé de départ (pilote : 5 tirages sur 2 questions, L1 et L6, dans ChatGPT), puis ≈ 50 min par relevé (≈ 28 min/semaine) ou ≈ 36 min à 2 tirages (≈ 20 min/semaine) | Nul | Taux d'apparition, part de top 3 |
 | 6 | Réécrire les blocs communs `/crm-sur-mesure` ↔ `/logiciel-gestion-stock-sur-mesure` (méthode, facteurs de prix) pour qu'ils soient propres à chaque page | 22 % de texte commun | T4 | [ANOMALIE] + [OFFICIEL] contenu original | P2 — **après le 27/11** | 2 h équipe | Faible | Impressions des 2 pages à J+28 |
 | 7 | Ajouter un bouton de rendez-vous dans le corps des 6 articles, en commençant par « relancer un devis » | 29 % des impressions, pas de bouton dans le corps | §2.3 | [HYPOTHÈSE] conversion | P2 | 1 h équipe | Faible | Clics sur le rendez-vous (non mesurable sans outil d'audience : on comptera les demandes qui citent l'article) |
 | 8 | Phrase d'identité « qui construit cet outil » sur 3 pages de service (test) | « SL Agence » absent du corps de 12 pages | §2.3 | [HYPOTHÈSE] | P3 | 1 h | Faible | Exactitude de la question L9 (« Que penses-tu de SL Agence ? ») |
 | 9 | Décider du H1 de l'accueil (en attente depuis octobre) **après la mesure du 01/12** | Cannibalisation d'intention suspectée | §2.3 | [HYPOTHÈSE] | P3 | 5 min toi | Moyen (page la plus forte) | Requêtes de l'accueil dans Search Console |
-| 10 | Rythme des nouvelles pages du plan 12 semaines : passer de 1/semaine à **2/mois** pour libérer du temps pour les études de cas | Les preuves pèsent plus que le volume de pages | §0, §5 | Recommandation du Manager | P2 | — | Faible | — |
+| 10 | Rythme des nouvelles pages du plan 12 semaines : passer de 1/semaine à **2/mois** pour libérer du temps pour les études de cas | Les preuves pèsent plus que le volume de pages | §0, §5 | [HYPOTHÈSE] | P2 | — | Faible | — |
 
 **Calendrier**
-- **Semaine 1 (09 → 15/11)** : décision FFB 68 avant le 11/11 ; PR 1a ; mesure des pages ville le 11/11 ; vérification LinkedIn et annuaires existants.
-- **Semaine 2 (16 → 22/11)** : mesure CTR du 16/11 puis PR 1b ; questions à Sacha sur les 3 premières études de cas ; total des avis ; Bing Places, Apple ; relevé IA de départ (pilote).
-- **Semaines 3-6 (23/11 → 20/12)** : mesures du 27/11 (puis PR 1c) et du 01/12 ; 1re et 2e études de cas en ligne ; action 6 ; envoi du communiqué ; décision CPME 68 / La Fabrique du Net ; relevés IA n°2 et n°3.
+- **Semaine 1 (09 → 15/11)** : décision FFB 68 avant le 11/11 ; PR 1a ; mesure des pages ville le 11/11 (si tu veux, sources ADIRA corrigées dans la même mise en ligne que leurs nouveaux titles) ; vérification LinkedIn et annuaires existants.
+- **Semaine 2 (16 → 22/11)** : mesure CTR du 16/11 puis PR 1b (facture électronique, feuille d'heures) ; questions à Sacha sur les 3 premières études de cas ; total des avis ; Bing Places, Apple ; relevé IA de départ (pilote).
+- **Semaines 3-6 (23/11 → 20/12)** : mesures du 27/11 (puis PR 1c), du 30/11-03/12 et du 01/12 (puis PR 1d) ; pages ville : sources ADIRA corrigées après leur J+28 (≈ 09/12) si elles ne sont pas parties avec les titles du 11/11 ; 1re et 2e études de cas en ligne ; action 6 ; envoi du communiqué ; décision CPME 68 / La Fabrique du Net ; relevés IA n°2 et n°3.
 - **Semaines 7-13 (21/12 → 05/02)** : 3e et 4e études de cas ; `/realisations` relie chaque cas détaillé ; actions 7 et 8 ; relevés IA n°4 à n°6 ; bilan J+90 le 05/02/2027.
 
 **Ton temps estimé** (règle c027 ; `objectifs.md` ne prévoit **aucun temps SEO** dans ta semaine : c'est du temps en plus, à valider)
@@ -225,10 +230,10 @@ Classement : impact attendu × confiance ÷ effort. Mesures déjà programmées,
 | Questions études de cas avec Sacha (3 × 30 min) | 1 h 30 | ≈ 15 min (1 cas toutes les 2-3 semaines) |
 | Avis Google (total + relances ciblées) | 15 min | — |
 | Annuaires : vérifier l'existant, Bing, Apple, LinkedIn | 45 min | ≈ 40 min pendant 4 semaines, puis 0 |
-| Relevé IA (pilote à 5 tirages, puis 3 tirages) | 55 min | ≈ 28 min (≈ 20 min à 2 tirages) |
+| Relevé IA (pilote : 5 tirages sur L1 et L6 dans ChatGPT ; ensuite 3 tirages) | 55 min | ≈ 28 min (≈ 20 min à 2 tirages) |
 | Mesures prévues (11/11, 16/11) | 30 min | ≈ 10 min |
 | Réponses aux questions du §11 | 30 min | — |
-| **Total** | **≈ 4 h 35, soit ≈ 2 h 20 par semaine** (+ 2 h si FFB le 12/11) | **≈ 1 h 35 pendant 4 semaines, puis ≈ 55 min** |
+| **Total** | **≈ 4 h 35, soit ≈ 2 h 20 par semaine** (+ 3 h si FFB le 12/11, trajet compris) | **≈ 1 h 35 pendant 4 semaines, puis ≈ 55 min** |
 
 Le relevé IA à 3 tirages dépasse le budget de 20 min/semaine prévu dans le plan GEO du 21/10 : à toi de choisir (question au §11).
 
@@ -249,39 +254,53 @@ Le relevé IA à 3 tirages dépasse le budget de 20 min/semaine prévu dans le p
 | Études de cas détaillées | 1 | Site | 4 |
 | Demandes entrantes qui citent une IA | non suivi | Question « Comment nous avez-vous connus ? » notée dans une feuille Drive | suivi dès maintenant |
 
-**Protocole IA** (détail : `04-…md` partie 4) : 18 questions fixes (6 au noyau à chaque relevé, 12 en rotation mensuelle), ChatGPT avec recherche, Gemini, Perplexity, Copilot (+ AI Overviews si affiché) ; navigation privée, non connecté si possible, même lieu, même plage horaire ; 3 tirages par question du noyau sur ChatGPT et Gemini, 1 sur les autres, premier relevé en pilote à 5 tirages ; captures conservées ; feuille « Suivi IA SL Agence » dans le Drive (accès Restreint, jamais dans le dépôt) ; lecture de tendance sur 4 relevés, jamais de causalité automatique.
+**Protocole IA** (détail : `04-…md` partie 4) : 18 questions fixes (6 au noyau à chaque relevé, 12 en rotation mensuelle), ChatGPT avec recherche, Gemini, Perplexity, Copilot (+ AI Overviews si affiché) ; navigation privée, non connecté si possible, même lieu, même plage horaire ; 3 tirages par question du noyau sur ChatGPT et Gemini, 1 sur les autres, premier relevé en pilote : 5 tirages sur 2 questions (L1, L6) dans ChatGPT ; captures conservées ; feuille « Suivi IA SL Agence » dans le Drive (accès Restreint, jamais dans le dépôt) ; lecture de tendance sur 4 relevés, jamais de causalité automatique.
 Limite : le trafic venu de ChatGPT n'est pas visible sans outil d'audience (refusé le 26/10, on ne le repropose pas) ni journaux GitHub Pages.
 
 ---
 
-## 10. Première proposition de modifications, fichier par fichier (7 petites corrections réversibles, 3 PR)
+## 10. Première proposition de modifications, fichier par fichier (6 petites corrections — T1, T2, T3, T5, T6, T7 — + 1 nettoyage sans effet visible, en 4 PR)
 
-Aucune ne touche un title, une meta ou un H1. Chaque page n'est modifiée qu'**après** sa date de mesure (contrôle croisé avec `rappels-seo.md` et `ctr-2026-11-02.md`). Contrôle qualité avant chaque PR.
+Aucune ne touche un title, une meta ou un H1. Chaque page n'est modifiée qu'**après** sa date de mesure (contrôle croisé avec `rappels-seo.md`, `ctr-2026-11-02.md` et `experiences.md`). T4 (blocs CRM/stock) = action 6. Contrôle qualité avant chaque PR.
 
-**PR 1a — dès ton accord (pages sans mesure en cours)**
+| Fichier | Mesure en cours | Fin de mesure | PR |
+|---|---|---|---|
+| `sitemap.xml`, `a-propos.html`, `blog/bon-intervention-contenu-modele.html`, `llms.txt` | aucune | — | 1a |
+| `facture-electronique-tpe.html`, `blog/feuille-heures-salaries.html` | test CTR du 19/10 | 16/11 | 1b |
+| 3 pages ville | J+28 le 11/11, puis titles réécrits le 11/11 | 11/11 (avec les titles) ou ≈ 09/12 | 1b |
+| `application-web-sur-mesure.html`, `application-pointage-chantier.html`, `crm-sur-mesure.html`, `logiciel-gestion-stock-sur-mesure.html`, `blog/cahier-des-charges-application.html`, `blog/logiciel-gestion-transport-parc-engins.html`, `blog/terrassement-heures-engins-carburant.html` | J+28 des créations du 27-30/10 | ≈ 27/11 (date exacte = indexation constatée) | 1c |
+| `logiciel-entreprise-travaux-agricoles.html`, `blog/limites-excel-entreprise.html` | lot CTR du 02/11 + pages métiers le 01/12 | ≈ 30/11-03/12 et 01/12 | 1d |
+
+**PR 1a — dès ton accord (seules des dates annoncées et du code invisible changent ; aucune page mesurée n'est modifiée)**
 
 | Fichier | Modification | Raison | Étiquette |
 |---|---|---|---|
-| `sitemap.xml` | `lastmod` des 9 pages réellement modifiées = date du dernier commit de la page | Dates fausses (T3) | [ANOMALIE] + [OFFICIEL] (Google utilise `lastmod` s'il est exact et vérifiable : https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap) |
+| `sitemap.xml` | `lastmod` des 9 pages réellement modifiées = date du dernier commit de la page | T3 | [ANOMALIE] + [OFFICIEL] (Google utilise `lastmod` s'il est exact et vérifiable : https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap) |
 | `a-propos.html` (l. 28) | `dateModified` → date réelle de la dernière modification | T3 | [ANOMALIE] |
-| `application-pointage-chantier.html`, `crm-sur-mesure.html`, `logiciel-gestion-stock-sur-mesure.html`, `logiciel-entreprise-travaux-agricoles.html` | `areaServed` aligné sur la zone de référence (Haut-Rhin, Alsace, Grand Est ; France à distance), comme le texte visible | T5 (c032) | [ANOMALIE] + [OFFICIEL] (données structurées = contenu visible) |
 | `blog/bon-intervention-contenu-modele.html` | Renommer le 2e `id="contenu"` (l. 812) | T6 | [ANOMALIE] |
-| `llms.txt` (facultatif) | Ajouter les 5 pages manquantes | T7 ; effet IA non documenté | [ANOMALIE], valeur très faible |
+| `llms.txt` | Ajouter les 5 pages manquantes (facultatif, contraire à ta décision si tu préfères ne pas y toucher) | T7 ; effet IA non documenté | [ANOMALIE], valeur très faible |
 
-**PR 1b — après le 16/11 (pages ville mesurées le 11/11, pages en test CTR jusqu'au 16/11)**
+**PR 1b — après le 16/11 (facture électronique, feuille d'heures) ; pages ville avec les titles du 11/11 (une seule date de départ, notée dans `experiences.md`) ou après leur J+28 (≈ 09/12)**
 
 | Fichier | Modification | Raison | Étiquette |
 |---|---|---|---|
-| `logiciel-entreprise-mulhouse.html` (l. 771), `logiciel-entreprise-colmar.html` (l. 832), `logiciel-entreprise-saint-louis.html` (l. 772) | Remplacer le lien ADIRA mort par la nouvelle adresse officielle du même document si elle existe ; sinon retirer le chiffre ou citer une source officielle équivalente (INSEE) en gardant exactement son périmètre (c034) | T1 : affirmation chiffrée dont la source est introuvable | [ANOMALIE] |
 | `facture-electronique-tpe.html` (l. 731 + phrase de zone) | Transformer « impots.gouv.fr et economie.gouv.fr » en liens vers les pages officielles déjà vérifiées dans l'article sœur ; ajouter la phrase de zone de référence (c032) | T2 | [ANOMALIE] + [ÉTUDE] (citations de sources, papier GEO) |
-| `blog/feuille-heures-salaries.html` | Renommer le 2e `id="contenu"` (l. 818) | T6 (page en test CTR jusqu'au 16/11) | [ANOMALIE] |
+| `blog/feuille-heures-salaries.html` | Renommer le 2e `id="contenu"` (l. 818) | T6 | [ANOMALIE] |
+| `logiciel-entreprise-mulhouse.html` (l. 771), `logiciel-entreprise-colmar.html` (l. 832), `logiciel-entreprise-saint-louis.html` (l. 772) | Remplacer le lien ADIRA mort par la nouvelle adresse officielle du même document si elle existe ; sinon retirer le chiffre ou citer une source officielle équivalente (INSEE) en gardant exactement son périmètre (c034) | T1 : affirmation chiffrée dont la source est introuvable | [ANOMALIE] |
 
-**PR 1c — après le 27/11 (mesure J+28 de l'application web et de l'article cahier des charges)**
+**PR 1c — après le J+28 des créations du 27-30/10 (≈ 27/11)**
 
 | Fichier | Modification | Raison | Étiquette |
 |---|---|---|---|
-| `application-web-sur-mesure.html` | `areaServed` aligné sur la zone de référence | T5 | [ANOMALIE] |
-| `blog/cahier-des-charges-application.html` + 3 autres articles (limites-excel, logiciel-gestion-transport, terrassement) | Retirer le `target="_blank"` inutile sur `#rendez-vous` | Nettoyage sans effet visible (rdv.js:283-291) | Nettoyage |
+| `application-web-sur-mesure.html`, `application-pointage-chantier.html`, `crm-sur-mesure.html`, `logiciel-gestion-stock-sur-mesure.html` | `areaServed` aligné sur la zone de référence (Haut-Rhin, Alsace, Grand Est ; France à distance), comme le texte visible | T5 (c032) | [ANOMALIE] + [OFFICIEL] (données structurées = contenu visible) |
+| `blog/cahier-des-charges-application.html`, `blog/logiciel-gestion-transport-parc-engins.html`, `blog/terrassement-heures-engins-carburant.html` | Retirer le `target="_blank"` inutile sur `#rendez-vous` | Nettoyage sans effet visible (rdv.js:283-291) | Nettoyage |
+
+**PR 1d — après le 01/12 et le J+28 du lot CTR du 02/11 (≈ 03/12)**
+
+| Fichier | Modification | Raison | Étiquette |
+|---|---|---|---|
+| `logiciel-entreprise-travaux-agricoles.html` | `areaServed` aligné sur la zone de référence | T5 | [ANOMALIE] |
+| `blog/limites-excel-entreprise.html` | Retirer le `target="_blank"` inutile sur `#rendez-vous` | Nettoyage | Nettoyage |
 
 **Sur ton seul accord** : supprimer `pub-sl-agence.mp4` et `pub-sl-agence.jpg` (T8, fichiers morts publics).
 

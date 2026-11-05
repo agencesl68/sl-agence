@@ -53,6 +53,8 @@
 
 ## À rappeler (en attente)
 
+- [ ] **Audit GEO du 05/11** (`travail/seo/audit-geo-2026-11/00-rapport-audit-geo.md`) : attendre l'accord de Loïc sur le plan 90 jours et les 4 PR (1a dès accord ; 1b après le 16/11 ; 1c ≈ 27/11 ; 1d ≈ 03/12). Ses 13 réponses du §11 (avis, Search Console, Bing AI Performance, LinkedIn, études de cas…). Mettre à jour `experiences.md` (lignes « prêtes » déjà en ligne, c041).
+
 - [x] 2026-10-30 · PR 33 en ligne, référence GBP et Search Console relevées (apprentissages.md), **post « Offre » publié le 30/10** (accepté en Offre).
 - [ ] **06/11** (J+7) : relevé du post — vues sur la carte du post, « consultations et clics » de l'offre si affichés, clics vers le site de la semaine (référence ≈ 3/mois). **27/11** (J+28) : idem + page application web et article (Search Console).
 - [ ] Article CRM (semaine 3) décalé : trouver un angle distinct de /crm-sur-mesure (ex. « CRM ou Excel pour une TPE »).
