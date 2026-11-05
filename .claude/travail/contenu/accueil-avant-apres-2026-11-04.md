@@ -181,6 +181,68 @@ Correction 1er aller-retour du contrôle qualité (7/10) : 8 points traités (h�
 - Hero B : « Vous savez ce qui vous prend vos soirées » suppose que la soirée est le problème ; la bulle de l'animation et REAL 880 le soutiennent, mais tous les métiers ne sont pas concernés.
 - Nœud 5 : 53 caractères avec « Devis et rapports se font seuls. Plus rien à retaper. » ; la formule proposée (« Vos devis et rapports… ») faisait 57.
 
+---
+
+## 12. Passe mots simples (05/11)
+
+Règle : c038. Test : un plombier de 55 ans comprend-il chaque mot du premier coup ? Colonne Avant = texte exact actuel d'index.html (relu dans le fichier, 05/11). Ni index.html ni la FAQ ne sont modifiés. Longueur conservée (nœuds du schéma : 50 à 53 caractères), c013, c014 et c037 respectés (aucun guillemet sur un texte du site, aucun mot-scène répété).
+
+### 12.1 Changements proposés (16)
+
+| # | Où | Avant (texte exact) | Après | Mot difficile retiré |
+|---|---|---|---|---|
+| 1 | Animation 01, étiquette 1 | Saisie n° 1 | Première fois | saisie |
+| 2 | Animation 01, étiquette 2 | Saisie n° 2 | Deuxième fois | saisie |
+| 3 | Animation, écran Paiements | Échue depuis 12 j | Impayée depuis 12 j | échue |
+| 4 | Animation, écran Paiements | Échue depuis 5 j | Impayée depuis 5 j | échue |
+| 5 | Animation, écran Paiements | Échéance demain | À payer demain | échéance |
+| 6 | 02, intro | Vous saisissez une fois, sur le moment. Personne ne recopie derrière vous. | Vous le notez une fois, sur le moment. Personne ne le recopie derrière vous. | saisissez |
+| 7 | 02, légende du schéma | Vous saisissez une fois | Vous notez une fois | saisissez |
+| 8 | 02, nœud « Agents IA pour PME » (ligne) | Une photo ou un vocal : la saisie est faite. | Une photo ou un message vocal : c'est noté pour vous. | saisie |
+| 9 | 02, nœud « Facture électronique » (ligne) | Reçue et émise sans ressaisie, avant l'échéance 2027. | Reçue et envoyée sans rien retaper, avant sept. 2027. | ressaisie, émise, échéance (date : AG, émission en septembre 2027) |
+| 10 | 02, nœud « Liaison entre vos logiciels » (ligne) | Vos logiciels se parlent : plus de double saisie. | Vos logiciels se parlent : rien à taper deux fois. | double saisie |
+| 11 | 03, carte 1, ligne 2 | Le bon est saisi une seule fois, sur place. | Le bon est rempli une seule fois, sur place. | saisi |
+| 12 | 03, carte 4, ligne 2 | Toute l'équipe voit où en est le dossier, en temps réel. | Toute l'équipe voit où en est le dossier, au même moment. | en temps réel |
+| 13 | 03, carte 5, ligne 2 | Une information saisie une fois. Une seule. | Une information notée une fois. Une seule. | saisie |
+| 14 | Près de chez vous, lien | agents IA | assistants IA | agents (IA gardé, mot-clé ; « Assistant IA » est déjà dans le menu) |
+| 15 | FAQ, barre des promesses | exportables à tout moment | à récupérer à tout moment | exportables |
+| 16 | Guides, étiquette | Guide trésorerie | Guide factures | trésorerie |
+
+Résultat : plus aucun « saisie / saisir / ressaisie / double saisie » dans le texte visible hors FAQ (9 occurrences visibles remplacées ; l'identifiant technique `ressaisie` et les commentaires du code ne se voient pas et restent).
+
+### 12.2 Variantes plus simples des H3 qui sont des liens (à juger par Loïc, non appliquées)
+
+| H3 actuel (texte exact) | Variante proposée | Mot-clé gardé | Mot difficile retiré |
+|---|---|---|---|
+| Remplacer Excel par une application | Remplacer Excel par un seul outil | « Remplacer Excel » | application |
+| Agents IA pour PME | Un assistant IA pour votre entreprise | « IA » | agents, PME |
+| Liaison entre vos logiciels | Vos logiciels reliés entre eux | « logiciels » | liaison |
+
+Les liens « remplacer Excel par une application » et « agents IA » apparaissent aussi dans la FAQ et le pied de page : si une variante est retenue, il faudra aligner ces textes (la FAQ est recopiée dans le JSON-LD, donc à traiter par seo-site).
+
+### 12.3 Mots signalés et laissés, avec la raison
+
+| Mot ou phrase | Où | Raison |
+|---|---|---|
+| horodaté | FAQ (« Le bon est horodaté… ») | FAQ recopiée dans le JSON-LD, non modifiable ici. Suggestion : « daté à la minute près » |
+| exporter | FAQ (« vous pouvez tout exporter ») | Idem. Suggestion : « tout récupérer » |
+| périmètre écrit noir sur blanc | FAQ (prix) | Idem. Suggestion : « ce qui est compris, écrit noir sur blanc » |
+| maintenance, propriété des données | FAQ (choisir une agence) | Idem. Suggestion : « suivi après livraison », « données qui restent à vous » |
+| liaison entre vos logiciels | FAQ (prix automatisation) | Idem, et cohérent avec le H3 si Loïc garde « Liaison » |
+| remplacer Excel par une application | FAQ, lien | Mot-clé du lien vers /remplacer-excel ; FAQ non modifiable |
+| TPE | FAQ (question) | Mot-clé de la question ; une TPE s'entend, à expliquer ailleurs si besoin |
+| accès, suppression, opposition | Note du formulaire | Mentions légales (RGPD) : leur formulation doit rester fidèle (c018, c025) |
+| Automatisation des tâches/process administratif, IA & chatbot, Site web/landing page | Options du formulaire | Valeurs envoyées vers Make, hors périmètre. À noter : « process », « chatbot », « landing page » sont du jargon |
+| automatisation, logiciel sur mesure, automatisons | H2 et textes autour | Mots-clés SEO protégés |
+| Bon d'intervention numérique | H3 du schéma | Mot-clé de la page cible ; « bon d'intervention » est un terme courant du métier |
+| IA | Près de chez vous, FAQ, nœud 4 | Mot-clé et entré dans le langage courant ; expliqué par l'exemple (photo, vocal) |
+| se branche, schéma, outil, application | « Rien à jeter », bloc « Votre besoin n'est pas sur le schéma ? », textes courants | Mots d'usage courant, compris sans explication |
+| Relancé automatiquement, Automatique | Animation | « Automatiquement » est d'usage courant et sert à montrer la promesse |
+| Planning, mise en service, parc d'engins | Animation, guides | Mots du métier du lecteur lui-même (BTP, transport) |
+| Guide trésorerie (titre de l'article) | Titre des guides | Les titres des liens reprennent le H1 de chaque article du blog ; seule l'étiquette change |
+
+Les citations des avis, le H1 et les noms d'outils (Excel, Outlook, Sage, EBP, Cegid, Pennylane…) n'ont pas été touchés.
+
 
 ---
 **Contrôle qualité : VALIDÉ 9/10 (2 passages, 04/11/2026)**, après les 2 retouches appliquées par le Manager.
