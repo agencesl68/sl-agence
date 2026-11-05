@@ -75,3 +75,7 @@ Fidélité à la source (B) :
 | 10 | Conformité (c011, c013, c019, c028, c037, c038) | 1 |
 
 **Note : 9 / 10 (seuil 8 atteint).**
+
+
+---
+**Contrôle qualité : VALIDÉ (05/11).** Accueil : variante A telle quelle. À propos, texte final appliqué : « Dans les entreprises où nous avons travaillé, il y avait clairement un problème d'organisation, et des gens qui perdaient beaucoup de temps sur des tâches répétitives. SL Agence est née de là. » (répétition orale « beaucoup, beaucoup » retirée ; lien de cause confirmé par Loïc : c'est la raison de la création).
