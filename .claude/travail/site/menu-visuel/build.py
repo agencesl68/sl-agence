@@ -49,6 +49,21 @@ def carte(img, alt, texte, href, action, rdv=False):
     return (f'<a class="mx-carte" href="{href}"{data}><span class="mx-carte-img" style="background-image:url(/{img})" role="img" aria-label="{alt}"></span>'
             f'<span class="mx-carte-txt"><span>{texte}</span><b>{action}</b></span></a>')
 
+# l'application carburant (réalisation terrassement), dessinée dans un grand téléphone
+TEL = """<span class="mx-tel" aria-hidden="true"><span class="mx-tel-cadre"><span class="mx-tel-ecran">
+  <span class="mx-tel-barre"><i>9:41</i><em></em></span>
+  <span class="mx-app-tete"><b>Carburant</b><small>Aujourd'hui</small></span>
+  <span class="mx-app-kpi"><b>11</b><small>engins suivis</small></span>
+  <span class="mx-app-ligne"><span><b>Pelle</b><small>Compteur avant, après</small></span><i class="mx-ph"></i><i class="mx-ph"></i><em>Validé</em></span>
+  <span class="mx-app-ligne"><span><b>Chargeuse</b><small>Compteur avant, après</small></span><i class="mx-ph"></i><i class="mx-ph"></i><em>Validé</em></span>
+  <span class="mx-app-ligne"><span><b>Tombereau</b><small>Plein en cours</small></span><i class="mx-ph"></i><i class="mx-ph mx-ph-vide"></i><em class="mx-attente">Photo</em></span>
+  <span class="mx-app-bouton">Nouveau plein</span>
+</span></span></span>"""
+
+def carte_tel(texte, href, action):
+    return (f'<a class="mx-carte mx-carte--tel" href="{href}">{TEL}'
+            f'<span class="mx-carte-txt"><span>{texte}</span><b>{action}</b></span></a>')
+
 def panneau(i, titre, entrees, extra=""):
     return f'''        <li class="mn-item">
           <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p{i}">{titre}</button>
@@ -70,7 +85,7 @@ nav = f'''<ul class="mn-list">
 {panneau(1, "Ce qui vous ralentit", RALENTIT,
          '<div class="mx-cote">' + carte("p-comptable.jpg", "Des papiers à recopier", "Quelle phrase est la vôtre ? 15 minutes suffisent pour en parler.", "/#rendez-vous", "Réserver 15 minutes", True) + '</div>' + villes)}
 {panneau(2, "Ce qu'on règle", REGLE,
-         '<div class="mx-cote">' + carte("capture-portefeuille.jpg", "Un outil construit par SL Agence", "Chaque outil est construit sur mesure, à Friesen. Premier outil en 7 jours, devis sous 24 h et prix ferme.", "/realisations", "Voir les réalisations") + '</div>')}
+         '<div class="mx-cote">' + carte_tel("Chez un client en terrassement, le dirigeant voit les pleins du jour, le jour même.", "/realisations#terrain", "Voir les réalisations") + '</div>')}
         <li class="mn-item mx-simple"><a class="mn-top mx-accent" href="/realisations">Réalisations</a></li>
         <li class="mn-item">
           <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p4">Ressources</button>
@@ -79,7 +94,7 @@ nav = f'''<ul class="mn-list">
           </div></div>
         </li>
         <li class="mn-item mx-etroit">
-          <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p5">L'agence</button>
+          <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p5">SL Agence</button>
           <div class="mn-panel" id="mn-p5"><div class="mn-in mx-in mx-liste">{"".join(lien(*e) for e in AGENCE)}</div></div>
         </li>
       </ul>'''

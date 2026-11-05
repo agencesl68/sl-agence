@@ -474,6 +474,35 @@
   .mx-simple .mn-top{width:100%;font-size:1.25rem;font-weight:600;padding:1rem 0}
   .mx-simple .mn-top::after{display:none}
 }
+
+/* carte « Ce qu'on règle » : l'application carburant dans un grand téléphone */
+.mx-carte--tel{background:radial-gradient(120% 80% at 50% 0%,rgba(169,196,159,.22),transparent 60%),#0a0f09}
+.mx-tel{display:flex;justify-content:center;padding:1.2rem 1rem 0;height:310px;overflow:hidden}
+.mx-tel-cadre{display:block;width:240px;height:470px;padding:8px;border-radius:38px;
+  background:linear-gradient(145deg,#3a4538 0%,#151b14 40%,#0d110c 60%,#2b3429 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 30px 60px -20px rgba(0,0,0,.9),0 0 60px -10px rgba(169,196,159,.25);
+  transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.mx-carte--tel:hover .mx-tel-cadre{transform:translateY(-6px)}
+.mx-tel-ecran{display:flex;flex-direction:column;gap:6px;height:100%;padding:34px 11px 11px;border-radius:31px;position:relative;
+  background:linear-gradient(rgba(169,196,159,.05) 1px,transparent 1px) 0 0/12px 12px,linear-gradient(90deg,rgba(169,196,159,.05) 1px,transparent 1px) 0 0/12px 12px,#111a10;color:#eef3eb}
+.mx-tel-barre{position:absolute;left:0;right:0;top:8px;display:flex;justify-content:space-between;align-items:center;padding:0 18px}
+.mx-tel-barre i{font-style:normal;font-size:.55rem;font-weight:600;color:#dfe8d8}
+.mx-tel-barre em{position:absolute;left:50%;top:-1px;width:56px;height:15px;margin-left:-28px;border-radius:99px;background:#050805}
+.mx-app-tete{display:flex;justify-content:space-between;align-items:baseline;padding:2px 2px 0}
+.mx-app-tete b{font-size:1.02rem;font-weight:600;letter-spacing:-.02em}
+.mx-app-tete small{font-size:.55rem;color:rgba(223,232,216,.55)}
+.mx-app-kpi{display:block;padding:7px 9px;border-radius:9px;background:rgba(169,196,159,.14)}
+.mx-app-kpi b{font-size:1.15rem;font-weight:600;color:#a9c49f;letter-spacing:-.03em;margin-right:5px}
+.mx-app-kpi small{font-size:.58rem;color:rgba(223,232,216,.75)}
+.mx-app-ligne{display:flex;align-items:center;gap:4px;padding:6px 7px;border-radius:9px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.mx-app-ligne > span{flex:1;min-width:0;display:flex;flex-direction:column}
+.mx-app-ligne b{font-size:.68rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mx-app-ligne small{font-size:.54rem;color:rgba(223,232,216,.55);white-space:nowrap}
+.mx-ph{display:block;flex:0 0 auto;width:17px;height:17px;border-radius:4px;background:linear-gradient(135deg,#a9c49f,#3c4f3b)}
+.mx-ph-vide{background:none;box-shadow:inset 0 0 0 1px rgba(169,196,159,.5)}
+.mx-app-ligne em{flex:0 0 auto;font-style:normal;font-size:.5rem;font-weight:600;padding:3px 6px;border-radius:99px;background:#a9c49f;color:#0d130c}
+.mx-app-ligne em.mx-attente{background:rgba(222,176,132,.16);color:#e2bf9c}
+.mx-app-bouton{display:block;margin-top:2px;padding:7px;text-align:center;border-radius:99px;background:#a9c49f;color:#0d130c;font-size:.62rem;font-weight:600}
 </style>
 </head>
 
@@ -503,7 +532,15 @@
           <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p2">Ce qu'on règle</button>
           <div class="mn-panel" id="mn-p2"><div class="mn-in mx-in">
             <div class="mx-grille"><a class="mx-lien" href="/logiciel-sur-mesure"><b>Votre logiciel sur mesure</b><span>Un outil fait pour votre façon de travailler.</span></a><a class="mx-lien" href="/application-web-sur-mesure"><b>Application web sur mesure</b><span>Sur le téléphone, la tablette et l'ordinateur.</span></a><a class="mx-lien" href="/crm-sur-mesure"><b>CRM sur mesure</b><span>Vos clients, vos devis et vos relances au même endroit.</span></a><a class="mx-lien" href="/agent-ia-pme"><b>Assistant IA</b><span>Une photo ou un message vocal : c'est noté pour vous.</span></a><a class="mx-lien" href="/bon-intervention-numerique"><b>Bon d'intervention numérique</b><span>Rempli et signé sur place, même sans réseau.</span></a><a class="mx-lien" href="/relance-factures-automatique"><b>Relances automatiques</b><span>Vos factures relancées jusqu'au règlement.</span></a><a class="mx-lien" href="/application-pointage-chantier"><b>Heures de chantier</b><span>Pointées sur le téléphone, avant de rentrer.</span></a><a class="mx-lien" href="/logiciel-gestion-stock-sur-mesure"><b>Stocks et commandes</b><span>Ce qui entre et ce qui sort, toujours à jour.</span></a><a class="mx-lien" href="/connecter-logiciels-entreprise"><b>Connecter ses logiciels</b><span>Compta, agenda, devis : tout se parle.</span></a><a class="mx-lien" href="/facture-electronique-tpe"><b>Facture électronique</b><span>Reçue sans retaper, prête pour l'envoi de 2027.</span></a></div>
-            <div class="mx-cote"><a class="mx-carte" href="/realisations"><span class="mx-carte-img" style="background-image:url(/capture-portefeuille.jpg)" role="img" aria-label="Un outil construit par SL Agence"></span><span class="mx-carte-txt"><span>Chaque outil est construit sur mesure, à Friesen. Premier outil en 7 jours, devis sous 24 h et prix ferme.</span><b>Voir les réalisations</b></span></a></div>
+            <div class="mx-cote"><a class="mx-carte mx-carte--tel" href="/realisations#terrain"><span class="mx-tel" aria-hidden="true"><span class="mx-tel-cadre"><span class="mx-tel-ecran">
+  <span class="mx-tel-barre"><i>9:41</i><em></em></span>
+  <span class="mx-app-tete"><b>Carburant</b><small>Aujourd'hui</small></span>
+  <span class="mx-app-kpi"><b>11</b><small>engins suivis</small></span>
+  <span class="mx-app-ligne"><span><b>Pelle</b><small>Compteur avant, après</small></span><i class="mx-ph"></i><i class="mx-ph"></i><em>Validé</em></span>
+  <span class="mx-app-ligne"><span><b>Chargeuse</b><small>Compteur avant, après</small></span><i class="mx-ph"></i><i class="mx-ph"></i><em>Validé</em></span>
+  <span class="mx-app-ligne"><span><b>Tombereau</b><small>Plein en cours</small></span><i class="mx-ph"></i><i class="mx-ph mx-ph-vide"></i><em class="mx-attente">Photo</em></span>
+  <span class="mx-app-bouton">Nouveau plein</span>
+</span></span></span><span class="mx-carte-txt"><span>Chez un client en terrassement, le dirigeant voit les pleins du jour, le jour même.</span><b>Voir les réalisations</b></span></a></div>
           </div></div>
         </li>
         <li class="mn-item mx-simple"><a class="mn-top mx-accent" href="/realisations">Réalisations</a></li>
@@ -514,7 +551,7 @@
           </div></div>
         </li>
         <li class="mn-item mx-etroit">
-          <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p5">L'agence</button>
+          <button class="mn-top" type="button" aria-expanded="false" aria-controls="mn-p5">SL Agence</button>
           <div class="mn-panel" id="mn-p5"><div class="mn-in mx-in mx-liste"><a class="mx-lien" href="/#questions"><b>Questions fréquentes</b><span>Prix, délais, données, équipes : nos réponses.</span></a><a class="mx-lien" href="/#methode"><b>Notre méthode</b><span>4 temps, du premier appel à l'outil en main.</span></a><a class="mx-lien" href="/a-propos"><b>À propos</b><span>Qui est derrière SL Agence, et pourquoi.</span></a><a class="mx-lien" href="/agence-ia-automatisation-haut-rhin"><b>Bien choisir son agence</b><span>Les points à vérifier avant de signer.</span></a><a class="mx-lien" href="/application-bon-epandage-agricole"><b>Étude de cas</b><span>Le bon d'épandage, du papier au téléphone.</span></a></div></div>
         </li>
       </ul>

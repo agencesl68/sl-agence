@@ -77,3 +77,32 @@
   .mx-simple .mn-top{width:100%;font-size:1.25rem;font-weight:600;padding:1rem 0}
   .mx-simple .mn-top::after{display:none}
 }
+
+/* carte « Ce qu'on règle » : l'application carburant dans un grand téléphone */
+.mx-carte--tel{background:radial-gradient(120% 80% at 50% 0%,rgba(169,196,159,.22),transparent 60%),#0a0f09}
+.mx-tel{display:flex;justify-content:center;padding:1.2rem 1rem 0;height:310px;overflow:hidden}
+.mx-tel-cadre{display:block;width:240px;height:470px;padding:8px;border-radius:38px;
+  background:linear-gradient(145deg,#3a4538 0%,#151b14 40%,#0d110c 60%,#2b3429 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 30px 60px -20px rgba(0,0,0,.9),0 0 60px -10px rgba(169,196,159,.25);
+  transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.mx-carte--tel:hover .mx-tel-cadre{transform:translateY(-6px)}
+.mx-tel-ecran{display:flex;flex-direction:column;gap:6px;height:100%;padding:34px 11px 11px;border-radius:31px;position:relative;
+  background:linear-gradient(rgba(169,196,159,.05) 1px,transparent 1px) 0 0/12px 12px,linear-gradient(90deg,rgba(169,196,159,.05) 1px,transparent 1px) 0 0/12px 12px,#111a10;color:#eef3eb}
+.mx-tel-barre{position:absolute;left:0;right:0;top:8px;display:flex;justify-content:space-between;align-items:center;padding:0 18px}
+.mx-tel-barre i{font-style:normal;font-size:.55rem;font-weight:600;color:#dfe8d8}
+.mx-tel-barre em{position:absolute;left:50%;top:-1px;width:56px;height:15px;margin-left:-28px;border-radius:99px;background:#050805}
+.mx-app-tete{display:flex;justify-content:space-between;align-items:baseline;padding:2px 2px 0}
+.mx-app-tete b{font-size:1.02rem;font-weight:600;letter-spacing:-.02em}
+.mx-app-tete small{font-size:.55rem;color:rgba(223,232,216,.55)}
+.mx-app-kpi{display:block;padding:7px 9px;border-radius:9px;background:rgba(169,196,159,.14)}
+.mx-app-kpi b{font-size:1.15rem;font-weight:600;color:#a9c49f;letter-spacing:-.03em;margin-right:5px}
+.mx-app-kpi small{font-size:.58rem;color:rgba(223,232,216,.75)}
+.mx-app-ligne{display:flex;align-items:center;gap:4px;padding:6px 7px;border-radius:9px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.mx-app-ligne > span{flex:1;min-width:0;display:flex;flex-direction:column}
+.mx-app-ligne b{font-size:.68rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mx-app-ligne small{font-size:.54rem;color:rgba(223,232,216,.55);white-space:nowrap}
+.mx-ph{display:block;flex:0 0 auto;width:17px;height:17px;border-radius:4px;background:linear-gradient(135deg,#a9c49f,#3c4f3b)}
+.mx-ph-vide{background:none;box-shadow:inset 0 0 0 1px rgba(169,196,159,.5)}
+.mx-app-ligne em{flex:0 0 auto;font-style:normal;font-size:.5rem;font-weight:600;padding:3px 6px;border-radius:99px;background:#a9c49f;color:#0d130c}
+.mx-app-ligne em.mx-attente{background:rgba(222,176,132,.16);color:#e2bf9c}
+.mx-app-bouton{display:block;margin-top:2px;padding:7px;text-align:center;border-radius:99px;background:#a9c49f;color:#0d130c;font-size:.62rem;font-weight:600}
