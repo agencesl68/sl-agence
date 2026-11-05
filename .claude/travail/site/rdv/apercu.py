@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Aperçu privé (Artifact claude.ai) de l'accueil actuel avec la prise de rendez-vous.
 
-    python3 .claude/travail/site/rdv/apercu.py <dossier de sortie>
+    python3 .claude/travail/site/rdv/apercu.py <dossier de sortie> [page source, index.html par défaut]
 
 Les feuilles et scripts de /assets sont intégrés à la page ; rien n'est envoyé
 (formulaire et prise de rendez-vous neutralisés) ; liens internes → slagence.fr.
@@ -9,7 +9,8 @@ Les feuilles et scripts de /assets sont intégrés à la page ; rien n'est envoy
 import pathlib, re, shutil, sys
 RACINE = pathlib.Path(__file__).resolve().parents[4]
 OUT = pathlib.Path(sys.argv[1]).resolve(); OUT.mkdir(parents=True, exist_ok=True)
-h = (RACINE / "index.html").read_text(encoding="utf-8")
+SRC = pathlib.Path(sys.argv[2]).resolve() if len(sys.argv) > 2 else RACINE / "index.html"   # 2e argument facultatif : une maquette
+h = SRC.read_text(encoding="utf-8")
 
 h = re.sub(r"<!DOCTYPE html>\s*<html[^>]*>\s*<head>\s*", "", h, count=1, flags=re.I)
 h = re.sub(r"<meta charset[^>]*>\s*", "", h, count=1)
@@ -29,7 +30,7 @@ h = re.sub(r'<link rel="preload" href="/fonts/[^>]*>\s*', "", h)
 h = re.sub(r"@font-face\{[^}]*\}", "", h)
 h = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap">\n<style>:root{color-scheme:dark}</style>\n' + h
 
-for f in ["logo-sl.png", "logo-sl-mark.png"]:
+for f in ["logo-sl.png", "logo-sl-mark.png", "p-comptable.webp"]:
     h = h.replace(f'"/{f}"', f'"{f}"').replace(f"(/{f})", f"({f})").replace(f'("/{f}")', f'("{f}")')
     shutil.copy(RACINE / f, OUT / f)
 
