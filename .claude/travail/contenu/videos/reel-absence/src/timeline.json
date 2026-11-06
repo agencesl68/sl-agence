@@ -5,53 +5,205 @@
   "hauteur": 1920,
   "duree": 900,
   "scenes": {
-    "hook":       { "debut": 0,   "fin": 126 },
-    "recherche":  { "debut": 114, "fin": 276 },
-    "dependance": { "debut": 270, "fin": 516 },
-    "solution":   { "debut": 504, "fin": 726 },
-    "benefice":   { "debut": 714, "fin": 816 },
-    "fin":        { "debut": 806, "fin": 900 }
+    "hook": {
+      "debut": 0,
+      "fin": 126
+    },
+    "recherche": {
+      "debut": 114,
+      "fin": 276
+    },
+    "dependance": {
+      "debut": 270,
+      "fin": 516
+    },
+    "solution": {
+      "debut": 504,
+      "fin": 726
+    },
+    "benefice": {
+      "debut": 714,
+      "fin": 816
+    },
+    "fin": {
+      "debut": 806,
+      "fin": 900
+    }
   },
   "bascule": 390,
   "sons": [
-    { "t": 0,   "son": "pop" },
-    { "t": 20,  "son": "clic" },
-    { "t": 30,  "son": "notification" },
-    { "t": 58,  "son": "impact" },
-    { "t": 62,  "son": "dispersion" },
-    { "t": 110, "son": "souffle" },
-    { "t": 130, "son": "notification" },
-    { "t": 172, "son": "clic" },
-    { "t": 174, "son": "frappe", "duree": 18 },
-    { "t": 200, "son": "erreur" },
-    { "t": 206, "son": "fenetre" },
-    { "t": 214, "son": "fenetre" },
-    { "t": 222, "son": "fenetre" },
-    { "t": 230, "son": "fenetre" },
-    { "t": 238, "son": "fenetre" },
-    { "t": 242, "son": "erreur" },
-    { "t": 248, "son": "coupure" },
-    { "t": 254, "son": "coupure" },
-    { "t": 272, "son": "souffle" },
-    { "t": 336, "son": "coupure" },
-    { "t": 342, "son": "coupure" },
-    { "t": 348, "son": "coupure" },
-    { "t": 352, "son": "deconnexion" },
-    { "t": 350, "son": "question" },
-    { "t": 392, "son": "impulsion" },
-    { "t": 400, "son": "aspiration" },
-    { "t": 470, "son": "fusion" },
-    { "t": 546, "son": "clic" },
-    { "t": 548, "son": "frappe", "duree": 16 },
-    { "t": 566, "son": "succes" },
-    { "t": 584, "son": "clic" },
-    { "t": 590, "son": "ouverture" },
-    { "t": 636, "son": "validation" },
-    { "t": 650, "son": "frappe", "duree": 34 },
-    { "t": 720, "son": "souffle" },
-    { "t": 746, "son": "avance" },
-    { "t": 812, "son": "ligne" },
-    { "t": 822, "son": "logo" }
+    {
+      "t": 0,
+      "son": "pop"
+    },
+    {
+      "t": 20,
+      "son": "clic"
+    },
+    {
+      "t": 30,
+      "son": "notification"
+    },
+    {
+      "t": 58,
+      "son": "impact"
+    },
+    {
+      "t": 62,
+      "son": "dispersion"
+    },
+    {
+      "t": 110,
+      "son": "souffle"
+    },
+    {
+      "t": 130,
+      "son": "notification"
+    },
+    {
+      "t": 172,
+      "son": "clic"
+    },
+    {
+      "t": 174,
+      "son": "frappe",
+      "duree": 18
+    },
+    {
+      "t": 200,
+      "son": "erreur"
+    },
+    {
+      "t": 206,
+      "son": "fenetre"
+    },
+    {
+      "t": 214,
+      "son": "fenetre"
+    },
+    {
+      "t": 222,
+      "son": "fenetre"
+    },
+    {
+      "t": 230,
+      "son": "fenetre"
+    },
+    {
+      "t": 238,
+      "son": "fenetre"
+    },
+    {
+      "t": 242,
+      "son": "erreur"
+    },
+    {
+      "t": 248,
+      "son": "coupure"
+    },
+    {
+      "t": 254,
+      "son": "coupure"
+    },
+    {
+      "t": 272,
+      "son": "souffle"
+    },
+    {
+      "t": 336,
+      "son": "coupure"
+    },
+    {
+      "t": 342,
+      "son": "coupure"
+    },
+    {
+      "t": 348,
+      "son": "coupure"
+    },
+    {
+      "t": 352,
+      "son": "deconnexion"
+    },
+    {
+      "t": 350,
+      "son": "question"
+    },
+    {
+      "t": 392,
+      "son": "impulsion"
+    },
+    {
+      "t": 400,
+      "son": "aspiration"
+    },
+    {
+      "t": 470,
+      "son": "fusion"
+    },
+    {
+      "t": 546,
+      "son": "clic"
+    },
+    {
+      "t": 548,
+      "son": "frappe",
+      "duree": 16
+    },
+    {
+      "t": 566,
+      "son": "succes"
+    },
+    {
+      "t": 584,
+      "son": "clic"
+    },
+    {
+      "t": 590,
+      "son": "ouverture"
+    },
+    {
+      "t": 636,
+      "son": "validation"
+    },
+    {
+      "t": 650,
+      "son": "frappe",
+      "duree": 34
+    },
+    {
+      "t": 720,
+      "son": "souffle"
+    },
+    {
+      "t": 746,
+      "son": "avance"
+    },
+    {
+      "t": 812,
+      "son": "ligne"
+    },
+    {
+      "t": 822,
+      "son": "logo"
+    }
   ],
-  "musique": { "tension_fin": 392, "montee_debut": 352, "apaisee_debut": 470, "fin_nette": 896 }
+  "musique": {
+    "tension_fin": 392,
+    "montee_debut": 352,
+    "apaisee_debut": 470,
+    "fin_nette": 896
+  },
+  "voix": {
+    "_aide": "Début (en secondes) de chaque segment de voix off. Un fichier par segment dans voix-off/ (1.m4a … 7.m4a) ou une seule prise voix-off/prise.m4a calée sur 0:00.",
+    "segments": [
+      0.4,
+      4.2,
+      9.2,
+      13.2,
+      17.3,
+      24.2,
+      27.3
+    ]
+  }
 }
