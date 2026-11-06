@@ -3,6 +3,13 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-11-06 — Reel Instagram motion design « Votre entreprise s'arrête quand un salarié est absent ? »
+- Livré : vidéo 30 s, 1080 × 1920, H.264/AAC (`travail/contenu/videos/reel-absence/out/reel-sl-agence-absence.mp4`),
+  sources Remotion modifiables (textes, couleurs, timing centralisés), bande-son originale synthétisée, logo officiel vectorisé.
+- Contrôle qualité : À CORRIGER 7,5/10 → ponctuation orpheline et rouge hors erreur corrigés, nouveau rendu ; correction c043.
+- Gardé à la demande de Loïc : rouge sur « personne » à 0:02, phrase « Découvrez nos solutions sur slagence.fr ».
+- À faire par Loïc : publier, ajouter dans la légende « Exemple illustratif, personnages fictifs. ».
+
 ## 2026-11-05 — Audit GEO / SEO complet (phase 1, aucune modification du site)
 
 - Demande explicite de Loïc. Équipe : seo-site ×2, veille, analyste ; contrôle qualité 2 passes (6,5 → 7,5/10, corrections de la 2e passe appliquées par le Manager). Rapport : `travail/seo/audit-geo-2026-11/00-rapport-audit-geo.md`.

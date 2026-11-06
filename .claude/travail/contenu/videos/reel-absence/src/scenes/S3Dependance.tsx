@@ -220,7 +220,7 @@ export const S3Dependance: React.FC = () => {
         <Revele k={k1}><div style={{ fontSize: 60, fontWeight: 600, letterSpacing: '-0.035em', color: melange(C.blanc, C.gris, t(l, 70, 80)) }}>{T.dependance.ligne1}</div></Revele>
         <Revele k={k2} style={{ marginTop: 18 }}><div style={{ fontSize: 86, fontWeight: 650, letterSpacing: '-0.04em', color: C.blanc, lineHeight: 1.04 }}>{T.dependance.ligne2a}</div></Revele>
         <Revele k={t(l, 74, 86)}><div style={{ fontSize: 86, fontWeight: 650, letterSpacing: '-0.04em', color: C.blanc, lineHeight: 1.04 }}>
-          {T.dependance.ligne2b}{' '}
+          {T.dependance.ligne2b}{'\u00a0'}
           <span style={{ display: 'inline-block', color: C.blanc, transform: `rotate(${(1 - kQ) * -28}deg) scale(${0.4 + 0.6 * kQ})`, transformOrigin: '50% 80%', opacity: Math.min(1, kQ * 2) }}>?</span>
         </div></Revele>
       </div>
@@ -229,7 +229,7 @@ export const S3Dependance: React.FC = () => {
       <div style={{ position: 'absolute', left: 90, right: 90, top: 250, fontFamily: POLICE, opacity: 1 - sortieQ, transform: `translateY(${-sortieQ * 24}px)` }}>
         <Revele k={q1}><div style={{ fontSize: 80, fontWeight: 650, letterSpacing: '-0.04em', color: C.blanc, lineHeight: 1.05 }}>{T.bascule.ligne1}</div></Revele>
         <Revele k={q2}><div style={{ fontSize: 80, fontWeight: 650, letterSpacing: '-0.04em', color: C.blanc, lineHeight: 1.05 }}>
-          au <span style={{ color: C.vertClair }}>même endroit</span> ?
+          au <span style={{ color: C.vertClair }}>même endroit</span> ?
         </div></Revele>
       </div>
     </AbsoluteFill>

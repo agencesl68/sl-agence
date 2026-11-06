@@ -82,7 +82,7 @@ const ContenuSecondaire: React.FC<{ id: string; f: number; debut: number }> = ({
     messages: (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         <div style={{ alignSelf: 'flex-start', background: '#FFFFFF', border: `1px solid ${C.papierBord}`, borderRadius: 14, padding: '10px 14px', fontSize: 20 }}>
-          Quelqu'un sait où est le dossier Martin ?
+          Quelqu'un sait où est le dossier Martin ?
         </div>
         <div style={{ alignSelf: 'flex-end', background: C.papier2, borderRadius: 14, padding: '10px 14px', fontSize: 20, color: C.encreGris }}>Je crois que c'est Thomas qui l'a…</div>
       </div>
@@ -168,7 +168,7 @@ export const S2Recherche: React.FC = () => {
                           <Avatar lettre="M" taille={44} fond="#C9D3C6" couleur={C.vertSombre} />
                           <div>
                             <div style={{ fontSize: 22, fontWeight: 600 }}>{T.recherche.client}</div>
-                            <div style={{ fontSize: 18, color: C.encreGris }}>Où en est mon dossier ?</div>
+                            <div style={{ fontSize: 16, color: C.encreGris, whiteSpace: 'nowrap' }}>Où en est mon dossier ?</div>
                           </div>
                           <div style={{ width: 11, height: 11, borderRadius: 11, background: C.vertMoyen, marginLeft: 'auto' }} />
                         </div>
@@ -280,7 +280,7 @@ export const S2Recherche: React.FC = () => {
       <div style={{ position: 'absolute', left: 90, top: 1290, fontFamily: POLICE, transform: `translateY(${-sortie * 30}px)` }}>
         <Revele k={k1}><div style={{ fontSize: 72, fontWeight: 600, letterSpacing: '-0.035em', color: melange(C.blanc, C.gris, t(f, 128, 138)) }}>{T.recherche.ligne1}</div></Revele>
         <Revele k={k2} style={{ marginTop: 10 }}><div style={{ fontSize: 72, fontWeight: 600, letterSpacing: '-0.035em', color: C.blanc }}>
-          Mais <span style={{ color: C.rouge }}>personne</span> ne sait où.
+          Mais <span style={{ fontWeight: 750 }}>personne</span> ne sait où.
         </div></Revele>
       </div>
     </AbsoluteFill>

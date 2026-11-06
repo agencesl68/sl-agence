@@ -53,7 +53,7 @@ export const S7Fin: React.FC = () => {
       <div style={{ position: 'absolute', left: 0, width: 1080, top: 1000, textAlign: 'center', fontFamily: POLICE }}>
         <Revele k={s1}><div style={{ fontSize: 60, fontWeight: 600, letterSpacing: '-0.035em', color: C.blanc, lineHeight: 1.1 }}>{T.fin.signature}</div></Revele>
         <Revele k={s2}><div style={{ fontSize: 60, fontWeight: 600, letterSpacing: '-0.035em', color: C.blanc, lineHeight: 1.1 }}>{T.fin.signature2}</div></Revele>
-        <div style={{ marginTop: 56, opacity: site, transform: `translateY(${(1 - site) * 14}px)`, fontSize: 36, color: C.gris }}>
+        <div style={{ marginTop: 56, opacity: site, transform: `translateY(${(1 - site) * 14}px)`, fontSize: 42, color: C.gris }}>
           {T.fin.avantSite}
           <span style={{ position: 'relative', color: C.blanc, fontWeight: 600 }}>
             {T.fin.site}

@@ -14,7 +14,7 @@ export const T = {
   },
   recherche: {
     client: 'Martin',
-    message: 'Bonjour, où en est mon dossier ?',
+    message: 'Bonjour, où en est mon dossier ?',
     recherche: 'Dossier Martin',
     aucun: 'Aucun résultat trouvé',
     introuvable: 'Information introuvable',
@@ -26,7 +26,7 @@ export const T = {
     ligne2a: "Et toute l'équipe",
     ligne2b: 'est bloquée',
   },
-  bascule: { ligne1: 'Et si tout était', ligne2: 'au même endroit ?' },
+  bascule: { ligne1: 'Et si tout était', ligne2: 'au même endroit ?' },
   solution: {
     appli: 'Espace équipe',
     appliSous: 'Dossiers clients',
