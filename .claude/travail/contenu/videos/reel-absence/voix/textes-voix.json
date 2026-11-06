@@ -1,5 +1,5 @@
 {
-  "_aide": "Texte validé (voix-off.md). Un segment par scène, dans l'ordre. Départs en secondes : src/timeline.json → voix.segments.",
+  "_aide": "Texte validé (voix-off.md). Un segment par scène, dans l'ordre. Départs en secondes : src/timeline.json → voix.segments. Le segment 7 est écrit en phonétique pour que la voix prononce bien « SL Agence point FR ».",
   "segments": [
     "Thomas est absent. Et là, tout se complique.",
     "Un client attend une réponse. Vous cherchez partout... Rien.",
@@ -7,6 +7,6 @@
     "Maintenant, imaginez l'inverse.",
     "Vous tapez le nom du client. Le dossier s'ouvre, même si Thomas est absent aujourd'hui.",
     "Le travail continue, tout simplement.",
-    "S L agence, point F R."
+    "Esse-elle Agence... point effe-erre."
   ]
 }

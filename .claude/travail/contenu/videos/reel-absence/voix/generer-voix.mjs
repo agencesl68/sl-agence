@@ -65,7 +65,11 @@ for (let i = 0; i < segments.length; i++) {
     headers: { 'xi-api-key': CLE, 'Content-Type': 'application/json', Accept: 'audio/mpeg' },
     body: JSON.stringify({
       text: segments[i], model_id: MODELE,
-      voice_settings: { stability: 0.55, similarity_boost: 0.8, style: 0.15, use_speaker_boost: true, speed: 1.0 },
+      // phrases voisines : la voix enchaîne naturellement, comme une seule prise
+      previous_text: segments.slice(0, i).join(' ') || undefined,
+      next_text: segments.slice(i + 1).join(' ') || undefined,
+      // moins de stabilité + un peu de style = intonation plus humaine, moins robotique
+      voice_settings: { stability: 0.32, similarity_boost: 0.78, style: 0.35, use_speaker_boost: true, speed: 0.97 },
     }),
   });
   if (!rep.ok) {
@@ -87,7 +91,10 @@ for (let i = 0; i < segments.length; i++) {
 writeFileSync(join(RACINE, 'src', 'voix.json'), JSON.stringify({ segments: resultat }, null, 2));
 console.log('Voix prête.');
 
-if (!process.argv.includes('--sans-rendu')) {
+if (process.argv.includes('--sans-rendu')) {
+  console.log('Fichiers : ' + join(RACINE, 'public', 'voix'));
+  spawnSync(process.platform === 'darwin' ? 'open' : 'xdg-open', [join(RACINE, 'public', 'voix')], { stdio: 'ignore' });
+} else {
   const r = spawnSync('node', [join(RACINE, 'outils', 'exporter.mjs')], { stdio: 'inherit', cwd: RACINE });
   process.exit(r.status ?? 1);
 }
