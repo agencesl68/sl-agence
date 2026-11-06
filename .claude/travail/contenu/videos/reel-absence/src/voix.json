@@ -3,37 +3,32 @@
     {
       "fichier": "voix/1.mp3",
       "debut": 0.4,
-      "duree": 2.04
+      "duree": 2.1
     },
     {
       "fichier": "voix/2.mp3",
       "debut": 4.2,
-      "duree": 3.24
+      "duree": 3.3
     },
     {
       "fichier": "voix/3.mp3",
       "debut": 9.2,
-      "duree": 3.11
+      "duree": 3.17
     },
     {
       "fichier": "voix/4.mp3",
       "debut": 13.2,
-      "duree": 1.7
+      "duree": 1.79
     },
     {
       "fichier": "voix/5.mp3",
       "debut": 17.3,
-      "duree": 3.76
+      "duree": 3.83
     },
     {
       "fichier": "voix/6.mp3",
       "debut": 24.2,
-      "duree": 1.91
-    },
-    {
-      "fichier": "voix/7.mp3",
-      "debut": 27.1,
-      "duree": 1.67
+      "duree": 1.97
     }
   ]
 }

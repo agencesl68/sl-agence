@@ -24,5 +24,5 @@ lance(['remotion', 'ffmpeg', '-v', 'error', '-y', '-i', 'out/apercus/maitre.mp4'
   '-c:v', 'libx264', '-preset', 'slow', '-crf', '15', '-profile:v', 'high', '-level', '4.2', '-pix_fmt', 'yuv420p',
   '-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709',
   '-vf', 'scale=in_range=full:out_range=tv', '-r', '30', '-g', '60',
-  '-af', 'loudnorm=I=-14:TP=-1.5:LRA=9', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart', SORTIE]);
+  '-af', 'loudnorm=I=-14:TP=-2.5:LRA=9', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart', SORTIE]);
 console.log(`Vidéo prête : ${SORTIE}`);
