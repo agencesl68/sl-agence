@@ -98,7 +98,7 @@ Constat confirmé, hors lot (action 7) : **6 articles sans bouton de rendez-vous
 
 - **Zone dans la fiche cachée des pages BTP, transport, artisan** : elles listent Strasbourg, Sélestat, Haguenau (en Alsace, donc dans la zone), mais ces villes ne sont écrites dans le texte que sur la page BTP. À relire page par page.
 - **`/realisations`** crée un 2e nœud `WebSite` sans identifiant ; **`/blog/`** n'a pas de fil d'Ariane caché. Aucune erreur Google attendue ; à vérifier avec le test des résultats enrichis avant de toucher.
-- **Lien LinkedIn** : le site utilise `linkedin.com/company/sl-agence/` partout (vérifié), alors que la note du 21/10 cite `company/116042975`. Les deux renvoient 403 aux robots → **toi** : ouvre les deux dans un navigateur ; s'ils mènent à la même page, on garde l'adresse `/company/sl-agence/` et je corrige la note.
+- ~~**Lien LinkedIn**~~ **Résolu le 06/11** : le passage de `company/116042975` à `company/sl-agence/` (adresse publique) a été fait volontairement le 26/10 (commit ec388be) ; la note de mémoire est corrigée.
 - **Cannibalisation d'intention** sur « agence IA / automatisation Mulhouse » entre `/`, `/agence-ia-automatisation-haut-rhin` et `/logiciel-sur-mesure` (pas de texte dupliqué ; le H1 de l'accueil est encore « …logiciel sur mesure à Mulhouse », décision en attente depuis octobre). À confirmer avec Search Console > Performances > Requêtes, filtre sur la requête, onglet Pages.
 - **Identité peu présente dans le corps de 12 pages** (« SL Agence » seulement dans le menu, le pied et le JSON-LD : agent-ia-pme, automatisation, bon-intervention, connecter, facture-électronique, artisan, btp, transport, travaux agricoles, realisations, relance-factures, remplacer-excel). [HYPOTHÈSE] : une phrase « qui construit cet outil » aide le lecteur et l'extraction (« Who created the content » de Google) — à tester sur 2-3 pages, pas partout.
 - Liens externes en 403/429/999 pour les robots (LinkedIn, Facebook, Instagram, PagesJaunes, make.com, 2 Legifrance) : probablement des protections anti-robot, à ouvrir à la main.
@@ -265,7 +265,9 @@ Aucune ne touche un title, une meta ou un H1. Chaque page n'est modifiée qu'**a
 
 | Fichier | Mesure en cours | Fin de mesure | PR |
 |---|---|---|---|
-| `sitemap.xml`, `a-propos.html`, `blog/bon-intervention-contenu-modele.html`, `llms.txt` | aucune | — | 1a |
+| `sitemap.xml`, `llms.txt` | aucune | — | 1a |
+| `a-propos.html` | cause de l'expérience « désambiguïsation » du 26/10 (`experiences.md`), indicateur /remplacer-excel + carte ChatGPT | ≈ 23/11 | 1a (`dateModified` seulement, invisible, sans effet sur l'indicateur) |
+| `blog/bon-intervention-contenu-modele.html` | page source du lien testé dans le lot CTR travaux agricoles (`experiences.md`) | ≈ 30/11 | 1a (id d'un H2 seulement, lien testé inchangé) |
 | `facture-electronique-tpe.html`, `blog/feuille-heures-salaries.html` | test CTR du 19/10 | 16/11 | 1b |
 | 3 pages ville | J+28 le 11/11, puis titles réécrits le 11/11 | 11/11 (avec les titles) ou ≈ 09/12 | 1b |
 | `application-web-sur-mesure.html`, `application-pointage-chantier.html`, `crm-sur-mesure.html`, `logiciel-gestion-stock-sur-mesure.html`, `blog/cahier-des-charges-application.html`, `blog/logiciel-gestion-transport-parc-engins.html`, `blog/terrassement-heures-engins-carburant.html` | J+28 des créations du 27-30/10 | ≈ 27/11 (date exacte = indexation constatée) | 1c |
@@ -311,7 +313,7 @@ Aucune ne touche un title, une meta ou un H1. Chaque page n'est modifiée qu'**a
 1. **Nombre total d'avis** sur la fiche Google, et les statistiques des 3 derniers mois (vues, appels, clics).
 2. **Search Console** : export Requêtes + Pages sur 3 mois (pour la cannibalisation et les positions 8-20).
 3. **Bing Webmaster Tools** : la fiche Bing Places est-elle validée ? Que montre le rapport « AI Performance » ?
-4. **LinkedIn** : les deux URL (`/company/sl-agence/` et `/company/116042975/`) mènent-elles à la même page ?
+4. ~~**LinkedIn**~~ résolu le 06/11 (adresse publique `company/sl-agence/` adoptée le 26/10).
 5. **Études de cas** : les réponses aux questions fermées (accord du client, taille, date, délai réel, chiffres mesurés, logiciels reliés, capture possible, témoignage) — liste complète dans `04-…md` partie 3, à voir avec Sacha.
 6. **D'où viennent les chiffres** « jusqu'à 20 h par semaine », « 6 h » et « 3 h » (quel cas, comment mesurés) : on les garde (décision du 03/11), mais les rattacher à une étude de cas les rendrait citables.
 7. **Positionnement** : on garde l'IA dans la phrase de référence ? (l'hypothèse de ta mission la retire ; `agence.md` ne change qu'avec ton accord).

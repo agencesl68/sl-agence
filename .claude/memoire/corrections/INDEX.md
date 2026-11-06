@@ -47,3 +47,4 @@
 | [c039](c039-statut-de-preuve-modifie-dans-une-synthese.md) | seo-site, analyste, manager | moyenne | Une synthèse garde le statut de sa source (SUSPECTÉ ≠ ANOMALIE) ; défaut de comportement = script lu et ligne citée |
 | [c040](c040-pr-planifiee-sur-une-page-en-mesure.md) | seo-site, manager, analyste | moyenne | Lot de modifications croisé avec toutes les mesures en cours ; page en mesure modifiée seulement après son verdict, contenu compris |
 | [c041](c041-mesures-croisees-sans-journal-d-experiences.md) | seo-site, manager, analyste | moyenne | Croiser aussi experiences.md (les 2 tableaux, lignes « prêtes » vérifiées en ligne) ; tout lot de PR = tableau fichier → mesure → date de fin → PR |
+| [c042](c042-date-de-modification-calculee-hors-commits-de-lot.md) | seo-site, analyste, manager | basse | lastmod / dateModified = dernière modification significative du contenu de la page, même dans un commit de lot ; exclusions justifiées |
