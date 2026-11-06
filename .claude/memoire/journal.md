@@ -8,7 +8,8 @@
   sources Remotion modifiables (textes, couleurs, timing centralisés), bande-son originale synthétisée, logo officiel vectorisé.
 - Contrôle qualité : À CORRIGER 7,5/10 → ponctuation orpheline et rouge hors erreur corrigés, nouveau rendu ; correction c043.
 - Gardé à la demande de Loïc : rouge sur « personne » à 0:02, phrase « Découvrez nos solutions sur slagence.fr ».
-- À faire par Loïc : publier, ajouter dans la légende « Exemple illustratif, personnages fictifs. ».
+- Le client s'appelle Clément. Voix off ElevenLabs (texte VALIDÉ 9/10, 7 segments calés, musique baissée sous la voix) : `out/reel-sl-agence-absence-voix.mp4`.
+- À faire par Loïc : publier, ajouter dans la légende « Exemple illustratif, personnages fictifs. ». Rendu sur Mac bloqué (navigateur Remotion refusé par macOS) → rendu fait dans la session cloud.
 
 ## 2026-11-05 — Audit GEO / SEO complet (phase 1, aucune modification du site)
 
