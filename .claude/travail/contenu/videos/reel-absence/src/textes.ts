@@ -1,0 +1,46 @@
+// Tous les textes visibles de la vidéo, au même endroit pour les modifier facilement.
+export const T = {
+  hook: {
+    prenom: 'Thomas',
+    disponible: 'Disponible',
+    absent: "Absent aujourd'hui",
+    notifEntete: "Notification · à l'instant",
+    notif: 'Votre salarié est absent.',
+    phrase2a: 'Et ',
+    phrase2mot: 'personne',
+    phrase2b: ' ne',
+    phrase2ligne2: 'retrouve les dossiers.',
+    dossiers: ['Dossiers clients', 'Planning', 'Devis', 'Factures', 'Contacts', 'Procédures'],
+  },
+  recherche: {
+    client: 'Martin',
+    message: 'Bonjour, où en est mon dossier ?',
+    recherche: 'Dossier Martin',
+    aucun: 'Aucun résultat trouvé',
+    introuvable: 'Information introuvable',
+    ligne1: "L'information existe.",
+    ligne2: 'Mais personne ne sait où.',
+  },
+  dependance: {
+    ligne1: 'Une seule personne absente.',
+    ligne2a: "Et toute l'équipe",
+    ligne2b: 'est bloquée',
+  },
+  bascule: { ligne1: 'Et si tout était', ligne2: 'au même endroit ?' },
+  solution: {
+    appli: 'Espace équipe',
+    appliSous: 'Dossiers clients',
+    placeholder: 'Rechercher un dossier, un client…',
+    titre1: 'Un seul outil.',
+    titre2: 'Les bonnes informations.',
+    sous2: "Pour toute l'équipe.",
+    reponse: "Bonjour, votre intervention est en cours. Nous revenons vers vous dès qu'elle est terminée.",
+  },
+  benefice: { a: 'Votre entreprise', b: 'avance.', c: "Même quand quelqu'un est absent." },
+  fin: {
+    signature: "Des outils qui s'adaptent",
+    signature2: 'à votre entreprise.',
+    site: 'slagence.fr',
+    avantSite: 'Découvrez nos solutions sur ',
+  },
+};
