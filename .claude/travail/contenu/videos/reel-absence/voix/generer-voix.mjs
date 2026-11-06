@@ -73,7 +73,7 @@ for (let i = 0; i < segments.length; i++) {
     console.error(`ERREUR ${rep.status}`);
     if (/permission/i.test(txt)) console.error("Cette clé n'a pas le droit « Text to Speech » : sur elevenlabs.io > Developers > API Keys, crée une clé avec Text to Speech activé.");
     else if (/api_key|unauthor|invalid/i.test(txt)) console.error("Clé refusée par ElevenLabs : vérifie que tu as collé la clé complète (sk_…).");
-    else if (/voice/i.test(txt)) console.error(`La voix ${VOIX} n'est pas trouvée sur ce compte.`);
+    else if (/voice/i.test(txt) || rep.status === 404) console.error(`La voix ${VOIX} n'est pas trouvée sur ce compte (ou la clé n'a pas l'accès « Voix »).`);
     else console.error(txt.replace(/sk_[A-Za-z0-9]+/g, 'sk_***'));
     process.exit(1);
   }
