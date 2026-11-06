@@ -33,7 +33,7 @@
 
 - 2026-10-21 · Numéro unique (décision F0, Loïc) : **07 67 08 19 43** partout (annuaires, fiches, presse, site).
 
-- 2026-10-21 · Profils publics reliés au site (`sameAs` + pied de page) : LinkedIn entreprise https://www.linkedin.com/company/116042975/ , PagesJaunes https://www.pagesjaunes.fr/pros/65429543 . À ajouter quand ils existent : Bing Places (lien public de la fiche), Apple Plans, La Fabrique du Net, Malt/Codeur.
+- 2026-10-21 · Profils publics reliés au site (`sameAs` + pied de page) : LinkedIn entreprise https://www.linkedin.com/company/sl-agence/ (adresse publique adoptée le 26/10, commit ec388be ; ancienne forme numérique 116042975) , PagesJaunes https://www.pagesjaunes.fr/pros/65429543 . À ajouter quand ils existent : Bing Places (lien public de la fiche), Apple Plans, La Fabrique du Net, Malt/Codeur.
 
 - 2026-10-21 · ChatGPT : SL Agence 1re sur « quelle agence d'automatisation IA à Mulhouse ». Nouvel objectif de Loïc : être recommandé **dans toute la France** → niches nationales (applications terrain BTP/transport/agricole, facture électronique TPE). Plan : `travail/seo/plan-geo-2026-10-21.md` §6.
 
@@ -52,6 +52,8 @@
 - 2026-10-14 · À chaque nouvelle page / article mis en ligne : donner à Loïc l'URL à soumettre dans **Search Console ET Bing Webmaster Tools** (Soumission d'URL).
 
 ## À rappeler (en attente)
+
+- [ ] **Audit GEO du 05/11** (`travail/seo/audit-geo-2026-11/00-rapport-audit-geo.md`) : attendre l'accord de Loïc sur le plan 90 jours et les 4 PR (1a dès accord ; 1b après le 16/11 ; 1c ≈ 27/11 ; 1d ≈ 03/12). Ses 13 réponses du §11 (avis, Search Console, Bing AI Performance, LinkedIn, études de cas…). Mettre à jour `experiences.md` (lignes « prêtes » déjà en ligne, c041).
 
 - [x] 2026-10-30 · PR 33 en ligne, référence GBP et Search Console relevées (apprentissages.md), **post « Offre » publié le 30/10** (accepté en Offre).
 - [ ] **06/11** (J+7) : relevé du post — vues sur la carte du post, « consultations et clics » de l'offre si affichés, clics vers le site de la semaine (référence ≈ 3/mois). **27/11** (J+28) : idem + page application web et article (Search Console).

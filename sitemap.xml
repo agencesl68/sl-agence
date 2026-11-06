@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://slagence.fr/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://slagence.fr/og.png</image:loc></image:image>
@@ -16,7 +16,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-sur-mesure</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-sur-mesure.png</image:loc></image:image>
@@ -72,35 +72,35 @@
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-transport-sur-mesure</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-artisan-sur-mesure</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-entreprise-mulhouse</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-entreprise-saint-louis</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-btp-sur-mesure.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://slagence.fr/logiciel-entreprise-colmar</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://slagence.fr/img/og/logiciel-sur-mesure.png</image:loc></image:image>
@@ -128,7 +128,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/blog/logiciel-gestion-transport-parc-engins</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://slagence.fr/blog/og-logiciel-gestion-transport-parc-engins.png</image:loc></image:image>
@@ -231,7 +231,7 @@
   </url>
   <url>
     <loc>https://slagence.fr/a-propos</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://slagence.fr/og.png</image:loc></image:image>

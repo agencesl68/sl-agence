@@ -31,8 +31,10 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 
 ## Choisir et connaître l'agence
 
+- [Accueil SL Agence](https://slagence.fr/): agence d'automatisation et d'IA près de Mulhouse : logiciel sur mesure, relance automatique des factures, agents IA pour TPE et PME. Devis sous 24 h.
 - [Comment choisir son agence d'automatisation et d'IA dans le Haut-Rhin](https://slagence.fr/agence-ia-automatisation-haut-rhin): 6 critères, comparatif par type de prestataire, questions à poser avant de signer.
 - [À propos de SL Agence](https://slagence.fr/a-propos): les 2 associés, la méthode en 4 temps, les engagements, la zone d'intervention.
+- [Politique de confidentialité](https://slagence.fr/politique-de-confidentialite): quelles données SL Agence collecte, pourquoi, combien de temps, qui les reçoit et comment exercer vos droits.
 
 ## Réalisations
 
@@ -41,6 +43,7 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 
 ## Guides
 
+- [Blog de SL Agence](https://slagence.fr/blog/): conseils concrets pour gagner du temps en entreprise (relances, Excel, automatisation, IA, facture électronique).
 - [Bon d'intervention](https://slagence.fr/blog/bon-intervention-contenu-modele): contenu, valeur de la signature et modèle gratuit.
 - [Feuille d'heures des salariés](https://slagence.fr/blog/feuille-heures-salaries): obligations du Code du travail, conservation et modèle.
 - [Relancer une facture poliment](https://slagence.fr/blog/comment-relancer-une-facture-poliment): calendrier et 6 modèles prêts à copier.
@@ -50,6 +53,8 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Terrassement : heures, engins et carburant](https://slagence.fr/blog/terrassement-heures-engins-carburant): les coûts cachés d'un chantier de terrassement, 2 cas réels et par où commencer.
 - [CRM ou Excel pour une TPE : 5 questions et un modèle gratuit](https://slagence.fr/blog/crm-ou-excel): quand Excel suffit pour suivre ses clients, quand passer à un CRM, et un fichier de suivi client Excel à télécharger (exemple fictif).
 - [Cahier des charges d'une application : modèle en 1 page](https://slagence.fr/blog/cahier-des-charges-application): les rubriques d'un cahier des charges simple pour une PME, modèle à copier et exemple rempli (exemple fictif).
+- [Facture électronique artisan : ce qui change](https://slagence.fr/blog/facture-electronique-artisan-ce-qui-change): réception obligatoire depuis le 1er septembre 2026, émission en 2027, qui est concerné, plateforme agréée, cas du BTP et checklist.
+- [Pointage chantier : papier, appli ou sur mesure](https://slagence.fr/blog/pointage-chantier-papier-application-sur-mesure): ce que dit la loi, la géolocalisation (CNIL), comparatif entre papier, application du marché et sur mesure, et notre cas réel.
+- [Modèles gratuits](https://slagence.fr/modeles-gratuits): bon d'intervention (Word, PDF), feuille d'heures (Excel, PDF), relances de facture et de devis (Word), cahier des charges d'application (modèle en 1 page, à copier depuis l'article), fichier de suivi client (Excel).
 
 Auteur des guides : Loïc Bitsch, associé de SL Agence (https://www.linkedin.com/in/lo%C3%AFc-bitsch-909557293/).
-- [Modèles gratuits](https://slagence.fr/modeles-gratuits): bon d'intervention (Word, PDF), feuille d'heures (Excel, PDF), relances de facture et de devis (Word), cahier des charges d'application (modèle en 1 page, à copier depuis l'article), fichier de suivi client (Excel).

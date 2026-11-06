@@ -3,6 +3,13 @@
 > Ajouter en haut. Jamais de données personnelles (pas de nom de prospect, d'e-mail, de client).
 > Format : `## AAAA-MM-JJ — titre` puis 2 à 5 lignes : décision / action / résultat / prochaine étape.
 
+## 2026-11-05 — Audit GEO / SEO complet (phase 1, aucune modification du site)
+
+- Demande explicite de Loïc. Équipe : seo-site ×2, veille, analyste ; contrôle qualité 2 passes (6,5 → 7,5/10, corrections de la 2e passe appliquées par le Manager). Rapport : `travail/seo/audit-geo-2026-11/00-rapport-audit-geo.md`.
+- Constat : socle technique sain (40 pages, robots, JSON-LD, canonicals) ; freins = 0 mention tierce hors registre, peu de preuves (1 étude de cas), site jeune (position moyenne 20,4).
+- Proposé : 6 petites corrections + 1 nettoyage en 4 PR calées sur les mesures en cours ; 3-4 études de cas ; mentions externes ; protocole de mesure IA à tirages répétés. En attente de l'accord de Loïc.
+- Mémoire : corrections c039, c040, c041 ; `savoirs/seo.md` corrigé (papier GEO = moteur simulé). À faire : mettre à jour `travail/seo/experiences.md` (actions des 27/10-02/11 encore sous « prêtes »).
+
 ## 2026-11-03 — Accueil et menu sans noms de métiers : on parle des situations du visiteur (PR à valider)
 
 - **Décision Loïc** (brief du 03/11) : sortir les métiers de la vitrine pour que tout dirigeant se reconnaisse. Les pages métiers restent toutes en ligne, sans changement.
