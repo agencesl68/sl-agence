@@ -26,24 +26,19 @@ pour le désordre, application sombre et verte pour la solution, police Geist du
 - **Timing des scènes et des sons** : `src/timeline.json` (en images, 30 = 1 s). Le son relit ce fichier.
 - **Bande-son** : `audio/generer-audio.py` — musique et bruitages 100 % synthétisés (aucun droit tiers).
 
-## Refaire le rendu
+## Refaire le rendu (sur un Mac ou un PC avec Node 18+)
 
 ```bash
 npm install
-audio/finaliser.sh            # bande-son → public/audio/bande-son.wav (-14 LUFS)
-npm run studio                # aperçu interactif dans le navigateur
+ELEVENLABS_API_KEY=ta_cle node voix/generer-voix.mjs   # voix off + vidéo finale avec voix
+npm run export                                          # vidéo seule (sans voix si src/voix.json est vide)
+npm run studio                                          # aperçu interactif dans le navigateur
 ```
 
-Rendu final (maître haute qualité, puis encodage compatible Instagram) :
-
-```bash
-npx remotion render src/index.ts Reel out/apercus/maitre.mp4 --codec=h264 --crf=8 --audio-codec=aac --audio-bitrate=320k
-ffmpeg -y -i out/apercus/maitre.mp4 -c:v libx264 -preset slow -crf 15 -profile:v high -level 4.2 -pix_fmt yuv420p -color_range tv -colorspace bt709 -color_primaries bt709 -color_trc bt709 -vf "scale=in_range=full:out_range=tv" -c:a aac -b:a 192k -ar 48000 -movflags +faststart out/reel-sl-agence-absence.mp4
-```
-
-Dans la session cloud, ajouter `--browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell` à la commande Remotion.
-
-Planche de contrôle : `outils/planche.sh <video> <sortie.png> <image1> <image2> …`
+- Voix off : textes dans `voix/textes-voix.json`, ID de la voix ElevenLabs dans `voix/voice-id.txt`, départs dans `src/timeline.json` → `voix`. La musique baisse automatiquement sous la voix (`MUSIQUE_SOUS_VOIX` dans `src/Reel.tsx`).
+- Musique : `public/audio/bande-son.wav`, régénérable avec `npm run musique` (Python + numpy).
+- Dans une session cloud, préfixer par `REMOTION_BROWSER=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell`.
+- Planche de contrôle : `outils/planche.sh <video> <sortie.png> <image1> <image2> …` (ffmpeg requis).
 
 ## À savoir
 

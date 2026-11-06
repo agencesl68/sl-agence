@@ -2,6 +2,7 @@ import React from 'react';
 import { AbsoluteFill, Audio, Sequence, continueRender, delayRender, getStaticFiles, staticFile } from 'remotion';
 import { C, POLICE } from './theme';
 import L from './timeline.json';
+import VOIX from './voix.json';
 import { S1Hook } from './scenes/S1Hook';
 import { S2Recherche } from './scenes/S2Recherche';
 import { S3Dependance } from './scenes/S3Dependance';
@@ -23,6 +24,22 @@ const S = L.scenes;
 const seq = (s: { debut: number; fin: number }) => ({ from: s.debut, durationInFrames: s.fin - s.debut });
 const bandeSon = getStaticFiles().some((f) => f.name === 'audio/bande-son.wav');
 
+// Voix off (générée par voix/generer-voix.mjs) : la musique baisse pendant que la voix parle.
+const PHRASES: { fichier: string; debut: number; duree: number }[] = VOIX.segments;
+const MUSIQUE_SOUS_VOIX = 0.3; // volume de la musique quand la voix parle (1 = normal)
+const volumeMusique = (f: number) => {
+  const s = f / L.fps;
+  let v = 1;
+  for (const p of PHRASES) {
+    const a = p.debut - 0.15, b = p.debut + p.duree + 0.2, rampe = 0.25;
+    if (s > a - rampe && s < b + rampe) {
+      const k = s < a ? (a - s) / rampe : s > b ? (s - b) / rampe : 0;
+      v = Math.min(v, MUSIQUE_SOUS_VOIX + (1 - MUSIQUE_SOUS_VOIX) * k);
+    }
+  }
+  return v;
+};
+
 export const Reel: React.FC = () => (
   <AbsoluteFill style={{ background: C.noir, fontFamily: POLICE, overflow: 'hidden' }}>
     {/* fond : très léger halo central pour donner de la profondeur */}
@@ -35,6 +52,11 @@ export const Reel: React.FC = () => (
     <Sequence {...seq(S.fin)} name="7 · Signature"><S7Fin /></Sequence>
     {/* grain très léger, uniforme */}
     <AbsoluteFill style={{ background: 'radial-gradient(ellipse 120% 90% at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%)', pointerEvents: 'none' }} />
-    {bandeSon && <Audio src={staticFile('audio/bande-son.wav')} />}
+    {bandeSon && <Audio src={staticFile('audio/bande-son.wav')} volume={PHRASES.length ? volumeMusique : 1} />}
+    {PHRASES.map((p) => (
+      <Sequence key={p.fichier} from={Math.round(p.debut * L.fps)} name={`Voix · ${p.fichier}`}>
+        <Audio src={staticFile(p.fichier)} volume={1.6} />
+      </Sequence>
+    ))}
   </AbsoluteFill>
 );

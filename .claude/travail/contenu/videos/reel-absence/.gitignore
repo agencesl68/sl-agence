@@ -1,6 +1,4 @@
 node_modules/
 out/apercus/
 out/*.wav
-public/audio/
-voix-off/*
-!voix-off/LISEZMOI.md
+public/voix/

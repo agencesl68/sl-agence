@@ -195,7 +195,7 @@
     "fin_nette": 896
   },
   "voix": {
-    "_aide": "Début (en secondes) de chaque segment de voix off. Un fichier par segment dans voix-off/ (1.m4a … 7.m4a) ou une seule prise voix-off/prise.m4a calée sur 0:00.",
+    "_aide": "Départ (en secondes) de chaque phrase de la voix off. Textes : voix/textes-voix.json ; génération : voix/generer-voix.mjs.",
     "segments": [
       0.4,
       4.2,

@@ -30,9 +30,10 @@ Variante S1 (8 mots, même durée que la version du tableau) : Thomas est absent
 Variante S5 (12 mots, plus court que la version du tableau, donc tient dans le temps) : Le nom du client. Le dossier s'ouvre. Vous répondez tout de suite.
 (Plus sec : laisse l'écran montrer « Thomas, absent aujourd'hui » et la réponse prête.)
 
-## Après l'enregistrement
+## Génération de la voix (ElevenLabs) et vidéo finale
 
-Déposer les fichiers dans `voix-off/` puis lancer `python3 audio/mixer-voix.py` : chaque segment est placé à sa seconde (repères dans `src/timeline.json` → `voix`), la musique baisse sous la voix, la vidéo finale est `out/reel-sl-agence-absence-voix.mp4`. Le script signale tout segment trop long.
+Les phrases sont dans `voix/textes-voix.json`, l'ID de la voix dans `voix/voice-id.txt`.
+Dans le dossier du projet : `ELEVENLABS_API_KEY=ta_cle node voix/generer-voix.mjs` → génère les 7 phrases, les cale à leur seconde (`src/timeline.json` → `voix`), baisse la musique sous la voix et sort `out/reel-sl-agence-absence-voix.mp4`. Le script signale toute phrase trop longue.
 
 ## Consignes d'enregistrement
 

@@ -1,0 +1,12 @@
+{
+  "_aide": "Texte validé (voix-off.md). Un segment par scène, dans l'ordre. Départs en secondes : src/timeline.json → voix.segments.",
+  "segments": [
+    "Thomas est absent. Et là, tout se complique.",
+    "Un client attend une réponse. Vous cherchez partout... Rien.",
+    "Le problème n'est pas Thomas. C'est l'information éparpillée.",
+    "Maintenant, imaginez l'inverse.",
+    "Vous tapez le nom du client. Le dossier s'ouvre, même si Thomas est absent aujourd'hui.",
+    "Le travail continue, tout simplement.",
+    "S L agence, point F R."
+  ]
+}
