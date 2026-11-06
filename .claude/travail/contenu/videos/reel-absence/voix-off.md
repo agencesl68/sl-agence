@@ -12,10 +12,10 @@ La voix complète l'écran (ce que vit le dirigeant), elle ne relit pas les text
 | 3 | 0:09 à 0:13 (voix à 0:09,2) | Le problème n'est pas Thomas. C'est l'information éparpillée. | 8 | Voix douce sur « Thomas », bienveillante. Enchaînez sans pause ajoutée. |
 | 4 | 0:13 à 0:17 (voix à 0:13,2) | Maintenant, imaginez l'inverse. | 3 | Voix qui s'ouvre, plus lumineuse. Doit finir avant 0:15,5 : démarrez pile à 0:13,2 et ne traînez pas. Silence ensuite pour laisser passer le son de fusion à 0:15,7. |
 | 5 | 0:17 à 0:24 (voix à 0:17,3) | Vous tapez le nom du client. Le dossier s'ouvre, même si Thomas est absent aujourd'hui. | 15 | Rythme fluide, sourire dans la voix. Pause courte après « client ». Insistez sur « s'ouvre ». Juste dans le temps : pas de marge. |
-| 6 | 0:24 à 0:27 (voix à 0:24,2) | Le travail continue, tout simplement. | 5 | Lent, posé, voix qui descend sur « simplement ». |
+| 6 | 0:24 à 0:27 (voix à 0:24,2) | Le travail continue, tout simplement. | 5 | Posé, voix qui descend sur « simplement ». |
 | 7 | 0:27 à 0:30 (voix à 0:27,1) | S L agence point F R. | 1 | Chaleureux, ouvert. Prononcez chaque lettre : « S, L, agence, point, F, R », sans vous presser, c'est la dernière chose entendue. 2,7 s disponibles. |
 
-Total : 8 + 9 + 8 + 3 + 15 + 5 + 1 = 49 mots écrits (S7 compte pour 1 mot : slagence.fr ; à l'oral « S L agence point F R » fait 6 syllabes-mots, soit environ 53 mots dits). Aucun chiffre, aucun mot de jargon (pas de CRM, process, centraliser, IA, solution). « Des outils qui s'adaptent à votre entreprise » reste à l'écran.
+Total : 8 + 9 + 8 + 3 + 15 + 5 + 1 = 49 mots écrits (S7 compte pour 1 mot : slagence.fr ; à l'oral « S L agence point F R » fait 6 mots, soit environ 54 mots dits). Aucun chiffre, aucun mot de jargon (pas de CRM, process, centraliser, IA, solution). « Des outils qui s'adaptent à votre entreprise » reste à l'écran.
 Ce total est sous la fourchette 60 à 70 initiale : c'est voulu, les temps réels de chaque segment (heures de départ de la voix) ne permettent pas plus sans déborder.
 
 ## Texte complet, d'une traite
