@@ -14,7 +14,7 @@ export const rangRect = (i: number) => ({ x: RANG.x, y: RANG.y + i * RANG.pas, w
 export const DOSSIERS = [
   { nom: 'Bauer', type: 'Devis', statut: 'Envoyé', maj: '03/11' },
   { nom: 'Roth', type: 'Intervention', statut: 'Planifiée', maj: '04/11' },
-  { nom: 'Martin', type: 'Intervention', statut: 'En cours', maj: "Aujourd'hui", cle: true },
+  { nom: T.recherche.client, type: 'Intervention', statut: 'En cours', maj: "Aujourd'hui", cle: true },
   { nom: 'Hoffmann', type: 'Facturation', statut: 'Terminé', maj: '31/10' },
   { nom: 'Kessler', type: 'Devis', statut: 'À valider', maj: '05/11' },
   { nom: 'Weber', type: 'Intervention', statut: 'Planifiée', maj: '07/11' },

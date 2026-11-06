@@ -47,6 +47,6 @@ Planche de contrôle : `outils/planche.sh <video> <sortie.png> <image1> <image2>
 
 ## À savoir
 
-- L'application montrée est une **démonstration conceptuelle** ; Thomas, Martin, Bauer, Roth… sont des personnages fictifs.
+- L'application montrée est une **démonstration conceptuelle** ; Thomas, Clément, Bauer, Roth… sont des personnages fictifs.
 - Aucun chiffre ni statistique dans la vidéo.
 - Zone sûre Instagram respectée : textes importants entre 250 et 1 500 px de hauteur, rien de clé dans la colonne droite des boutons Instagram (au-delà de 960 px, sous 1 000 px de hauteur).

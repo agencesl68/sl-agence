@@ -8,7 +8,7 @@ import { Icone } from '../ui/Icone';
 import { APP, ChampApp, ContenuRang, DOSSIERS, EnTetesColonnes, EnteteApp, MARTIN, PiedApp, PuceStatut, rangRect, styleCadreApp } from './App';
 
 // SCÈNE 5 — La solution SL Agence (0:17 → 0:24)
-// Même recherche « Dossier Martin » : cette fois le résultat est immédiat,
+// Même recherche « Dossier <client> » : cette fois le résultat est immédiat,
 // la fiche s'ouvre, les informations s'éclairent, la réponse au client est prête.
 
 export const FICHE = { x: APP.x + 24, y: APP.y + 216, w: APP.w - 48, h: 620 };
@@ -78,7 +78,7 @@ export const AppSolution: React.FC<{ l: number; curseur?: boolean }> = ({ l, cur
         );
       })}
 
-      {/* dossier Martin → fiche client */}
+      {/* dossier du client → fiche client */}
       <div style={{
         position: 'absolute', left: box.x, top: box.y, width: box.w, height: box.h, borderRadius: lerp(18, 26, ouvre), overflow: 'hidden',
         background: C.panneau2, border: `1px solid rgba(167,198,160,${0.07 + 0.35 * Math.max(trouve * (1 - ouvre * 0.4), 0)})`,
@@ -96,7 +96,7 @@ export const AppSolution: React.FC<{ l: number; curseur?: boolean }> = ({ l, cur
         {l >= 92 && (
           <div style={{ position: 'absolute', inset: 0, padding: '30px 34px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 20, opacity: st(0), transform: `translateY(${(1 - st(0)) * 14}px)` }}>
-              <Avatar lettre="M" taille={68} fond="linear-gradient(160deg,#EEF3EC,#C9D6C6)" couleur={C.vertSombre} style={{ fontSize: 30 }} />
+              <Avatar lettre={T.recherche.client[0]} taille={68} fond="linear-gradient(160deg,#EEF3EC,#C9D6C6)" couleur={C.vertSombre} style={{ fontSize: 30 }} />
               <div>
                 <div style={{ fontSize: 40, fontWeight: 600, color: C.blanc, letterSpacing: '-0.03em' }}>{T.recherche.client}</div>
                 <div style={{ fontSize: 20, color: C.gris }}>Fiche client · Dossier intervention</div>
@@ -105,7 +105,7 @@ export const AppSolution: React.FC<{ l: number; curseur?: boolean }> = ({ l, cur
             </div>
             <div style={{ height: 1, background: C.bord, margin: '18px 0 16px', transform: `scaleX(${st(2)})`, transformOrigin: 'left' }} />
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', rowGap: 18, columnGap: 30 }}>
-              <Champ label="Client" k={st(4)}>Martin</Champ>
+              <Champ label="Client" k={st(4)}>{T.recherche.client}</Champ>
               <Champ label="Dossier" k={st(7)}>Intervention</Champ>
               <Champ label="Statut" k={st(10)}><span style={{ color: C.vertClair }}>En cours</span></Champ>
               <Champ label="Responsable" k={st(13)}>
@@ -156,7 +156,7 @@ export const AppSolution: React.FC<{ l: number; curseur?: boolean }> = ({ l, cur
           opacity: Math.min(1, kRep * 2), transform: `translateY(${(1 - kRep) * 80}px)`,
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 19, color: C.gris }}>
-            <Icone nom="envoyer" taille={20} couleur={C.vertClair} /> Réponse à Martin
+            <Icone nom="envoyer" taille={20} couleur={C.vertClair} /> Réponse à {T.recherche.client}
             <div style={{ marginLeft: 'auto', opacity: t(l, 186, 194) }}><Puce texte="Réponse prête" couleur={C.vertClair} fond="rgba(167,198,160,0.14)" taille={18} /></div>
           </div>
           <div style={{ marginTop: 10, fontSize: 25, lineHeight: 1.35, color: C.blanc, minHeight: 68 }}>

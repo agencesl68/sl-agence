@@ -13,9 +13,9 @@ export const T = {
     dossiers: ['Dossiers clients', 'Planning', 'Devis', 'Factures', 'Contacts', 'Procédures'],
   },
   recherche: {
-    client: 'Martin',
+    client: 'Clément',
     message: 'Bonjour, où en est mon dossier ?',
-    recherche: 'Dossier Martin',
+    recherche: 'Dossier Clément',
     aucun: 'Aucun résultat trouvé',
     introuvable: 'Information introuvable',
     ligne1: "L'information existe.",

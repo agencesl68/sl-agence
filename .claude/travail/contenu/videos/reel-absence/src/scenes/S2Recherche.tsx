@@ -50,7 +50,7 @@ const Aucun: React.FC<{ taille?: number }> = ({ taille = 20 }) => (
 );
 
 const ContenuSecondaire: React.FC<{ id: string; f: number; debut: number }> = ({ id, f, debut }) => {
-  const recherche = tape('Martin', f, debut + 2, 0.8);
+  const recherche = tape(T.recherche.client, f, debut + 2, 0.8);
   const echec = f > debut + 9;
   const lignes: Record<string, React.ReactNode> = {
     dossiers: ['Clients 2025', 'Clients_2026', 'Clients (copie)', 'À trier', 'Divers'].map((n) => (
@@ -82,7 +82,7 @@ const ContenuSecondaire: React.FC<{ id: string; f: number; debut: number }> = ({
     messages: (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         <div style={{ alignSelf: 'flex-start', background: '#FFFFFF', border: `1px solid ${C.papierBord}`, borderRadius: 14, padding: '10px 14px', fontSize: 20 }}>
-          Quelqu'un sait où est le dossier Martin ?
+          Quelqu'un sait où est le dossier {T.recherche.client} ?
         </div>
         <div style={{ alignSelf: 'flex-end', background: C.papier2, borderRadius: 14, padding: '10px 14px', fontSize: 20, color: C.encreGris }}>Je crois que c'est Thomas qui l'a…</div>
       </div>
@@ -165,7 +165,7 @@ export const S2Recherche: React.FC = () => {
                     <div style={{ width: 320, borderRight: `1px solid ${C.papierBord}` }}>
                       <div style={{ height: 96 * fil, overflow: 'hidden', background: '#E2E8DF' }}>
                         <div style={{ padding: '18px 22px', display: 'flex', gap: 14, alignItems: 'center' }}>
-                          <Avatar lettre="M" taille={44} fond="#C9D3C6" couleur={C.vertSombre} />
+                          <Avatar lettre={T.recherche.client[0]} taille={44} fond="#C9D3C6" couleur={C.vertSombre} />
                           <div>
                             <div style={{ fontSize: 22, fontWeight: 600 }}>{T.recherche.client}</div>
                             <div style={{ fontSize: 16, color: C.encreGris, whiteSpace: 'nowrap' }}>Où en est mon dossier ?</div>
@@ -254,7 +254,7 @@ export const S2Recherche: React.FC = () => {
           opacity: Math.min(1, kToast * 2) * (1 - toastVersListe) * (f >= 16 ? 1 : 0),
           transform: `translateY(${(1 - kToast) * -70 + toastVersListe * 250}px) translateX(${toastVersListe * -220}px) scale(${1 - toastVersListe * 0.45})`,
         }}>
-          <Avatar lettre="M" taille={76} fond="#C9D3C6" couleur={C.vertSombre} />
+          <Avatar lettre={T.recherche.client[0]} taille={76} fond="#C9D3C6" couleur={C.vertSombre} />
           <div>
             <div style={{ fontSize: 26, color: C.encreGris }}><b style={{ color: C.encre }}>{T.recherche.client}</b> · Nouveau message</div>
             <div style={{ fontSize: 40, fontWeight: 600, marginTop: 2, letterSpacing: '-0.02em' }}>{T.recherche.message}</div>
