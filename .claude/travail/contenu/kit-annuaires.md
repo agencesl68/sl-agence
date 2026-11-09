@@ -181,7 +181,7 @@ Avant l'envoi : vérifier que les 3 pages citées sont bien en ligne (PR #17 en 
 >
 > SL Agence (Friesen, près de Mulhouse) crée des applications métier, des automatisations et des assistants IA sur mesure pour les TPE, PME et artisans du Haut-Rhin.
 >
-> Nous souhaitons être référencés dans votre annuaire des agences. Nous avons créé l'entreprise en mai 2026. Nos réalisations (anonymisées à la demande de nos clients) sont sur https://slagence.fr/realisations ; la présentation de l'agence, de ses associés et de son SIRET est sur https://slagence.fr/a-propos.
+> Nous souhaitons être référencés dans votre annuaire des agences. Nous avons créé l'entreprise en mai 2026. Nos réalisations (présentées par activité et sans nom de client) sont sur https://slagence.fr/realisations ; la présentation de l'agence, de ses associés et de son SIRET est sur https://slagence.fr/a-propos.
 >
 > Quelle est la procédure et quels éléments devons-nous vous fournir ?
 >
