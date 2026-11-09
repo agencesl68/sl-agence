@@ -1,11 +1,13 @@
 # Pages de ressources vérifiées (consultées le 06/11/2026)
 
-**Résultat honnête : 1 page conforme sur 8 visées, avec une réserve. Aucun remplissage.**
+**Résultat honnête (corrigé après contrôle qualité du 06/11) : 0 page conforme sur 8 visées ; 1 candidate en attente (éditeur non identifié). Aucun remplissage.**
 Méthode : recherche web (WebSearch, qui n'est pas Google, et qui remonte surtout des éditeurs de logiciels) puis lecture de chaque page candidate et de son site avec WebFetch. Tout est daté du 06/11/2026.
 Critères du brief, tous exigés : (1) éditeur = organisation d'aide aux TPE, artisans ou BTP, ou blog métier ; (2) la page lie déjà des ressources gratuites d'autres sites ; (3) mise à jour il y a moins de 12 mois, soit après le 06/11/2025 ; (4) adresse générique publiée sur le site officiel, avec l'URL de lecture ; (5) ni concurrent, ni sponsorisé, ni réservé aux membres.
 Aucun nom de personne, aucun e-mail personnel dans ce fichier.
 
-## 1. Page retenue (1)
+## 1. Candidate en attente (1)
+
+> Ne pas écrire tant que les mentions légales ne nomment pas l'éditeur (tous les champs sont des espaces réservés « À COMPLÉTER », relu le 06/11). L'article traite déjà les relances de devis : s'il est repris un jour, proposer plutôt les 6 relances de facture (étape après la vente).
 
 ### Artisans 2.0 : « Modèle devis artisan 2026 : mentions, template, taux de transfo »
 

@@ -49,7 +49,7 @@ Source : `a-propos.html`, `agence.md`, kit annuaires. Compte vérifié par scrip
 `a-propos.html` ne donne qu'une ligne par associé. Ces biographies n'ajoutent aucun fait : parcours, diplômes et expériences précédentes sont **non trouvés** sur le site, donc non écrits. Si Loïc veut un parcours plus étoffé, il doit le fournir.
 
 **Associé technique (49 mots)**
-> [Prénom], associé de SL Agence, assure la réalisation technique : il construit les outils et les automatisations des clients. SL Agence est son nom commercial. Il a fondé l'agence en 2026 avec son associé, à Friesen (Haut-Rhin), après avoir vu des équipes perdre du temps sur des tâches répétitives.
+> [Prénom], associé de SL Agence, assure la réalisation technique : il construit les outils et les automatisations des clients. SL Agence est son nom commercial. Il a fondé l'agence en 2026 avec son associé, à Friesen (Haut-Rhin), après avoir vu des équipes perdre beaucoup de temps sur des tâches répétitives.
 
 **Associé commercial (50 mots)**
 > [Prénom], associé de SL Agence, est responsable du commercial et de la stratégie. Il répond aux demandes de devis et écrit les guides du blog. Il a fondé l'agence en 2026 avec son associé, à Friesen (Haut-Rhin), après avoir vu des équipes perdre beaucoup de temps sur des tâches répétitives.

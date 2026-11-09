@@ -66,7 +66,7 @@ Préalables : accord de l'entrepreneur individuel dont SL Agence est le nom comm
 | Secteurs accompagnés | Bâtiment et terrassement ; transport ; travaux agricoles ; artisans ; gestion de patrimoine ; sécurité et prévention ; événementiel associatif ; associations. Ce sont les 6 réalisations de `agence.md` et les clients visés. |
 | Zone | La phrase de zone ci-dessus |
 | Accompagnement proposé (en mots simples) | Supprimer la double saisie : bons d'intervention sur téléphone, fichiers Excel remplacés par un seul écran, devis et factures générés, relances de factures, préparation à la facture électronique. |
-| Engagement de premier rendez-vous gratuit | « Le premier rendez-vous est gratuit : un appel de 15 minutes au téléphone, avec partage d'écran. Le devis est gratuit et sans engagement. » (à confirmer avec le texte exact demandé par France Num) |
+| Engagement de premier rendez-vous gratuit | « Nous offrons un premier rendez-vous gratuit aux entreprises venues de France Num : un appel de 15 minutes, avec partage d'écran. Le devis est gratuit et sans engagement. » **NOUVEL ENGAGEMENT : accord de Loïc et de l'entrepreneur individuel exigé avant de le cocher** (le site ne dit pas que l'appel est gratuit, seulement le devis, c028). |
 | Coordonnées publiées | Les coordonnées n'apparaissent que si l'on accepte leur publication (brief). Décision de Loïc et de l'entrepreneur individuel : cocher ou non. |
 
 **Seul mot autorisé pour parler du résultat : « référencé ».** On écrit « référencé par France Num » seulement après acceptation, jamais « labellisé », « certifié », « agréé », « partenaire officiel » ni « reconnu par l'État ». Le titre « Activateur » reste celui que la fiche officielle affiche.

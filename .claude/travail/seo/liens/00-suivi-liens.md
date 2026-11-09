@@ -26,13 +26,13 @@ Les colonnes « date de demande », « URL obtenue », « indexé le » sont vid
 | 2 | Apple Business Connect | Fiche Plans | Loïc | à faire | — | — | — | `01` §2 |
 | 3 | Grand Est Développement Solutions | Fiche institutionnelle avec lien | Loïc | à faire | — | — | — | `01` §3 |
 | 4 | Clients réels (site ou page « partenaires ») | Mention écrite | prospection, après feu vert de Loïc | à faire, clients à désigner par Loïc | — | — | — | brouillons prospection |
-| 5 | France Num (« Activateur référencé ») | Fiche publique | Loïc + accord de l'entrepreneur individuel | à faire, conditions non relues (page vide pour l'outil) | — | — | — | `01` §4 |
+| 5 | France Num (Activateur France Num ; seul mot autorisé dans nos textes : « référencé ») | Fiche publique | Loïc + accord de l'entrepreneur individuel | à faire, conditions non relues (page vide pour l'outil) | — | — | — | `01` §4 |
 | 6 | Presse : L'Alsace, ici Alsace, service communication de la CCI | Article, brève, relais | prospection | à faire, aucune adresse confirmée | — | — | — | communiqué existant |
 | 7 | La Fabrique du Net | Fiche agence | prospection (formulaire) | à faire | — | — | — | message B du kit annuaires |
 | 8 | Profils des associés (LinkedIn) | Profil | Loïc | à faire | — | — | — | `01` §5 |
 | 9 | Codeur, profil gratuit | Profil | Loïc | à faire, sans abonnement | — | — | — | kit annuaires §6 |
 | 10 | Radio WNE (Mulhouse) | Interview, page d'épisode | prospection | à faire | — | — | — | brouillon |
-| 11 | Pages de ressources | Lien écrit vers un modèle ou un guide | prospection | **1 page vérifiée sur 8 visées** (voir `03`) | — | — | — | `03` |
+| 11 | Pages de ressources | Lien écrit vers un modèle ou un guide | prospection | **0 page conforme sur 8 (1 candidate en attente, voir `03`)** | — | — | — | `03` |
 | 12 | Mairie de Friesen | Mention locale | prospection / Loïc | à faire, adresse officielle non retrouvée | — | — | — | — |
 | 13 | CPME 68 | Aucune page membre trouvée | prospection (formulaire) | à faire, budget à décider | — | — | — | texte de formulaire |
 | 14 | Club des partenaires FFB 68 | Aucun lien visible | prospection (formulaire) | à faire, budget à décider | — | — | — | texte de formulaire |
@@ -49,7 +49,7 @@ Déjà en place et hors suivi (brief) : fiche Google, LinkedIn entreprise, Pages
 
 Indicateur de moyens : au moins 12 demandes envoyées par Loïc d'ici la fin de la semaine 4 (06/12).
 
-**Alerte sur ce compte (calcul SL Agence).** Le brief prévoyait 5 brouillons « pages de ressources » en semaines 3-4. Je n'en ai trouvé qu'1 de conforme. Sans les 4 autres, le total plausible est : Radio WNE 1, presse 3, page de ressources 1, clients 2, La Fabrique du Net 1, mairie 1, CPME 68 1, FFB 68 1, question Grand Est Développement 1 = 12, donc juste atteint, sans marge, et seulement si Loïc décide le budget CPME/FFB et fournit les 2 clients. Décision à prendre : accepter 12 « tout juste », ou ajouter d'autres types de cibles (voir `03` §4).
+**Alerte sur ce compte (calcul SL Agence, corrigé après contrôle qualité du 06/11).** Total plausible sans page de ressources : WNE 1, presse 3, clients 2, Fabrique du Net 1, mairie 1, CPME 1, FFB 1 = 10. On atteint 12 seulement si l'on compte comme demandes le formulaire Grand Est Développement et le dossier France Num. Décision de Loïc : compter les inscriptions, ou ajouter 2 cibles.
 
 ## 4. Site : lot `sameAs`
 

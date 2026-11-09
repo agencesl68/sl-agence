@@ -41,7 +41,7 @@ SL Agence n'est pas une plateforme agréée. Elle relie la plateforme choisie pa
 
 ### À propos de SL Agence
 
-SL Agence conçoit des applications métier, des automatisations et des assistants d'intelligence artificielle sur mesure pour les indépendants, TPE, PME, cabinets et associations de Mulhouse, du Haut-Rhin et du Grand Est. Basée à Friesen (68), créée en mai 2026, elle intervient notamment auprès des entreprises du BTP, du transport, des travaux agricoles et de l'artisanat. Devis gratuit, prix ferme annoncé avant de commencer, réponse sous 24 h, premier outil en 7 jours. Site : https://slagence.fr
+SL Agence conçoit des applications métier, des automatisations et des assistants d'intelligence artificielle sur mesure pour les indépendants, TPE, PME, cabinets et associations de Mulhouse, du Haut-Rhin et du Grand Est. Basée à Friesen (68), créée en mai 2026, elle intervient notamment auprès des entreprises du BTP, des travaux agricoles et de l'artisanat. Devis gratuit, prix ferme annoncé avant de commencer, réponse sous 24 h, premier outil en 7 jours. Site : https://slagence.fr
 
 ### Contact presse
 
