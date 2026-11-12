@@ -46,3 +46,4 @@
 - Lot CTR travaux agricoles du 02/11 : le 06/11, PR 1a : id d'un H2 de `/blog/bon-intervention-contenu-modele` renommé, lien entrant testé inchangé → effet parasite nul.
 - À faire (c041) : déplacer dans le tableau principal les actions déjà en ligne restées sous « Actions prêtes » (27/10 → 02/11), avec leur date réelle.
 - Variable parasite (12/11) : la page en test /agent-ia-pme (title jusqu'au 16/11) reçoit un nouveau lien entrant de corps (« agents IA pour PME ») depuis /blog/agent-ia-entreprise-definition pendant sa fenêtre de mesure.
+- /blog/cout-automatisation-pme : meta en test de /logiciel-sur-mesure (« Combien coûte un logiciel sur mesure ? ») comparée ; même tête « Combien coûte » → **publication après le 16/11** (PR à fusionner le 17/11 au plus tôt, c047).
