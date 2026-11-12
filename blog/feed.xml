@@ -6,7 +6,16 @@
     <atom:link href="https://slagence.fr/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Conseils concrets pour gagner du temps dans votre entreprise : relances, Excel, transport, automatisation, IA, facture électronique.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Mon, 02 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Agent IA pour entreprise : qu'est-ce que c'est ? Définition simple et exemples en PME</title>
+      <link>https://slagence.fr/blog/agent-ia-entreprise-definition</link>
+      <guid isPermaLink="true">https://slagence.fr/blog/agent-ia-entreprise-definition</guid>
+      <pubDate>Thu, 12 Nov 2026 12:00:00 +0000</pubDate>
+      <dc:creator>Loïc Bitsch</dc:creator>
+      <description>Un agent IA pour entreprise lit une information, décide, puis agit dans vos outils. Définition simple, exemples, erreurs à éviter et FAQ.</description>
+      <enclosure url="https://slagence.fr/blog/og-blog.png" type="image/png" length="273657"/>
+    </item>
     <item>
       <title>CRM ou Excel : que choisir pour une TPE ? Les 5 questions à se poser, et un modèle gratuit</title>
       <link>https://slagence.fr/blog/crm-ou-excel</link>
