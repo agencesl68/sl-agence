@@ -59,3 +59,8 @@ Aucun fichier du site n'a été modifié pour ce dossier.
 ## 5. Questions ouvertes pour Loïc (du brief)
 
 1. Gmail reconnecté ? 2. Quels annuaires déjà remplis ? 3. Le communiqué est-il parti ? 4. Quels clients accepteraient une mention ? 5. Accord de l'entrepreneur individuel pour France Num, et qui détient l'identifiant Apple ? 6. Bing Places validée ? 7. Capture Search Console > Liens. 8. Budget CPME 68 / FFB 68.
+
+## Échange de liens « réseau communautaire » (12/11/2026)
+- Notre côté : article /blog/agent-ia-entreprise-definition en ligne (PR 41), lien `rel="sponsored"` vers oryxgestion.com (ancre « logiciel de gestion »). IndexNow envoyé (200).
+- Leur côté : relevé du 12/11, 64 pages du sitemap de oryxgestion.com lues, **aucune mention de slagence.fr** ; aucune page tierce trouvée par recherche web. Adresse de la page qui doit porter notre lien : à obtenir auprès du partenaire.
+- À vérifier ensuite : lien présent, attribut (normal / nofollow / sponsored), page indexable, nombre de liens sortants ; puis Search Console > Liens à J+30.

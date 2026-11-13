@@ -51,6 +51,7 @@ Adresse : 3 rue Principale, 68580 Friesen · SIRET 105 220 677 00014
 - [Excel ne suffit plus ? 7 signes](https://slagence.fr/blog/limites-excel-entreprise): les signes, le coût réel et les solutions.
 - [Logiciel transport et parc d'engins](https://slagence.fr/blog/logiciel-gestion-transport-parc-engins): Excel, logiciel du marché ou sur mesure, et les échéances à suivre.
 - [Terrassement : heures, engins et carburant](https://slagence.fr/blog/terrassement-heures-engins-carburant): les coûts cachés d'un chantier de terrassement, 2 cas réels et par où commencer.
+- [Combien coûte l'automatisation d'une tâche en PME ?](https://slagence.fr/blog/cout-automatisation-pme): les 4 facteurs du prix, les étapes d'un chiffrage sérieux, les modes de facturation et les erreurs qui font exploser la facture.
 - [Agent IA pour entreprise : définition simple](https://slagence.fr/blog/agent-ia-entreprise-definition): ce qu'est un agent IA, comment il fonctionne dans vos outils, les usages en PME et les erreurs à éviter (exemples fictifs).
 - [CRM ou Excel pour une TPE : 5 questions et un modèle gratuit](https://slagence.fr/blog/crm-ou-excel): quand Excel suffit pour suivre ses clients, quand passer à un CRM, et un fichier de suivi client Excel à télécharger (exemple fictif).
 - [Cahier des charges d'une application : modèle en 1 page](https://slagence.fr/blog/cahier-des-charges-application): les rubriques d'un cahier des charges simple pour une PME, modèle à copier et exemple rempli (exemple fictif).

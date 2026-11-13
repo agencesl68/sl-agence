@@ -6,7 +6,16 @@
     <atom:link href="https://slagence.fr/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Conseils concrets pour gagner du temps dans votre entreprise : relances, Excel, transport, automatisation, IA, facture électronique.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Thu, 12 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 13:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Combien coûte l'automatisation d'une tâche en PME ?</title>
+      <link>https://slagence.fr/blog/cout-automatisation-pme</link>
+      <guid isPermaLink="true">https://slagence.fr/blog/cout-automatisation-pme</guid>
+      <pubDate>Thu, 12 Nov 2026 13:00:00 +0000</pubDate>
+      <dc:creator>Loïc Bitsch</dc:creator>
+      <description>Combien coûte l'automatisation d'une tâche en PME ? 4 facteurs font varier le prix, 6 étapes de chiffrage et un tableau des modes de facturation.</description>
+      <enclosure url="https://slagence.fr/blog/og-blog.png" type="image/png" length="273657"/>
+    </item>
     <item>
       <title>Qu'est-ce qu'un agent IA en entreprise ? Définition simple et exemples</title>
       <link>https://slagence.fr/blog/agent-ia-entreprise-definition</link>
