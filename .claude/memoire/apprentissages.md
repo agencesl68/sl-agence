@@ -78,3 +78,8 @@
   - Gemini « agence automatisation IA Mulhouse » : 1. S MEDIA, 2. IA Agency, 3. Mankova Consulting, SL Agence 4e (Loïc).
 - Leçon : ChatGPT met en avant des **chiffres concrets et un prix de départ** (150 workflows, 40 agences, 1 200 € HT). Nos pages doivent afficher les résultats de realisations.html et « à partir de 500 € ».
 - Écart NAP : les cartes reprennent les 2 numéros affichés sur le site (07 et 06), alors que la décision du 21/10 est 07 partout.
+
+## Search Console — relevé de Loïc (13/11/2026, journée en cours)
+- 2 clics / 96 impressions sur la journée du 13/11 (données du jour, provisoires). Base de comparaison : export 3 mois au 09/11 = 55 clics / 2 808 impressions, soit ≈ 0,6 clic et ≈ 30 impressions par jour en moyenne.
+- Cause **non attribuable au lien retour** : au 12/11 puis au 13/11, aucun lien vers slagence.fr trouvé sur oryxgestion.com, et un lien met de toute façon plusieurs jours à semaines avant d'être exploré puis pris en compte. Explications plus probables : hausse progressive des articles déjà indexés, modifications fusionnées du 05 au 11/11 (PR 39 à 41), nouvel article agent IA.
+- Leçon : une journée isolée ne prouve rien ; comparer 7 jours contre les 7 jours précédents, page par page.
